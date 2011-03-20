@@ -99,7 +99,11 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   public Icon getIcon() {
-    return Icons.METHOD_ICON;
+    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+      return Icons.CLASS_INITIALIZER;
+    } else {
+      return Icons.METHOD_ICON;
+    }
   }
 
   public ParserParameterList getParameterList() {
