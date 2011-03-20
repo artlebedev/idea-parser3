@@ -53,6 +53,11 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
     super(astNode);
   }
 
+  // XXX should follow ParserDoc etc
+  private boolean isConstructor() {
+    return ParserLoader.getInstance().getConstructorNames().contains(getName());
+  }
+
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParserElementVisitor) {
       ((ParserElementVisitor) visitor).visitParserMethod(this);
@@ -90,8 +95,7 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   public Icon getIcon(int flags) {
-    // XXX should follow ParserDoc etc
-    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+    if(isConstructor()) {
       return Icons.CLASS_INITIALIZER;
     } else {
       return Icons.METHOD_ICON;
@@ -99,7 +103,7 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   public Icon getIcon() {
-    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+    if(isConstructor()) {
       return Icons.CLASS_INITIALIZER;
     } else {
       return Icons.METHOD_ICON;
@@ -163,8 +167,11 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
      *     (which is already fixed)
      *     -- dwr
      */
-    //return null;
-    return ParserStandardClasses.STRING;
+    if(isConstructor()) {
+      return null;
+    } else {
+      return ParserStandardClasses.STRING;
+    }
   }
 
   public String getParserDoc() {
