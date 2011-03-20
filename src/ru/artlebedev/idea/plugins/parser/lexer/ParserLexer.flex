@@ -80,7 +80,9 @@ RussianLetters=[à-ÿÀ-ß]
 	^"partial"	$	{ yybegin(YYINITIAL); return ParserTokenTypes.PARTIAL_KEYWORD; }
 	^"dynamic"	$	{ yybegin(YYINITIAL); return ParserTokenTypes.DYNAMIC_KEYWORD; }
 	^"static"	$	{ yybegin(YYINITIAL); return ParserTokenTypes.STATIC_KEYWORD; }
+	^"@static:"			{ yybegin(YYINITIAL); return ParserTokenTypes.KEY_AT_SIGN; }
 	^"@"			{ yybegin(YYINITIAL); return ParserTokenTypes.KEY_AT_SIGN; }
+	"@static:"			{ yybegin(YYINITIAL); return ParserTokenTypes.AT_SIGN; }
 	"@"			{ yybegin(YYINITIAL); return ParserTokenTypes.AT_SIGN; }
 	^"#:"			{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_START; }
 //	^{SharpComment}		{ yybegin(YYINITIAL); return ParserTokenTypes.SHARP_COMMENT; }
