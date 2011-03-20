@@ -113,7 +113,7 @@ public class ParserSmartLookupItem implements PresentableLookupValue, LookupValu
       return "[" + params.substring(1, params.length() - 1) + "]";
     }
 
-    return null;
+    return "";
   }
 }
 
