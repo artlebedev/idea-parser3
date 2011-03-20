@@ -18,9 +18,6 @@
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.templates.ParserTemplatesLoader</implementation-class>
     </component>
-    <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.ParserApplication</implementation-class>
-    </component>
   </application-components>
 
   <project-components>
