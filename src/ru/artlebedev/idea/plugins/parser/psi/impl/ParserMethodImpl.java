@@ -90,6 +90,7 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   public Icon getIcon(int flags) {
+    // XXX should follow ParserDoc etc
     if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
       return Icons.CLASS_INITIALIZER;
     } else {
