@@ -76,7 +76,7 @@
       <file leaf-file-name="ParserMethodImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserMethodImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="18" selection-start="5449" selection-end="5449" vertical-scroll-proportion="0.70731705">
+            <state line="160" column="13" selection-start="5143" selection-end="5143" vertical-scroll-proportion="0.5121951">
               <folding />
             </state>
           </provider>
@@ -945,7 +945,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserMethodImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="18" selection-start="5449" selection-end="5449" vertical-scroll-proportion="0.70731705">
+        <state line="160" column="13" selection-start="5143" selection-end="5143" vertical-scroll-proportion="0.5121951">
           <folding />
         </state>
       </provider>

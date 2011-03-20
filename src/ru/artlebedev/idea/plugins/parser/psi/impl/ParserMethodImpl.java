@@ -153,12 +153,25 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
 
   public ParserClass getReturnValueType() {
     ParserObject resultObject = getResultObject();
+
+    /*
+     * Constructor always returns object,
+     * so we don't need any return type for it
+     * in autocompletition
+     * -- dwr
+     */
+    if(isConstructor()) {
+      return null;
+    }
+
     if (hasResult == NO_RESULT) {
       return ParserStandardClasses.STRING;
     }
+
     if (resultObject != null) {
       return resultObject.getType();
     }
+
     /*
      * XXX suppose that all parser methods
      *     are returning string if they are
@@ -167,11 +180,8 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
      *     (which is already fixed)
      *     -- dwr
      */
-    if(isConstructor()) {
-      return null;
-    } else {
-      return ParserStandardClasses.STRING;
-    }
+    // return null
+    return ParserStandardClasses.STRING;
   }
 
   public String getParserDoc() {
