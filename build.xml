@@ -6,6 +6,11 @@
 
  We're using the patched jflex library provided by JetBrains.
 
+ Please notice that you COULDN'T use JFlex Ant Task for building
+ lexer as long as it doesn't support additional arguments parameter
+ ("charat" argument is required in order to build lexers
+ for IntelliJ IDEA plugins)
+
  Copyright 2011 Valeriy Yatsko <dwr@design.ru>
  Copyright 2011 ArtLebedev Studio
 
