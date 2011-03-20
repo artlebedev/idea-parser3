@@ -91,7 +91,6 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
 
   public Icon getIcon(int flags) {
     // XXX should follow ParserDoc etc
-    // XXX add support for static (idea has static.png) and parser has @static keyword
     if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
       return Icons.CLASS_INITIALIZER;
     } else {
