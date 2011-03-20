@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ This build file is used to create the lexer's Java source code.
+ Whenever you change bash.flex you have to run this build script.
+
+ We're using the patched jflex library provided by JetBrains.
+-->
+<project name="Parser 3 for IntelliJ IDEA 10" default="jflex">
+    <property name="lexer.file" value="src/ru/artlebedev/idea/plugins/parser/lang/lexer/_ParserLexer.java"/>
+    <property name="lexer.log" value="jflex.log"/>
+    <property name="lexer.source" value="src/ru/artlebedev/idea/plugins/parser/lang/lexer/ParserLexer.flex"/>
+    <property name="lexer.skeleton" value="build/jflex/idea-flex.skeleton"/>
+    <property name="jflex.jar" value="build/lib/JFlex.jar"/>
+
+    <target name="clean">
+        <delete file="${lexer.file}~"/>
+        <delete file="${lexer.file}"/>
+        <delete file="${lexer.log}"/>
+    </target>
+
+    <target name="jflex"
+            description="Generate lexer from ParserLexer.flex, using idea flex skeleton and patched JFlex"
+            depends="clean">
+        <java jar="${jflex.jar}" output="${lexer.log}" fork="true">
+            <arg value="--charat"/>
+            <arg value="-skel"/>
+            <arg value="${lexer.skeleton}"/>
+            <arg value="${lexer.source}"/>
+        </java>
+    </target>
+</project>

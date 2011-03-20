@@ -1,0 +1,155 @@
+package ru.artlebedev.idea.plugins.parser.lang.psi.impl;
+
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.util.PsiTreeUtil;
+import com.intellij.util.Icons;
+import com.intellij.util.IncorrectOperationException;
+import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
+import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserCallingReference;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserClass;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserHashKey;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserMethodReference;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserObject;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserObjectReference;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserPassedParameter;
+import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
+
+import javax.swing.*;
+
+/**
+ * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
+ * Copyright 2006 Jay Bird <a4blank@yahoo.com>
+ * Copyright 2006-2011 ArtLebedev Studio
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+public class ParserObjectImpl extends ParserElementImpl implements ParserObject {
+  public ParserObjectImpl(ASTNode astNode) {
+    super(astNode);
+  }
+
+  public int getTextOffset() {
+    final ASTNode name = findNameNode();
+    return name != null ? name.getStartOffset() : super.getTextOffset();
+  }
+
+  public String getName() {
+    ASTNode nameNode = findNameNode();
+    if (nameNode != null)
+      return nameNode.getText();
+    return null;
+  }
+
+  public PsiElement setName(@NotNull String name) throws IncorrectOperationException {
+    ASTNode identifier = ParserChangeUtil.createNameIdentifier(getProject(), name);
+    ASTNode nameNode = findNameNode();
+    if (nameNode != null)
+      getNode().replaceChild(nameNode, identifier);
+    return this;
+  }
+
+  public ASTNode findNameNode() {
+    ASTNode identifier = getNode().findChildByType(ParserTokenTypes.IDENTIFIER);
+    if (identifier != null)
+      return identifier;
+    ASTNode result = getNode().findChildByType(ParserTokenTypes.RESULT_KEYWORD);
+    if (result != null)
+      return result;
+    ASTNode self = getNode().findChildByType(ParserTokenTypes.SELF_KEYWORD);
+    if (self != null)
+      return self;
+    return null;
+  }
+
+  public String toString() {
+    return "ParserObject";
+  }
+
+  public Icon getIcon(int flags) {
+    return Icons.VARIABLE_ICON;
+  }
+
+  public Icon getIcon() {
+    return Icons.VARIABLE_ICON;
+  }
+
+  public ParserClass getType() {
+    ParserPassedParameter value = getValue();
+    if (value != null) {
+      PsiElement[] children = value.getChildren();
+      if (children.length == 0 && value.getText().equals("")) {
+        return ParserStandardClasses.STRING;
+      }
+      if (children.length == 1 && children[0] instanceof ParserCallingReference) {
+        ParserCallingReference reference = (ParserCallingReference) children[0];
+        if (reference.isConstructorInvoked()) {
+          ParserClass parserClass = (ParserClass) reference.getReferenceClass().getReference().resolve();
+          if (parserClass == null)
+            return null;
+          return parserClass;
+        }
+        ParserMethodReference methodReference = reference.getReferenceMethod();
+        if (methodReference != null) {
+          PsiElement element = methodReference.getReference().resolve();
+          if (element != null) {
+            ParserMethod method = (ParserMethod) element;
+            ParserClass returnValueType = method.getReturnValueType();
+            if (returnValueType != null) {
+              return returnValueType;
+            }
+          }
+          return null;
+        }
+        ParserObjectReference[] referenceObjects = reference.getReferenceObjects();
+        if (referenceObjects.length > 0) {
+          ParserObjectReferenceImpl referenceObject = (ParserObjectReferenceImpl) referenceObjects[referenceObjects.length - 1];
+          PsiElement element = referenceObject.resolve();
+          if (element != null && element != this) {
+            ParserObject parserObject = (ParserObject) element;
+            return parserObject.getType();
+          }
+          return null;
+        }
+      }
+      boolean hasNotHashKeyChildren = false;
+      for (PsiElement child : children) {
+        if (!(child instanceof ParserHashKey)) {
+          hasNotHashKeyChildren = true;
+        }
+      }
+      if (!hasNotHashKeyChildren) {
+//				return ParserStandardClasses.HASH;
+      }
+
+      if (value.getNode().getTreePrev().getElementType() == ParserTokenTypes.LBRACKET) {
+        return ParserStandardClasses.STRING;
+      }
+
+      if (value.getNode().getTreePrev().getElementType() == ParserTokenTypes.LPAR && value.getText().matches("(\\d+|\\d*\\.\\d+)")) {
+        return ParserStandardClasses.INT;
+      }
+    }
+    return null;
+  }
+
+  @NotNull
+  public ParserPassedParameter getValue() {
+    return PsiTreeUtil.getChildOfAnyType(this, ParserPassedParameter.class);
+  }
+}
+
