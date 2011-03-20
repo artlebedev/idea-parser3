@@ -3,7 +3,7 @@ package ru.artlebedev.idea.plugins.parser.psi.lookup;
 import com.intellij.codeInsight.AutoPopupController;
 import com.intellij.codeInsight.completion.DefaultInsertHandler;
 import com.intellij.codeInsight.completion.InsertionContext;
-import com.intellij.codeInsight.lookup.LookupItem;
+import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.codeInsight.lookup.LookupValueWithPsiElement;
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.psi.PsiElement;
@@ -29,15 +29,12 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
  */
 
 public class ParserInsertHandler extends DefaultInsertHandler {
-  public void handleInsert(InsertionContext context, LookupItem item) {
+  public void handleInsert(final InsertionContext context, LookupElement item) {
     super.handleInsert(context, item);
     Object o = item.getObject();
-//		System.out.println("handle insert");
     if (o instanceof LookupValueWithPsiElement) {
       PsiElement element = ((LookupValueWithPsiElement) o).getElement();
-//			System.out.println(element);
       if (element instanceof ParserMethod) {
-//				System.out.println("method");
         CaretModel caretModel = context.getEditor().getCaretModel();
         String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
         if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
@@ -57,7 +54,7 @@ public class ParserInsertHandler extends DefaultInsertHandler {
           context.getEditor().getDocument().insertString(caretModel.getOffset(), ":");
           caretModel.moveToOffset(caretModel.getOffset() + 1);
         }
-//				AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor);
+//      AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor);
 
       }
     }
