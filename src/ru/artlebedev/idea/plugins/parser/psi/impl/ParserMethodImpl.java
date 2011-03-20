@@ -101,8 +101,15 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   private ParserObject getResultObject() {
-    //fix wrong result of type string
-    if (resultObject == null && hasResult != NO_RESULT) {
+    /*
+     * fix wrong result of type string
+     * -- jay
+     *
+     * Fixed it by commenting out hasResult != NO_RESULT.
+     * Will find the reason it wasn't work (probably psi tree cache?)
+     * -- dwr
+     */
+    if (resultObject == null /*&& hasResult != NO_RESULT*/) {
       List<ParserObject> parserObjects = ParserResolveUtil.collectObjectDeclarationsInElement(this);
       List<ParserObject> resultObjects = new ArrayList<ParserObject>();
       for (ParserObject object : parserObjects) {
