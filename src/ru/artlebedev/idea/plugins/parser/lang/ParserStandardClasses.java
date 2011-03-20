@@ -1,7 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.lang;
 
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -22,8 +21,10 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
  */
 
 public interface ParserStandardClasses {
-  //	ParserClass HASH = new ParserClassImpl(new PlainTextFileElement());
-  ParserClass TABLE = ParserStandardClassesHelper.loadStandardClass("table.p");
+  ParserClass BOOL = ParserStandardClassesHelper.loadStandardClass("bool.p");
+  ParserClass VOID = ParserStandardClassesHelper.loadStandardClass("void.p");
   ParserClass STRING = ParserStandardClassesHelper.loadStandardClass("string.p");
   ParserClass INT = ParserStandardClassesHelper.loadStandardClass("int.p");
+  ParserClass HASH = ParserStandardClassesHelper.loadStandardClass("hash.p");
+  ParserClass TABLE = ParserStandardClassesHelper.loadStandardClass("table.p");
 }

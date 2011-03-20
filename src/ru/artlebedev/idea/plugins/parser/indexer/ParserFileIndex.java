@@ -109,9 +109,12 @@ public class ParserFileIndex implements ProjectComponent {
   public void projectOpened() {
 
 
-    contributeClass(ParserStandardClasses.TABLE);
+    contributeClass(ParserStandardClasses.BOOL);
+    contributeClass(ParserStandardClasses.VOID);
     contributeClass(ParserStandardClasses.STRING);
     contributeClass(ParserStandardClasses.INT);
+    contributeClass(ParserStandardClasses.HASH);
+    contributeClass(ParserStandardClasses.TABLE);
 
     myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);

@@ -1,137 +1,139 @@
-
 @CLASS
 table
 
-#	Создание объекта на основе заданной таблицы
-#
-#	Конструктор создает объект класса table, используя табличные данные, определенные в самом конструкторе.
-#	Табличные данные — данные, представленные в формате tab-delimited, то есть столбцы разделяются символом табуляции, а строки - символом перевода строки. При этом части первой строки, разделенные символом табуляции, рассматриваются как имена столбцов, и создается именованная таблица. Пустые строки игнорируются. Если необходимо получить таблицу без имен столбцов (что не рекомендуется), то перед заданием табличных данных необходимо указать параметр nameless. (^table::create[nameless]{tab-delimited}) В этом случае столбцы первой строки воспринимаются конструктором как данные таблицы, а в качестве имен столбцов выступят их порядковые номера, начиная с нулевого.
-#:	constructor
-#:	parameter code type junction
-@create[code]
+@create[data]
 ###
 
-#	Копирование существующей таблицы
-#
-#	Конструктор создает объект класса table, копируя данные из другой таблицы. Также можно задать ряд опций, контролирующих копирование, в качестве второго параметра.
-#	Опции: хеш, с параметрами
-#	$.offset(количество строк) - пропустить указанное количество строк таблицы;
-#	$.offset[cur] - с текущей строки таблицы;
-#	$.limit(максимум) - максимум строк, которые можно обработать;
-#	$.reverse(1/0) - 1=в обратном порядке.
-#:	constructor
-#:	parameter code type table
-#:	options code type hash optional
-@create[table;options]
-$result[^table::create[]]
+@create[nameless;data]
 ###
 
-#	Загрузка таблицы с диска или HTTP-сервера
-#
-#	Конструктор создает объект, используя таблицу, определенную в некотором файле или документе на HTTP-сервере. Данные должны быть представлены в формате tab-delimited.
-#	Опции: хеш, с параметрами
-#:	constructor
-#:	parameter nameless type string optional
-#:	parameter filename type string
-#:	parameter options type hash optional
+@create[data;options]
+###
+
+@load[filename]
+###
+
+@load[filename;options]
+###
+
+@load[nameless;filename]
+###
+
 @load[nameless;filename;options]
-$result[^table::create[]]
 ###
 
-#   Последовательный перебор всех строк таблицы
-#
-#	^таблица.menu{код}
-#	^таблица.menu{код}[разделитель]
-#	^таблица.menu{код}{разделитель}
-#	Метод menu выполняет код для каждой строки таблицы, последовательно перебирая все строки.
-#	Разделитель - код, который вставляется после каждой непустой строки, кроме последней. Разделитель в квадратных скобках вычисляется один раз, в фигурных - много раз по ходу вызова.
-#:	parameter code type junction
-#:	parameter divider type string optional
-@menu[code;divider]
+@sql[query]
 ###
 
-#	Добавление данных в таблицу
-#
-#	Формат представления данных - tab-delimited.
-#	Табличные данные должны иметь такую же структуру, как и таблица, в которую добавляются данные.
-#:	parameter tableData type junction
-@append[tableData]
+@sql[query;limit;offset;bind]
 ###
 
-#	Количество строк в таблице
-#
-#	Выдает количество строк в таблице (int).
+@save[filename]
+$result[^void::_has_no_constructor_[]]
+###
+
+@save[filename;options]
+$result[^void::_has_no_constructor_[]]
+###
+
+@save[nameless;filename]
+$result[^void::_has_no_constructor_[]]
+###
+
+@save[nameless;filename;options]
+$result[^void::_has_no_constructor_[]]
+###
+
+@save[append;filename]
+$result[^void::_has_no_constructor_[]]
+###
+
+@save[append;filename;options]
+$result[^void::_has_no_constructor_[]]
+###
+
 @count[]
 $result(1)
 ###
 
-#	Сохранение таблицы в файл
-#
-#	Сохраняет таблицу в текстовый файл в формате tab-delimited. Использование опции nameless сохраняет таблицу без имен столбцов.
-#	Также доступны опции записи, см. «Опции формата файла», позволяющие, например, сохранить файл в .csv формате, для последующей загрузки данных в программы, которые понимают такой формат (Miscrosoft Excel).
-#:	parameter filename type string
-#:	parameter options type hash optional
-@save[filename;options]
+@menu[code]
+$result[^void::_has_no_constructor_[]]
 ###
 
-#	Смещение указателя текущей строки
-#	Смещает указатель текущей строки на указанное число вниз. Если аргумент метода отрицательный, то указатель перемещается вверх. Смещение указателя осуществляется циклически, то есть, достигнув последней строки таблицы, указатель возвращается на первую.
-#:	parameter value type int
-@offset[value]
+@menu[code;split]
+$result[^void::_has_no_constructor_[]]
 ###
 
-#	Получение смещения указателя текущей строки
-#	Метод offset без параметров возвращает текущее смещение указателя текущей строки от начала таблицы, начиная с нуля.
-@offset[]
-$result(1)
+@append[data]
+$result[^void::_has_no_constructor_[]]
 ###
 
-#	Получение смещения указателя текущей строки
-#	Метод line без параметров возвращает текущее смещение указателя текущей строки от начала таблицы, начиная с единицы.
+@offset[offset]
+$result[^void::_has_no_constructor_[]]
+###
+
+@offset[cur;offset]
+$result[^void::_has_no_constructor_[]]
+###
+
+@offset[set;offset]
+$result[^void::_has_no_constructor_[]]
+###
+
 @line[]
 $result(1)
 ###
 
-#	Сортировка данных таблицы
-#	Метод осуществляет сортировку таблицы по указанной функции.
-@sort[]
+@sort[function]
+$result[^void::_has_no_constructor_[]]
 ###
 
-#	Объединение двух таблиц
-#	Метод добавляет в конец данной таблицы записи из таблицы2.
-#:	parameter table type table
+@sort[function;order]
+$result[^void::_has_no_constructor_[]]
+###
+
 @join[table]
+$result[^void::_has_no_constructor_[]]
 ###
 
-#	Транспонирование таблицы
-#	Создает новую nameless таблицу с записями, полученными в результате транспонирования исходной таблицы. Иными словами, метод превращает столбцы исходной таблицы в строки, а строки в столбцы.
+@join[table;options]
+$result[^void::_has_no_constructor_[]]
+###
+
 @flip[]
 $result[^table::create[]]
 ###
 
-#	Поиск в таблице
-#	Метод ищет в указанном столбце значение, равное искомому и возвращает логическое значение «истина/ложь» в зависимости от успеха поиска. В случае если искомое значение найдено, строка, его содержащая, делается текущей. Если искомое значение найдено не было, указатель текущей строки не меняется.
-#:	parameter column type string
-#:	parameter searchedValue type string
-@locate[column;searchedValue]
-$result[^table::create[]]
+@locate[column;seachword]
 ###
 
-#	Отбор записей
-#	Метод последовательно перебирает все строки таблицы, применяя к ним выражение критерий_отбора, те строки, которые подпали под заданный критерий (логическое выражение было истинно), помещаются в результат, которым является таблица с такой же структурой, что и входная.
-#:	parameter criteria type boolean
+@locate[column;seachword;options]
+###
+
 @select[criteria]
 $result[^table::create[]]
 ###
 
-#	Преобразование таблицы к хешу с заданными ключами
-#:	parameter key type string
+@select[criteria;options]
+$result[^table::create[]]
+###
+
 @hash[key]
 $result[^hash::create[]]
 ###
 
-#	Получение структуры таблицы.
-#	Метод создает именованную таблицу из одного столбца column, содержащего заголовки столбцов исходной таблицы.
+@hash[key;options]
+$result[^hash::create[]]
+###
+
+@hash[key;column;options]
+$result[^hash::create[]]
+###
+
 @columns[]
 $result[^table::create[]]
+###
+
+@columns[column]
+$result[^table:;create[]]
 ###
