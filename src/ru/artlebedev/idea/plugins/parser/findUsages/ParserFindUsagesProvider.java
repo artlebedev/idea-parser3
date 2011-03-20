@@ -7,13 +7,15 @@ import com.intellij.psi.PsiNamedElement;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserWordsScanner;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
-import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
-import ru.artlebedev.idea.plugins.parser.psi.ParserClassReference;
-import ru.artlebedev.idea.plugins.parser.psi.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.psi.ParserMethodReference;
-import ru.artlebedev.idea.plugins.parser.psi.ParserObject;
-import ru.artlebedev.idea.plugins.parser.psi.ParserObjectReference;
-import ru.artlebedev.idea.plugins.parser.psi.ParserParameter;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameter;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserObjectReferenceImpl;
 
 /**

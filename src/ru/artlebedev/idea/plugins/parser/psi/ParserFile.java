@@ -11,6 +11,9 @@ import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
+import ru.artlebedev.idea.plugins.parser.psi.api.HasMethods;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserElement;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

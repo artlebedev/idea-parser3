@@ -6,7 +6,6 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.psi.impl.ParserElementFactory;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserElementImpl;
 
 import java.lang.reflect.InvocationTargetException;

@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.lang;
 
-import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

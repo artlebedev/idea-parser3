@@ -5,7 +5,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.util.ParserPsiUtil;
+import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

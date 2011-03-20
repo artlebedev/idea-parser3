@@ -3,6 +3,7 @@ package ru.artlebedev.idea.plugins.parser.psi;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiReferenceExpression;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserCallingReferenceImpl;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserClassImpl;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserClassParentImpl;

@@ -7,11 +7,11 @@ import com.intellij.util.Icons;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
-import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
-import ru.artlebedev.idea.plugins.parser.psi.ParserDocParameterInfo;
-import ru.artlebedev.idea.plugins.parser.psi.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.psi.ParserParameter;
-import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocParameterInfo;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameter;
+import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
 
 import javax.swing.*;
 

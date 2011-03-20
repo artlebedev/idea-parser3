@@ -12,8 +12,8 @@ import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.psi.ParserElementVisitor;
-import ru.artlebedev.idea.plugins.parser.psi.ParserIncludePath;
-import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserIncludePath;
+import ru.artlebedev.idea.plugins.parser.utils.ParserFilesUtil;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

@@ -7,11 +7,11 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileFactory;
 import com.intellij.psi.PsiManager;
 import com.intellij.util.LocalTimeCounter;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.settings.ParserProjectConfiguration;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
-import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
-import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
+import ru.artlebedev.idea.plugins.parser.utils.ParserFilesUtil;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;

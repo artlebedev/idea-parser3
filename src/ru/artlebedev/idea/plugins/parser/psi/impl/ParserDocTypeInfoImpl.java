@@ -10,12 +10,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
-import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
-import ru.artlebedev.idea.plugins.parser.psi.ParserDocTypeInfo;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocTypeInfo;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
-import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
-import ru.artlebedev.idea.plugins.parser.util.ParserResolveUtil;
-import ru.artlebedev.idea.plugins.parser.util.lookup.ParserLookupUtil;
+import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
+import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
+import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;

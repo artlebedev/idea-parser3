@@ -7,7 +7,7 @@ import com.intellij.psi.filters.TextFilter;
 import com.intellij.psi.filters.TrueFilter;
 import com.intellij.psi.filters.position.LeftNeighbour;
 import com.intellij.psi.impl.source.tree.LeafPsiElement;
-import ru.artlebedev.idea.plugins.parser.util.lookup.ParserInsertHandler;
+import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserInsertHandler;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

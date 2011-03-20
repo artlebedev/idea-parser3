@@ -6,8 +6,9 @@ import com.intellij.lang.annotation.Annotator;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.psi.PsiElement;
-import ru.artlebedev.idea.plugins.parser.psi.ParserClassReference;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.psi.ParserElementVisitor;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserIncludePathImpl;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserMethodImpl;
 

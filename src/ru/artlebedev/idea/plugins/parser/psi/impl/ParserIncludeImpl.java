@@ -1,7 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
-import ru.artlebedev.idea.plugins.parser.psi.ParserInclude;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserInclude;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

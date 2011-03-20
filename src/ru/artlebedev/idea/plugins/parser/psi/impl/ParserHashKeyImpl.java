@@ -7,7 +7,7 @@ import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.artlebedev.idea.plugins.parser.psi.ParserHashKey;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserHashKey;
 
 import javax.swing.*;
 

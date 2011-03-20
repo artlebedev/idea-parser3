@@ -8,10 +8,12 @@ import com.intellij.ide.util.treeView.smartTree.Sorter;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
-import ru.artlebedev.idea.plugins.parser.psi.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.psi.ParserObject;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 
 import java.util.Arrays;
 import java.util.List;

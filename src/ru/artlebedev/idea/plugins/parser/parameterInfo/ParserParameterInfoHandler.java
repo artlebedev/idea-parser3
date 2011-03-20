@@ -11,10 +11,10 @@ import com.intellij.lang.parameterInfo.UpdateParameterInfoContext;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.psi.ParserCallingReference;
-import ru.artlebedev.idea.plugins.parser.psi.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.psi.ParserMethodReference;
-import ru.artlebedev.idea.plugins.parser.util.lookup.ParserSmartLookupItem;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
+import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserSmartLookupItem;
 
 import java.util.ArrayList;
 import java.util.List;
