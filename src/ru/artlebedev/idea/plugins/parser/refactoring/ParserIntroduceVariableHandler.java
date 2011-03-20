@@ -13,7 +13,6 @@ import com.intellij.refactoring.RefactoringActionHandler;
 import ru.artlebedev.idea.plugins.parser.actions.WriteActionRunner;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

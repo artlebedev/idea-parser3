@@ -60,51 +60,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IncludeParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/IncludeParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="99" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MethodReferenceParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodReferenceParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="99" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObjectParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ObjectParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="99" selection-start="1198" selection-end="1198" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParserDocParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ParserDocParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="13" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatementParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/StatementParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="13" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TokenParserFactory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/TokenParserFactory.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -132,11 +87,223 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="36" selection-start="653" selection-end="653" vertical-scroll-proportion="0.3512195">
+            <state line="18" column="36" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_ParserLexer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/_ParserLexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="13" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParserLexer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="13" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParserLexer.flex" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.flex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="40" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1300587220000" expanded="false" signature="57:129" placeholder="..." />
+                <marker date="1300587220000" expanded="false" signature="57:129" placeholder="..." />
+                <marker date="1300587220000" expanded="true" signature="164:206" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="164:206" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="164:206" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="255:297" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="255:297" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="255:297" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="930:992" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="930:992" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1009:1079" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1009:1079" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1092:1161" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1092:1161" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1177:1250" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1177:1250" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1269:1345" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1269:1345" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1358:1415" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1358:1415" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1425:1477" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1425:1477" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1492:1547" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1492:1547" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1555:1615" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1555:1615" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1644:1704" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1644:1704" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1735:1788" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1735:1788" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1802:1864" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1802:1864" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1883:1941" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1883:1941" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1957:2019" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="1957:2019" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2034:2089" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2034:2089" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2104:2162" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2104:2162" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2178:2238" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2178:2238" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2253:2312" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2253:2312" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2330:2392" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2330:2392" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2408:2469" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2408:2469" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2486:2548" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2486:2548" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2565:2627" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2565:2627" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2643:2704" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2643:2704" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2715:2773" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2715:2773" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2783:2837" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2783:2837" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2849:2911" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="2849:2911" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3005:3044" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3005:3044" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3054:3109" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3054:3109" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3120:3173" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3120:3173" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3183:3239" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3183:3239" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3249:3300" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3249:3300" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3310:3361" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3310:3361" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3371:3426" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3371:3426" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3436:3491" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3436:3491" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3501:3554" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3501:3554" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3564:3617" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3564:3617" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3627:3677" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3627:3677" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3687:3739" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3687:3739" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3754:3813" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3754:3813" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3834:3893" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3834:3893" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3907:3968" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3907:3968" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3982:4043" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="3982:4043" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4056:4115" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4056:4115" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4130:4192" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4130:4192" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4204:4262" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4204:4262" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4273:4330" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4273:4330" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4341:4398" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4341:4398" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4412:4473" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4412:4473" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4486:4545" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4486:4545" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4559:4619" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4559:4619" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4631:4689" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4631:4689" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4703:4763" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4703:4763" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4775:4833" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4775:4833" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4847:4908" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4847:4908" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4918:4967" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4918:4967" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4918:4967" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4977:5026" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="4977:5026" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5037:5086" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5037:5086" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5097:5146" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5097:5146" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5157:5208" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5157:5208" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5219:5268" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5219:5268" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5278:5329" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5278:5329" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5339:5391" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5339:5391" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5401:5452" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5401:5452" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5462:5513" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5462:5513" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5524:5575" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5524:5575" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5586:5637" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5586:5637" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5647:5697" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5647:5697" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5707:5756" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5707:5756" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5767:5817" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5767:5817" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5827:5878" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5827:5878" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5888:5940" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5888:5940" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5951:6004" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="5951:6004" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6015:6066" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6015:6066" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6076:6126" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6076:6126" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6137:6187" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6137:6187" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6198:6250" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6198:6250" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6261:6313" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6261:6313" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6324:6376" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6324:6376" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6387:6439" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6387:6439" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6450:6502" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6450:6502" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6513:6565" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6513:6565" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6578:6635" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6578:6635" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6646:6706" placeholder="{...}" />
+                <marker date="1300587220000" expanded="true" signature="6646:6706" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,8 +311,19 @@
       <file leaf-file-name="MethodParser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="3" selection-start="448" selection-end="491" vertical-scroll-proportion="0.0">
+            <state line="35" column="66" selection-start="1434" selection-end="1434" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParserIntroduceVariableHandler.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/refactoring/ParserIntroduceVariableHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="54" selection-start="693" selection-end="693" vertical-scroll-proportion="0.26086956">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,7 +342,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.flex" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/lookup/ParserInsertHandler.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parameterInfo/ParserParameterInfoHandler.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserObjectImpl.java" />
@@ -180,6 +357,7 @@
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ObjectParser.java" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/refactoring/ParserIntroduceVariableHandler.java" />
       </list>
     </option>
   </component>
@@ -294,6 +472,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="idea-parser3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="idea-parser3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="refactoring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -698,9 +898,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958478" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24114285" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24114285" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -709,7 +909,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17210048" sideWeight="0.75885713" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17210048" sideWeight="0.792" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32540676" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958478" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -757,16 +957,100 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserMethodImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/IndifferentParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="86" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0">
+        <state line="23" column="13" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/IncludeParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="99" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodReferenceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="99" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ObjectParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="99" selection-start="1198" selection-end="1198" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ParserDocParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="13" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/StatementParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/TokenParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="13" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/WhiteSpaceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="62" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="36" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/_ParserLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.flex">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="73" column="40" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1300587220000" expanded="false" signature="57:129" placeholder="..." />
             <marker date="1300587220000" expanded="false" signature="57:129" placeholder="..." />
@@ -947,101 +1231,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/BaseTokenParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ClassParentParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="13" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ClassParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="56" selection-start="1197" selection-end="1240" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/IndifferentParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/IncludeParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="99" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodReferenceParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="99" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ObjectParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="99" selection-start="1198" selection-end="1198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ParserDocParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="13" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/StatementParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/TokenParserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/WhiteSpaceParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="3" selection-start="448" selection-end="491" vertical-scroll-proportion="0.0">
+        <state line="35" column="66" selection-start="1434" selection-end="1434" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/refactoring/ParserIntroduceVariableHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="62" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="36" selection-start="653" selection-end="653" vertical-scroll-proportion="0.3512195">
-          <folding />
+        <state line="14" column="54" selection-start="693" selection-end="693" vertical-scroll-proportion="0.26086956">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
