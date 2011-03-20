@@ -70,13 +70,7 @@
 
     <codeInsight.parameterInfo language="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.parameterInfo.ParserParameterInfoHandler"/>
 
-    <!-- code completion -->
-    <!--<completionData className="ru.artlebedev.idea.plugins.parser.editor.completionserCompletionData" />-->
-
     <annotator language="Parser"
                implementationClass="ru.artlebedev.idea.plugins.parser.annotator.ParserAnnotator"/>
-
-    <!-- Error reporter-->
-    <!--<errorHandler implementation="ru.artlebedev.idea.plugins.parser.errorreporting.PluginErrorReportSubmitter"/>-->
   </extensions>
 </idea-plugin>
