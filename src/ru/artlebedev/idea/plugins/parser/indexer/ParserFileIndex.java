@@ -119,6 +119,14 @@ public class ParserFileIndex implements ProjectComponent {
     contributeClass(ParserStandardClasses.CURL);
     contributeClass(ParserStandardClasses.DATE);
     contributeClass(ParserStandardClasses.FILE);
+    contributeClass(ParserStandardClasses.HASHFILE);
+    contributeClass(ParserStandardClasses.IMAGE);
+    contributeClass(ParserStandardClasses.INET);
+    contributeClass(ParserStandardClasses.JUNCTION);
+    contributeClass(ParserStandardClasses.JSON);
+    contributeClass(ParserStandardClasses.MAIL);
+    contributeClass(ParserStandardClasses.MATH);
+    contributeClass(ParserStandardClasses.MEMORY);
 
     myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);

@@ -31,4 +31,12 @@ public interface ParserStandardClasses {
   ParserClass CURL = ParserStandardClassesHelper.loadStandardClass("curl.p");
   ParserClass DATE = ParserStandardClassesHelper.loadStandardClass("date.p");
   ParserClass FILE = ParserStandardClassesHelper.loadStandardClass("file.p");
+  ParserClass HASHFILE = ParserStandardClassesHelper.loadStandardClass("hashfile.p");
+  ParserClass IMAGE = ParserStandardClassesHelper.loadStandardClass("image.p");
+  ParserClass INET = ParserStandardClassesHelper.loadStandardClass("inet.p");
+  ParserClass JUNCTION = ParserStandardClassesHelper.loadStandardClass("junction.p");
+  ParserClass JSON = ParserStandardClassesHelper.loadStandardClass("json.p");
+  ParserClass MAIL = ParserStandardClassesHelper.loadStandardClass("mail.p");
+  ParserClass MATH = ParserStandardClassesHelper.loadStandardClass("math.p");
+  ParserClass MEMORY = ParserStandardClassesHelper.loadStandardClass("memory.p");
 }
