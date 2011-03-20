@@ -33,7 +33,7 @@ public class ParserLoader implements ApplicationComponent {
           "new", "init", "create", "load",
           "now", "unix-timestamp", "sql", "stat",
           "cgi", "exec", "base64", "open",
-          "measure"});
+          "measure", "_has_no_constructor_"});
 
   public boolean enableActions = true;
 
