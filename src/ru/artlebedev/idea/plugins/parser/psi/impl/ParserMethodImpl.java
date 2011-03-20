@@ -7,12 +7,13 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.Icons;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.ParserLoader;
 import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.psi.ParserElementVisitor;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserDoc;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocParameterInfo;
-import ru.artlebedev.idea.plugins.parser.psi.ParserElementVisitor;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameterList;
@@ -89,7 +90,11 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   public Icon getIcon(int flags) {
-    return Icons.METHOD_ICON;
+    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+      return Icons.CLASS_INITIALIZER;
+    } else {
+      return Icons.METHOD_ICON;
+    }
   }
 
   public Icon getIcon() {

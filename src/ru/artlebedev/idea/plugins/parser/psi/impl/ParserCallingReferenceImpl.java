@@ -7,9 +7,6 @@ import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
 
 import java.util.ArrayList;
