@@ -30,4 +30,5 @@ public interface ParserStandardClasses {
   ParserClass COOKIE = ParserStandardClassesHelper.loadStandardClass("cookie.p");
   ParserClass CURL = ParserStandardClassesHelper.loadStandardClass("curl.p");
   ParserClass DATE = ParserStandardClassesHelper.loadStandardClass("date.p");
+  ParserClass FILE = ParserStandardClassesHelper.loadStandardClass("file.p");
 }
