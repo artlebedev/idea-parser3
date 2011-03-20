@@ -26,7 +26,7 @@ import ru.artlebedev.idea.plugins.parser.ParserBundle;
  */
 
 public class ClassParser extends BaseTokenParser {
-  private static final Logger LOG = Logger.getInstance("#net.jay.parser.Parser.Parsers.IncludeParser");
+  private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.ClassParser");
 
   /**
    * @param builder builder before the @CLASS keyword

@@ -26,7 +26,7 @@ import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
 
 public class MethodReferenceParser extends BaseTokenParser {
 
-  private static final Logger LOG = Logger.getInstance("#net.jay.parser.Parser.Parsers.MethodReferenceParser");
+  private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.MethodReferenceParser");
   private boolean errorShown = false;
   private boolean objectDone = false;
   private boolean classDone = false;

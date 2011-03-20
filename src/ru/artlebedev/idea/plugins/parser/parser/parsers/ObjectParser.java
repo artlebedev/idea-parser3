@@ -25,7 +25,7 @@ import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
  */
 
 public class ObjectParser extends BaseTokenParser {
-  private static final Logger LOG = Logger.getInstance("#net.jay.parser.Parser.Parsers.ObjectParser");
+  private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.ObjectParser");
   private boolean identifierMet;
   private boolean noIdentifierAfterPunctuation;
 

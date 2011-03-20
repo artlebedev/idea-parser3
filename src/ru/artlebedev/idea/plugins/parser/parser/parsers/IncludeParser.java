@@ -26,7 +26,7 @@ import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
 
 public class IncludeParser extends BaseTokenParser {
   //todo parse as directories and filenames
-  private static final Logger LOG = Logger.getInstance("#net.jay.parser.Parser.Parsers.IncludeParser");
+  private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.IncludeParser");
   private boolean newLineDropped = false;
 
   /**

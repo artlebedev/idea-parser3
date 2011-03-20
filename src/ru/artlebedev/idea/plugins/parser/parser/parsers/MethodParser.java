@@ -27,7 +27,7 @@ import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
 
 public class MethodParser extends BaseTokenParser {
 
-  private static final Logger LOG = Logger.getInstance("#net.jay.parser.Parser.Parsers.MethodParser");
+  private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.MethodParser");
 
   /**
    * @param builder before the @
