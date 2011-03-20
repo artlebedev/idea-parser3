@@ -7,7 +7,7 @@ import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiTreeUtil;
 import ru.artlebedev.idea.plugins.parser.ParserProjectConfiguration;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -11,7 +11,7 @@ import com.intellij.psi.PsiManager;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.refactoring.RefactoringActionHandler;
 import ru.artlebedev.idea.plugins.parser.actions.WriteActionRunner;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserCallingReference;
+import ru.artlebedev.idea.plugins.parser.psi.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
 
 /**

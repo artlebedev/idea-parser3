@@ -5,7 +5,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
-import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 
 import java.util.ArrayList;
 import java.util.List;

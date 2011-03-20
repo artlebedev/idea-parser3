@@ -8,9 +8,9 @@ import com.intellij.psi.PsiFileFactory;
 import com.intellij.psi.PsiManager;
 import com.intellij.util.LocalTimeCounter;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
-import ru.artlebedev.idea.plugins.parser.lang.predefined.Marker;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserClass;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
+import ru.artlebedev.idea.plugins.parser.lang.Marker;
+import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
 
 import java.io.InputStream;

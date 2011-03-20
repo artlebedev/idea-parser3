@@ -2,7 +2,7 @@ package ru.artlebedev.idea.plugins.parser.util.lookup;
 
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserNamedElement;
+import ru.artlebedev.idea.plugins.parser.psi.ParserNamedElement;
 
 import java.util.ArrayList;
 import java.util.List;

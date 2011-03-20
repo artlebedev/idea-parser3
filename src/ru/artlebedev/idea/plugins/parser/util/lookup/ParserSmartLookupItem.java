@@ -11,9 +11,9 @@ import com.intellij.openapi.util.Iconable;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import com.intellij.ui.RowIcon;
-import ru.artlebedev.idea.plugins.parser.lang.psi.IsTyped;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserClass;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.IsTyped;
+import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.util.ParserIcons;
 
 import javax.swing.*;

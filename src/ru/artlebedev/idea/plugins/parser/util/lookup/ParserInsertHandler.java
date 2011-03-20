@@ -5,8 +5,8 @@ import com.intellij.codeInsight.completion.InsertHandler;
 import com.intellij.codeInsight.completion.InsertionContext;
 import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.openapi.editor.CaretModel;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserClass;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.ParserMethod;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

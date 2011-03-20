@@ -7,8 +7,8 @@ import com.intellij.openapi.fileTypes.ex.FileTypeIdentifiableByVirtualFile;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.lang.Parser;
-import ru.artlebedev.idea.plugins.parser.lang.ParserLanguage;
+import ru.artlebedev.idea.plugins.parser.Parser;
+import ru.artlebedev.idea.plugins.parser.ParserLanguage;
 import ru.artlebedev.idea.plugins.parser.util.ParserIcons;
 
 import javax.swing.*;

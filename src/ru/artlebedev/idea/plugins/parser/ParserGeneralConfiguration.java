@@ -1,7 +1,6 @@
 package ru.artlebedev.idea.plugins.parser;
 
 import org.apache.commons.collections.ListUtils;
-import ru.artlebedev.idea.plugins.parser.lang.ParserLoader;
 
 import javax.swing.*;
 import java.util.ArrayList;

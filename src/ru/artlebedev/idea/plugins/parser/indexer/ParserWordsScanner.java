@@ -2,8 +2,8 @@ package ru.artlebedev.idea.plugins.parser.indexer;
 
 import com.intellij.lang.cacheBuilder.DefaultWordsScanner;
 import com.intellij.psi.tree.TokenSet;
-import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserLexer;
-import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lexer.ParserLexer;
+import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

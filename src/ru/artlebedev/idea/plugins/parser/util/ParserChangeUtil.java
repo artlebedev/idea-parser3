@@ -9,8 +9,8 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NonNls;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserParameterList;
+import ru.artlebedev.idea.plugins.parser.psi.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.ParserParameterList;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -10,7 +10,7 @@
 
   <application-components>
     <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.lang.ParserLoader</implementation-class>
+      <implementation-class>ru.artlebedev.idea.plugins.parser.ParserLoader</implementation-class>
     </component>
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.ParserModuleType</implementation-class>
@@ -51,10 +51,10 @@
                     implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserCommenter"/>
 
     <lang.parserDefinition language="Parser"
-                           implementationClass="ru.artlebedev.idea.plugins.parser.lang.parser.ParserParserDefinition"/>
+                           implementationClass="ru.artlebedev.idea.plugins.parser.parser.ParserParserDefinition"/>
 
     <lang.psiStructureViewFactory language="Parser"
-                                  implementationClass="ru.artlebedev.idea.plugins.parser.structureview.ParserStructureViewFactory"/>
+                                  implementationClass="ru.artlebedev.idea.plugins.parser.structure.ParserStructureViewFactory"/>
 
     <lang.refactoringSupport language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.refactoring.ParserRefactoringSupport"/>
@@ -68,7 +68,7 @@
     <lang.formatter language="Parser"
                     implementationClass="ru.artlebedev.idea.plugins.parser.formatter.ParserFormattingModelBuilder"/>
 
-    <codeInsight.parameterInfo language="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.ParserParameterInfoHandler"/>
+    <codeInsight.parameterInfo language="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.parameterInfo.ParserParameterInfoHandler"/>
 
     <!-- code completion -->
     <!--<completionData className="ru.artlebedev.idea.plugins.parser.editor.completionserCompletionData" />-->

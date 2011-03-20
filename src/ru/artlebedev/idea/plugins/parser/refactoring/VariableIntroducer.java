@@ -3,9 +3,9 @@ package ru.artlebedev.idea.plugins.parser.refactoring;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.IncorrectOperationException;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserCallingReference;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserObject;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserPassedParameter;
+import ru.artlebedev.idea.plugins.parser.psi.ParserCallingReference;
+import ru.artlebedev.idea.plugins.parser.psi.ParserObject;
+import ru.artlebedev.idea.plugins.parser.psi.ParserPassedParameter;
 import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
 
 import java.util.ArrayList;
