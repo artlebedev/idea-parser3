@@ -156,7 +156,16 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
     if (resultObject != null) {
       return resultObject.getType();
     }
-    return null;
+    /*
+     * XXX suppose that all parser methods
+     *     are returning string if they are
+     *     not belongs to constructors,
+     *     which should return object itself
+     *     (which is already fixed)
+     *     -- dwr
+     */
+    //return null;
+    return ParserStandardClasses.STRING;
   }
 
   public String getParserDoc() {
