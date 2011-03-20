@@ -34,6 +34,7 @@ public interface ParserElementTypes {
   IElementType CLASS = new ParserElementType("CLASS");
   IElementType WHITE_SPACE = new ParserElementType("WHITE_SPACE");
   IElementType METHOD = new ParserElementType("METHOD");
+  IElementType STATIC_METHOD = new ParserElementType("STATIC_METHOD");
   IElementType OBJECT = new ParserElementType("OBJECT");
 
   IElementType CALLING_REFERENCE = new ParserElementType("CALLING_REFERENCE");

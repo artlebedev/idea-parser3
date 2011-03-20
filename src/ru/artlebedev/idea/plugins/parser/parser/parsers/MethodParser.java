@@ -33,7 +33,13 @@ public class MethodParser extends BaseTokenParser {
    * @param builder before the @
    */
   public void parseToken(PsiBuilder builder) {
+    boolean staticMethod = false;
+
     LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.KEY_AT_SIGN);
+
+    if(builder.getTokenText().contains("static:")) {
+      staticMethod = true;
+    }
 
     PsiBuilder.Marker methodToken = builder.mark();
     builder.advanceLexer();
@@ -63,7 +69,7 @@ public class MethodParser extends BaseTokenParser {
       }
     }
 
-    methodToken.done(ParserElementTypes.METHOD);
+    methodToken.done(staticMethod ? ParserElementTypes.STATIC_METHOD : ParserElementTypes.METHOD);
   }
 
   /**
