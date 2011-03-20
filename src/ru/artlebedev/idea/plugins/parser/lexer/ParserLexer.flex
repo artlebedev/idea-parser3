@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.lang.lexer;
+package ru.artlebedev.idea.plugins.parser.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
