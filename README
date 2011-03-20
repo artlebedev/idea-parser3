@@ -1,4 +1,19 @@
-idea-parser3 is a Parser 3 Language Support plugin for IntelliJ IDEA.
+About:
+------
+  This is a custom language plugin for IntelliJ IDEA version 10.x. It is compatible with
+  the Community and the Ultimate editions of IntelliJ.
+  It is supposed to work with the other available editions (PyCharm, RubyMine, WebStorm, PHPStorm).
 
-Visit ArtLebedev Studio website at: http://www.artlebedev.ru
-Visit Parser 3 website at: http://www.parser.ru
+  This plugin supports Parser scripting language.
+
+License:
+--------
+   This work is licensed under the terms of the Apache 2.0 license.
+   Read the file LICENSE for further details.
+
+   Please see CREDITS for further details about the included code of other developers.
+
+Web:
+--------------------
+  Visit ArtLebedev Studio website at: http://www.artlebedev.ru
+  Visit Parser 3 website at: http://www.parser.ru

@@ -123,10 +123,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LICENSE" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LICENSE" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LICENSE">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="62" selection-start="651" selection-end="651" vertical-scroll-proportion="0.27317074">
+            <state line="14" column="62" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="24" selection-start="420" selection-end="420" vertical-scroll-proportion="0.21463415">
               <folding />
             </state>
           </provider>
@@ -136,15 +145,6 @@
         <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="3" selection-start="448" selection-end="491" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndifferentParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/IndifferentParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -173,13 +173,13 @@
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserCallingReferenceImpl.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserMethodImpl.java" />
         <option value="$PROJECT_DIR$/CREDITS" />
-        <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ClassParser.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/IncludeParser.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodReferenceParser.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/ObjectParser.java" />
         <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/README" />
       </list>
     </option>
   </component>
@@ -757,13 +757,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserElementImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="869" selection-end="869" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserMethodImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="86" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0">
@@ -1040,7 +1033,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="62" selection-start="651" selection-end="651" vertical-scroll-proportion="0.27317074">
+        <state line="14" column="62" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="24" selection-start="420" selection-end="420" vertical-scroll-proportion="0.21463415">
           <folding />
         </state>
       </provider>
