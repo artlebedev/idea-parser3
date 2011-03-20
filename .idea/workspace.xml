@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb997ce6-40b0-40ce-b8bd-822ae5407ad3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/api/ParserStaticMethod.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserStaticMethodImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.flex" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.flex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/_ParserLexer.java" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/_ParserLexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/ParserElementTypes.java" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/ParserElementTypes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/ParserElementFactory.java" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/ParserElementFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/api/ParserStaticMethod.java" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/api/ParserStaticMethod.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserStaticMethodImpl.java" afterPath="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserStaticMethodImpl.java" />
     </list>
     <ignored path="idea-parser3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -276,10 +270,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MethodParser.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MethodParser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="2501" selection-end="2501" vertical-scroll-proportion="0.80487806">
+            <state line="9" column="0" selection-start="392" selection-end="1105" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -315,17 +309,19 @@
       <file leaf-file-name="ParserStaticMethod.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/api/ParserStaticMethod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="56" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParserStaticMethodImpl.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ParserStaticMethodImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserStaticMethodImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="35" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="27" column="36" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.52682924">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -366,9 +362,9 @@
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/lexer/ParserLexer.flex" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/ParserElementTypes.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/ParserElementFactory.java" />
+        <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/api/ParserStaticMethod.java" />
         <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserStaticMethodImpl.java" />
-        <option value="$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java" />
       </list>
     </option>
   </component>
@@ -1195,13 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/api/ParserStaticMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="56" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserMethodImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="91" column="0" selection-start="3206" selection-end="3737" vertical-scroll-proportion="0.0">
@@ -1216,17 +1205,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserStaticMethodImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="35" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0">
+        <state line="9" column="0" selection-start="392" selection-end="1105" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/parser/parsers/MethodParser.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/api/ParserStaticMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2501" selection-end="2501" vertical-scroll-proportion="0.80487806">
+        <state line="22" column="0" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/artlebedev/idea/plugins/parser/psi/impl/ParserStaticMethodImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="36" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.52682924">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

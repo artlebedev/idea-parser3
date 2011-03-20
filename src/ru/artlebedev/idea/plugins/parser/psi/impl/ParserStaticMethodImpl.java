@@ -2,19 +2,29 @@ package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.IconLoader;
-import com.intellij.util.Icons;
-import ru.artlebedev.idea.plugins.parser.ParserLoader;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStaticMethod;
 
 import javax.swing.*;
 
 /**
- * Copyright (c) 2011 Valeriy Yatsko
- * Copyright (c) 2011 ArtLebedev Studio
- * User: dwr
- * Date: 20.03.11
- * Time: 14:49
+ * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
+ * Copyright 2006 Jay Bird <a4blank@yahoo.com>
+ * Copyright 2006-2011 ArtLebedev Studio
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-public class ParserStaticMethodImpl extends ParserMethodImpl {
+
+public class ParserStaticMethodImpl extends ParserMethodImpl implements ParserStaticMethod {
   public static final Icon STATIC_ICON = IconLoader.getIcon("/nodes/static.png");
 
   public ParserStaticMethodImpl(ASTNode astNode) {
