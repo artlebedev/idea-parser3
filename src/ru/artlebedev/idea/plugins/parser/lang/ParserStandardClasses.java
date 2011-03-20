@@ -27,4 +27,7 @@ public interface ParserStandardClasses {
   ParserClass INT = ParserStandardClassesHelper.loadStandardClass("int.p");
   ParserClass HASH = ParserStandardClassesHelper.loadStandardClass("hash.p");
   ParserClass TABLE = ParserStandardClassesHelper.loadStandardClass("table.p");
+  ParserClass COOKIE = ParserStandardClassesHelper.loadStandardClass("cookie.p");
+  ParserClass CURL = ParserStandardClassesHelper.loadStandardClass("curl.p");
+  ParserClass DATE = ParserStandardClassesHelper.loadStandardClass("date.p");
 }
