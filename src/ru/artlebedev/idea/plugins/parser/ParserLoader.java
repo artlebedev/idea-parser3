@@ -29,27 +29,31 @@ import java.util.List;
  */
 
 public class ParserLoader implements ApplicationComponent {
-  public List<String> constructorNames = Arrays.asList(new String[]{"new", "init", "create"});
+  public List<String> constructorNames = Arrays.asList(new String[]{
+          "new", "init", "create", "load",
+          "now", "unix-timestamp", "sql", "stat",
+          "cgi", "exec", "base64", "open",
+          "measure"});
 
   public boolean enableActions = true;
 
-	public boolean isEnableActions() {
-		return enableActions;
-	}
+  public boolean isEnableActions() {
+    return enableActions;
+  }
 
-	public void setEnableActions(boolean enableActions) {
-		this.enableActions = enableActions;
-	}
+  public void setEnableActions(boolean enableActions) {
+    this.enableActions = enableActions;
+  }
 
-	public boolean htmlFilesAsParser = false;
+  public boolean htmlFilesAsParser = false;
 
-	public boolean isHtmlFilesAsParser() {
-		return htmlFilesAsParser;
-	}
+  public boolean isHtmlFilesAsParser() {
+    return htmlFilesAsParser;
+  }
 
-	public void setHtmlFilesAsParser(boolean htmlFilesAsParser) {
-		this.htmlFilesAsParser = htmlFilesAsParser;
-	}
+  public void setHtmlFilesAsParser(boolean htmlFilesAsParser) {
+    this.htmlFilesAsParser = htmlFilesAsParser;
+  }
 
   /**
    * You can get constructor names which user has defined. (since every method in a class could be a constructor it's useful to have a filter)
