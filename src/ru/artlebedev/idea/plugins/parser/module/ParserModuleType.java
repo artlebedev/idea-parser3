@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser;
+package ru.artlebedev.idea.plugins.parser.module;
 
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.intellij.ide.util.projectWizard.ProjectWizardStepFactory;
@@ -10,8 +10,8 @@ import com.intellij.openapi.module.ModuleTypeManager;
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.util.ParserIcons;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 
 import javax.swing.*;
 
@@ -43,11 +43,11 @@ public class ParserModuleType extends ModuleType<ParserModuleBuilder> implements
   }
 
   public String getName() {
-    return ParserStrings.message("module.type.parser.name");
+    return ParserBundle.message("module.type.parser.name");
   }
 
   public String getDescription() {
-    return ParserStrings.message("module.type.parser.description");
+    return ParserBundle.message("module.type.parser.description");
   }
 
   public Icon getBigIcon() {

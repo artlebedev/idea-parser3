@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser;
+package ru.artlebedev.idea.plugins.parser.module;
 
 import com.intellij.ide.util.projectWizard.ModuleBuilder;
 import com.intellij.ide.util.projectWizard.SourcePathsBuilder;

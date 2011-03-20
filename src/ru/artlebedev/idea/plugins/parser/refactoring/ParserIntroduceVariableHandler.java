@@ -12,7 +12,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.refactoring.RefactoringActionHandler;
 import ru.artlebedev.idea.plugins.parser.actions.WriteActionRunner;
 import ru.artlebedev.idea.plugins.parser.psi.ParserCallingReference;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -68,11 +68,11 @@ public class ParserIntroduceVariableHandler implements RefactoringActionHandler 
 
   private String showDialog() {
     do {
-      String s = Messages.showInputDialog(ParserStrings.message("actions.introduceVariable.enterName"), ParserStrings.message("actions.introduceVariable.title"), Messages.getQuestionIcon());
+      String s = Messages.showInputDialog(ParserBundle.message("actions.introduceVariable.enterName"), ParserBundle.message("actions.introduceVariable.title"), Messages.getQuestionIcon());
       if (s == null)
         return "";
       if ("".equals(s.trim())) {
-        Messages.showMessageDialog(ParserStrings.message("actions.createClass.emptyName"), ParserStrings.message("actions.createClass.emptyNameTitle"), Messages.getErrorIcon());
+        Messages.showMessageDialog(ParserBundle.message("actions.createClass.emptyName"), ParserBundle.message("actions.createClass.emptyNameTitle"), Messages.getErrorIcon());
       } else {
         return s;
       }

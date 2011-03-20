@@ -8,8 +8,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.Parser;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.ParserLanguage;
-import ru.artlebedev.idea.plugins.parser.util.ParserIcons;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -55,7 +55,7 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
   };
   public static final List<String> extensionList = Arrays.asList(extensions);
 
-  protected ParserFileType() {
+  public ParserFileType() {
     super(new ParserLanguage());
   }
 

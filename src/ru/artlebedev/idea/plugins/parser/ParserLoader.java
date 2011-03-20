@@ -83,6 +83,6 @@ public class ParserLoader implements ApplicationComponent {
 
   @NotNull
   public String getComponentName() {
-    return ParserComponents.PARSER_LOADER;
+    return "parser.support.loader";
   }
 }

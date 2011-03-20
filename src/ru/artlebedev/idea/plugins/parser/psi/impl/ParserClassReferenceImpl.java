@@ -9,7 +9,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.artlebedev.idea.plugins.parser.ParserLanguageConstants;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.ParserClass;

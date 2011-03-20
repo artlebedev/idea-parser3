@@ -2,10 +2,10 @@ package ru.artlebedev.idea.plugins.parser.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.openapi.diagnostic.Logger;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
 import ru.artlebedev.idea.plugins.parser.util.ParserPsiUtil;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -47,11 +47,11 @@ public class MethodParser extends BaseTokenParser {
         parseParameterList(builder);
 
       } else {
-        builder.error(ParserStrings.message("parser.parse.expected.parameterBracket"));
+        builder.error(ParserBundle.message("parser.parse.expected.parameterBracket"));
       }
 
     } else {
-      builder.error(ParserStrings.message("parser.parse.expected.methodName"));
+      builder.error(ParserBundle.message("parser.parse.expected.methodName"));
     }
 
     while (!ParserTokenTypes.METHOD_DELIMITERS.contains(ParserPsiUtil.getNextTokenIgnoringNLandParserDoc(builder))) {
@@ -88,7 +88,7 @@ public class MethodParser extends BaseTokenParser {
       } else if (builder.getTokenType() == ParserTokenTypes.RBRACKET || builder.eof() || builder.getTokenType() == ParserTokenTypes.NEW_LINE) {
         break;
       } else {
-        builder.error(ParserStrings.message("parser.parse.expected.parameter"));
+        builder.error(ParserBundle.message("parser.parse.expected.parameter"));
         builder.advanceLexer();
       }
     }

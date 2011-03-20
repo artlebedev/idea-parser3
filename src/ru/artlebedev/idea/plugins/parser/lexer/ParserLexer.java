@@ -1,7 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.lexer;
 
 import com.intellij.lexer.FlexAdapter;
-import ru.artlebedev.idea.plugins.parser.ParserVersion;
+import ru.artlebedev.idea.plugins.parser.config.ParserVersion;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

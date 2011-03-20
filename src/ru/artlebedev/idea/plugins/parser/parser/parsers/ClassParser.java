@@ -5,7 +5,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.tree.IElementType;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -48,7 +48,7 @@ public class ClassParser extends BaseTokenParser {
       builder.advanceLexer();
 
       if (builder.getTokenType() != ParserTokenTypes.NEW_LINE) {
-        builder.error(ParserStrings.message("parser.parse.expected.classNameEnd"));
+        builder.error(ParserBundle.message("parser.parse.expected.classNameEnd"));
 //				classNameToken.drop();
       } else {
 //				classNameToken.done(ParserElementTypes.CLASS_NAME);
@@ -65,7 +65,7 @@ public class ClassParser extends BaseTokenParser {
       classToken.done(ParserElementTypes.CLASS);
     } else {
       classToken.drop();
-      builder.error(ParserStrings.message("parser.parse.expected.className"));
+      builder.error(ParserBundle.message("parser.parse.expected.className"));
     }
   }
 }

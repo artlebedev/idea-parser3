@@ -2,9 +2,9 @@ package ru.artlebedev.idea.plugins.parser.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.openapi.diagnostic.Logger;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -43,7 +43,7 @@ public class IncludeParser extends BaseTokenParser {
       return;
     }
     if (builder.getTokenType() != ParserTokenTypes.IDENTIFIER && !ParserTokenTypes.PATH_CHARACTERS.contains(builder.getTokenType())) {
-      builder.error(ParserStrings.message("parser.parse.expected.includePath"));
+      builder.error(ParserBundle.message("parser.parse.expected.includePath"));
       include.drop();
       return;
     }
@@ -85,7 +85,7 @@ public class IncludeParser extends BaseTokenParser {
       } else if (!identifier && ParserTokenTypes.PATH_CHARACTERS.contains(builder.getTokenType())) {
         builder.advanceLexer();
       } else {
-        builder.error(ParserStrings.message("parser.parse.expected.pathEnd"));
+        builder.error(ParserBundle.message("parser.parse.expected.pathEnd"));
         break;
       }
       identifier = !identifier;

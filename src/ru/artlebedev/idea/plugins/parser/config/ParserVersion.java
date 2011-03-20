@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser;
+package ru.artlebedev.idea.plugins.parser.config;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>

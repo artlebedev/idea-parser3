@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.util;
+package ru.artlebedev.idea.plugins.parser;
 
 import com.intellij.CommonBundle;
 import com.intellij.reference.SoftReference;
@@ -26,11 +26,11 @@ import java.util.ResourceBundle;
  * limitations under the License.
  */
 
-public class ParserStrings {
+public class ParserBundle {
   private static Reference<ResourceBundle> ourBundle;
 
   @NonNls
-  private static final String BUNDLE = "ru.artlebedev.idea.plugins.parser.parser";
+  private static final String BUNDLE = "ru.artlebedev.idea.plugins.parser.ParserBundle";
 
   public static String message(@PropertyKey(resourceBundle = BUNDLE) String key, Object... params) {
     return CommonBundle.message(getBundle(), key, params);

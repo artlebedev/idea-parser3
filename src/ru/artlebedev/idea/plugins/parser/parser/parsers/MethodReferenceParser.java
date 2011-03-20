@@ -2,9 +2,9 @@ package ru.artlebedev.idea.plugins.parser.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.openapi.diagnostic.Logger;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -51,7 +51,7 @@ public class MethodReferenceParser extends BaseTokenParser {
         builder.advanceLexer();
       } else {
         if (!errorShown)
-          builder.error(ParserStrings.message("parser.parse.expected.methodName"));
+          builder.error(ParserBundle.message("parser.parse.expected.methodName"));
         break;
       }
     }
@@ -97,7 +97,7 @@ public class MethodReferenceParser extends BaseTokenParser {
     while (true) {
       if (builder.getTokenType() == ParserTokenTypes.KEY_AT_SIGN || builder.eof()) {
         marker.drop();
-        builder.error(ParserStrings.message("parser.parse.expected.closingBracket"));
+        builder.error(ParserBundle.message("parser.parse.expected.closingBracket"));
         return;
       }
       if (openedBrace.equals("(") && builder.getTokenType() == ParserTokenTypes.RPAR) {
@@ -153,7 +153,7 @@ public class MethodReferenceParser extends BaseTokenParser {
       } else {
         someRef.done(ParserElementTypes.UNIVERSAL_REFERENCE);
       }
-      builder.error(ParserStrings.message("parser.parse.expected.methodBracket"));
+      builder.error(ParserBundle.message("parser.parse.expected.methodBracket"));
       errorShown = true;
     }
     if (builder.getTokenType() == ParserTokenTypes.COLON || builder.getTokenType() == ParserTokenTypes.DOT)

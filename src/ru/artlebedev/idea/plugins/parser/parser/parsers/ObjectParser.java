@@ -2,9 +2,9 @@ package ru.artlebedev.idea.plugins.parser.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.openapi.diagnostic.Logger;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -56,7 +56,7 @@ public class ObjectParser extends BaseTokenParser {
           if (builder.getTokenType() == ParserTokenTypes.LBRACKET) {
             parseParameter(builder);
           } else {
-            builder.error(ParserStrings.message("parser.parse.expected.parameterBracketOrObjectName"));
+            builder.error(ParserBundle.message("parser.parse.expected.parameterBracketOrObjectName"));
           }
           expr.done(ParserElementTypes.CALLING_REFERENCE);
         } else {
@@ -67,7 +67,7 @@ public class ObjectParser extends BaseTokenParser {
       } else {
         if (!identifierMet) {
           expr.drop();
-          builder.error(ParserStrings.message("parser.parse.expected.objectName"));
+          builder.error(ParserBundle.message("parser.parse.expected.objectName"));
         } else {
           expr.done(ParserElementTypes.CALLING_REFERENCE);
         }
@@ -84,13 +84,13 @@ public class ObjectParser extends BaseTokenParser {
       if (ParserTokenTypes.OPENING_BRACES.contains(builder.getTokenType())) {
         parseParameter(builder);
       } else {
-        builder.error(ParserStrings.message("parser.parse.expected.methodBracket"));
+        builder.error(ParserBundle.message("parser.parse.expected.methodBracket"));
       }
     } else {
       if (builder.getTokenType() == ParserTokenTypes.LBRACKET) {
         parseParameter(builder);
       } else {
-        builder.error(ParserStrings.message("parser.parse.expected.objectName"));
+        builder.error(ParserBundle.message("parser.parse.expected.objectName"));
       }
     }
     marker.done(ParserElementTypes.HASH_KEY);
@@ -120,7 +120,7 @@ public class ObjectParser extends BaseTokenParser {
     while (true) {
       if (builder.getTokenType() == ParserTokenTypes.KEY_AT_SIGN || builder.eof()) {
         marker.drop();
-        builder.error(ParserStrings.message("parser.parse.expected.closingBracket"));
+        builder.error(ParserBundle.message("parser.parse.expected.closingBracket"));
         return;
       }
       if (openedBrace.equals("(") && builder.getTokenType() == ParserTokenTypes.RPAR) {

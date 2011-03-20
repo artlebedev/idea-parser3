@@ -1,4 +1,6 @@
-package ru.artlebedev.idea.plugins.parser;
+package ru.artlebedev.idea.plugins.parser.lang;
+
+import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -18,11 +20,9 @@ package ru.artlebedev.idea.plugins.parser;
  * limitations under the License.
  */
 
-public interface ParserLanguageConstants {
-  public static final String AUTO_METHOD_NAME = "auto";
-  public static final String AUTO_FILE = "auto.p";
-  public static final String CONFIG_METHOD_NAME = "config";
-  public static final String MAIN_METHOD_NAME = "main";
-  public static final String BASE_CLASS_NAME = "BASE";
+public interface ParserStandardClasses {
+  //	ParserClass HASH = new ParserClassImpl(new PlainTextFileElement());
+  ParserClass TABLE = ParserStandardClassesHelper.loadStandardClass("table.p");
+  ParserClass STRING = ParserStandardClassesHelper.loadStandardClass("string.p");
+  ParserClass INT = ParserStandardClassesHelper.loadStandardClass("int.p");
 }
-

@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.util;
+package ru.artlebedev.idea.plugins.parser;
 
 import com.intellij.openapi.util.IconLoader;
 import org.jetbrains.annotations.NonNls;
@@ -25,7 +25,7 @@ import javax.swing.*;
 
 public interface ParserIcons {
   @NonNls
-  String DATA_PATH = "/icons/";
+  String DATA_PATH = "/ru/artlebedev/idea/plugins/parser/icons/";
 
   Icon PARSER_LARGE_ICON = IconLoader.findIcon(DATA_PATH + "parser_file.png");
   Icon PARSER_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_file.png");

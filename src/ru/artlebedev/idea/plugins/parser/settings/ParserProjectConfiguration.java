@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser;
+package ru.artlebedev.idea.plugins.parser.settings;
 
 import com.intellij.codeInsight.completion.CompletionUtil;
 import com.intellij.openapi.application.ApplicationManager;
@@ -13,9 +13,9 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.completion.ParserCompletionData;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
-import ru.artlebedev.idea.plugins.parser.util.ParserIcons;
 
 import javax.swing.*;
 import java.util.ArrayList;

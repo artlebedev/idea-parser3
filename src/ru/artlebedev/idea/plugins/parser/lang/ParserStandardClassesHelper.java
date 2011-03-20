@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser;
+package ru.artlebedev.idea.plugins.parser.lang;
 
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.project.Project;
@@ -7,8 +7,8 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileFactory;
 import com.intellij.psi.PsiManager;
 import com.intellij.util.LocalTimeCounter;
+import ru.artlebedev.idea.plugins.parser.settings.ParserProjectConfiguration;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
-import ru.artlebedev.idea.plugins.parser.lang.Marker;
 import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;

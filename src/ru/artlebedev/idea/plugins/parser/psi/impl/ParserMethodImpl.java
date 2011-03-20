@@ -7,7 +7,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.Icons;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.ParserStandardClasses;
+import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.ParserDoc;

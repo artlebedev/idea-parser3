@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser;
+package ru.artlebedev.idea.plugins.parser.lang;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -18,7 +18,11 @@ package ru.artlebedev.idea.plugins.parser;
  * limitations under the License.
  */
 
-public class ParserComponents {
-  public static final String HighlighterFactory = "ParserHighlighterFactory";
-  public static final String PARSER_LOADER = "parser.support.loader";
+public interface ParserLanguageConstants {
+  public static final String AUTO_METHOD_NAME = "auto";
+  public static final String AUTO_FILE = "auto.p";
+  public static final String CONFIG_METHOD_NAME = "config";
+  public static final String MAIN_METHOD_NAME = "main";
+  public static final String BASE_CLASS_NAME = "BASE";
 }
+

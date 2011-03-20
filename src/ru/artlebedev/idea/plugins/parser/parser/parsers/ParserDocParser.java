@@ -3,7 +3,7 @@ package ru.artlebedev.idea.plugins.parser.parser.parsers;
 import com.intellij.lang.PsiBuilder;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -35,7 +35,7 @@ public class ParserDocParser extends BaseTokenParser {
         if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
           builder.advanceLexer();
         } else {
-          builder.error(ParserStrings.message("parser.parse.expected.parameter"));
+          builder.error(ParserBundle.message("parser.parse.expected.parameter"));
         }
         if (builder.getTokenType() == ParserTokenTypes.PARSERDOC_TYPE_KEYWORD) {
           PsiBuilder.Marker parserDocTypeInfo = builder.mark();
@@ -43,7 +43,7 @@ public class ParserDocParser extends BaseTokenParser {
           if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
             builder.advanceLexer();
           } else {
-            builder.error(ParserStrings.message("parser.parse.expected.className"));
+            builder.error(ParserBundle.message("parser.parse.expected.className"));
           }
           parserDocTypeInfo.done(ParserElementTypes.PARSERDOC_TYPE_INFO);
         }

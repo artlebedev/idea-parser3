@@ -1,9 +1,9 @@
 package ru.artlebedev.idea.plugins.parser.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
-import ru.artlebedev.idea.plugins.parser.util.ParserStrings;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -40,7 +40,7 @@ public class ClassParentParser extends BaseTokenParser {
       }
     } else {
       classParent.drop();
-      builder.error(ParserStrings.message("parser.parse.expected.baseTokenEnd"));
+      builder.error(ParserBundle.message("parser.parse.expected.baseTokenEnd"));
     }
   }
 }
