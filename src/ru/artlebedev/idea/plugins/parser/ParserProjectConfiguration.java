@@ -13,7 +13,7 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserCompletionData;
+import ru.artlebedev.idea.plugins.parser.completion.ParserCompletionData;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 import ru.artlebedev.idea.plugins.parser.util.ParserIcons;
 

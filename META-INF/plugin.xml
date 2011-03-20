@@ -41,14 +41,14 @@
 
     <!-- syntax highlighter -->
     <syntaxHighlighter key="Parser"
-                       implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserSyntaxHighlighter"/>
+                       implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter"/>
 
     <!-- language extension -->
     <lang.braceMatcher language="Parser"
-                       implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserBraceMatcher"/>
+                       implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserBraceMatcher"/>
 
     <lang.commenter language="Parser"
-                    implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserCommenter"/>
+                    implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserCommenter"/>
 
     <lang.parserDefinition language="Parser"
                            implementationClass="ru.artlebedev.idea.plugins.parser.lang.parser.ParserParserDefinition"/>
@@ -63,18 +63,18 @@
                                 implementationClass="ru.artlebedev.idea.plugins.parser.documentation.ParserDocumentationProvider"/>
 
     <lang.findUsagesProvider language="Parser"
-                             implementationClass="ru.artlebedev.idea.plugins.parser.editor.usages.ParserFindUsagesProvider"/>
+                             implementationClass="ru.artlebedev.idea.plugins.parser.findUsages.ParserFindUsagesProvider"/>
 
     <lang.formatter language="Parser"
-                    implementationClass="ru.artlebedev.idea.plugins.parser.editor.formatting.ParserFormattingModelBuilder"/>
+                    implementationClass="ru.artlebedev.idea.plugins.parser.formatter.ParserFormattingModelBuilder"/>
 
     <codeInsight.parameterInfo language="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.ParserParameterInfoHandler"/>
 
     <!-- code completion -->
-    <!--<completionData className="ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserCompletionData" />-->
+    <!--<completionData className="ru.artlebedev.idea.plugins.parser.editor.completionserCompletionData" />-->
 
     <annotator language="Parser"
-               implementationClass="ru.artlebedev.idea.plugins.parser.editor.annotator.ParserAnnotator"/>
+               implementationClass="ru.artlebedev.idea.plugins.parser.annotator.ParserAnnotator"/>
 
     <!-- Error reporter-->
     <!--<errorHandler implementation="ru.artlebedev.idea.plugins.parser.errorreporting.PluginErrorReportSubmitter"/>-->

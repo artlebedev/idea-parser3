@@ -5,7 +5,7 @@ import com.intellij.openapi.fileTypes.SingleLazyInstanceSyntaxHighlighterFactory
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserSyntaxHighlighter;
+import ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
