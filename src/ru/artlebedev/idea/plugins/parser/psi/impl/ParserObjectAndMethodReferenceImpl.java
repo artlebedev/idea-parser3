@@ -21,102 +21,113 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Copyright (c) 2011 Valeriy Yatsko
- * Copyright (c) 2011 ArtLebedev Studio
- * User: dwr
- * Date: 19.03.11
- * Time: 19:31
+ * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
+ * Copyright 2006 Jay Bird <a4blank@yahoo.com>
+ * Copyright 2006-2011 ArtLebedev Studio
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implements ParserObjectAndMethodReference, PsiReference {
-	public ParserObjectAndMethodReferenceImpl(ASTNode astNode) {
-		super(astNode);
-	}
+  public ParserObjectAndMethodReferenceImpl(ASTNode astNode) {
+    super(astNode);
+  }
 
-	public PsiElement setName(@NotNull String name) throws IncorrectOperationException {
-		return null;
-	}
+  public PsiElement setName(@NotNull String name) throws IncorrectOperationException {
+    return null;
+  }
 
-	public PsiElement getElement() {
-		return this;
-	}
+  public PsiElement getElement() {
+    return this;
+  }
 
-	public PsiReference getReference() {
-		return this;
-	}
+  public PsiReference getReference() {
+    return this;
+  }
 
-	public TextRange getRangeInElement() {
-		final PsiElement firstChild = getFirstChild();
-		final int startOffsetInParent = firstChild.getStartOffsetInParent();
-		return new TextRange(startOffsetInParent, startOffsetInParent + getNode().getTextLength());
-	}
+  public TextRange getRangeInElement() {
+    final PsiElement firstChild = getFirstChild();
+    final int startOffsetInParent = firstChild.getStartOffsetInParent();
+    return new TextRange(startOffsetInParent, startOffsetInParent + getNode().getTextLength());
+  }
 
-	@Nullable
-	public PsiElement resolve() {
-		return null;
-	}
+  @Nullable
+  public PsiElement resolve() {
+    return null;
+  }
 
-	public String getCanonicalText() {
-		return null;
-	}
+  public String getCanonicalText() {
+    return null;
+  }
 
-	public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
-		return null;
-	}
+  public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
+    return null;
+  }
 
-	public PsiElement bindToElement(PsiElement element) throws IncorrectOperationException {
-		return null;
-	}
+  public PsiElement bindToElement(PsiElement element) throws IncorrectOperationException {
+    return null;
+  }
 
-	public boolean isReferenceTo(PsiElement element) {
-		return false;
-	}
+  public boolean isReferenceTo(PsiElement element) {
+    return false;
+  }
 
-	public Object[] getVariants() {
-		PsiElement prevSibling = getPrevSibling();
+  public Object[] getVariants() {
+    PsiElement prevSibling = getPrevSibling();
 
-		while (!(prevSibling instanceof ParserObjectReferenceImpl)) {
-			prevSibling = prevSibling.getPrevSibling();
-		}
+    while (!(prevSibling instanceof ParserObjectReferenceImpl)) {
+      prevSibling = prevSibling.getPrevSibling();
+    }
 
-		ParserObjectReferenceImpl parserObjectReference = (ParserObjectReferenceImpl) prevSibling;
-		PsiElement resolveResult = parserObjectReference.resolve();
-		if (resolveResult instanceof ParserObject) {
-			ParserObject parserObject = (ParserObject) resolveResult;
-			if (parserObject == null)
-				return new Object[0];
+    ParserObjectReferenceImpl parserObjectReference = (ParserObjectReferenceImpl) prevSibling;
+    PsiElement resolveResult = parserObjectReference.resolve();
+    if (resolveResult instanceof ParserObject) {
+      ParserObject parserObject = (ParserObject) resolveResult;
+      if (parserObject == null)
+        return new Object[0];
 
-			ParserClass type = parserObject.getType();
-			if (type != null) {
-				ParserMethod[] methods = type.getMethods();
-				List<PsiElement> list = new ArrayList<PsiElement>();
-				for (ParserMethod method : methods) {
-					list.add(method);
-				}
-				return ParserLookupUtil.createSmartLookupItems(list);
-			}
-		}
-		if (resolveResult instanceof ParserParameter) {
-			String paramName = resolveResult.getText();
+      ParserClass type = parserObject.getType();
+      if (type != null) {
+        ParserMethod[] methods = type.getMethods();
+        List<PsiElement> list = new ArrayList<PsiElement>();
+        for (ParserMethod method : methods) {
+          list.add(method);
+        }
+        return ParserLookupUtil.createSmartLookupItems(list);
+      }
+    }
+    if (resolveResult instanceof ParserParameter) {
+      String paramName = resolveResult.getText();
 //			ParserMethod parserMethod = PsiTreeUtil.getParentOfType(resolveResult, ParserMethod.class, true, true);
       ParserMethod parserMethod = PsiTreeUtil.getParentOfType(resolveResult, ParserMethod.class, true);
-			if (parserMethod != null) {
-				ParserDocParameterInfo[] info = parserMethod.getParameterInfo();
-				for (ParserDocParameterInfo parameterInfo : info) {
-					if (parameterInfo.getName().equals(paramName)) {
-						ParserClass[] parserClasses = parameterInfo.getType();
-						List<PsiElement> list = new ArrayList<PsiElement>();
-						for (ParserClass parserClass : parserClasses) {
-							list.addAll(Arrays.asList(parserClass.getMethods()));
-						}
-						return ParserLookupUtil.createSmartLookupItems(list);
-					}
-				}
-			}
-		}
-		return new Object[0];
-	}
+      if (parserMethod != null) {
+        ParserDocParameterInfo[] info = parserMethod.getParameterInfo();
+        for (ParserDocParameterInfo parameterInfo : info) {
+          if (parameterInfo.getName().equals(paramName)) {
+            ParserClass[] parserClasses = parameterInfo.getType();
+            List<PsiElement> list = new ArrayList<PsiElement>();
+            for (ParserClass parserClass : parserClasses) {
+              list.addAll(Arrays.asList(parserClass.getMethods()));
+            }
+            return ParserLookupUtil.createSmartLookupItems(list);
+          }
+        }
+      }
+    }
+    return new Object[0];
+  }
 
-	public boolean isSoft() {
-		return false;
-	}
+  public boolean isSoft() {
+    return false;
+  }
 }

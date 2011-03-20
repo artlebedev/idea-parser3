@@ -36,26 +36,34 @@ public class ParserInsertHandler extends DefaultInsertHandler {
       PsiElement element = ((LookupValueWithPsiElement) o).getElement();
       if (element instanceof ParserMethod) {
         CaretModel caretModel = context.getEditor().getCaretModel();
-        String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
-        if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
-          context.getEditor().getDocument().insertString(caretModel.getOffset(), "[]");
-          caretModel.moveToOffset(caretModel.getOffset() + 2);
-          ParserMethod method = (ParserMethod) element;
-          if (method.getParameterList().getChildren().length > 0) {
-            caretModel.moveToOffset(caretModel.getOffset() - 1);
-            AutoPopupController.getInstance(context.getProject()).autoPopupParameterInfo(context.getEditor(), method);
+        try {
+          String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+          if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
+            context.getEditor().getDocument().insertString(caretModel.getOffset(), "[]");
+            caretModel.moveToOffset(caretModel.getOffset() + 2);
+            ParserMethod method = (ParserMethod) element;
+            if (method.getParameterList().getChildren().length > 0) {
+              caretModel.moveToOffset(caretModel.getOffset() - 1);
+              AutoPopupController.getInstance(context.getProject()).autoPopupParameterInfo(context.getEditor(), method);
+            }
           }
+        } catch(Exception ignored){
+
         }
       }
       if (element instanceof ParserClass) {
         CaretModel caretModel = context.getEditor().getCaretModel();
-        String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
-        if (!s.equals(":")) {
-          context.getEditor().getDocument().insertString(caretModel.getOffset(), ":");
-          caretModel.moveToOffset(caretModel.getOffset() + 1);
-        }
-//      AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor);
 
+        try {
+          String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+          if (!s.equals(":")) {
+            context.getEditor().getDocument().insertString(caretModel.getOffset(), ":");
+            caretModel.moveToOffset(caretModel.getOffset() + 1);
+          }
+//      AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor);
+        } catch(Exception ignored) {
+
+        }
       }
     }
   }
