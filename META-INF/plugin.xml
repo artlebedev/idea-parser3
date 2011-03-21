@@ -4,7 +4,7 @@
     Support for parser server-side scripting language. More about the language on
     http://parser.ru
   </description>
-  <version>1.0</version>
+  <version>1.0-dev</version>
   <vendor>ArtLebedev Studio</vendor>
   <idea-version since-build="8000"/>
 
