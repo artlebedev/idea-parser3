@@ -107,8 +107,6 @@ public class ParserFileIndex implements ProjectComponent {
   }
 
   public void projectOpened() {
-
-
     contributeClass(ParserStandardClasses.BOOL);
     contributeClass(ParserStandardClasses.VOID);
     contributeClass(ParserStandardClasses.STRING);
@@ -127,6 +125,13 @@ public class ParserFileIndex implements ProjectComponent {
     contributeClass(ParserStandardClasses.MAIL);
     contributeClass(ParserStandardClasses.MATH);
     contributeClass(ParserStandardClasses.MEMORY);
+    contributeClass(ParserStandardClasses.REFLECTION);
+    contributeClass(ParserStandardClasses.REGEX);
+    contributeClass(ParserStandardClasses.REQUEST);
+    contributeClass(ParserStandardClasses.RESPONSE);
+    contributeClass(ParserStandardClasses.STATUS);
+    contributeClass(ParserStandardClasses.XDOC);
+    contributeClass(ParserStandardClasses.XNODE);
 
     myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);

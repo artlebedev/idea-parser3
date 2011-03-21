@@ -39,4 +39,11 @@ public interface ParserStandardClasses {
   ParserClass MAIL = ParserStandardClassesHelper.loadStandardClass("mail.p");
   ParserClass MATH = ParserStandardClassesHelper.loadStandardClass("math.p");
   ParserClass MEMORY = ParserStandardClassesHelper.loadStandardClass("memory.p");
+  ParserClass REFLECTION = ParserStandardClassesHelper.loadStandardClass("reflection.p");
+  ParserClass REGEX = ParserStandardClassesHelper.loadStandardClass("regex.p");
+  ParserClass REQUEST = ParserStandardClassesHelper.loadStandardClass("request.p");
+  ParserClass RESPONSE = ParserStandardClassesHelper.loadStandardClass("response.p");
+  ParserClass STATUS = ParserStandardClassesHelper.loadStandardClass("status.p");
+  ParserClass XDOC = ParserStandardClassesHelper.loadStandardClass("xdoc.p");
+  ParserClass XNODE = ParserStandardClassesHelper.loadStandardClass("xnode.p");
 }
