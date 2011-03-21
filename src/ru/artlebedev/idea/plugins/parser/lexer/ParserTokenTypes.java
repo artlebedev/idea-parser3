@@ -68,7 +68,7 @@ public interface ParserTokenTypes {
   IElementType PARTIAL_KEYWORD = new ParserElementType("PARTIAL_KEYWORD");
 
   /*
-   * Supported in Parser 3.4.0
+   * Supported in Parser 3.4.1
    */
   IElementType DYNAMIC_KEYWORD = new ParserElementType("DYNAMIC_KEYWORD");
   IElementType STATIC_KEYWORD = new ParserElementType("STATIC_KEYWORD");
