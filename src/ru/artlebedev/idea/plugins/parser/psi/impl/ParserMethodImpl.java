@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
+import com.intellij.openapi.util.IconLoader;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
@@ -18,6 +19,7 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameterList;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserPassedParameter;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStaticClass;
 import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
 import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
 
@@ -44,6 +46,7 @@ import java.util.List;
  */
 
 public class ParserMethodImpl extends ParserElementImpl implements ParserMethod {
+  public static final Icon STATIC_ICON = IconLoader.getIcon("/nodes/static.png");
 
   private ParserObject resultObject;
   private int hasResult;
@@ -98,7 +101,11 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
     if(isConstructor()) {
       return Icons.CLASS_INITIALIZER;
     } else {
-      return Icons.METHOD_ICON;
+      if((getParent() != null) && (getParent() instanceof ParserStaticClass)) {
+        return STATIC_ICON;
+      } else {
+        return Icons.METHOD_ICON;
+      }
     }
   }
 
@@ -106,7 +113,11 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
     if(isConstructor()) {
       return Icons.CLASS_INITIALIZER;
     } else {
-      return Icons.METHOD_ICON;
+      if((getParent() != null) && (getParent() instanceof ParserStaticClass)) {
+        return STATIC_ICON;
+      } else {
+        return Icons.METHOD_ICON;
+      }
     }
   }
 

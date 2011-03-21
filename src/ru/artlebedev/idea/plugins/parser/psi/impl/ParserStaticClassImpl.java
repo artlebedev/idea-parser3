@@ -1,9 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserStaticMethod;
-
-import javax.swing.*;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStaticClass;
 
 /**
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
@@ -23,16 +21,12 @@ import javax.swing.*;
  * limitations under the License.
  */
 
-public class ParserStaticMethodImpl extends ParserMethodImpl implements ParserStaticMethod {
-  public ParserStaticMethodImpl(ASTNode astNode) {
+public class ParserStaticClassImpl extends ParserClassImpl implements ParserStaticClass {
+  public ParserStaticClassImpl(ASTNode astNode) {
     super(astNode);
   }
 
-  public Icon getIcon(int flags) {
-    return STATIC_ICON;
-  }
-
-  public Icon getIcon() {
-    return STATIC_ICON;
+  public String toString() {
+    return "ParserStaticClass";
   }
 }

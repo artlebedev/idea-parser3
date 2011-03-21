@@ -54,7 +54,24 @@ public class ClassParser extends BaseTokenParser {
 //				classNameToken.done(ParserElementTypes.CLASS_NAME);
       }
 
+      boolean staticClassDecl = false;
+      boolean dynamicClassDecl = false;
+
       while (!builder.eof() || builder.getTokenType() == ParserTokenTypes.CLASS_KEYWORD) {
+        if(builder.getTokenType() == ParserTokenTypes.STATIC_KEYWORD) {
+          if(!dynamicClassDecl) {
+            staticClassDecl = true;
+          } else {
+            ParserBundle.message("parser.parse.error.collisionStaticDynamic");
+          }
+        } else if(builder.getTokenType() == ParserTokenTypes.DYNAMIC_KEYWORD) {
+          if(!staticClassDecl) {
+            dynamicClassDecl = true;
+          } else {
+            ParserBundle.message("parser.parse.error.collisionStaticDynamic");
+          }
+        }
+
         BaseTokenParser parser = TokenParserFactory.getParser(builder);
         if (!(parser instanceof IndifferentParser)) {
           parser.parseToken(builder);
@@ -62,7 +79,14 @@ public class ClassParser extends BaseTokenParser {
           builder.advanceLexer();
         }
       }
-      classToken.done(ParserElementTypes.CLASS);
+
+      if(staticClassDecl) {
+        classToken.done(ParserElementTypes.STATIC_CLASS);
+      } else if(dynamicClassDecl) {
+        classToken.done(ParserElementTypes.DYNAMIC_CLASS);
+      } else {
+        classToken.done(ParserElementTypes.CLASS);
+      }
     } else {
       classToken.drop();
       builder.error(ParserBundle.message("parser.parse.expected.className"));
