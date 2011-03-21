@@ -75,6 +75,16 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
     return extensions[0];
   }
 
+  /*
+   * We have:
+   * - Parser file
+   * - Parser class
+   * - Imprimatur page processor
+   * - Imprimatur block processor
+   * - auto.p
+   * file icons actually, should we put them here?
+   * -- dwr
+   */
   public Icon getIcon() {
     return ParserIcons.PARSER_FILE_ICON;
   }
