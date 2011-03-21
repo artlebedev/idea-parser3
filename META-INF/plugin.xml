@@ -68,8 +68,10 @@
     <lang.formatter language="Parser"
                     implementationClass="ru.artlebedev.idea.plugins.parser.formatter.ParserFormattingModelBuilder"/>
 
+    <!-- CodeInsight (inc. autocomplete) -->
     <codeInsight.parameterInfo language="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.parameterInfo.ParserParameterInfoHandler"/>
 
+    <!-- annotator -->
     <annotator language="Parser"
                implementationClass="ru.artlebedev.idea.plugins.parser.annotator.ParserAnnotator"/>
   </extensions>
