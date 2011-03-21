@@ -92,7 +92,7 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
    * A file can be set to ignored, accepted or auto. Auto means that the content is checked.
    *
    * @param file The file to check
-   * @return True if BashSupport wants to take that file
+   * @return True if Parser Plugin wants to take that file
    */
   @Override
   public boolean isMyFileType(VirtualFile file) {
