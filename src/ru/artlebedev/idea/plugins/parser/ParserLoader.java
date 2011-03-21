@@ -35,26 +35,6 @@ public class ParserLoader implements ApplicationComponent {
           "cgi", "exec", "base64", "open",
           "measure", "_has_no_constructor_"});
 
-  public boolean enableActions = true;
-
-  public boolean isEnableActions() {
-    return enableActions;
-  }
-
-  public void setEnableActions(boolean enableActions) {
-    this.enableActions = enableActions;
-  }
-
-  public boolean htmlFilesAsParser = false;
-
-  public boolean isHtmlFilesAsParser() {
-    return htmlFilesAsParser;
-  }
-
-  public void setHtmlFilesAsParser(boolean htmlFilesAsParser) {
-    this.htmlFilesAsParser = htmlFilesAsParser;
-  }
-
   /**
    * You can get constructor names which user has defined. (since every method in a class could be a constructor it's useful to have a filter)
    *
@@ -62,10 +42,6 @@ public class ParserLoader implements ApplicationComponent {
    */
   public List<String> getConstructorNames() {
     return constructorNames;
-  }
-
-  public void setConstructorNames(List<String> constructorNames) {
-    this.constructorNames = constructorNames;
   }
 
   public static ParserLoader getInstance() {
