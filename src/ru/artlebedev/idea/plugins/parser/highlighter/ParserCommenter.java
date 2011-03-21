@@ -27,18 +27,14 @@ public class ParserCommenter implements Commenter {
     return "#";
   }
 
-  public boolean isLineCommentPrefixOnZeroColumn() {
-    return true;
-  }
-
   @Nullable
   public String getBlockCommentPrefix() {
-    return null;
+    return "^rem{";
   }
 
   @Nullable
   public String getBlockCommentSuffix() {
-    return null;
+    return "}";
   }
 
   public String getCommentedBlockCommentPrefix() {
