@@ -1,12 +1,12 @@
 <idea-plugin version="2">
-  <name>Parser for IDEA 10</name>
+  <name>Parser for IDEA</name>
   <description>
     Support for parser server-side scripting language. More about the language on
     http://parser.ru
   </description>
   <version>1.0</version>
   <vendor>ArtLebedev Studio</vendor>
-  <idea-version since-build="10300"/>
+  <idea-version since-build="8000"/>
 
   <application-components>
     <component>
