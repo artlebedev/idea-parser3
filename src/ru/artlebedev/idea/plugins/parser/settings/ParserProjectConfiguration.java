@@ -68,7 +68,7 @@ public class ParserProjectConfiguration implements ProjectComponent, Configurabl
   }
 
   public String getDisplayName() {
-    return "Parser classpaths";
+    return "Parser Classpaths";
   }
 
   public Icon getIcon() {
