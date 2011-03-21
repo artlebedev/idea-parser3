@@ -30,7 +30,8 @@ public class ParserLookupUtil {
     List<ParserSmartLookupItem> result = new ArrayList<ParserSmartLookupItem>();
     for (PsiElement element : elements) {
       if (element instanceof ParserNamedElement)
-        result.add(new ParserSmartLookupItem((PsiNamedElement) element));
+        if(!((ParserNamedElement) element).getName().equals("_has_no_constructor_"))
+          result.add(new ParserSmartLookupItem((PsiNamedElement) element));
     }
     return result.toArray(new ParserSmartLookupItem[0]);
   }
