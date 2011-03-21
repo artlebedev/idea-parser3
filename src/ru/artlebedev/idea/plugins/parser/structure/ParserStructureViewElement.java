@@ -7,9 +7,12 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -69,10 +72,36 @@ public class ParserStructureViewElement implements StructureViewTreeElement {
 
   public StructureViewTreeElement[] getChildren() {
     List<StructureViewTreeElement> elements = new ArrayList<StructureViewTreeElement>();
+    List<StructureViewTreeElement> base_elements = new ArrayList<StructureViewTreeElement>();
+
+    if(element instanceof ParserClass) {
+      if(((ParserClass) element).getParentClass() != null) {
+        for (PsiElement psiElement : ((ParserClass) element).getParentClass().getChildren()) {
+          for (Class suitableClass : ParserStructureViewModel.suitableClasses) {
+            if (suitableClass.isInstance(psiElement)) {
+              base_elements.add(new ParserStructureViewElement(psiElement));
+            }
+          }
+        }
+      }
+    }
 
     for (PsiElement psiElement : element.getChildren()) {
       for (Class suitableClass : ParserStructureViewModel.suitableClasses) {
         if (suitableClass.isInstance(psiElement)) {
+          if(psiElement instanceof ParserMethod) {
+            Iterator<StructureViewTreeElement> it = base_elements.iterator();
+
+            while(it.hasNext()) {
+              StructureViewTreeElement base_element = it.next();
+
+              if(base_element instanceof ParserMethod) {
+                if(((ParserMethod) base_element).getName().equals(((ParserMethod) psiElement).getName())) {
+                  it.remove();
+                }
+              }
+            }
+          }
           elements.add(new ParserStructureViewElement(psiElement));
         }
       }

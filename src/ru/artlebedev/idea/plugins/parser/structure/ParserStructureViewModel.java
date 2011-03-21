@@ -8,10 +8,8 @@ import com.intellij.ide.util.treeView.smartTree.Sorter;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 
@@ -38,7 +36,12 @@ import java.util.List;
 
 public class ParserStructureViewModel extends TextEditorBasedStructureViewModel {
   private PsiElement root;
-  public static List<Class> suitableClasses = Arrays.asList(new Class[]{ParserFile.class, ParserClass.class, ParserMethod.class, ParserObject.class});
+  public static List<Class> suitableClasses = Arrays.asList(new Class[]{
+          ParserFile.class,
+          ParserClass.class,
+          ParserMethod.class,
+          ParserObject.class
+  });
 
   public ParserStructureViewModel(PsiElement psiFile) {
     super(psiFile.getContainingFile());
