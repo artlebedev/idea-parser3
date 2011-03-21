@@ -9,5 +9,7 @@
   <template name="Parser class" type="template"><![CDATA[#parse("Parser file header.p")
 @CLASS
 ${NAME}
+
+@auto[]
 ]]></template>
 </templates>
