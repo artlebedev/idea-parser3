@@ -2,6 +2,7 @@ package ru.artlebedev.idea.plugins.parser.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.xml.XmlTokenType;
 
 %%
 
@@ -43,9 +44,19 @@ String={DoubleString}|{SingleString}
 DoubleString=\"[^\"\n\r]*\"
 SingleString='[^'\n\r]*'
 
+XMLALPHA=[:letter:]
+XMLDIGIT=[0-9]
+XMLTAG_NAME=({XMLALPHA}|"_"|":")({XMLALPHA}|{XMLDIGIT}|"_"|":"|"."|"-")*
+XMLNAME=({XMLALPHA}|"_"|":")({XMLALPHA}|{XMLDIGIT}|"_"|":"|"."|"-")*
+
 RussianLetters=[à-ÿÀ-ß]
 
 %state YYINITIAL
+%state TAG_NAME
+%state TAG_ATTRIBUTES
+%state ATTRIBUTE_VALUE_START
+%state ATTRIBUTE_VALUE_DQ
+%state ATTRIBUTE_VALUE_SQ
 %xstate PARSERDOC, LINE_COMMENT
 
 %%
@@ -64,6 +75,34 @@ RussianLetters=[à-ÿÀ-ß]
 
 <LINE_COMMENT> {
 	.*			{ yybegin(YYINITIAL); return ParserTokenTypes.SHARP_COMMENT; }
+}
+
+<YYINITIAL,TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"<" { yybegin(TAG_NAME); return XmlTokenType.XML_START_TAG_START; }
+<YYINITIAL,TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"</" { yybegin(TAG_NAME); return XmlTokenType.XML_END_TAG_START; }
+
+
+<TAG_NAME> {XMLTAG_NAME} { yybegin(TAG_ATTRIBUTES); return XmlTokenType.XML_TAG_NAME; }
+
+<TAG_ATTRIBUTES> ">" { yybegin(YYINITIAL); return XmlTokenType.XML_TAG_END; }
+<TAG_ATTRIBUTES> "/>" { yybegin(YYINITIAL); return XmlTokenType.XML_EMPTY_ELEMENT_END; }
+<TAG_ATTRIBUTES> {XMLNAME} { return XmlTokenType.XML_NAME; }
+<TAG_ATTRIBUTES> "=" { yybegin(ATTRIBUTE_VALUE_START); return XmlTokenType.XML_EQ; }
+
+<ATTRIBUTE_VALUE_START> ">" { yybegin(YYINITIAL); return XmlTokenType.XML_TAG_END; }
+<ATTRIBUTE_VALUE_START> "/>" { yybegin(YYINITIAL); return XmlTokenType.XML_EMPTY_ELEMENT_END; }
+<ATTRIBUTE_VALUE_START> "\"" { yybegin(ATTRIBUTE_VALUE_DQ); return XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER; }
+<ATTRIBUTE_VALUE_START> "'" { yybegin(ATTRIBUTE_VALUE_SQ); return XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER; }
+<ATTRIBUTE_VALUE_DQ> "\"" { yybegin(TAG_ATTRIBUTES); return XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER; }
+<ATTRIBUTE_VALUE_SQ> "'" { yybegin(TAG_ATTRIBUTES); return XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER; }
+<ATTRIBUTE_VALUE_DQ> [^\"] { return XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN; }
+<ATTRIBUTE_VALUE_SQ> [^'] { return XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN; }
+
+<TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ> {
+	{Escape}		{ return ParserTokenTypes.ESCAPE; }
+	^[ \t]+			{ return ParserTokenTypes.NEW_LINE_INDENT; }
+  {WhiteSpace}+		{ return ParserTokenTypes.WHITE_SPACE; }
+	^{NewLine}		{ return ParserTokenTypes.NEW_LINE_INDENT; }
+	{NewLine}		{ return ParserTokenTypes.NEW_LINE; }
 }
 
 <YYINITIAL> {

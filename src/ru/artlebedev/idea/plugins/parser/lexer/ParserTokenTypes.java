@@ -93,6 +93,7 @@ public interface ParserTokenTypes {
   IElementType NUMERIC_LITERAL = new ParserElementType("NUMERIC_LITERAL");
   IElementType STRING_LITERAL = new ParserElementType("STRING_LITERAL");
   IElementType ESCAPE = new ParserElementType("ESCAPE");
+  IElementType TAG_LITERAL = new ParserElementType("TAG_LITERAL");
 
   // Punctuators
   IElementType LBRACE = new ParserElementType("LBRACE");// {

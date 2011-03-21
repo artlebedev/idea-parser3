@@ -3,11 +3,13 @@ package ru.artlebedev.idea.plugins.parser.highlighter;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.HighlighterColors;
 import com.intellij.openapi.editor.SyntaxHighlighterColors;
+import com.intellij.openapi.editor.XmlHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.markup.EffectType;
 import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.xml.XmlTokenType;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserLexer;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
@@ -113,6 +115,11 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
           HighlighterColors.BAD_CHARACTER.getDefaultAttributes()
   );
 
+  static final TextAttributesKey PARSER_HTML = TextAttributesKey.createTextAttributesKey(
+          "PARSER.HTML",
+          new TextAttributes(Color.BLUE.darker(), null, null, null, Font.BOLD)
+  );
+
   static {
     keys1 = new HashMap<IElementType, TextAttributesKey>();
     keys2 = new HashMap<IElementType, TextAttributesKey>();
@@ -123,6 +130,7 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
     keys1.put(ParserTokenTypes.RESULT_KEYWORD, PARSER_RESULT);
     keys1.put(ParserTokenTypes.NUMERIC_LITERAL, PARSER_NUMBER);
     keys1.put(ParserTokenTypes.STRING_LITERAL, PARSER_STRING);
+    keys1.put(ParserTokenTypes.TAG_LITERAL, PARSER_HTML);
     /*keys1.put(ParserTokenTypes.REGEXP_LITERAL, JS_REGEXP);*/
 
     keys1.put(ParserTokenTypes.LPAR, PARSER_PARENTHS);
@@ -147,6 +155,24 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
     keys1.put(ParserTokenTypes.PARSERDOC_PARAM_KEYWORD, PARSER_LINE_COMMENT);
     keys1.put(ParserTokenTypes.BAD_CHARACTER, PARSER_BAD_CHARACTER);
 
+    keys1.put(XmlTokenType.XML_START_TAG_START, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_END_TAG_START, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_TAG_END, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_EMPTY_ELEMENT_END, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_TAG_NAME, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.TAG_WHITE_SPACE, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_NAME, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER, XmlHighlighterColors.XML_TAG);
+    keys1.put(XmlTokenType.XML_EQ, XmlHighlighterColors.XML_TAG);
+
+    keys2.put(XmlTokenType.XML_TAG_NAME, XmlHighlighterColors.XML_TAG_NAME);
+    keys2.put(XmlTokenType.XML_NAME, XmlHighlighterColors.XML_ATTRIBUTE_NAME);
+    keys2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+    keys2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+    keys2.put(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
+    keys2.put(XmlTokenType.XML_EQ, XmlHighlighterColors.XML_ATTRIBUTE_NAME);
   }
 
   @NotNull
