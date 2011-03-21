@@ -88,46 +88,6 @@ public class ParserStructureViewElement implements StructureViewTreeElement {
     return elements.toArray(new StructureViewTreeElement[elements.size()]);
   }
 
-//  public StructureViewTreeElement[] getChildren() {
-//    List<StructureViewTreeElement> elements = new ArrayList<StructureViewTreeElement>();
-//    List<StructureViewTreeElement> base_elements = new ArrayList<StructureViewTreeElement>();
-//
-//    if(element instanceof ParserClass) {
-//      if(((ParserClass) element).getParentClass() != null) {
-//        for (PsiElement psiElement : ((ParserClass) element).getParentClass().getChildren()) {
-//          for (Class suitableClass : ParserStructureViewModel.suitableClasses) {
-//            if (suitableClass.isInstance(psiElement)) {
-//              base_elements.add(new ParserStructureViewElement(psiElement));
-//            }
-//          }
-//        }
-//      }
-//    }
-//
-//    for (PsiElement psiElement : element.getChildren()) {
-//      for (Class suitableClass : ParserStructureViewModel.suitableClasses) {
-//        if (suitableClass.isInstance(psiElement)) {
-//          if(psiElement instanceof ParserMethod) {
-//            Iterator<StructureViewTreeElement> it = base_elements.iterator();
-//
-//            while(it.hasNext()) {
-//              StructureViewTreeElement base_element = it.next();
-//
-//              if(base_element instanceof ParserMethod) {
-//                if(((ParserMethod) base_element).getName().equals(((ParserMethod) psiElement).getName())) {
-//                  it.remove();
-//                }
-//              }
-//            }
-//          }
-//          elements.add(new ParserStructureViewElement(psiElement));
-//        }
-//      }
-//    }
-//
-//    return elements.toArray(new StructureViewTreeElement[elements.size()]);
-//  }
-
   public void navigate(boolean requestFocus) {
     ((NavigationItem) element).navigate(requestFocus);
   }
