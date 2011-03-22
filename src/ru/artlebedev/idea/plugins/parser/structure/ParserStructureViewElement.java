@@ -7,6 +7,7 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserStaticMethod;
@@ -83,7 +84,7 @@ public class ParserStructureViewElement implements StructureViewTreeElement {
       for (Class suitableClass : ParserStructureViewModel.suitableClasses) {
         if (suitableClass.isInstance(psiElement)) {
           if(psiElement instanceof ParserStaticMethod) {
-            if(((ParserMethod) psiElement).getName().equals("auto")) {
+            if(((ParserMethod) psiElement).getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
               StructureViewTreeElement[] staticVariables = new ParserStructureViewElement(psiElement).getChildren();
 
               for(int i = 0; i < staticVariables.length; i++) {

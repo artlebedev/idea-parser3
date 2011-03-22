@@ -6,6 +6,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.Icons;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
@@ -83,7 +84,8 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
   public boolean isStatic() {
     PsiElement element = getParent();
 
-    if((element != null) && (element instanceof ParserMethod) && ((ParserMethod) element).getName().equals("auto")) {
+    if((element != null) && (element instanceof ParserMethod)
+            && ((ParserMethod) element).getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
       return true;
     }
 

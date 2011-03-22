@@ -3,6 +3,7 @@ package ru.artlebedev.idea.plugins.parser.parser.parsers;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.openapi.diagnostic.Logger;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
 import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
@@ -49,7 +50,7 @@ public class MethodParser extends BaseTokenParser {
        * @auto is always static
        * -- dwr
        */
-      if((builder.getTokenText() != null) && builder.getTokenText().equals("auto"))
+      if((builder.getTokenText() != null) && builder.getTokenText().equals(ParserLanguageConstants.AUTO_METHOD_NAME))
         staticMethod = true;
 
 //			PsiBuilder.Marker methodName = builder.mark();
