@@ -45,6 +45,13 @@ public class MethodParser extends BaseTokenParser {
     builder.advanceLexer();
 
     if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
+      /*
+       * @auto is always static
+       * -- dwr
+       */
+      if((builder.getTokenText() != null) && builder.getTokenText().equals("auto"))
+        staticMethod = true;
+
 //			PsiBuilder.Marker methodName = builder.mark();
       builder.advanceLexer();
 //			methodName.done(ParserElementTypes.METHOD_NAME);

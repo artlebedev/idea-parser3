@@ -8,6 +8,8 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStaticMethod;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -80,6 +82,18 @@ public class ParserStructureViewElement implements StructureViewTreeElement {
     for (PsiElement psiElement : element.getChildren()) {
       for (Class suitableClass : ParserStructureViewModel.suitableClasses) {
         if (suitableClass.isInstance(psiElement)) {
+          if(psiElement instanceof ParserStaticMethod) {
+            if(((ParserMethod) psiElement).getName().equals("auto")) {
+              StructureViewTreeElement[] staticVariables = new ParserStructureViewElement(psiElement).getChildren();
+
+              for(int i = 0; i < staticVariables.length; i++) {
+                elements.add(staticVariables[i]);
+              }
+
+              continue;
+            }
+          }
+
           elements.add(new ParserStructureViewElement(psiElement));
         }
       }

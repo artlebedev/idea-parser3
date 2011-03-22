@@ -80,7 +80,26 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     return "ParserObject";
   }
 
+  public boolean isStatic() {
+    PsiElement element = getParent();
+
+    if((element != null) && (element instanceof ParserMethod) && ((ParserMethod) element).getName().equals("auto")) {
+      return true;
+    }
+
+    return false;
+  }
+
   public Icon getIcon(int flags) {
+    /*
+     * Here we introducing icon
+     * for noticing that this object
+     * is a static variable relatively
+     * to the class
+     */
+    if(isStatic())
+      return Icons.PROPERTY_ICON;
+
     return Icons.VARIABLE_ICON;
   }
 
