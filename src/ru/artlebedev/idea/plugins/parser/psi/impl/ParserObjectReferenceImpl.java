@@ -172,7 +172,6 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
   }
 
   public Object[] getVariants() {
-
     final PsiElement parent = getParent();
     if (!(parent instanceof ParserCallingReferenceImpl)) {
       return new Object[0];

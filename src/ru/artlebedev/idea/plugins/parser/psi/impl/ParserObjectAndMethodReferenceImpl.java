@@ -8,6 +8,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocParameterInfo;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
@@ -84,6 +85,22 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
 
   public Object[] getVariants() {
     PsiElement prevSibling = getPrevSibling();
+
+    if(getParent() instanceof ParserCallingReference) {
+      if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals("self")) {
+        ParserClass parserObject = (ParserClass) PsiTreeUtil.getParentOfType((PsiElement) getParent().getParent(), ParserClass.class, true);
+
+        if (parserObject == null)
+          return new Object[0];
+
+        ParserMethod[] methods = parserObject.getMethods();
+        List<PsiElement> list = new ArrayList<PsiElement>();
+        for (ParserMethod method : methods) {
+          list.add(method);
+        }
+        return ParserLookupUtil.createSmartLookupItems(list);
+      }
+    }
 
     while (!(prevSibling instanceof ParserObjectReferenceImpl)) {
       prevSibling = prevSibling.getPrevSibling();

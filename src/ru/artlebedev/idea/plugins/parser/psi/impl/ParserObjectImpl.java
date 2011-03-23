@@ -72,7 +72,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     if (result != null)
       return result;
     ASTNode self = getNode().findChildByType(ParserTokenTypes.SELF_KEYWORD);
-    if (self != null)
+    if(self != null)
       return self;
     return null;
   }
@@ -111,6 +111,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
 
   public ParserClass getType() {
     ParserPassedParameter value = getValue();
+    //System.out.println("get type " + getName());
     if (value != null) {
       PsiElement[] children = value.getChildren();
       if (children.length == 0 && value.getText().equals("")) {

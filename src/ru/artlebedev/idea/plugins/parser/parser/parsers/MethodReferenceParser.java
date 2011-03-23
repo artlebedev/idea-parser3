@@ -45,7 +45,10 @@ public class MethodReferenceParser extends BaseTokenParser {
     builder.advanceLexer();
 
     while (!ParserTokenTypes.OPENING_BRACES.contains(builder.getTokenType())) {
-      if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER || builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD) {
+      if (
+              builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
+              builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
+              builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD) {
         parseReference(builder);
       } else if (ParserTokenTypes.KEYWORDS.contains(builder.getTokenType())) {
         builder.advanceLexer();
@@ -124,7 +127,11 @@ public class MethodReferenceParser extends BaseTokenParser {
    * @param builder before the identifier
    */
   private void parseReference(PsiBuilder builder) {
-    LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.IDENTIFIER || builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD);
+    LOG.assertTrue(
+            builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
+            builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
+            builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD
+    );
     PsiBuilder.Marker someRef = builder.mark();
     builder.advanceLexer();
 
