@@ -7,6 +7,10 @@ import com.intellij.openapi.fileEditor.FileEditorManagerListener;
 import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.roots.ContentIterator;
+import com.intellij.openapi.roots.ModuleRootEvent;
+import com.intellij.openapi.roots.ModuleRootListener;
+import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileAdapter;
 import com.intellij.openapi.vfs.VirtualFileEvent;
@@ -21,10 +25,10 @@ import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.containers.HashMap;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserIncludePath;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserPassedParameter;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserIncludePathImpl;
@@ -59,6 +63,8 @@ public class ParserFileIndex implements ProjectComponent {
   private VirtualFileAdapter myFileListener;
   public Map<String, ParserFile> loadedClasses = new HashMap<String, ParserFile>();
   private PsiTreeChangeListener myTreeChangeListener;
+
+  private boolean hadFullReindex = false;
 
   /**
    * The return of this method is a list of classes currently in the index.
@@ -142,6 +148,9 @@ public class ParserFileIndex implements ProjectComponent {
 
     FileEditorManager.getInstance(myProject).addFileEditorManagerListener(new FileEditorManagerListener() {
       public void fileOpened(FileEditorManager source, VirtualFile file) {
+        if(!hadFullReindex) {
+          reindexProject();
+        }
         if (file.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
           contributeToClasses(file);
         }
@@ -158,7 +167,7 @@ public class ParserFileIndex implements ProjectComponent {
       public void fileCreated(VirtualFileEvent event) {
         VirtualFile file = event.getFile();
         if (file.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
-          processFileAdded((ParserFile) PsiManager.getInstance(myProject).findFile(file));
+          processFileAdded(PsiManager.getInstance(myProject).findFile(file));
         }
       }
 
@@ -171,6 +180,31 @@ public class ParserFileIndex implements ProjectComponent {
     };
 
     VirtualFileManager.getInstance().addVirtualFileListener(myFileListener);
+
+    ProjectRootManager.getInstance(myProject).addModuleRootListener(new ModuleRootListener() {
+      @Override
+      public void beforeRootsChange(ModuleRootEvent event) {
+        //To change body of implemented methods use File | Settings | File Templates.
+      }
+
+      @Override
+      public void rootsChanged(ModuleRootEvent event) {
+        reindexProject();
+      }
+    });
+  }
+
+  private void reindexProject() {
+    ProjectRootManager.getInstance(myProject).getFileIndex().iterateContent(new ContentIterator() {
+      @Override
+      public boolean processFile(VirtualFile fileOrDir) {
+        if(fileOrDir.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
+          contributeToClasses(fileOrDir);
+        }
+
+        return true;
+      }
+    });
   }
 
   /**
@@ -272,6 +306,7 @@ public class ParserFileIndex implements ProjectComponent {
   private class ParserTreeChangeListener extends PsiTreeChangeAdapter {
     public void childAdded(PsiTreeChangeEvent event) {
       final PsiElement child = event.getChild();
+
       if (child instanceof ParserFile && child.isPhysical()) {
         processFileAdded((ParserFile) child);
       } else {
