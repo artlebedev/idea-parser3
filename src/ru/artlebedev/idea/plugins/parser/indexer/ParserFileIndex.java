@@ -115,14 +115,17 @@ public class ParserFileIndex implements ProjectComponent {
   public void projectOpened() {
     contributeClass(ParserStandardClasses.BOOL);
     contributeClass(ParserStandardClasses.VOID);
+    contributeClass(ParserStandardClasses.INT);
+
     contributeClass(ParserStandardClasses.STRING);
     contributeClass(ParserStandardClasses.TABLE);
     contributeClass(ParserStandardClasses.HASH);
+
     contributeClass(ParserStandardClasses.STRING);
     contributeClass(ParserStandardClasses.TABLE);
     contributeClass(ParserStandardClasses.HASH);
     // duplication is for better integration :) -- dwr
-    contributeClass(ParserStandardClasses.INT);
+
     contributeClass(ParserStandardClasses.COOKIE);
     contributeClass(ParserStandardClasses.CURL);
     contributeClass(ParserStandardClasses.DATE);
