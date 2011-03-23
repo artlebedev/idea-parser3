@@ -32,7 +32,8 @@ public class ParserLookupUtil {
       if (element instanceof ParserNamedElement)
         if((element instanceof ParserNamedElement) &&
            (((ParserNamedElement) element).getName() != null) &&
-           !((ParserNamedElement) element).getName().equals("_has_no_constructor_"))
+           !((ParserNamedElement) element).getName().equals("_has_no_constructor_") &&
+           !((ParserNamedElement) element).getName().equals("auto"))
           result.add(new ParserSmartLookupItem((PsiNamedElement) element));
     }
     return result.toArray(new ParserSmartLookupItem[0]);
