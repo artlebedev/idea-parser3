@@ -90,7 +90,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
       if(getParent() instanceof ParserCallingReference) {
         if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals("self")) {
           if(getParent().getParent() != null) {
-            ParserClass parserObject = (ParserClass) PsiTreeUtil.getParentOfType((PsiElement) getParent().getParent(), ParserClass.class, true);
+            ParserClass parserObject = PsiTreeUtil.getParentOfType((PsiElement) getParent().getParent(), ParserClass.class, true);
 
             if (parserObject == null)
               return new Object[0];
