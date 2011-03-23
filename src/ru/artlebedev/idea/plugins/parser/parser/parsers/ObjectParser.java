@@ -45,7 +45,10 @@ public class ObjectParser extends BaseTokenParser {
     identifierMet = false;
     noIdentifierAfterPunctuation = false;
     while (true) {
-      if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER || builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD || builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD) {
+      if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
+          builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
+          builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD ||
+          builder.getTokenType() == ParserTokenTypes.CALLER_KEYWORD) {
         identifierMet = true;
         parseReference(builder);
       } else if (builder.getTokenType() == ParserTokenTypes.WHITE_SPACE || builder.getTokenType() == ParserTokenTypes.NEW_LINE) {

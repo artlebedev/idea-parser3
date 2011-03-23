@@ -48,7 +48,8 @@ public class MethodReferenceParser extends BaseTokenParser {
       if (
               builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
               builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
-              builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD) {
+              builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD ||
+              builder.getTokenType() == ParserTokenTypes.CALLER_KEYWORD) {
         parseReference(builder);
       } else if (ParserTokenTypes.KEYWORDS.contains(builder.getTokenType())) {
         builder.advanceLexer();
