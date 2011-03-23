@@ -109,18 +109,6 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
     }
   }
 
-  public Icon getIcon() {
-    if(isConstructor()) {
-      return Icons.CLASS_INITIALIZER;
-    } else {
-      if((getParent() != null) && (getParent() instanceof ParserStaticClass)) {
-        return STATIC_ICON;
-      } else {
-        return Icons.METHOD_ICON;
-      }
-    }
-  }
-
   public ParserParameterList getParameterList() {
     return PsiTreeUtil.getChildOfAnyType(this, ParserParameterList.class);
   }

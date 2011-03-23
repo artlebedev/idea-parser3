@@ -68,10 +68,6 @@ public class ParserClassImpl extends ParserElementImpl implements ParserClass {
     return "ParserClass";
   }
 
-  public Icon getIcon() {
-    return Icons.CLASS_ICON;
-  }
-
   public Icon getIcon(int i) {
     return Icons.CLASS_ICON;
   }

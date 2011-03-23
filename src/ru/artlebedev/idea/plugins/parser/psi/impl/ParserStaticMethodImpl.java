@@ -31,8 +31,4 @@ public class ParserStaticMethodImpl extends ParserMethodImpl implements ParserSt
   public Icon getIcon(int flags) {
     return STATIC_ICON;
   }
-
-  public Icon getIcon() {
-    return STATIC_ICON;
-  }
 }

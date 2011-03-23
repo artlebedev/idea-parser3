@@ -105,10 +105,6 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     return Icons.VARIABLE_ICON;
   }
 
-  public Icon getIcon() {
-    return Icons.VARIABLE_ICON;
-  }
-
   public ParserClass getType() {
     ParserPassedParameter value = getValue();
     //System.out.println("get type " + getName());
