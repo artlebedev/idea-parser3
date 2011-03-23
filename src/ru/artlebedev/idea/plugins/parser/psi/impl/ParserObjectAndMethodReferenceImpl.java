@@ -86,19 +86,23 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
   public Object[] getVariants() {
     PsiElement prevSibling = getPrevSibling();
 
-    if(getParent() instanceof ParserCallingReference) {
-      if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals("self")) {
-        ParserClass parserObject = (ParserClass) PsiTreeUtil.getParentOfType((PsiElement) getParent().getParent(), ParserClass.class, true);
+    if(getParent() != null) {
+      if(getParent() instanceof ParserCallingReference) {
+        if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals("self")) {
+          if(getParent().getParent() != null) {
+            ParserClass parserObject = (ParserClass) PsiTreeUtil.getParentOfType((PsiElement) getParent().getParent(), ParserClass.class, true);
 
-        if (parserObject == null)
-          return new Object[0];
+            if (parserObject == null)
+              return new Object[0];
 
-        ParserMethod[] methods = parserObject.getMethods();
-        List<PsiElement> list = new ArrayList<PsiElement>();
-        for (ParserMethod method : methods) {
-          list.add(method);
+            ParserMethod[] methods = parserObject.getMethods();
+            List<PsiElement> list = new ArrayList<PsiElement>();
+            for (ParserMethod method : methods) {
+              list.add(method);
+            }
+            return ParserLookupUtil.createSmartLookupItems(list);
+          }
         }
-        return ParserLookupUtil.createSmartLookupItems(list);
       }
     }
 
