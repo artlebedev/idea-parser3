@@ -166,7 +166,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
         return ParserStandardClasses.INT;
       }
     }
-    return null;
+    return ParserStandardClasses.VOID;
   }
 
   @NotNull
