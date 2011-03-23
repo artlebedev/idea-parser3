@@ -150,6 +150,7 @@ public class ParserFileIndex implements ProjectComponent {
       public void fileOpened(FileEditorManager source, VirtualFile file) {
         if(!hadFullReindex) {
           reindexProject();
+          hadFullReindex = true;
         }
         if (file.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
           contributeToClasses(file);
