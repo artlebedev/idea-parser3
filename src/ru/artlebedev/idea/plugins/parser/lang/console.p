@@ -1,9 +1,9 @@
 @CLASS
-cookie
+console
 
 @_has_no_constructor_[]
 ###
 
 @auto[]
-$fieds[^hash::create[]]
+$line[]
 ###

@@ -126,6 +126,8 @@ public class ParserFileIndex implements ProjectComponent {
     contributeClass(ParserStandardClasses.HASH);
     // duplication is for better integration :) -- dwr
 
+    contributeClass(ParserStandardClasses.CONSOLE);
+    contributeClass(ParserStandardClasses.ENV);
     contributeClass(ParserStandardClasses.FORM);
     contributeClass(ParserStandardClasses.COOKIE);
     contributeClass(ParserStandardClasses.CURL);
