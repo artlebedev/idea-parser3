@@ -53,7 +53,7 @@ public class ParserModuleType extends ModuleType<ParserModuleBuilder> implements
   }
 
   public Icon getBigIcon() {
-    return ParserIcons.PARSER_LARGE_ICON;
+    return ParserIcons.PARSER_MODULE_ICON;
   }
 
   public Icon getNodeIcon(boolean isOpened) {
