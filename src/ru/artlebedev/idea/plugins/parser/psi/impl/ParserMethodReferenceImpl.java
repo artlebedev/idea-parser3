@@ -158,7 +158,6 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
       if (callingReference.isConstructorInvoked()) {
         List<PsiElement> possibleConstructors = new ArrayList<PsiElement>();
         for (ParserMethod method : methods) {
-          //  ApplicationManager.getApplication().getComponent(ParserLoader.class).getConstructorNames().contains(method.getName())
           if (method.isConstructor()) {
             possibleConstructors.add(method);
           }
