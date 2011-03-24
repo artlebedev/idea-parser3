@@ -61,7 +61,7 @@ public class ParserFile extends PsiFileBase implements ParserElement, HasMethods
 
   public void accept(PsiElementVisitor visitor) {
     if (visitor instanceof ParserElementVisitor) {
-      ((ParserElementVisitor) visitor).visitElement(this);
+      visitor.visitElement(this);
     } else {
       super.accept(visitor);
     }

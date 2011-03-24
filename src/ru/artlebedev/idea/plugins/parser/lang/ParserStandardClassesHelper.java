@@ -37,10 +37,6 @@ import java.lang.reflect.Method;
 public class ParserStandardClassesHelper {
   private static Project project;
 
-  public static void setProject(Project project) {
-    ParserStandardClassesHelper.project = project;
-  }
-
   public static ParserClass loadStandardClass(String fileName) {
     if (project == null) {
       project = ParserProjectConfiguration._project;
