@@ -194,11 +194,11 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
     return pack(keys1.get(tokenType), keys2.get(tokenType));
   }
 
-  public Map<IElementType, TextAttributesKey> getKeys1() {
-    return (Map<IElementType, TextAttributesKey>) ((HashMap) keys1).clone();
-  }
-
-  public Map<IElementType, TextAttributesKey> getKeys2() {
-    return (Map<IElementType, TextAttributesKey>) ((HashMap) keys2).clone();
-  }
+//  public Map<IElementType, TextAttributesKey> getKeys1() {
+//    return (Map<IElementType, TextAttributesKey>) ((HashMap) keys1).clone();
+//  }
+//
+//  public Map<IElementType, TextAttributesKey> getKeys2() {
+//    return (Map<IElementType, TextAttributesKey>) ((HashMap) keys2).clone();
+//  }
 }
