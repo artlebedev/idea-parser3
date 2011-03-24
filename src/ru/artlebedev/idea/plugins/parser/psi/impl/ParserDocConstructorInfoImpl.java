@@ -79,7 +79,7 @@ public class ParserDocConstructorInfoImpl extends ParserElementImpl implements P
 
   public TextRange getRangeInElement() {
     final ASTNode firstChild = findNameNode();
-    if (firstChild.getTextRange() != null) {
+    if(firstChild.getTextRange() != null) {
       return firstChild.getTextRange().shiftRight(-1 * getNode().getStartOffset());
     }
     return null;
