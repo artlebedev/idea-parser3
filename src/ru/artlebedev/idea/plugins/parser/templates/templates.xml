@@ -10,6 +10,9 @@
 @CLASS
 ${NAME}
 
+@OPTIONS
+locals
+
 @auto[]
-]]></template>
+###]]></template>
 </templates>
