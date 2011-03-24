@@ -160,14 +160,12 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
 //		keys1.put(ParserTokenTypes.REM_COMMENT, PARSER_BLOCK_COMMENT);
 //		keys1.put(ParserTokenTypes.XML_STYLE_COMMENT, PARSER_BLOCK_COMMENT);
     keys1.put(ParserTokenTypes.SHARP_COMMENT, PARSER_LINE_COMMENT);
-    keys1.put(ParserTokenTypes.PARSERDOC_START, PARSER_LINE_COMMENT);
 
-//    keys1.put(ParserTokenTypes.PARSERDOC_TYPE_KEYWORD, PARSER_LINE_COMMENT);
-//    keys1.put(ParserTokenTypes.PARSERDOC_PARAM_KEYWORD, PARSER_LINE_COMMENT);
-//    keys1.put(ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD, PARSER_LINE_COMMENT);
+    keys1.put(ParserTokenTypes.PARSERDOC_START, PARSER_LINE_COMMENT);
     keys1.put(ParserTokenTypes.PARSERDOC_TYPE_KEYWORD, PARSER_PARSERDOC_COMMENT);
     keys1.put(ParserTokenTypes.PARSERDOC_PARAM_KEYWORD, PARSER_PARSERDOC_COMMENT);
     keys1.put(ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD, PARSER_PARSERDOC_COMMENT);
+    keys1.put(ParserTokenTypes.PARSERDOC_OPTIONAL_KEYWORD, PARSER_PARSERDOC_COMMENT);
 
     keys1.put(ParserTokenTypes.BAD_CHARACTER, PARSER_BAD_CHARACTER);
 
