@@ -18,22 +18,5 @@ package ru.artlebedev.idea.plugins.parser.psi.api;
  * limitations under the License.
  */
 
-public interface ParserMethod extends ParserElement, ParserNamedElement {
-
-  public static int NO_RESULT = 0;
-  public static int ONE_RESULT = 1;
-  public static int MANY_RESULTS = 2;
-
-  public boolean isConstructor();
-
-  public ParserParameterList getParameterList();
-
-  public ParserPassedParameter getReturnValue();
-
-  public ParserClass getReturnValueType();
-
-  public String getParserDoc();
-
-  public ParserDocParameterInfo[] getParameterInfo();
+public interface ParserDocConstructorInfo extends ParserElement {
 }
-

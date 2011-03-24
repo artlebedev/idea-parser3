@@ -52,6 +52,7 @@ public class ParserElementFactory {
     parsers.put(ParserElementTypes.PARSERDOC, ParserDocImpl.class);
     parsers.put(ParserElementTypes.PARSERDOC_PARAM_INFO, ParserDocParameterInfoImpl.class);
     parsers.put(ParserElementTypes.PARSERDOC_TYPE_INFO, ParserDocTypeInfoImpl.class);
+    parsers.put(ParserElementTypes.PARSERDOC_CONSTRUCTOR_INFO, ParserDocConstructorInfoImpl.class);
   }
 
 

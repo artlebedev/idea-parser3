@@ -51,7 +51,17 @@ public interface ParserElementTypes {
   IElementType PASSED_PARAMETER = new ParserElementType("PASSED_PARAMETER");
   IElementType CLASS_PARENT = new ParserElementType("CLASS_PARENT");
   IElementType HASH_KEY = new ParserElementType("HASH_KEY");
+
+  /*
+   * Well, here I am introducing ParserDoc v2 parsering.
+   * This is a proprietary format of myself based on the work of Jay Bird.
+   *
+   * Probably, I will rewrite all this stuff on JavaDoc.
+   *
+   * -- dwr
+   */
   IElementType PARSERDOC = new ParserElementType("PARSERDOC");
+  IElementType PARSERDOC_CONSTRUCTOR_INFO = new ParserElementType("PARSERDOC_CONSTRUCTOR_INFO");
   IElementType PARSERDOC_PARAM_INFO = new ParserElementType("PARSERDOC_PARAM_INFO");
   IElementType PARSERDOC_TYPE_INFO = new ParserElementType("PARSERDOC_TYPE_INFO");
 }

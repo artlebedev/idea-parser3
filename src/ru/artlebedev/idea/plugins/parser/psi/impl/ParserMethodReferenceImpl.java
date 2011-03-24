@@ -1,7 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
@@ -10,7 +9,6 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.artlebedev.idea.plugins.parser.ParserLoader;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.api.HasMethods;
 import ru.artlebedev.idea.plugins.parser.psi.api.IsTyped;
@@ -20,8 +18,8 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
-import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
 import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
+import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -160,7 +158,8 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
       if (callingReference.isConstructorInvoked()) {
         List<PsiElement> possibleConstructors = new ArrayList<PsiElement>();
         for (ParserMethod method : methods) {
-          if (ApplicationManager.getApplication().getComponent(ParserLoader.class).getConstructorNames().contains(method.getName())) {
+          //  ApplicationManager.getApplication().getComponent(ParserLoader.class).getConstructorNames().contains(method.getName())
+          if (method.isConstructor()) {
             possibleConstructors.add(method);
           }
         }

@@ -126,6 +126,13 @@ public class ObjectParser extends BaseTokenParser {
         builder.error(ParserBundle.message("parser.parse.expected.closingBracket"));
         return;
       }
+
+      /* if(builder.getTokenType() == ParserTokenTypes.SEMICOLON) {
+        marker.done(ParserElementTypes.PASSED_PARAMETER);
+      } else */
+
+      //System.out.println("=== " + builder.getTokenText());
+
       if (openedBrace.equals("(") && builder.getTokenType() == ParserTokenTypes.RPAR) {
         marker.done(ParserElementTypes.PASSED_PARAMETER);
         break;

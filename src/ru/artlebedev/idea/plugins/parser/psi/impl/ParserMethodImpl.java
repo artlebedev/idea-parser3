@@ -1,7 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
-import com.intellij.openapi.util.IconLoader;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
@@ -14,6 +13,7 @@ import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.ParserElementVisitor;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserDoc;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocConstructorInfo;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocParameterInfo;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
@@ -55,8 +55,27 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   // XXX should follow ParserDoc etc
-  private boolean isConstructor() {
-    return ParserLoader.getInstance().getConstructorNames().contains(getName());
+  public boolean isConstructor() {
+    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+      return true;
+    } else {
+      ParserDoc doc = PsiTreeUtil.getPrevSiblingOfType(this, ParserDoc.class);
+      while (doc != null) {
+        ParserDocConstructorInfo info = PsiTreeUtil.getChildOfType(doc, ParserDocConstructorInfo.class);
+        if (info != null) {
+          ParserMethod method = PsiTreeUtil.getNextSiblingOfType(doc, ParserMethod.class);
+
+          if(method.getName().equals(getName())) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        doc = PsiTreeUtil.getPrevSiblingOfType(doc, ParserDoc.class);
+      }
+    }
+
+    return false;
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {

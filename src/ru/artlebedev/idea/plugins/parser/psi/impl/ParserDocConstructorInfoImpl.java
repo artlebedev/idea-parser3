@@ -10,12 +10,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocTypeInfo;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
-import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
-import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocConstructorInfo;
 import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
+import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
+import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,8 +39,8 @@ import java.util.List;
  * limitations under the License.
  */
 
-public class ParserDocTypeInfoImpl extends ParserElementImpl implements ParserDocTypeInfo, PsiReference {
-  public ParserDocTypeInfoImpl(ASTNode astNode) {
+public class ParserDocConstructorInfoImpl extends ParserElementImpl implements ParserDocConstructorInfo, PsiReference {
+  public ParserDocConstructorInfoImpl(ASTNode astNode) {
     super(astNode);
   }
 
@@ -136,6 +136,6 @@ public class ParserDocTypeInfoImpl extends ParserElementImpl implements ParserDo
   }
 
   public String toString() {
-    return "ParserDocTypeInfo";
+    return "ParserDocConstructorInfo";
   }
 }

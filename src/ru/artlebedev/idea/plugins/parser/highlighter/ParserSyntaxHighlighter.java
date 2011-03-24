@@ -153,6 +153,7 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
     keys1.put(ParserTokenTypes.PARSERDOC_START, PARSER_LINE_COMMENT);
     keys1.put(ParserTokenTypes.PARSERDOC_TYPE_KEYWORD, PARSER_LINE_COMMENT);
     keys1.put(ParserTokenTypes.PARSERDOC_PARAM_KEYWORD, PARSER_LINE_COMMENT);
+    keys1.put(ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD, PARSER_LINE_COMMENT);
     keys1.put(ParserTokenTypes.BAD_CHARACTER, PARSER_BAD_CHARACTER);
 
     keys1.put(XmlTokenType.XML_START_TAG_START, XmlHighlighterColors.XML_TAG);
