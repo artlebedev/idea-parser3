@@ -42,12 +42,10 @@ public class ParserTemplatesLoader implements ApplicationComponent {
   private static final String TEMPLATES_FILE = "templates.xml";
 
   private FileTemplateManager templateManager;
-  private TemplateSettings settings;
 
   public ParserTemplatesLoader(final FileTemplateManager fileTemplateManager,
                                final TemplateSettings templateSettings) {
     templateManager = fileTemplateManager;
-    settings = templateSettings;
   }
 
   public void initComponent() {
