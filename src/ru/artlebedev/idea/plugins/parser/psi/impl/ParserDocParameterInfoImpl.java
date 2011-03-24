@@ -78,7 +78,12 @@ public class ParserDocParameterInfoImpl extends ParserElementImpl implements Par
 
   public TextRange getRangeInElement() {
     final ASTNode firstChild = findNameNode();
-    return firstChild.getTextRange().shiftRight(-1 * getNode().getStartOffset());
+    try {
+      TextRange textRange =  firstChild.getTextRange().shiftRight(-1 * getNode().getStartOffset());
+      return textRange;
+    } catch(Exception ignored) {
+      return null;
+    }
   }
 
   @Nullable
