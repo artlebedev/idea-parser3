@@ -1,6 +1,8 @@
 package ru.artlebedev.idea.plugins.parser.lexer;
 
 /**
+ * idea-parser3: slightly useful plugin.
+ * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
  * Copyright 2011 ArtLebedev Studio
  * Copyright 2009 Joachim Ansorg, mail@ansorg-it.com

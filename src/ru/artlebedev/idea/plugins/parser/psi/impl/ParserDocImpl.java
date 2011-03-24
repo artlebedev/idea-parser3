@@ -5,6 +5,8 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserDoc;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserDoc;
 
 /**
+ * idea-parser3: slightly useful plugin.
+ * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
  * Copyright 2006 Jay Bird <a4blank@yahoo.com>
  * Copyright 2006-2011 ArtLebedev Studio
