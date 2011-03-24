@@ -74,5 +74,7 @@
     <!-- annotator -->
     <annotator language="Parser"
                implementationClass="ru.artlebedev.idea.plugins.parser.annotator.ParserAnnotator"/>
+
+    <fileIconPatcher implementation="ru.artlebedev.idea.plugins.parser.ide.ParserFileIconPatcher"/>
   </extensions>
 </idea-plugin>
