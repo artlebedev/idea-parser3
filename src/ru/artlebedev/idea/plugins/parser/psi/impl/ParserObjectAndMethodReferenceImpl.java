@@ -98,7 +98,9 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
             ParserMethod[] methods = parserObject.getMethods();
             List<PsiElement> list = new ArrayList<PsiElement>();
             for (ParserMethod method : methods) {
-              list.add(method);
+              if(!method.isConstructor()) {
+                list.add(method);
+              }
             }
             return ParserLookupUtil.createSmartLookupItems(list);
           }
