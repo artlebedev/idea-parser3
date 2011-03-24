@@ -2,6 +2,7 @@ package ru.artlebedev.idea.plugins.parser.psi.lookup;
 
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserNamedElement;
 
 import java.util.ArrayList;
@@ -29,12 +30,15 @@ public class ParserLookupUtil {
   public static ParserSmartLookupItem[] createSmartLookupItems(List<PsiElement> elements) {
     List<ParserSmartLookupItem> result = new ArrayList<ParserSmartLookupItem>();
     for (PsiElement element : elements) {
-      if (element instanceof ParserNamedElement)
-        if((element instanceof ParserNamedElement) &&
-           (((ParserNamedElement) element).getName() != null) &&
-           !((ParserNamedElement) element).getName().equals("_has_no_constructor_") &&
-           !((ParserNamedElement) element).getName().equals("auto"))
+      if (element instanceof ParserNamedElement) {
+        if(((ParserNamedElement) element).getName() != null) {
           result.add(new ParserSmartLookupItem((PsiNamedElement) element));
+        }
+        if ((((ParserNamedElement) element).getName() != null) &&
+            !((ParserNamedElement) element).getName().equals(ParserLanguageConstants.HAS_NO_CONSTRUCTOR) &&
+            !((ParserNamedElement) element).getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME))
+          result.add(new ParserSmartLookupItem((PsiNamedElement) element));
+      }
     }
     return result.toArray(new ParserSmartLookupItem[0]);
   }

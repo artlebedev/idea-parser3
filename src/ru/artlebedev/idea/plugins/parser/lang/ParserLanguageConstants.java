@@ -24,5 +24,6 @@ public interface ParserLanguageConstants {
   public static final String CONFIG_METHOD_NAME = "config";
   public static final String MAIN_METHOD_NAME = "main";
   public static final String BASE_CLASS_NAME = "BASE";
+  public static final String HAS_NO_CONSTRUCTOR = "_has_no_constructor_";
 }
 
