@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser;
 
 import com.intellij.openapi.util.IconLoader;
+import com.intellij.util.Icons;
 import org.jetbrains.annotations.NonNls;
 
 import javax.swing.*;
@@ -31,4 +32,13 @@ public interface ParserIcons {
   Icon PARSER_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_file.png");
   Icon EMPTY = IconLoader.findIcon(DATA_PATH + "empty.gif");
   Icon CONFIGURATION = IconLoader.findIcon(DATA_PATH + "settings.png");
+
+  Icon PARSER_CLASS_ICON = Icons.CLASS_ICON;
+  Icon PARSER_VARIABLE_ICON = Icons.VARIABLE_ICON;
+  Icon PARSER_CLASS_INITIALIZER_ICON = Icons.CLASS_INITIALIZER;
+  Icon PARSER_METHOD_ICON = Icons.METHOD_ICON;
+  Icon PARSER_STATIC_METHOD_ICON = IconLoader.getIcon("/nodes/static.png");
+  Icon PARSER_PROPERTY_ICON = Icons.PROPERTY_ICON;
+  Icon PARSER_PARAMETER_ICON = Icons.PARAMETER_ICON;
+  Icon PARSER_BASE_CLASS_ICON = Icons.ABSTRACT_CLASS_ICON;
 }

@@ -4,8 +4,8 @@ import com.intellij.navigation.ItemPresentation;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
-import com.intellij.util.Icons;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 
 import javax.swing.*;
 
@@ -49,7 +49,7 @@ public class ParserStructureViewElementParent extends ParserStructureViewElement
       @Nullable
       public Icon getIcon(boolean open) {
         //return element.getIcon(0);
-        return Icons.ABSTRACT_CLASS_ICON;
+        return ParserIcons.PARSER_BASE_CLASS_ICON;
       }
 
       @Nullable

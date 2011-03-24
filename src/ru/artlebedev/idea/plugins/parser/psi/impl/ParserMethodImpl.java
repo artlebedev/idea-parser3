@@ -5,9 +5,9 @@ import com.intellij.openapi.util.IconLoader;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.util.Icons;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.ParserLoader;
 import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
@@ -46,8 +46,6 @@ import java.util.List;
  */
 
 public class ParserMethodImpl extends ParserElementImpl implements ParserMethod {
-  public static final Icon STATIC_ICON = IconLoader.getIcon("/nodes/static.png");
-
   private ParserObject resultObject;
   private int hasResult;
 
@@ -99,12 +97,12 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
 
   public Icon getIcon(int flags) {
     if(isConstructor()) {
-      return Icons.CLASS_INITIALIZER;
+      return ParserIcons.PARSER_CLASS_INITIALIZER_ICON;
     } else {
       if((getParent() != null) && (getParent() instanceof ParserStaticClass)) {
-        return STATIC_ICON;
+        return ParserIcons.PARSER_STATIC_METHOD_ICON;
       } else {
-        return Icons.METHOD_ICON;
+        return ParserIcons.PARSER_METHOD_ICON;
       }
     }
   }

@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserStaticMethod;
 
 import javax.swing.*;
@@ -29,6 +30,6 @@ public class ParserStaticMethodImpl extends ParserMethodImpl implements ParserSt
   }
 
   public Icon getIcon(int flags) {
-    return STATIC_ICON;
+    return ParserIcons.PARSER_STATIC_METHOD_ICON;
   }
 }

@@ -3,9 +3,9 @@ package ru.artlebedev.idea.plugins.parser.psi.impl;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.util.Icons;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
@@ -69,7 +69,7 @@ public class ParserClassImpl extends ParserElementImpl implements ParserClass {
   }
 
   public Icon getIcon(int i) {
-    return Icons.CLASS_ICON;
+    return ParserIcons.PARSER_CLASS_ICON;
   }
 
   public ParserMethod[] getMethods() {

@@ -2,11 +2,11 @@ package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
-import com.intellij.util.Icons;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserHashKey;
 
 import javax.swing.*;
@@ -48,6 +48,6 @@ public class ParserHashKeyImpl extends ParserElementImpl implements ParserHashKe
 
   @Nullable
   public Icon getIcon(int i) {
-    return Icons.VARIABLE_ICON;
+    return ParserIcons.PARSER_VARIABLE_ICON;
   }
 }
