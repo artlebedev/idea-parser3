@@ -125,11 +125,6 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
           HighlighterColors.BAD_CHARACTER.getDefaultAttributes()
   );
 
-  static final TextAttributesKey PARSER_HTML = TextAttributesKey.createTextAttributesKey(
-          "PARSER.HTML",
-          new TextAttributes(Color.BLUE.darker(), null, null, null, Font.BOLD)
-  );
-
   static {
     keys1 = new HashMap<IElementType, TextAttributesKey>();
     keys2 = new HashMap<IElementType, TextAttributesKey>();
@@ -140,7 +135,6 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase {
     keys1.put(ParserTokenTypes.RESULT_KEYWORD, PARSER_RESULT);
     keys1.put(ParserTokenTypes.NUMERIC_LITERAL, PARSER_NUMBER);
     keys1.put(ParserTokenTypes.STRING_LITERAL, PARSER_STRING);
-    keys1.put(ParserTokenTypes.TAG_LITERAL, PARSER_HTML);
     /*keys1.put(ParserTokenTypes.REGEXP_LITERAL, JS_REGEXP);*/
 
     keys1.put(ParserTokenTypes.LPAR, PARSER_PARENTHS);
