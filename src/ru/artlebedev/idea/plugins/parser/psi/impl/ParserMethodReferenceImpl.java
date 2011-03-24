@@ -24,6 +24,7 @@ import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
 import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -167,9 +168,7 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
       }
     }
     List<PsiElement> list = new ArrayList<PsiElement>();
-    for (ParserMethod method : methods) {
-      list.add(method);
-    }
+    list.addAll(Arrays.asList(methods));
     return ParserLookupUtil.createSmartLookupItems(list);
   }
 

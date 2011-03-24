@@ -18,6 +18,7 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
 import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserSmartLookupItem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -78,6 +79,7 @@ public class ParserParameterInfoHandler implements ParameterInfoHandler<ParserEl
             list.add((PsiElement) variant);
           }
         }
+        //System.out.println(Arrays.deepToString(list.toArray(new Object[0])));
         context.setItemsToShow(list.toArray(new Object[0]));
       }
     }
