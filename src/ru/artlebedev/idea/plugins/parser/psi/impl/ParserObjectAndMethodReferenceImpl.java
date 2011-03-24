@@ -92,7 +92,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
       if(getParent() instanceof ParserCallingReference) {
         if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals("self")) {
           if(getParent().getParent() != null) {
-            ParserClass parserObject = PsiTreeUtil.getParentOfType((PsiElement) getParent().getParent(), ParserClass.class, true);
+            ParserClass parserObject = PsiTreeUtil.getParentOfType(getParent().getParent(), ParserClass.class, true);
 
             if (parserObject == null)
               return new Object[0];
@@ -126,14 +126,15 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
         ParserMethod[] methods = type.getMethods();
         List<PsiElement> list = new ArrayList<PsiElement>();
         for (ParserMethod method : methods) {
-          list.add(method);
+          if(!method.isConstructor()) {
+            list.add(method);
+          }
         }
         return ParserLookupUtil.createSmartLookupItems(list);
       }
     }
     if (resolveResult instanceof ParserParameter) {
       String paramName = resolveResult.getText();
-//			ParserMethod parserMethod = PsiTreeUtil.getParentOfType(resolveResult, ParserMethod.class, true, true);
       ParserMethod parserMethod = PsiTreeUtil.getParentOfType(resolveResult, ParserMethod.class, true);
       if (parserMethod != null) {
         ParserDocParameterInfo[] info = parserMethod.getParameterInfo();
