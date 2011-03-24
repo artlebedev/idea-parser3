@@ -22,6 +22,7 @@ package ru.artlebedev.idea.plugins.parser.lang;
 
 public interface ParserLanguageConstants {
   public static final String AUTO_METHOD_NAME = "auto";
+  public static final String SELF_NAME = "self";
   public static final String AUTO_FILE = "auto.p";
   public static final String CONFIG_METHOD_NAME = "config";
   public static final String MAIN_METHOD_NAME = "main";

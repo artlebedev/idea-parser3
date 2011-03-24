@@ -8,6 +8,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserDocParameterInfo;
@@ -90,7 +91,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
 
     if(getParent() != null) {
       if(getParent() instanceof ParserCallingReference) {
-        if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals("self")) {
+        if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME)) {
           if(getParent().getParent() != null) {
             ParserClass parserObject = PsiTreeUtil.getParentOfType(getParent().getParent(), ParserClass.class, true);
 
