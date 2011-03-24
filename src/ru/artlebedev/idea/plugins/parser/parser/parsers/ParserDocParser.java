@@ -27,7 +27,7 @@ public class ParserDocParser extends BaseTokenParser {
   public void parseToken(PsiBuilder builder) {
     PsiBuilder.Marker parserDoc = builder.mark();
 
-    while (builder.getTokenType() != ParserTokenTypes.NEW_LINE) {
+    while ((builder.getTokenType() != ParserTokenTypes.NEW_LINE) && !builder.eof()) {
       if (builder.getTokenType() == ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD) {
         PsiBuilder.Marker parserDocConstructorInfo = builder.mark();
         parserDocConstructorInfo.done(ParserElementTypes.PARSERDOC_CONSTRUCTOR_INFO);
@@ -52,7 +52,7 @@ public class ParserDocParser extends BaseTokenParser {
         }
         parserDocParamInfo.done(ParserElementTypes.PARSERDOC_PARAM_INFO);
       }
-      if (builder.getTokenType() == ParserTokenTypes.NEW_LINE) {
+      if (builder.getTokenType() == ParserTokenTypes.NEW_LINE || builder.eof()) {
         break;
       } else {
         builder.advanceLexer();

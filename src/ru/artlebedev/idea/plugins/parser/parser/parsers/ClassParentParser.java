@@ -27,7 +27,7 @@ public class ClassParentParser extends BaseTokenParser {
   public void parseToken(PsiBuilder builder) {
     PsiBuilder.Marker classParent = builder.mark();
     builder.advanceLexer();
-    if (builder.getTokenType() == ParserTokenTypes.NEW_LINE) {
+    if ((builder.getTokenType() == ParserTokenTypes.NEW_LINE) || builder.eof()) {
       builder.advanceLexer();
       if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
         PsiBuilder.Marker parentClass = builder.mark();

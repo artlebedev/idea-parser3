@@ -36,7 +36,7 @@ public class IncludeParser extends BaseTokenParser {
     LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.USE_KEYWORD);
     PsiBuilder.Marker include = builder.mark();
     builder.advanceLexer();
-    if (builder.getTokenType() == ParserTokenTypes.NEW_LINE) {
+    if ((builder.getTokenType() == ParserTokenTypes.NEW_LINE) || builder.eof()) {
       builder.advanceLexer();
     } else {
       include.drop();
@@ -56,7 +56,7 @@ public class IncludeParser extends BaseTokenParser {
         newLineDropped = true;
       }
       parsePath(builder);
-      if (builder.getTokenType() == ParserTokenTypes.NEW_LINE) {
+      if ((builder.getTokenType() == ParserTokenTypes.NEW_LINE) || builder.eof()) {
         builder.advanceLexer();
         newLineMarker = builder.mark();
         newLineDropped = false;
@@ -77,7 +77,7 @@ public class IncludeParser extends BaseTokenParser {
     }
 
     boolean identifier = true;
-    while (builder.getTokenType() != ParserTokenTypes.NEW_LINE) {
+    while ((builder.getTokenType() != ParserTokenTypes.NEW_LINE) && !builder.eof()) {
       if (identifier && builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
         PsiBuilder.Marker pathSegment = builder.mark();
         builder.advanceLexer();

@@ -35,7 +35,7 @@ public class ClassParser extends BaseTokenParser {
     LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.CLASS_KEYWORD);
     PsiBuilder.Marker classToken = builder.mark();
     builder.advanceLexer();
-    if (builder.getTokenType() == ParserTokenTypes.NEW_LINE) {
+    if ((builder.getTokenType() == ParserTokenTypes.NEW_LINE) || builder.eof()) {
       builder.advanceLexer();
     } else {
       classToken.drop();
@@ -47,7 +47,7 @@ public class ClassParser extends BaseTokenParser {
 //			PsiBuilder.Marker classNameToken = builder.mark();
       builder.advanceLexer();
 
-      if (builder.getTokenType() != ParserTokenTypes.NEW_LINE) {
+      if ((builder.getTokenType() != ParserTokenTypes.NEW_LINE) && !builder.eof()) {
         builder.error(ParserBundle.message("parser.parse.expected.classNameEnd"));
 //				classNameToken.drop();
       } else {
