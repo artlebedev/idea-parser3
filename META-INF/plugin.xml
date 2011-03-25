@@ -46,6 +46,8 @@
     <syntaxHighlighter key="Parser"
                        implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter"/>
 
+    <colorSettingsPage implementation="ru.artlebedev.idea.plugins.parser.highlighter.ParserColorsAndFontsPage"/>
+
     <!-- language extension -->
     <lang.braceMatcher language="Parser"
                        implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserBraceMatcher"/>
