@@ -110,57 +110,63 @@ public class ParserSyntaxHighlighter extends SyntaxHighlighterBase implements Pa
 
   private static final Map<IElementType, TextAttributesKey> attributes;
 
+  public static final TokenSet parserDocSet = TokenSet.create(ParserTokenTypes.PARSERDOC_TYPE_KEYWORD, ParserTokenTypes.PARSERDOC_PARAM_KEYWORD, ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD, ParserTokenTypes.PARSERDOC_OPTIONAL_KEYWORD);
+  public static final TokenSet parsSet = TokenSet.create(ParserTokenTypes.LPAR, ParserTokenTypes.RPAR);
+  public static final TokenSet bracesSet = TokenSet.create(ParserTokenTypes.LBRACE, ParserTokenTypes.RBRACE);
+  public static final TokenSet bracketsSet = TokenSet.create(ParserTokenTypes.LBRACKET, ParserTokenTypes.RBRACKET);
+  public static final TokenSet atSignSet = TokenSet.create(ParserTokenTypes.KEY_AT_SIGN, ParserTokenTypes.HAT_SIGN, ParserTokenTypes.DOLLAR);
+  public static final TokenSet lineCommentSet = TokenSet.create(ParserTokenTypes.SHARP_COMMENT, ParserTokenTypes.PARSERDOC_START);
+  public static final TokenSet resultKeywordSet = TokenSet.create(ParserTokenTypes.RESULT_KEYWORD);
+  public static final TokenSet numericLiteralSet = TokenSet.create(ParserTokenTypes.NUMERIC_LITERAL);
+  public static final TokenSet stringLiteralSet = TokenSet.create(ParserTokenTypes.STRING_LITERAL);
+  public static final TokenSet semicolonSet = TokenSet.create(ParserTokenTypes.SEMICOLON);
+  public static final TokenSet badCharacterSet = TokenSet.create(ParserTokenTypes.BAD_CHARACTER);
+  public static final TokenSet xmlTagSet = TokenSet.create(
+    XmlTokenType.XML_START_TAG_START,
+    XmlTokenType.XML_END_TAG_START,
+    XmlTokenType.XML_TAG_END,
+    XmlTokenType.XML_EMPTY_ELEMENT_END,
+    XmlTokenType.XML_TAG_NAME,
+    XmlTokenType.TAG_WHITE_SPACE,
+    XmlTokenType.XML_NAME,
+    XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN,
+    XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER,
+    XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER,
+    XmlTokenType.XML_EQ
+  );
+  public static final TokenSet xmlAttributeValueSet = TokenSet.create(
+    XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN,
+    XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER,
+    XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER
+  );
+  public static final TokenSet xmlAttributeName = TokenSet.create(
+    XmlTokenType.XML_NAME,
+    XmlTokenType.XML_EQ
+  );
+  public static final TokenSet xmlAttributeTagName = TokenSet.create(
+    XmlTokenType.XML_TAG_NAME
+  );
+
   static {
     attributes = new HashMap<IElementType, TextAttributesKey>();
 
     fillMap(attributes, ParserTokenTypes.KEYWORDS, PARSER_KEYWORD);
     fillMap(attributes, ParserTokenTypes.OPERATIONS, PARSER_OPERATION_SIGN);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.RESULT_KEYWORD), PARSER_RESULT);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.NUMERIC_LITERAL), PARSER_NUMBER);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.STRING_LITERAL), PARSER_STRING);
-
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.LPAR), PARSER_PARENTHS);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.RPAR), PARSER_PARENTHS);
-
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.LBRACE), PARSER_BRACES);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.RBRACE), PARSER_BRACES);
-
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.LBRACKET), PARSER_BRACKETS);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.RBRACKET), PARSER_BRACKETS);
-
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.KEY_AT_SIGN), PARSER_KEY_AT_SIGN);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.HAT_SIGN), PARSER_KEY_AT_SIGN);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.DOLLAR), PARSER_KEY_AT_SIGN);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.SEMICOLON), PARSER_SEMICOLON);
-
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.SHARP_COMMENT), PARSER_LINE_COMMENT);
-
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.PARSERDOC_START), PARSER_LINE_COMMENT);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.PARSERDOC_TYPE_KEYWORD), PARSER_PARSERDOC_COMMENT);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.PARSERDOC_PARAM_KEYWORD), PARSER_PARSERDOC_COMMENT);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD), PARSER_PARSERDOC_COMMENT);
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.PARSERDOC_OPTIONAL_KEYWORD), PARSER_PARSERDOC_COMMENT);
-
-    fillMap(attributes, TokenSet.create(ParserTokenTypes.BAD_CHARACTER), PARSER_BAD_CHARACTER);
-
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_START_TAG_START), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_END_TAG_START), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_TAG_END), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_EMPTY_ELEMENT_END), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_TAG_NAME), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.TAG_WHITE_SPACE), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_NAME), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER), XmlHighlighterColors.XML_TAG);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_EQ), XmlHighlighterColors.XML_TAG);
-
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_TAG_NAME), XmlHighlighterColors.XML_TAG_NAME);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_NAME), XmlHighlighterColors.XML_ATTRIBUTE_NAME);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN), XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER), XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER), XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
-    fillMap(attributes, TokenSet.create(XmlTokenType.XML_EQ), XmlHighlighterColors.XML_ATTRIBUTE_NAME);
+    fillMap(attributes, resultKeywordSet, PARSER_RESULT);
+    fillMap(attributes, numericLiteralSet, PARSER_NUMBER);
+    fillMap(attributes, stringLiteralSet, PARSER_STRING);
+    fillMap(attributes, parsSet, PARSER_PARENTHS);
+    fillMap(attributes, bracesSet, PARSER_BRACES);
+    fillMap(attributes, bracketsSet, PARSER_BRACKETS);
+    fillMap(attributes, atSignSet, PARSER_KEY_AT_SIGN);
+    fillMap(attributes, semicolonSet, PARSER_SEMICOLON);
+    fillMap(attributes, lineCommentSet, PARSER_LINE_COMMENT);
+    fillMap(attributes, parserDocSet, PARSER_PARSERDOC_COMMENT);
+    fillMap(attributes, badCharacterSet, PARSER_BAD_CHARACTER);
+    fillMap(attributes, xmlTagSet, XmlHighlighterColors.XML_TAG);
+    fillMap(attributes, xmlAttributeTagName, XmlHighlighterColors.XML_TAG_NAME);
+    fillMap(attributes, xmlAttributeName, XmlHighlighterColors.XML_ATTRIBUTE_NAME);
+    fillMap(attributes, xmlAttributeValueSet, XmlHighlighterColors.XML_ATTRIBUTE_VALUE);
   }
 
   @NotNull
