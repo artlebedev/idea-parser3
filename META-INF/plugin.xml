@@ -1,12 +1,13 @@
-<idea-plugin version="2">
+<idea-plugin version="2" url="https://github.com/codingbox/idea-parser3">
   <name>Parser for IDEA</name>
-  <description>
-    Support for parser server-side scripting language. More about the language on
-    http://parser.ru
+  <description><![CDATA[<html><body>Support for parser server-side scripting language. More about the language on
+    http://parser.ru</body></html>]]>
   </description>
   <version>1.0-dev</version>
-  <vendor>ArtLebedev Studio</vendor>
-  <idea-version since-build="8000"/>
+  <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
+  <idea-version since-build="93.13"/>
+
+  <depends optional="true">com.intellij.modules.lang</depends>
 
   <application-components>
     <component>
