@@ -3,7 +3,7 @@
   <description><![CDATA[<html><body>Support for parser server-side scripting language. More about the language on
     http://parser.ru</body></html>]]>
   </description>
-  <version>1.0-dev</version>
+  <version>1.0-alpha1</version>
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="93.13"/>
 
