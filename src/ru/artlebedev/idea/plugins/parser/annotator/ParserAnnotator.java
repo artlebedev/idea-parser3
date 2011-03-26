@@ -6,7 +6,7 @@ import com.intellij.lang.annotation.Annotator;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.psi.PsiElement;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.psi.ParserElementVisitor;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserIncludePathImpl;
@@ -49,14 +49,32 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
     }
   }
 
+  // XXX move colors out to fonts and colors dialog!
   public void visitParserMethod(ParserMethodImpl method) {
     final TextAttributesKey PARSER_METHOD_NAME = TextAttributesKey.createTextAttributesKey(
             "PARSER.METHOD",
             new TextAttributes(Color.GREEN.darker().darker(), null, null, null, Font.BOLD)
     );
 
+    final TextAttributesKey PARSER_GETTER_NAME = TextAttributesKey.createTextAttributesKey(
+            "PARSER.GETTER",
+            new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD)
+    );
+
+    final TextAttributesKey PARSER_AUTO_NAME = TextAttributesKey.createTextAttributesKey(
+            "PARSER.AUTO",
+            new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD)
+    );
+
     Annotation annotation = myHolder.createInfoAnnotation(method.findNameNode(), null);
-    annotation.setTextAttributes(PARSER_METHOD_NAME);
+
+    if(method.getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
+      annotation.setTextAttributes(PARSER_AUTO_NAME);
+    } else if(method.getName().startsWith(ParserLanguageConstants.GETTER_METHOD_PREFIX)) {
+      annotation.setTextAttributes(PARSER_GETTER_NAME);
+    } else {
+      annotation.setTextAttributes(PARSER_METHOD_NAME);
+    }
   }
 
   public void visitParserClassReference(ParserClassReference parserClassReference) {
