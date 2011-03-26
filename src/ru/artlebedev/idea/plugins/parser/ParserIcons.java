@@ -31,14 +31,14 @@ public interface ParserIcons {
   String DATA_PATH = "/ru/artlebedev/idea/plugins/parser/icons/";
 
 //  Icon PARSER_LARGE_ICON = IconLoader.findIcon(DATA_PATH + "parser_large.png");
-  Icon PARSER_MODULE_ICON = IconLoader.findIcon(DATA_PATH + "parser_module.png");
-  Icon PARSER_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_file.png");
+  Icon PARSER_MODULE_ICON = IconLoader.getIcon(DATA_PATH + "parser_module.png");
+  Icon PARSER_FILE_ICON = IconLoader.getIcon(DATA_PATH + "parser_file.png");
 
-  Icon PARSER_CLASS_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_class.png");
-  Icon PARSER_HTML_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_html.png");
+  Icon PARSER_CLASS_FILE_ICON = IconLoader.getIcon(DATA_PATH + "parser_class.png");
+  Icon PARSER_HTML_FILE_ICON = IconLoader.getIcon(DATA_PATH + "parser_html.png");
 
-  Icon EMPTY = IconLoader.findIcon(DATA_PATH + "empty.gif");
-  Icon CONFIGURATION = IconLoader.findIcon(DATA_PATH + "settings.png");
+  Icon EMPTY = IconLoader.getIcon(DATA_PATH + "empty.gif");
+  Icon CONFIGURATION = IconLoader.getIcon(DATA_PATH + "settings.png");
 
   Icon PARSER_CLASS_ICON = Icons.CLASS_ICON;
   Icon PARSER_VARIABLE_ICON = Icons.VARIABLE_ICON;
