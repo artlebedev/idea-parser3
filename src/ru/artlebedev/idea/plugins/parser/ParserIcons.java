@@ -32,10 +32,10 @@ public interface ParserIcons {
 
 //  Icon PARSER_LARGE_ICON = IconLoader.findIcon(DATA_PATH + "parser_large.png");
   Icon PARSER_MODULE_ICON = IconLoader.findIcon(DATA_PATH + "parser_module.png");
-  Icon PARSER_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_file_new.png");
+  Icon PARSER_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_file.png");
 
-  Icon PARSER_CLASS_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_class_new.png");
-  Icon PARSER_HTML_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_html_new.png");
+  Icon PARSER_CLASS_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_class.png");
+  Icon PARSER_HTML_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_html.png");
 
   Icon EMPTY = IconLoader.findIcon(DATA_PATH + "empty.gif");
   Icon CONFIGURATION = IconLoader.findIcon(DATA_PATH + "settings.png");
