@@ -44,7 +44,7 @@
 
     <!-- syntax highlighter -->
     <syntaxHighlighter key="Parser"
-                       implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter"/>
+                       implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserFileSyntaxHighlighter"/>
 
     <colorSettingsPage implementation="ru.artlebedev.idea.plugins.parser.highlighter.ParserColorsAndFontsPage"/>
 
@@ -73,8 +73,12 @@
     <lang.formatter language="Parser"
                     implementationClass="ru.artlebedev.idea.plugins.parser.formatter.ParserFormattingModelBuilder"/>
 
+    <lang.fileViewProviderFactory language="Parser"
+                                  implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileViewProviderFactory"/>
+
     <!-- CodeInsight (inc. autocomplete) -->
-    <codeInsight.parameterInfo language="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.parameterInfo.ParserParameterInfoHandler"/>
+    <codeInsight.parameterInfo language="Parser"
+                               implementationClass="ru.artlebedev.idea.plugins.parser.parameterInfo.ParserParameterInfoHandler"/>
 
     <!-- annotator -->
     <annotator language="Parser"

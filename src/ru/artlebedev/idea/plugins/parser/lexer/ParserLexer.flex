@@ -77,32 +77,32 @@ RussianLetters=[а-яА-Я]
 	.*			{ yybegin(YYINITIAL); return ParserTokenTypes.SHARP_COMMENT; }
 }
 
-<YYINITIAL,TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"<" { yybegin(TAG_NAME); return XmlTokenType.XML_START_TAG_START; }
-<YYINITIAL,TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"</" { yybegin(TAG_NAME); return XmlTokenType.XML_END_TAG_START; }
+<YYINITIAL,TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"<" { yybegin(TAG_NAME); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<YYINITIAL,TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"</" { yybegin(TAG_NAME); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 
 
-<TAG_NAME> {XMLTAG_NAME} { yybegin(TAG_ATTRIBUTES); return XmlTokenType.XML_TAG_NAME; }
+<TAG_NAME> {XMLTAG_NAME} { yybegin(TAG_ATTRIBUTES); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 
-<TAG_ATTRIBUTES> ">" { yybegin(YYINITIAL); return XmlTokenType.XML_TAG_END; }
-<TAG_ATTRIBUTES> "/>" { yybegin(YYINITIAL); return XmlTokenType.XML_EMPTY_ELEMENT_END; }
-<TAG_ATTRIBUTES> {XMLNAME} { return XmlTokenType.XML_NAME; }
-<TAG_ATTRIBUTES> "=" { yybegin(ATTRIBUTE_VALUE_START); return XmlTokenType.XML_EQ; }
+<TAG_ATTRIBUTES> ">" { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<TAG_ATTRIBUTES> "/>" { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<TAG_ATTRIBUTES> {XMLNAME} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<TAG_ATTRIBUTES> "=" { yybegin(ATTRIBUTE_VALUE_START); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 
-<ATTRIBUTE_VALUE_START> ">" { yybegin(YYINITIAL); return XmlTokenType.XML_TAG_END; }
-<ATTRIBUTE_VALUE_START> "/>" { yybegin(YYINITIAL); return XmlTokenType.XML_EMPTY_ELEMENT_END; }
-<ATTRIBUTE_VALUE_START> "\"" { yybegin(ATTRIBUTE_VALUE_DQ); return XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER; }
-<ATTRIBUTE_VALUE_START> "'" { yybegin(ATTRIBUTE_VALUE_SQ); return XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER; }
-<ATTRIBUTE_VALUE_DQ> "\"" { yybegin(TAG_ATTRIBUTES); return XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER; }
-<ATTRIBUTE_VALUE_SQ> "'" { yybegin(TAG_ATTRIBUTES); return XmlTokenType.XML_ATTRIBUTE_VALUE_END_DELIMITER; }
-<ATTRIBUTE_VALUE_DQ> [^\"] { return XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN; }
-<ATTRIBUTE_VALUE_SQ> [^'] { return XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN; }
+<ATTRIBUTE_VALUE_START> ">" { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<ATTRIBUTE_VALUE_START> "/>" { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<ATTRIBUTE_VALUE_START> "\"" { yybegin(ATTRIBUTE_VALUE_DQ); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<ATTRIBUTE_VALUE_START> "'" { yybegin(ATTRIBUTE_VALUE_SQ); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<ATTRIBUTE_VALUE_DQ> "\"" { yybegin(TAG_ATTRIBUTES); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<ATTRIBUTE_VALUE_SQ> "'" { yybegin(TAG_ATTRIBUTES); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<ATTRIBUTE_VALUE_DQ> [^\"] { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<ATTRIBUTE_VALUE_SQ> [^'] { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 
 <TAG_NAME,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ> {
-	{Escape}		{ return ParserTokenTypes.ESCAPE; }
-	^[ \t]+			{ return ParserTokenTypes.NEW_LINE_INDENT; }
-  {WhiteSpace}+		{ return ParserTokenTypes.WHITE_SPACE; }
-	^{NewLine}		{ return ParserTokenTypes.NEW_LINE_INDENT; }
-	{NewLine}		{ return ParserTokenTypes.NEW_LINE; }
+	{Escape}		{ return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+	^[ \t]+			{ return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+  {WhiteSpace}+		{ return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+	^{NewLine}		{ return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+	{NewLine}		{ return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 }
 
 <YYINITIAL> {

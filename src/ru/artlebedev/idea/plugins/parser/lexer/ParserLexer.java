@@ -1,7 +1,10 @@
 package ru.artlebedev.idea.plugins.parser.lexer;
 
+import com.intellij.lang.StdLanguages;
 import com.intellij.lexer.FlexAdapter;
-import ru.artlebedev.idea.plugins.parser.config.ParserVersion;
+import com.intellij.lexer.LayeredLexer;
+import com.intellij.lexer.Lexer;
+import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -23,12 +26,13 @@ import ru.artlebedev.idea.plugins.parser.config.ParserVersion;
  * limitations under the License.
  */
 
-public class ParserLexer extends MergingLexer implements ParserTokenTypes {
+public class ParserLexer extends LayeredLexer {
   public ParserLexer() {
-    this(ParserVersion.Parser_v3_4_1);
+    super(new FlexAdapter(new _ParserLexer()));
+    registerLayer(getHtmlHighlightingLexer() /*, ParserTokenTypes.BAD_CHARACTER*/);
   }
 
-  public ParserLexer(ParserVersion parserVersion) {
-    super(new FlexAdapter(new _ParserLexer()));
+  private static Lexer getHtmlHighlightingLexer() {
+      return SyntaxHighlighterFactory.getSyntaxHighlighter(StdLanguages.HTML, null, null).getHighlightingLexer();
   }
 }

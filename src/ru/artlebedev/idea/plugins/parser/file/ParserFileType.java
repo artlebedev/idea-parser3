@@ -2,14 +2,19 @@ package ru.artlebedev.idea.plugins.parser.file;
 
 import com.intellij.lang.Language;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.editor.colors.EditorColorsScheme;
+import com.intellij.openapi.editor.highlighter.EditorHighlighter;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.fileTypes.ex.FileTypeIdentifiableByVirtualFile;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.Parser;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.ParserLanguage;
+import ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -123,5 +128,10 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
     }
 
     return false;
+  }
+
+  @Override
+  public EditorHighlighter getEditorHighlighter(@Nullable final Project project, @Nullable final VirtualFile virtualFile, @NotNull EditorColorsScheme colors) {
+    return new ParserSyntaxHighlighter(project, virtualFile, colors);
   }
 }

@@ -1,11 +1,6 @@
 package ru.artlebedev.idea.plugins.parser;
 
-import com.intellij.lang.Language;
-import com.intellij.openapi.fileTypes.SingleLazyInstanceSyntaxHighlighterFactory;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
-import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter;
+import com.intellij.lang.xml.XMLLanguage;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -27,17 +22,17 @@ import ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter;
  * limitations under the License.
  */
 
-public class ParserLanguage extends Language {
+public class ParserLanguage extends XMLLanguage {
   public ParserLanguage() {
     super("Parser");
 
-    SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new ParserHighlighterFactory());
+    //SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new ParserHighlighterFactory());
   }
 
-  private static class ParserHighlighterFactory extends SingleLazyInstanceSyntaxHighlighterFactory {
+  /*private static class ParserHighlighterFactory extends SingleLazyInstanceSyntaxHighlighterFactory {
       @NotNull
       protected SyntaxHighlighter createHighlighter() {
           return new ParserSyntaxHighlighter();
       }
-  }
+  }*/
 }
