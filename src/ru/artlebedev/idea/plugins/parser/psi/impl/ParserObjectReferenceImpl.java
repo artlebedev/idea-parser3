@@ -11,22 +11,23 @@ import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
-import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserHashKey;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameter;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserPassedParameter;
+import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
 import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
 import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
-import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -180,7 +181,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     }
     ParserCallingReferenceImpl reference = (ParserCallingReferenceImpl) parent;
 
-    List<PsiElement> result = new ArrayList<PsiElement>();
+    //List<PsiElement> result = new ArrayList<PsiElement>();
+    HashSet<PsiElement> result = new HashSet<PsiElement>();
     if (reference.getReferenceClass() == null && reference.getReferenceObjects().length == 1) {
       Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
       result.addAll(ParserResolveUtil.getClassesFromFiles(parserFiles));
@@ -228,11 +230,28 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       }
     } else {
       result.addAll(ParserResolveUtil.collectParameters(this));
-      result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+
+      if(getParent() != null) {
+        if(getParent().getParent() != null) {
+          if(getParent().getParent().getParent() != null) {
+            ParserClass parserClass = (ParserClass) getParent().getParent().getParent();
+            for(PsiElement method : parserClass.getChildren()) {
+              if(method instanceof ParserMethod) {
+                for(PsiElement methodChild : method.getChildren()) {
+                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                }
+              }
+            }
+          }
+        }
+      }
+      //result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
     }
 
 //		return result.toArray(new PsiElement[0]);
-    return ParserLookupUtil.createSmartLookupItems(result);
+    List<PsiElement> resultList = new ArrayList<PsiElement>();
+    resultList.addAll(result);
+    return ParserLookupUtil.createSmartLookupItems(resultList);
   }
 
   public boolean isSoft() {

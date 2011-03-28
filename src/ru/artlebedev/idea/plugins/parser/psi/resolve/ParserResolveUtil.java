@@ -4,15 +4,15 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
+import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
+import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
-import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameterList;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserIncludePathImpl;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserMethodReferenceImpl;
-import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

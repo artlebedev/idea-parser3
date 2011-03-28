@@ -5,7 +5,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.TokenSet;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
 
@@ -103,15 +105,19 @@ public class ParserCallingReferenceImpl extends ParserElementImpl implements Par
 
   public ParserObjectReference[] getReferenceObjects() {
     ArrayList<ParserObjectReference> result = new ArrayList<ParserObjectReference>();
+
     PsiElement[] children = getChildren();
+
     for (PsiElement element : children) {
       if (element instanceof ParserObjectReference) {
         result.add((ParserObjectReference) element);
       }
     }
+
     if (result.size() == 0) {
       return new ParserObjectReference[0];
     }
+
     return result.toArray(new ParserObjectReference[0]);
   }
 
