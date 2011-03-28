@@ -239,6 +239,16 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
             ParserClass parserClass = (ParserClass) getParent().getParent().getParent();
 
             if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
+              for(PsiElement method : parserClass.getChildren()) {
+                if(method instanceof ParserMethod) {
+                  if(((ParserMethod) method).getName().equals("auto")) {
+                    for(PsiElement methodChild : method.getChildren()) {
+                      result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                    }
+                  }
+                }
+              }
+
               result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
             } else {
               for(PsiElement method : parserClass.getChildren()) {
@@ -249,15 +259,11 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
                 }
               }
             }
-          } else {
-            result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
           }
-        } else {
-          result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
         }
-      } else {
-        result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
       }
+
+      result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
     }
 
 //		return result.toArray(new PsiElement[0]);
