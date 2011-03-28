@@ -58,19 +58,26 @@ public class ClassParser extends BaseTokenParser {
 
       boolean staticClassDecl = false;
       boolean dynamicClassDecl = false;
+      boolean strictClassDecl = false;
 
       while (!builder.eof() || builder.getTokenType() == ParserTokenTypes.CLASS_KEYWORD) {
-        if(builder.getTokenType() == ParserTokenTypes.STATIC_KEYWORD) {
+        IElementType tokenType = builder.getTokenType();
+
+        if(tokenType == ParserTokenTypes.STATIC_KEYWORD) {
           if(!dynamicClassDecl) {
             staticClassDecl = true;
           } else {
             ParserBundle.message("parser.parse.error.collisionStaticDynamic");
           }
-        } else if(builder.getTokenType() == ParserTokenTypes.DYNAMIC_KEYWORD) {
+        } else if(tokenType == ParserTokenTypes.DYNAMIC_KEYWORD) {
           if(!staticClassDecl) {
             dynamicClassDecl = true;
           } else {
             ParserBundle.message("parser.parse.error.collisionStaticDynamic");
+          }
+        } else if(tokenType == ParserTokenTypes.LOCALS_KEYWORD) {
+          if(!strictClassDecl) {
+            strictClassDecl = true;
           }
         }
 
@@ -85,9 +92,17 @@ public class ClassParser extends BaseTokenParser {
       if(staticClassDecl) {
         classToken.done(ParserElementTypes.STATIC_CLASS);
       } else if(dynamicClassDecl) {
-        classToken.done(ParserElementTypes.DYNAMIC_CLASS);
+        if(strictClassDecl) {
+          classToken.done(ParserElementTypes.DYNAMIC_STRICT_CLASS);
+        } else {
+          classToken.done(ParserElementTypes.DYNAMIC_CLASS);
+        }
       } else {
-        classToken.done(ParserElementTypes.CLASS);
+        if(strictClassDecl) {
+          classToken.done(ParserElementTypes.STRICT_CLASS);
+        } else {
+          classToken.done(ParserElementTypes.CLASS);
+        }
       }
     } else {
       classToken.drop();

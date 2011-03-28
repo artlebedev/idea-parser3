@@ -20,6 +20,8 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameter;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserPassedParameter;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStrictClass;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStrictDynamicClass;
 import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
 import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
 import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
@@ -235,17 +237,27 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         if(getParent().getParent() != null) {
           if(getParent().getParent().getParent() != null) {
             ParserClass parserClass = (ParserClass) getParent().getParent().getParent();
-            for(PsiElement method : parserClass.getChildren()) {
-              if(method instanceof ParserMethod) {
-                for(PsiElement methodChild : method.getChildren()) {
-                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+
+            if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
+              result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+            } else {
+              for(PsiElement method : parserClass.getChildren()) {
+                if(method instanceof ParserMethod) {
+                  for(PsiElement methodChild : method.getChildren()) {
+                    result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                  }
                 }
               }
             }
+          } else {
+            result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
           }
+        } else {
+          result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
         }
+      } else {
+        result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
       }
-      //result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
     }
 
 //		return result.toArray(new PsiElement[0]);

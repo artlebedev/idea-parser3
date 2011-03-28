@@ -35,6 +35,8 @@ public class ParserElementFactory {
     parsers.put(ParserElementTypes.CLASS, ParserClassImpl.class);
     parsers.put(ParserElementTypes.STATIC_CLASS, ParserStaticClassImpl.class);
     parsers.put(ParserElementTypes.DYNAMIC_CLASS, ParserDynamicClassImpl.class);
+    parsers.put(ParserElementTypes.STRICT_CLASS, ParserStrictClassImpl.class);
+    parsers.put(ParserElementTypes.DYNAMIC_STRICT_CLASS, ParserStrictDynamicClassImpl.class);
     parsers.put(ParserElementTypes.INCLUDE, ParserIncludeImpl.class);
     parsers.put(ParserElementTypes.INCLUDE_PATH, ParserIncludePathImpl.class);
     parsers.put(ParserElementTypes.METHOD, ParserMethodImpl.class);

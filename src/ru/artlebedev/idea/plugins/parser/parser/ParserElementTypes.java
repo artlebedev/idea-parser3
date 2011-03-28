@@ -36,6 +36,10 @@ public interface ParserElementTypes {
   IElementType CLASS = new ParserElementType("CLASS");
   IElementType STATIC_CLASS = new ParserElementType("STATIC_CLASS");
   IElementType DYNAMIC_CLASS = new ParserElementType("DYNAMIC_CLASS");
+
+  IElementType STRICT_CLASS = new ParserElementType("STRICT_CLASS");
+  IElementType DYNAMIC_STRICT_CLASS = new ParserElementType("DYNAMIC_STRICT_CLASS");
+
   IElementType WHITE_SPACE = new ParserElementType("WHITE_SPACE");
   IElementType METHOD = new ParserElementType("METHOD");
   IElementType STATIC_METHOD = new ParserElementType("STATIC_METHOD");
