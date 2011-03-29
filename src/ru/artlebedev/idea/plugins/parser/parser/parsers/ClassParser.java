@@ -79,6 +79,10 @@ public class ClassParser extends BaseTokenParser {
           if(!strictClassDecl) {
             strictClassDecl = true;
           }
+        } else if(tokenType == ParserTokenTypes.PARTIAL_KEYWORD) {
+          /*
+           * TODO implement partial support here
+           */
         }
 
         BaseTokenParser parser = TokenParserFactory.getParser(builder);
