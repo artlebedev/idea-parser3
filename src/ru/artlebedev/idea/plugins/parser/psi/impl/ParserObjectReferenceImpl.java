@@ -12,6 +12,7 @@ import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserHashKey;
@@ -211,7 +212,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       return new Object[0];
     }
 
-    if (reference.getReferenceObjects().length > 1) {
+    if ((reference.getReferenceObjects().length > 1) &&
+            !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME))) {
       ParserObjectReference[] parserObjectReferences = reference.getReferenceObjects();
       ParserObjectReference parserObjectReference = parserObjectReferences[parserObjectReferences.length - 2];
       PsiElement resolved = ((ParserObjectReferenceImpl) parserObjectReference).resolve();
