@@ -59,30 +59,46 @@ public class ClassParser extends BaseTokenParser {
       boolean staticClassDecl = false;
       boolean dynamicClassDecl = false;
       boolean strictClassDecl = false;
+      boolean partialClassDecl = false;
 
       while (!builder.eof() || builder.getTokenType() == ParserTokenTypes.CLASS_KEYWORD) {
         IElementType tokenType = builder.getTokenType();
 
         if(tokenType == ParserTokenTypes.STATIC_KEYWORD) {
           if(!dynamicClassDecl) {
-            staticClassDecl = true;
+            if(!staticClassDecl) {
+              staticClassDecl = true;
+            } else {
+              builder.error(ParserBundle.message("parser.parse.error.classDuplicateOption"));
+            }
           } else {
-            ParserBundle.message("parser.parse.error.collisionStaticDynamic");
+            builder.error(ParserBundle.message("parser.parse.error.collisionStaticDynamic"));
           }
         } else if(tokenType == ParserTokenTypes.DYNAMIC_KEYWORD) {
           if(!staticClassDecl) {
-            dynamicClassDecl = true;
+            if(!dynamicClassDecl) {
+              dynamicClassDecl = true;
+            } else {
+              builder.error(ParserBundle.message("parser.parse.error.classDuplicateOption"));
+            }
           } else {
-            ParserBundle.message("parser.parse.error.collisionStaticDynamic");
+            builder.error(ParserBundle.message("parser.parse.error.collisionStaticDynamic"));
           }
         } else if(tokenType == ParserTokenTypes.LOCALS_KEYWORD) {
           if(!strictClassDecl) {
             strictClassDecl = true;
+          } else {
+            builder.error(ParserBundle.message("parser.parse.error.collisionStaticDynamic"));
           }
         } else if(tokenType == ParserTokenTypes.PARTIAL_KEYWORD) {
           /*
            * TODO implement partial support here
            */
+          if(!partialClassDecl) {
+            partialClassDecl = true;
+          } else {
+            builder.error(ParserBundle.message("parser.parse.error.collisionStaticDynamic"));
+          }
         }
 
         BaseTokenParser parser = TokenParserFactory.getParser(builder);
