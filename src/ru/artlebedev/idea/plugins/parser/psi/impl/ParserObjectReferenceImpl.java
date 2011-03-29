@@ -111,7 +111,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           }
         }
       }
-      if(!precedingObjectReference.getName().equals("self"))
+      if(!precedingObjectReference.getName().equals(ParserLanguageConstants.SELF_NAME))
         return null;
     }
 
@@ -150,10 +150,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
         for(PsiElement method : parserClass.getChildren()) {
           if(method instanceof ParserMethod) {
-            if(((ParserMethod) method).getName().equals("auto")) {
-              for(PsiElement methodChild : method.getChildren()) {
-                list.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
-              }
+            for(PsiElement methodChild : method.getChildren()) {
+              list.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
             }
           }
         }
@@ -283,10 +281,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
           for(PsiElement method : parserClass.getChildren()) {
             if(method instanceof ParserMethod) {
-              if(((ParserMethod) method).getName().equals("auto")) {
-                for(PsiElement methodChild : method.getChildren()) {
-                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
-                }
+              for(PsiElement methodChild : method.getChildren()) {
+                result.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
               }
             }
           }

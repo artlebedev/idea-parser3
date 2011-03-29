@@ -17,6 +17,7 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethodReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserPassedParameter;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStrictClass;
 import ru.artlebedev.idea.plugins.parser.utils.ParserChangeUtil;
 
 import javax.swing.*;
@@ -173,6 +174,35 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
   @NotNull
   public ParserPassedParameter getValue() {
     return PsiTreeUtil.getChildOfAnyType(this, ParserPassedParameter.class);
+  }
+
+  @Override
+  public boolean isGlobal() {
+    ParserMethod parserMethod = PsiTreeUtil.getParentOfType(this, ParserMethod.class);
+
+    if(parserMethod == null) {
+      return true;
+    }
+
+    if(parserMethod.getName().equals("auto")) {
+      return true;
+    }
+
+    ParserStrictClass parserClass = PsiTreeUtil.getParentOfType(this, ParserStrictClass.class);
+
+    if(parserClass == null) {
+      return true;
+    }
+
+    ParserObjectReference parserObjectReference = PsiTreeUtil.findChildOfType(this, ParserObjectReference.class);
+
+    if(parserObjectReference != null) {
+      if(parserObjectReference.getName().equals("self")) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
 

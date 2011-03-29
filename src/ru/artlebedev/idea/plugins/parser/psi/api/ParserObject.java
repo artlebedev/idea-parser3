@@ -25,4 +25,6 @@ import org.jetbrains.annotations.NotNull;
 public interface ParserObject extends ParserElement, ParserNamedElement, IsTyped {
   @NotNull
   public ParserPassedParameter getValue();
+
+  public boolean isGlobal();
 }

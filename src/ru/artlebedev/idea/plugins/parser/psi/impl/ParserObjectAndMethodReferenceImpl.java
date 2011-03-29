@@ -16,6 +16,7 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectAndMethodReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameter;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserStrictClass;
 import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
 import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
 
@@ -126,7 +127,11 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
               }
 
               for(PsiElement methodChild : method.getChildren()) {
-                result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                if(parserObject instanceof ParserStrictClass) {
+                  result.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
+                } else {
+                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                }
               }
             }
 

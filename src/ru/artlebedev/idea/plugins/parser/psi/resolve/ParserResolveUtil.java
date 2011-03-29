@@ -67,16 +67,40 @@ public class ParserResolveUtil {
     return ParserPsiUtil.collectElementsAsList(parent, ParserObject.class);
   }
 
+  public static List<PsiElement> collectGlobalObjectDeclarations(PsiElement element) {
+    List<PsiElement> result = new ArrayList<PsiElement>();
+    PsiElement currentElement = element;
+
+    while (!(currentElement instanceof ParserFile)) {
+      do {
+        if (currentElement instanceof ParserObject) {
+          if(((ParserObject) currentElement).isGlobal()) {
+            result.add(currentElement);
+          }
+        }
+        if (currentElement.getPrevSibling() != null) {
+          currentElement = currentElement.getPrevSibling();
+        }
+      } while (currentElement.getPrevSibling() != null);
+      currentElement = currentElement.getParent();
+    }
+
+    return result;
+
+  }
+
   public static List<PsiElement> collectObjectDeclarations(PsiElement element) {
     List<PsiElement> result = new ArrayList<PsiElement>();
     PsiElement currentElement = element;
 
     while (!(currentElement instanceof ParserFile)) {
       do {
-        if (currentElement instanceof ParserObject)
+        if (currentElement instanceof ParserObject) {
           result.add(currentElement);
-        if (currentElement.getPrevSibling() != null)
+        }
+        if (currentElement.getPrevSibling() != null) {
           currentElement = currentElement.getPrevSibling();
+        }
       } while (currentElement.getPrevSibling() != null);
       currentElement = currentElement.getParent();
     }
