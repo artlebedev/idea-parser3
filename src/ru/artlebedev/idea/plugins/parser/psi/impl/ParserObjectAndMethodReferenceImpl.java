@@ -103,6 +103,9 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
   public Object[] getVariants() {
     PsiElement prevSibling = getPrevSibling();
 
+    /**
+     * ^self routine
+     */
     if(getParent() != null) {
       if(getParent() instanceof ParserCallingReference) {
 //        PsiDevUtil.printPsiElements(((ParserCallingReference) getParent()).getReferenceObjects());
@@ -134,6 +137,11 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
       }
     }
 
+    /**
+     * In-method routine, also inc. length > 1 check for referenceObjects to skip $self for
+     * inner-object detection.
+     * -- dwr
+     */
     ParserObjectReferenceImpl parserObjectReference;
     if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
             (((ParserCallingReference) getParent()).getReferenceObjects().length > 1)) {
