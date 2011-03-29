@@ -287,7 +287,11 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
             }
           }
 
-          result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+
+//          if(!(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
+//              (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
+//            result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+//          }
         } else {
           for(PsiElement method : parserClass.getChildren()) {
             if(method instanceof ParserMethod) {
@@ -299,7 +303,10 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         }
       }
 
-      result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+      if(!(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
+                    (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
+        result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+      }
     }
 
 //		return result.toArray(new PsiElement[0]);
