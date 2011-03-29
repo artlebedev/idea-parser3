@@ -5,6 +5,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
+import ru.artlebedev.idea.plugins.parser.utils.ParserParserUtil;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -47,10 +48,7 @@ public class ObjectParser extends BaseTokenParser {
     identifierMet = false;
     noIdentifierAfterPunctuation = false;
     while (true) {
-      if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
-          builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
-          builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD ||
-          builder.getTokenType() == ParserTokenTypes.CALLER_KEYWORD) {
+      if (ParserParserUtil.isIdentifierToken(builder.getTokenType())) {
         identifierMet = true;
         parseReference(builder);
       } else if (builder.getTokenType() == ParserTokenTypes.WHITE_SPACE || builder.getTokenType() == ParserTokenTypes.NEW_LINE || builder.eof()) {

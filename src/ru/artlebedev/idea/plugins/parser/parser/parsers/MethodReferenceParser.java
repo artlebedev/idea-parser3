@@ -5,6 +5,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.parser.ParserElementTypes;
+import ru.artlebedev.idea.plugins.parser.utils.ParserParserUtil;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -47,11 +48,7 @@ public class MethodReferenceParser extends BaseTokenParser {
     builder.advanceLexer();
 
     while (!ParserTokenTypes.OPENING_BRACES.contains(builder.getTokenType())) {
-      if (
-              builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
-              builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
-              builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD ||
-              builder.getTokenType() == ParserTokenTypes.CALLER_KEYWORD) {
+      if (ParserParserUtil.isIdentifierToken(builder.getTokenType())) {
         parseReference(builder);
       } else if (ParserTokenTypes.KEYWORDS.contains(builder.getTokenType())) {
         builder.advanceLexer();
