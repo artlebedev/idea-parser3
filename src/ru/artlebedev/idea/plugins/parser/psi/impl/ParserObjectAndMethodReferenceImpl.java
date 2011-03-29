@@ -6,6 +6,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
+import org.codingbox.idea.dev.utils.PsiDevUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
@@ -86,12 +87,26 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
     return false;
   }
 
+  /**
+   * Listening to Nightwish - End of All Hope when altering this method.
+   *
+   * We have construction like:
+   * ^self.db.getSomething[]
+   *
+   * Where self should be interpretered as our own object reference and nothing else.
+   * On the other hand, we have getReferenceObjects()[0], from the [1] index of which
+   * we could eject the object we need.
+   *
+   * @return variants for autocomplete (and resolution)
+   */
   public Object[] getVariants() {
     PsiElement prevSibling = getPrevSibling();
 
     if(getParent() != null) {
       if(getParent() instanceof ParserCallingReference) {
-        if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME)) {
+//        PsiDevUtil.printPsiElements(((ParserCallingReference) getParent()).getReferenceObjects());
+        if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
+                (((ParserCallingReference) getParent()).getReferenceObjects().length == 1)) {
           if(getParent().getParent() != null) {
             ParserClass parserObject = PsiTreeUtil.getParentOfType(getParent().getParent(), ParserClass.class, true);
 
@@ -111,11 +126,18 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
       }
     }
 
-    while (!(prevSibling instanceof ParserObjectReferenceImpl)) {
-      prevSibling = prevSibling.getPrevSibling();
+    ParserObjectReferenceImpl parserObjectReference;
+    if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
+            (((ParserCallingReference) getParent()).getReferenceObjects().length > 1)) {
+      parserObjectReference = (ParserObjectReferenceImpl) ((ParserCallingReference) getParent()).getReferenceObjects()[((ParserCallingReference) getParent()).getReferenceObjects().length - 1];
+    } else {
+      while (!(prevSibling instanceof ParserObjectReferenceImpl)) {
+        prevSibling = prevSibling.getPrevSibling();
+      }
+
+      parserObjectReference = (ParserObjectReferenceImpl) prevSibling;
     }
 
-    ParserObjectReferenceImpl parserObjectReference = (ParserObjectReferenceImpl) prevSibling;
     PsiElement resolveResult = parserObjectReference.resolve();
     if (resolveResult instanceof ParserObject) {
       ParserObject parserObject = (ParserObject) resolveResult;
