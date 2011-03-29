@@ -146,7 +146,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
         if (referenceObjects.length > 0) {
           ParserObjectReferenceImpl referenceObject = (ParserObjectReferenceImpl) referenceObjects[referenceObjects.length - 1];
           PsiElement element = referenceObject.resolve();
-          if (element != null && element != this) {
+          if ((element != null) && (element != this) && (element instanceof ParserObject)) {
             ParserObject parserObject = (ParserObject) element;
             return parserObject.getType();
           }
