@@ -6,7 +6,6 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
-import org.codingbox.idea.dev.utils.PsiDevUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
@@ -18,9 +17,11 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserObjectAndMethodReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserParameter;
 import ru.artlebedev.idea.plugins.parser.psi.lookup.ParserLookupUtil;
+import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -114,12 +115,19 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
               return new Object[0];
 
             ParserMethod[] methods = parserObject.getMethods();
-            List<PsiElement> list = new ArrayList<PsiElement>();
+
+            HashSet<PsiElement> result = new HashSet<PsiElement>();
             for (ParserMethod method : methods) {
               if(!method.isConstructor()) {
-                list.add(method);
+                result.add(method);
+                for(PsiElement methodChild : method.getChildren()) {
+                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                }
               }
             }
+
+            List<PsiElement> list = new ArrayList<PsiElement>();
+            list.addAll(result);
             return ParserLookupUtil.createSmartLookupItems(list);
           }
         }
