@@ -212,8 +212,14 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       return new Object[0];
     }
 
+//    ParserObjectReference[] referenceObjects = ((ParserCallingReference) getParent()).getReferenceObjects();
+//    for (int i = 0; i < referenceObjects.length; i++) {
+//      System.out.println(referenceObjects[i]);
+//    }
+
     if ((reference.getReferenceObjects().length > 1) &&
-            !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME))) {
+            !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
+              (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
       ParserObjectReference[] parserObjectReferences = reference.getReferenceObjects();
       ParserObjectReference parserObjectReference = parserObjectReferences[parserObjectReferences.length - 2];
       PsiElement resolved = ((ParserObjectReferenceImpl) parserObjectReference).resolve();
