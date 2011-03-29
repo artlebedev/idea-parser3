@@ -70,6 +70,8 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final String PARSER_SEMICOLON_ID = "Parser semicolon";
   @NonNls
   public static final String PARSER_BAD_CHARACTER_ID = "Parser bad character";
+  @NonNls
+  public static final String PARSER_SELF_ID = "Parser self";
 
   static {
     TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
@@ -90,6 +92,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     TextAttributesKey.createTextAttributesKey(PARSER_NUMBER_ID, SyntaxHighlighterColors.NUMBER.getDefaultAttributes());
     TextAttributesKey.createTextAttributesKey(PARSER_SEMICOLON_ID, SyntaxHighlighterColors.JAVA_SEMICOLON.getDefaultAttributes());
     TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID, HighlighterColors.BAD_CHARACTER.getDefaultAttributes());
+    TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID, new TextAttributes(Color.YELLOW.darker().darker(), null, null, null, Font.BOLD));
   }
 
   public static final TextAttributesKey PARSER_KEYWORD = TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID);
@@ -105,6 +108,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TextAttributesKey PARSER_NUMBER = TextAttributesKey.createTextAttributesKey(PARSER_NUMBER_ID);
   public static final TextAttributesKey PARSER_SEMICOLON = TextAttributesKey.createTextAttributesKey(PARSER_SEMICOLON_ID);
   public static final TextAttributesKey PARSER_BAD_CHARACTER = TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID);
+  public static final TextAttributesKey PARSER_SELF = TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID);
 
   private static final Map<IElementType, TextAttributesKey> attributes;
 
@@ -119,6 +123,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TokenSet stringLiteralSet = TokenSet.create(ParserTokenTypes.STRING_LITERAL);
   public static final TokenSet semicolonSet = TokenSet.create(ParserTokenTypes.SEMICOLON);
   public static final TokenSet badCharacterSet = TokenSet.create(ParserTokenTypes.BAD_CHARACTER);
+  public static final TokenSet selfSet = TokenSet.create(ParserTokenTypes.SELF_KEYWORD);
 
 
   static {
@@ -137,6 +142,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     fillMap(attributes, lineCommentSet, PARSER_LINE_COMMENT);
     fillMap(attributes, parserDocSet, PARSER_PARSERDOC_COMMENT);
     fillMap(attributes, badCharacterSet, PARSER_BAD_CHARACTER);
+    fillMap(attributes, selfSet, PARSER_SELF);
   }
 
   @NotNull
