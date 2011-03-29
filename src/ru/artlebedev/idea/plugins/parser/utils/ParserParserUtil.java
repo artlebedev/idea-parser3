@@ -33,9 +33,10 @@ public class ParserParserUtil {
    *
    * @see ru.artlebedev.idea.plugins.parser.parser.parsers.MethodReferenceParser#parseToken(com.intellij.lang.PsiBuilder)
    * @see ru.artlebedev.idea.plugins.parser.parser.parsers.ObjectParser#parseToken(com.intellij.lang.PsiBuilder)
+   * @see com.intellij.lang.PsiBuilder
    *
-   * @param tokenType
-   * @return
+   * @param tokenType token came from builder (PsiBuilder)
+   * @return true if token could be identifier
    */
   public static boolean isIdentifierToken(IElementType tokenType) {
     if(tokenType == ParserTokenTypes.IDENTIFIER ||
