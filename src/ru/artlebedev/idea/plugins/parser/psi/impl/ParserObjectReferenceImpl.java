@@ -286,12 +286,6 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
               }
             }
           }
-
-
-//          if(!(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
-//              (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
-//            result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
-//          }
         } else {
           for(PsiElement method : parserClass.getChildren()) {
             if(method instanceof ParserMethod) {
