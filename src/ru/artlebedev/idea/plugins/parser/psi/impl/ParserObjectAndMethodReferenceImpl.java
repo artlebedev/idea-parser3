@@ -123,9 +123,10 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
             for (ParserMethod method : methods) {
               if(!method.isConstructor()) {
                 result.add(method);
-                for(PsiElement methodChild : method.getChildren()) {
-                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
-                }
+              }
+
+              for(PsiElement methodChild : method.getChildren()) {
+                result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
               }
             }
 
