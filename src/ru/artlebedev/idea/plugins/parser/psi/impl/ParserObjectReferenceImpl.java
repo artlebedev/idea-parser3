@@ -84,6 +84,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @Nullable
   public PsiElement resolve() {
+    //System.out.println("resolve() hooked up");
     ParserObjectReference precedingObjectReference = PsiTreeUtil.getPrevSiblingOfType(this, ParserObjectReference.class);
     if (precedingObjectReference != null) {
       ParserObjectReferenceImpl objectReference = (ParserObjectReferenceImpl) precedingObjectReference;
@@ -110,7 +111,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           }
         }
       }
-      return null;
+      if(!precedingObjectReference.getName().equals("self"))
+        return null;
     }
 
     ParserClassReference precedingClassReference = PsiTreeUtil.getPrevSiblingOfType(this, ParserClassReference.class);
@@ -121,7 +123,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         ParserClass parserClass = (ParserClass) parserClassElement;
         ParserMethod[] parserMethods = parserClass.getMethods();
         for (ParserMethod parserMethod : parserMethods) {
-          if (ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
+          //if (ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
             PsiElement[] psiElements = ParserResolveUtil.collectObjectDeclarationsInElement(parserMethod).toArray(new PsiElement[0]);
             for (PsiElement element : psiElements) {
               if (element instanceof ParserObject) {
@@ -130,12 +132,45 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
                 }
               }
             }
-          }
+          //}
         }
       }
       return null;
     }
+
     List<PsiElement> list = ParserResolveUtil.collectObjectDeclarations(this);
+    PsiElement parentElement = getParent();
+    while(!(parentElement instanceof ParserClass) && !(parentElement == null)) {
+      parentElement = parentElement.getParent();
+    }
+
+    if(parentElement != null) {
+      ParserClass parserClass = (ParserClass) parentElement;
+
+      if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
+        for(PsiElement method : parserClass.getChildren()) {
+          if(method instanceof ParserMethod) {
+            if(((ParserMethod) method).getName().equals("auto")) {
+              for(PsiElement methodChild : method.getChildren()) {
+                list.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+              }
+            }
+          }
+        }
+
+        list.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+      } else {
+        for(PsiElement method : parserClass.getChildren()) {
+          if(method instanceof ParserMethod) {
+            for(PsiElement methodChild : method.getChildren()) {
+              list.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+            }
+          }
+        }
+      }
+    }
+
+    list.addAll(ParserResolveUtil.collectObjectDeclarations(this));
     for (PsiElement psiElement : list) {
       if (psiElement instanceof ParserObject) {
         String name = ((ParserObject) psiElement).getName();
@@ -144,6 +179,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         }
       }
     }
+
     list = ParserResolveUtil.collectParameters(this);
     for (PsiElement psiElement : list) {
       if (psiElement instanceof ParserParameter) {
@@ -212,11 +248,6 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       return new Object[0];
     }
 
-//    ParserObjectReference[] referenceObjects = ((ParserCallingReference) getParent()).getReferenceObjects();
-//    for (int i = 0; i < referenceObjects.length; i++) {
-//      System.out.println(referenceObjects[i]);
-//    }
-
     if ((reference.getReferenceObjects().length > 1) &&
             !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
               (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
@@ -241,30 +272,31 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     } else {
       result.addAll(ParserResolveUtil.collectParameters(this));
 
-      if(getParent() != null) {
-        if(getParent().getParent() != null) {
-          if(getParent().getParent().getParent() != null) {
-            ParserClass parserClass = (ParserClass) getParent().getParent().getParent();
+      PsiElement parentElement = getParent();
+      while(!(parentElement instanceof ParserClass) && !(parentElement == null)) {
+        parentElement = parentElement.getParent();
+      }
 
-            if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
-              for(PsiElement method : parserClass.getChildren()) {
-                if(method instanceof ParserMethod) {
-                  if(((ParserMethod) method).getName().equals("auto")) {
-                    for(PsiElement methodChild : method.getChildren()) {
-                      result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
-                    }
-                  }
+      if(parentElement != null) {
+        ParserClass parserClass = (ParserClass) parentElement;
+
+        if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
+          for(PsiElement method : parserClass.getChildren()) {
+            if(method instanceof ParserMethod) {
+              if(((ParserMethod) method).getName().equals("auto")) {
+                for(PsiElement methodChild : method.getChildren()) {
+                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
                 }
               }
+            }
+          }
 
-              result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
-            } else {
-              for(PsiElement method : parserClass.getChildren()) {
-                if(method instanceof ParserMethod) {
-                  for(PsiElement methodChild : method.getChildren()) {
-                    result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
-                  }
-                }
+          result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+        } else {
+          for(PsiElement method : parserClass.getChildren()) {
+            if(method instanceof ParserMethod) {
+              for(PsiElement methodChild : method.getChildren()) {
+                result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
               }
             }
           }
