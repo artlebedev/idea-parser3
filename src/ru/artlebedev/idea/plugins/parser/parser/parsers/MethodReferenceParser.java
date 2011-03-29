@@ -130,7 +130,8 @@ public class MethodReferenceParser extends BaseTokenParser {
     LOG.assertTrue(
             builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
             builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
-            builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD
+            builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD ||
+            builder.getTokenType() == ParserTokenTypes.CLASS_STATIC_KEYWORD
     );
     PsiBuilder.Marker someRef = builder.mark();
     builder.advanceLexer();

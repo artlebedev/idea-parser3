@@ -27,6 +27,6 @@ import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 
 public class ParserWordsScanner extends DefaultWordsScanner {
   public ParserWordsScanner() {
-    super(new ParserLexer(), TokenSet.create(ParserTokenTypes.IDENTIFIER, ParserTokenTypes.SELF_KEYWORD, ParserTokenTypes.CALLER_KEYWORD, ParserTokenTypes.RESULT_KEYWORD), ParserTokenTypes.COMMENTS, TokenSet.EMPTY);
+    super(new ParserLexer(), TokenSet.create(ParserTokenTypes.IDENTIFIER, ParserTokenTypes.SELF_KEYWORD, ParserTokenTypes.CALLER_KEYWORD, ParserTokenTypes.RESULT_KEYWORD, ParserTokenTypes.CLASS_STATIC_KEYWORD), ParserTokenTypes.COMMENTS, TokenSet.EMPTY);
   }
 }

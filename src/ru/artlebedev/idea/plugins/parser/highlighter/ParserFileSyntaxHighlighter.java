@@ -123,7 +123,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TokenSet stringLiteralSet = TokenSet.create(ParserTokenTypes.STRING_LITERAL);
   public static final TokenSet semicolonSet = TokenSet.create(ParserTokenTypes.SEMICOLON);
   public static final TokenSet badCharacterSet = TokenSet.create(ParserTokenTypes.BAD_CHARACTER);
-  public static final TokenSet selfSet = TokenSet.create(ParserTokenTypes.SELF_KEYWORD);
+  public static final TokenSet selfSet = TokenSet.create(ParserTokenTypes.SELF_KEYWORD, ParserTokenTypes.CLASS_STATIC_KEYWORD);
 
 
   static {

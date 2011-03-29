@@ -13,6 +13,8 @@ import ru.artlebedev.idea.plugins.parser.psi.impl.ParserIncludePathImpl;
 import ru.artlebedev.idea.plugins.parser.psi.impl.ParserMethodImpl;
 
 import java.awt.*;
+import java.util.*;
+import java.util.List;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -77,6 +79,10 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
     }
   }
 
+  public final List<String> skipClassReferenceNames = Arrays.asList(new String[]{
+          ParserLanguageConstants.CLASS_KEYWORD, ParserLanguageConstants.SELF_NAME
+  });
+
   public void visitParserClassReference(ParserClassReference parserClassReference) {
     final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(
             "PARSER.CLASS_REFERENCE",
@@ -115,8 +121,10 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
           }
         });
       } else {*/
-    Annotation annotation = myHolder.createInfoAnnotation(parserClassReference, null);
-    annotation.setTextAttributes(PARSER_CLASS_REFERENCE);
+    if(!skipClassReferenceNames.contains(parserClassReference.getName())) {
+      Annotation annotation = myHolder.createInfoAnnotation(parserClassReference, null);
+      annotation.setTextAttributes(PARSER_CLASS_REFERENCE);
+    }
     //}
   }
 }

@@ -57,6 +57,7 @@ public interface ParserTokenTypes {
   IElementType RESULT_KEYWORD = new ParserElementType("RESULT_KEYWORD");
   IElementType SELF_KEYWORD = new ParserElementType("SELF_KEYWORD");
   IElementType CALLER_KEYWORD = new ParserElementType("CALLER_KEYWORD");
+  IElementType CLASS_STATIC_KEYWORD = new ParserElementType("CLASS_STATIC_KEYWORD");
   IElementType THROW_KEYWORD = new ParserElementType("THROW_KEYWORD");
   IElementType TRY_KEYWORD = new ParserElementType("TRY_KEYWORD");
   IElementType WHILE_KEYWORD = new ParserElementType("WHILE_KEYWORD");

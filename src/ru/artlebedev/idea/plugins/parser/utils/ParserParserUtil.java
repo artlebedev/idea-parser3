@@ -42,7 +42,8 @@ public class ParserParserUtil {
     if(tokenType == ParserTokenTypes.IDENTIFIER ||
        tokenType == ParserTokenTypes.RESULT_KEYWORD ||
        tokenType == ParserTokenTypes.SELF_KEYWORD ||
-       tokenType == ParserTokenTypes.CALLER_KEYWORD) {
+       tokenType == ParserTokenTypes.CALLER_KEYWORD ||
+       tokenType == ParserTokenTypes.CLASS_STATIC_KEYWORD) {
       return true;
     } else {
       return false;

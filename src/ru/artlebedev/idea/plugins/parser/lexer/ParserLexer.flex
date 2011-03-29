@@ -147,6 +147,7 @@ RussianLetters=[а-яА-Я]
 	"is"			{ yybegin(YYINITIAL); return ParserTokenTypes.IS_KEYWORD; }
 	"result"		{ yybegin(YYINITIAL); return ParserTokenTypes.RESULT_KEYWORD; }
 	"self"			{ yybegin(YYINITIAL); return ParserTokenTypes.SELF_KEYWORD; }
+	"CLASS"			{ yybegin(YYINITIAL); return ParserTokenTypes.CLASS_STATIC_KEYWORD; }
 	"throw"			{ yybegin(YYINITIAL); return ParserTokenTypes.THROW_KEYWORD; }
 	"try"			{ yybegin(YYINITIAL); return ParserTokenTypes.TRY_KEYWORD; }
 	"while"			{ yybegin(YYINITIAL); return ParserTokenTypes.WHILE_KEYWORD; }

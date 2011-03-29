@@ -80,6 +80,9 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     ASTNode caller = getNode().findChildByType(ParserTokenTypes.CALLER_KEYWORD);
     if(caller != null)
       return caller;
+    ASTNode class_static = getNode().findChildByType(ParserTokenTypes.CLASS_STATIC_KEYWORD);
+    if(class_static != null)
+      return class_static;
     return null;
   }
 

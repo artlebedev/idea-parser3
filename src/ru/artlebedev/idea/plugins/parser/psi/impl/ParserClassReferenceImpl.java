@@ -95,11 +95,19 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
       }
     }
 
+    String className = getName();
+
+    if(className.equals(ParserLanguageConstants.CLASS_KEYWORD)) {
+      ParserClass parentClass = PsiTreeUtil.getParentOfType(this, ParserClass.class);
+      className = parentClass.getName();
+    }
+    //System.out.println(className);
+
     Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
 
     for (ParserFile parserFile : parserFiles) {
       ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
-      if (parserClass != null && parserClass.getName().equals(getName())) {
+      if (parserClass != null && parserClass.getName().equals(className)) {
         return parserClass;
       }
     }
@@ -108,7 +116,7 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
     for (PsiElement element : psiElements) {
       ParserClass parserClass = (ParserClass) element;
       getProject().getComponent(ParserFileIndex.class).contributeClass(parserClass);
-      if (parserClass.getName().equals(getName())) {
+      if (parserClass.getName().equals(className)) {
         return parserClass;
       }
     }
