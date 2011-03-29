@@ -19,6 +19,14 @@ import com.intellij.psi.PsiElement;
  */
 
 public class PsiDevUtil {
+  /**
+   * Example usage:
+   *  PsiDevUtil.printPsiElements(((ParserCallingReference) getParent()).getReferenceObjects());
+   *
+   * Note: could be acceptable to use only with Parser 3 PsiTree
+   *
+   * @param elements array of PsiElements to call their toString()
+   */
   public static void printPsiElements(PsiElement[] elements) {
     for(PsiElement element : elements) {
       System.out.println("PsiDevUtil#printPsiElements: " + element);
