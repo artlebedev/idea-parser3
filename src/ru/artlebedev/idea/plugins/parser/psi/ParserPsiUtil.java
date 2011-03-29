@@ -5,7 +5,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,14 @@ import java.util.List;
  */
 
 public final class ParserPsiUtil {
+  public static boolean isInAutoMethod(PsiElement element) {
+    ParserMethod parserMethod = PsiTreeUtil.getParentOfType(element, ParserMethod.class);
+    if(parserMethod.getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   public static <T extends PsiElement> List<T> collectElementsAsList(PsiElement parent, final Class<T> typeToFind) {
     PsiElement[] psiElements = PsiTreeUtil.collectElements(parent, new PsiElementFilter() {

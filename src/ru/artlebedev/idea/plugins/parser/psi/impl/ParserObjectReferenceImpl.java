@@ -12,6 +12,7 @@ import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
+import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserClassReference;
@@ -84,6 +85,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @Nullable
   public PsiElement resolve() {
+    boolean isInAuto = ParserPsiUtil.isInAutoMethod(this);
+
     //System.out.println("resolve() hooked up");
     ParserObjectReference precedingObjectReference = PsiTreeUtil.getPrevSiblingOfType(this, ParserObjectReference.class);
     if (precedingObjectReference != null) {
@@ -111,7 +114,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           }
         }
       }
-      if(!precedingObjectReference.getName().equals(ParserLanguageConstants.SELF_NAME))
+      if(!precedingObjectReference.getName().equals(ParserLanguageConstants.SELF_NAME) || isInAuto)
         return null;
     }
 
@@ -212,6 +215,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
   }
 
   public Object[] getVariants() {
+    boolean isInAuto = ParserPsiUtil.isInAutoMethod(this);
+
     final PsiElement parent = getParent();
     if (!(parent instanceof ParserCallingReferenceImpl)) {
       return new Object[0];
@@ -247,7 +252,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     }
 
     if ((reference.getReferenceObjects().length > 1) &&
-            !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
+            !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) && !isInAuto &&
               (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
       ParserObjectReference[] parserObjectReferences = reference.getReferenceObjects();
       ParserObjectReference parserObjectReference = parserObjectReferences[parserObjectReferences.length - 2];
@@ -297,7 +302,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         }
       }
 
-      if(!(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) &&
+      if(!(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) && !isInAuto &&
                     (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
         result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
       }
