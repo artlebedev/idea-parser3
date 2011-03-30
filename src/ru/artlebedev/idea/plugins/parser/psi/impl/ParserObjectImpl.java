@@ -125,10 +125,14 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
       if (children.length == 1 && children[0] instanceof ParserCallingReference) {
         ParserCallingReference reference = (ParserCallingReference) children[0];
         if (reference.isConstructorInvoked()) {
-          ParserClass parserClass = (ParserClass) reference.getReferenceClass().getReference().resolve();
-          if (parserClass == null)
-            return null;
-          return parserClass;
+          if(reference.getReferenceClass() != null) {
+            if(reference.getReferenceClass().getReference() != null) {
+              ParserClass parserClass = (ParserClass) reference.getReferenceClass().getReference().resolve();
+              if (parserClass == null)
+                return null;
+              return parserClass;
+            }
+          }
         }
         ParserMethodReference methodReference = reference.getReferenceMethod();
         if (methodReference != null) {
