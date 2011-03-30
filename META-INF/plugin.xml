@@ -9,7 +9,7 @@
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="93.13"/>
 
-  <depends optional="true">com.intellij.modules.lang</depends>
+  <!--<depends optional="true">com.intellij.modules.lang</depends>-->
 
   <application-components>
     <component>
