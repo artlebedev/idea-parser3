@@ -5,9 +5,9 @@
     http://parser.ru</p>
     </body></html>]]>
   </description>
-  <version>1.0-alpha3</version>
+  <version>1.0-alpha4</version>
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
-  <idea-version since-build="93.13"/>
+  <idea-version since-build="103.72"/>
 
   <!--<depends optional="true">com.intellij.modules.lang</depends>-->
 
