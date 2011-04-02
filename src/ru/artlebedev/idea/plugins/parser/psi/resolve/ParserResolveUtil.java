@@ -152,7 +152,7 @@ public class ParserResolveUtil {
     Collection<ParserClass> indexedClasses = new ArrayList<ParserClass>();
 
     for (ParserFile parserFile : parserFiles) {
-      if(((parserFile instanceof VirtualFileWithId) && (((VirtualFileWithId) parserFile).getId() > 0))) {
+      if(((parserFile instanceof VirtualFileWithId) && (((VirtualFileWithId) parserFile).getId() > 0)) || !(parserFile instanceof VirtualFileWithId)) {
         ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
         if (parserClass != null) {
           indexedClasses.add(parserClass);
