@@ -1,5 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.psi.resolve;
 
+import com.intellij.openapi.vfs.VirtualFileWithId;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiElementFilter;
@@ -151,9 +152,11 @@ public class ParserResolveUtil {
     Collection<ParserClass> indexedClasses = new ArrayList<ParserClass>();
 
     for (ParserFile parserFile : parserFiles) {
-      ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
-      if (parserClass != null) {
-        indexedClasses.add(parserClass);
+      if(((parserFile instanceof VirtualFileWithId) && (((VirtualFileWithId) parserFile).getId() > 0))) {
+        ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
+        if (parserClass != null) {
+          indexedClasses.add(parserClass);
+        }
       }
     }
     return indexedClasses;
