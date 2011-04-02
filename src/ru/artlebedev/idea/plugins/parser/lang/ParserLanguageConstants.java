@@ -23,10 +23,11 @@ package ru.artlebedev.idea.plugins.parser.lang;
 public interface ParserLanguageConstants {
   public static final String AUTO_METHOD_NAME = "auto";
   public static final String GETTER_METHOD_PREFIX = "GET_";
-  public static final String SELF_NAME = "self";
+  public static final String SELF_CLASS_NAME = "self";
   public static final String AUTO_FILE = "auto.p";
   public static final String CONFIG_METHOD_NAME = "config";
   public static final String MAIN_METHOD_NAME = "main";
+  public static final String USE_METHOD_NAME = "use";
   public static final String BASE_CLASS_NAME = "BASE";
   public static final String CLASS_KEYWORD = "CLASS";
   public static final String HAS_NO_CONSTRUCTOR = "_has_no_constructor_";

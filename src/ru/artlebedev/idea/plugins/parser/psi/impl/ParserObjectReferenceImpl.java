@@ -114,7 +114,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           }
         }
       }
-      if(!precedingObjectReference.getName().equals(ParserLanguageConstants.SELF_NAME) || isInAuto)
+      if(!precedingObjectReference.getName().equals(ParserLanguageConstants.SELF_CLASS_NAME) || isInAuto)
         return null;
     }
 
@@ -252,7 +252,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     }
 
     if ((reference.getReferenceObjects().length > 1) &&
-            !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) && !isInAuto &&
+            !(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_CLASS_NAME) && !isInAuto &&
               (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
       ParserObjectReference[] parserObjectReferences = reference.getReferenceObjects();
       ParserObjectReference parserObjectReference = parserObjectReferences[parserObjectReferences.length - 2];
@@ -302,7 +302,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         }
       }
 
-      if(!(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) && !isInAuto &&
+      if(!(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_CLASS_NAME) && !isInAuto &&
                     (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
         result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
       }

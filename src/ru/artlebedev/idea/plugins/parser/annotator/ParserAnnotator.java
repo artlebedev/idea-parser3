@@ -80,7 +80,7 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
   }
 
   public final List<String> skipClassReferenceNames = Arrays.asList(new String[]{
-          ParserLanguageConstants.CLASS_KEYWORD, ParserLanguageConstants.SELF_NAME
+          ParserLanguageConstants.CLASS_KEYWORD, ParserLanguageConstants.SELF_CLASS_NAME
   });
 
   public void visitParserClassReference(ParserClassReference parserClassReference) {

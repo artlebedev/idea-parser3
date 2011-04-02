@@ -5,6 +5,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.psi.ParserPsiUtil;
 import ru.artlebedev.idea.plugins.parser.psi.api.ParserCallingReference;
@@ -55,7 +56,7 @@ public class ParserResolveUtil {
       ParserCallingReference reference = (ParserCallingReference) methodElement;
       if (reference.getReferenceClass() == null && reference.getReferenceObjects().length == 0) {
         final ParserMethodReferenceImpl method = (ParserMethodReferenceImpl) reference.getReferenceMethod();
-        if (method != null && method.getName().equals("use")) {
+        if (method != null && method.getName().equals(ParserLanguageConstants.USE_METHOD_NAME)) {
           result.add(method);
         }
       }

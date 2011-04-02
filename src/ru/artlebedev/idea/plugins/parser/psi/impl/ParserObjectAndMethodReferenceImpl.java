@@ -113,7 +113,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
     if(getParent() != null) {
       if(getParent() instanceof ParserCallingReference) {
 //        PsiDevUtil.printPsiElements(((ParserCallingReference) getParent()).getReferenceObjects());
-        if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) && !isInAuto &&
+        if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_CLASS_NAME) && !isInAuto &&
                 (((ParserCallingReference) getParent()).getReferenceObjects().length == 1)) {
           if(getParent().getParent() != null) {
             ParserClass parserObject = PsiTreeUtil.getParentOfType(getParent().getParent(), ParserClass.class, true);
@@ -152,7 +152,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
      * -- dwr
      */
     ParserObjectReferenceImpl parserObjectReference;
-    if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_NAME) && !isInAuto &&
+    if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_CLASS_NAME) && !isInAuto &&
             (((ParserCallingReference) getParent()).getReferenceObjects().length > 1)) {
       parserObjectReference = (ParserObjectReferenceImpl) ((ParserCallingReference) getParent()).getReferenceObjects()[((ParserCallingReference) getParent()).getReferenceObjects().length - 1];
     } else {
