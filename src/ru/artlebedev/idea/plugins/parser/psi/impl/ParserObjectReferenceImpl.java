@@ -83,15 +83,13 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     return new TextRange(startOffsetInParent, startOffsetInParent + getNode().getTextLength());
   }
 
-  @Nullable
-  public PsiElement resolve() {
+  public PsiElement resolveBasic() {
     boolean isInAuto = ParserPsiUtil.isInAutoMethod(this);
 
-    //System.out.println("resolve() hooked up");
     ParserObjectReference precedingObjectReference = PsiTreeUtil.getPrevSiblingOfType(this, ParserObjectReference.class);
     if (precedingObjectReference != null) {
       ParserObjectReferenceImpl objectReference = (ParserObjectReferenceImpl) precedingObjectReference;
-      PsiElement psiElement = objectReference.resolve();
+      PsiElement psiElement = objectReference.resolveBasic();
       if (psiElement instanceof ParserObject) {
         ParserObject object = (ParserObject) psiElement;
         ParserPassedParameter value = object.getValue();
@@ -195,6 +193,31 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     return null;
   }
 
+  @Nullable
+  public PsiElement resolve() {
+    if(resolveBasic() == null) {
+      if(getName().equals(ParserLanguageConstants.SELF_CLASS_NAME)) {
+        final ParserClass parserClass = PsiTreeUtil.getParentOfType(this, ParserClass.class);
+
+        return new ParserObjectImpl((ASTNode) getNode().clone()) {
+          public String getName() {
+            return "self";
+          }
+
+          public ASTNode findNameNode() {
+            return null;
+          }
+
+          public ParserClass getType() {
+            return parserClass;
+          }
+        };
+      }
+    }
+
+    return null;
+  }
+
   public String getCanonicalText() {
     return null;
   }
@@ -256,7 +279,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
               (((ParserCallingReference) getParent()).getReferenceObjects().length == 2))) {
       ParserObjectReference[] parserObjectReferences = reference.getReferenceObjects();
       ParserObjectReference parserObjectReference = parserObjectReferences[parserObjectReferences.length - 2];
-      PsiElement resolved = ((ParserObjectReferenceImpl) parserObjectReference).resolve();
+      PsiElement resolved = ((ParserObjectReferenceImpl) parserObjectReference).resolveBasic();
       if (resolved != null && resolved instanceof ParserObject) {
         ParserObject parserObject = (ParserObject) resolved;
         ParserPassedParameter value = parserObject.getValue();

@@ -115,33 +115,31 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
 //        PsiDevUtil.printPsiElements(((ParserCallingReference) getParent()).getReferenceObjects());
         if(((ParserCallingReference) getParent()).getReferenceObjects()[0].getName().equals(ParserLanguageConstants.SELF_CLASS_NAME) && !isInAuto &&
                 (((ParserCallingReference) getParent()).getReferenceObjects().length == 1)) {
-          if(getParent().getParent() != null) {
-            ParserClass parserObject = PsiTreeUtil.getParentOfType(getParent().getParent(), ParserClass.class, true);
+          ParserClass parserObject = PsiTreeUtil.getParentOfType(this, ParserClass.class, true);
 
-            if (parserObject == null)
-              return new Object[0];
+          if (parserObject == null)
+            return new Object[0];
 
-            ParserMethod[] methods = parserObject.getMethods();
+          ParserMethod[] methods = parserObject.getMethods();
 
-            HashSet<PsiElement> result = new HashSet<PsiElement>();
-            for (ParserMethod method : methods) {
-              if(!method.isConstructor()) {
-                result.add(method);
-              }
-
-              for(PsiElement methodChild : method.getChildren()) {
-                if(parserObject instanceof ParserStrictClass) {
-                  result.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
-                } else {
-                  result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
-                }
-              }
+          HashSet<PsiElement> result = new HashSet<PsiElement>();
+          for (ParserMethod method : methods) {
+            if(!method.isConstructor()) {
+              result.add(method);
             }
 
-            List<PsiElement> list = new ArrayList<PsiElement>();
-            list.addAll(result);
-            return ParserLookupUtil.createSmartLookupItems(list);
+            for(PsiElement methodChild : method.getChildren()) {
+              if(parserObject instanceof ParserStrictClass) {
+                result.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
+              } else {
+                result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+              }
+            }
           }
+
+          List<PsiElement> list = new ArrayList<PsiElement>();
+          list.addAll(result);
+          return ParserLookupUtil.createSmartLookupItems(list);
         }
       }
     }
@@ -166,6 +164,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
     PsiElement resolveResult = parserObjectReference.resolve();
     if (resolveResult instanceof ParserObject) {
       ParserObject parserObject = (ParserObject) resolveResult;
+
       if (parserObject == null)
         return new Object[0];
 
