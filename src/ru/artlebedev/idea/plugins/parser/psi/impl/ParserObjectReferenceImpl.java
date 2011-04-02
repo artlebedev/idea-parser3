@@ -195,8 +195,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @Nullable
   public PsiElement resolve() {
-    if(resolveBasic() == null) {
-      if(getName().equals(ParserLanguageConstants.SELF_CLASS_NAME)) {
+    if((resolveBasic() == null)) {
+      if(ParserLanguageConstants.SELF_CLASS_NAME.equals(getName())) {
         final ParserClass parserClass = PsiTreeUtil.getParentOfType(this, ParserClass.class);
 
         return new ParserObjectImpl((ASTNode) getNode().clone()) {
