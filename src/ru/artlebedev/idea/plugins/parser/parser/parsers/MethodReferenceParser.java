@@ -50,7 +50,7 @@ public class MethodReferenceParser extends BaseTokenParser {
     while (!ParserTokenTypes.OPENING_BRACES.contains(builder.getTokenType())) {
       if (ParserParserUtil.isIdentifierToken(builder.getTokenType())) {
         parseReference(builder);
-      } else if (ParserTokenTypes.KEYWORDS.contains(builder.getTokenType())) {
+      } else if (ParserTokenTypes.KEYWORDS.contains(builder.getTokenType()) || builder.getTokenType() == ParserTokenTypes.DOLLAR) {
         builder.advanceLexer();
       } else {
         if (!errorShown)
