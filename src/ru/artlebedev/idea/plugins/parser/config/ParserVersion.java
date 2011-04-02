@@ -21,5 +21,6 @@ package ru.artlebedev.idea.plugins.parser.config;
  */
 
 public enum ParserVersion {
-  Parser_v3_4_1
+  Parser_v3_4_1,
+  JParser_v3_4_1
 }
