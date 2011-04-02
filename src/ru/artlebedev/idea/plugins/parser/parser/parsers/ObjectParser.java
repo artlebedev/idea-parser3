@@ -48,6 +48,10 @@ public class ObjectParser extends BaseTokenParser {
     identifierMet = false;
     noIdentifierAfterPunctuation = false;
     while (true) {
+      if (builder.getTokenType() == ParserTokenTypes.DOLLAR) {
+        builder.advanceLexer();
+        continue;
+      }
       if (ParserParserUtil.isIdentifierToken(builder.getTokenType())) {
         identifierMet = true;
         parseReference(builder);
@@ -82,6 +86,9 @@ public class ObjectParser extends BaseTokenParser {
   private void parseHash(PsiBuilder builder) {
     builder.advanceLexer();
     PsiBuilder.Marker marker = builder.mark();
+    if (builder.getTokenType() == ParserTokenTypes.DOLLAR) {
+      builder.advanceLexer();
+    }
     if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
       builder.advanceLexer();
       if (ParserTokenTypes.OPENING_BRACES.contains(builder.getTokenType())) {
