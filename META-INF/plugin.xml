@@ -95,6 +95,7 @@
     <annotator language="Parser"
                implementationClass="ru.artlebedev.idea.plugins.parser.annotator.ParserAnnotator"/>
 
+    <!-- file icon patcher -->
     <fileIconPatcher implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileIconPatcher"/>
   </extensions>
 </idea-plugin>
