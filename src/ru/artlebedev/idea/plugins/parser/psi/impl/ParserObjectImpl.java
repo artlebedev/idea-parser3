@@ -178,7 +178,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     return ParserStandardClasses.VOID;
   }
 
-  //@NotNull
+  @NotNull
   public ParserPassedParameter getValue() {
     return PsiTreeUtil.getChildOfAnyType(this, ParserPassedParameter.class);
   }
