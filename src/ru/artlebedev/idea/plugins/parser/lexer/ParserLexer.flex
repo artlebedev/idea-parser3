@@ -51,7 +51,13 @@ XMLNAME=({XMLALPHA}|"_"|":")({XMLALPHA}|{XMLDIGIT}|"_"|":"|"."|"-")*
 
 RussianLetters=[а-яА-Я]
 
+DTD_REF= "\"" [^\"]* "\"" | "'" [^']* "'"
+DOCTYPE= "<!" (D|d)(O|o)(C|c)(T|t)(Y|y)(P|p)(E|e)
+HTML= (H|h)(T|t)(M|m)(L|l)
+PUBLIC= (P|p)(U|u)(B|b)(L|l)(I|i)(C|c)
+
 %state YYINITIAL
+%state DOC_TYPE
 %state TAG_ATTRIBUTES
 %state ATTRIBUTE_VALUE_START
 %state ATTRIBUTE_VALUE_DQ
@@ -75,6 +81,13 @@ RussianLetters=[а-яА-Я]
 <LINE_COMMENT> {
 	.*			{ yybegin(YYINITIAL); return ParserTokenTypes.SHARP_COMMENT; }
 }
+
+<YYINITIAL> {DOCTYPE} { yybegin(DOC_TYPE); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<DOC_TYPE> {WhiteSpace} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<DOC_TYPE> {HTML} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<DOC_TYPE> {PUBLIC} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<DOC_TYPE> {DTD_REF} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<DOC_TYPE> ">" { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 
 <YYINITIAL,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"<" {XMLTAG_NAME} { yybegin(TAG_ATTRIBUTES); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 <YYINITIAL,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"</" {XMLTAG_NAME} { yybegin(TAG_ATTRIBUTES); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
