@@ -191,7 +191,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
       return true;
     }
 
-    if(parserMethod.getName().equals("auto")) {
+    if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
       return true;
     }
 
@@ -204,7 +204,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     ParserObjectReference parserObjectReference = PsiTreeUtil.findChildOfType(this, ParserObjectReference.class);
 
     if(parserObjectReference != null) {
-      if(parserObjectReference.getName().equals("self")) {
+      if(ParserLanguageConstants.SELF_CLASS_NAME.equals(parserObjectReference.getName())) {
         return true;
       }
     }
