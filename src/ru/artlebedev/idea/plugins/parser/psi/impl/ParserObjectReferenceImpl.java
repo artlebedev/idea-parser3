@@ -197,7 +197,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @Nullable
   public PsiElement resolve() {
-    if((resolveBasic() == null)) {
+    PsiElement resolveResult = resolveBasic();
+    if((resolveResult == null)) {
       if(ParserLanguageConstants.SELF_CLASS_NAME.equals(getName())) {
         final ParserClass parserClass = PsiTreeUtil.getParentOfType(this, ParserClass.class);
 
@@ -215,9 +216,11 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           }
         };
       }
-    }
 
-    return null;
+      return null;
+    } else {
+      return resolveResult;
+    }
   }
 
   public String getCanonicalText() {
