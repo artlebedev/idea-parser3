@@ -35,11 +35,14 @@ import java.util.List;
 public final class ParserPsiUtil {
   public static boolean isInAutoMethod(PsiElement element) {
     ParserMethod parserMethod = PsiTreeUtil.getParentOfType(element, ParserMethod.class);
-    if(parserMethod.getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
-      return true;
-    } else {
-      return false;
+
+    if(parserMethod != null) {
+      if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
+        return true;
+      }
     }
+
+    return false;
   }
 
   public static <T extends PsiElement> List<T> collectElementsAsList(PsiElement parent, final Class<T> typeToFind) {
