@@ -48,6 +48,8 @@ XMLALPHA=[:letter:]
 XMLDIGIT=[0-9]
 XMLTAG_NAME=({XMLALPHA}|"_"|":")({XMLALPHA}|{XMLDIGIT}|"_"|":"|"."|"-")*
 XMLNAME=({XMLALPHA}|"_"|":")({XMLALPHA}|{XMLDIGIT}|"_"|":"|"."|"-")*
+// THIS COULDN'T BE APPLIED TO PARSER ASWELL!!!
+XMLWHITE_SPACE_CHARS=[ \n\r\t\f]+
 
 RussianLetters=[а-яА-Я]
 
@@ -56,12 +58,19 @@ DOCTYPE= "<!" (D|d)(O|o)(C|c)(T|t)(Y|y)(P|p)(E|e)
 HTML= (H|h)(T|t)(M|m)(L|l)
 PUBLIC= (P|p)(U|u)(B|b)(L|l)(I|i)(C|c)
 
+END_COMMENT="--"[ \n\r\t\f]*">"
+
+CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XMLDIGIT}|"."|"("|")"|"|"|"!"|"&")*
+
 %state YYINITIAL
 %state DOC_TYPE
+%state COMMENT
 %state TAG_ATTRIBUTES
 %state ATTRIBUTE_VALUE_START
 %state ATTRIBUTE_VALUE_DQ
 %state ATTRIBUTE_VALUE_SQ
+%state C_COMMENT_START
+%state C_COMMENT_END
 %xstate PARSERDOC, LINE_COMMENT
 
 %%
@@ -88,6 +97,19 @@ PUBLIC= (P|p)(U|u)(B|b)(L|l)(I|i)(C|c)
 <DOC_TYPE> {PUBLIC} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 <DOC_TYPE> {DTD_REF} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 <DOC_TYPE> ">" { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+
+<YYINITIAL> "<!--" { yybegin(COMMENT); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<COMMENT> "[" { yybegin(C_COMMENT_START); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<COMMENT> "<![" { yybegin(C_COMMENT_END); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<COMMENT> {END_COMMENT} { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<COMMENT> [^] { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+
+<C_COMMENT_START,C_COMMENT_END> {CONDITIONAL_COMMENT_CONDITION} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<C_COMMENT_START> [^] { yybegin(COMMENT); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<C_COMMENT_START> "]>" { yybegin(COMMENT); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<C_COMMENT_START,C_COMMENT_END> {END_COMMENT} { yybegin(YYINITIAL); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<C_COMMENT_END> "]" { yybegin(COMMENT); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
+<C_COMMENT_END> [^] { yybegin(COMMENT); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 
 <YYINITIAL,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"<" {XMLTAG_NAME} { yybegin(TAG_ATTRIBUTES); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 <YYINITIAL,TAG_ATTRIBUTES,ATTRIBUTE_VALUE_START,ATTRIBUTE_VALUE_DQ,ATTRIBUTE_VALUE_SQ>"</" {XMLTAG_NAME} { yybegin(TAG_ATTRIBUTES); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
