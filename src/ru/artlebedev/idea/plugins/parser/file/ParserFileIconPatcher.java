@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.ide;
+package ru.artlebedev.idea.plugins.parser.file;
 
 import com.intellij.ide.FileIconPatcher;
 import com.intellij.openapi.project.Project;
