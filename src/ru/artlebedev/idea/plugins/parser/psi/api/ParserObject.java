@@ -1,6 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.psi.api;
 
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public interface ParserObject extends ParserElement, ParserNamedElement, IsTyped {
-  @NotNull
+  @Nullable
   public ParserPassedParameter getValue();
 
   public boolean isGlobal();

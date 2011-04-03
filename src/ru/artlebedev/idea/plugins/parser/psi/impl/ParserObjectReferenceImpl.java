@@ -93,20 +93,22 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       if (psiElement instanceof ParserObject) {
         ParserObject object = (ParserObject) psiElement;
         ParserPassedParameter value = object.getValue();
-        boolean hasNotHashKeyChildren = false;
-        PsiElement[] children = value.getChildren();
-        for (PsiElement child : children) {
-          if (!(child instanceof ParserHashKey)) {
-            if (!"".equals(child.getText().trim())) {
-              hasNotHashKeyChildren = true;
+        if(value != null) {
+          boolean hasNotHashKeyChildren = false;
+          PsiElement[] children = value.getChildren();
+          for (PsiElement child : children) {
+            if (!(child instanceof ParserHashKey)) {
+              if (!"".equals(child.getText().trim())) {
+                hasNotHashKeyChildren = true;
+              }
             }
           }
-        }
-        if (!hasNotHashKeyChildren) {
-          for (PsiElement child : children) {
-            if (child instanceof ParserHashKey) {
-              if (((ParserHashKey) child).getName().equals(getName())) {
-                return child;
+          if (!hasNotHashKeyChildren) {
+            for (PsiElement child : children) {
+              if (child instanceof ParserHashKey) {
+                if (((ParserHashKey) child).getName().equals(getName())) {
+                  return child;
+                }
               }
             }
           }
@@ -283,16 +285,18 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       if (resolved != null && resolved instanceof ParserObject) {
         ParserObject parserObject = (ParserObject) resolved;
         ParserPassedParameter value = parserObject.getValue();
-        boolean hasNotHashKeyChildren = false;
-        for (PsiElement child : value.getChildren()) {
-          if (!(child instanceof ParserHashKey)) {
-            if (!"".equals(child.getText().trim())) {
-              hasNotHashKeyChildren = true;
+        if(value != null) {
+          boolean hasNotHashKeyChildren = false;
+          for (PsiElement child : value.getChildren()) {
+            if (!(child instanceof ParserHashKey)) {
+              if (!"".equals(child.getText().trim())) {
+                hasNotHashKeyChildren = true;
+              }
             }
           }
-        }
-        if (!hasNotHashKeyChildren) {
-          result.addAll(Arrays.asList(value.getChildren()));
+          if (!hasNotHashKeyChildren) {
+            result.addAll(Arrays.asList(value.getChildren()));
+          }
         }
       }
     } else {

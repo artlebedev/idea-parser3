@@ -60,9 +60,10 @@ public class VariableIntroducer implements Runnable {
         parserObject.setName(varName);
         ParserPassedParameter value = parserObject.getValue();
 
-        value.getNode().addChild(reference.getNode());
-        value.getNode().removeChild(value.getNode().getFirstChildNode());
-
+        if(value != null) {
+          value.getNode().addChild(reference.getNode());
+          value.getNode().removeChild(value.getNode().getFirstChildNode());
+        }
 
       } catch (IncorrectOperationException e) {
         e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

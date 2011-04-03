@@ -5,6 +5,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.ParserStandardClasses;
@@ -178,7 +179,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     return ParserStandardClasses.VOID;
   }
 
-  @NotNull
+  @Nullable
   public ParserPassedParameter getValue() {
     return PsiTreeUtil.getChildOfAnyType(this, ParserPassedParameter.class);
   }
