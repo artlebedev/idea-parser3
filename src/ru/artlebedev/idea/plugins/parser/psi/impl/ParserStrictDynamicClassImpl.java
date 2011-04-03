@@ -7,8 +7,7 @@ import ru.artlebedev.idea.plugins.parser.psi.api.ParserStrictDynamicClass;
  * idea-parser3: slightly useful plugin.
  * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
- * Copyright 2006 Jay Bird <a4blank@yahoo.com>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2011 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
