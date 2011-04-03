@@ -35,14 +35,23 @@
     </component>
   </project-components>
 
+  <extensionPoints>
+    <extensionPoint name="parser.zenCodingGenerator" interface="com.intellij.codeInsight.template.zencoding.generators.ZenCodingGenerator"/>
+    <extensionPoint name="parser.zenCodingFilter" interface="com.intellij.codeInsight.template.zencoding.filters.ZenCodingFilter"/>
+  </extensionPoints>
+
   <extensions defaultExtensionNs="com.intellij">
     <!-- extensions decisions -->
     <fileTypeFactory implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader"/>
 
     <!-- live Templates -->
+    <!-- from textmate's bundle by lev@design.ru -->
     <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserTemplateContextType"/>
 
     <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
+
+    <!-- zen coding -->
+    <customLiveTemplate implementation="com.intellij.codeInsight.template.zencoding.ZenCodingTemplate"/>
 
     <!-- syntax highlighter -->
     <syntaxHighlighter key="Parser"

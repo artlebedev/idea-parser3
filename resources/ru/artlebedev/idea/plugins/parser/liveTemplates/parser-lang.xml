@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<templateSet group="Parser">
+<templateSet group="parser-lang">
   <template name="for" value="^for[$VAR1$:$VAR2$]($VAR3$;$VAR4$){ $VAR5$ }" description="^for[i](;){}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="1" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
