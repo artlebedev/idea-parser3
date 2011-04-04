@@ -565,7 +565,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="@" value="@$VAR1$[$VAR2$]&#10;" description="Method Definition" toReformat="false" toShortenFQNames="true">
+  <template name="@" value="@$VAR1$[$VAR2$]&#10;$END$&#10;###" description="Method Definition" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
