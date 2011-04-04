@@ -24,8 +24,9 @@ import com.intellij.lang.xml.XMLLanguage;
 
 public class ParserLanguage extends XMLLanguage {
   public ParserLanguage() {
-    super("Parser");
 
+    super("Parser");
+    //XmlLanguage("Parser");
     //SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new ParserHighlighterFactory());
   }
 
