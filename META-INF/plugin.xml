@@ -2,7 +2,7 @@
   <name>Parser for IDEA</name>
   <description><![CDATA[<html><body>
     <p>Support for parser server-side scripting language. More about the language on
-    http://parser.ru</p>
+    http://www.parser.ru/</p>
     </body></html>]]>
   </description>
   <version>1.0-alpha5c</version>
