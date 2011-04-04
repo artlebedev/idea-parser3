@@ -9,8 +9,6 @@
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="103.72"/>
 
-  <!--<depends optional="true">com.intellij.modules.lang</depends>-->
-
   <application-components>
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.ParserLoader</implementation-class>
