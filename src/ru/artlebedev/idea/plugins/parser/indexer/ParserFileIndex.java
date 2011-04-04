@@ -277,7 +277,7 @@ public class ParserFileIndex implements ProjectComponent {
 //  public void processFileAdded(final ParserFile psiFile) {
   public void processFileAdded(final PsiFile psiFile) {
     if (loadedClasses != null) {
-      if (loadedClasses.containsValue(psiFile)) {
+      if (!loadedClasses.containsValue(psiFile)) {
         loadedClasses.put(psiFile.toString(), (ParserFile) psiFile);
         return;
       }
