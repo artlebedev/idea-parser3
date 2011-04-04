@@ -43,12 +43,8 @@
     <fileTypeFactory implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader"/>
 
     <!-- live Templates -->
-    <!-- from textmate's bundle by lev@design.ru -->
     <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserTemplateContextType"/>
-
     <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
-
-    <!-- zen coding -->
     <customLiveTemplate implementation="com.intellij.codeInsight.template.zencoding.ZenCodingTemplate"/>
 
     <!-- syntax highlighter -->
@@ -60,28 +56,20 @@
     <!-- language extension -->
     <lang.braceMatcher language="Parser"
                        implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserBraceMatcher"/>
-
     <lang.commenter language="Parser"
                     implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserCommenter"/>
-
     <lang.parserDefinition language="Parser"
                            implementationClass="ru.artlebedev.idea.plugins.parser.parser.ParserParserDefinition"/>
-
     <lang.psiStructureViewFactory language="Parser"
                                   implementationClass="ru.artlebedev.idea.plugins.parser.structure.ParserStructureViewFactory"/>
-
     <lang.refactoringSupport language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.refactoring.ParserRefactoringSupport"/>
-
     <lang.documentationProvider language="Parser"
                                 implementationClass="ru.artlebedev.idea.plugins.parser.documentation.ParserDocumentationProvider"/>
-
     <lang.findUsagesProvider language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.findUsages.ParserFindUsagesProvider"/>
-
     <lang.formatter language="Parser"
                     implementationClass="ru.artlebedev.idea.plugins.parser.formatter.ParserFormattingModelBuilder"/>
-
     <lang.fileViewProviderFactory language="Parser"
                                   implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileViewProviderFactory"/>
 
