@@ -33,10 +33,12 @@
     </component>
   </project-components>
 
-  <extensionPoints>
-    <extensionPoint name="parser.zenCodingGenerator" interface="com.intellij.codeInsight.template.zencoding.generators.ZenCodingGenerator"/>
-    <extensionPoint name="parser.zenCodingFilter" interface="com.intellij.codeInsight.template.zencoding.filters.ZenCodingFilter"/>
-  </extensionPoints>
+  <!--<extensionPoints>-->
+    <!--<extensionPoint name="xml.zenCodingGenerator"-->
+                    <!--interface="com.intellij.codeInsight.template.zencoding.generators.ZenCodingGenerator"/>-->
+    <!--<extensionPoint name="xml.zenCodingFilter"-->
+                    <!--interface="com.intellij.codeInsight.template.zencoding.filters.ZenCodingFilter"/>-->
+  <!--</extensionPoints>-->
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- extensions decisions -->
@@ -45,7 +47,8 @@
     <!-- live Templates -->
     <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserTemplateContextType"/>
     <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
-    <customLiveTemplate implementation="com.intellij.codeInsight.template.zencoding.ZenCodingTemplate"/>
+    <!--<xml.zenCodingGenerator implementation="ru.artlebedev.idea.plugins.parser.zencoding.ParserZenCodingGeneratorImpl"/>-->
+    <!--<customLiveTemplate implementation="ru.artlebedev.idea.plugins.parser.zencoding.ZenCodingTemplate"/>-->
 
     <!-- syntax highlighter -->
     <syntaxHighlighter key="Parser"
