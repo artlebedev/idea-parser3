@@ -11,7 +11,7 @@ package ru.artlebedev.reformator.html.entity;
  * commercial license if you want one.
  */
 
-public class HtmlEntities {
+public interface HtmlEntities {
   public static final HtmlEntity amp = new HtmlEntity("&", "&amp;", "&amp;", "&#38;");
   public static final HtmlEntity gt = new HtmlEntity(">", "&gt;", "&gt;", "&#62;");
   public static final HtmlEntity lt = new HtmlEntity("<", "&lt;", "&lt;", "&#60;");
