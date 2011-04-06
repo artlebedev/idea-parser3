@@ -37,9 +37,9 @@ public class LanguageAbcMatch implements Comparable {
   @Override
   public int compareTo(Object o) {
     if(getMatchesCount() > ((LanguageAbcMatch) o).getMatchesCount()) {
-      return 1;
-    } else {
       return -1;
+    } else {
+      return 1;
     }
   }
 }
