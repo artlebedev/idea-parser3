@@ -126,6 +126,14 @@ public class Language {
     return abcList.get(0).getName();
   }
 
+  public String getUpperLetters() {
+    return upperLetters;
+  }
+
+  public String getLowerLetters() {
+    return lowerLetters;
+  }
+
   public static Language getInstance() {
     if(instance == null) {
       synchronized (Language.class) {
