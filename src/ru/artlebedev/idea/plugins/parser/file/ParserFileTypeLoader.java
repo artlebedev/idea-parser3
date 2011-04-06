@@ -29,5 +29,6 @@ public class ParserFileTypeLoader extends FileTypeFactory {
     consumer.consume(ParserFileType.PARSER_FILE_TYPE, ParserFileType.DEFAULT_EXTENSION);
     consumer.consume(ParserFileType.PARSER_FILE_TYPE, ParserFileType.IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION);
     consumer.consume(ParserFileType.PARSER_FILE_TYPE, ParserFileType.IMPRIMATUR_PAGE_PROCESSOR_EXTENSION);
+    consumer.consume(ParserFileType.PARSER_FILE_TYPE, ParserFileType.PARSERED_HTML_EXTENSION);
   }
 }
