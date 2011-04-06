@@ -75,6 +75,10 @@ public class Language {
     simpleWordPattern = Pattern.compile("[" + letters + "0-9’′']");
   }
 
+  public String get(String text) {
+    return get(text, new LanguageParams());
+  }
+
   public String get(String text, LanguageParams params) {
     text = text.replaceAll("[^\\s]*_[^\\s]*", " ");
 
