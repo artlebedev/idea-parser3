@@ -4,6 +4,7 @@ import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiInvalidElementAccessException;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
@@ -105,12 +106,15 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
     ParserClassReference referenceClass = callingReference.getReferenceClass();
     if (referenceClass == null) {
       if (callingReference.getReferenceObjects().length == 0) {
-        PsiFile file = getContainingFile();
-        ParserClass parserClass = PsiTreeUtil.getChildOfType(file, ParserClass.class);
-        if (parserClass != null) {
-          return parserClass;
+        try {
+          PsiFile file = getContainingFile();
+          ParserClass parserClass = PsiTreeUtil.getChildOfType(file, ParserClass.class);
+          if (parserClass != null) {
+            return parserClass;
+          }
+          return (HasMethods) file;
+        } catch(PsiInvalidElementAccessException ignored) {
         }
-        return (HasMethods) file;
       }
 
       final ParserObjectReference[] objects = callingReference.getReferenceObjects();
