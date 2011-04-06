@@ -34,8 +34,7 @@ import java.util.List;
 
 public class ParserFileIconPatcher implements FileIconPatcher {
   public static final String[] parseredHtmlExtensions = {
-          "html",
-          "htm"
+          "html"
   };
   public static final List<String> parseredHtmlExtensionList = Arrays.asList(parseredHtmlExtensions);
 
