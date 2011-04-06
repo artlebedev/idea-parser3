@@ -14,6 +14,23 @@ package ru.artlebedev.reformator.typograf;
 public class Typograph {
   private static volatile Typograph instance;
 
+  private TypographParams params = new TypographParams();
+  private String text;
+
+  public String process(String text) {
+    this.text = String.valueOf((char) 0x02) + text + String.valueOf((char) 0x02);
+
+    // typograph process will go here
+
+    return this.text;
+  }
+
+  public String process(String text, TypographParams params) {
+    this.params = params;
+
+    return process(text);
+  }
+
   private Typograph() {
 
   }
