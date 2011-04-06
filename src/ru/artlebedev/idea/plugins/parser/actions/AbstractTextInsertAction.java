@@ -34,7 +34,7 @@ public abstract class AbstractTextInsertAction extends AnAction {
   public void actionPerformed(AnActionEvent e)
   {
     final Editor editor = (Editor)e.getDataContext().getData("editor");
-    if ((editor == null) || (editor.getSelectionModel() == null)) {
+    if (editor == null) {
       return;
     }
     final Project project = (Project)e.getDataContext().getData("project");
@@ -49,7 +49,7 @@ public abstract class AbstractTextInsertAction extends AnAction {
       public void run() {
         CommandProcessor.getInstance().executeCommand(project, new Runnable() {
           public void run() {
-            if (!ReadonlyStatusHandler.getInstance(project).ensureFilesWritable(new VirtualFile[] { virtualFile }).hasReadonlyFiles())
+            if (!ReadonlyStatusHandler.getInstance(project).ensureFilesWritable(virtualFile).hasReadonlyFiles())
               EditorModificationUtil.insertStringAtCaret(editor, insert(), true, true);
           }
         }
@@ -67,10 +67,6 @@ public abstract class AbstractTextInsertAction extends AnAction {
 
   boolean shouldBeEnabled(AnActionEvent e) {
     Editor editor = (Editor)e.getDataContext().getData("editor");
-    if (editor == null) {
-      return false;
-    }
-
-    return true;
+    return editor != null;
   }
 }
