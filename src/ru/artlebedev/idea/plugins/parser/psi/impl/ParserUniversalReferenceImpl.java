@@ -1,12 +1,14 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
+import org.codingbox.idea.dev.utils.LogUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
@@ -42,6 +44,8 @@ import java.util.List;
  */
 
 public class ParserUniversalReferenceImpl extends ParserElementImpl implements ParserUniversalReference, PsiReference {
+  private static final Logger LOG = Logger.getInstance("#ParserUniversalReferenceImpl");
+
   public ParserUniversalReferenceImpl(ASTNode astNode) {
     super(astNode);
   }
@@ -86,6 +90,7 @@ public class ParserUniversalReferenceImpl extends ParserElementImpl implements P
   }
 
   public Object[] getVariants() {
+    LogUtil.log("ParserUniversalRefrenceImpl#getVariants()");
     List<PsiElement> result = new ArrayList<PsiElement>();
 
     Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();

@@ -172,11 +172,21 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
       if (type != null) {
         ParserMethod[] methods = type.getMethods();
         List<PsiElement> list = new ArrayList<PsiElement>();
+        HashSet<PsiElement> hs = new HashSet<PsiElement>();
         for (ParserMethod method : methods) {
           if(!method.isConstructor()) {
             list.add(method);
           }
+
+          for(PsiElement methodChild : method.getChildren()) {
+            if(parserObject instanceof ParserStrictClass) {
+              hs.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
+            } else {
+              hs.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+            }
+          }
         }
+        list.addAll(hs);
         return ParserLookupUtil.createSmartLookupItems(list);
       }
     }

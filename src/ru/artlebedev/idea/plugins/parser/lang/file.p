@@ -2,6 +2,16 @@
 file
 
 @load[format;filename]
+$name[]
+$size[]
+$text[]
+$cdate[^date::create[]]
+$mdate[^date::create[]]
+$adate[^date::create[]]
+$stderr[]
+$status[]
+$mode[]
+$content-type[]
 ###
 
 @load[format;filename;download_options]

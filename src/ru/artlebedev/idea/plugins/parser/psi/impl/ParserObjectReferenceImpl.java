@@ -1,11 +1,13 @@
 package ru.artlebedev.idea.plugins.parser.psi.impl;
 
 import com.intellij.lang.ASTNode;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
+import org.codingbox.idea.dev.utils.LogUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
@@ -32,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -55,6 +58,8 @@ import java.util.List;
  */
 
 public class ParserObjectReferenceImpl extends ParserElementImpl implements ParserObjectReference, PsiReference {
+  private static final Logger LOG = Logger.getInstance("#ParserObjectReferenceImpl");
+
   public ParserObjectReferenceImpl(ASTNode astNode) {
     super(astNode);
   }
@@ -108,6 +113,42 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
               if (child instanceof ParserHashKey) {
                 if (((ParserHashKey) child).getName().equals(getName())) {
                   return child;
+                }
+              }
+            }
+          }
+
+          ParserClass parserClass = ((ParserObject) psiElement).getType();
+
+          if(parserClass != null) {
+            LogUtil.log(parserClass.getName());
+
+            HashSet<PsiElement> hs = new HashSet<PsiElement>();
+
+            if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
+              for(PsiElement method : parserClass.getChildren()) {
+                if(method instanceof ParserMethod) {
+                  for(PsiElement methodChild : method.getChildren()) {
+                    hs.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
+                  }
+                }
+              }
+            } else {
+              for(PsiElement method : parserClass.getChildren()) {
+                if(method instanceof ParserMethod) {
+                  for(PsiElement methodChild : method.getChildren()) {
+                    hs.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                  }
+                }
+              }
+            }
+
+            Iterator<PsiElement> hsIter = hs.iterator();
+            while(hsIter.hasNext()) {
+              PsiElement element = hsIter.next();
+              if(element instanceof ParserObject) {
+                if(((ParserObject) element).getName().equals(getName())) {
+                  return element;
                 }
               }
             }
@@ -197,6 +238,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @Nullable
   public PsiElement resolve() {
+    LogUtil.log("ParserObjectRefrenceImpl#resolve()");
     PsiElement resolveResult = resolveBasic();
     if((resolveResult == null)) {
       if(ParserLanguageConstants.SELF_CLASS_NAME.equals(getName())) {
@@ -243,6 +285,8 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
   }
 
   public Object[] getVariants() {
+    LogUtil.log("ParserObjectReferenceImpl#getVariants()");
+
     boolean isInAuto = ParserPsiUtil.isInAutoMethod(this);
 
     final PsiElement parent = getParent();
@@ -266,14 +310,14 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
         ParserClass parserClass = (ParserClass) parserClassElement;
         ParserMethod[] parserMethods = parserClass.getMethods();
         for (ParserMethod parserMethod : parserMethods) {
-          if (ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
+          //if (ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
             List<PsiElement> list = new ArrayList<PsiElement>();
             List<ParserObject> objects = ParserResolveUtil.collectObjectDeclarationsInElement(parserMethod);
             for (ParserObject object : objects) {
               list.add(object);
             }
             return ParserLookupUtil.createSmartLookupItems(list);
-          }
+          //}
         }
       }
       return new Object[0];
@@ -299,6 +343,29 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           }
           if (!hasNotHashKeyChildren) {
             result.addAll(Arrays.asList(value.getChildren()));
+          }
+
+          ParserClass parserClass = ((ParserObject) resolved).getType();
+
+          if(parserClass != null) {
+            LogUtil.log(parserClass.getName());
+            if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
+              for(PsiElement method : parserClass.getChildren()) {
+                if(method instanceof ParserMethod) {
+                  for(PsiElement methodChild : method.getChildren()) {
+                    result.addAll(ParserResolveUtil.collectGlobalObjectDeclarations(methodChild));
+                  }
+                }
+              }
+            } else {
+              for(PsiElement method : parserClass.getChildren()) {
+                if(method instanceof ParserMethod) {
+                  for(PsiElement methodChild : method.getChildren()) {
+                    result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+                  }
+                }
+              }
+            }
           }
         }
       }
