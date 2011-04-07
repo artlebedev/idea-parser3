@@ -65,7 +65,7 @@ public class Typograph {
       placeQuotation(params.getQuotationMarksA(), params.getQuotationMarksB());
     }
 
-    return this.text;
+    return this.text.substring(1, this.text.length() - 1);
   }
 
   public String process(String text, TypographParams params) {
@@ -229,7 +229,7 @@ public class Typograph {
     if(!params.isPreserveOriginalMinus()) {
       matcher = Pattern.compile("([\\xC2\\x96\\xC2\\x97–—]|(^|[^-])--(?!\\s*-))", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
       while(matcher.find()) {
-        text = text.replaceAll(matcher.group(), "$2-");
+        text = text.replaceAll(matcher.group(), matcher.group(2) + "-");
       }
     }
 
@@ -248,7 +248,7 @@ public class Typograph {
 
       matcher = Pattern.compile("((^|\\n)" + TypographPatterns.tag + ")\\x20+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
       while(matcher.find()) {
-        text = text.replaceAll(matcher.group(), "$1");
+        text = text.replaceAll(matcher.group(), matcher.group(1));
       }
     }
 
@@ -280,7 +280,7 @@ public class Typograph {
     if(params.isReplaceHellip()) {
       matcher = Pattern.compile("([^\\.]|^)\\.{3,3}(?=[^\\.]|$)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
       while(matcher.find()) {
-        text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.hellip.getVariant1());
+        text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.hellip.getVariant1());
       }
     } else {
       matcher = Pattern.compile(HtmlEntities.hellip.getVariant1(), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
@@ -292,7 +292,7 @@ public class Typograph {
       matcher = Pattern.compile("(\\d" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + ")[xх](" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + "\\d)",
                 Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
       while(matcher.find()) {
-        text = text.replaceAll(matcher.group(), "$1$2" + HtmlEntities.times.getVariant1() + "$3$4");
+        text = text.replaceAll(matcher.group(), matcher.group(1) + matcher.group(2) + HtmlEntities.times.getVariant1() + "$3$4");
       }
     }
 
@@ -300,7 +300,7 @@ public class Typograph {
     matcher = Pattern.compile("(" + TypographPatterns.letters + "{2})(\')(?=" + TypographPatterns.letters + "{0,2}" + TypographPatterns.wordEnd0S + ")",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.rsquo.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.rsquo.getVariant1());
     }
 
     // place mdash
@@ -309,14 +309,14 @@ public class Typograph {
               "\\x20" + TypographPatterns.tag + ")[\\-\\—](" + TypographPatterns.tag + ")\\x20",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.mdash.getVariant1() + "$2" + HtmlEntities.nbsp.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.mdash.getVariant1() + matcher.group(2) + HtmlEntities.nbsp.getVariant1());
     }
 
     // _-
     matcher = Pattern.compile("(" + TypographPatterns.lettersDigits + TypographPatterns.wordEnd0 + ")\\x20(" + TypographPatterns.tag + ")[\\-\\—](?=" + TypographPatterns.tag + "\\x20)",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.nbsp.getVariant1() + "$2" + HtmlEntities.mdash.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1() + matcher.group(2) + HtmlEntities.mdash.getVariant1());
     }
   }
 
@@ -400,28 +400,28 @@ public class Typograph {
     matcher = Pattern.compile("(\\d" + TypographPatterns.tag + ")\\x20(?=" + TypographPatterns.tag + "\\d{3}" + TypographPatterns.wordEnd0S + ")",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.nbsp.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1());
     }
 
     // exceptions
     matcher = Pattern.compile("(\\S)\\x20(?=" + TypographPatterns.wordBegin0 + TypographPatterns.exceptionsLeft + TypographPatterns.wordEnd0S + ")",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1&_;");
+      text = text.replaceAll(matcher.group(), matcher.group(1) + "&_;");
     }
 
     // No_1
     matcher = Pattern.compile("([№§]" + TypographPatterns.tag + ")\\x20?(?=" + TypographPatterns.tag + "(?:" + TypographPatterns.number + "|" + TypographPatterns.romanNumber + "))",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.nbsp.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1());
     }
 
     // bla_/ bla
     matcher = Pattern.compile("\\x20([\\/\\|])\\x20",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + String.valueOf((char) 0x20));
+      text = text.replaceAll(matcher.group(), matcher.group(1) + String.valueOf((char) 0x20));
     }
 
     // 600_rubley, 500_GHz or 200_km or 60_km/h
@@ -434,7 +434,7 @@ public class Typograph {
                            TypographPatterns.wordEnd0S + "))",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1&_;");
+      text = text.replaceAll(matcher.group(), matcher.group(1) + "&_;");
     }
 
     // Usome 1, Usome 1 Usome
@@ -445,7 +445,7 @@ public class Typograph {
                            TypographPatterns.lettersUpper + "))",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1&_;");
+      text = text.replaceAll(matcher.group(), matcher.group(1) + "&_;");
     }
 
     // lower_U lower or lower_l.
@@ -458,7 +458,7 @@ public class Typograph {
                            "}(?:" + TypographPatterns.wordEnd1S + "|" + TypographPatterns.wordBegin2S + ")))",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1&_;");
+      text = text.replaceAll(matcher.group(), matcher.group(1) + "&_;");
     }
 
     // some_s ( or some_s, lower
@@ -470,7 +470,7 @@ public class Typograph {
                            TypographPatterns.lettersLower + ")))",
            Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1&_;");
+      text = text.replaceAll(matcher.group(), matcher.group(1) + "&_;");
     }
 
     Pattern pattern;
@@ -497,13 +497,15 @@ public class Typograph {
     }
 
     // common nbsp
-    text = Pattern.compile("(" + TypographPatterns.wordBegin0S + TypographPatterns.lettersDigits + "{0," +
+    matcher = Pattern.compile("(" + TypographPatterns.wordBegin0S + TypographPatterns.lettersDigits + "{0," +
                     (params.getSymbolsNumberForNbsp() - 1) + "}(?!\\d" + TypographPatterns.nulls + "\\x20" +
                     TypographPatterns.wordBegin0 + "\\d)" + TypographPatterns.lettersDigits +
                     TypographPatterns.nulls + ")\\x20(?=" + TypographPatterns.wordBegin0 +
                     TypographPatterns.lettersDigits + ")",
-                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" +
-                    HtmlEntities.nbsp.getVariant1());
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
+    while(matcher.find()) {
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1());
+    }
 
     // F._M._Lastname
     pattern = Pattern.compile("((?:\\n\\s*|" + TypographPatterns.notLetterUpper + TypographPatterns.wordEnd1S + "|" +
@@ -533,7 +535,7 @@ public class Typograph {
                     params.getSymbolsNumberForNbsp() + "}\\.)",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.nbsp.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1());
     }
 
     // l._l, or l._l. or l. 1.
@@ -544,7 +546,7 @@ public class Typograph {
                     TypographPatterns.nulls + "(?:\\s|$)))",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.nbsp.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1());
     }
   }
 
@@ -568,7 +570,7 @@ public class Typograph {
                       TypographPatterns.wordEnd1S + "|" + TypographPatterns.wordEnd0S + "|-)",
                       Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
       while(matcher.find()) {
-        text = text.replaceAll(matcher.group(), "$1" + Lq.getVariant1() + "$2" + Rq.getVariant1());
+        text = text.replaceAll(matcher.group(), matcher.group(1) + Lq.getVariant1() + matcher.group(2) + Rq.getVariant1());
       }
     }
 
@@ -578,7 +580,7 @@ public class Typograph {
                       "]{0,2000})" + RQ.getVariant1(),
                       Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
       while(matcher.find()) {
-        text = text.replaceAll(matcher.group(), "$1" + Lq.getVariant1() + "$2" + Rq.getVariant1());
+        text = text.replaceAll(matcher.group(), matcher.group(1) + Lq.getVariant1() + matcher.group(2) + Rq.getVariant1());
       }
     }
 
@@ -586,7 +588,7 @@ public class Typograph {
                     RQ.getVariant1() + Rq.getVariant1() + "]*)([" + LQ.getVariant1() + Lq.getVariant1() + "])",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$2$1$2");
+      text = text.replaceAll(matcher.group(), matcher.group(2) + matcher.group(1) + matcher.group(2));
     }
   }
 
@@ -601,7 +603,7 @@ public class Typograph {
                     TypographPatterns.letters + "{1,2}" + TypographPatterns.wordEnd0S + "))",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.nbsp.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1());
     }
 
     matcher = Pattern.compile("((?:^|\\s|" + HtmlEntities.nbsp.getVariant1() + ")" +
@@ -610,14 +612,14 @@ public class Typograph {
                     TypographPatterns.wordEnd0S + "|-" + TypographPatterns.letters + "{1,2}" + TypographPatterns.wordEnd0S + "))",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.nbsp.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.nbsp.getVariant1());
     }
 
     // place minus
     matcher = Pattern.compile("(\\x20|" + HtmlEntities.nbsp.getVariant1() + ")(?:" + TypographPatterns.tag + ")-(\\d)",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.minus.getVariant1() + "$2");
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.minus.getVariant1() + matcher.group(2));
     }
 
     // to do:
@@ -625,12 +627,12 @@ public class Typograph {
     matcher = Pattern.compile("(\\d\\s*)(')(?=" + TypographPatterns.wordEnd0S + ")",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.prime.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.prime.getVariant1());
     }
     matcher = Pattern.compile("(\\d\\s*)(\")(?=" + TypographPatterns.wordEnd0S + ")",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + HtmlEntities.prime.getVariant1());
+      text = text.replaceAll(matcher.group(), matcher.group(1) + HtmlEntities.prime.getVariant1());
     }
 
     matcher = Pattern.compile("\\\'",
@@ -643,7 +645,7 @@ public class Typograph {
     matcher = Pattern.compile("(" + HtmlEntities.nbsp.getVariant1() + HtmlEntities.mdash.getVariant1() + ")",
                     Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
     while(matcher.find()) {
-      text = text.replaceAll(matcher.group(), "$1" + String.valueOf((char) 0x20));
+      text = text.replaceAll(matcher.group(), matcher.group(1) + String.valueOf((char) 0x20));
     }
   }
 
@@ -712,21 +714,31 @@ public class Typograph {
 
   private void closeNobr() {
     if(!params.isNoTags()) {
-      text = Pattern.compile("(<nobr[^>]*>(?!<nobr))(<(\\/?\\w+)(\\s+[^>]*)*>)(?![^\\s]*</\\3>)",
-                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
-                             .replaceAll("$2$1");
+      Matcher matcher;
 
-      text = Pattern.compile("(<nobr[^>]*>)(<nobr[^>]*>)",
-                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
-                             .replaceAll("$1");
+      matcher = Pattern.compile("(<nobr[^>]*>(?!<nobr))(<(\\/?\\w+)(\\s+[^>]*)*>)(?![^\\s]*</\\3>)",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
+      while(matcher.find()) {
+        text = text.replaceAll(matcher.group(), matcher.group(2) + matcher.group(1));
+      }
 
-      text = Pattern.compile("(<nobr[^>]*>(?:<(\\\\w+)(?:\\\\s+[^>]*)*>(?:.|\\n)*?</\\\\2>|\\\\s*<[a-z][^>]*\\\\/>\\\\s*|[^<\\\\s]+?)+)(<[a-z][^>]*\\\\/>)?",
-                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
-                             .replaceAll("$1</nobr>$3");
+      matcher = Pattern.compile("(<nobr[^>]*>)(<nobr[^>]*>)",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
+      while(matcher.find()) {
+        text = text.replaceAll(matcher.group(), matcher.group(1));
+      }
 
-      text = Pattern.compile("(<nobr[^>]*>)(<(\\\\w+)(\\\\s+[^>]*)*>)(\\\\S*?)(</\\\\3>)(</nobr>)(\\\\s|$)",
-                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
-                             .replaceAll("$2$1$5$7$6$8");
+      matcher = Pattern.compile("(<nobr[^>]*>(?:<(\\\\w+)(?:\\\\s+[^>]*)*>(?:.|\\n)*?</\\\\2>|\\\\s*<[a-z][^>]*\\\\/>\\\\s*|[^<\\\\s]+?)+)(<[a-z][^>]*\\\\/>)?",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
+      while(matcher.find()) {
+        text = text.replaceAll(matcher.group(), matcher.group(1) + "</nobr>" + matcher.group(3));
+      }
+
+      matcher = Pattern.compile("(<nobr[^>]*>)(<(\\\\w+)(\\\\s+[^>]*)*>)(\\\\S*?)(</\\\\3>)(</nobr>)(\\\\s|$)",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text);
+      while(matcher.find()) {
+        text = text.replaceAll(matcher.group(), matcher.group(2) + matcher.group(1) + matcher.group(5) + matcher.group(7) + matcher.group(6) + matcher.group(8));
+      }
 
       // remove nbsp from nobr and wide nobr
       Pattern r = Pattern.compile("(" + HtmlUtil.getEntityVariantByNameAndType("nbsp", params.getEntityTypeForNbsp()) + "|<\\/?nobr[^>]*>)+",
@@ -735,7 +747,7 @@ public class Typograph {
       Pattern r1 = Pattern.compile("</?[a-z][^>]*>", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
 
       Pattern pattern = Pattern.compile("(<nobr[^>]*>)((?:.|\\n)*?)(</nobr>)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
-      Matcher matcher = pattern.matcher(text);
+      matcher = pattern.matcher(text);
 
       while(matcher.find()) {
         String str = matcher.group(0);

@@ -5,7 +5,7 @@
     http://www.parser.ru/</p>
     </body></html>]]>
   </description>
-  <version>1.0-alpha6d</version>
+  <version>1.0-alpha7</version>
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="103.72"/>
 
@@ -87,4 +87,11 @@
     <!-- file icon patcher -->
     <fileIconPatcher implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileIconPatcher"/>
   </extensions>
+
+  <actions>
+    <action id="Typograph" class="ru.artlebedev.idea.plugins.parser.actions.TypographAction"
+            text="Typograph Selected Text">
+      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+    </action>
+  </actions>
 </idea-plugin>
