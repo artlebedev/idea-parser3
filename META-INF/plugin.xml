@@ -7,7 +7,7 @@
     <p>Develop with joy!</p>
     </body></html>]]>
   </description>
-  <version>1.0-alpha7</version>
+  <version>1.0-alpha8</version>
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="103.72"/>
 
@@ -93,6 +93,14 @@
   <actions>
     <action id="Typograph" class="ru.artlebedev.idea.plugins.parser.actions.TypographAction"
             text="Typograph Selected Text">
+      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+    </action>
+    <action id="Base64Encode" class="ru.artlebedev.idea.plugins.parser.actions.Base64EncodeAction"
+            text="Base64 Encode Selected Text">
+      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+    </action>
+    <action id="Base64Decode" class="ru.artlebedev.idea.plugins.parser.actions.Base64DecodeAction"
+            text="Base64 Decode Selected Text">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
   </actions>
