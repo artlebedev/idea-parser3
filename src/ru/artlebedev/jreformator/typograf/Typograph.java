@@ -332,7 +332,7 @@ public class Typograph {
             s = s2;
           }
 
-          text.replaceAll(matcher.group(), s);
+          text = text.replaceAll(matcher.group(), s);
         }
       }
     }
@@ -433,6 +433,8 @@ public class Typograph {
                               TypographPatterns.nulls + ")\\x20(?:(" + TypographPatterns.tag + TypographPatterns.lettersUpper + TypographPatterns.nulls + "\\." +
                               TypographPatterns.nulls + ")\\x20)?(" + TypographPatterns.tag + TypographPatterns.lettersUpper + TypographPatterns.lettersLower + "+)",
                               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+    matcher = pattern.matcher(text);
 
     while(matcher.find()) {
       String str = matcher.group(0);
