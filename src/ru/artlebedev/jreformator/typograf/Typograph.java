@@ -37,7 +37,11 @@ public class Typograph {
   private TypographParams params = new TypographParams();
   private String text;
 
+  List<String> tags = new ArrayList<String>();
+
   public String process(String text) {
+    tags.clear();
+
     this.text = String.valueOf((char) 0x02) + text + String.valueOf((char) 0x02);
 
     cutHtml();
@@ -56,9 +60,9 @@ public class Typograph {
 
     closeNobr();
 
-//    if(!params.getQuotationMarksA().equals("")) {
-//      placeQuotation(params.getQuotationMarksA(), params.getQuotationMarksB());
-//    }
+    if(!"".equals(params.getQuotationMarksA())) {
+      placeQuotation(params.getQuotationMarksA(), params.getQuotationMarksB());
+    }
 
     return this.text;
   }
@@ -70,8 +74,6 @@ public class Typograph {
   }
 
   private void cutHtml() {
-    List<String> tags = new ArrayList<String>();
-
     Pattern pattern;
     Matcher matcher;
 
@@ -265,7 +267,75 @@ public class Typograph {
   }
 
   private void openNobr() {
+    Pattern pattern;
+    Matcher matcher;
 
+    if(params.isNobr() && !params.isNoTags()) {
+      tags.add("<nobr>");
+
+      //  ranges
+      pattern = Pattern.compile("(\\s|^)(" + TypographPatterns.wordBegin0 + "(?:" +
+                  TypographPatterns.number + "[\\-\\—]" + TypographPatterns.number + "|" +
+                  TypographPatterns.romanNumber + "\\—" + TypographPatterns.romanNumber + "))(?=" +
+                  TypographPatterns.wordEnd0S + ")", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+      matcher = pattern.matcher(text);
+
+      while(matcher.find()) {
+        String str = matcher.group(0);
+        String s1 = matcher.group(1);
+        String s2 = matcher.group(2);
+
+        text = text.replaceAll(matcher.group(), s1 + TypographPatterns.tagBegin + (tags.size() - 1) + TypographPatterns.tagEnd + s2);
+      }
+
+      //  numerical
+      pattern = Pattern.compile("(\\s|^)(" + TypographPatterns.wordBegin0 + "(?:" + TypographPatterns.number + "|" +
+                TypographPatterns.romanNumber + ")-" + TypographPatterns.letters + "+)(?=" + TypographPatterns.wordEnd0S + ")",
+                Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+      matcher = pattern.matcher(text);
+
+      while(matcher.find()) {
+        String str = matcher.group(0);
+        String s1 = matcher.group(1);
+        String s2 = matcher.group(2);
+
+        text = text.replaceAll(matcher.group(), s1 + TypographPatterns.tagBegin + (tags.size() - 1) + TypographPatterns.tagEnd + s2);
+      }
+
+      if(params.isNobrPhone() && !params.isNoTags()) {
+        tags.add("<nobr class=\"phone\">");
+
+        Pattern r = Pattern.compile("(\\d\\-\\d+\\-\\d|\\+(?:\\d\\x20?){11})");
+
+        pattern = Pattern.compile("(\\s|^)(" + TypographPatterns.wordBegin0 + "\\+?(?:\\d(?:[\\-\\x28\\x29\\x20]|" +
+                  TypographPatterns.tag + ")*){5,11})(?=" + TypographPatterns.wordEnd0S + ")",
+                  Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+        matcher = pattern.matcher(text);
+
+        while(matcher.find()) {
+          String str = matcher.group(0);
+          String s1 = matcher.group(1);
+          String s2 = matcher.group(2);
+
+          String s = s1;
+
+          if(r.matcher(s2).find()) {
+            s += TypographPatterns.tagBegin;
+            s += (tags.size() - 1);
+            s += TypographPatterns.tagEnd;
+
+            s += s2.replaceAll(String.valueOf((char) 0x20), HtmlEntities.nbsp.getVariant1());
+          } else {
+            s = s2;
+          }
+
+          text.replaceAll(matcher.group(), s);
+        }
+      }
+    }
   }
 
   private void placeNbsp() {
