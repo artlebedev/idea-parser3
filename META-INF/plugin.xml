@@ -3,6 +3,8 @@
   <description><![CDATA[<html><body>
     <p>Support for parser server-side scripting language. More about the language on
     http://www.parser.ru/</p>
+    <p>This module also includes custom plugins such as Typograph and Base64.</p>
+    <p>Develop with joy!</p>
     </body></html>]]>
   </description>
   <version>1.0-alpha7</version>
