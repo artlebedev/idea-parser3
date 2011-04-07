@@ -55,4 +55,8 @@ public class HtmlEntity {
   public String getVariant4() {
     return variant4;
   }
+
+  public boolean equals(HtmlEntity o) {
+    return o.getName().equals(getName());
+  }
 }
