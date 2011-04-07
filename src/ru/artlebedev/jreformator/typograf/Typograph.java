@@ -2,6 +2,7 @@ package ru.artlebedev.jreformator.typograf;
 
 import ru.artlebedev.jreformator.html.HtmlUtil;
 import ru.artlebedev.jreformator.html.entity.HtmlEntities;
+import ru.artlebedev.jreformator.html.entity.HtmlEntity;
 import ru.artlebedev.jreformator.html.tag.HtmlTags;
 import ru.artlebedev.jreformator.language.Language;
 
@@ -466,7 +467,37 @@ public class Typograph {
   }
 
   private void placeQuotation(String quotationMarksA, String quotationMarksB) {
+    HtmlEntity LQ = HtmlUtil.getEntityByName(quotationMarksA.split(" ")[0]);
+    HtmlEntity RQ = HtmlUtil.getEntityByName(quotationMarksA.split(" ")[1]);
 
+    HtmlEntity Lq = HtmlUtil.getEntityByName(quotationMarksB.split(" ")[0]);
+    HtmlEntity Rq = HtmlUtil.getEntityByName(quotationMarksB.split(" ")[0]);
+
+    if((LQ == null) || (RQ == null) || (Lq == null) || (Rq == null)) {
+      return;
+    }
+
+    if(!LQ.getName().equals("quot") && !RQ.getName().equals("quot")) {
+      text = Pattern.compile("(" + TypographPatterns.wordBegin0S + "|[-\\.])(\")((?!" +
+                      TypographPatterns.tag + "(?:\\s|" + HtmlEntities.nbsp.getVariant1() + "))[^\"]{1,1900}?(?!(?:\\s|" +
+                      HtmlEntities.nbsp.getVariant1() + ')' + TypographPatterns.tag + ")[^\"]{0,100})\\2(?=" +
+                      TypographPatterns.wordEnd1S + "|" + TypographPatterns.wordEnd0S + "|-)",
+                      Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                      .replaceAll("$1" + Lq.getVariant1() + "$2" + Rq.getVariant1());
+    }
+
+    if(!LQ.equals(Lq) && !RQ.equals(Rq)) {
+      text = Pattern.compile("(" + LQ.getVariant1() + "[^" + LQ.getVariant1() + RQ.getVariant1() +
+                      "]{0,2000})" + LQ.getVariant1() + "([^" + LQ.getVariant1() + RQ.getVariant1() +
+                      "]{0,2000})" + RQ.getVariant1(),
+                      Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                      .replaceAll("$1" + Lq.getVariant1() + "$2" + Rq.getVariant1());
+    }
+
+    text = Pattern.compile("\"(\\S[^\"" + LQ.getVariant1() + Lq.getVariant1() +
+                    RQ.getVariant1() + Rq.getVariant1() + "]*)([" + LQ.getVariant1() + Lq.getVariant1() + "])",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll("$2$1$2");
   }
 
   private void postProcess() {
