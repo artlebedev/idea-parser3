@@ -4,6 +4,7 @@ import com.intellij.lang.ASTNode;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
@@ -213,6 +214,24 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     }
 
     list.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+
+    ParserMethod currentMethod = PsiTreeUtil.getParentOfType(this, ParserMethod.class);
+
+    if(currentMethod != null) {
+      Iterator<PsiElement> iterator = list.iterator();
+
+      while(iterator.hasNext()) {
+        PsiElement element = iterator.next();
+        if(element instanceof PsiNamedElement) {
+          if(((PsiNamedElement) element).getName().equals("result")) {
+            if(!currentMethod.equals(PsiTreeUtil.getParentOfType(element, ParserMethod.class))) {
+              iterator.remove();
+            }
+          }
+        }
+      }
+    }
+
     for (PsiElement psiElement : list) {
       if (psiElement instanceof ParserObject) {
         String name = ((ParserObject) psiElement).getName();
@@ -316,6 +335,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
             for (ParserObject object : objects) {
               list.add(object);
             }
+
             return ParserLookupUtil.createSmartLookupItems(list);
           //}
         }
@@ -366,6 +386,15 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
                 }
               }
             }
+
+            Iterator<PsiElement> iterator = result.iterator();
+            while(iterator.hasNext()) {
+              PsiElement element = iterator.next();
+              if(element instanceof PsiNamedElement) {
+                if(((PsiNamedElement) element).getName().equals("result"))
+                  iterator.remove();
+              }
+            }
           }
         }
       }
@@ -393,6 +422,23 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
             if(method instanceof ParserMethod) {
               for(PsiElement methodChild : method.getChildren()) {
                 result.addAll(ParserResolveUtil.collectObjectDeclarations(methodChild));
+              }
+            }
+          }
+        }
+
+        ParserMethod currentMethod = PsiTreeUtil.getParentOfType(this, ParserMethod.class);
+
+        if(currentMethod != null) {
+          Iterator<PsiElement> iterator = result.iterator();
+
+          while(iterator.hasNext()) {
+            PsiElement element = iterator.next();
+            if(element instanceof PsiNamedElement) {
+              if(((PsiNamedElement) element).getName().equals("result")) {
+                if(!currentMethod.equals(PsiTreeUtil.getParentOfType(element, ParserMethod.class))) {
+                  iterator.remove();
+                }
               }
             }
           }

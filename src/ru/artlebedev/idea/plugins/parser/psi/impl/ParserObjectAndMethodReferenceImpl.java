@@ -3,6 +3,7 @@ package ru.artlebedev.idea.plugins.parser.psi.impl;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
@@ -24,6 +25,7 @@ import ru.artlebedev.idea.plugins.parser.psi.resolve.ParserResolveUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -137,6 +139,15 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
             }
           }
 
+          Iterator<PsiElement> iterator = result.iterator();
+          while(iterator.hasNext()) {
+            PsiElement element = iterator.next();
+            if(element instanceof PsiNamedElement) {
+              if(((PsiNamedElement) element).getName().equals("result"))
+                iterator.remove();
+            }
+          }
+
           List<PsiElement> list = new ArrayList<PsiElement>();
           list.addAll(result);
           return ParserLookupUtil.createSmartLookupItems(list);
@@ -186,6 +197,16 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
             }
           }
         }
+
+        Iterator<PsiElement> iterator = hs.iterator();
+        while(iterator.hasNext()) {
+          PsiElement element = iterator.next();
+          if(element instanceof PsiNamedElement) {
+            if(((PsiNamedElement) element).getName().equals("result"))
+              iterator.remove();
+          }
+        }
+
         list.addAll(hs);
         return ParserLookupUtil.createSmartLookupItems(list);
       }
