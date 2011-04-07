@@ -52,9 +52,9 @@ public class TypographParams {
 
   private boolean preserveOriginalQuotation = false;
 
-  private String language;
-  private String quotationMarksA;
-  private String quotationMarksB;
+  private String language = "";
+  private String quotationMarksA = "";
+  private String quotationMarksB = "";
 
   public void setEntityType(int entityType) {
     this.entityType = entityType;

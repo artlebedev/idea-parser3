@@ -202,7 +202,66 @@ public class Typograph {
   }
 
   private void preProcess() {
+    // replace quots
+    if(!"".equals(params.getQuotationMarksA()) && !params.isPreserveOriginalQuotation()) {
+      Pattern.compile("\\xC2\\x92‘’′", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("'");
+    }
 
+    // replace nbsp
+    if(!params.isPreserveOriginalNbsp()) {
+      Pattern.compile(HtmlEntities.nbsp.getVariant1(), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
+    }
+
+    // replace dash
+    if(!params.isPreserveOriginalMinus()) {
+      Pattern.compile("([\\xC2\\x96\\xC2\\x97–—]|(^|[^-])--(?!\\s*-))", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$2-");
+    }
+
+    // replace spaces
+    if(params.isCollapse09()) {
+      Pattern.compile("\\x09+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
+    }
+    if(params.isCollapse20()) {
+      Pattern.compile("\\x20{2}", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
+      Pattern.compile("((^|\\n)" + TypographPatterns.tag + ")\\x20+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1");
+    }
+
+    // pseudo code replaces
+    if(params.isReplacePlusmn()) {
+      Pattern.compile("\\+\\-", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.plusmn.getVariant1());
+    }
+    if(params.isReplaceCopy()) {
+      Pattern.compile("\\([cс]\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.copy.getVariant1());
+    }
+    if(params.isReplaceReg()) {
+      Pattern.compile("\\(r\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.reg.getVariant1());
+    }
+    if(params.isReplaceTrade()) {
+      Pattern.compile("(\\S)\\(tm\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.trade.getVariant1());
+    }
+    if(params.isReplaceHellip()) {
+      Pattern.compile("([^\\.]|^)\\.{3,3}(?=[^\\.]|$)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.hellip.getVariant1());
+    } else {
+      Pattern.compile(HtmlEntities.hellip.getVariant1(), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("...");
+    }
+    if(params.isReplaceTimes()) {
+      Pattern.compile("(\\d" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + ")[xх](" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + "\\d)",
+              Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1$2" + HtmlEntities.times.getVariant1() + "$3$4");
+    }
+
+    // place apostrophe
+    Pattern.compile("(" + TypographPatterns.letters + "{2})(\')(?=" + TypographPatterns.letters + "{0,2}" + TypographPatterns.wordEnd0S + ")",
+            Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.rsquo.getVariant1());
+
+    // place mdash
+    // -_
+    Pattern.compile("(\\n" + TypographPatterns.tag + "\\s*" + TypographPatterns.tag + "\\s*|" + TypographPatterns.sentenceEnd +
+            "\\x20" + TypographPatterns.tag + ")[\\-\\—](" + TypographPatterns.tag + ")\\x20",
+            Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.mdash.getVariant1() + "$2" + HtmlEntities.nbsp.getVariant1());
+
+    // _-
+    Pattern.compile("(" + TypographPatterns.lettersDigits + TypographPatterns.wordEnd0 + ")\\x20(" + TypographPatterns.tag + ")[\\-\\—](?=" + TypographPatterns.tag + "\\x20)",
+            Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.nbsp.getVariant1() + "$2" + HtmlEntities.mdash.getVariant1());
   }
 
   private void openNobr() {
