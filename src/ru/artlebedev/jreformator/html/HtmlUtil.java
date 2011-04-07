@@ -12,10 +12,34 @@ import ru.artlebedev.jreformator.html.entity.HtmlEntity;
  */
 public class HtmlUtil {
   public static String replaceEntities(String input, HtmlEntity[] htmlEntities) {
-    for(int i = 0; i < htmlEntities.length; i++) {
-      input = input.replaceAll(htmlEntities[i].getVariant2(), htmlEntities[i].getVariant1());
-      input = input.replaceAll(htmlEntities[i].getVariant3(), htmlEntities[i].getVariant1());
-      input = input.replaceAll(htmlEntities[i].getVariant4(), htmlEntities[i].getVariant1());
+    return replaceEntitiesWithType(input, htmlEntities, 0);
+  }
+
+  public static String replaceEntitiesWithType(String input, HtmlEntity[] htmlEntities, int type) {
+    if(type == 3) {
+      for(int i = 0; i < htmlEntities.length; i++) {
+        input = input.replaceAll(htmlEntities[i].getVariant1(), htmlEntities[i].getVariant4());
+        input = input.replaceAll(htmlEntities[i].getVariant2(), htmlEntities[i].getVariant4());
+        input = input.replaceAll(htmlEntities[i].getVariant3(), htmlEntities[i].getVariant4());
+      }
+    } else if(type == 2) {
+      for(int i = 0; i < htmlEntities.length; i++) {
+        input = input.replaceAll(htmlEntities[i].getVariant1(), htmlEntities[i].getVariant3());
+        input = input.replaceAll(htmlEntities[i].getVariant2(), htmlEntities[i].getVariant3());
+        input = input.replaceAll(htmlEntities[i].getVariant4(), htmlEntities[i].getVariant3());
+      }
+    } else if(type == 1) {
+      for(int i = 0; i < htmlEntities.length; i++) {
+        input = input.replaceAll(htmlEntities[i].getVariant1(), htmlEntities[i].getVariant2());
+        input = input.replaceAll(htmlEntities[i].getVariant3(), htmlEntities[i].getVariant2());
+        input = input.replaceAll(htmlEntities[i].getVariant4(), htmlEntities[i].getVariant2());
+      }
+    } else {
+      for(int i = 0; i < htmlEntities.length; i++) {
+        input = input.replaceAll(htmlEntities[i].getVariant2(), htmlEntities[i].getVariant1());
+        input = input.replaceAll(htmlEntities[i].getVariant3(), htmlEntities[i].getVariant1());
+        input = input.replaceAll(htmlEntities[i].getVariant4(), htmlEntities[i].getVariant1());
+      }
     }
     return input;
   }
