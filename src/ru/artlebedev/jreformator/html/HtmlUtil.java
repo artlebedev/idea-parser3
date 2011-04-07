@@ -1,5 +1,6 @@
 package ru.artlebedev.jreformator.html;
 
+import ru.artlebedev.jreformator.html.entity.HtmlEntities;
 import ru.artlebedev.jreformator.html.entity.HtmlEntity;
 
 /**
@@ -17,5 +18,15 @@ public class HtmlUtil {
       input = input.replaceAll(htmlEntities[i].getVariant4(), htmlEntities[i].getVariant1());
     }
     return input;
+  }
+
+  public static HtmlEntity getEntityByName(String name) {
+    for(HtmlEntity entity : HtmlEntities.allEntities) {
+      if(entity.getName().equals(name)) {
+        return entity;
+      }
+    }
+
+    return null;
   }
 }
