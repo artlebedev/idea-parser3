@@ -501,7 +501,44 @@ public class Typograph {
   }
 
   private void postProcess() {
+    // place ndash in numbers range
+    text = Pattern.compile("((?:^|\\s|" + HtmlEntities.nbsp.getVariant1() + ")" +
+                    TypographPatterns.wordBegin0 + "\\$?" + TypographPatterns.number +
+                    TypographPatterns.tag + ")\\—(?=" + TypographPatterns.tag +
+                    TypographPatterns.number + "(?:" + TypographPatterns.wordEnd0S + "|-" +
+                    TypographPatterns.letters + "{1,2}" + TypographPatterns.wordEnd0S + "))",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll("$1" + HtmlEntities.nbsp.getVariant1());
 
+    text = Pattern.compile("((?:^|\\s|" + HtmlEntities.nbsp.getVariant1() + ")" +
+                    TypographPatterns.wordBegin0 + TypographPatterns.romanNumber + TypographPatterns.tag + ")\\—(?=" +
+                    TypographPatterns.tag + TypographPatterns.romanNumber + "(?:" +
+                    TypographPatterns.wordEnd0S + "|-" + TypographPatterns.letters + "{1,2}" + TypographPatterns.wordEnd0S + "))",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll("$1" + HtmlEntities.nbsp.getVariant1());
+
+    // place minus
+    text = Pattern.compile("(\\x20|" + HtmlEntities.nbsp.getVariant1() + ")(?:" + TypographPatterns.tag + ")-(\\d)",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll("$1" + HtmlEntities.minus.getVariant1() + "$2");
+
+    // to do:
+    // place prime
+    text = Pattern.compile("(\\d\\s*)(')(?=" + TypographPatterns.wordEnd0S + ")",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll("$1" + HtmlEntities.prime.getVariant1());
+    text = Pattern.compile("(\\d\\s*)(\")(?=" + TypographPatterns.wordEnd0S + ")",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll("$1" + HtmlEntities.prime.getVariant1());
+
+    text = Pattern.compile("\\\'",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll(HtmlEntities.rsquo.getVariant1());
+
+    // &nbsp;&mdash;&nbsp;as -> &nbsp;&mdash; as&nbsp;
+    text = Pattern.compile("(" + HtmlEntities.nbsp.getVariant1() + HtmlEntities.mdash.getVariant1() + ")",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll("$1" + String.valueOf((char) 0x20));
   }
 
   private void returnHtml() {
