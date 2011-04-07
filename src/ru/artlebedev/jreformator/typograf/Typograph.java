@@ -3,6 +3,7 @@ package ru.artlebedev.jreformator.typograf;
 import ru.artlebedev.jreformator.html.HtmlUtil;
 import ru.artlebedev.jreformator.html.entity.HtmlEntities;
 import ru.artlebedev.jreformator.html.tag.HtmlTags;
+import ru.artlebedev.jreformator.language.Language;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -155,7 +156,49 @@ public class Typograph {
   }
 
   private void initParamsByLanguage() {
+    String language = !"".equals(params.getLanguage()) ? params.getLanguage() : Language.getInstance().get(text);
 
+    if(language.equals("cyr") || language.equals("ru") || language.equals("be") || language.equals("uk") || language.equals("bg")) {
+      /* Russian Belarusian Ukrainian Bulgarian */
+      params.setQuotationMarksA("laquo raquo");
+      params.setQuotationMarksB("bdquo ldquo");
+    } else if(language.equals("fr") || language.equals("pt") || language.equals("es") || language.equals("el") || language.equals("ca")) {
+      /* French Portuguese Spanish Greek Catalan */
+      params.setQuotationMarksA("laquo raquo");
+      params.setQuotationMarksB("ldquo rdquo");
+    } else if(language.equals("sq") || language.equals("it") || language.equals("tr")) {
+      /* Albanian Italian Turkish */
+      params.setQuotationMarksA("laquo raquo");
+      params.setQuotationMarksB("lsaquo rsaquo");
+    } else if(language.equals("cs") || language.equals("lt") || language.equals("sk") || language.equals("sl") || language.equals("ro") || language.equals("pl") || language.equals("nl")) {
+      /* Czech Lithuanian Slovak Slovene Romanian Polish Netherland */
+      params.setQuotationMarksA("bdquo rdquo");
+      params.setQuotationMarksB("bsquo rsquo");
+    } else if(language.equals("de") || language.equals("da")) {
+      /* German Danish */
+      params.setQuotationMarksA("raquo laquo");
+      params.setQuotationMarksB("rsaquo lsaquo");
+    } else if(language.equals("fi") || language.equals("sv")) {
+      /* Finnish Swedish */
+      params.setQuotationMarksA("rdquo rdquo");
+      params.setQuotationMarksB("rsquo rsquo");
+    } else {
+      /* English Esperanto Irish Indonesian Korean Thai Chinese */
+      params.setQuotationMarksA("ldquo rdquo");
+      params.setQuotationMarksB("lsquo rsquo");
+    }
+
+    // to do:
+    // en
+    //  double space after ! and ?
+    //  . and , inside quotes
+
+    // fr
+    //  La, Le, L if next in upper case
+
+    // fr
+    //  space before : ; ! ?
+    //  elki with space
   }
 
   private void preProcess() {
