@@ -597,7 +597,47 @@ public class Typograph {
   }
 
   private void closeNobr() {
+    if(!params.isNoTags()) {
+      text = Pattern.compile("(<nobr[^>]*>(?!<nobr))(<(\\/?\\w+)(\\s+[^>]*)*>)(?![^\\s]*</\\3>)",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                             .replaceAll("$2$1");
 
+      text = Pattern.compile("(<nobr[^>]*>)(<nobr[^>]*>)",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                             .replaceAll("$1");
+
+      text = Pattern.compile("(<nobr[^>]*>(?:<(\\\\w+)(?:\\\\s+[^>]*)*>(?:.|\\n)*?</\\\\2>|\\\\s*<[a-z][^>]*\\\\/>\\\\s*|[^<\\\\s]+?)+)(<[a-z][^>]*\\\\/>)?",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                             .replaceAll("$1</nobr>$3");
+
+      text = Pattern.compile("(<nobr[^>]*>)(<(\\\\w+)(\\\\s+[^>]*)*>)(\\\\S*?)(</\\\\3>)(</nobr>)(\\\\s|$)",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                             .replaceAll("$2$1$5$7$6$8");
+
+      // remove nbsp from nobr and wide nobr
+      Pattern r = Pattern.compile("(" + HtmlUtil.getEntityVariantByNameAndType("nbsp", params.getEntityTypeForNbsp()) + "|<\\/?nobr[^>]*>)+",
+                                  Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+      Pattern r1 = Pattern.compile("</?[a-z][^>]*>", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+      Pattern pattern = Pattern.compile("(<nobr[^>]*>)((?:.|\\n)*?)(</nobr>)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+      Matcher matcher = pattern.matcher(text);
+
+      while(matcher.find()) {
+        String str = matcher.group(0);
+        String s1 = matcher.group(1);
+        String s2 = matcher.group(2);
+        String s3 = matcher.group(3);
+
+        s2 = r.matcher(s2).replaceAll(String.valueOf((char) 0x20));
+
+        text = matcher.replaceAll((r1.matcher(s2).replaceAll("").length() < 30) ? s1 + s2 + s3 : s2);
+      }
+
+      text = Pattern.compile("<\\\\/nobr><nobr[^>]*>",
+                             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                             .replaceAll("");
+    }
   }
 
   private Typograph() {
