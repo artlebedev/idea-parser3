@@ -67,4 +67,18 @@ public class HtmlUtil {
 
     return null;
   }
+
+  public static String getEntityVariantByNameAndType(String name, int type) {
+    HtmlEntity entity = getEntityByName(name);
+
+    if(type == 3) {
+      return entity.getVariant4();
+    } else if(type == 2) {
+      return entity.getVariant3();
+    } else if(type == 1) {
+      return entity.getVariant2();
+    } else {
+      return entity.getVariant1();
+    }
+  }
 }

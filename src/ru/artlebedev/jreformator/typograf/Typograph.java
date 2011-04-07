@@ -542,7 +542,58 @@ public class Typograph {
   }
 
   private void returnHtml() {
+    text = HtmlUtil.replaceEntitiesWithType(text, HtmlEntities.specialEntities, params.getEntityTypeForSpecial());
+    text = HtmlUtil.replaceEntitiesWithType(text, HtmlEntities.commonEntites, params.getEntityType());
 
+    if(params.getEntityType() != params.getEntityTypeForNbsp()) {
+      text = Pattern.compile(HtmlUtil.getEntityVariantByNameAndType("nbsp", params.getEntityType()),
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll(HtmlUtil.getEntityVariantByNameAndType("nbsp", params.getEntityTypeForNbsp()));
+    }
+
+    if(params.getEntityType() != params.getEntityTypeForShy()) {
+      text = Pattern.compile(HtmlUtil.getEntityVariantByNameAndType("shy", params.getEntityType()),
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                    .replaceAll(HtmlUtil.getEntityVariantByNameAndType("shy", params.getEntityTypeForShy()));
+    }
+
+    if(!params.isNoTags()) {
+      Pattern pattern = Pattern.compile("(\\x0A?)" + TypographPatterns.tagBegin + "(\\d+)" + TypographPatterns.tagEnd,
+                                        Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+      Matcher matcher = pattern.matcher(text);
+
+      while(matcher.find()) {
+        String str = matcher.group(0);
+        String s1 = matcher.group(1);
+        String s2 = matcher.group(2);
+
+        try {
+          String s = tags.get(Integer.valueOf(s2));
+
+          text = matcher.replaceAll(s.indexOf(String.valueOf((char) 0x0A)) == 0 ? s.substring(1) : s1 + s);
+        } catch(Exception ignored) {}
+      }
+
+      text = Pattern.compile("(<sup(\\s[^>]*)?>" + HtmlUtil.getEntityVariantByNameAndType("reg", params.getEntityType()) + "(\\s+|" +
+                                HtmlUtil.getEntityVariantByNameAndType("nbsp", params.getEntityTypeForNbsp()) + ")?</sup>|" +
+                                HtmlUtil.getEntityVariantByNameAndType("reg", params.getEntityType()) + ")",
+                                Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text)
+                                .replaceAll("<sup class=\"reg\">" +
+                                HtmlUtil.getEntityVariantByNameAndType("reg", params.getEntityType()) + "</sup>$3");
+    } else {
+      // to do: replace on html:tags.all.block
+      Pattern pattern = Pattern.compile(TypographPatterns.tagBegin + "(\\d+)" + TypographPatterns.tagEnd);
+      Matcher matcher = pattern.matcher(text);
+
+      while(matcher.find()) {
+        String str = matcher.group(0);
+        String s1 = matcher.group(1);
+
+        try {
+          text = matcher.replaceAll(tags.get(Integer.valueOf(s1)));
+        } catch(Exception ignored) {}
+      }
+    }
   }
 
   private void closeNobr() {
