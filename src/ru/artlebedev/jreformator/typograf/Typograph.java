@@ -206,63 +206,63 @@ public class Typograph {
   private void preProcess() {
     // replace quots
     if(!"".equals(params.getQuotationMarksA()) && !params.isPreserveOriginalQuotation()) {
-      Pattern.compile("\\xC2\\x92‘’′", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("'");
+      text = Pattern.compile("\\xC2\\x92‘’′", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("'");
     }
 
     // replace nbsp
     if(!params.isPreserveOriginalNbsp()) {
-      Pattern.compile(HtmlEntities.nbsp.getVariant1(), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
+      text = Pattern.compile(HtmlEntities.nbsp.getVariant1(), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
     }
 
     // replace dash
     if(!params.isPreserveOriginalMinus()) {
-      Pattern.compile("([\\xC2\\x96\\xC2\\x97–—]|(^|[^-])--(?!\\s*-))", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$2-");
+      text = Pattern.compile("([\\xC2\\x96\\xC2\\x97–—]|(^|[^-])--(?!\\s*-))", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$2-");
     }
 
     // replace spaces
     if(params.isCollapse09()) {
-      Pattern.compile("\\x09+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
+      text = Pattern.compile("\\x09+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
     }
     if(params.isCollapse20()) {
-      Pattern.compile("\\x20{2}", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
-      Pattern.compile("((^|\\n)" + TypographPatterns.tag + ")\\x20+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1");
+      text = Pattern.compile("\\x20{2}", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(String.valueOf((char) 0x20));
+      text = Pattern.compile("((^|\\n)" + TypographPatterns.tag + ")\\x20+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1");
     }
 
     // pseudo code replaces
     if(params.isReplacePlusmn()) {
-      Pattern.compile("\\+\\-", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.plusmn.getVariant1());
+      text = Pattern.compile("\\+\\-", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.plusmn.getVariant1());
     }
     if(params.isReplaceCopy()) {
-      Pattern.compile("\\([cс]\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.copy.getVariant1());
+      text = Pattern.compile("\\([cс]\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.copy.getVariant1());
     }
     if(params.isReplaceReg()) {
-      Pattern.compile("\\(r\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.reg.getVariant1());
+      text = Pattern.compile("\\(r\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.reg.getVariant1());
     }
     if(params.isReplaceTrade()) {
-      Pattern.compile("(\\S)\\(tm\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.trade.getVariant1());
+      text = Pattern.compile("(\\S)\\(tm\\)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll(HtmlEntities.trade.getVariant1());
     }
     if(params.isReplaceHellip()) {
-      Pattern.compile("([^\\.]|^)\\.{3,3}(?=[^\\.]|$)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.hellip.getVariant1());
+      text = Pattern.compile("([^\\.]|^)\\.{3,3}(?=[^\\.]|$)", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.hellip.getVariant1());
     } else {
-      Pattern.compile(HtmlEntities.hellip.getVariant1(), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("...");
+      text = Pattern.compile(HtmlEntities.hellip.getVariant1(), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("...");
     }
     if(params.isReplaceTimes()) {
-      Pattern.compile("(\\d" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + ")[xх](" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + "\\d)",
+      text = Pattern.compile("(\\d" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + ")[xх](" + TypographPatterns.tag + ")\\x20?(" + TypographPatterns.tag + "\\d)",
               Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1$2" + HtmlEntities.times.getVariant1() + "$3$4");
     }
 
     // place apostrophe
-    Pattern.compile("(" + TypographPatterns.letters + "{2})(\')(?=" + TypographPatterns.letters + "{0,2}" + TypographPatterns.wordEnd0S + ")",
+    text = Pattern.compile("(" + TypographPatterns.letters + "{2})(\')(?=" + TypographPatterns.letters + "{0,2}" + TypographPatterns.wordEnd0S + ")",
             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.rsquo.getVariant1());
 
     // place mdash
     // -_
-    Pattern.compile("(\\n" + TypographPatterns.tag + "\\s*" + TypographPatterns.tag + "\\s*|" + TypographPatterns.sentenceEnd +
+    text = Pattern.compile("(\\n" + TypographPatterns.tag + "\\s*" + TypographPatterns.tag + "\\s*|" + TypographPatterns.sentenceEnd +
             "\\x20" + TypographPatterns.tag + ")[\\-\\—](" + TypographPatterns.tag + ")\\x20",
             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.mdash.getVariant1() + "$2" + HtmlEntities.nbsp.getVariant1());
 
     // _-
-    Pattern.compile("(" + TypographPatterns.lettersDigits + TypographPatterns.wordEnd0 + ")\\x20(" + TypographPatterns.tag + ")[\\-\\—](?=" + TypographPatterns.tag + "\\x20)",
+    text = Pattern.compile("(" + TypographPatterns.lettersDigits + TypographPatterns.wordEnd0 + ")\\x20(" + TypographPatterns.tag + ")[\\-\\—](?=" + TypographPatterns.tag + "\\x20)",
             Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.nbsp.getVariant1() + "$2" + HtmlEntities.mdash.getVariant1());
   }
 
@@ -339,7 +339,128 @@ public class Typograph {
   }
 
   private void placeNbsp() {
+    // 5_000_000
+    // to do: limit on length
+    text = Pattern.compile("(\\d" + TypographPatterns.tag + ")\\x20(?=" + TypographPatterns.tag + "\\d{3}" + TypographPatterns.wordEnd0S + ")",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.nbsp.getVariant1());
 
+    // exceptions
+    text = Pattern.compile("(\\S)\\x20(?=" + TypographPatterns.wordBegin0 + TypographPatterns.exceptionsLeft + TypographPatterns.wordEnd0S + ")",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1&_;");
+
+    // No_1
+    text = Pattern.compile("([№§]" + TypographPatterns.tag + ")\\x20?(?=" + TypographPatterns.tag + "(?:" + TypographPatterns.number + "|" + TypographPatterns.romanNumber + "))",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + HtmlEntities.nbsp.getVariant1());
+
+    // bla_/ bla
+    text = Pattern.compile("\\x20([\\/\\|])\\x20",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" + String.valueOf((char) 0x20));
+
+    // 600_rubley, 500_GHz or 200_km or 60_km/h
+    text = Pattern.compile("((?:" + TypographPatterns.number + "|" + TypographPatterns.romanNumber + ")" +
+                           TypographPatterns.nulls + ")\\x20(?=" + TypographPatterns.tag + "(" +
+                           TypographPatterns.letters + "+" + TypographPatterns.wordEnd1S + "|" +
+                           TypographPatterns.lettersUpper + "{2}|" + TypographPatterns.letters + "+\\/|(?!" +
+                           TypographPatterns.exceptionsRight + TypographPatterns.wordEnd0S + ")" +
+                           TypographPatterns.letters + "{1," + params.getSymbolsNumberForNbsp() + "}" +
+                           TypographPatterns.wordEnd0S + "))",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1&_;");
+
+    // Usome 1, Usome 1 Usome
+    text = Pattern.compile("(" + TypographPatterns.wordBegin0S + TypographPatterns.lettersUpper +
+                           TypographPatterns.lettersLower + "*" + TypographPatterns.nulls + ")\\x20(?=" +
+                           TypographPatterns.nulls + "\\d{1," + params.getSymbolsNumberForNbsp() + "}(?:" +
+                           TypographPatterns.wordEnd1 + "|" + TypographPatterns.wordBegin0S +
+                           TypographPatterns.lettersUpper + "))",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1&_;");
+
+    // lower_U lower or lower_l.
+    text = Pattern.compile("(" + TypographPatterns.wordBegin0S + TypographPatterns.lettersLower + "+" +
+                           TypographPatterns.nulls + ")\\x20(?=" + TypographPatterns.nulls + "(?:" +
+                           TypographPatterns.lettersUpper + TypographPatterns.letters + "{0," +
+                           (params.getSymbolsNumberForNbsp() - 1) + "}" + TypographPatterns.wordEndS +
+                           "(?=" + TypographPatterns.tag + TypographPatterns.lettersLower + ")|" +
+                           TypographPatterns.lettersLower + "{1," + params.getSymbolsNumberForNbsp() +
+                           "}(?:" + TypographPatterns.wordEnd1S + "|" + TypographPatterns.wordBegin2S + ")))",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1&_;");
+
+    // some_s ( or some_s, lower
+    text = Pattern.compile("(" + TypographPatterns.wordBegin0S + TypographPatterns.lettersDigits + "+" +
+                           TypographPatterns.nulls + ")\\x20(?=" + TypographPatterns.nulls + "(?:" +
+                           TypographPatterns.lettersDigits + "{1," + params.getSymbolsNumberForNbsp() + "}(?:" +
+                           TypographPatterns.wordEnd0S + "$|" + TypographPatterns.wordBegin2S + "|" +
+                           TypographPatterns.wordEnd1S + TypographPatterns.wordBegin0 +
+                           TypographPatterns.lettersLower + ")))",
+           Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1&_;");
+
+    Pattern pattern;
+    Matcher matcher;
+
+    // Lastname_F._M.
+    pattern = Pattern.compile("(" + TypographPatterns.lettersUpper + TypographPatterns.lettersLower + "+" +
+                              TypographPatterns.nulls + ")\\x20(" + TypographPatterns.tag +
+                              TypographPatterns.lettersUpper + TypographPatterns.nulls + "\\." +
+                              TypographPatterns.nulls + ")(?:\\x20(" + TypographPatterns.tag +
+                              TypographPatterns.lettersUpper + TypographPatterns.nulls + "\\." +
+                              TypographPatterns.nulls + "))?(?=" + TypographPatterns.wordEnd1S + "|" +
+                              TypographPatterns.tag + "(?:\\s*\\n|\\s" + TypographPatterns.wordBegin0 +
+                              TypographPatterns.lettersLower + "))", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+    matcher = pattern.matcher(text);
+
+    while(matcher.find()) {
+      String str = matcher.group(0);
+      String s1 = matcher.group(1);
+      String s2 = matcher.group(2);
+      String s3 = matcher.group(3);
+
+      text = matcher.replaceAll(s1 + "&_;" + s2 +(((s3 != null) && !"".equals(s3)) ? "&_;" + s3: ""));
+    }
+
+    // common nbsp
+    text = Pattern.compile("(" + TypographPatterns.wordBegin0S + TypographPatterns.lettersDigits + "{0," +
+                    (params.getSymbolsNumberForNbsp() - 1) + "}(?!\\d" + TypographPatterns.nulls + "\\x20" +
+                    TypographPatterns.wordBegin0 + "\\d)" + TypographPatterns.lettersDigits +
+                    TypographPatterns.nulls + ")\\x20(?=" + TypographPatterns.wordBegin0 +
+                    TypographPatterns.lettersDigits + ")",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" +
+                    HtmlEntities.nbsp.getVariant1());
+
+    // F._M._Lastname
+    pattern = Pattern.compile("((?:\\n\\s*|" + TypographPatterns.notLetterUpper + TypographPatterns.wordEnd1S + "|" +
+                              TypographPatterns.wordBegin1 + "|" + TypographPatterns.wordBegin0S + TypographPatterns.lettersLower + "+" +
+                              TypographPatterns.wordEnd0S + ")" + TypographPatterns.wordBegin0 + TypographPatterns.lettersUpper + TypographPatterns.nulls + "\\." +
+                              TypographPatterns.nulls + ")\\x20(?:(" + TypographPatterns.tag + TypographPatterns.lettersUpper + TypographPatterns.nulls + "\\." +
+                              TypographPatterns.nulls + ")\\x20)?(" + TypographPatterns.tag + TypographPatterns.lettersUpper + TypographPatterns.lettersLower + "+)",
+                              Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+
+    while(matcher.find()) {
+      String str = matcher.group(0);
+      String s1 = matcher.group(1);
+      String s2 = matcher.group(2);
+      String s3 = matcher.group(3);
+
+      text = matcher.replaceAll(s1 + HtmlEntities.nbsp.getVariant1() + ("".equals(s2) ? s2 + HtmlEntities.nbsp.getVariant1() : "") + s3);
+    }
+
+    // others
+    text = text.replaceAll("&_;", HtmlEntities.nbsp.getVariant1());
+
+    // L._L. or L._LL.
+    text = Pattern.compile("(" + TypographPatterns.lettersUpper + TypographPatterns.nulls + "\\." +
+                    TypographPatterns.nulls + ")\\x20(?=" + TypographPatterns.tag + TypographPatterns.lettersUpper + "{1," +
+                    params.getSymbolsNumberForNbsp() + "}\\.)",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" +
+                    HtmlEntities.nbsp.getVariant1());
+
+    // l._l, or l._l. or l. 1.
+    text = Pattern.compile("(" + TypographPatterns.lettersLower + TypographPatterns.nulls + "\\." +
+                    TypographPatterns.nulls + ")\\x20(?=" + TypographPatterns.tag + "(?:" +
+                    TypographPatterns.lettersLower + "{1," + params.getSymbolsNumberForNbsp() + "}|" +
+                    TypographPatterns.number + ")(?:" + TypographPatterns.wordEnd1 + "|" +
+                    TypographPatterns.nulls + "(?:\\s|$)))",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(text).replaceAll("$1" +
+                    HtmlEntities.nbsp.getVariant1());
   }
 
   private void placeQuotation(String quotationMarksA, String quotationMarksB) {
