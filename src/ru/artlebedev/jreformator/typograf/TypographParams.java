@@ -52,6 +52,10 @@ public class TypographParams {
 
   private boolean preserveOriginalQuotation = false;
 
+  private String language;
+  private String quotationMarksA;
+  private String quotationMarksB;
+
   public void setEntityType(int entityType) {
     this.entityType = entityType;
   }
@@ -226,5 +230,29 @@ public class TypographParams {
 
   public void setPreserveOriginalQuotation(boolean preserveOriginalQuotation) {
     this.preserveOriginalQuotation = preserveOriginalQuotation;
+  }
+
+  public String getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  public String getQuotationMarksA() {
+    return quotationMarksA;
+  }
+
+  public void setQuotationMarksA(String quotationMarksA) {
+    this.quotationMarksA = quotationMarksA;
+  }
+
+  public String getQuotationMarksB() {
+    return quotationMarksB;
+  }
+
+  public void setQuotationMarksB(String quotationMarksB) {
+    this.quotationMarksB = quotationMarksB;
   }
 }
