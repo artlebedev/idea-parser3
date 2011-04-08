@@ -765,7 +765,7 @@ public class Typograph {
         String s2r1 = s2;
 
         while(matcher3.find()) {
-          s2r1.replaceAll(matcher3.group(), "");
+          s2r1 = s2r1.replaceAll(matcher3.group(), "");
         }
 
 
