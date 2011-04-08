@@ -1,6 +1,6 @@
 package ru.artlebedev.jreformator.html.entity;
 
-import org.codingbox.utils.ArraysUtil;
+import org.codingbox.util.ArraysUtil;
 
 /**
  * jreformator

@@ -13,8 +13,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.Parser;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
-import ru.artlebedev.idea.plugins.parser.ParserLanguage;
-import ru.artlebedev.idea.plugins.parser.highlighter.ParserSyntaxHighlighter;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguage;
+import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserSyntaxHighlighter;
 
 import javax.swing.*;
 import java.util.Arrays;

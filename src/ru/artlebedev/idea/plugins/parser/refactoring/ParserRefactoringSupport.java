@@ -4,11 +4,9 @@ import com.intellij.lang.refactoring.RefactoringSupportProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.refactoring.RefactoringActionHandler;
 import org.jetbrains.annotations.Nullable;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserMethod;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserObject;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserObject;
 
 /**
  * idea-parser3: slightly useful plugin.

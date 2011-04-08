@@ -13,8 +13,8 @@ import com.intellij.psi.templateLanguages.TemplateLanguageFileViewProvider;
 import gnu.trove.THashSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.artlebedev.idea.plugins.parser.ParserLanguage;
-import ru.artlebedev.idea.plugins.parser.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguage;
+import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 
 import java.util.Arrays;
 import java.util.Set;

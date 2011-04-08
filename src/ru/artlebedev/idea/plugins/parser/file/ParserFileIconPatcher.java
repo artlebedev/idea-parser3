@@ -6,8 +6,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
-import ru.artlebedev.idea.plugins.parser.psi.api.ParserClass;
-import ru.artlebedev.idea.plugins.parser.utils.ParserFilesUtil;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
+import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
 
 import javax.swing.*;
 import java.util.Arrays;

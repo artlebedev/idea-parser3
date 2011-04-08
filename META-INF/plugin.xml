@@ -13,19 +13,19 @@
 
   <application-components>
     <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.ParserLoader</implementation-class>
+      <implementation-class>ru.artlebedev.idea.plugins.parser.lang.ParserLoader</implementation-class>
     </component>
     <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.module.ParserModuleType</implementation-class>
+      <implementation-class>ru.artlebedev.idea.plugins.parser.editor.module.ParserModuleType</implementation-class>
     </component>
     <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.templates.ParserTemplatesLoader</implementation-class>
+      <implementation-class>ru.artlebedev.idea.plugins.parser.editor.templates.ParserTemplatesLoader</implementation-class>
     </component>
   </application-components>
 
   <project-components>
     <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.settings.ParserProjectConfiguration</implementation-class>
+      <implementation-class>ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration</implementation-class>
     </component>
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader</implementation-class>
@@ -47,44 +47,44 @@
     <fileTypeFactory implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader"/>
 
     <!-- live Templates -->
-    <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserTemplateContextType"/>
-    <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
+    <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserTemplateContextType"/>
+    <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
     <!--<xml.zenCodingGenerator implementation="ru.artlebedev.idea.plugins.parser.zencoding.ParserZenCodingGeneratorImpl"/>-->
     <!--<customLiveTemplate implementation="ru.artlebedev.idea.plugins.parser.zencoding.ZenCodingTemplate"/>-->
 
-    <!-- syntax highlighter -->
+    <!-- syntax highlighting -->
     <syntaxHighlighter key="Parser"
-                       implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserFileSyntaxHighlighter"/>
+                       implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHighlighter"/>
 
-    <colorSettingsPage implementation="ru.artlebedev.idea.plugins.parser.highlighter.ParserColorsAndFontsPage"/>
+    <colorSettingsPage implementation="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserColorsAndFontsPage"/>
 
     <!-- language extension -->
     <lang.braceMatcher language="Parser"
-                       implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserBraceMatcher"/>
+                       implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserBraceMatcher"/>
     <lang.commenter language="Parser"
-                    implementationClass="ru.artlebedev.idea.plugins.parser.highlighter.ParserCommenter"/>
+                    implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserCommenter"/>
     <lang.parserDefinition language="Parser"
-                           implementationClass="ru.artlebedev.idea.plugins.parser.parser.ParserParserDefinition"/>
+                           implementationClass="ru.artlebedev.idea.plugins.parser.lang.parser.ParserParserDefinition"/>
     <lang.psiStructureViewFactory language="Parser"
-                                  implementationClass="ru.artlebedev.idea.plugins.parser.structure.ParserStructureViewFactory"/>
+                                  implementationClass="ru.artlebedev.idea.plugins.parser.editor.structureview.ParserStructureViewFactory"/>
     <lang.refactoringSupport language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.refactoring.ParserRefactoringSupport"/>
     <lang.documentationProvider language="Parser"
                                 implementationClass="ru.artlebedev.idea.plugins.parser.documentation.ParserDocumentationProvider"/>
     <lang.findUsagesProvider language="Parser"
-                             implementationClass="ru.artlebedev.idea.plugins.parser.findUsages.ParserFindUsagesProvider"/>
+                             implementationClass="ru.artlebedev.idea.plugins.parser.editor.usages.ParserFindUsagesProvider"/>
     <lang.formatter language="Parser"
-                    implementationClass="ru.artlebedev.idea.plugins.parser.formatter.ParserFormattingModelBuilder"/>
+                    implementationClass="ru.artlebedev.idea.plugins.parser.editor.formatting.ParserFormattingModelBuilder"/>
     <lang.fileViewProviderFactory language="Parser"
                                   implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileViewProviderFactory"/>
 
     <!-- CodeInsight (inc. autocomplete) -->
     <codeInsight.parameterInfo language="Parser"
-                               implementationClass="ru.artlebedev.idea.plugins.parser.parameterInfo.ParserParameterInfoHandler"/>
+                               implementationClass="ru.artlebedev.idea.plugins.parser.lang.parameterInfo.ParserParameterInfoHandler"/>
 
     <!-- annotator -->
     <annotator language="Parser"
-               implementationClass="ru.artlebedev.idea.plugins.parser.annotator.ParserAnnotator"/>
+               implementationClass="ru.artlebedev.idea.plugins.parser.editor.annotator.ParserAnnotator"/>
 
     <!-- file icon patcher -->
     <fileIconPatcher implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileIconPatcher"/>
