@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.documentationProvider;
 
 import com.intellij.lang.documentation.DocumentationProvider;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
 
@@ -27,28 +28,40 @@ import java.util.List;
  */
 
 public class ParserDocumentationProvider implements DocumentationProvider {
+  private static final Logger LOG = Logger.getInstance("#ParserDocumentationProvider");
+
   @Override
   public String getQuickNavigateInfo(PsiElement psiElement, PsiElement psiElement1) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+    LOG.info("getQuickNavigateInfo " + psiElement);
+
+    return null;
   }
 
   @Override
   public List<String> getUrlFor(PsiElement psiElement, PsiElement psiElement1) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+    LOG.info("getUrlFor " + psiElement);
+
+    return null;
   }
 
   @Override
   public String generateDoc(PsiElement psiElement, PsiElement psiElement1) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+    LOG.info("generateDoc() for " + psiElement + " and " + psiElement1);
+
+    return null;
   }
 
   @Override
   public PsiElement getDocumentationElementForLookupItem(PsiManager psiManager, Object o, PsiElement psiElement) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+    LOG.info("getDocumentationElementForLookupItem: element: " + psiElement);
+
+    return null;
   }
 
   @Override
   public PsiElement getDocumentationElementForLink(PsiManager psiManager, String s, PsiElement psiElement) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+    LOG.info("getDocumentationElementForLink: element: " + psiElement);
+
+    return null;
   }
 }
