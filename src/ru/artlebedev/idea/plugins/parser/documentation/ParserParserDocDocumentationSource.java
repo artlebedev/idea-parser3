@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.documentation;
 
 import com.intellij.psi.PsiElement;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -24,6 +25,9 @@ import com.intellij.psi.PsiElement;
 public class ParserParserDocDocumentationSource implements DocumentationSource {
   @Override
   public String documentation(PsiElement element, PsiElement originalElement) {
+    if(element instanceof ParserMethod) {
+      return ((ParserMethod) element).getParserDoc();
+    }
     return null;
   }
 
