@@ -41,11 +41,7 @@ public class DocumentationProvider {
     private static final List<DocumentationSource> sourceList = Lists.newArrayList();
 
     static {
-//        sourceList.add(new FunctionPsiCommentSource());
-//        sourceList.add(new BashKeywordDocSource());
-//        sourceList.add(new InternalCommandDocumentation());
-//        sourceList.add(new CachingDocumentationSource(new SystemInfopageDocSource()));
-//        sourceList.add(new ManpageDocSource());
+        sourceList.add(new ParserParserDocDocumentationSource());
     }
 
     /**
