@@ -70,7 +70,7 @@
     <lang.refactoringSupport language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.refactoring.ParserRefactoringSupport"/>
     <lang.documentationProvider language="Parser"
-                                implementationClass="ru.artlebedev.idea.plugins.parser.documentation.ParserDocumentationProvider"/>
+                                implementationClass="ru.artlebedev.idea.plugins.parser.documentationProvider.ParserDocumentationProvider"/>
     <lang.findUsagesProvider language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.editor.usages.ParserFindUsagesProvider"/>
     <lang.formatter language="Parser"
