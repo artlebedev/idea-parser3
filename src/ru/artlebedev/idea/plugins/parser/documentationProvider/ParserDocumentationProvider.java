@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.documentation;
+package ru.artlebedev.idea.plugins.parser.documentationProvider;
 
 import com.intellij.lang.documentation.DocumentationProvider;
 import com.intellij.psi.PsiElement;
