@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.documentationProvider;
+package ru.artlebedev.idea.plugins.parser.editor.documentationProvider;
 
 import com.intellij.lang.documentation.DocumentationProvider;
 import com.intellij.openapi.diagnostic.Logger;
