@@ -9,6 +9,7 @@
     </content>
     <orderEntry type="jdk" jdkName="IDEA IU-103.190" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Unnamed" level="project" />
   </component>
 </module>
 

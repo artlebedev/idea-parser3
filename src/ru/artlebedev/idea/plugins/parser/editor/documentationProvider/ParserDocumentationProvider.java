@@ -1,9 +1,10 @@
 package ru.artlebedev.idea.plugins.parser.editor.documentationProvider;
 
-import com.intellij.lang.documentation.DocumentationProvider;
+import com.intellij.lang.documentation.QuickDocumentationProvider;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
+import ru.artlebedev.idea.plugins.parser.documentation.DocumentationProvider;
 
 import java.util.List;
 
@@ -26,41 +27,47 @@ import java.util.List;
  * limitations under the License.
  */
 
-public class ParserDocumentationProvider implements DocumentationProvider {
+public class ParserDocumentationProvider extends QuickDocumentationProvider {
   private static final Logger LOG = Logger.getInstance("#ParserDocumentationProvider");
 
   @Override
-  public String getQuickNavigateInfo(PsiElement psiElement, PsiElement psiElement1) {
-    LOG.info("getQuickNavigateInfo " + psiElement);
+  public String getQuickNavigateInfo(PsiElement element, PsiElement originalElement) {
+    LOG.info("getQuickNavigateInfo " + element);
 
     return null;
   }
 
   @Override
-  public List<String> getUrlFor(PsiElement psiElement, PsiElement psiElement1) {
-    LOG.info("getUrlFor " + psiElement);
+  public List<String> getUrlFor(PsiElement element, PsiElement originalElement) {
+    LOG.info("getUrlFor " + element);
 
     return null;
   }
 
-  @Override
-  public String generateDoc(PsiElement psiElement, PsiElement psiElement1) {
-    LOG.info("generateDoc() for " + psiElement + " and " + psiElement1);
+  /**
+   * Generates the documentation for a given PsiElement. The original
+   * element is the token the caret was on at the time the documentation
+   * was called.
+   *
+   * @param element         The element for which the documentation has been requested.
+   * @param originalElement The element the caret is on
+   * @return The HTML formatted String which contains the documentation.
+   */
+  public String generateDoc(PsiElement element, PsiElement originalElement) {
+    LOG.info("generateDoc() for " + element + " and " + originalElement);
 
-    return null;
+    return DocumentationProvider.documentation(element, originalElement);
   }
 
-  @Override
-  public PsiElement getDocumentationElementForLookupItem(PsiManager psiManager, Object o, PsiElement psiElement) {
-    LOG.info("getDocumentationElementForLookupItem: element: " + psiElement);
+  public PsiElement getDocumentationElementForLookupItem(PsiManager psiManager, Object object, PsiElement element) {
+    LOG.info("getDocumentationElementForLookupItem: element: " + element);
 
-    return null;
+    return element;
   }
 
-  @Override
-  public PsiElement getDocumentationElementForLink(PsiManager psiManager, String s, PsiElement psiElement) {
-    LOG.info("getDocumentationElementForLink: element: " + psiElement);
+  public PsiElement getDocumentationElementForLink(PsiManager psiManager, String link, PsiElement context) {
+    LOG.info("getDocumentationElementForLink: element: " + context);
 
-    return null;
+    return context;
   }
 }
