@@ -144,11 +144,9 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
               }
             }
 
-            Iterator<PsiElement> hsIter = hs.iterator();
-            while(hsIter.hasNext()) {
-              PsiElement element = hsIter.next();
-              if(element instanceof ParserObject) {
-                if(((ParserObject) element).getName().equals(getName())) {
+            for (PsiElement element : hs) {
+              if (element instanceof ParserObject) {
+                if (((ParserObject) element).getName().equals(getName())) {
                   return element;
                 }
               }
