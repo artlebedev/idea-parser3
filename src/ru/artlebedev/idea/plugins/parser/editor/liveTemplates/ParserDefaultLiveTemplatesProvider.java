@@ -24,9 +24,9 @@ import com.intellij.codeInsight.template.impl.DefaultLiveTemplatesProvider;
 public class ParserDefaultLiveTemplatesProvider implements DefaultLiveTemplatesProvider {
   public String[] getDefaultLiveTemplateFiles() {
     return new String[] {
-            "/ru/artlebedev/idea/plugins/parser/liveTemplates/parser-lang",
-            "/ru/artlebedev/idea/plugins/parser/liveTemplates/parser-html",
-            "/ru/artlebedev/idea/plugins/parser/liveTemplates/parser-zen-html"
+            "/ru/artlebedev/idea/plugins/parser/editor/liveTemplates/parser-lang",
+            "/ru/artlebedev/idea/plugins/parser/editor/liveTemplates/parser-html",
+            "/ru/artlebedev/idea/plugins/parser/editor/liveTemplates/parser-zen-html"
     };
   }
 
