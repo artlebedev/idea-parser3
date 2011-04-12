@@ -39,6 +39,9 @@ public class Convert {
   public final static String INTERNAL_STATIC_METHODS_DIR = "internalStaticMethods/";
   public final static String INTERNAL_VARIABLES_DIR = "internalVariables/";
   public final static String INTERNAL_STATIC_VARIABLES_DIR = "internalStaticVariables/";
+  public final static String INTERNAL_GETTERS_DIR = "internalGetters/";
+  public final static String INTERNAL_SETTERS_DIR = "internalSetters/";
+  public final static String INTERNAL_CONSTRUCTORS_DIR = "internalConstructors/";
 
   public final static String OUTPUT_DIR =
           "/Users/dwr/Projects/idea-parser3/resources/" +
@@ -50,9 +53,12 @@ public class Convert {
 
   // console
   public final static ConvertPair consoleClass = new ConvertPair(SOURCES_DIR + "consoleclass.htm", INTERNAL_CLASSES_DIR + "console.xml");
+  public final static ConvertPair consoleLineGetter = new ConvertPair(SOURCES_DIR + "consoleread.htm", INTERNAL_GETTERS_DIR + "console-line.xml");
+  public final static ConvertPair consoleLineSetter = new ConvertPair(SOURCES_DIR + "consolewrite.htm", INTERNAL_SETTERS_DIR + "console-line.xml");
 
   // cookie
   public final static ConvertPair cookieClass = new ConvertPair(SOURCES_DIR + "cookieclass.htm", INTERNAL_CLASSES_DIR + "cookie.xml");
+  public final static ConvertPair cookieFieldsStaticVariable = new ConvertPair(SOURCES_DIR + "cookiefields.html", INTERNAL_STATIC_VARIABLES_DIR + "cookie-fields.xml");
 
   // curl
   public final static ConvertPair curlClass = new ConvertPair(SOURCES_DIR + "curlclass.htm", INTERNAL_CLASSES_DIR + "curl.xml");
@@ -163,9 +169,12 @@ public class Convert {
 
           // console
           consoleClass,
+          consoleLineGetter,
+          consoleLineSetter,
 
           // cookie
           cookieClass,
+          cookieFieldsStaticVariable,
 
           // curl
           curlClass,
@@ -313,8 +322,8 @@ public class Convert {
         File file = new File(OUTPUT_DIR + aConvertQueue.getToFile());
 
         if(file.exists()) {
-          //file.delete();
-          continue;
+          file.delete();
+          //continue;
         }
 
         try {
