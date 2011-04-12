@@ -29,8 +29,8 @@
   <property name="lexer.file" value="src/ru/artlebedev/idea/plugins/parser/lang/lexer/_ParserLexer.java"/>
   <property name="lexer.log" value="jflex.log"/>
   <property name="lexer.source" value="src/ru/artlebedev/idea/plugins/parser/lang/lexer/ParserLexer.flex"/>
-  <property name="lexer.skeleton" value="build/jflex/idea-flex.skeleton"/>
-  <property name="jflex.jar" value="build/lib/JFlex.jar"/>
+  <property name="lexer.skeleton" value="ant/jflex/idea-flex.skeleton"/>
+  <property name="jflex.jar" value="ant/lib/JFlex.jar"/>
 
   <target name="clean">
     <delete file="${lexer.file}~"/>
