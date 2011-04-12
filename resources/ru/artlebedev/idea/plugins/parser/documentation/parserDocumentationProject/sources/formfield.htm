@@ -1,0 +1,126 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="form,form, Static fields">
+    <title>Getting form field value</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?formfield.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='formfield.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Getting form field value
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$form:field_name
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Such a construction returns value of form field. Returned object may belong either to class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, if field type is </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, or class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href=stringclass.htm>string</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.Further actions with object can be performed only by methods prescribed for relevant classes.
+<br>
+
+<br>
+Field bearing no name is referred to as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>nameless</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Coordinates sent by browser when a visitor clicks image with attribute <b>ISMAP</b> can be accessed through </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$form</b><b>:</b><b><a href=formimap.htm>imap</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+You should remember that if &lt;input type="image" name="fieldname" /&gt; is used in html and visitor click on this image, the browser will send coordinates of this action in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>fieldname.x</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> &#232; </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>fieldname.y</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> fields</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example: text field, image field and file uploading</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$form:photo){
+<br>
+&nbsp;&nbsp;&nbsp;^form:photo</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=filesave.htm>save</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[binary;/upload/photos/beauty.^file:justext[$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>form:photo</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.name]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Image&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:photo.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;was&nbsp;uploaded.</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}
+<br>
+^if(def&nbsp;$form:user){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b><b>User</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:user</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;$form:[action.x]){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b><b>Coordinates:&lt;br&nbsp;/&gt;
+<br>
+&nbsp;&nbsp;&nbsp;X:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:[action.x]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+&nbsp;&nbsp;&nbsp;</b><b>Y</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:[action.y]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;form&nbsp;method="post"&nbsp;enctype="multipart/form-data"&gt;
+<br>
+&lt;input&nbsp;type="file"&nbsp;name="photo"&gt;
+<br>
+&lt;input&nbsp;type="text"&nbsp;name="user"&gt;
+<br>
+</b><b>&lt;input&nbsp;type="image"&nbsp;</b><b>name="action"&nbsp;</b><b>src="/i/button.gif"</b><b>&nbsp;width="75"&nbsp;height="25"&nbsp;/</b><b>&gt;
+<br>
+</b><b>&lt;/form&gt;
+<br>
+</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&#133;will store picture uploaded to server by a visitor through form field in specified file.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example: nameless field</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;img&nbsp;src="/show.html?123&amp;a=b"&nbsp;/&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Within </span><span style="font-family:Monospace; font-size:10pt; color:#000000">show.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> string </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>123</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> can be accessed as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$form:nameless</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 07.12.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

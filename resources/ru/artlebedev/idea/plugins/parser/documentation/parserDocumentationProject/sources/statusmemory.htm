@@ -1,0 +1,149 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="status,status, Fields,memory,profile *,used,free,ever_allocated_since_compact,ever_allocated_since_start">
+    <title>memory. Information on memory—controlled by garbage collector</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?statusmemory.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='statusmemory.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>memory. Information on memory-controlled by garbage collector
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This field is a <a href=hash.htm>hash</a> containing information on memory controlled by garbage collector.<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="239">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Field</i></b>
+<br>
+</span></td><td align="left" valign="top" width="196">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Value (in kilobytes)</i></b><span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="180">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Details</i></b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="239">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>used</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="196">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">memory used
+<br>
+</span></td><td align="left" valign="top" width="180">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This number does not include size of housekeeping data used by garbage collector itself.<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="239">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>free</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="196">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">free memory
+<br>
+</span></td><td align="left" valign="top" width="180">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Free memory is most probably fragmented.<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="239">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ever_allocated_since_compact</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="196">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">How much memory was allocated since last garbage cleaning, see <span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=memorycompact.htm>memory:compact</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span></span></td><td align="left" valign="top" width="180">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This number constantly increases between garbage cleaning procedures.
+<br>
+Freeing memory procedures alone do not affect it. It is affected only by garbage cleaning procedures.<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="239">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ever_allocated_since_start</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="196">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">How much memory was allocated during the whole request processing<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="180">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This number constantly increases. It is affected by neither garbage cleaning procedures nor freeing memory procedures between them.
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Recommended way of analysing</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u>Surround the block to be checked with constructions&#133;
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^musage[before&nbsp;XXX]
+<br>
+^musage[after&nbsp;XXX]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;to call this method:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@musage[comment][v;now;prefix;message;line]
+<br>
+$v[$status:memory]
+<br>
+$now[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datenow.htm>date::now</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]
+<br>
+$prefix[[^now.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datesqlstring.htm>sql-string</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=envhttpfield.htm>$env:REMOTE_ADDR</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:&nbsp;$comment]
+<br>
+$message[$v.used&nbsp;$v.free&nbsp;$v.ever_allocated_since_compact&nbsp;$v.ever_allocated_since_start&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=requesturi.htm>$request:uri</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+$line[$prefix&nbsp;$message&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=stringlit.htm>^#0A</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^line.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=stringsave.htm>save</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[append;/musage.log]
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=definemethod.htm>result</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;and analyze the log.
+<br>
+
+<br>
+<i>Important notice: while working, Parser takes additional memory blocks from system as required. That is why it is normal when both </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>used</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> and </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>free</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> increase from time to time.
+<br>
+</i>
+<br>
+Note: it is not recommended to store log file within web-space.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 04.09.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="junction,junction, Class,have method *,method exists *">
+    <title>Junction class</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?junctionclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='junctionclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Junction class
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This class is designed for storing <b><a href=vars.htm>code</a></b> and <b>scope</b> of its execution.
+<br>
+While referring to variables containing <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>junction</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, Parser executes <b>code</b> within the stored <b>scope</b>.
+<br>
+
+<br>
+Value of type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>junction</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> appears in variable:
+<br>
+
+<br>
+&#133;when it is assigned a code:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$junction{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Code&nbsp;to&nbsp;be&nbsp;assigned&nbsp;to&nbsp;variable:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^do_something[]}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;when passing code as parameter:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@somewhere[]
+<br>
+^method{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Code&nbsp;passed&nbsp;as&nbsp;parameter</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^do_something_else[]}
+<br>
+&#133;
+<br>
+@method[parameter]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#in&nbsp;this&nbsp;case&nbsp;junction&nbsp;will&nbsp;be&nbsp;passed&nbsp;into&nbsp;$parameter
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;while referring to the name of a class method:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$action[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=defineclass.htm>user</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>edit</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+#$action[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>user:delete]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^action[parameter]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+In this case, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> contains reference to the method and its class. Calling </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is then identical to calling </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b>edit[parameter]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+&#133;when referring to the name of an object method:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$action[$person.show_info]
+<br>
+^action[full]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+In this case, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> contains reference to the method and its object. Calling action is then identical to calling </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^person.show_info[parameters]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@check_if_old_enough[age;order_alcohol]
+<br>
+^myif($age&lt;21&nbsp;&amp;&amp;&nbsp;!$order_alcohol){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Sorry,&nbsp;but&nbsp;we&nbsp;cannot&nbsp;sell&nbsp;strong&nbsp;drinks&nbsp;to</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;${age}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>-year-olds.
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Example of using junction of expressions and code
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@myif[condition;action][age]
+<br>
+$age(11)
+<br>
+^if($condition){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$action
+<br>
+}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Note<i>: </i><i><a href=params.htm>parameter</a></i><i> </i>with expression is code calculating the expression. It is executed-i.e. expression is calculated-every time the parameter is referred to within the call.
+<br>
+
+<br>
+In this case, operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>myif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> receives code which-along with everything else-outputs </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$age</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Operator performs check and executes code within the stored </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>scope</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$condition</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">). Therefore, what is to be checked and what is to be output will not depend on whether local variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>age</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> exists or what its value is.
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>
+<br>
+</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of checking if method exists</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if($some_method&nbsp;is&nbsp;junction){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^some_method[parameter]
+<br>
+}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;no&nbsp;method
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>some_method</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, will be called only if it is defined.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 24.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="cache">
+    <title>cache. Caching results of code’s work</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opcache.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opcache.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>cache. Caching results of code's work
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^cache[file]</b><b>
+<br>
+^cache[file](number&nbsp;of&nbsp;seconds){code}
+<br>
+^cache[file](number&nbsp;of&nbsp;seconds){code}</b><b>{error&nbsp;handler}</b><b>
+<br>
+^cache[file][expiration&nbsp;date]{code}
+<br>
+^cache[file][expiration&nbsp;date]{code}</b><b>{error&nbsp;handler}</b><b>
+<br>
+^cache[</b><b>]&nbsp;=&nbsp;</b><b>expiration&nbsp;date</b><b>&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.5]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cache</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> caches the string resulted from </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">'s work. Subsequent calls then do not re-execute the code, but only output cached result. It saves time and servers' resources during request processing.
+<br>
+
+<br>
+We do recommend you to link modules (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opuse.htm>^use[…]</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) from within the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> of operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cache</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> instead of doing it statically (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=defineclass.htm>@USE</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+We also strongly recommend that you work also with DB (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opconnect.htm>^connect[…]</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) within </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cache</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> when possible, to save your SQL-server's resources and increase your sites' productivity.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>File</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is a name of cache-file. If this file exists and is not expired, its content will be sent to the client. If it doesn't exist, the code will be executed and result will be saved in the file with specified name.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Number&nbsp;of&nbsp;seconds</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is time to store result of the code's work, given in seconds. If the number is zero, the result is not saved and the file with previously cached result is deleted.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Expiration&nbsp;date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is time, until which result of the code's work is considered valid. If the date is in the past, the result is not saved and the file with previously cached result is deleted.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Code</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is the code, whose result is to be cached.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Error&nbsp;handler</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-here the error in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> can be handled. In this respect the operator resembles </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=optry.htm>try</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, see section "<a href=exceptions.htm>Error handling</a>". Unlike </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>try</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$exception.handled[cache]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> can be specified</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>,</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> which gives Parser the command to handle the error in a special way: to get from </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>fi</b><b>le</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> the expired content, earlier saved result of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">'s work, ignoring the fact that the content has expired.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">The cached file can be deleted by
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^cache[file]</b></span><span style="font-family:Arial; font-size:13pt; color:#000000"><b>
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">It is possible to use within the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> commands to change the time for the result of the code's work to be stored:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^cache(number&nbsp;of&nbsp;seconds)
+<br>
+^cache[expiration&nbsp;date]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Minimum time for the code to be stored is used.
+<br>
+
+<br>
+Current expiration date can be learned by
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$expire_date[^cache[]]
+<br>
+</b></span><span style="font-family:Arial; font-size:13pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>E</b><b>x</b><b>ample
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^cache[/data/cache/test1](5){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b><b>Press&nbsp;'reload',&nbsp;changes&nbsp;every&nbsp;5&nbsp;seconds</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=mathrandom.htm>^math:random</a></b><b>(100)</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Changing expiration time
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^cache[/data/cache/test2](5){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;Within&nbsp;cache&nbsp;code&nbsp;you&nbsp;found&nbsp;out&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;that&nbsp;the&nbsp;page&nbsp;shouldn't&nbsp;be&nbsp;cached:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^cache(0)
+<br>
+}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.10.2010</font></td>
+</tr>
+</table>
+</body>
+</html>

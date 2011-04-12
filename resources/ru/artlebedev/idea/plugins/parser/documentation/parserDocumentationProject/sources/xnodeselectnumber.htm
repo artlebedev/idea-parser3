@@ -1,0 +1,80 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="xnode,xnode, Methods,XPath,selectNumber">
+    <title>selectNumber. XPath search for a number</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xnodeselectnumber.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xnodeselectnumber.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>selectNumber. XPath search for a number
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^node.selectNumber[XPath-query]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+This method returns result of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>XPath-query</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in the scope of specified </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>node</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, if it is a <a href=intdoubleclasses.htm>number</a>. resulted value is not a </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>number</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, method returns <a href=exceptions.htm>exception</a> of type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser.runtime</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Before using prefixes of name spaces in the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>query</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> one must define them, see </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocsearchns.htm>$xdoc.search-namespaces</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$d[^xdoc::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdoccreatexml.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br>
+&lt;t&nbsp;attr="</b><b>hello</b><b>"&nbsp;n="123"/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]
+<br>
+#</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>result</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>=124
+<br>
+^d.selectNumber[number(/t/@n)+1]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+#</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>result</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>=4
+<br>
+^d.selectNumber[2*2]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Detailed specification of XPath is available at: <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/xpath" target="_blank">http://www.w3.org/TR/xpath</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

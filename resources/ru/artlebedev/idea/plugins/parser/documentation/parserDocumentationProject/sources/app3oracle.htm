@@ -1,0 +1,100 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="connect,connect, Format of connect string,oracle">
+    <title>For Oracle</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?app3oracle.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='app3oracle.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>For Oracle
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000">oracle://user:password@service?
+<br>
+&nbsp;&nbsp;&nbsp;<a href=app3clientcharset.htm>ClientCharset</a>=charset&amp;<b>
+<br>
+</b>&nbsp;&nbsp;&nbsp;LowerCaseColumnNames=0&amp;<b>
+<br>
+</b>&nbsp;&nbsp;&nbsp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_DATE_FORMAT=YYYY-MM-DD&nbsp;HH24:MI:SS&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_LANGUAGE=language-dependent&nbsp;conventions&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_TERRITORY=territory-dependent&nbsp;conventions&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_DATE_LANGUAGE=language&nbsp;for&nbsp;day&nbsp;and&nbsp;month&nbsp;names&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_NUMERIC_CHARACTERS=decimal&nbsp;character&nbsp;and&nbsp;group&nbsp;separator&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_CURRENCY=local&nbsp;currency&nbsp;symbol&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_ISO_CURRENCY=ISO&nbsp;currency&nbsp;symbol&amp;
+<br>
+&nbsp;&nbsp;&nbsp;NLS_SORT=sort&nbsp;sequence&amp;
+<br>
+&nbsp;&nbsp;&nbsp;ORA_ENCRYPT_LOGIN=TRUE
+<br>
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><a href=app3clientcharset.htm>ClientCharset</a></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-specifies the charset, in which Parser must communicate with SQL server. Conversion will be done by driver.
+<br>
+
+<br>
+If you do not quote columns' names in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>select</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> query, oracle will convert them to UPPERCASE. By default, Parser converts them to lowercase. By specifying </span><span style="font-family:Monospace; font-size:10pt; color:#000000">LowerCaseColumnNames=0</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> one can disable this lowercase conversion.
+<br>
+
+<br>
+While execution queries with </span><span style="font-family:Monospace; font-size:10pt; color:#000000">limit/offset</span><span style="font-family:Arial; font-size:10pt; color:#000000"> the driver modifies statements for cutting off not redundant data using SQL server instructions. But if any problems occurs this behaviour can be switched off with option </span><span style="font-family:Monospace; font-size:10pt; color:#000000">DisableQueryModification=1.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+
+<br>
+Information on other parameters can be found in Oracle documentation.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Assume, data in your database is stored in windows-1257, connect string should look like this:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">oracle://user:password@service?<a href=app3clientcharset.htm>ClientCharset</a>=windows-1257&amp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;NLS_DATE_FORMAT=YYYY-MM-DD&nbsp;HH24:MI:SS</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 08.07.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

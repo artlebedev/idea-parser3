@@ -1,0 +1,181 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="">
+    <title>parse. Parsing JSON string into hash</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?jsonparse.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='jsonparse.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>parse. Parsing JSON string into hash</b><b>
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^json:parse[JSON-string;</b><b>parsing </b><b>options]
+<br>
+</b><b>
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Method transforms JSON-string into a hash.</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Parsing&nbsp;options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-<a href=hash.htm>hash</a> with parsing options.
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="288">
+<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="108">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Default</i></b>
+<br>
+</span></td><td align="left" valign="top" width="462">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Value</i></b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="288">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.depth(</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">number</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>)</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="108">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">19
+<br>
+</span></td><td align="left" valign="top" width="462">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Maximum depth
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="288">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.double(</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=boolclass.htm>true|false</a></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>)</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="108">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">true
+<br>
+</span></td><td align="left" valign="top" width="462">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>true</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;- Stores numbers as objects of class <a href=intdoubleclasses.htm>double</a>. 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>false</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;- Stores numbers as strings.
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="288">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.distinct[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">first|last|all</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b>
+<br>
+</span></span></td><td align="left" valign="top" width="108">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">not defined<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="462">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">The way of processing elements with identical names:
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>first</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;- Only the first element will be stored in output.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>last</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;- Only the last element will be stored in output.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>all</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;- All elements will be stored in output. Elements starting from the second will have suffixes _2, _3, etc.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>default&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- elements with identical names are considered error (exception).</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="288">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.object[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=junctionclass.htm>method name</a></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b>
+<br>
+</span></span></td><td align="left" valign="top" width="108">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">not defined<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="462">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">If defined the specified method will be called for every parsing element. The result of the method will be passed to output. The method must accept two parameters - name and value.<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@main[]
+<br>
+$json_string[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>{
+<br>
+&nbsp;&nbsp;&nbsp;"a1":{"b":&nbsp;1,&nbsp;"c":&nbsp;"xyz",&nbsp;"d":&nbsp;"zzz"}
+<br>
+&nbsp;&nbsp;&nbsp;"a2":{</b><b>"b":&nbsp;1,&nbsp;"b":&nbsp;2,&nbsp;"b":&nbsp;3</b><b>}
+<br>
+}</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+
+<br>
+$h[^json:parse[$json_string;
+<br>
+&nbsp;&nbsp;&nbsp;$.double(false)</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;$.distinct[all]
+<br>
+&nbsp;&nbsp;&nbsp;$.object[$handler]
+<br>
+]]
+<br>
+
+<br>
+@handler[key;value]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$result[^if($keq&nbsp;eq&nbsp;"d"){=^value.length[]=}{$value}]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The specified JSON-string will be transformed into the following hash:</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$h[
+<br>
+&nbsp;&nbsp;&nbsp;$.a1[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b[1]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.c[xyz]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.d[=3=]
+<br>
+&nbsp;&nbsp;&nbsp;]
+<br>
+&nbsp;&nbsp;&nbsp;$.a2[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b[1]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b_2[2]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b_3[3]
+<br>
+&nbsp;&nbsp;&nbsp;]
+<br>
+]</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

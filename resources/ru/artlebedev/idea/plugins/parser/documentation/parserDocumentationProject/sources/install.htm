@@ -1,0 +1,140 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="install,install, Installing and configuring Parser,auto.p,conf,install,charsets,Compiling Parser from source code">
+    <title>Installing and configuring Parser</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?install.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='install.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Installing and configuring Parser
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Parser is available as:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">CGI-script (and interpreter);
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">module of web-server Apache, version 1.3;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">ISAPI extension of Microsoft Internet Information Server, version 4.0 or higher.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+One can also install drivers for various SQL-servers (currently supported: MySQL, PgSQL, Oracle, ODBC).
+<br>
+
+<br>
+Description of directories and files:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">[</span><span style="font-family:Monospace; font-size:10pt; color:#000000">.exe</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">] - CGI-script (and interpreter);
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">ApacheModuleParser3.dll</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - module of web-server Apache, version 1.3;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3isapi.dll</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - ISAPI extension of Microsoft Internet Information Server, version 4.0 or higher.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p.dist</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - example of <a href=parserconfig.htm>Configuration file</a>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+parser3.charsets/</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - - directory with <a href=installcharset.htm>charset tables</a>:
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="347">
+<p align="right"><span style="font-family:Monospace; font-size:10pt; color:#000000">koi8-r.cfg<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="227">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- Cyrillic [KOI8-R]
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="347">
+<p align="right"><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1250.cfg<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="227">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- Central european[windows-1250]
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="347">
+<p align="right"><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251.cfg<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="227">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- Cyrillic[windows-1251]
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="347">
+<p align="right"><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1257.cfg<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="227">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- Baltic[windows-1257]
+<br>
+</span></span></td></tr></table>
+<br>
+
+<br>
+As long as Parser is open-source project, you can compile it on your own (see "<a href=compilesrc.htm>Compiling Parser from source code</a>") and create your own SQL-driver.
+<br>
+Already compiled versions of Parser and SQL-drivers for certain platforms are available at <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.parser.ru/en/download/" target="_blank">http://www.parser.ru/en/download/</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+<i>Note: for security reasons, these versions were compiled in such a way that they can read and execute only those files which belong to the user or user group under the name of which Parser itself works.</i>
+<br>
+
+<br>
+How are configuration files linked?
+<br>
+
+<br>
+For CGI-script (</span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3[.exe]</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">):
+<br>
+configuration file is read from file specified in environment variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000">CGI_PARSER_CONFIG</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+If this variable is not defined, Parser will search for the file in directory with CGI-script itself.
+<br>
+
+<br>
+For Apache module, path to configuration file is specified by directive:</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+#can&nbsp;be&nbsp;in&nbsp;.htaccess
+<br>
+ParserConfig&nbsp;full_path</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+For ISAPI extension (</span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3isapi.dll</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">):
+<br>
+configuration file will be searched for in the directory with </span><span style="font-family:Monospace; font-size:10pt; color:#000000">.dll</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> file itself.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 04.09.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

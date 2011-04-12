@@ -1,0 +1,178 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="file,file, Fields,name,size,text,mime-type,HTTP *">
+    <title>Fields</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filefields.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filefields.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Fields
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>name. Name of file
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.name
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The field contains the name of file. Object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> has field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> if a visitor has uploaded the file through form field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;input&nbsp;type=file&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Constructor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file::load</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> may also provide an alternative name of file.
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>size. Size of file
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.size
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The field contains size of file in bytes.
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>text. Text of file
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.text
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The field contains text of file. By using this field, one can output the content of text files or text resulted from  </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::exec</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Information about file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.size</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-size of file in bytes;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.cdate</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-creation date;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.mdate</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-modification date;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.adate</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-last access date.
+<br>
+
+<br>
+These fields available if object was created within constructor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filestat.htm>file::stat</a></b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file::load</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> by loading local file</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span style="font-family:Arial; font-size:10pt; color:#000000">.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>stderr. Standard e</b><b>rror text </b><b>of program execution
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.stderr
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+After </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::exec</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> here goes text from standard error program stream.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>status. S</b><b>tatus of getting </b><b>t</b><b>his file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.status
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+After </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::exec</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>status</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> field one can find status of program execution (success=0).
+<br>
+After </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=fileload.htm>file::load</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> from <a href=app1.htm>HTTP-server</a> here is status of HTTP request (success=200).
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>mode. File's mode.</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.mode
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Could be </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>content-type. MIME-type of file
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.content-type
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The field may contain file's MIME-type. If a cgi-script is executed (see  </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) MIME-type may be specified by the script-in header "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>content-type.</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">" If a file is loaded (see </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=fileload.htm>file::load</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) or its status is retrieved (see </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filestat.htm>file::stat</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) MIME-type will be defined with the help of table </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b><a href=parserconfmethod.htm>MAIN:MIME-TYPES</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (see "<a href=parserconfmethod.htm>Configuration method</a>"), If file extension cannot be located in the table, MIME-type will be defined as "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>application/octet-stream</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">."
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>HTTP response headers</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$some_file.HTTP_RESPONSE_HEADER
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+If a file was loaded from an HTTP-server, HTTP response headers will be accessible in UPPERCASE as fields of object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b>some_</b><b>fi</b><b>le</b><b>.HTTP_</b><b>RESPONSE_FIELD</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">  (in UPPERCASE)</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+For example: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b>some_</b><b>f</b><b>ile</b><b>.SERVER</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+If one response header occurs in a response several times, all its values are accessible in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>tables</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> field:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.tables[</b><b>
+<br>
+&nbsp;&nbsp;&nbsp;$.HTTP_RESPONSE_FIELD[</b>table&nbsp;of&nbsp;values&nbsp;with&nbsp;sole&nbsp;column&nbsp;<b>value</b><b>]</b><b>
+<br>
+</b><b>]</b>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Example:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::load[binary;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://www.parser.ru</b><b>/en/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+^f.tables.foreach[key;value]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$key=^value.menu{$value.value}[|]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

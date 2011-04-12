@@ -1,0 +1,314 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="path,file::load,HTTP *">
+    <title>Appendix 1. Paths to files and directories, working with HTTP-servers</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?app1.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='app1.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Appendix 1. Paths to files and directories, working with HTTP-servers
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">To access files and directories in Parser, one may use absolute or relative paths.
+<br>
+
+<br>
+Absolute path is started with slash. In this case, the file is searched for from web-space root. If a relative path is used, the file will be searched for from directory where requested document is located.
+<br>
+
+<br>
+Example of absolute path:
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/news/archive/20020127/sport.html
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Example of relative path:
+<br>
+relative to directory </span><span style="font-family:Monospace; font-size:10pt; color:#000000">/news/archive</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">20020127/sport.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+While a file is saved, needed directories are created automatically.
+<br>
+
+<br>
+<i>Note: the root of web-space, passed by web-server, can be cahnged: see </i><i>"</i><i><a href=requestdocroot.htm>Root of web-space</a></i><i>"</i><i>
+<br>
+</i>
+<br>
+<i>Note: Parser transforms paths to </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i><a href=opuntainttaint.htm>file-spec</a></i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> (</i><i>see </i><i>"</i><i><a href=tainting.htm>External and internal data</a></i><i>").
+<br>
+
+<br>
+
+<br>
+</i>Methods&#133;
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=fileload.htm>file::load</a></b><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=tableload.htm>table::load</a></b><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b></span></td><td></td></tr></table><span style="font-family:Monospace; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;can work with external HTTP-servers, provided the name of document to be loaded starts with prefix </span><span style="font-family:Monospace; font-size:10pt; color:#000000">http://</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+While using these methods, one can also specify extra options to control download behavior. These options are <a href=hash.htm>hash</a>, with such keys as:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="230">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Option</i></b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Default</i></b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Value</i></b><span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.charset[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">charset</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">taken from HTTP response header
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Charset used in documents on remote server. This charset is used to transcode request string and response body.
+<br>
+
+<br>
+This option also allowed while loading local text files. <b><i>[3.2.2]
+<br>
+</i></b><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+If a text file which is loaded without charset option, contains BOM code it will be transcoded automatically from UTF-8 to $request:charset.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> <b><i>[3.4.1]</i></b>
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.timeout(</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">seconds</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>)</b>
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">2 seconds<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">HTTP server's response timeout in seconds. If download operation is not finished within this period, <a href=parserexceptions.htm>exception</a> will be thrown.<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.method[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">HTTP-METHOD</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b>
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">GET<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="284">
+<span style="font-family:Arial; font-size:10pt; color:#000000">The name of HTTP-method should be specified in uppercase only.
+<br>
+
+<br>
+It's possible to specify it in lowercase as well.<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.3.1]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.enctype[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">CONTENT-TYPE</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:Arial; font-size:10pt; color:#000000">application/x-www-form-urlencoded<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="284">
+<span style="font-family:Arial; font-size:10pt; color:#000000">Possible values are:
+<br>
+application/x-www-form-urlencoded
+<br>
+or multipart/form-data.
+<br>
+Last one with method <span style="font-family:Monospace; font-size:10pt; color:#000000">POST</span><span style="font-family:Arial; font-size:10pt; color:#000000"> should be used if you need to send files to external HTTP server.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.3.1]</i></b>
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.form[</b><b>
+<br>
+&nbsp;&nbsp;</b><b>$.field[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">string</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b><b>
+<br>
+&nbsp;&nbsp;</b><b>$.field[</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">file</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b><b>
+<br>
+&nbsp;&nbsp;</b><b>$.field[</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">$table</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b><b>
+<br>
+&nbsp;&nbsp;&#133;</b><b>
+<br>
+]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">none
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Request parameters. For <span style="font-family:Monospace; font-size:10pt; color:#000000">GET</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-request they will be passed in</span><span style="font-family:Monospace; font-size:10pt; color:#000000">?query_string</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. For requests with other </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>method</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, parameters will be passed with
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">Content-type:&nbsp;application/x-www-form-urlencoded</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Parameter value can be string, table with one column or file<b><i> [3.3.1]</i></b>.
+<br>
+<b><i>
+<br>
+</i></b><i>It is preferable to pass parameters by means of </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.forms</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>, and not pass it in</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">?parameters</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> b</i><i>y hand</i><i>.</i><i>
+<br>
+
+<br>
+It is allowed to pass parameters in both styles simultaneously</i>. <b><i>[3.1.5]</i></b>
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.body[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">string</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">none
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Text body of the query. (do not use <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>form</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>METHOD[</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">GET</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> when you use </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">)
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.cookies[</b><b>
+<br>
+&nbsp;&nbsp;</b><b>$.name[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">value</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b><b>
+<br>
+&nbsp;&nbsp;&#133;</b><b>
+<br>
+]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">none
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=hashclass.htm>Hash</a> with list of cookies to be passed to HTTP-server. <b><i>[3.2.3]</i></b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.headers[
+<br>
+</b><b>&nbsp;&nbsp;</b><b>$.HTTP-HEADER[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">value</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]
+<br>
+</b><b>&nbsp;&nbsp;</b><b>&#133;
+<br>
+]</b>
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">$.User-Agent[parser3]
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=hashclass.htm>Hash</a> with additional HTTP-headers to be passed to HTTP-server
+<br>
+
+<br>
+HTTP-header's value may be a <a href=dateclass.htm>date</a>, <a href=stringclass.htm>string</a> or <a href=hashclass.htm>hash</a> with obligatory key <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Date may be used as either field value or field's attribute value. In this case, it will be object to standard formatting.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.any-status(</b><b><a href=boollit.htm>true</a></b><b>)</b>
+<br>
+</span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">false/0<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Boolean: is response status not equal to 200 allowed? If Boolean is FALSE, and received status is not equal to 200, system exception <span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=parserexceptions.htm>http.status</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b> </b>will be thrown.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.omit-post-charset(</b><b><a href=boollit.htm>true</a></b><b>)</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">false/0
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Don't add charset info to HTTP-header content-type for outgoing POST request. <b><i>[3.3.0]</i></b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.user[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">user</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">none
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">These are request parameters to server,
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="230">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.password[</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">password</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="206">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">none
+<br>
+</span></td><td align="left" valign="top" width="284">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">which uses standard HTTP-authorization.
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">For </span><span style="font-family:Monospace; font-size:10pt; color:#000000">^<b><a href=fileload.htm>file::load</a></b><b>[&#133;]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> one can also specify additional loading options. These options are <a href=hash.htm>hash</a> with such keys as:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="197">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Option</i></b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="175">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Default</i></b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="242">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Value</i></b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="197">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.offset(</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">offset</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>)</b>
+<br>
+</span></span></td><td align="left" valign="top" width="175">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">0<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="242">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">While loading data, offset is specified in number of bytes.<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="197">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.limit(</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">limit</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>)</b>
+<br>
+</span></span></td><td align="left" valign="top" width="175">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-1<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="242">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Load no more than specified number of bytes<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

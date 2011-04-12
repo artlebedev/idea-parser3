@@ -1,0 +1,110 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="table,table, Methods,locate,firstthat *">
+    <title>locate. Locating a specified value in a table</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tablelocate.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tablelocate.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>locate. Locating a specified value in a table
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table.locate[column_name;value_to_be_located]
+<br>
+^table.locate(logical_expression)
+<br>
+^table.locate[column_name;value_to_be_located;</b><b><a href=tablecopylocateoptions.htm>options</a></b><b>]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table.locate(logical_expression)</b><b>[</b><b><a href=tablecopylocateoptions.htm>options</a></b><b>]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The method locates a specified </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in a specified </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>column</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in the table and returns Boolean value "true/false" depending on whether it found the value or not. In case it locates the specified value, the row where the value is found is set as current. If the value was not located, current row is not shifted.
+<br>
+
+<br>
+The second variant of calling method searches first record to conform </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>logical_expression</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+One can also specify a number of options to control search, see "<a href=tablecopylocateoptions.htm>Copying and search options</a>".
+<br>
+
+<br>
+Search is case-sensitive</span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stuff[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Ivanov</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>boss</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Petrov</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>engineer</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Lebedev&nbsp;&nbsp;&nbsp;</b><b>art-director</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}]
+<br>
+^if(^stuff.locate[name;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Lebedev</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b><b>The&nbsp;entry&nbsp;is&nbsp;found&nbsp;in&nbsp;line&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^stuff.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tableline.htm>line</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>.&lt;br</b><b>&nbsp;/</b><b>&gt;</b><b>
+<br>
+&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stuff.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stuff.pos</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b><b>No&nbsp;such&nbsp;entry</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+The code will output:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>The&nbsp;entry&nbsp;is&nbsp;found&nbsp;in&nbsp;line&nbsp;3.
+<br>
+Lebedev:&nbsp;art-director</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

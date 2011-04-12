@@ -1,0 +1,670 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="untaint,taint,as-is,file-spec,http-header,mail-header,uri,table,sql,js,xml,html,optimized-html,form,load,env,cookie">
+    <title>untaint, taint. Transforming data</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opuntainttaint.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opuntainttaint.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>untaint, taint. Transforming data
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^untaint{</b><b>code</b><b>}
+<br>
+^untaint[</b><b>transformation type</b><b>]{code</b><b>}
+<br>
+^taint[</b><b>text</b><b>]
+<br>
+^taint[</b><b>transformation type</b><b>][text</b><b>]
+<br>
+^apply-taint</b><b>[text</b><b>]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.1]</i></b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^apply-taint[</b><b>transformation&nbsp;type</b><b>][text</b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.1]</i></b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">Parser enables automatic data transformations to protect your system against intrusion and the "default" security level is high. It works even if your code contains no operators </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">. If you interfere by using these operators (especially for </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> transformations), you may increase the risk of security vulnerability. Therefore, study the mechanism carefully before writing code.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">Operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> marks the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> received as "needing transformation of a certain type". If transformation type is </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>unspecified</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, taint marks it as "tainted" (needing undefined transformation). Text marked "tainted" is subject to the type of transformation applied to external text (coming from from <a href=formfield.htm>field</a>, database, <a href=fileload.htm>file</a>, <a href=cookiestats.htm>cookies</a>, etc.).
+<br>
+
+<br>
+Operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> executes the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> received and marks "needing transformation of a certain type" the tainted parts of the execution result (i.e. pieces that did not constitute part of the Parser code within the document body, either external or marked "tainted" by the taint operator). It does not concern parts subject to transformation of a certain type. If transformation type is </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>unspecified</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, untaint marks the tainted pieces of the execution result as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">Text is marked for transformation to be </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>performed&nbsp;later</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, when the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>apply-taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> operator is called, the document is outputted to browser, sent to SQL server, saved into a file, sent out through e-mail, etc.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+Operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>apply-taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> applies inplace transformation to all tainted parts of the string. Parts within undefined transformation type will be processed using specified transformation type (as-is by default).
+<br>
+
+<br>
+
+<br>
+For simplicity you can think about it as if Parser interprets external characters as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>external&nbsp;text</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>,</b> and text within the body as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[optimized-as-is][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>typed&nbsp;text</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+In some cases </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[transformation&nbsp;type][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b> </b>and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint[transformation&nbsp;type]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">produce the same result. It happens when the whole text is tainted (for example, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=formfield.htm>$form:field</a></b></span><span style="font-family:Arial; font-size:10pt; color:#000000">). However, keep in mind that these operators have different default parameters, and applying both without transformation types to a tainted text will create absolutely different results. </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+When outputting to browser, Parser automatically applies type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, and the code looks like this:</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint[optimized-html]{typed&nbsp;code}</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b>
+<br>
+It means that if you write </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b> </b>(not using </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">) within the body, then even if "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>?field=&lt;/html&gt;"</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b> </b>is called, the page shall not be "crippled" due to the closing tag </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/html&gt;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b> </b>appearing too early, because the content of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=formfield.htm>$form:field</a></b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b> </b>is tainted and will be subjected to automatic </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b> </b>transformation that replaces greater-than and less-than signs ('&lt;' and '&gt;') with entity references '</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&amp;lt;'</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i> </i>and '</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&amp;gt;'</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>.</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">Other automatic transformations are performed in the same way. For instance, an SQL query containing </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;name&nbsp;FROM&nbsp;table&nbsp;WHERE&nbsp;uid&nbsp;=</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;'$form:uid'}</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b> </b>(again, not using </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">) cannot be subverted by SQL injection using parameter "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>?uid='&nbsp;OR&nbsp;1=1&nbsp;OR&nbsp;'"</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>, </b>because Parser shields the single quotes in the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:uid</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"> received before sending the query to server.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i><i>
+<br>
+</i>Text within the body is also automatically transformed. Parser optimizes whitespace symbols: space, tabulation characters and line breaks. If these symbols appear in a row, they are replaced with the first one of them. In other words, if you type several spaces, they become only one before viewing. If you need to disable this optimization (for example, when using </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;pre/&gt;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">), do it explicitly by writing, for instance, the following:</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;pre&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[as-is][</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>
+<br>
+</i></b>&nbsp;&nbsp;  I strode off the 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">high cathedral </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">top-most step like a</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">miracle worker, or a </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">Blessed </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">passing the final exam for </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">Saint. The </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">city expanded at my </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">feet. For one </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">pico-second, I </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:Arial; font-size:10pt; color:#000000">flew.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+&lt;/pre&gt;</b>
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i>In this case, you must use </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>, </b>as the typed characters are untainted and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> would not produce any effect.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$clean[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>#&nbsp;the&nbsp;above&nbsp;expression&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;this:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$clean[^taint[optimized-as-is][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$tainted[^taint[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Strings:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if($clean&nbsp;eq&nbsp;$tainted){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>match</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>do&nbsp;not&nbsp;match</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><b>
+<br>
+Tainted&nbsp;data</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">-</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$tainted</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><b>Untainted&nbsp;data</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">-</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$clean</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'&lt;br&nbsp;/&gt;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+This example shows that although comparison show that strings are equal, a browser will display different results-the untainted string is not transformed, whereas '&lt;' and '&gt;' in the tainted one are replaced with '&amp;lt;' and '&amp;gt;'.
+<br>
+ 
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Example&nbsp;using&nbsp;</b><b><a href=stringlit.htm>^^</a></b><b>untaint.&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><b>&lt;form&gt;
+<br>
+&lt;input&nbsp;type="text"&nbsp;name="field"&nbsp;/&gt;</b><b>
+<br>
+</b><b>&lt;input&nbsp;type="submit"&nbsp;/&gt;</b><b>
+<br>
+</b><b>&lt;/form&gt;</b><b>
+<br>
+
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$tainted[$form:field]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>Tainted&nbsp;data</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">-</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$tainted'</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><b>Untainted&nbsp;data</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">-</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint{$tainted}'</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Transformation type for </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> is specified inside square brackets. Here it is omitted, which means using the default parameter </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">. Note that while </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> with unspecified transformation type is equivalent to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> with </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> transformation, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> has no transformation equivalent to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> with unspecified type.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Example&nbsp;</b><b><a href=stringlit.htm>^^</a></b><b>taint.&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$city[New&nbsp;York]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>&lt;a&nbsp;href="city.html?city=</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[uri][$city]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$city</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/a&gt;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+As a result, contents of variable city are transformed into URI type. Cyrillic characters, white spaces and other characters which must be encoded, would be replaced with hex entities and represented as %XX.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Ouputting&nbsp;and&nbsp;saving&nbsp;user&nbsp;submitted&nbsp;data&nbsp;and&nbsp;generating&nbsp;XML&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><b>You&nbsp;specify:&nbsp;'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^void:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>INSERT&nbsp;INTO&nbsp;news&nbsp;SET&nbsp;(body)&nbsp;VALUES&nbsp;('</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>')</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$doc[^xdoc::create{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="UTF-8"?&gt;</b><b>
+<br>
+</b><b>&lt;root&gt;</b><b>
+<br>
+&nbsp;&nbsp;&nbsp;</b><b>&lt;data&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/data&gt;</b><b>
+<br>
+&lt;/root&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+In this case, you need neither </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> nor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, as all the necessary transformations will occur automatically with transformation type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> for output to browser, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sql</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> for sending data to server and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> for generating xdoc object.
+<br>
+Note that you also do not need to write </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> in SQL queries when saving data to a database using administrative interface.
+<br>
+ 
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Outputting&nbsp;user&nbsp;submitted&nbsp;data&nbsp;or&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;(may&nbsp;contain&nbsp;tags)&nbsp;to&nbsp;an&nbsp;edit&nbsp;form&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$form:body){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;$body[$form:body]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$id}]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;textarea&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+In this example </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> transformation will be performed automatically, because the data submitted by the user or coming from a database are tainted. If the data contains any tags, they will not affect the page. Remember that sequences of white spaces in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$body</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> will be optimized during output.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Outputting&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;containing&nbsp;administrator&nbsp;written&nbsp;tags&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$id}]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}
+<br>
+^taint[as-is][$body]
+<br>
+</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+Here you should use </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> specifying transformation type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> (or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> specifying this type), for the tags included in the news code by the administrator need not undergo any transformation. This method must not be used for the data submitted by visitors to the website such as guest book information, forum entries, etc.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Outputting&nbsp;user&nbsp;submitted&nbsp;data&nbsp;or&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;(may&nbsp;contain&nbsp;tags)&nbsp;to&nbsp;an&nbsp;edit&nbsp;form&nbsp;keeping&nbsp;spacing&nbsp;symbols&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$form:body){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[$form:body]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$id}]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;textarea&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[html][$body]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+In this case, use </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> specifying transformation type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> (or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> with this type) to avoid crippling the page and to disable optimization of space characters.
+<br>
+
+<br>
+
+<br>
+In the above examples operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> was used only three times: for displaying administrator added tags in database-derived text, for disabling optimization of spacing symbols, and for outputting query string containing encoded characters (for example, white spaces and Cyrillic letters). 
+<br>
+Otherwise, there was no need for </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, and Parser managed everything on its own.
+<br>
+
+<br>
+Remember that it is better not to use these operators unless necessary.
+<br>
+
+<br>
+
+<br>
+You might have noticed that none of the examples used </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">. This raises the question of its usefulness. Here are a couple of practical examples.
+<br>
+
+<br>
+Firstly, it sometimes helps to reduce the number of the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> operators in the code. For example, when outputting data to a multi-field form with spacing optimization disabled. In this case, you can apply </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>untaint[html]{&#133;}</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"> to the whole form instead of writing </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[html][&#133;]</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"> for each textarea value.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Outputting&nbsp;user&nbsp;submitted&nbsp;data&nbsp;or&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;(may&nbsp;contain&nbsp;tags)&nbsp;to&nbsp;a&nbsp;large&nbsp;edit&nbsp;for&nbsp;keeping&nbsp;spacing&nbsp;symbols&lt;br&nbsp;/&gt;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$form:title){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$data[$form:fields]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data[^table::sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;title,&nbsp;lead,&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;$id}]&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint[html]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b><b>&lt;p&gt;</b><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Heading&lt;/b&gt;&lt;br&nbsp;/&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="title"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$data.title</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&lt;/p&gt;</b><b>
+<br>
+&nbsp;&nbsp;&nbsp;</b><b>&lt;p&gt;</b><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Announcement:&lt;/b&gt;&lt;br&nbsp;/&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="lead"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$data.lead</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;</b><b>News&lt;/b&gt;&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="body"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$data.body</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&lt;/p&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Secondly, you can use it to output xml to browser (for instance, for ajax, RSS, SOAP, etc.). In this situation </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> is not appropriate, and you must enclose the code in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint[optimized-xml]{&#133;}&nbsp;</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">to ensure correct output.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+The transformation is replacement of some characters by others, according to built-in transformation tables. The following types of transformation are available:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is
+<br>
+file-spec
+<br>
+http-header
+<br>
+mail-header
+<br>
+uri
+<br>
+sql
+<br>
+js</b><b>
+<br>
+regex&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.5]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+xml
+<br>
+html
+<br>
+
+<br>
+optimized-as-is
+<br>
+optimized-xml
+<br>
+optimized-html
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Transformation table
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">no transformation
+<br>
+
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b><b>-spec</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">characters <span style="font-family:Monospace; font-size:10pt; color:#000000">*&nbsp;?&nbsp;'&nbsp;"&nbsp;&lt;&nbsp;&gt;&nbsp;|&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">are replaced with "_XX", where XX is character's hex-code
+<br>
+
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>uri</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">characters other than numbers or lower/uppercase Latin letters as well as characters <span style="font-family:Monospace; font-size:10pt; color:#000000">_&nbsp;-&nbsp;.&nbsp;"</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> are replaced with %XX, where XX is a character's hex-code
+<br>
+</span><span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http-</b><b>header</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">the same as URI&nbsp;&nbsp;&nbsp;
+<br>
+<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>mail-header</b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">if charset is known (if not, upper/lowercase will not work), the fragment starting with the eighth-bit first letter and until the end of the string will be represented in such a way:
+<br>
+Subject: Re: parser3: =?koi8-r?Q?=D3=C5=CD=C9=CE=C1=D2?=
+<br>
+<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sql</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">depending on SQL-server
+<br>
+for Oracle, ODBC and SQLite <span style="font-family:Monospace; font-size:10pt; color:#000000">'</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with </span><span style="font-family:Monospace; font-size:10pt; color:#000000">''</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+for PgSQL is transformed by means of PgSQL itself
+<br>
+for MySQL is transformed by means of MySQL itself
+<br>
+</span><span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">for transformation needed that code which made a transformation are located inside </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[]{}</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"> operator.</span><span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>js</b><b>
+<br>
+</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+
+<br>
+
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">"<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\"</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">'</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\'</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">\</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\\</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+newline character is replaced with </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\n</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+character with code&nbsp;0xFF is preceded by </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;
+<br>
+
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>regex</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Characters
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000">\&nbsp;^&nbsp;$&nbsp;.&nbsp;[&nbsp;]&nbsp;|&nbsp;(&nbsp;)&nbsp;?&nbsp;*&nbsp;+&nbsp;{&nbsp;}&nbsp;-</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+are prefixed by
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">\</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<b><i>[3.1.5]
+<br>
+</i></b>
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser-code</b>
+<br>
+</span></td><td align="left" valign="top" width="453">
+<span style="font-family:Arial; font-size:10pt; color:#000000"><a href=stringlit.htm>Special characters</a> are prefixed by ^<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">&amp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;amp;  
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&gt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;gt;  
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&lt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;lt;  
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">"</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;quot;  
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">'</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;apos; &nbsp;&nbsp;&nbsp;
+<br>
+</span><span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html</b>
+<br>
+</span></td><td align="left" valign="top" width="453">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">&amp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;amp; 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&gt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;gt; 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&lt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;lt; 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">"</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is replaced with &amp;quot; 
+<br>
+</span><span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-as-is</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-xml
+<br>
+</b><b>optimized-html</b><b>
+<br>
+
+<br>
+
+<br>
+</b></span><span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">in addition to replacements, optimizes "white spaces" (space, tab, newline characters).
+<br>
+
+<br>
+multiple repetition of above-mentioned characters in a row is replaced with a single one-that which goes first in the row<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+A number of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> transformations are made automatically. Thus, names of files and paths are always automatically transformed with </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file-spec</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and when you write&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+^</b><b><a href=fileload.htm>file::load</a></b><b>[filename]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;Parser executes&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^file::load[^taint[file-spec][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filename</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Similarly, when HTTP-headers and mail headers are defined, Parser executes </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http-header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>mail-header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> transformations respectively. During DOM-operations, text parameters of all methods are automatically </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-transformed.
+<br>
+
+<br>
+Parser also performs a number of automatic </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> transformations:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="127">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>type</i>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>what is transformed </i><span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sql</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">body of SQL-query<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">XML-code-while an object of class  <span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocclass.htm>xdoc</a></b>&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">is created</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:Arial; font-size:10pt; color:#000000">page output to browser<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>regex</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:Arial; font-size:10pt; color:#000000">REGEX-patterns<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser-code</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:Arial; font-size:10pt; color:#000000">body of operator <a href=opprocess.htm>process</a><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+</b></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 06.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

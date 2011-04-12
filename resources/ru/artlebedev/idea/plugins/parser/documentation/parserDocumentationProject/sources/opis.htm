@@ -1,0 +1,136 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="is,hash,string">
+    <title>is. Checking type</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opis.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opis.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>is. Checking type
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>object&nbsp;is&nbsp;type
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The operator checks if left operand is an object of specified type and returns Boolean value (true/false). It is handy to use the operator in cases when a variable may contain a single value or a set of values (hash), as well as to check if a method is defined.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>type</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-name of type. It may be a system name  (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=hashclass.htm>hash</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=junctionclass.htm>junction</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, &#133;), or name of  <a href=defineclass.htm>user-defined</a> class.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Simple type check</b></span><span style="font-family:Arial; font-size:13pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>main</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]
+<br>
+$date[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1999-10-10</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#$date[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datenow.htm>date::now</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if($date&nbsp;is&nbsp;string){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^parse[$date]
+<br>
+}{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^print_date[$date.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datefields.htm>year</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;$date.month;$date.day]
+<br>
+}
+<br>
+
+<br>
+@parse[date_string][date_parts]
+<br>
+$date_parts[^date_string.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=stringmatch.htm>match</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[(\d{4})-(\d{2})-(\d{2})][]]
+<br>
+^print_date[$date_parts.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=stringmatch.htm>1</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;$date_parts.2;$date_parts.3]
+<br>
+
+<br>
+@print_date[year;month;day]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Working&nbsp;with&nbsp;date</b><b>:&lt;br&nbsp;/&gt;
+<br>
+</b><b>Day</b><b>:&nbsp;</b><b>&nbsp;</b><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$day</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><b>Month</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$month</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><b>Year</b><b>:&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$year</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+This example will check the type of variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and will either perform syntactical analysis or pass to method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>print_date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> the fields of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (if type is </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>object</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Checking if </b><b><a href=definemethod.htm>method</a></b><b> is defined
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">The value of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$method_name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is also </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=junctionclass.htm>junction</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, that is why we should also use </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>is</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and not </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opdef.htm>def</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in this case.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>main</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Start
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if($body&nbsp;is&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=junctionclass.htm>junction</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>){
+<br>
+&nbsp;&nbsp;&nbsp;^body[]
+<br>
+}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b><b>Method&nbsp;"body"&nbsp;is&nbsp;not&nbsp;defined!
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Finish
+<br>
+</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Note: using operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>is</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> you can't check variables which contains </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=vars.htm>code</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> because of any address to such variables execute the code.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

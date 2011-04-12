@@ -1,0 +1,104 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="table,table, Constructors,load,HTTP *,Options of file format">
+    <title>load. Loading table from a file or HTTP-server</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tableload.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tableload.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>load. Loading table from a file or HTTP-server
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::load[</b><b><a href=app1.htm>filename</a></b><b>]&nbsp;
+<br>
+^table::load[</b><b><a href=app1.htm>filename</a></b><b>;loading&nbsp;options]&nbsp;
+<br>
+^table::load[nameless;</b><b><a href=app1.htm>filename</a></b><b>]</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::load[nameless;</b><b><a href=app1.htm>filename</a></b><b>;loading&nbsp;options]</b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The constructor creates an object using the table stored in a file or a document on HTTP-server. The data in the file must be provided in <i>tab-delimited</i> format (see also </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=tablecreate.htm>table::create</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-name of file with <a href=app1.htm>path</a> or document's URL on HTTP-server;
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Loading&nbsp;options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-for general options read "<a href=app1.htm>with HTTP-servers</a>" section,  there are additional options, see "<a href=tableoptionsfmt.htm>Options of file format</a>".
+<br>
+
+<br>
+The usage of parameter </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>nameless</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is the same as in constructor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table::create</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>Example of loading table from disk</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$loaded_table[^table::load[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/addresses.cfg</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The code given in example creates an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, containing named table stored in file </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>addresses</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cfg</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> located in the root directory of the website.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Example of loading file from HTTP-server
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$table[^table::load[nameless;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://www.parser.ru/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;$.headers[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=app1.htm>USER-AGENT</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[table&nbsp;load&nbsp;example]
+<br>
+&nbsp;&nbsp;&nbsp;]
+<br>
+]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Number&nbsp;of&nbsp;rows:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^table.count[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;hr</b><b>&nbsp;/</b><b>&gt;
+<br>
+&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$table.0</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

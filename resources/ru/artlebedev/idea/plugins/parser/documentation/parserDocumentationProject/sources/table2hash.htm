@@ -1,0 +1,224 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="table,table, Methods,hash">
+    <title>hash. Transforming a table into hash with specified keys</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?table2hash.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='table2hash.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>hash. Transforming a table into hash with specified keys
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table.hash[key]
+<br>
+^table.hash[key][options]
+<br>
+^table.hash[key][column_of_values]
+<br>
+^table.hash[key][column_of_values][options]
+<br>
+^table.hash[key][table_with_columns_of_values]
+<br>
+^table.hash[key][table_with_column_of_values][options]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Key</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> may be specified as:
+<br>
+
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>[string]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-name of column, whose value will be regarded as key;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>{code}</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-code, whose result will be regarded as key;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>(mathematical&nbsp;expression)</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-whose result will be regarded as key.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+With default options the method transforms table into <a href=hash.htm>hash</a> of the following structure:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$hash[
+<br>
+&nbsp;&nbsp;&nbsp;$.value_of_key[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.name_of_column[value_of_column]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#133;
+<br>
+&nbsp;&nbsp;&nbsp;]
+<br>
+&nbsp;&nbsp;&nbsp;&#133;
+<br>
+]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i>In other words, the method creates hash, where the values from the specified column serve as hash keys. Every key is associated with a hash, where the keys are the names of all table's columns.
+<br>
+
+<br>
+If a column of values is specified, every key will be associated with a hash with one key/value pair (the name of the specified column).
+<br>
+
+<br>
+Besides, one may specify several columns to serve as keys of hash relevant to the specified column-in this case, as an additional parameter a table must be given with all necessary columns listed.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-<a href=hash.htm>hash</a> with transformation options.
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="206">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.type[hash/string/table]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.2.2]</i></b>
+<br>
+</span></span></td><td align="left" valign="top" width="422">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>hash</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">=each hash item contain hash (default);
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">=each hash item contain string. You must specify </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>one</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>column_of_values</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">=each element containing table. Using this option you can't specify </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>column_of_values</b>&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">or</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;<b>table_with_column_of_values</b>.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> This made for save memory because of tables in resulting hash just have links to tables' rows which already exist in memory.
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="206">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.distinct(</b><b>true</b><b>/</b><b>false</b><b>)</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> </span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="422">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>false</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">=identical values in key column are considered error (default);
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>true</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">=get identical values from key column.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="206">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.distinct[tables]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.0.8]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span></td><td align="left" valign="top" width="422">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">make up <b><a href=hash.htm>hash</a></b> of tables containing rows with key.
+<br>
+Deprecated option which do the same as <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.distinct(1)&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.type[table]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> if they specified together.
+<br>
+</span></span></td></tr></table>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">We have a list of goods, where each item has a </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and a unique </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>id</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. We also have a price-list of available goods. Instead of the name of each item, we use relevant ids given in the goods list. This all is stored in two tables, which referred to as "linked". We need to get data in the format "item-price", that is to get data from two tables simultaneously.
+<br>
+
+<br>
+Realisation:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;this&nbsp;is&nbsp;the&nbsp;table&nbsp;with&nbsp;goods</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$product_list[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{id&nbsp;&nbsp;&nbsp;name
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1&nbsp;&nbsp;&nbsp;</b><b>bread</b><b>
+<br>
+2&nbsp;&nbsp;&nbsp;</b><b>meat</b><b>
+<br>
+3&nbsp;&nbsp;&nbsp;</b><b>butter</b><b>&nbsp;
+<br>
+4&nbsp;&nbsp;&nbsp;</b><b>whisky</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}]
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;this&nbsp;is&nbsp;the&nbsp;table&nbsp;with&nbsp;prices</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$price_list[^table::create{id&nbsp;&nbsp;&nbsp;price
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1&nbsp;&nbsp;&nbsp;6.50
+<br>
+2&nbsp;&nbsp;&nbsp;70.00
+<br>
+3&nbsp;&nbsp;&nbsp;60.85</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}]
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#hash&nbsp;of&nbsp;the&nbsp;table&nbsp;with&nbsp;prices&nbsp;by&nbsp;id&nbsp;field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$price_list_hash[^price_list.hash[id]]&nbsp;
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#looking&nbsp;through&nbsp;the&nbsp;entries&nbsp;of&nbsp;the&nbsp;table&nbsp;with&nbsp;goods&nbsp;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^product_list.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablemenu.htm>menu</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{&nbsp;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$product_price[$price_list_hash.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=vars.htm>[</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$product_list.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>id</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>].</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=hashfields.htm>price</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#checking&nbsp;if&nbsp;there&nbsp;is&nbsp;a&nbsp;price&nbsp;for&nbsp;the&nbsp;item&nbsp;in&nbsp;our&nbsp;hash</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if($product_price){&nbsp;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#printing&nbsp;item's&nbsp;name&nbsp;and&nbsp;price
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$product_list.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>-</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$product_price</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{&nbsp;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#and&nbsp;this&nbsp;item&nbsp;has&nbsp;no&nbsp;price,&nbsp;i.e.&nbsp;is&nbsp;unavailable
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$product_list.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>-</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>unavailable</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}&nbsp;
+<br>
+}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The output will be:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>bread</b><b>-6.50
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>meat</b><b>-70.00
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>butter-</b><b>60.85
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>whisky-</b><b>unavailable</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

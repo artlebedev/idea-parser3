@@ -1,0 +1,98 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="use,USE">
+    <title>use. Linking modules</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opuse.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opuse.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>use. Linking modules
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^use[file]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>use</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> allows using a module from specified file. If path begins with symbol "</span><span style="font-family:Monospace; font-size:10pt; color:#000000">/</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">", it will be regarded as path from Web-space root. In any other case, Parser will look for the module by relative path first and then if nothing was found in directories specified in variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$CLASS_PATH</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in <a href=parserconfmethod.htm>Configuration method</a>. 
+<br>
+
+<br>
+<i>Note: before version 3.4.1 Parser did not look for the module by relative path from the file with the processed </i><b><i>@USE/^use[]</i></b><i> instruction.</i>
+<br>
+
+<br>
+The following construction can be used to link modules, too:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@USE
+<br>
+</b><b>filename</b><b>&nbsp;1
+<br>
+</b><b>filename</b><b>&nbsp;2</b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&#133;
+<br>
+
+<br>
+The difference between these constructions lies in that </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@USE</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> loads a module before a code is executed, while operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>use</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> can be called right from the script's body. 
+<br>
+For example:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(condition){
+<br>
+&nbsp;&nbsp;&nbsp;^use[module1]
+<br>
+}{
+<br>
+&nbsp;&nbsp;&nbsp;^use[module2]
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Note: attempts to use a module which were already used would not cause reread of that module.</i><i>
+<br>
+</i>
+<br>
+We do recommend that you save the results of code's work by linking necessary modules with operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>use</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> within the code of operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opcache.htm>cache</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

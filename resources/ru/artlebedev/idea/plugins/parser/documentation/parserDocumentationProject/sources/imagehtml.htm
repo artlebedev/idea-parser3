@@ -1,0 +1,88 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="image,image, Methods,html,thumbnail *,img,&lt;IMG ...,alt,border">
+    <title>html. Displaying an image</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imagehtml.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imagehtml.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>html. Displaying an image
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b>image</b><b>.html[]</b>&nbsp;&nbsp;&nbsp;
+<br>
+<b>^</b><b>image</b><b>.html[</b><b>hash</b><b>]&nbsp;&nbsp;&nbsp;
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;img&nbsp;src="$image.src"&nbsp;width="$image.width"&nbsp;height="$image.height"&nbsp;border="0"&nbsp;/&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+As a parameter, a hash may be specified in the method, containing optional image attributes, such as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>alt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>border</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, determining pop-up text-which appears when cursor is placed over the image-and border width.
+<br>
+
+<br>
+<i>Note: image attributes can be re-defined.
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Note: for suppressing output of border attribute you have to specify option </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.border[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>Example</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$myphoto[^image:</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagemeasure.htm>measure</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>myphoto.jpg</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^photo.html[
+<br>
+&nbsp;&nbsp;&nbsp;$.border[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;$.alt[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>That's&nbsp;me&nbsp;at&nbsp;school&#133;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The browser will display an image stored in variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$myphoto</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Each time, cursor is placed over the image, a pop-up text </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>That's&nbsp;me&nbsp;at&nbsp;school&#133;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will appear.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

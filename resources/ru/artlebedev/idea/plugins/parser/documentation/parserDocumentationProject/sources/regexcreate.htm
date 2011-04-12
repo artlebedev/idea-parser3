@@ -1,0 +1,88 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="">
+    <title>create. Creating an object</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?regexcreate.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='regexcreate.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>create. Creating an object</b><b>
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^regex::create[pattern]
+<br>
+^regex::create[pattern][options]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Creates a regex-object from </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string-</b><b>pattern</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Pattern is a PCRE-Perl-compatible regular expression. 
+<br>
+Some examples of PCRE are given in "<a href=app4.htm>Attachment 4: Perl Compatible Regular Expressions</a>". 
+<br>
+
+<br>
+The following search </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> may be used:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>i</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-case-insensitive;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>x</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-ignore "white space" characters and allow </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>#comments&nbsp;till&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;line</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>s</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-regard </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> as the end of the whole text (default);
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>m</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-regard </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> as the end of the line, but not the whole text;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>U</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-inverts the "greediness" of the quantifiers so that they are not greedy by default, but become greedy if followed by </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>?</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;<b><i> [3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+g</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-find not only the first, but all occurrences of the pattern;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>n</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-return number of matches instead of table with search results;<b><i> [3.2.2]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-evaluate values for </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>prematch</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>match</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>postmatch</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> columns.
+<br>
+
+<br>
+Characters </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> are used in Parser's syntax, that is why if you want to include them in your pattern, they must be given as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^^</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> respectively (see also <a href=exprlit.htm>Literals</a>).
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 29.06.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

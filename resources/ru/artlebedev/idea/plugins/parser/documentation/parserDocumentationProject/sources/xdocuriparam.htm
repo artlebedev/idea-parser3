@@ -1,0 +1,90 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="xdoc,xdoc, Parameter of creating a new document: Base path,xml:base,base *">
+    <title>Parameter of creating a new document: Base path</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xdocuriparam.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xdocuriparam.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Parameter of creating a new document: Base path
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">When creating a new document with one of the constructors, one can specify parameter <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>base_path</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Its purpose is similar to that of attribute&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&lt;&#133;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xml="http://www.w3.org/XML/1998/namespace"
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href="http://www.w3.org/TR/xmlbase/" target="_blank">xml:base</a></u></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>="</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>base&nbsp;URI</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"&nbsp;&#133;
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;yet, the way of specifying the path is different-it conforms with general approach to paths used in Parser (see "<a href=app1.htm>Appendix 1. Paths to files and directories</a>"), This approach is much more comfortable, since you do not have to specify full path including that to web space. By default, path to the currently processed document is used.
+<br>
+<i>Note: character "/" at the end of the path is obligatory.
+<br>
+</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sheet[^xdoc::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdoccreatexml.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[/xsl/]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="</b><b><a href=requestcharset.htm>$request:charset</a></b><b>"?&gt;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;xsl:stylesheet&nbsp;xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&nbsp;version="1.0"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:import&nbsp;href="import.xsl"/&gt;
+<br>
+&lt;/xsl:stylesheet&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+File </span><span style="font-family:Monospace; font-size:10pt; color:#000000">import.xsl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be read from directory </span><span style="font-family:Monospace; font-size:10pt; color:#000000">/xsl/</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

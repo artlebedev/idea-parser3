@@ -1,0 +1,70 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="">
+    <title>dynamical. Getting method's call type</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?reflectiondynamical.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='reflectiondynamical.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>dynamical. Getting method's call type</b><b>
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^reflection:dynamical[]
+<br>
+^reflection:dynamical[class]</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^reflection:dynamical[object]</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Without the parameter the method returns </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>true</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> if the calling method was called dynamically and returns </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>false</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> if the calling method was called statically.
+<br>
+
+<br>
+With the parameter the method returns </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>true</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> if an object was passed and returns </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>false</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> if a class was passed.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^reflection:dynamical[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> may be useful inside the methods when you need to know if these methods were called-<a href=obj.htm>dynamically</a> or <a href=stats.htm>statically</a>.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

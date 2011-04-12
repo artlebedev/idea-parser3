@@ -1,0 +1,72 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="image,image, Class,draw *,paint *,EXIF *">
+    <title>Image class</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imageclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imageclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Image class
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">The class is designed for dealing with images. There may be two types of objects of class <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>image</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. First type includes objects based on existing images in supported formats, whereas the second-objects created by Parser itself.
+<br>
+
+<br>
+One can also retrieve EXIF information from JPEG files (<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+
+<br>
+For color presentation, Parser uses RGB system, where each shade of color consists of three components (R-Red, G-Green, B-Blue). Each component has value starting with 0x00 and ending with 0xFF (0-255 in decimal system). Final color represents an integer number of format 0xRRGGBB, where each component is allocated two digits in the given sequence. The formula, according to which the color is calculated, is:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>(R*0x100+G)*0x100+B
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Thus, white color, which has maximum values (FF) for all components, is made up by the formula:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>(0xFF*0x100+0xFF)*0x100+0xFF&nbsp;=&nbsp;0xFFFFFF</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 24.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

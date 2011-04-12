@@ -1,0 +1,80 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="file,file, Static methods,fullpath,mod_rewrite *">
+    <title>fullpath. Full name of file from server’s root directory</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filefullpath.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filefullpath.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>fullpath. Full name of file from server's root directory
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file:fullpath[filename]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Retrieves full name of file from server's root directory (see also "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>Appendix&nbsp;1:&nbsp;Paths&nbsp;to&nbsp;files&nbsp;and&nbsp;directories</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">").
+<br>
+
+<br>
+Example: page </span><span style="font-family:Monospace; font-size:10pt; color:#000000">/document.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> contains a link to some image. True path to the requested document, however, may be different (e.g. if you use module </span><span style="font-family:Monospace; font-size:10pt; color:#000000">mod_rewrite</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> on Apache web-server). In this case, if you place a relative link to the image, the image will not be displayed by browser, since browser has no idea about </span><span style="font-family:Monospace; font-size:10pt; color:#000000">mod_rewrite</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and will regard all relative paths as relative to the requested document.
+<br>
+
+<br>
+That is why it is better to replace relative path with absolute:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$image[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imageclass.htm>image</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagemeasure.htm>measure</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^file:fullpath[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>image.gif</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+^image.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagehtml.htm>html</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Construction&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;img&nbsp;src="/im</b><b>age.gif</b><b>"&nbsp;width="</b><b>&#133;</b><b>"&nbsp;height="</b><b>&#133;</b><b>"&nbsp;/&gt;</b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;will result in code containing absolute path.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 20.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

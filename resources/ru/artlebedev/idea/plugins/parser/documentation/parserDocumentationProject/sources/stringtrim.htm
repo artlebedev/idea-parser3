@@ -1,0 +1,104 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="string,string, Methods,trim">
+    <title>trim. Trimming letters</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?stringtrim.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='stringtrim.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>trim. Trimming letters
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^st</b><b>ring</b><b>.trim[]
+<br>
+^st</b><b>ring</b><b>.trim[from]
+<br>
+^st</b><b>ring</b><b>.trim[from;set]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The methods trims any letters from </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>set</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> from ends of string. By default it trims white space characters from the beginning and end of then string.
+<br>
+It can be specified, where to trim letters </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>from</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, by passing one of values:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>both</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-trim from either the beginning or the end;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>left</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>start</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-trim from the beginning;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>right</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>end</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-trim from the end.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b></span></td><td></td></tr></table><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">It can also be specified, which </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>letters</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> to trim.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example:</b><b> white space</b><b> trimming</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b><b>Bob</b><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^name.trim[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Will output&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&nbsp;B</b><b>ob</b><b>&nbsp;"
+<br>
+"</b><b>Bob</b><b>"
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example: </b><b>trim</b><b>m</b><b>ing custom letters</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$path[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/section/subsection/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^path.trim[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>right</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;/]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Will output&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/section/subsection</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 04.07.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

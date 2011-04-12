@@ -1,0 +1,94 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="xdoc,xdoc, Constructors,load,HTTP *,cbr *,USD *,currency *,http://www.cbr.ru/scripts/XML_daily.asp">
+    <title>load. Loading XML from disk or HTTP-server or other source</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xdocload.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xdocload.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>load. Loading XML from disk or HTTP-server or other source
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^xdoc::load[</b><b><a href=app1.htm>filename</a></b><b>]
+<br>
+
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This constructor loads XML-code from a file or document on HTTP-server and creates a new object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xdoc</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> based on it.
+<br>
+Parser can load XML from arbitrary source, see "<a href=xdocparserprot.htm>Reading XML from arbitrary source</a>".
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;- <a href=app1.htm>path</a> and filename or URL of document on HTTP-serve.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of loading a file from disk</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$document[^xdoc::load[article.xml]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=responseclass.htm>response</a></b><b>:</b><b><a href=responsebody.htm>body</a></b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[^document.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocstring.htm>string</a></b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of loading an XML document from HTTP-server:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$xdoc[^xdoc::load[http://www.cbr.ru/scripts/XML_daily.asp]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Rate&nbsp;exchange&nbsp;of
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;$node[^xdoc.selectSingle[/ValCurs/Valute[CharCode='USD']]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^node.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xnodeselectstring.htm>selectString</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[string(Name)]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"
+<br>
+for
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;^xdoc.selectString[string(/ValCurs/@Date)]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>is
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;^node.selectString[string(Value)]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;hr&nbsp;/&gt;
+<br>
+&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[^xdoc.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdocstring.htm>string</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

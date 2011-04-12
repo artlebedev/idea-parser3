@@ -1,0 +1,110 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="charset,HTTP *,send,create,sql,UTF-8">
+    <title>Charsets</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?charsets.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='charsets.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Charsets
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">We are sure: existence of various charsets gives you as much pleasure as it does to us.
+<br>
+
+<br>
+Parser has a built-in capability of transcoding documents from charset used on server into that used by visitor and back. Parser transcodes:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=formclass.htm>form</a> data;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">strings (before  <a href=opuntainttaint.htm>transformation of type uri</a>);
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">text resulting from page processing.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+You specify charset used in documents on server in field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestcharset.htm>$request:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+You specify charset to be used in output in field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=responsecharset.htm>$response:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+You should do it in one of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=mainclass.htm>auto</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> methods.
+<br>
+
+<br>
+We recommend you to specify result charset in HTTP-header </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>content-type</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, so that a browser knew about it and a visitor did not have to select charsets manually.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$response:content-type[
+<br>
+&nbsp;&nbsp;&nbsp;$.value[text/html]
+<br>
+&nbsp;&nbsp;&nbsp;$.charset[$response:charset]
+<br>
+]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Charsets to be used in email messages can be specified as different from that of the output, see </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=mailsend.htm>^mail:send[…]</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+While working with databases, you should specify connection settings in such a way that SQL query and response data were in charset given in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestcharset.htm>$request:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, see <a href=app3.htm>Format of connect string</a>.
+<br>
+
+<br>
+
+<br>
+A list of allowable charsets is defined in <a href=parserconfig.htm>Configuration file</a>.
+<br>
+Default charset for all documents is </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>UTF-8</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+<i>Note: when transcoding </i><b><i>from</i></b><i> UTF-8 if some character is not specified in </i><i><a href=installcharset.htm>transcode table</a></i><i>, a sequence </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&amp;#DDDD;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> is inserted instead. </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>DDDD</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> is decimal</i><i> </i><i>Unicode of that character</i><i>.</i>
+<br>
+
+<br>
+<i>Note: when transcoding </i><b><i>to</i></b><i> UTF-8</i> <i>if some character is not specified in transcode table, a sequence </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>%HH</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> is inserted instead. </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>HH</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> is hexadecimal code of that character.</i> <b><i>[3.1.4]</i></b><i>
+<br>
+</i>
+<br>
+<i>Note: charset's name is case insensitive</i><i>.</i>
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 06.08.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

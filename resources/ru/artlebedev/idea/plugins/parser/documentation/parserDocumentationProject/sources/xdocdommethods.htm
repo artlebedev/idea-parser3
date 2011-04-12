@@ -1,0 +1,110 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="xdoc,xdoc, Methods,DOM,DOM1,createElement,createElementNS,createDocumentFragment,createTextNode,createComment,createCDATASection,createProcessingInstruction,createAttribute,createEntityReference,getElementsByTagName,DOM2,importNode,getElementById">
+    <title>DOM</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xdocdommethods.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xdocdommethods.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>DOM
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM1-interface  <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#i-Document" target="_blank">Document</a></u></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+$</b><b><a href=xnodeclass.htm>Element</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createElement" target="_blank">createElement</a></b><b>[tagName]]
+<br>
+$</b><b><a href=xnodeclass.htm>DocumentFragment</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createDocumentFragment" target="_blank">createDocumentFragment</a></b><b>[]]
+<br>
+$</b><b><a href=xnodeclass.htm>Text</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createTextNode" target="_blank">createTextNode</a></b><b>[data]]
+<br>
+$</b><b><a href=xnodeclass.htm>Comment</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createComment" target="_blank">createComment</a></b><b>[data]]
+<br>
+$</b><b><a href=xnodeclass.htm>CDATASection</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createCDATASection" target="_blank">createCDATASection</a></b><b>[data]]
+<br>
+$</b><b><a href=xnodeclass.htm>ProcessingInstruction</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createProcessingInstruction" target="_blank">createProcessingInstruction</a></b><b>[target;data]]
+<br>
+$</b><b><a href=xnodeclass.htm>Attr</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createAttribute" target="_blank">createAttribute</a></b><b>[name]]
+<br>
+$</b><b><a href=xnodeclass.htm>EntityReference</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-createEntityReference" target="_blank">createEntityReference</a></b><b>[name]]
+<br>
+$</b><b><a href=hashclass.htm>NodeList</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#method-getElementsByTagName" target="_blank">getElementsByTagName</a></b><b>[tagname]]
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM2-interface <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#i-Document" target="_blank">Document</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b><a href=xnodeclass.htm>Node</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#Core-Document-importNode" target="_blank">importNode</a></b><b>[importedNode](deep)]
+<br>
+$</b><b><a href=xnodeclass.htm>Element</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-DocCrElNS" target="_blank">createElementNS</a></b><b>[namespaceURI;qualifiedName]]
+<br>
+$</b><b><a href=xnodeclass.htm>Attr</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-DocCrAttrNS" target="_blank">createAttributeNS</a></b><b>[namespaceURI;qualifiedName]]
+<br>
+$</b><b><a href=hashclass.htm>NodeList</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-getElBTNNS" target="_blank">getElementsByTagNameNS</a></b><b>[namespaceURI;localName]]
+<br>
+$</b><b><a href=xnodeclass.htm>Element</a></b><b>[^</b><b>document</b><b>.</b><b><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-getElBId" target="_blank">getElementById</a></b><b>[elementId]]
+<br>
+</b><b>
+<br>
+</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">In Parser 
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-interfaces <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1950641247" target="_blank">Node</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-745549614" target="_blank">Element</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> are implemented in class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xnodeclass.htm>xnode</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-interface <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-536297177" target="_blank">NodeList</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-is class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=hashclass.htm>hash</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> with keys 0, 1, &#133;;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-type <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-C74D1578" target="_blank">DOMString</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-is class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=stringclass.htm>string</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-type Boolean is Boolean value: 0=FALSE, 1=TRUE.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Detailed specification of DOM1 is available at: <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html" target="_blank">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html</a></u></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Detailed specification of DOM1 is available at: <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html" target="_blank">http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html</a></u></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 24.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

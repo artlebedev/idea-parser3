@@ -1,0 +1,106 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="table,table, Constructors,create,clone *,copy *">
+    <title>create. Copying existing table</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tablecreateclone.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tablecreateclone.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>create. Copying existing table</b><b>
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::create[existing_table]
+<br>
+</b><b>
+<br>
+</b><b>^table::create[existing_table</b><b>;</b><b><a href=tablecopylocateoptions.htm>options</a></b><b>]
+<br>
+
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This constructor creates an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> by copying data from already existing table. One can also specify a number of options to control copying, "<a href=tablecopylocateoptions.htm>Copying and search options</a>".
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>Example</b><b>
+<br>
+</b>Code&#133;
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$orig[^table::create{name
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Jack
+<br>
+Nick
+<br>
+Mary</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}]
+<br>
+
+<br>
+#&nbsp;sets&nbsp;row&nbsp;with&nbsp;"Nick"&nbsp;as&nbsp;current&nbsp;in&nbsp;$orig
+<br>
+^orig.offset(1)
+<br>
+
+<br>
+#&nbsp;copies&nbsp;data&nbsp;starting&nbsp;with&nbsp;current&nbsp;row,&nbsp;taking&nbsp;10&nbsp;records&nbsp;at&nbsp;the&nbsp;most
+<br>
+$copy[^table::create[$orig;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.offset[cur]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.limit(10)
+<br>
+]]
+<br>
+
+<br>
+^copy.menu{$copy.name}[,&nbsp;]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;will output:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Nick,&nbsp;Mary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

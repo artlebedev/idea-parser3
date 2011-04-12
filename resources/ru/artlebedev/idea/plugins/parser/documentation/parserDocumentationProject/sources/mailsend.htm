@@ -1,0 +1,302 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="mail,mail, Static methods,send,charset,text,html,file,message,body *,from,to,subject,content-type,x-mailer">
+    <title>send. Sending a message via e-mail</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?mailsend.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='mailsend.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>send. Sending a message via e-mail
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^mail:send[message]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The method sends message to the specified e-mail address. One can specify several addresses separated by comma.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^mail:send[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.from[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.to[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Peter&nbsp;&lt;peter@hotmail.com</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.subject[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Hi&nbsp;there!!!</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.text[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;Haven't&nbsp;seen&nbsp;you&nbsp;for&nbsp;ages!</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">As a result of this code, a message will be sent to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>peter@hotmail.com</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> containing text: "How is it going? Haven't seen you for ages!"
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-is a <a href=hash.htm>hash</a>, where you can specify the following keys:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header_field</b><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>charset</b><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>options</b><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>print-debug</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b></span></td><td></td></tr></table><span style="font-family:Monospace; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i><i>Note: It is recommended that in </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">errors-to</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> header you specify the address to which delivery report will be sent if the message cannot be delivered to the addressee. Default value is "</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">postmaster</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>".
+<br>
+</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>charse</b><b>t</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-if this key is specified, the headers and text blocks will be transcoded using specified charset. Default charset for all messages is that, specified in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=responsecharset.htm>$request:charset</a></b><b>&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(i.e. is not transcoded).
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Example:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.charset[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>koi8-r</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-these options will be passed to command line of </span><span style="font-family:Monospace; font-size:10pt; color:#000000">sendmail</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> program (only on UNIX). 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>p</b><b>rint-debug</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-the message text will be printed instead of sending message.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">You can also specify all message headers, specifying their values in the following way (short form):
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>header_field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">or with parameters (complete form):
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>header_field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.value[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>parameter</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Examples:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.from</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+$.to[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Peter&nbsp;&lt;peter@hotmail.com&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.subject[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;Haven't&nbsp;seen&nbsp;you&nbsp;for&nbsp;ages!</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.x-mailer[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Parser&nbsp;3</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Along with the header you can send one or both text blocks </span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">(</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html</b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">)</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> as well as any number of blocks </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (see below).
+<br>
+If you send both text blocks, section </span><span style="font-family:Monospace; font-size:10pt; color:#000000">MULTIPART/ALTERNATIVE</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be formed, and having received this message, modern mail clients will display HTML, whereas obsolete ones will display plain text.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">short form:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.text[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+full form:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.text[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.value[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>header_field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+&#133;where </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is the value of text block and you can specify all header fields the same way we did with hash </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (see above).
+<br>
+<i>Note: It is not imperative to specify </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">content-type</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> header-it will be generated automatically. This header does not affect transcoding process and is used only to tell mail client what charset it must use to display message.
+<br>
+</i>
+<br>
+Sending HTML. Short form:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$.html{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+full form:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.html[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.value{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>header_field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Curly brackets are necessary to <a href=tainting.htm>switch default transformation type</a><i> </i>to HTML.
+<br>
+
+<br>
+Attaching a file. Short form:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$.file[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+full form:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$.file[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.value[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filename</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.content-id</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>XYZ</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.format</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>uue</b>|<b>base64</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>header_field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>File</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=fileclass.htm>file</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, which will be attached to the message. MIME-type of sent data (</span><span style="font-family:Monospace; font-size:10pt; color:#000000">content-type</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> header of a part) is determined according to table </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>MIME-TYPES</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (see also <a href=parserconfmethod.htm>Configuration method</a>).
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>Filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is the name that the file to be sent will bear.
+<br>
+By default the file will be sent in uuencode form.
+<br>
+
+<br>
+Default file encoding </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>format</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is <i>base64</i> since version 3.4.0 and <i>uue</i> prior version 3.4.0.
+<br>
+
+<br>
+Attaching a message:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.message[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message_text</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">The format of the message is the same as that of the whole method's parameter.
+<br>
+
+<br>
+There may be several attachments. In this case you must add an integer after the name.
+<br>
+Example:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;$.file
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.file</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.message
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.message</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Example of how to use alternative blocks and attachments
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^mail:send[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.from[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.to[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Peter&nbsp;&lt;peter@hotmail.com&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.subject[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>How&nbsp;is&nbsp;it&nbsp;going?</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.text[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;great&nbsp;in&nbsp;here!!!</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.html{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;&lt;b&gt;great&lt;/b&gt;&nbsp;in&nbsp;here!!!
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&nbsp;/&gt;&lt;img&nbsp;src="cid:pic2"&nbsp;border="0"&nbsp;width="100"&nbsp;height="50"&nbsp;/&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.file[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=fileload.htm>file::load</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[binary;perfect_life1.jpg]]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.file2[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.value[^file::load[binary;perfect_life2.jpg]]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>pf_life2</b><b>.jpg</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.content-id[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>p</b><b>ic2</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br>
+]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+As a result, a message will be sent to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>peter@hotmail.com</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> containing text "How is it going? It's really great in here!!!" in plain text and HTML. Two photographs will be attached to the message to support the idea, and on these photos&#133;
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>
