@@ -36,6 +36,7 @@ public class Convert {
 
   public final static String INTERNAL_CLASSES_DIR = "internalClasses/";
   public final static String INTERNAL_METHODS_DIR = "internalMethods/";
+  public final static String INTERNAL_STATIC_METHODS_DIR = "internalStaticMethods/";
 
   public final static String OUTPUT_DIR =
           "/Users/dwr/Projects/idea-parser3/resources/" +
@@ -53,10 +54,10 @@ public class Convert {
 
   // curl
   public final static ConvertPair curlClass = new ConvertPair(SOURCES_DIR + "curlclass.htm", INTERNAL_CLASSES_DIR + "curl.xml");
-  public final static ConvertPair curlLoadStaticMethod = new ConvertPair(SOURCES_DIR + "curlload.htm", INTERNAL_METHODS_DIR + "curl-static-load.xml");
-  public final static ConvertPair curlOptionsStaticMethod = new ConvertPair(SOURCES_DIR + "curloptions.htm", INTERNAL_METHODS_DIR + "curl-static-options.xml");
-  public final static ConvertPair curlSessionStaticMethod = new ConvertPair(SOURCES_DIR + "curlsession.htm", INTERNAL_METHODS_DIR + "curl-static-session.xml");
-  public final static ConvertPair curlVersionStaticMethod = new ConvertPair(SOURCES_DIR + "curlversion.htm", INTERNAL_METHODS_DIR + "curl-static-version.xml");
+  public final static ConvertPair curlLoadStaticMethod = new ConvertPair(SOURCES_DIR + "curlload.htm", INTERNAL_STATIC_METHODS_DIR + "curl-load.xml");
+  public final static ConvertPair curlOptionsStaticMethod = new ConvertPair(SOURCES_DIR + "curloptions.htm", INTERNAL_STATIC_METHODS_DIR + "curl-options.xml");
+  public final static ConvertPair curlSessionStaticMethod = new ConvertPair(SOURCES_DIR + "curlsession.htm", INTERNAL_STATIC_METHODS_DIR + "curl-session.xml");
+  public final static ConvertPair curlVersionStaticMethod = new ConvertPair(SOURCES_DIR + "curlversion.htm", INTERNAL_STATIC_METHODS_DIR + "curl-version.xml");
 
   // date
   public final static ConvertPair dateClass = new ConvertPair(SOURCES_DIR + "dateclass.htm", INTERNAL_CLASSES_DIR + "date.xml");
@@ -78,7 +79,7 @@ public class Convert {
   public final static ConvertPair doubleDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "double-div.xml");
   public final static ConvertPair doubleModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "double-mod.xml");
   public final static ConvertPair doubleFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_METHODS_DIR + "double-format.xml");
-  public final static ConvertPair doubleSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_METHODS_DIR + "double-static-sql.xml");
+  public final static ConvertPair doubleSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_STATIC_METHODS_DIR + "double-sql.xml");
 
   // env
   public final static ConvertPair envClass = new ConvertPair(SOURCES_DIR + "envclass.htm", INTERNAL_CLASSES_DIR + "env.xml");
@@ -106,7 +107,7 @@ public class Convert {
   public final static ConvertPair intDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "int-div.xml");
   public final static ConvertPair intModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "int-mod.xml");
   public final static ConvertPair intFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_METHODS_DIR + "int-format.xml");
-  public final static ConvertPair intSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_METHODS_DIR + "int-static-sql.xml");
+  public final static ConvertPair intSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_STATIC_METHODS_DIR + "int-sql.xml");
 
   // json
   public final static ConvertPair jsonClass = new ConvertPair(SOURCES_DIR + "jsonclass.htm", INTERNAL_CLASSES_DIR + "json.xml");
@@ -146,7 +147,7 @@ public class Convert {
 
   // void
   public final static ConvertPair voidClass = new ConvertPair(SOURCES_DIR + "voidclass.htm", INTERNAL_CLASSES_DIR + "void.xml");
-  public final static ConvertPair voidSqlStaticMethod = new ConvertPair(SOURCES_DIR + "voidsql.htm", INTERNAL_METHODS_DIR + "void-static-sql.xml");
+  public final static ConvertPair voidSqlStaticMethod = new ConvertPair(SOURCES_DIR + "voidsql.htm", INTERNAL_STATIC_METHODS_DIR + "void-sql.xml");
 
   // xdoc
   public final static ConvertPair xdocClass = new ConvertPair(SOURCES_DIR + "xdocclass.htm", INTERNAL_CLASSES_DIR + "xdoc.xml");
