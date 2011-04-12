@@ -105,5 +105,10 @@
             text="Base64 Decode Selected Text">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
+	  <action id="ShowParserDocumentation"
+			  class="ru.artlebedev.idea.plugins.parser.actions.ShowParserDocumentation"
+			  text="Show Parser Documentation...">
+		  <add-to-group group-id="ViewMenu" anchor="first"/>
+	  </action>
   </actions>
 </idea-plugin>
