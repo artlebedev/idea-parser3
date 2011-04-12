@@ -31,6 +31,7 @@ import java.util.Scanner;
  */
 
 public class Convert {
+  // pathes
   public final static String SOURCES_DIR = "sources/";
 
   public final static String INTERNAL_CLASSES_DIR = "internalClasses/";
@@ -41,61 +42,228 @@ public class Convert {
           "ru/artlebedev/idea/plugins/parser/documentation/" +
           "parserDocumentationProject/";
 
+  // bool
   public final static ConvertPair boolClass = new ConvertPair(SOURCES_DIR + "boolclass.htm", INTERNAL_CLASSES_DIR + "bool.xml");
+
+  // console
   public final static ConvertPair consoleClass = new ConvertPair(SOURCES_DIR + "consoleclass.htm", INTERNAL_CLASSES_DIR + "console.xml");
+
+  // cookie
   public final static ConvertPair cookieClass = new ConvertPair(SOURCES_DIR + "cookieclass.htm", INTERNAL_CLASSES_DIR + "cookie.xml");
+
+  // curl
   public final static ConvertPair curlClass = new ConvertPair(SOURCES_DIR + "curlclass.htm", INTERNAL_CLASSES_DIR + "curl.xml");
+  public final static ConvertPair curlLoadStaticMethod = new ConvertPair(SOURCES_DIR + "curlload.htm", INTERNAL_METHODS_DIR + "curl-static-load.xml");
+  public final static ConvertPair curlOptionsStaticMethod = new ConvertPair(SOURCES_DIR + "curloptions.htm", INTERNAL_METHODS_DIR + "curl-static-options.xml");
+  public final static ConvertPair curlSessionStaticMethod = new ConvertPair(SOURCES_DIR + "curlsession.htm", INTERNAL_METHODS_DIR + "curl-static-session.xml");
+  public final static ConvertPair curlVersionStaticMethod = new ConvertPair(SOURCES_DIR + "curlversion.htm", INTERNAL_METHODS_DIR + "curl-static-version.xml");
+
+  // date
   public final static ConvertPair dateClass = new ConvertPair(SOURCES_DIR + "dateclass.htm", INTERNAL_CLASSES_DIR + "date.xml");
+  public final static ConvertPair dateRollMethod = new ConvertPair(SOURCES_DIR + "dateroll.htm", INTERNAL_CLASSES_DIR + "date-roll.xml");
+  public final static ConvertPair dateSqlStringMethod = new ConvertPair(SOURCES_DIR + "datesqlstring.htm", INTERNAL_CLASSES_DIR + "date-sql-string.xml");
+  public final static ConvertPair dateUnixTimestampMethod = new ConvertPair(SOURCES_DIR + "dateunixts.htm", INTERNAL_CLASSES_DIR + "date-unix-timestamp.xml");
+  public final static ConvertPair dateLastDayMethod = new ConvertPair(SOURCES_DIR + "datelastdaym.htm", INTERNAL_CLASSES_DIR + "date-last-day.xml");
+  public final static ConvertPair dateGmtStringMethod = new ConvertPair(SOURCES_DIR + "dategmtstring.htm", INTERNAL_CLASSES_DIR + "date-gmt-string.xml");
+  // static methods missing
+
+  // double
   public final static ConvertPair doubleClass = new ConvertPair(SOURCES_DIR + "intdoubleclasses.htm", INTERNAL_CLASSES_DIR + "double.xml");
+  public final static ConvertPair doubleIntMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "double-int.xml");
+  public final static ConvertPair doubleDoubleMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "double-double.xml");
+  public final static ConvertPair doubleBoolMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "double-bool.xml");
+  public final static ConvertPair doubleIncMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-inc.xml");
+  public final static ConvertPair doubleDecMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-dec.xml");
+  public final static ConvertPair doubleMulMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-mul.xml");
+  public final static ConvertPair doubleDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-div.xml");
+  public final static ConvertPair doubleModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-mod.xml");
+  public final static ConvertPair doubleFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_CLASSES_DIR + "double-format.xml");
+  public final static ConvertPair doubleSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_CLASSES_DIR + "double-static-sql.xml");
+
+  // env
   public final static ConvertPair envClass = new ConvertPair(SOURCES_DIR + "envclass.htm", INTERNAL_CLASSES_DIR + "env.xml");
+
+  // file
   public final static ConvertPair fileClass = new ConvertPair(SOURCES_DIR + "fileclass.htm", INTERNAL_CLASSES_DIR + "file.xml");
+
+  // form
   public final static ConvertPair formClass = new ConvertPair(SOURCES_DIR + "formclass.htm", INTERNAL_CLASSES_DIR + "form.xml");
+
+  // hash
   public final static ConvertPair hashClass = new ConvertPair(SOURCES_DIR + "hashclass.htm", INTERNAL_CLASSES_DIR + "hash.xml");
+
+  // image
   public final static ConvertPair imageClass = new ConvertPair(SOURCES_DIR + "imageclass.htm", INTERNAL_CLASSES_DIR + "image.xml");
+
+  // int
   public final static ConvertPair intClass = new ConvertPair(SOURCES_DIR + "intdoubleclasses.htm", INTERNAL_CLASSES_DIR + "int.xml");
+  public final static ConvertPair intIntMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "int-int.xml");
+  public final static ConvertPair intDoubleMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "int-double.xml");
+  public final static ConvertPair intBoolMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "int-bool.xml");
+  public final static ConvertPair intIncMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-inc.xml");
+  public final static ConvertPair intDecMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-dec.xml");
+  public final static ConvertPair intMulMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-mul.xml");
+  public final static ConvertPair intDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-div.xml");
+  public final static ConvertPair intModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-mod.xml");
+  public final static ConvertPair intFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_CLASSES_DIR + "int-format.xml");
+  public final static ConvertPair intSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_CLASSES_DIR + "int-static-sql.xml");
+
+  // json
   public final static ConvertPair jsonClass = new ConvertPair(SOURCES_DIR + "jsonclass.htm", INTERNAL_CLASSES_DIR + "json.xml");
+
+  // junction
   public final static ConvertPair junctionClass = new ConvertPair(SOURCES_DIR + "junctionclass.htm", INTERNAL_CLASSES_DIR + "junction.xml");
+
+  // mail
   public final static ConvertPair mailClass = new ConvertPair(SOURCES_DIR + "mailclass.htm", INTERNAL_CLASSES_DIR + "mail.xml");
+
+  // math
   public final static ConvertPair mathClass = new ConvertPair(SOURCES_DIR + "mathclass.htm", INTERNAL_CLASSES_DIR + "math.xml");
+
+  // memory
   public final static ConvertPair memoryClass = new ConvertPair(SOURCES_DIR + "memoryclass.htm", INTERNAL_CLASSES_DIR + "memory.xml");
+
+  // reflection
   public final static ConvertPair reflectionClass = new ConvertPair(SOURCES_DIR + "reflectionclass.htm", INTERNAL_CLASSES_DIR + "reflection.xml");
+
+  // regex
   public final static ConvertPair regexClass = new ConvertPair(SOURCES_DIR + "regexclass.htm", INTERNAL_CLASSES_DIR + "regex.xml");
+
+  // request
   public final static ConvertPair requestClass = new ConvertPair(SOURCES_DIR + "requestclass.htm", INTERNAL_CLASSES_DIR + "request.xml");
+
+  // response
   public final static ConvertPair responseClass = new ConvertPair(SOURCES_DIR + "responseclass.htm", INTERNAL_CLASSES_DIR + "response.xml");
+
+  // status
   public final static ConvertPair statusClass = new ConvertPair(SOURCES_DIR + "statusclass.htm", INTERNAL_CLASSES_DIR + "status.xml");
+
+  // string
   public final static ConvertPair stringClass = new ConvertPair(SOURCES_DIR + "stringclass.htm", INTERNAL_CLASSES_DIR + "string.xml");
+
+  // table
   public final static ConvertPair tableClass = new ConvertPair(SOURCES_DIR + "tableclass.htm", INTERNAL_CLASSES_DIR + "table.xml");
+
+  // void
   public final static ConvertPair voidClass = new ConvertPair(SOURCES_DIR + "voidclass.htm", INTERNAL_CLASSES_DIR + "void.xml");
+  public final static ConvertPair voidSqlStaticMethod = new ConvertPair(SOURCES_DIR + "voidsql.htm", INTERNAL_CLASSES_DIR + "void-static-sql.xml");
+
+  // xdoc
   public final static ConvertPair xdocClass = new ConvertPair(SOURCES_DIR + "xdocclass.htm", INTERNAL_CLASSES_DIR + "xdoc.xml");
+
+  // xnode
   public final static ConvertPair xnodeClass = new ConvertPair(SOURCES_DIR + "xnodeclass.htm", INTERNAL_CLASSES_DIR + "xnode.xml");
 
   public final static ConvertPair[] convertQueue = new ConvertPair[]{
+          // bool
           boolClass,
+
+          // console
           consoleClass,
+
+          // cookie
           cookieClass,
+
+          // curl
           curlClass,
+          curlLoadStaticMethod,
+          curlOptionsStaticMethod,
+          curlSessionStaticMethod,
+          curlVersionStaticMethod,
+
+          // date
           dateClass,
+          dateRollMethod,
+          dateSqlStringMethod,
+          dateUnixTimestampMethod,
+          dateLastDayMethod,
+          dateGmtStringMethod,
+
+          // double
           doubleClass,
+          doubleIntMethod,
+          doubleDoubleMethod,
+          doubleBoolMethod,
+          doubleIncMethod,
+          doubleDecMethod,
+          doubleMulMethod,
+          doubleDivMethod,
+          doubleModMethod,
+          doubleFormatMethod,
+          doubleSqlStaticMethod,
+
+          // env
           envClass,
+
+          // file
           fileClass,
+
+          // form
           formClass,
+
+          // hash
           hashClass,
+
+          // image
           imageClass,
+
+          // int
           intClass,
+          intIntMethod,
+          intDoubleMethod,
+          intBoolMethod,
+          intIncMethod,
+          intDecMethod,
+          intMulMethod,
+          intDivMethod,
+          intModMethod,
+          intFormatMethod,
+          intSqlStaticMethod,
+
+          // json
           jsonClass,
+
+          // junction
           junctionClass,
+
+          // mail
           mailClass,
+
+          // math
           mathClass,
+
+          // memory
           memoryClass,
+
+          // reflection
           reflectionClass,
+
+          // regex
           regexClass,
+
+          // request
           requestClass,
+
+          // response
           responseClass,
+
+          // status
           statusClass,
+
+          // string
           stringClass,
+
+          // table
           tableClass,
+
+          // void
           voidClass,
+          voidSqlStaticMethod,
+
+          // xdoc
           xdocClass,
+
+          // xnode
           xnodeClass
   };
 
@@ -142,7 +310,8 @@ public class Convert {
         File file = new File(OUTPUT_DIR + aConvertQueue.getToFile());
 
         if(file.exists()) {
-          file.delete();
+          //file.delete();
+          continue;
         }
 
         try {
