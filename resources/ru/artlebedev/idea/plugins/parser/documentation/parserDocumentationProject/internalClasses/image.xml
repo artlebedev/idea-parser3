@@ -1,0 +1,30 @@
+<html>
+<head>
+ <title>Image class</title>
+</head>
+<body>
+<h1><b>Image class
+<br />
+</b></h1>
+<br />
+<normal>The class is designed for dealing with images. There may be two types of objects of class <mono><b>image</b></mono><normal>. First type includes objects based on existing images in supported formats, whereas the second-objects created by Parser itself.
+<br />
+<br />
+One can also retrieve EXIF information from JPEG files (<blue><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></blue></normal><normal>).
+<br />
+<br />
+For color presentation, Parser uses RGB system, where each shade of color consists of three components (R-Red, G-Green, B-Blue). Each component has value starting with 0x00 and ending with 0xFF (0-255 in decimal system). Final color represents an integer number of format 0xRRGGBB, where each component is allocated two digits in the given sequence. The formula, according to which the color is calculated, is:
+<br />
+<br />
+</normal><mono><b>(R*0x100+G)*0x100+B
+<br />
+</b></mono><normal>
+<br />
+Thus, white color, which has maximum values (FF) for all components, is made up by the formula:
+<br />
+<br />
+</normal><mono><b>(0xFF*0x100+0xFF)*0x100+0xFF&nbsp;=&nbsp;0xFFFFFF</b></mono><normal>
+<br />
+</normal></normal><br />
+</body>
+</html>

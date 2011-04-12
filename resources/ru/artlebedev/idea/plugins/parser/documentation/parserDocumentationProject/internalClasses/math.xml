@@ -1,0 +1,14 @@
+<html>
+<head>
+ <title>Math class</title>
+</head>
+<body>
+<h1><b>Math class
+<br />
+</b></h1>
+<br />
+<normal>Class math does not have constructors and therefore cannot create objects. It contains only static methods and is used to deal with mathematical expressions. While working with this class it is important to keep in mind values precision of class <mono><b><a href="intdoubleclasses.htm">double</a></b></mono><normal>.
+<br />
+</normal></normal><br />
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<head>
+ <title>Hash class</title>
+</head>
+<body>
+<h1><b>Hash class
+<br />
+</b></h1>
+<br />
+<normal>The class is designed for working with hashes, or associative arrays. A hash is considered defined (<mono><b>def</b></mono><normal>), if it isn't empty. Numerical value of a hash is the number of its keys (value returned by method </normal><mono><monoblue><b>^hash_name._count[]</b></monoblue></mono><normal>).
+<br />
+</normal></normal><br />
+</body>
+</html>

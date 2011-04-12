@@ -1,0 +1,20 @@
+<html>
+<head>
+ <title>Request class</title>
+</head>
+<body>
+<h1><b>Request class
+<br />
+</b></h1>
+<br />
+<normal>Class request contains static fields, which allow getting information sent by browser to web-server (via HTTP protocol).
+<br />
+<br />
+To work with form fields (<mono><monoblue><b>&lt;FORM&gt;</b></monoblue></mono><normal>) and string after second </normal><mono><b>?</b></mono><normal> (</normal><mono><b>/?a=b?thisText</b></mono><normal>), use </normal><mono><b><a href="formclass.htm">form</a></b></mono><normal>.
+<br />
+<br />
+A part of information on the request is accessible through environment variables, see "<a href="envhttpfield.htm">Retrieving values of HTTP-header fields</a>".
+<br />
+</normal></normal><br />
+</body>
+</html>

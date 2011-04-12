@@ -1,0 +1,36 @@
+<html>
+<head>
+ <title>Form class</title>
+</head>
+<body>
+<h1><b>Form class
+<br />
+</b></h1>
+<br />
+<normal>Class form is designed for working with form fields. The class has static fields available for reading only.
+<br />
+<br />
+It is useful to check form fields for being empty and edit available database records with such an approach:
+<br />
+<br />
+<mono><monoblue><b>^if($edit){
+<br />
+#&nbsp;record&nbsp;from&nbsp;database
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$record[</b></monoblue></mono><mono><monoblue><b>^</b></monoblue></mono><mono><monoblue><b><a href="tablesql.htm">table::sql</a></b></monoblue></mono><mono><monoblue><b>{</b></monoblue></mono><mono><b>&#133;&nbsp;where&nbsp;id=&#133;</b><monoblue><b>}]
+<br />
+}{
+<br />
+</b></monoblue></mono><mono><monoblue><b>#&nbsp;new&nbsp;record,&nbsp;error&nbsp;(some&nbsp;fields&nbsp;are&nbsp;empty)&nbsp;output
+<br />
+#&nbsp;form&nbsp;fields
+<br />
+</b></monoblue></mono><mono><monoblue><b>&nbsp;&nbsp;&nbsp;&nbsp;$record[$form:</b></monoblue></mono><mono><monoblue><b><a href="formfields.htm">fields</a></b></monoblue></mono><mono><monoblue><b>]
+<br />
+}
+<br />
+</b></monoblue></mono><mono><b>&lt;input&nbsp;name="age"&nbsp;value="</b><monoblue><b>$record.age</b></monoblue></mono><mono><b>"</b><b>&nbsp;/</b><b>&gt;</b><monoblue><b>
+<br />
+</b></monoblue></mono></normal><br />
+</body>
+</html>
