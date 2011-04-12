@@ -37,6 +37,8 @@ public class Convert {
   public final static String INTERNAL_CLASSES_DIR = "internalClasses/";
   public final static String INTERNAL_METHODS_DIR = "internalMethods/";
   public final static String INTERNAL_STATIC_METHODS_DIR = "internalStaticMethods/";
+  public final static String INTERNAL_VARIABLES_DIR = "internalVariables/";
+  public final static String INTERNAL_STATIC_VARIABLES_DIR = "internalStaticVariables/";
 
   public final static String OUTPUT_DIR =
           "/Users/dwr/Projects/idea-parser3/resources/" +
