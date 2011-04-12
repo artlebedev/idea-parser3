@@ -1,0 +1,136 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="file,file, Constructors,base64">
+    <title>base64. Decoding from Base64</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filebase64c.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filebase64c.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>base64. Decoding from Base64&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.</i></b><b><i>5</i></b><b><i>]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file</b><b>::</b><b>base64[e</b><b>ncoded</b><b>]
+<br>
+</b><b>^file::base64[text|binary;flename;</b><b>e</b><b>ncoded</b><b>[;$.content-type[...]]]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.4.1] </i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Decodes a file from Base64 representation. To encode a file use
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file.</b><b><a href=filebase64m.htm>base64</a></b><b>[]
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Detailed information on Base64 is available here</i><i> </i><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://www.ietf.org/rfc/rfc2045.txt" target="_blank">http://www.ietf.org/rfc/rfc2045.txt</a></u></i></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> </i><i>and here </i><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://en.wikipedia.org/wiki/Base64" target="_blank">http://en.wikipedia.org/wiki/Base64</a></u></i></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.</i><i>
+<br>
+</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>E</b><b>xample</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$encoded[
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>R0lGODdhyAAyANUAAP////j88fLz8O/v7+v21uns4uTyyd/f397vu9vf1NfsrtDpoM/Pz8rmk8Tj
+<br>
+hr+/v73geK+vr6nWUJ+fn52jkJzQNZXNJ4+Pj39/f3BwcGBgYFBQUEBAQDAwMCAgIBAQEAAAAAAA
+<br>
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+<br>
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAyAAyAAAG/0CAcEgsChkRjHIZ
+<br>
+ORif0Kh0Sq1ar9isdkudaD6gsHj80US46LR6zW5zBxjweE73YAbuvH7P71/kdIFzHxN9hoeIiUQH
+<br>
+HIKOgRx4ipOUlVgPgHQcGUsYGY2CHwyWpKWlE4IbZ1ADE6CDo6ays3wRkE5VD69iorS+v2gMmSAf
+<br>
+q1h/g7jAy8ysHnMdylnC0M3W1wAZ0JJvz2MY2OG+DIPcwcPS4uqUuyAPbbZjGuv0kwdzGXkbc+n1
+<br>
+/nnaeJkzQqCBwQYIDASQcm/MhSmdIkrE8HDKgAcYM2rE2M8Ig40gNw68GLJkxwEXJqoE96SkSwDe
+<br>
+wrCEQqCChZs4JSyMomFMh/8pjwLNizKgQ1BisaCgOjrm3ZCiTMXMfGo0apgnPa2CIDemo5CaOMNa
+<br>
+0BmFqxivQrSGGepxmKNeT5ZqdQqAQcyoUwFAVWskq9YLPqOAFRuWLJS7haKoXdtWK1wicucecXt0
+<br>
+6l6+RPxq1ZzvyWDChXf2/SZlcZjOk00bAxBZ8gHKlYlUXSzbNIhdq4d8xglBAWHDRQCL4SCFg/Hj
+<br>
+yJPfJT4Ew5zkyTNN3eUBunXjox48vw49cVp5KyUSgcbdelOCNsVCEOJbLPAh2oezcS6/+ZzipIfs
+<br>
+ykslvhguc9CFRYBXEEjEbjetN0R7oRXh323zjcGcEPT9F8V+RGB4yX1bGJj/hYdUZCIgghYoSASD
+<br>
+OYkGwIMTplEhhPZ9s9Jd0+V3xYMghIdBbkOQVx5y451nxS50kagAFCjeBByLEdZHoW01SpXFa5s9
+<br>
+YRsIQYoh4BS4fZVeWEdGkeRYOwkXRotovNjii1pFKZMW1FjFVo+2ZRnGllJoBo6RVIxZAQEA6Nnk
+<br>
+mUSwaZWbOW4RZ1RzAnClne5cYSYIPy1AWJh9EuYATGN456KEhUKZoY1ZXMZURd+ZBimeZc1RAAAo
+<br>
+YloFiuslwM+gMD4po0o0jirlGy5hNFuidIpxQbAbrYpFJhSwd5OsVrSnYEBheNCGmqGOgd+vQmjI
+<br>
+h7eOCvmhuFVo9oEA7EF7/wUBm+qVCWpqYBujhVCAC64e4IJYILlUmPWmG9SGgRaFOi6xy5oc1kvq
+<br>
+vf3+iJx0kHbg8HHKYtFOUmrg2KiVpsHL5rb/dktqLqY9Fmidxd6ZBY4eDLTFAOhQYVqjH1+48Mj9
+<br>
+LWayEJpZVTEWPXfgMhamggCvYmptXLPC3ALA8BQ4HrXzED0z9fMVMG/DxQHDUjq0EUk/sfQT9uIM
+<br>
+tWMYGxGw1SlHCicdH7A6RQTDTA3FHBqEh2oRByRblkbSfJTRwE+QhOzg/R6uEREicdHaWoQPccA+
+<br>
+dPCItJb/ZJ7F42ulXUQEVYfhqcz8am56FBPA9sEGGEyA0QQYbKC65aWVflL67UUw0LVpHXhOOua4
+<br>
+B1+4oVZ9wJ8V+gqvPAAHhP7IBxl8XUXyyyuPUjuBbDCB9FY0Xv33Dqa0gXF5Hwv++einr/767Lfv
+<br>
+/vvwxy///PTXj0YQADs=
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+$original[^file::base64[$encoded]]
+<br>
+$filespec[/parser3logo.gif]
+<br>
+^original.save[binary;$filespec]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;img&nbsp;src=</b><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$filespec</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Outputs&#133;
+<br>
+<img src="clip0001.png" width="200" height="50" border="0">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 26.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

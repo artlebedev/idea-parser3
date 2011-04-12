@@ -1,0 +1,492 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="auto.p,MAIN,main">
+    <title>Урок 2. Меню навигации и структура страниц</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?lesson2.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='lesson2.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Урок 2. Меню навигации и структура страниц
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Предыдущий урок мы закончили тем, что определили недостатки в реализации меню. Давайте займемся их устранением. Наше меню выводит лишнюю ссылку на текущую страницу, что нисколько не украшает будущий сайт. Чтобы этого избежать, необходимо проверить, не является ли раздел, на который мы выводим ссылку, текущим. Иными словами, нам нужно сравнить URI раздела, на который собираемся ставить ссылку, с текущим URI. В случае если они совпадают, ссылку на раздел ставить не надо. Дополнительно для удобства пользователей мы изменим в меню навигации цвет столбца текущего раздела.
+<br>
+
+<br>
+Открываем файл <span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и меняем его содержимое на:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@navigation[]
+<br>
+$sections[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tableload.htm>table::load</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[/sections.cfg]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;width="100%"&nbsp;border="0"&nbsp;bgcolor="#000000"&nbsp;cellspacing="1"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&nbsp;&nbsp;bgcolor="#FFFFFF"&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;^sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablemenu.htm>menu</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^navigation_cell[]
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+&lt;br&nbsp;/&gt;
+<br>
+
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@navigation_cell[]
+<br>
+$cell_width[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opeval.htm>eval</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(100\$sections)%]
+<br>
+^if($sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>uri</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;eq&nbsp;$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=requesturi.htm>request:uri</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;td&nbsp;width="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$cell_width</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&nbsp;align="center"&nbsp;bgcolor="#A2D0F2"&gt;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;nobr&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/nobr&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;/td&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;td&nbsp;width="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$cell_width</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&nbsp;align="center"&gt;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>uri</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;&lt;nobr&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/nobr&gt;&lt;/a&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;/td&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Что изменилось? На первый взгляд не так уж и много, но функциональность нашего модуля существенно возросла. Мы описали еще один метод - </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>navigation_cell</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, который вызывается из метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>navigation</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. В нем появилась новая структура: 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opif.htm>if</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(условие){код&nbsp;если&nbsp;условие&nbsp;"истина"}{код&nbsp;если&nbsp;условие&nbsp;"ложь"}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Что она делает, понять не сложно. В круглых скобках задается условие, в зависимости от того, какое значение возвращает условие, "ложь" или "истина", можно получить разный результат. Также, если в условии записано выражение, значение которого равно нулю, то результат - "ложь", иначе - "истина". Мы используем оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>if</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> для того, чтобы в одном случае поставить ссылку на раздел, а другом нет. Осталось только разобраться с условием. Будем сравнивать на равенство две текстовых строки, в одной из которых - значение URI раздела из таблицы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в другой -  текущий URI (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$request:uri</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> возвращает строку, содержащую URI текущей страницы). Тут возникает вопрос о том, какие же строки равны между собой? Несомненно, только те, которые полностью совпадают и по длине, и по символьному содержанию. 
+<br>
+
+<br>
+Для сравнения двух строк в Parser  предусмотрены следующие <a href=exprops.htm>операторы</a>:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>eq</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - строки равны (<b><i>equal</i></b>): </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser&nbsp;eq&nbsp;parser</b>
+<br>
+<b>ne</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - строки не равны (<b><i>not equal</i></b>): </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser&nbsp;ne&nbsp;parser3
+<br>
+lt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - первая строка меньше второй (<b><i>less than</i></b>): </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser&nbsp;lt&nbsp;parser3</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>gt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - первая строка больше второй (<b><i>greater than</i></b>): </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser3&nbsp;gt&nbsp;parser&nbsp;
+<br>
+le</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - первая строка меньше или равна второй (<b><i>less or equal</i></b>)
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ge</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - первая строка больше или равна второй (<b><i>greater or equal</i></b>)
+<br>
+
+<br>
+С условием разобрались: если </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections.uri</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$request:uri</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> совпадают, ссылку не ставим (а заодно красим столбец в другой цвет - подумаем о наших пользователях, так им будет удобнее), если нет - ставим. 
+<br>
+
+<br>
+Идем дальше. Меню из первого урока выводило столбцы разной ширины. Ничего страшного, но некрасиво. Проблема решается очень просто: всю ширину меню (100%) делим на количество разделов, которое равно количеству строк в таблице </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Для этого воспользуемся оператором </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b><a href=opeval.htm>eval</a></b><b>()</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и тем, что можно использовать объекты класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в математических выражениях. При этом их числовое значение равно числу записей в таблице. Обратите внимание также на то, что мы пользуемся целочисленным делением, используя обратный слеш вместо прямого.
+<br>
+
+<br>
+На </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^eval()</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> остановимся чуть подробнее. Он позволяет получить результат математического выражения без введения дополнительных переменных, иными словами, хотим что-то посчитать - пишем:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^eval(выражение)[формат]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Использование [формат] дает возможность вывода результата выражения в том  виде, который нужен. Форматная строка [%d] отбрасывает дробную часть, [%.2f] дает два знака после запятой, а [%04d] отводит 4 знака под целую часть, дополняя недостающие символы нулями слева.  Форматированный вывод нужен, когда необходимо представить число в определенном виде (скажем, 12.44 $ смотрится куда лучше 12.44373434501 $). 
+<br>
+</i>
+<br>
+Вот, собственно, и все, что касается меню. Теперь оно функционально и готово к использованию. 
+<br>
+
+<br>
+Наш первый кирпичик для будущего сайта готов. Теперь займемся структурой страниц. Давайте разобьем  их на следующие блоки: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - верхняя часть страницы, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - основной информационный блок, включающий также наше меню и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - нижняя часть страницы. Многие сайты имеют похожую структуру. 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будет для всех страниц одинаковым, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - для всех страниц одинаковый по стилю, но с разными текстовыми строками - заголовками страницы, а </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будет разный у всех страниц, сохраняя только общую структуру (предположим, два вертикальных информационных блока, соотносящихся по ширине как 3:7). К </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> отнесем и наше меню. 
+<br>
+
+<br>
+Каждая из страниц будет иметь следующую структуру:
+<br>
+
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="502" colspan="2">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> header
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="140">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+ navigation
+<br>
+
+<br>
+ body_additional
+<br>
+ (30%)
+<br>
+
+<br>
+</span></td><td align="left" valign="top" width="361">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+
+<br>
+ body_main
+<br>
+ (70%)
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="502" colspan="2">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> footer
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+Также, как в случае с меню, опишем каждый из этих блоков методом (функцией) на Parser. Давайте подробно разберемся с каждым блоком. 
+<br>
+
+<br>
+С </span><span style="font-family:Monospace; font-size:10pt; color:#000000">footer</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"> </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">все очень просто - в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> добавляем код: 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@footer[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;width="100%"&nbsp;border="0"&nbsp;bgcolor="#000000"&nbsp;cellspacing="0"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;/td&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$now[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datenow.htm>date::now</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;font&nbsp;size="-3"&gt;
+<br>
+&lt;center&gt;Powered&nbsp;by&nbsp;Parser3&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>1997-$now.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datefields.htm>year</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/center&gt;
+<br>
+&lt;/font&gt;
+<br>
+&lt;/body&gt;
+<br>
+&lt;/html&gt;</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Никаких новых идей здесь нет, разве что мы впервые использовали класс </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=dateclass.htm>date</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с конструктором </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=datenow.htm>now</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> для получения текущей даты, а затем из объекта класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> взяли поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=datefields.htm>year</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (год). Если это кажется вам непонятным, обязательно вернитесь к первому уроку, где рассказано о работе с объектами на примере класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Все идентично, только теперь мы имеем дело с объектом другого класса.
+<br>
+
+<br>
+Немного сложнее с модулем </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. С одной  стороны, нам нужно формировать уникальный заголовок-приветствие для каждой страницы. В то же время он будет одинаковым с точки зрения внешнего вида, различие только в тексте, который будет выводиться. Как же быть? Мы предлагаем сделать следующее: определить в нашем </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> новую функцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, внутри которой будет вызываться другая функция - </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>greeting</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. А функция </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>greeting</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в свою очередь, будет определяться на самих страницах сайта и содержать только то, чем отличаются заголовки страниц (в нашем случае строку-приветствие). 
+<br>
+
+<br>
+Дополняем </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> следующим кодом:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@header[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;html&gt;
+<br>
+&lt;head&gt;
+<br>
+&lt;title&gt;Тестовый&nbsp;сайт&nbsp;Parser3&lt;/title&gt;
+<br>
+&lt;/head&gt;
+<br>
+&lt;body&nbsp;bgcolor="#FAEBD7"&gt;
+<br>
+&lt;table&nbsp;width="100%"&nbsp;border="0"&nbsp;bgcolor="#000000"&nbsp;cellspacing="1"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&nbsp;&nbsp;bgcolor="#FFFFFF"&nbsp;height="60"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font&nbsp;size="+2"&gt;&nbsp;&lt;b&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^greeting[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/b&gt;&lt;/font&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Теперь внимание, кульминация. Parser позволяет сделать очень интересный финт: определить один раз общую структуру страниц в файле </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, создать каркас, а затем, используя функции, подобные </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>greeting</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в тексте самих страниц, получать разные по содержанию страницы одинаковой структуры. Как это работает? 
+<br>
+
+<br>
+В самом начале файла </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> мы определим функцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@main[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, которая всегда, причем автоматически, исполняется первой. В нее включим вызовы функций, формирующих части страниц. 
+<br>
+
+<br>
+В начале </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> пишем:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@main[]
+<br>
+^header[]
+<br>
+^body[]
+<br>
+^footer[]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+А для получения уникального заголовка страниц в каждой из них определим функцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>greeting</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, которая вызывается из </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+для главной страницы:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@greeting[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Добро&nbsp;пожаловать!
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+для гостевой книги:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@greeting[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Оставьте&nbsp;свой&nbsp;след…
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+и т.д.
+<br>
+
+<br>
+Теперь при загрузке, например, главной страницы произойдет следующее:
+<br>
+
+<br>
+1. Из файла </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> автоматически начнет выполняться </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+2. Первой вызывается функция </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, из которой вызывается функция </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>greeting</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+3. Поскольку функция </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>greeting</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> определена в коде самой страницы, будет выполнена именно она, вне зависимости от того, определяется она в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> или нет (происходит переопределение функции). 
+<br>
+4. Затем выполняются функции </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> из </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+В результате мы получаем страницу, у которой будут все необходимые элементы, а в верхней части дополнительно появится наше уникальное приветствие. Переопределяемые функции носят название  виртуальных. Мы из файла </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> вызываем функцию, которая может быть переопределена на любой из страниц и для каждой из них выполнит свой код. При этом общая структура страниц будет абсолютно одинаковой, и сохранится стилистическое и логическое единство.
+<br>
+
+<br>
+Осталось описать только основной блок - </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Как мы договорились, он будет состоять из двух частей, каждую из которых будем создавать своей функцией, например, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body_main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body_additional</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а поскольку навигационное меню, по логике, относится к основной части страниц, вызовем </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>navigation</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> также из </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Снова воспользуемся механизмом виртуальных функций. Редактируем </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - дополняем:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body[]
+<br>
+^navigation[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;width="100%"&nbsp;height="65%"&nbsp;border="0"&nbsp;bgcolor="#000000"&nbsp;cellspacing="1"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&nbsp;&nbsp;bgcolor="#ffffff"&nbsp;height="100%"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;width="30%"&nbsp;valign="top"&nbsp;bgcolor="#EFEFEF"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^body_additional[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/b&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;width="70%"&nbsp;valign="top"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^body_main[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+&lt;br&nbsp;/&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Определение функций  </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body_main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body_additional</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, также как и в случае с </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>greeting</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> вставим в страницы:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body_additional[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Главная&nbsp;страница&nbsp;сайта
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body_main[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Основное&nbsp;содержание
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Этот текст приводится как образец для </span><span style="font-family:Monospace; font-size:10pt; color:#000000">index.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Отлично! Структура окончательно сформирована. Мы описали все необходимые модули в файле </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, сформировали общую структуру и теперь можем запросто генерировать страницы. Больше не нужно помногу писать одни и те же куски HTML кода. Привычные HTML-страницы трансформируются примерно в следующее (примерное содержание </span><span style="font-family:Monospace; font-size:10pt; color:#000000">index.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> файла для главной страницы):
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@greeting[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Добро&nbsp;пожаловать!
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body_additional[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Главная&nbsp;страница&nbsp;сайта
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body_main[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Основное&nbsp;содержание
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Просто и понятно, не правда ли? Все разложено по полочкам и легко доступно. При этом после обработки подобного кода Parser создаст HTML-код страницы, у которой будет уникальный заголовок, меню, основной информационный блок заданной структуры и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, одинаковый для каждой страницы. Фактически, мы уже создали готовый сайт, который осталось только наполнить информацией. Это готовое решение для изящного сайта-визитки, который можно создать прямо на глазах. Естественно, это не единственное решение, но такой подход дает отличную структуризацию нашего сайта. Некоторые умственные усилия при разработке структуры с лихвой окупятся легкостью последующей поддержки и модернизации. Каркас хранится в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а все, что относится непосредственно к странице, - в ней самой.
+<br>
+
+<br>
+Дальше открываются безграничные просторы для фантазии. Допустим, вам понадобилось поменять внешний вид заголовка страниц на сайте. Мы открываем </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, редактируем один единственный раз функцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@header[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и на каждой из страниц получаем новый заголовок, по стилю идентичный всем остальным. Для обычного HTML нам пришлось бы вручную переписывать код для каждой страницы. Та же самая ситуация и с остальными модулями. Если возникло желание или необходимость изменить общую структуру страниц, например, добавить какой-то блок, достаточно определить его новой функцией и дополнить функцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> ее вызовом.
+<br>
+
+<br>
+Подобная организация страниц сайта дополняет проект еще одним мощным средством. Предположим, на одной из страниц нам понадобилось получить </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, отличный от других страниц (напомним, изначально мы предполагали, что </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> везде одинаковый). Единственное, что нужно сделать, это переопределить функцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> на нужной странице. Например, такое наполнение </span><span style="font-family:Monospace; font-size:10pt; color:#000000">/contacts/index.html<b>:
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@greeting[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Наша&nbsp;контактная&nbsp;информация
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body_additional[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Главная&nbsp;страница&nbsp;тестового&nbsp;сайта
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@body_main[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Основное&nbsp;содержание
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@footer[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Здесь&nbsp;у&nbsp;нас&nbsp;контакты
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+изменит привычный </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> на обозначенный выше, т.е. если Parser находит в тексте страницы код для функции, вызываемой из </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, он выполнит именно его, даже если функция определена в самом </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Если же функция не переопределена на странице, то будет использован код из </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+<i>В заключение немного теории для любознательных. Мы будем давать подобную информацию для тех, кто хочет глубже понимать логику работы Parser. 
+<br>
+
+<br>
+Помните, мы использовали в нашем коде конструкцию </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$request:uri</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>? Она  отличается по синтаксису от всего того, с чем мы имели дело раньше. Что же это такое? Внешне похоже на </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$объект.свойство</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> (</i><i><a href=lesson1.htm>урок 1</a></i><i>) - значение полей объекта, только вместо точки использовано двоеточие. На самом деле, это тоже значение поля, только не объекта, а самого класса </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestclass.htm>request</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>. В Parser не предусматриваются конструкторы для создания объектов этого класса.  Поля подобных классов формируются самим Parser, а мы можем сразу напрямую обращаться к ним. Техническим языком это называется статическая переменная (поле) </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requesturi.htm>uri</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> класса </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>request</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>. Она хранит в себе URI текущей страницы. Также, наряду со статическими переменными, существуют статические методы, с которыми мы столкнемся уже в следующем уроке. При этом можно сразу же вызывать их также без создания каких-либо объектов с помощью конструкторов. Запомните, что в синтаксисе статических полей и методов всегда присутствует двоеточие. Если встречается конструкция вида </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$класс:поле</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> - мы получаем значение поля самого класса, а запись </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^класс:метод</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> является вызовом статического метода класса. Например, для работы с математическими функциями в Parser существует класс </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=mathclass.htm>math</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>. В нем используются только статические методы и переменные:
+<br>
+</i></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b><a href=mathstats.htm>math:PI</a></b><b>&nbsp;-&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> возвращает число </i></span><span style="font-family:Symbol; font-size:12pt; color:#000000">p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>. Это статическая переменная класса </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>math</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>. 
+<br>
+</i>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b><a href=mathrandom.htm>math:random</a></b><b>(100)&nbsp;-&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>возвращает псевдослучайное число из диапазона от 0 до 100. Это статический метод класса </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>math</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+
+<br>
+Отличие от записи методов и полей объектов состоит только в двоеточии.
+<br>
+</i>
+<br>
+Давайте подведем итоги второго урока. 
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что мы сделали:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> исправили недостатки в меню навигации, созданном на предыдущем уроке, а также описали новые блоки </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>footer</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, формирующие внешний вид страниц нашего сайта. Теперь мы имеем готовое решение для быстрого создания сайта начального уровня.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что узнали:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> познакомились с ветвлением кода, научились вставлять в текст страниц результаты математических вычислений, сравнивать строки и получать URI текущей страницы. Также мы узнали новые методы объектов класса table и класса date и познакомились с мощным механизмом виртуальных функций Parser.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что надо запомнить: </b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">первым методом в файле </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> можно определить функцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, которая выполняется автоматически. Любая из функций может содержать вызовы других функций. Все вызываемые из </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> функции обязательно должны быть определены или в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, или в тексте страниц. В случае если функция будет определена и там и там, то больший приоритет имеет функция, определенная в тексте страницы. Она переопределяет одноименную функцию из main (т.н. виртуальная функция) и выполняется вместо нее.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что будем делать дальше:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> нет предела совершенству! От создания сайта начального уровня мы переходим к более сложным вещам, таким как работа с формами и базами данных для создания по-настоящему интерактивного сайта. Параллельно с этим познакомимся с новыми возможностями, предоставляемыми Parser для облегчения жизни создателям сайтов.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

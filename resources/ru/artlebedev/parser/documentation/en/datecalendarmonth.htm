@@ -1,0 +1,263 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="date,date, Static methods,calendar,month,rus,eng">
+    <title>calendar. Creating calendar for specified month</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?datecalendarmonth.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='datecalendarmonth.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>calendar. Creating calendar for specified month
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^date:calendar[rus|eng](year;month)</b><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">The method makes up a table with calendar for specified </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>month</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> of the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>year</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Parameter </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>rus|eng</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is used to specify calendar's format. In format </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>rus</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, the week starts with Monday, whereas in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>eng</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-with Sunday.
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$calendar_month[^date:calendar[eng](2005;1)]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+As a result, variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$calendar_month</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be assigned a table with calendar for January 2005:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="64">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>0</i></b><b><i>
+<br>
+</i></b></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>1</i></b><b><i>
+<br>
+</i></b></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>2</i></b><b><i>
+<br>
+</i></b></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>3</i></b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>4</i></b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>5</i></b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>6</i></b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>week</i></b><i>
+<br>
+</i></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>year</i></b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span></span></p></td></tr><tr><td align="left" valign="top" width="64">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> 
+<br>
+</span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b> </b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>1</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>53</b>
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2004</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr><tr><td align="left" valign="top" width="64">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>2</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>3</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>4</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>5</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>6</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>7</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><b>8</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>01</b>
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2005</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr><tr><td align="left" valign="top" width="64">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>09</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>10</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b><b>1</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>12</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>13</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>14</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>15</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>02</b>
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2005</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr><tr><td align="left" valign="top" width="64">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>16</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>17</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>18</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>19</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>20</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>21</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>22
+<br>
+</b></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>03</b>
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2005</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr><tr><td align="left" valign="top" width="64">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>23
+<br>
+</b></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>24</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>25</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>26</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="67">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>27</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>28</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>29</b><b>
+<br>
+</b></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>04</b>
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2005</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr><tr><td align="left" valign="top" width="64">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>30</b>
+<br>
+</span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>31</b>
+<br>
+</span></p></td><td align="left" valign="top" width="67">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="66">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="67">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="66">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="66">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="65">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>05</b>
+<br>
+</span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2005</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr></table>
+<br>
+
+<br>
+Method's work results in a new object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> with columns 0&#133;6 plus columns </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>week</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>year</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> containing, respectively, number of week according to standard ISO 8601 and year it belongs to.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 04.09.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

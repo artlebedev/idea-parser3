@@ -1,0 +1,82 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="table,table, Retrieving data stored in current row as a hash,fields">
+    <title>Retrieving data stored in current row as a hash</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tablehash.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tablehash.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Retrieving data stored in current row as a hash
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$table.fields-</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">data stored in the current table row, returned as <a href=hash.htm>hash</a> (for </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>nameless</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> tables available since <b><i>[3.4</i></b><b><i>.0</i></b><b><i>]</i></b>).
+<br>
+
+<br>
+Returns data stored in the current table row as a hash. The names of the columns then become hash keys, while columns' data-respective values.
+<br>
+
+<br>
+It is necessary to use this method if columns' names coincide with names of methods or constructors of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. In this case you cannot retrieve their values directly-Parser will report an error. If it is necessary to work with fields with such names, it is safe to use field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>fields</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and work with not table but hash.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$tab[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{menu&nbsp;&nbsp;&nbsp;line
+<br>
+yes&nbsp;&nbsp;&nbsp;first
+<br>
+no&nbsp;&nbsp;&nbsp;second}
+<br>
+]
+<br>
+$tab_hash[$tab.fields]
+<br>
+$tab_hash.menu
+<br>
+$tab_hash.line</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+As a result, you will get values of fields </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>menu</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>line</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (such names will coincide with methods of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) as keys of hash </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>tab_hash</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 14.08.2010</font></td>
+</tr>
+</table>
+</body>
+</html>

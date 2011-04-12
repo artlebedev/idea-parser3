@@ -1,0 +1,72 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="install,install, Установка и настройка Parser,IIS">
+    <title>Установка Parser на веб-сервер IIS 5.0 или новее</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?install4iis.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='install4iis.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Установка Parser на веб-сервер IIS 5.0 или новее
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Поместите файлы с исполняемым кодом Parser в произвольный каталог.
+<br>
+Если вы используете версию Parser с поддержкой XML, в каталог, указанный в переменной окружения PATH (например, C:\WinNT), распакуйте XML библиотеки.
+<br>
+
+<br>
+После чего назначьте Parser обработчиком <span style="font-family:Monospace; font-size:10pt; color:#000000">.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> страниц:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="39"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">1.</span></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Запустите Management Console, нажмите на&nbsp;правую кнопку мыши на&nbsp;названии вашего веб-сервера и&nbsp;выберите </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Properties</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="39"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">2.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Перейдите на&nbsp;вкладку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Home&nbsp;directory</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и&nbsp;в&nbsp;разделе </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Application&nbsp;settings</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> нажмите на&nbsp;кнопку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Configuration…</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> 
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="39"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">3.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В&nbsp;появившемся окне нажмите на&nbsp;кнопку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Add</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="39"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">4.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В&nbsp;поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Executable</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> введите полный путь к&nbsp;файлу </span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3.exe</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3isapi.dll</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="39"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">5.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В&nbsp;поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Extension</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> введите строку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>.html</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="39"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">6.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Включите опцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Check&nbsp;that&nbsp;file&nbsp;exists</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="39"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">7.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Нажмите на&nbsp;кнопку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>OK</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span></td></tr></table><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

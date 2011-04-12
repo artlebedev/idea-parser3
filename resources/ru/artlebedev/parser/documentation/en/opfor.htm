@@ -1,0 +1,94 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="loop *,for">
+    <title>for. Loop with specified number of repetitions</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opfor.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opfor.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>for. Loop with specified number of repetitions
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^for[counter](from;to){body}
+<br>
+^for[counter](from;to){body}[delimiter]
+<br>
+^for[counter](from;to){body}{delimiter}
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>for</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> repeatedly implements the body of the loop, going through counter's values </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>from</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> initial </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>to</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> final. Every repetition automatically increments the counter's value by one.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Counter</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is the name of variable used as the loop's counter.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>From</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>to</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, respectively, are initial and final values of the counter-mathematical expressions specifying the scope of values assigned to the counter. If final value is less than the initial, the body of the loop will not be implemented at all.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Delimiter</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is string or code to be implemented before every non-empty body, except the first.
+<br>
+
+<br>
+<i>Important notice: since the names of the counters can be repeated, we recommend declaring them as local variables of the method which uses </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>for</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> loop.
+<br>
+</i>
+<br>
+You can force finish the loop using </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opbreak.htm>break</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> operator or finish current step and go to next one using </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opcontinue.htm>continue</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> operator.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^for[week](1;4){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="/news/archive.html?week=</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$week</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;</b><b>News&nbsp;for&nbsp;week&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$week</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/a&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The example outputs references to weeks 1-4. After every string, it puts the newline tag.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 20.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

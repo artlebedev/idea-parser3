@@ -1,0 +1,78 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="def,ifdef *">
+    <title>def. Проверка определенности объекта</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opdef.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opdef.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>def. Проверка определенности объекта
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Оператор возвращает булевое значение (истина/ложь) и отвечает на вопрос «определен ли объект?» Проверяемым объектом может любой объект Parser: таблица, строка, файл, объект пользовательского класса и т.д.
+<br>
+
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>def&nbsp;объект&nbsp;&nbsp;&nbsp;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">не определенными (не </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>def</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) считаются пустая строка, пустая таблица, пустой хеш и код.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$str[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Это&nbsp;определенная&nbsp;строка</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opif.htm>if</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(def&nbsp;$str){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Строка&nbsp;определена
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Строка&nbsp;не&nbsp;определена
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Важно: для проверки «содержит ли переменная код» и «определен ли метод» используйте оператор </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i><a href=opis.htm>is</a></i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>, а не </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>def</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

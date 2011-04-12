@@ -1,0 +1,194 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="file,file, Constructors,cgi,exec,env,CGI_ *,HTTP_ *,SSI *,include *">
+    <title>cgi and exec. Executing a program</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filecgiexec.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filecgiexec.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>cgi and exec. Executing a program
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file::cgi[filename]
+<br>
+^file::cgi[filename;env_hash]
+<br>
+^file::cgi[filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]
+<br>
+^file::cgi[format;filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]</b><b>&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+^file::exec[filename]
+<br>
+^file::exec[filename;env_hash]
+<br>
+^file::exec[filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]
+<br>
+^file::exec[format;filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Constructor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cgi</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> creates an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, containing results returned by a program according to CGI standard</span><span style="font-family:Times New Roman; font-size:10pt; color:#000000"> </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+<i>Note: when a program/script is executed, directory with it will be its working directory.
+<br>
+</i>
+<br>
+Headers, returned by the CGI-script, will then become fields of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> converted into UPPERCASE. E.g., if a CGI-script </span><span style="font-family:Monospace; font-size:10pt; color:#000000">script.pl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> returns a header </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>some_field:some_value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, then, on having processed
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::cgi[script.pl]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">we can address to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$f.SOME_FIELD</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and get value </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>some_value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Constructor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>exec</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is similar to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cgi</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> but doesn't separate HTTP-headers from the text returned by the script.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>format</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-defines format of loaded file and can be either </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> (default)</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. While using </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> format the result will not transcoded to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestcharset.htm>$request:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and will not truncated on first zero char.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-path and name of file.
+<br>
+
+<br>
+Object, created by these constructors, has additional fields:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>status</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-information on the status of program's termination (usually </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (zero) means successful termination, while non-zero status means error);
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>stderr</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-standard errors stream.
+<br>
+<u>
+<br>
+</u><b>Example</b><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$cgi_file[^file::cgi[new.cgi]]
+<br>
+$cgi_file.text
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Outputs text resulting from execution of </span><span style="font-family:Monospace; font-size:10pt; color:#000000">new.cgi</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Optional arguments of constructors:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>env_hash</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-<a href=hash.htm>hash</a>, which can include
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">additional environment variables to be later accessed from within the script,
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">key </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>stdin</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, containing text sent to the script in standard input stream,
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">key </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>charset</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, which indicates charset in which script operates (data to and from script will be transcoded accordingly).<b><i> [3.1.3]</i></b>
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Note: you can specify only standard CGI environment variables, or variables, whose names start with </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>CGI_</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> or </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>HTTP_&nbsp;</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>(restricted to: UPPERCASE Latin characters, numbers, underscore and hyphen)</i>.
+<br>
+<i>Note: unsafe-mode version allows you to use CGI environment variables' names without any limitations. </i><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b><i>
+<br>
+</i><i>Note: while processing </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">HTTP&nbsp;POST</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i> </i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>request, you can use construction </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.stdin</b><b>[</b><b><a href=requestbody.htm>$request:body</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> </i><i>to send received POST data to the script's standard input stream.
+<br>
+</i><i>Note: variables which were set by http server while executes Parser also will be availabe for scripts.</i>
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of how to use an external cgi-script</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$search[^file::cgi[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>search</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.cgi;$.QUERY_STRING[text=</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=formfields.htm>$form:q</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&amp;page=$form:p</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Example of how to use an external script</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$script[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>file::exec[script.pl;$.CGI_INFORMATION[I&nbsp;have&nbsp;had&nbsp;it&nbsp;enough]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Information being sent can be accessed and used within script </span><span style="font-family:Monospace; font-size:10pt; color:#000000">script.pl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>print&nbsp;"Additional&nbsp;information:&nbsp;$ENV{CGI_INFORMATION}\n";
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+
+<br>
+</u></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of receiving binary data from an external script</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$response:body[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>file::exec[binary;getfile.pl;$.CGI_FILENAME[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=formfields.htm>$form:filename</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Example of passing several arguments
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">You can also send a number of arguments to the program by specifying them-separated by semicolon-after </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>env_hash</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$script[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^file::exec[script.pl;;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>height</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>width</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+...or specify arguments as a table with one column:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>args[^table::create{arg
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>height</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>width</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>script[^file::exec[script.pl;;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$args</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+<i>Note: we insist that you store scripts to be run by constructors </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cgi</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> and </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>exec</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> beyond web-space, since executing a script with arbitrary arguments may case unexpected consequences.</i><i>
+<br>
+</i></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 23.05.2010</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="file,file, Constructors,load,HTTP *">
+    <title>load. Loading file from disk or HTTP-server</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?fileload.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='fileload.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>load. Loading file from disk or HTTP-server
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file::load[</b><b>format</b><b>;</b><b><a href=app1.htm>filename</a></b><b>]
+<br>
+^file::load[</b><b>format</b><b>;</b><b><a href=app1.htm>filename</a></b><b>;</b><b><a href=app1.htm>download options</a></b><b>]
+<br>
+^file::load[</b><b>format</b><b>;</b><b><a href=app1.htm>filename</a></b><b>;</b><b>new&nbsp;filename</b><b>]</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file::load[</b><b>format</b><b>;</b><b><a href=app1.htm>filename</a></b><b>;</b><b>new&nbsp;filename</b><b>;</b><b><a href=app1.htm>download options</a></b><b>]</b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Loads file from disk or HTTP-server.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Format</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> defines format of loaded file and can be either </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. The two types differ in newline characters. For PC these characters are </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0D&nbsp;0A</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. If file is being loaded in format </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0D</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be deemed unnecessary and truncated. These characters will be added back to the file by method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filesave.htm>save</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-name of file with <a href=app1.htm>path</a> or file's URL on HTTP-server.
+<br>
+
+<br>
+It should be kept in mind that if argument </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>new&nbsp;filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is specified, its value will be assigned to field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. This argument is especially useful in dealing with method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>mail:send</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> to send a file with needed name.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>Download&nbsp;options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-see  "<a href=app1.htm>Working with HTTP-servers</a>".
+<br>
+
+<br>
+If a file was loaded from an HTTP-server, fields of HTTP-response headers can be accessed as fields of object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Also there would be field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>tables</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, hash, keys of which are HTTP-response headers in upper case, and values are tables with sole column </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, containing all values of HTTP-response fields of same name.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><u>
+<br>
+</u><b>Example of downloading file from disk
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::load[binary;article.txt]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>File&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;is&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f.size</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;in&nbsp;size&nbsp;and&nbsp;has&nbsp;the&nbsp;text:&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f.text</b></span></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><span style="font-family:Monospace; font-size:12pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><span style="font-family:Monospace; font-size:12pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of downloading file from HTTP-server</b><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$file[^file::load[text;http://</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>www.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>parser.ru/;
+<br>
+&nbsp;&nbsp;&nbsp;$.timeout(5)
+<br>
+]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Server&nbsp;software:&nbsp;$file.SERVER
+<br>
+&lt;hr&nbsp;/&gt;
+<br>
+&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$file.text</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

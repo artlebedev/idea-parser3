@@ -1,0 +1,288 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="XML,XSLT,XPath,DOM,xdoc,xnode,transform,string">
+    <title>Урок 6. Работаем с XML</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?lesson6.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='lesson6.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Урок 6. Работаем с XML
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br>
+&lt;article&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;author&nbsp;id="</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"&nbsp;/&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Урок&nbsp;6.&nbsp;Работаем&nbsp;с&nbsp;XML</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/title&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Представьте,&nbsp;что&nbsp;вам&nbsp;позволено&nbsp;придумывать&nbsp;любые&nbsp;теги
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;с&nbsp;любыми&nbsp;атрибутами.&nbsp;То&nbsp;есть&nbsp;вы&nbsp;сами&nbsp;можете&nbsp;определять,&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;что&nbsp;означает&nbsp;тот&nbsp;или&nbsp;иной&nbsp;выдуманный&nbsp;вами&nbsp;тег&nbsp;или&nbsp;атрибут.</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/para&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Такой&nbsp;код&nbsp;будет&nbsp;содержать&nbsp;данные,&nbsp;…</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/para&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;links&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;href="</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://</b><b>www.</b><b>parser.ru/docs/lang/xdocclass.htm</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdocclass.htm>Класс xdoc</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/link&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;href="</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://</b><b>www.</b><b>parser.ru/docs/lang/xnodeclass.htm</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xnodeclass.htm>Класс xnode</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/link&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/links&gt;
+<br>
+&lt;/article&gt;
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…но не их форматирование. Подготовкой данных может заняться один человек, а форматированием другой. Им достаточно договориться об используемых тегах и можно приступать к работе… одновременно.
+<br>
+
+<br>
+Идея эта не нова, существовали многочисленные библиотеки обработки шаблонов, а многие создавали собственные. Библиотеки были несовместимы между собой, зависели от используемых средств скриптования, порождая разобщенность разработчиков и необходимость тратить силы на изучение очередной библиотеки вместо того, чтобы заняться делом.
+<br>
+
+<br>
+Однако прогресс не стоит на месте, и сейчас мы имеем не зависящие от средства скриптования стандарты <b><a href="http://www.w3.org/XML/" target="_blank">XML</a></b> и <b><a href="http://www.w3.org/TR/xslt" target="_blank">XSLT</a></b>, позволяющие нам реализовать то, что мы только что представляли. А также стандарты <b><a href="http://www.w3.org/DOM/" target="_blank">DOM</a></b> и <b><a href="http://www.w3.org/TR/xpath" target="_blank">XPath</a></b>, открывающие для нас еще больше возможностей.
+<br>
+Parser полностью поддерживает все эти стандарты.
+<br>
+
+<br>
+Сейчас откройте выбранную вами вчера в книжном магазине книгу, описывающую XML и XSLT. Используйте ее как справочник.
+<br>
+
+<br>
+Посмотрим, как можно приведенную статью преобразовать из XML в HTML.
+<br>
+Запишем текст из начала статьи в файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">article.xml
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">И создадим файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">article.xsl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в котором определим выдуманные нами теги:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;&nbsp;
+<br>
+&lt;xsl:stylesheet&nbsp;xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&nbsp;version="1.0"&gt;
+<br>
+
+<br>
+&lt;xsl:template&nbsp;match="article"&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;html&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;&lt;title&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;xsl:value-of&nbsp;select="title"&nbsp;/&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/title&gt;&lt;/head&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;xsl:apply-templates&nbsp;select="body&nbsp;|&nbsp;links"&nbsp;/&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/body&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/html&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/xsl:template&gt;
+<br>
+
+<br>
+&lt;xsl:template&nbsp;match="body"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates&nbsp;select="para"&nbsp;/&gt;
+<br>
+&lt;/xsl:template&gt;
+<br>
+
+<br>
+&lt;xsl:template&nbsp;match="links"&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Ссылки&nbsp;по&nbsp;теме:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:for-each&nbsp;select="link"&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;xsl:apply-templates&nbsp;select="."&nbsp;/&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/li&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:for-each&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/xsl:template&gt;
+<br>
+
+<br>
+&lt;xsl:template&nbsp;match="para"&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;xsl:value-of&nbsp;select="."&nbsp;/&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/p&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&lt;/xsl:template&gt;
+<br>
+
+<br>
+&lt;xsl:template&nbsp;match="link"&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{@href}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;xsl:value-of&nbsp;select="."&nbsp;/&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/a&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&lt;/xsl:template&gt;
+<br>
+
+<br>
+&lt;/xsl:stylesheet&gt;
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Данные и шаблон преобразования готовы. Создаем </span><span style="font-family:Monospace; font-size:10pt; color:#000000">article.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в который заносим следующий код:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>#&nbsp;входной&nbsp;xdoc&nbsp;документ
+<br>
+$sourceDoc[^</b><b><a href=xdocload.htm>xdoc::load</a></b><b>[article.xml]]
+<br>
+
+<br>
+#&nbsp;преобразование&nbsp;xdoc&nbsp;документа&nbsp;шаблоном&nbsp;article.xsl
+<br>
+$transformedDoc[^sourceDoc.</b><b><a href=xdoctransform.htm>transform</a></b><b>[article.xsl]]
+<br>
+
+<br>
+#&nbsp;выдача&nbsp;результата&nbsp;в&nbsp;HTML&nbsp;виде
+<br>
+^transformedDoc.</b><b><a href=xdocstring.htm>string</a></b><b>[
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocoptions.htm>$.method[html]</a></b><b>
+<br>
+]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Первой строкой мы загружаем XML-файл, получая в </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sourceDoc</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> его DOM-представление.
+<br>
+Конструкция похожа на загрузку таблицы, помните </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::load[…]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">? Только в этот раз мы загружаем не таблицу (получая объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=tableclass.htm>table</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), а XML-документ (получаем объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdocclass.htm>xdoc</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+
+<br>
+Второй строкой мы преобразуем входной документ по шаблону </span><span style="font-family:Monospace; font-size:10pt; color:#000000">article.xsl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Из входного документа получаем выходной, применяя XSLT преобразование, описанное в шаблоне.
+<br>
+
+<br>
+Последней строкой мы выдаем пользователю текст выходного документа в HTML формате (параметр <b>method</b> со значением <b>html</b>).
+<br>
+<i>Здесь можно задать все параметры, допустимые для тега </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href="http://www.w3.org/TR/xslt#output" target="_blank">&lt;xsl:output … /&gt;</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+Рекомендуем также задать параметр "без отступов" (параметр </i><b><i>indent</i></b><i> со значением </i><b><i>no</i></b><i>:</i> <b><i> </i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.indent[no]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>), чтобы избежать известной проблемы с пустым местом перед </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/td&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+</i>
+<br>
+Обратившись теперь к этой странице, пользователь получит результат преобразования:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;html&gt;
+<br>
+&lt;head&gt;&lt;title&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Урок&nbsp;6.&nbsp;Работаем&nbsp;с&nbsp;XML</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/title&gt;&lt;/head&gt;
+<br>
+&lt;body&gt;
+<br>
+&lt;p&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Представьте,&nbsp;что&nbsp;вам&nbsp;позволено&nbsp;придумывать&nbsp;любые&nbsp;теги
+<br>
+с&nbsp;любыми&nbsp;атрибутами.&nbsp;То&nbsp;есть&nbsp;вы&nbsp;сами&nbsp;можете&nbsp;определять,&nbsp;&nbsp;
+<br>
+что&nbsp;означает&nbsp;тот&nbsp;или&nbsp;иной&nbsp;выдуманный&nbsp;вами&nbsp;тег&nbsp;или&nbsp;атрибут.</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&lt;/p&gt;
+<br>
+&lt;p&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Такой&nbsp;код&nbsp;будет&nbsp;содержать&nbsp;данные,&nbsp;…</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&lt;/p&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Ссылки&nbsp;по&nbsp;теме:
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;ul&gt;
+<br>
+&lt;li&gt;&lt;a&nbsp;href="</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://</b><b>www.</b><b>parser.ru/docs/xdocclass.htm</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Класс&nbsp;xdoc</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/a&gt;&lt;/li&gt;
+<br>
+&lt;li&gt;&lt;a&nbsp;href="</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://</b><b>www.</b><b>parser.ru/docs/xnodeclass.htm</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"&gt;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Класс&nbsp;xnode</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;/a&gt;&lt;/li&gt;
+<br>
+&lt;/ul&gt;
+<br>
+&lt;/body&gt;
+<br>
+&lt;/html&gt;</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Как вы заметили, тег </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;author&nbsp;…&nbsp;/&gt;</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> никак не был определен, как следствие, информация об авторе статьи не появилась в выходном HTML. Со временем, когда вы решите где и как будете хранить и показывать данные об авторах, достаточно будет дополнить шаблон - исправлять данные статей не потребуется.
+<br>
+
+<br>
+<i>Внимание: если вы не хотите, чтобы пользователи вашего сервера имели доступ к </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">.xml</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> и </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">.xsl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> файлам, храните эти файлы вне веб-пространства (</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^xdoc::create[/../directory_outside_of_web_space/article.xml]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>), или запретите к ним доступ средствами веб-сервера (пример запрета доступа к </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> файлам здесь: «</i><i><a href=install4apachecgi.htm>Установка Parser на веб-сервер Apache. CGI скрипт</a></i><i>»).</i>
+<br>
+
+<br>
+Подведем итоги шестого урока. 
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Что мы сделали:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> создали заготовку для публикации информации в XML формате с последующим XSLT преобразованием в HTML.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что узнали: 
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">класс </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocclass.htm>xdoc</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">как загружать XML, делать XSLT преобразования, выводить объекты класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xdoc</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в виде HTML
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что надо запомнить:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> что надо купить книжку по XML, XSLT и DOM.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что делать дальше:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> читать эту книжку и экспериментировать с примерами из нее, радуясь тому, что на свете есть хорошие стандарты. А также почитать о </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=mainclass.htm>postprocess</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, и придумать, как его приспособить, чтобы обращение к XML-файлу вызывало его преобразование в HTML.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 01.08.2005</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="image,image, Fields,width,height,src,EXIF *">
+    <title>Fields</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imagefields.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imagefields.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Fields
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b>image</b><b>.src</b><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-filename<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b>image</b><b>.width</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-width
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b>image</b><b>.height</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-height
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b>image</b><b>.</b><b>exif</b><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-<a href=hash.htm>hash</a> with EXIF information<i>
+<br>
+</i></span></td></tr></table>
+<br>
+
+<br>
+Keys of <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$image.exif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> are names of EXIF-tags, see specification (<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.exif.org/specifications.html" target="_blank">http://www.exif.org/specifications.html</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">). Values may be of type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>int</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. When a tag has several values, they are turned into hash, with numbers as keys (0&#133;number_of_values-1).</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Frequently used EXIF-tags are (for detailed description see specification):
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="112">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Tag</i></b><i>
+<br>
+</i></span></td><td align="left" valign="top" width="74">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Type</i></b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>D</i></b><b><i>escription</i></b><b>
+<br>
+</b></span></td></tr><tr><td align="left" valign="top" width="112">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Make
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Camera manufacturer
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Model
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Camera model
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DateTimeOriginal
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Shooting date and time
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">ExposureTime
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Exposure time (in seconds)<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="112">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">FNumber
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Aperture number F<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="112">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Flash
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>int</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">0=was not used, other values=was used
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+<i>Note: Keys of non-standard EXIF-tags are their values in decimal numbers.
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Example</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo[^image::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagemeasure.htm>measure</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[photo.jpg]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Filename:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo.src</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><b>Image&nbsp;width&nbsp;in&nbsp;pixels:</b><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo.width</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b><b>Image&nbsp;height&nbsp;in&nbsp;pixels:</b><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo.height</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$date_time_original[$photo.exif.DateTimeOriginal]
+<br>
+^if(def&nbsp;$date_time_original){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Picture&nbsp;taken&nbsp;on</b><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^date_time_original.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datesqlstring.htm>sql-string</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+As a result, filename, as well as width and height of the image stored in this file will be output. If picture was taken with a digital camera, shooting date and time will most likely be output.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="throw">
+    <title>throw. Reporting an error</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opthrow.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opthrow.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>throw. Reporting an error
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^throw[type]&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>^throw[type;source]
+<br>
+^throw[type;source;comment]
+<br>
+^throw[hash]
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>throw</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> reports error of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>type</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, which was caused by </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>source</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, and provides </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>comment</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+This error can be intercepted and handled by using operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=optry.htm>try</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Do not intercept errors only to provide a good-looking output. Let method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=exceptionunhandled.htm>unhandled_exception</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, do it all instead, if no handler can be found. Besides, the method will add entries to server's error log, which you can regularly look through to find problems that might crop up.
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:13pt; color:#000000"><b>Example
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@method[command]
+<br>
+^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opswitch.htm>switch</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[$command]{
+<br>
+&nbsp;&nbsp;&nbsp;^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opswitch.htm>case</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[add]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>adding</b><b>&#133;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;^case[delete]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>deleting</b><b>&#133;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;^case[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opswitch.htm>DEFAULT</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[bad.command;$command;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Wrong&nbsp;command&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$command</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^rem{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;next&nbsp;format&nbsp;also&nbsp;acceptable:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.type[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>bad.command</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.source[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$command</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.comment[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Wrong&nbsp;command&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$command</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+}
+<br>
+
+<br>
+@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>main</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]
+<br>
+$action[format&nbsp;c:]
+<br>
+^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=optry.htm>try</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{
+<br>
+&nbsp;&nbsp;&nbsp;^method[$action]
+<br>
+}{
+<br>
+&nbsp;&nbsp;&nbsp;^if($</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=optry.htm>exception</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.type&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>eq</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;bad.command){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=boollit.htm>true</a></b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Wrong&nbsp;command&nbsp;</b><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.source</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>',&nbsp;</b><b>in&nbsp;file</b><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.file</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>,&nbsp;</b><b>in&nbsp;line</b><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.lineno</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>.</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+The result of this code's work will be:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Wrong&nbsp;command&nbsp;'format&nbsp;c:',&nbsp;in&nbsp;file&nbsp;c:/parser3tests/www/htdocs/throw.html,&nbsp;in&nbsp;line&nbsp;15.
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>We would like to remind you that visitors should not see errors' technical details, especially if such details contain paths to files-it is both ugly and unsafe.
+<br>
+Outputting </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$exception.file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> is nothing but an example that you can use while debugging the site at server, but by no means in production mode.</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><i>
+<br>
+</i></span></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 18.07.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="image,image, Класс,draw *,paint *,EXIF *">
+    <title>Image (класс)</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imageclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imageclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Image (класс)
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Класс для работы с графическими изображениями. Объекты класса <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>image</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> бывают двух типов. К первому относятся объекты, созданные на основе существующих изображений в поддерживаемых форматах. Ко второму - объекты, формируемые самим Parser. 
+<br>
+
+<br>
+Из JPEG файлов можно получить EXIF информацию (<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+
+<br>
+Для представления цветов используется схема RGB, в которой каждый оттенок цвета представлен тремя составляющими компонентами (R-красный, G-зеленый, B-синий). Каждая составляющая может принимать значение от 0x00 до 0xFF (0 - 255 в десятичной системе). Итоговый цвет представляет собой целое число вида 0xRRGGBB, где под каждую составляющую компоненту отведено два разряда в указанной последовательности. Формула для вычисления цвета следующая:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>(R*0x100+G)*0x100+B
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Так, для белого цвета, у которого все компоненты имеют максимальное значение - FF, данная формула при подстановке дает:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>(0xFF*0x100+0xFF)*0x100+0xFF&nbsp;=&nbsp;0xFFFFFF</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 24.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="string,string, Методы,int,double,bool,form,number *">
+    <title>int, double, bool. Преобразование строки к числу или bool</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?stringintdouble.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='stringintdouble.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>int, double</b><b>, bool</b><b>. Преобразование строки к числу</b><b> </b><b>или </b><b>bool</b><b>
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^строка.int[]&nbsp;&nbsp;
+<br>
+^строка.int(значение&nbsp;по&nbsp;умолчанию)&nbsp;&nbsp;
+<br>
+^строка.double[]&nbsp;&nbsp;
+<br>
+^строка.double(значение&nbsp;по&nbsp;умолчанию)
+<br>
+</b><b>^</b><b>строка</b><b>.bool[]
+<br>
+^</b><b>строка</b><b>.bool(</b><b>значение&nbsp;по&nbsp;умолчанию</b><b>)</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Преобразуют значение переменной </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$строка</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> к целому, вещественному числу или bool значению соответственно, и возвращает это значение.
+<br>
+
+<br>
+Можно задать значение по умолчанию, которое будет получено, если преобразование невозможно или строка пуста или состоит только из "white spaces" (символы пробела, табуляция, перевода строки). 
+<br>
+
+<br>
+Значение по умолчанию можно использовать при обработке данных, получаемых интерактивно от пользователей. Это позволит избежать появления текстовых значений в математических выражениях при вводе некорректных данных, например, строки вместо ожидаемого числа.
+<br>
+
+<br>
+Метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>.bool</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> умеет преобразовать в </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>bool</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> строки, содержащую число (значение 0 будет преобразовано в </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>false</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, не 0 - в </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>true</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), а также строки, содержащие значения "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>true</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">" и "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>false</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">" (без учёта регистра).
+<br>
+
+<br>
+<i>Внимание: использование пустой строки в математических </i><i><a href=stringclass.htm>выражениях</a></i><i> не является ошибкой, ее значение считается нулем.
+<br>
+Внимание: преобразование строки, не являющейся целым числом к целому числу является ошибкой (пример: строка «1.5» не является целым числом).</i>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Примеры использования
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$str[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>123</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^str.int[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет число </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>123</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, поскольку объект </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>str</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> можно преобразовать к классу </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>int</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$str[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>много</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^str.double(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>-1</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Выведет число </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>-1</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, поскольку преобразование невозможно.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$str[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^if(^str.bool[]){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>истина</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+
+<br>
+$str[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>True</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^if(^str.bool[]){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>истина</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Выведут строки "</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>истина</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">".
+<br>
+
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 05.02.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="image,image, Методы рисования,font">
+    <title>font. Загрузка файла шрифта для нанесения надписей на изображение</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imagefont.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imagefont.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>font. Загрузка файла шрифта для нанесения надписей на изображение
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^картинка.font[набор_букв;имя_файла_шрифта.gif](ширина_пробела)
+<br>
+^картинка.font[набор_букв;имя_файла_шрифта.gif](ширина_пробела;ширина_символа)
+<br>
+^картинка.font[набор_букв;имя_файла_шрифта.gif][хеш&nbsp;с&nbsp;параметрами]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Помимо методов для рисования, Parser также предусматривает возможность нанесения надписей на рисунки. Для реализации этой возможности требуется наличие специальных файлов с изображением шрифтов. Можно либо использовать готовые файлы шрифтов, либо самостоятельно создавать собственные с нужным набором символов. 
+<br>
+
+<br>
+После загрузки такого файла с помощью метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>font</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> набору букв, заданных в параметрах метода, ставятся в соответствие фрагменты изображения из файла. Данный файл должен быть в формате </span><span style="font-family:Monospace; font-size:10pt; color:#000000">GIF</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с прозрачным фоном и содержать изображение необходимого набора символов в следующем виде:
+<br>
+
+<br>
+Пример файла </span><span style="font-family:Monospace; font-size:10pt; color:#000000">digits.gif</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с изображением цифр:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">0
+<br>
+1
+<br>
+2
+<br>
+3
+<br>
+4
+<br>
+5
+<br>
+6
+<br>
+7
+<br>
+8
+<br>
+9
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Высота каждого символа определяется как отношение высоты рисунка к количеству букв в наборе. 
+<br>
+Методу передаются следующие параметры:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+Набор&nbsp;букв</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - перечень символов, входящих в файл шрифта
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Имя&nbsp;и&nbsp;путь</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> к файлу шрифта
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Ширина&nbsp;пробела</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (в пикселах) 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Ширина&nbsp;символа</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - необязательный параметр
+<br>
+
+<br>
+Некоторые параметры могут быть переданы в третьем параметре виде хеша:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.space(0)&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">ширина пробела. по умолчанию ширина равна ширине gif со шрифтом
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.width(x)&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">ширина сомвола для моноширинного шрифта. по умолчанию шрифт пропорциональный
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.width(0)&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">включить моноширинный шрифт с автоматическим определением ширины символов (будет равна ширине gif со шрифтом)
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.spacing(0)&nbsp;-&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">межсимвольное расстояие. по умолчанию = 1
+<br>
+
+<br>
+По умолчанию, при загрузке файла шрифта автоматически измеряется ширина всех его символов и при выводе текста используется пропорциональный (proportional) шрифт. Если задать ширину символа, то шрифт будет моноширинным.
+<br>
+
+<br>
+Все символы следует располагать непосредственно у левого края изображения.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$square[^image::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(100;100;0x00FF00)]
+<br>
+^square.font[0123456789;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>digits.gif</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>](0)</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В данном случае будет загружен файл, содержащий изображения цифр от 0 до 9, и набору цифр от 0 до 9 будет поставлено в соответствие их графическое изображение. После того, как определен шрифт для нанесения надписи, можно использовать метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> для нанесения надписей.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

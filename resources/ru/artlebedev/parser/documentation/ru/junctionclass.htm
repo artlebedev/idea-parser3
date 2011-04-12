@@ -1,0 +1,154 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="junction,junction, Класс,have method *,method exists *">
+    <title>Junction (класс)</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?junctionclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='junctionclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Junction (класс)
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Класс предназначен для хранения <b><a href=vars.htm>кода</a></b> и <b>контекста</b> его выполнения.
+<br>
+При обращении к переменным, хранящим в себе <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>junction</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, Parser выполняет <b>код</b> в сохраненном <b>контексте</b>.
+<br>
+
+<br>
+Значение типа </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>junction</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> появляется в переменной…
+<br>
+
+<br>
+…при присваивании ей кода:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$junction{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Код,&nbsp;присваиваемый&nbsp;переменной:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^do_something[]}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…при передачи кода параметром:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@somewhere[]
+<br>
+^method{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Код,&nbsp;передаваемый&nbsp;параметром:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^do_something_else[]}
+<br>
+…
+<br>
+@method[parameter]
+<br>
+#здесь&nbsp;в&nbsp;$parameter&nbsp;придет&nbsp;junction
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…при обращении к имени метода класса:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$action[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=defineclass.htm>user</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>edit</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+#$action[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>user:delete]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^action[параметр]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Здесь </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> хранит ссылку на метод и его класс, вызов </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> теперь аналогичен вызову </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^edit[параметр]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+…при обращении к имени метода объекта:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$action[$person.show_info]
+<br>
+^action[full]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Здесь </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> хранит ссылку на метод и его объект, вызов </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> теперь аналогичен вызову </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^person.show_info[параметры]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример </b><b>junction </b><b>выражений и кода</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>possible_reminder[age;have_passport]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^m</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>yif</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>($age&gt;=16</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&amp;&amp;&nbsp;!$have_passport</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Тебе&nbsp;уже&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$age</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;лет,&nbsp;пора&nbsp;сходить&nbsp;в&nbsp;милицию</b><b>.</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@myif[condition;action][age]
+<br>
+$age(11)
+<br>
+^if($condition){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$action
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Напоминание: </i><i><a href=params.htm>параметр</a></i><i> с выражением, это код, вычисляющий выражение, он выполняется - вычисляется выражение - при каждом обращении к параметру внутри вызова.</i>
+<br>
+
+<br>
+Здесь оператору </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>myif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> передан код, печатающий, среди прочего, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$age</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Выполнение проверки и кода оператор производит в сохраненном (внутри </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$condition</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$action</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) <b>контексте</b>, поэтому наличие в </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>myif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> локальной переменной </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>age</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и ее значение никак не влияет на то, что будет проверено и что напечатано.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример проверки наличия метода</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if($some_method&nbsp;is&nbsp;junction){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^some_method[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>параметр</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>нет&nbsp;метода
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>some_meth</b><b>od</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, будет вызван только, если определен.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 24.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

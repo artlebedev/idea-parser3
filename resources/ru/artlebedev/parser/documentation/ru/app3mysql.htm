@@ -1,0 +1,166 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="connect,connect, Формат строки подключения,mysql,unix socket,charset,request:charset">
+    <title>Для MySQL</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?app3mysql.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='app3mysql.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Для MySQL
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000">mysql://user:password@host[:port]|[/unix/socket]/database?
+<br>
+&nbsp;&nbsp;&nbsp;charset=значение&amp;<i>&nbsp;</i><span style="font-family:Monospace; font-size:8pt; color:#000000"><i>[значением&nbsp;может&nbsp;быть&nbsp;направление&nbsp;перекодирования&nbsp;для&nbsp;</i><i>MySQL&nbsp;3.x/4.0&nbsp;</i><i>или&nbsp;название&nbsp;кодировки&nbsp;для&nbsp;</i><i>MySQL&nbsp;4.1+</i><i>]</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;<a href=app3clientcharset.htm>ClientCharset</a>=кодировка&amp;&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b>&nbsp;&nbsp;&nbsp;timeout=3&amp;
+<br>
+&nbsp;&nbsp;&nbsp;compress=0&amp;
+<br>
+&nbsp;&nbsp;&nbsp;named_pipe=1&amp;
+<br>
+&nbsp;&nbsp;&nbsp;autocommit=1&amp;
+<br>
+&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Необязательные параметры:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">Port</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - номер порта сервера баз данных. Можно использовать выражение:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">user:password@имя_хоста:номер_порта/database</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">,
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+А можно вместо </span><span style="font-family:Monospace; font-size:10pt; color:#000000">имени_хоста</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000">номера_порта</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> передать путь к UNIX сокету в квадратных скобках (UNIX socket - это некий магический набор символов (путь), который вам расскажет администратор MySQL, если он - это не вы. Через этот сокет может идти общение с сервером):
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">user:password@[/unix/socket]/database
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">charset</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - сразу после соединения выполняет команду </span><span style="font-family:Monospace; font-size:10pt; color:#000000">«<span style="font-family:Monospace; font-size:10pt; color:#0000FF"><u><a href="http://dev.mysql.com/doc/refman/5.0/en/charset-connection.html" target="_blank">SET CHARACTER SET значение</a></u></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000">»</span><span style="font-family:Arial; font-size:10pt; color:#000000">;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><a href=app3clientcharset.htm>ClientCharset</a></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - задает кодировку, в которой необходимо общаться с SQL-сервером, перекодированием занимается драйвер;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">timeout</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - задает значение параметра </span><span style="font-family:Monospace; font-size:10pt; color:#000000">Connect&nbsp;timeout&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">в секундах;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">compress</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - режим сжатия трафика между сервером и клиентом;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">named_pipe</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - использование именованных каналов для соединения с сервером MySQL, работающим под управлением Windows NT;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">autocommit</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - если установлен в 0, то после соединения выполняет команду </span><span style="font-family:Monospace; font-size:10pt; color:#000000">«<span style="font-family:Monospace; font-size:10pt; color:#0000FF"><u><a href="http://dev.mysql.com/doc/refman/5.0/en/commit.html" target="_blank">SET AUTOCOMMIT=0</a></u></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000">»</span><span style="font-family:Arial; font-size:10pt; color:#000000"> (в документации по MySQL следует прочтать, как работает autocommit, в том числе <span style="font-family:Arial; font-size:10pt; color:#0000FF"><u><a href="http://dev.mysql.com/doc/refman/5.0/en/implicit-commit.html" target="_blank">какие команды вызывают COMMIT</a></u></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">);</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">multi_statements</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - если установлен в 1, то текст SQL запроса может содержать несколько инструкций, разделённых символом ';' (<i>символ ";" необходимо </i><i><a href=stringlit.htm>предварять</a></i><i> символом "^"</i>).<b><i>
+<br>
+</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>
+<br>
+Пример: перекодирование средствами </b><b>SQL </b><b>сервера (рекомендуется, требуется </b><b>MySQL </b><b>4.1 или выше)
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">MySQL сервер версии 4.1 и выше имеет богатые возможности по перекодированию данных, поэтому в случае его использования рекомендуется задействовать именно их, используя опцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000">charset</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а не заниматься перекодированием средствами драйвера с помощью опции </span><span style="font-family:Monospace; font-size:10pt; color:#000000">ClientCharset</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. В случае, если вы используете версию MySQL 4.1 и выше, вы даже можете в разных таблицах хранить данные в <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">разных кодировках</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, хотя мы считаем, что в этом случае лучше всего хранить данные в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">UTF-8</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Допустим, данные в вашей базе хранятся в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">UTF-8</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а сайт работает в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251</span><span style="font-family:Arial; font-size:10pt; color:#000000">, в этом случае</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> нужно использовать следующую строку подключения:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">mysql://user:password@host/database?charset=cp1251
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В этом случае сразу после соединения SQL серверу будет выдана команда </span><span style="font-family:Monospace; font-size:10pt; color:#000000">«<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251</b>»</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и сервер сам будет перекодировать принимаемые данные из кодировки </span><span style="font-family:Monospace; font-size:10pt; color:#000000">cp1251</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в кодировку, в которой данных хранятся у него в таблице и обратно.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: в данном случае вы должны указать кодировку, в которой работает сайт.</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: данная опция выполняет команду </i><i>MySQL</i><i>, поэтому необходимо использовать </i><span style="font-family:Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">названия кодировок MySQL сервера</a></u></i></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>, которые отличаются от названий кодировок Parser, определяемых вами в </i><i><a href=parserconfmethod.htm>конфигурационном файле</a></i><i>.</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+
+<br>
+Пример: база в koi8-r, страницы в windows-1251, перекодирование </b><b>SQL </b><b>сервером (рекомендуется, </b><b>MySQL 3</b><b>.</b><b>x</b><b> и 4.</b><b>0</b><b>)
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">MySQL сервер версии 3.x и 4.0 не умеет перекодировать данные произвольным образом, однако умеет перекодировать их для наиболее распространённого для русского языка случая, когда символы в БД хранятся в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">koi8-r</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а сайт работает в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+В этом случае данные можно перекодировать средствами драйвера, задав опцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000">ClientCharset=koi8-r</span><span style="font-family:Arial; font-size:10pt; color:#000000"> (см. ниже)</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, однако лучше это делать средствами SQL сервера, использовав следующую строку подключения:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">mysql://user:password@host/database?charset=cp1251_koi8
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В этом случае сразу после соединения SQL серверу будет выдана команда </span><span style="font-family:Monospace; font-size:10pt; color:#000000">«<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251_koi8</b>»</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, однако MySQL сервер данных версий трактует её иначе, а именно: он будет приходящие данные перекодировать из кодировки </span><span style="font-family:Monospace; font-size:10pt; color:#000000">cp1251</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в кодировку </span><span style="font-family:Monospace; font-size:10pt; color:#000000">koi8-r</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и обратно.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: вы указываете опцию, указывающую направление перекодирования, при этом других значений данной опции, например </i><i>koi8_cp1251</i><i>,</i><i> MySQL </i><i>сервер не имеет.</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+
+<br>
+Пример: база в windows-1251, страницы в </b><b>koi8-r, </b><b>перекодирование драйвером (работает со всеми версиями </b><b>MySQL </b><b>сервера)
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В некоторых редких случаях бывает, что невозможно использовать функции перекодирования, предоставляемые MySQL сервером. Тогда можно задействовать механизмы перекодирования драйвера, используя опцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000">ClientCharset</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Допустим, данные в вашей базе хранятся в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а сайт работает в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">koi8-r</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в этом случае можно использовать такую строку подключения:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">mysql://user:password@host/database?<a href=app3clientcharset.htm>ClientCharset</a>=windows-1251
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В этом случае отправляемые SQL серверу данные будут перекодироваться драйвером из кодировки </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestcharset.htm>$request:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (в данном примере </span><span style="font-family:Monospace; font-size:10pt; color:#000000">koi8-r</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) в кодировку </span><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а принимаемые от SQL сервера данные - обратно.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: в данном случае вы должны указать кодировку, в которой данные хранятся в базе данных.</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: в данной опции вы должны указывать названия кодировок </i><i>Parser, которые определяются вами в </i><i><a href=parserconfmethod.htm>конфигурационном файле</a></i><i>.
+<br>
+</i><i> </i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 15.08.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

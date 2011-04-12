@@ -1,0 +1,80 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="xnode,xnode, Methods,XPath,selectSingle">
+    <title>selectSingle. XPath search for single node</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xnodeselectsingle.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xnodeselectsingle.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>selectSingle. XPath search for single node
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^node.selectSingle[XPath-query]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+This method returns node found in the scope of specified node and satisfying specified </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>XPath-query</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. If no node was found, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>void</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is returned. If more than one node is returned <a href=exceptions.htm>exception</a> is thrown.
+<br>
+
+<br>
+Before using prefixes of name spaces in the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>query</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> one must define them, see </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocsearchns.htm>$xdoc.search-namespaces</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$d[^xdoc::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdoccreatexml.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br>
+&lt;t&nbsp;attr="</b><b>hello</b><b>"&nbsp;n="123"/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]
+<br>
+#&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>result=1&nbsp;element&nbsp;"t"
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$element[^d.selectSingle[t]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;result=2&nbsp;(number&nbsp;of&nbsp;attributes&nbsp;&lt;t&gt;)
+<br>
+Number&nbsp;of&nbsp;attributes</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^element.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xnodedomfields.htm>attributes</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=hash_count.htm>_count</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Detailed specification of XPath is available at: <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/xpath" target="_blank">http://www.w3.org/TR/xpath</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

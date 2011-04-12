@@ -1,0 +1,82 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="">
+    <title>base64. Кодирование в Base64</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filebase64.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filebase64.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>base64. Кодирование в Base64</b><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file</b><b>:</b><b>base64[имя&nbsp;файла]
+<br>
+
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Метод позволяет преобразовать файл с указанным именем в Base64 форму. 
+<br>
+Чтобы преобразовать файл к исходному виду, воспользуйтесь
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file::</b><b><a href=filebase64c.htm>base64</a></b><b>[закодированное]
+<br>
+
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">Использование описываемого статического метода полностью равносильно следующему коду (за исключением того, что описываемый метод использует меньше памяти):
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::load[binary;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filespec</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+^f.base64[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">Имейте в виду, что результат не будет совпадать с результатом работы такого кода:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::load[binary;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filespec</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+^f.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>text.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>base64[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">т.к. в последнем случае при обращении к полю text содержимое файла будет обрезано по первому нулевому символу и все символы перевода строк будут нормализованы.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

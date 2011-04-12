@@ -1,0 +1,136 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="connect,connect, Формат строки подключения,PostgreSQL,pgsql,local">
+    <title>Для PostgreSQL</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?app3pgsql.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='app3pgsql.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Для PostgreSQL
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000">pgsql://user:password@host[:port]|[local]/database?
+<br>
+&nbsp;&nbsp;&nbsp;charset=значение&amp;
+<br>
+&nbsp;&nbsp;&nbsp;<a href=app3clientcharset.htm>ClientCharset</a>=кодировка&amp;&nbsp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;autocommit=1&amp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;datestyle=ISO,SQL,Postgres,European,US,German
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;по умолчанию ISO
+<br>
+
+<br>
+Необязательные параметры:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">port</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - номер порта. 
+<br>
+
+<br>
+Можно задать:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">user:password@host:port/database</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">,
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+а можно:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">user:password@local/database</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В этом случае произойдет соединение с сервером, расположенным на локальной машине.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">charset</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - сразу после соединения выполняет команду </span><span style="font-family:Monospace; font-size:10pt; color:#000000">«<span style="font-family:Monospace; font-size:10pt; color:#0000FF"><u><a href="http://www.postgresql.org/docs/7.4/interactive/multibyte.html" target="_blank">SET CLIENT_ENCODING=значение</a></u></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000">»</span><span style="font-family:Arial; font-size:10pt; color:#000000">;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><a href=app3clientcharset.htm>ClientCharset</a></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - задает кодировку, в которой необходимо общаться с SQL-сервером, перекодированием занимается драйвер;<b><i>
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">autocommit</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - по умолчанию Parser автоматически выполняет </span><span style="font-family:Monospace; font-size:10pt; color:#000000">COMMIT</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> после каждого успешно выполненного запроса. Если указать опцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000">autocommit=0</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, то такое поведение будет изменено и все запросы, написанные внутри одного оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opconnect.htm>connect</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будут выполняться в рамках одной транзакции;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">datestyle</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - если задан этот параметр, то при соединении с сервером драйвер выполнит команду </span><span style="font-family:Monospace; font-size:10pt; color:#000000">«<span style="font-family:Monospace; font-size:10pt; color:#0000FF"><u><a href="http://www.postgresql.org/docs/7.4/interactive/datatype-datetime.html#DATATYPE-DATETIME-OUTPUT-TABLE" target="_blank">SET DATESTYLE=значение</a></u></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000">»</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Пример: перекодирование средствами </b><b>SQL </b><b>сервера</b><b> (</b><b>рекомендуется</b><b>)
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Допустим данные в вашей базе хранятся в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">UTF-8</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а сайт работает в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251</span><span style="font-family:Arial; font-size:10pt; color:#000000">, в этом случае</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> нужно использовать следующую строку подключения:</span><span style="font-family:Monospace; font-size:10pt; color:#000000">pgsql://user:password@host/database?charset=win</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В этом случае сразу после соединения SQL серверу будет выдана команда </span><span style="font-family:Monospace; font-size:10pt; color:#000000">«<b>SET&nbsp;CLIENT&nbsp;ENCODING=win</b>»</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и сервер сам будет перекодировать принимаемые данные из кодировки </span><span style="font-family:Monospace; font-size:10pt; color:#000000">win</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в кодировку, в которой данных хранятся у него в таблице и обратно.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: в данном случае вы должны указать кодировку, в которой работает сайт.</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: данная опция выполняет команду </i><i>PgSQL</i><i>, поэтому необходимо использовать </i><span style="font-family:Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://www.postgresql.org/docs/7.4/interactive/multibyte.html" target="_blank">названия кодировок PgSQL сервера</a></u></i></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>, которые отличаются от названий кодировок Parser, определяемых вами в </i><i><a href=parserconfmethod.htm>конфигурационном файле</a></i><i>.</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>
+<br>
+
+<br>
+</b><b>Пример</b><b>: </b><b>перекодирование драйвером (работает со всеми версиями </b><b>PgSQL </b><b>сервера)
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В некоторых редких случаях бывает, что невозможно использовать функции перекодирования, предоставляемые PgSQL сервером. Тогда можно задействовать механизмы перекодирования драйвера, используя опцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000">ClientCharset</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Допустим, данные в вашей базе хранятся в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а сайт работает в кодировке </span><span style="font-family:Monospace; font-size:10pt; color:#000000">koi8-r</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в этом случае можно использовать такую строку подключения:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">pgsql://user:password@host/database?<a href=app3clientcharset.htm>ClientCharset</a>=windows-1251
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В этом случае отправляемые SQL серверу данные будут перекодироваться драйвером из кодировки </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestcharset.htm>$request:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (в данном примере </span><span style="font-family:Monospace; font-size:10pt; color:#000000">koi8-r</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) в кодировку </span><span style="font-family:Monospace; font-size:10pt; color:#000000">windows-1251</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а принимаемые от SQL сервера данные - обратно.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: в данном случае вы должны указать кодировку, в которой данные хранятся в базе данных.</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Внимание: в данной опции вы должны указывать названия кодировок </i><i>Parser, которые определяются вами в </i><i><a href=parserconfmethod.htm>конфигурационном файле</a></i><i>.
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 21.12.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

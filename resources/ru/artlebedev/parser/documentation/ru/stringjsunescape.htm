@@ -1,0 +1,96 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="">
+    <title>js-unescape. Декодирование, аналогичное функции unescape в JavaScript</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?stringjsunescape.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='stringjsunescape.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>js-unescape. Декодирование, аналогичное функции unescape в JavaScript</b><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^string:</b><b>js-</b><b>unescape[закодированное]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Примечание: именно статический метод, не конструктор!</i>
+<br>
+<i>
+<br>
+</i>Метод выполняет преобразование строки аналогичное методу </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>unescape</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> описанному в ECMA-262. 
+<br>
+
+<br>
+Для кодирования воспользуйтесь </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^string</b><b>.</b><b><a href=stringjsescape.htm>js-escape</a></b><b>[]</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i>С помощью данного метода вы можете декодировать строки, закодированные в браузере с помощью функции </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>escape</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+<i>
+<br>
+Подробная информация  о </i><i>ECMA-262</i><i> доступна здесь:</i><i>
+<br>
+</i><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank">http://www.ecma-international.org/publications/standards/Ecma-262.htm</a></u></i></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> (B.2.2)
+<br>
+
+<br>
+Примечание: метод также декодирует символы, закодированные в виде </i><i>\uXXXX</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]
+<br>
+</i></b>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$escaped[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>abcd%20%60+-%3D%7E%21@%23%25%26*%28%29_%20%5B%5D%7B%7D%3C%3E%3A%27%22%2C./%3F%u0430%u0431%u0432%u0433%u0434</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+$original[^string:js-unescape[$escaped]]
+<br>
+$original
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>abcd&nbsp;`+-=~!@#%&amp;*()_&nbsp;[]{}&lt;&gt;:'",./?абвгд
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

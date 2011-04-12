@@ -1,0 +1,116 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="image,image, Конструкторы,measure,thumbnail *,GIF *,JPEG *,JPG *,PNG *,EXIF *">
+    <title>measure. Создание объекта на основе существующего графического файла</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imagemeasure.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imagemeasure.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>measure. Создание объекта на основе существующего графического файла
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^image::measure[файл]
+<br>
+^image::measure[имя&nbsp;файла]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Создает объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>image</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, измеряя размеры существующего графического файла или объекта класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=fileclass.htm>file</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в поддерживаемом формате (сейчас поддерживаются GIF, JPEG и PNG). 
+<br>
+
+<br>
+Из JPEG файлов также считывается EXIF информация (<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), если она там записана. Большинство современных цифровых фотоаппаратов при записи JPEG файла записывают в него также информацию о снимке, параметрах экспозиции и другую информацию в формате EXIF.
+<br>
+
+<br>
+Сама картинка не считывается, основное назначение метода - последующий вызов для созданного объекта метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=imagehtml.htm>html</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Параметры:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Файл</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Имя&nbsp;файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла с путем
+<br>
+
+<br>
+<i>Примечание: поддерживается EXIF 1.0, считываются теги из IFD0 и SubIFD.
+<br>
+</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример создания тега IMG с указанием размеров изображения
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$photo[^image::measure[photo.png]]
+<br>
+^photo.</b><b><a href=imagehtml.htm>html</a></b><b>[]
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Будет создан объект </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>photo</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>image</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, на основе готового графического изображения в формате </span><span style="font-family:Arial; font-size:10pt; color:#000000">PNG</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, и выдан тег </span><span style="font-family:Monospace; font-size:10pt; color:#000000">IMG</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, ссылающийся на данный файл, с указанием </span><span style="font-family:Monospace; font-size:10pt; color:#000000">width</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000">height</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример работы с EXIF информацией
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$image[^image::measure[jpg/DSC00003.JPG]]
+<br>
+$exif[$image.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagefields.htm>exif</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^if($exif){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Производитель&nbsp;фотоаппарата,&nbsp;модель:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagefields.htm>Make</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.Model</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Время&nbsp;съемки:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^exif.DateTimeOriginal.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datesqlstring.htm>sql-string</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Выдержка:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.ExposureTime&nbsp;секунды</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Диафрагма:&nbsp;F</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.FNumber</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Использовалась&nbsp;вспышка:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$exif.Flash){^if($exif.Flash){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>да</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>нет</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>};</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>неизвестно</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;нет&nbsp;EXIF&nbsp;информации&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="hashfile, Запись,expires,session">
+    <title>Запись</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?hashfilewrite.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='hashfilewrite.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Запись
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$hashfile.ключ[строка]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Сохраняет на диск ассоциацию между </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ключом</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>строкой</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$hashfile.ключ[
+<br>
+&nbsp;&nbsp;&nbsp;$.value[строка]
+<br>
+&nbsp;&nbsp;&nbsp;$.expires(число&nbsp;дней)
+<br>
+]
+<br>
+$hashfile.ключ[
+<br>
+&nbsp;&nbsp;&nbsp;$.value[строка]
+<br>
+&nbsp;&nbsp;&nbsp;$.expires[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=dateclass.htm>дата</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Такая запись позволяет указать дату устаревания ассоциации. Можно указать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>число&nbsp;дней</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> или конкретную </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>дату</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Необязательные модификаторы:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.expires(число&nbsp;дней)</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - задает число дней (может быть дробным, 1.5=полтора дня), на которое сохраняется пара </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ключ</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">/</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>строка</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, 0 дней=навсегда;</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.expires[</b><b><a href=dateclass.htm>$date</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - задает дату и время, до которой будет храниться ассоциация, здесь </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - переменная типа </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=dateclass.htm>date</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+<i>Замечание: существует ограничение на длину строк ключа и значения, в сумме они не должны превышать 8000 байт.</i>
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

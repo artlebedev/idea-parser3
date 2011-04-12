@@ -1,0 +1,102 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="hash,hash, Методы,add">
+    <title>add. Сложение хешей</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?hashadd.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='hashadd.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>add. Сложение хешей
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^хеш.add[хеш-слагаемое]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Добавляет к хешу другой хеш-слагаемое, при этом одноименные ключи хеша перезаписываются.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$man[
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Вася</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.age(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>22</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.sex[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>m</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]
+<br>
+$woman[
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Маша</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.age(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>20</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.s</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>mile</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>да</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]
+<br>
+^man.add[$woman]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Новое содержание хеша </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$man</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$man[
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;$</b><b>.name[Маша]
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>$.age(20)
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;$</b><b>.sex[m]
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;$.smile[</b><b>да</b><b>]
+<br>
+</b><b>]
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Замечание: поле </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>_default</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> </i><i>добавляется</i><i>. </i><i>Если оно было, перезаписывается новым</i><i>.</i><b><i>  [3.1.4]</i></b>
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 05.08.2005</font></td>
+</tr>
+</table>
+</body>
+</html>

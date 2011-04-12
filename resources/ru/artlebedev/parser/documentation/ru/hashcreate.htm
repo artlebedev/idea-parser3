@@ -1,0 +1,94 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="hash,hash, Конструкторы,create,_default,default,clone *">
+    <title>create. Создание пустого и копирование хеша</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?hashcreate.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='hashcreate.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>create. Создание пустого и копирование хеша
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^hash::create[]&nbsp;&nbsp;
+<br>
+^hash::create[существующий&nbsp;хеш&nbsp;или&nbsp;</b><b><a href=hashfileclass.htm>хешфайл</a></b><b>]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Если параметр не задан, будет создан пустой хеш.
+<br>
+Если указан </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>существующий&nbsp;хеш</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>хешфайл</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, конструктор создает его копию.
+<br>
+
+<br>
+Пустой хеш, создаваемый конструктором без параметров, нужен в ситуации, когда необходимо динамически наполнить хеш данными, например:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$dyn[^hash::create[]]
+<br>
+^for[i](1;10){
+<br>
+&nbsp;&nbsp;&nbsp;$dyn.$i[$value]
+<br>
+}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Перед выполнением </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>for</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> мы определили, что именно наполняем</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Если предполагается интенсивная работа по изменению содержимого хеша, но необходимо сохранить, скажем, значения по умолчанию, например:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$pets[
+<br>
+&nbsp;&nbsp;&nbsp;$.pet[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Собака</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Косточка</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;$.good[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Ошейник</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]
+<br>
+$pets_copy[^hash::create[$pets]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Замечание: поле </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>_default</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> </i><i>копируется</i><i>.</i><b><i>  [3.1.4]
+<br>
+</i></b></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 24.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="mail,mail, Статические поля,receive,from,to,subject,content-type,text,html,file,message,raw">
+    <title>received. Прием сообщения по электронной почте</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?mailreceived.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='mailreceived.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>received. Прием сообщения по электронной почте
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$mail:received
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В этом поле доступно принятое по электронной почте сообщение (см. <a href=parsermailreceive.htm>Использование Parser в качестве обработчика сообщений по электронной почте</a>).
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Сообщение, это <a href=hash.htm>хеш</a> из следующих элементов (в зависимости от их наличия в пришедшем сообщении):</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>from</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - строка "от кого" принято сообщение;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>reply-to</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - строка "кому направить ответ" на принятое сообщение;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>subject</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - строка "заголовок" сообщения;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - дата отправки сообщения в локальном времени, объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=dateclass.htm>date</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message-id </b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- строка "идентификатор" сообщения;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>raw</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - <a href=hash.htm>хеш</a> всех заголовков сообщения: ключ - название заголовка в ВЕРХНЕМ РЕГИСТРЕ, значение - необработанная строка;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - простой текст;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - HTML;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - вложенный файл;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - вложенное сообщение.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Вложенных файлов и сообщений может быть несколько, в этом случае могут присутствовать элементы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file2</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message2</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, и т.д.
+<br>
+<i>Примечание: </i><b><i>file</i></b><i> </i><i>и </i><b><i>file1</i></b><i> (</i><i>и т.п) </i><i>- </i><i>синонимы</i><i>.</i><i>
+<br>
+</i>Все текстовые поля и части принятого сообщения автоматически перекодируются в кодировку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestcharset.htm>$request:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Элементы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, это <a href=hash.htm>хеши</a>, содержащие:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$.content-type[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.value[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>тип/подтип</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ПАРАМЕТР-ЗАГОЛОВКА</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ЕГО-ЗНАЧЕНИЕ</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;…
+<br>
+]
+<br>
+$.raw[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ПОЛЕ-ЗАГОЛОВКА</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ЕГО-ЗНАЧЕНИЕ</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;…
+<br>
+]
+<br>
+$.value[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>строка&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">или</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b><b><a href=fileclass.htm>file</a></b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Элемент </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>message</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, это <a href=hash.htm>хеш</a>, содержащий вложенное сообщение в том же формате, что все поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$mail:received</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>main</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]
+<br>
+^show[$mail:received]
+<br>
+
+<br>
+@show[m]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>from:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$m.from
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>subject:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$m.subject
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$m.text.value
+<br>
+^if(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>def</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;$m.file){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>+file&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$m.file.value.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=filefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}
+<br>
+^if(def&nbsp;$m.message){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>+message&nbsp;from&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$m.message.from
+<br>
+}
+<br>
+</b></span></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 05.08.2005</font></td>
+</tr>
+</table>
+</body>
+</html>

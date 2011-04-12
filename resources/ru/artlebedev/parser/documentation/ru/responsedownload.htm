@@ -1,0 +1,80 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="response,response, Статические поля,download">
+    <title>download. Задание нового тела ответа</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?responsedownload.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='responsedownload.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>download. Задание нового тела ответа
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$response:download[DATA]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Идентичен </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$response:</b><b><a href=responsebody.htm>body</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, но выставляет флаг, который браузер воспринимает как «Предложить посетителю сохранить файл на диске».
+<br>
+
+<br>
+Браузеры умеют отображать файлы некоторых типов прямо внутри своего окна (например: </span><span style="font-family:Monospace; font-size:10pt; color:#000000">.doc</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000">.pdf</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> файлы).
+<br>
+Однако бывает необходимо дать возможность посетителю скачать файл по простому нажатию на ссылку.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример: выдача PDF файла
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Посетитель заходит на страницу с таким HTML…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;a&nbsp;href="/download</b><b>_</b><b>documentation.html"&gt;Скачать&nbsp;документацию&lt;/a&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">download_documentation.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$response:download[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=fileload.htm>file::load</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[binary;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>documentation.pdf</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…и нажимает на ссылку, браузер предлагает ему Скачать/Запустить.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="table,table, Методы,desc,asc,sort">
+    <title>sort. Сортировка данных таблицы</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tablesort.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tablesort.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>sort. Сортировка данных таблицы
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^таблица.sort{функция&nbsp;сортировки_по_строке}
+<br>
+^таблица.sort{функция_сортировки_по_строке}[направление_сортировки]
+<br>
+^таблица.sort(функция&nbsp;сортировки_по_числу)
+<br>
+^таблица.sort(функция_сортировки_по_числу)[направление_сортировки]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> 
+<br>
+Метод осуществляет сортировку таблицы по указанной функции.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Функция&nbsp;сортировки</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - произвольная функция, по текущему значению которой принимается решение о положении строки в отсортированной таблице. Значением функции может быть строка (значения сравниваются в лексикографическом порядке) или число (значения сравниваются как действительные числа).
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Направление&nbsp;сортировки</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - параметр, задающий направление сортировки. Может быть:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>desc</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - по убыванию
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>asc</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">  - по возрастанию         
+<br>
+По умолчанию используется сортировка по возрастанию.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$men[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{name&nbsp;&nbsp;&nbsp;age
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Serge&nbsp;&nbsp;&nbsp;26
+<br>
+Alex&nbsp;&nbsp;&nbsp;20
+<br>
+Mishka&nbsp;&nbsp;&nbsp;29</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}]
+<br>
+^men.sort{$men.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+^men.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablemenu.htm>menu</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$men</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$men.age
+<br>
+}[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В результате записи таблицы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$men</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будут отсортированы по столбцу </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (по строке имени):
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Alex:&nbsp;20</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Mishka:&nbsp;29&nbsp;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Serge:&nbsp;26&nbsp;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+А можно отсортировать по столбцу </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>age</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (по числу прожитых лет) по убыванию (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>desc</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), измените в примере вызов </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sort</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> на такой…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^men.sort($men.age)[desc]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…получится…</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Mishka:&nbsp;29</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Serge:&nbsp;26
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alex:&nbsp;20</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="file,file, Конструкторы,cgi,exec,env,CGI_ *,HTTP_ *,SSI *,include *">
+    <title>cgi и exec. Исполнение программы</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filecgiexec.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filecgiexec.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>cgi и exec. Исполнение программы
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file::cgi[имя&nbsp;файла]
+<br>
+^file::cgi[имя&nbsp;файла;env_hash]
+<br>
+^file::cgi[имя&nbsp;файла;env_hash;аргумент1;аргумент2;…]
+<br>
+^file::cgi[формат;имя&nbsp;файла;env_hash;аргумент1;аргумент2;…]&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[</i></b><b><i>3</i></b><b><i>.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+^file::exec[имя&nbsp;файла]
+<br>
+^file::exec[имя&nbsp;файла;env_hash]
+<br>
+</b><b>^file::exec[имя&nbsp;файла;env_hash;аргумент1;аргумент2;…]
+<br>
+^file::exec[формат;имя&nbsp;файла;env_hash;аргумент1;аргумент2;…]&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.2.2]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Конструктор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cgi</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> создает объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, содержащий результат исполнения программы в соответствии со стандартом CGI. 
+<br>
+<i>Внимание: все пути в парсере указываются относительно текущего исполняемого файла.
+<br>
+По аналогии, при запуске внешнего скрипта текущим каталогом для него является каталог, где находится этот скрипт.</i>
+<br>
+
+<br>
+Заголовки, которые выдаст CGI-скрипт, конструктор поместит в поля класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в ВЕРХНЕМ регистре. Например, если некий скрипт </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>script.pl</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, среди прочего, выдает в заголовке строку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>field:value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, то после работы конструктора
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::cgi[script.pl]]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">,
+<br>
+обратившись к </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$f.FIELD</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, получим значение </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. 
+<br>
+
+<br>
+Конструктор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>exec</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> аналогичен </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cgi</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, но не отделяет HTTP-заголовки от текста, возвращаемого скриптом. 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Формат</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - формат представления получаемых от скрипта данных. Может быть </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(по умолчанию) или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. При использовании формата </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> не будут производиться перекодирования полученных данных в кодировку </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=requestcharset.htm>$request:charset</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и их обрезания по первому нулевому символу.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Имя&nbsp;файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла с путем.
+<br>
+
+<br>
+Объект, созданный этими конструкторами, имеет дополнительные поля:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>status</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - информация о статусе завершении программы (обычно 0 означает, что программа завершилась успешно, не 0 - с ошибкой)&nbsp;&nbsp;&nbsp;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>stderr</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - результат считывания стандартного потока ошибок&nbsp;&nbsp;&nbsp;
+<br>
+
+<br>
+Пример:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$cgi_file[^file::cgi[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>new.cgi</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+$cgi_file.text</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет на экран результаты работы скрипта </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>new.cgi</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. 
+<br>
+
+<br>
+Необязательные параметры конструкторов:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>env_hash</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - <a href=hash.htm>хеш</a>, в котором могут задаваться 
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">дополнительные переменные окружения, которые впоследствии будут доступны внутри исполняемого скрипта;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">ключ </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>stdin</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, содержащая текст, передаваемый исполняемому скрипту в стандартном потоке ввода;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">ключ </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>charset</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, задающий кодировку, в которой работает скрипт (будут перекодированы данные передаваемые скрипту и получаемые из скрипта).<b><i> [3.1.3]</i></b>
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Внимание: можно</i> <i>задавать только стандартные CGI переменные окружения и переменные, имена которых начинаются с CGI_ или HTTP_ (допустимы латинские буквы в ВЕРХНЕМ регистре, цифры, подчеркивание, минус)</i>.
+<br>
+<i>Внимание: в </i><i>unsafe-mode </i><i>версиях у переменных окружения можно задавать любые имена.</i><b><i> [3.4.1]</i></b>
+<br>
+<i>Внимание: при обработке </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">HTTP</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> </span><span style="font-family:Monospace; font-size:10pt; color:#000000">POST</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> запроса, при помощи конструкции </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.stdin[</b><b><a href=requestbody.htm>$request:body</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> вы можете передать в стандартный поток ввода скрипта полученные вами POST-данные. [3.0.8, раньше они передавались по-умолчанию]</i>
+<br>
+<i>Внимание: запускаемому скрипту также передаются все переменные окружения, которые были выставленные http сервером при запуске </i><i>Parser</i><i>.</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+Пример внешнего CGI-скрипта
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$search[^file::cgi[search.cgi;$.QUERY_STRING[text=</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=formfields.htm>$form:q</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&amp;page=$form:p]]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример внешнего скрипта</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$script[^file::exec[script.pl;$.CGI_INFORMATION[этого&nbsp;мне&nbsp;не&nbsp;хватало]]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Внутри скрипта </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>script.pl</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> можно воспользоваться переданной информацией:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>print&nbsp;"Дополнительная&nbsp;информация:&nbsp;$ENV{CGI_INFORMATION}\n";
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Пример получения бинарных данных от внешнего скрипта
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$response:body[^file::exec[binary;getfile.pl;$.CGI_</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>FILENAME</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=formfields.htm>$form:filename</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример передачи нескольких аргументов</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Кроме того, вызываемой программе можно передать ряд аргументов, перечислив их через точку с запятой после хеша переменных окружения:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$script[^file::exec[script.pl;;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>длина</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ширина</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+...или передать методу список аргументов, заданный в виде таблицы с одним столбцом:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$args[^table::create{arg
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>длина</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ширина</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]
+<br>
+$script[^file::exec[script.pl;;$args]]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+<i>Внимание: настоятельно рекомендуется хранить запускаемые скрипты вне веб-пространства, поскольку запуск скрипта с произвольными параметрами может привести к неожиданным результатам.
+<br>
+</i></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

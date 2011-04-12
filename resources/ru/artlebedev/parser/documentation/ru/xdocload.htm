@@ -1,0 +1,94 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="xdoc,xdoc, Конструкторы,load,HTTP *,cbr *,USD *,currency *,http://www.cbr.ru/scripts/XML_daily.asp">
+    <title>load. Загрузка XML с диска, HTTP-сервера или иного источника</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xdocload.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xdocload.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>load. Загрузка XML с диска, HTTP-сервера или иного источника
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^xdoc::load[</b><b><a href=app1.htm>имя файла</a></b><b>]
+<br>
+
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Конструктор загружает XML-код из некоторого файла или адреса на HTTP-сервере и создает на его основе объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xdoc</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Parser может считать XML из произвольного источника, см. раздел «<a href=xdocparserprot.htm>Чтение XML из произвольного источника</a>».
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>имя&nbsp;файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла с <a href=app1.htm>путем</a> или URL файла на HTTP-сервере.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример загрузки XML-документа с диска
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$xdoc[^xdoc::load[article.xml]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+$</b><b><a href=responseclass.htm>response</a></b><b>:</b><b><a href=responsebody.htm>body</a></b><b>[</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^xdoc.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocstring.htm>string</a></b><b>[]]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример загрузки XML-документа с HTTP-сервера
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$xdoc[^xdoc::load[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href="http://www.cbr.ru/scripts/XML_daily.asp" target="_blank">http://www.cbr.ru/scripts/XML_daily.asp</a></u></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>На
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^xdoc.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xnodeselectstring.htm>selectString</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[string(/ValCurs/@Date)]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>курс&nbsp;валюты
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;$node[^xdoc.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xnodeselectsingle.htm>selectSingle</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[/ValCurs/Valute[CharCode='USD']]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^node.selectString[string(Name)]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"
+<br>
+равен
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^node.selectString[string(Value)]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;hr</b><b>&nbsp;/</b><b>&gt;
+<br>
+&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[^xdoc.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdocstring.htm>string</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 20.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

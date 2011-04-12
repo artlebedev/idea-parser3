@@ -1,0 +1,102 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="response,response, Статические поля,body,MIME-TYPES,content-type *,image *,graph *,diagram *,HTTP *,download *">
+    <title>body. Задание нового тела ответа</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?responsebody.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='responsebody.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>body. Задание нового тела ответа
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$response:body[DATA]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Замещает все тело ответа значением </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>DATA</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>DATA</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - <a href=stringclass.htm>строка</a>, <a href=fileclass.htm>файл</a> или <a href=hash.htm>хеш</a> параметров. 
+<br>
+
+<br>
+Ключи хеша параметров:<b><i> [3.1.4]
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла на диске (в этом случае Parser поддерживает докачку файлов<b><i>  [3.1.4]</i></b></span><span style="font-family:Arial; font-size:10pt; color:#000000">);</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла, которое передать посетителю;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+mdate</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - дата и время изменения файла, которую передать посетителю.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Если передан файл с известным </span><span style="font-family:Monospace; font-size:10pt; color:#000000">content-type</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (см. <a href=filefields.htm>поля объекта класса file</a>), этот заголовок передается посетителю.
+<br>
+
+<br>
+См. также </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$response:</b><b><a href=responsedownload.htm>download</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример замены всего тела на результат работы скрипта
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$response:body[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=filecgiexec.htm>file::cgi</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>script.cgi</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Заменит весь ответ результатом работы программы </span><span style="font-family:Monospace; font-size:10pt; color:#000000">script.cgi</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+<b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример выдачи создаваемой картинки
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$square[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagecreate.htm>image::create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(100;100;0x000000)]
+<br>
+^square.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagecircle.htm>circle</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(50;50;10;0xFFFFFF)
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=responsebody.htm>response:body</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[^square.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagegif.htm>gif</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В браузере будет выведен  черный квадрат с белой окружностью. Кроме того, автоматически будет установлен нужный тип файла (content-type) по таблице </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>MIME-TYPES</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

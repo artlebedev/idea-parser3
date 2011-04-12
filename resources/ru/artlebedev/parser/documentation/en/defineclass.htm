@@ -1,0 +1,262 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="CLASS,auto,USE,BASE">
+    <title>User-defined classes</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?defineclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='defineclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>User-defined classes
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=lesson5.htm>A user class is defined</a> in a file of such a format:<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>@CLASS
+<br>
+name_of_class
+<br>
+
+<br>
+#&nbsp;optional
+<br>
+@OPTIONS&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+locals
+<br>
+partial
+<br>
+</b><b>dynamic</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>static</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;</i></b><b><i>[3.4.1]</i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+#&nbsp;optional
+<br>
+@USE
+<br>
+file_with_parent_class
+<br>
+
+<br>
+#&nbsp;optional
+<br>
+#&nbsp;user-defined&nbsp;class&nbsp;can't&nbsp;be&nbsp;based&nbsp;on&nbsp;system&nbsp;classes</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.4.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+@BASE
+<br>
+name_of_parent_class
+<br>
+
+<br>
+#&nbsp;recommended&nbsp;way&nbsp;to&nbsp;name</b><b>&nbsp;</b><b><a href=obj.htm>method-constructor</a></b><b>&nbsp;</b><b>of&nbsp;the&nbsp;class</b><b>
+<br>
+@create[</b><b>parameters</b><b>]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>#&nbsp;</b><b>other&nbsp;</b><b><a href=definemethod.htm>methods</a></b><b>&nbsp;are&nbsp;defined</b><b>
+<br>
+@method1[</b><b>parameters</b><b>]
+<br>
+&#133;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Module can be linked (see "<a href=opuse.htm>Linking modules</a>") to any file, which will then be able to use the class defined here.
+<br>
+If unknown class was specified, the method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>autouse</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>MAIN</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be called and specified class name will be passed to it as the only parameter.<b><i> [3.4.0]</i></b>
+<br>
+
+<br>
+If </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@CLASS</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is not specified, the file will define a number of <a href=opuserdefined.htm>additional operators</a>.
+<br>
+
+<br>
+If method
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@auto[]</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+is defined, it will be automatically called as a static method (so-called static constructor) each time the class is loaded. It is used to initialize static fields of the class.
+<br>
+
+<br>
+<i>Note: result of the method's work is ignored, i.e. doesn't get anywhere.
+<br>
+Note: method @auto[] is not inherited .</i><b><i> [3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>] </i></b><i>
+<br>
+</i>
+<br>
+If method is defined to receive the parameter:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@auto[filespec]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">In that parameter Parser will pass full name of file containing the method.
+<br>
+
+<br>
+Created classes inherit methods of parent classes. Inherited methods can be redefined.
+<br>
+
+<br>
+In case one user class must use another one as parent, the file with the parent class should be linked to it, and parent class - declared as base (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@BASE</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+
+<br>
+To use methods and fields of parent classes, the following constructions should be used:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^class:method</b><b>[</b><b><a href=params.htm>parameters</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-to call a method of parent class (<i>note: although the syntax of calling such a method looks like the syntax of calling a static method, in fact, in case of dynamic method, the method of parent class will be called dynamically</i>). To refer to the nearest parent class (base class) you may use constructions </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^BASE::</b><b>constructor</b><b>[</b><b><a href=params.htm>parameters</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^BASE:</b><b>method</b><b>[</b><b><a href=params.htm>parameters</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Using <b>@OPTIONS </b>you can set additional class behaviour.<b><i>
+<br>
+</i></b>Thus option <b>locals</b> automatically declare all variables in all methods of this class as local. If this option specified you must use system variable</span><span style="font-family:Arial; font-size:10pt; color:#000000"> </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=definemethod.htm>self</a> for accessing to class or object's field.
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">With <b>partial</b> option you can allow future class modifications. If specified and you load new file with <a href=opuse.htm>use</a> operator which contain the same class name and the same option, the methods from this file will be added to previously loaded class instead of creating a new one with the same name. This option can be useful for loading huge and seldom used methods to the class by demand.</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">With <b>static</b> and <b>dynamic</b> options you can specify the allowed methods' call types. All methods could be called statically or dynamically by default which could be unsafe.</span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>
+<br>
+
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Note: </i><i>trailing white-space characters in </i><i>meta-comands @USE, @CLASS, @BASE, @OPTIONS </i><i>will be ignored</i><b><i> [3.4.1] </i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Working with variables in static methods
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Value of the variable is searched for in:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">the list of local variables;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">the current class or its parent classes.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The value will be assigned to already existing variable (see the search area given above), if it does exist. Otherwise, a new variable (field) will be created within the current class.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Working with variables in dynamic methods
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Value of the variable is searched for in:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">the list of local variables;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">the current object and its class;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Symbol; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:Symbol; font-size:10pt; color:#000000"></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">parent objects and their classes.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The value will be assigned to already existing variable (see the search area given above), if it does exist. Otherwise, a new variable (field) will be created within the current class.
+<br>
+
+<br>
+<i>Note: try to avoid using fields of class beyond the methods of the class except simplest cases. We should try to communicate with an object through its methods only.
+<br>
+</i><i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Object's system field: CLASS
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$class:CLASS</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-contains reference to the object's class
+<br>
+
+<br>
+You may need this value to specify the scope of code's compilation (cf. "Process. Compiling and processing string").
+<br>
+
+<br>
+This reference can also be used to retrieve static fields of the class, for example:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@main[]
+<br>
+^method[$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=cookieclass.htm>cookie</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:CLASS]
+<br>
+
+<br>
+@method[storage]
+<br>
+$storage.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=cookiestats.htm>field</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+As a result, value of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=cookiestats.htm>$cookie:field</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> be output.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Object's</b><b> class name: CLASS_NAME</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.2.2]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>object</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.CLASS_NAME</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-contains object's class name
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b><b>:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$var[123]
+<br>
+$var.CLASS_NAME</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b>This example prints 'string'.<b>
+<br>
+</b>
+<br>
+
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="untaint,taint,as-is,file-spec,http-header,mail-header,uri,table,sql,js,xml,html,optimized-html,form,load,env,cookie">
+    <title>untaint, taint apply-taint. Преобразование данных</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opuntainttaint.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opuntainttaint.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>untaint, taint apply-taint. Преобразование данных
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^untaint{код}
+<br>
+^untaint[вид преобразования]{код}
+<br>
+^taint[текст]
+<br>
+^taint[вид преобразования][текст]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^apply-taint[текст]&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.4.1]
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^apply-taint[вид&nbsp;преобразования][текст]&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.4.1]</i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+C помощью механизма автоматических</span><span style="font-family:Arial; font-size:10pt; color:#000000"> преобразований</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> Parser защищает вашу систему от вторжения извне и «по умолчанию» делает это хорошо. Этот механизм работает даже тогда, когда вы ни разу не написали в вашем коде операторов </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/</b><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">. </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Когда вы вмешиваетесь в работоспособность этого механизма с помощью данных операторов </span><span style="font-family:Arial; font-size:10pt; color:#000000">(особенно используя вид преобразования </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">)</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, вы можете создать уязвимость в вашей системе, поэтому делать это нужно внимательно и обязательно разобравшись как же именно он работает.
+<br>
+
+<br>
+
+<br>
+Оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> помечает весь переданный ему </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>текст</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, как нуждающийся в преобразовании заданного </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>вида</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Если вид преобразования не указан, оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> помечает </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>текст</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> как </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>tainted</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">  (неопределенно «грязный», без указания вида преобразования). Для помеченного таким образом текста будут применяться такие же правила преобразований как для текста, пришедшего извне (из <a href=formfield.htm>полей формы</a>, из базы данных, из <a href=fileload.htm>файла</a>, из <a href=cookiestats.htm>cookies</a> и т.п.).
+<br>
+
+<br>
+Оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> выполняет переданный ему </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>код</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и помечает, как нуждающиеся в преобразовании заданного </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>вида</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">,</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> только неопределённо «грязные» части результата выполнения кода (т.е. те, которые не являлись частью кода на Parser, написанного разработчиком в теле документов, а поступили извне или которые были помечены как </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>tainted</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с помощью оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> без первого параметра). Он не трогает те части, для которых уже задан конкретный вид преобразования.
+<br>
+Если вид преобразования не указан, оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> помечает неопределённо «грязные» части результата выполнения кода как </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Данные операторы лишь делают пометки в тексте о виде преобразования, который Parser-у нужно будет произвести </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>позже</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, но не производят его сиюминутно. Сами преобразования Parser выполняет или при выполнении оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>apply-taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> или при выдаче текста в браузер, перед выдачей SQL-серверу, при сохранении в файл, при отправке письма и т.п.
+<br>
+
+<br>
+Оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>apply-taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> выполняет сиюминутное преобразованию всех фрагментов в строке. Неопределённо «грязные» фрагменты преобразуются в указанный вид преобразования (по умолчанию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">)
+<br>
+
+<br>
+
+<br>
+Для простоты можно представить себе, что вокруг всех букв, пришедших извне написано </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>пришедшее&nbsp;извне</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">, а вокруг всех букв, н</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">абранных вами в теле страницы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[optimized-as-is][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>написанное&nbsp;вами</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+В некоторых случаях результаты работы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[вид&nbsp;преобразования][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>текст</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint[вид&nbsp;преобразования]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>текст</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"> одинаковые: это происходит тогда, когда весь обрабатываемый текст является н</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">еопределённо «грязным» (например </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=formfield.htm>$form:field</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">). Однако будьте внимательны: применение к неопределённо «грязному» тексту этих операторов без первого параметра даст совершенно разные результаты, т.к. опущенные значения первого параметра у них различны.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Схема автоматического преобразования Parser при выдаче данных в браузер - </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и в общем виде можно представить весь набираемый разработчиком код следующим образом:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint[optimized-html]{весь&nbsp;код,&nbsp;набранный&nbsp;разработчиком}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Это означает что если вы напишите в теле страницы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"> (без всяких </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">)</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, то даже если кто-то обратится к ней с параметром «</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>?field=&lt;/html&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">», то это не «поломает» страницу из-за досрочно выведенного в неё закрывающего тега </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/html&gt;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, т.к. содержимое </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000"> неопределённо </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">«</span><span style="font-family:Arial; font-size:10pt; color:#000000">грязное</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">» и поэтом</span><span style="font-family:Arial; font-size:10pt; color:#000000"> к нему будет применено автоматическое преобразование </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, с помощью которого символы &lt; и &gt; будут заменены на &amp;lt; и &amp;gt; соответственно</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Аналогично работают и другие автоматические преобразования, например если при составлении SQL запроса вы напишите (опять же без использования </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">):
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;name&nbsp;FROM&nbsp;table&nbsp;WHERE&nbsp;uid&nbsp;=&nbsp;'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:uid</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">то злоумышленник не сможет выполнить SQL injection, передав в качестве параметра например «</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>?uid='&nbsp;OR&nbsp;1=1</b><b>&nbsp;OR&nbsp;'</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">», т.к. Parser, перед выдачей SQL серверу текста запроса, заэкранирует в пришедшем от пользователя </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:uid</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> одинарные кавычки.
+<br>
+
+<br>
+
+<br>
+Текст, написанный разработчиком в теле страниц, также подвергается автоматическому преобразованию. В нём Parser выполняет оптимизацию пробельных символов (пробел, табуляция, перевод строки). Идущие подряд перечисленные символы заменяются только одним, который встречается в коде первым. Т.е. если вы напишите в тексте страницы несколько идущих подряд пробельных символов, перед выдачей их в браузер посетителю, от них останется только первый символ. Если в каких-то случаях нужно отключить эту оптимизацию (например для выдачи в </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;pre/&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), то вы должны сделать это явно, например написав вокруг текста:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;pre&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[a</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>s-is</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;Я
+<br>
+&nbsp;&nbsp;&nbsp;достаю
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;из&nbsp;широких&nbsp;штанин
+<br>
+&nbsp;&nbsp;дубликатом
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;бесценного&nbsp;груза.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;Читайте,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;завидуйте,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;я&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;гражданин
+<br>
+&nbsp;&nbsp;Советского&nbsp;Союза.
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В данном случае нужно писать именно </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а не </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, т.к. буквы, написанные в тексте страницы разработчиком, являются «чистыми» и поэтому </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> не окажет на них никакого влияния.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$clean[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>предыдущая&nbsp;запись&nbsp;эквивалентна&nbsp;следующей:</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$clean[^taint[optimized-as-is][</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+$tainted[^taint[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Строки</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:&nbsp;^if($clean&nbsp;eq&nbsp;$tainted){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>совпадают</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>не&nbsp;совпадают</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>«Грязные»&nbsp;данные</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;-&nbsp;'$tainted'</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>«Чистые»&nbsp;данные</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;-&nbsp;'$clean</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>'</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В данном примере видно, что несмотря на то, что сравнение сообщает об эквивалентности строк, при выводе их в браузер результат различен: «чистая» строка выводится без преобразований, а в «грязной» строке символы &lt; и &gt; заменены на &amp;lt; и &amp;gt; соответственно.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Пример&nbsp;на&nbsp;</b><b><a href=stringlit.htm>^^</a></b><b>untaint.&lt;br&nbsp;/&gt;
+<br>
+&lt;form&gt;
+<br>
+&lt;input&nbsp;</b><b>type="text"&nbsp;</b><b>name="field"&nbsp;/&gt;
+<br>
+&lt;input&nbsp;type="submit"&nbsp;/&gt;
+<br>
+&lt;/form&gt;
+<br>
+
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$tainted[$form:field]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>«Грязные»&nbsp;данные&nbsp;-&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$tainted</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+«Чистые»&nbsp;данные&nbsp;-&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint{$tainted}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В квадратных скобках оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> задается вид выполняемого преобразования. Здесь мы опускаем квадратные скобки в операторе </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и используем значение преобразования по умолчанию </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>[as-is]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Обратите внимание: если оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> без указания вида преобразования полностью эквивалентен оператору </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с указанием вида преобразования </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, то для оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> не существует такого вида преобразования, который равнозначен оператору </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> без указания</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> оного.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Пример&nbsp;</b><b><a href=stringlit.htm>^^</a></b><b>taint.&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$town[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Москва</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;a&nbsp;href="town.html?town=</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[uri][$town]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$town</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/a&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В результате данные, хранящиеся в переменной </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>town</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, будут преобразованы к типу URI и позже, при выводе в браузер, русские буквы будут заменены на шестнадцатеричные коды символов и представлены в виде </span><span style="font-family:Monospace; font-size:10pt; color:#000000">%ХХ</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Вывод&nbsp;данных&nbsp;полученных&nbsp;от&nbsp;пользователя&nbsp;на&nbsp;странице,&nbsp;сохранение&nbsp;их</b><b>
+<br>
+</b><b>в&nbsp;БД&nbsp;и&nbsp;создание&nbsp;на&nbsp;их&nbsp;основе&nbsp;</b><b>XML</b><b>&lt;br&nbsp;/&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Вы&nbsp;указали:&nbsp;'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^void:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>INSERT&nbsp;INTO&nbsp;news&nbsp;SET&nbsp;(body)&nbsp;VALUES&nbsp;('</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>')</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$doc[^xdoc::create{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="WINDOWS-1251"?&gt;
+<br>
+&lt;root&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;data&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:field</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/data&gt;
+<br>
+&lt;/root&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+В данном случае ни </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> ни </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> использовать не нужно вовсе, т.к. необходимые преобразования будут сделаны автоматически, причем при выводе в браузер будет сделано преобразование </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, при выдаче SQL серверу - </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sql</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а при формировании XML - </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Обратите внимание на то, что при сохранении данных в БД в административном интерфейсе, также не требуется писать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint/untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> в SQL запросах</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Выдача&nbsp;даннных&nbsp;(могут&nbsp;содержать&nbsp;теги),&nbsp;пришедших&nbsp;от&nbsp;пользователя&nbsp;или&nbsp;из&nbsp;БД</b><b>
+<br>
+</b><b>в&nbsp;форму&nbsp;для&nbsp;редактирования&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$form:body){
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:body</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}{
+<br>
+&nbsp;&nbsp;&nbsp;^connect[$SQL.connect-string]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;</b><b>body</b><b>&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$id}]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;}
+<br>
+}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;textarea&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+В данном </span><span style="font-family:Arial; font-size:10pt; color:#000000">случае сработает автоматическое преобразование </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, т.к. данные, пришедшие из БД или от пользователя являются </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">«грязными».
+<br>
+Поэтому встретившиеся в данных теги не «поломают» страницу. </span><span style="font-family:Arial; font-size:10pt; color:#000000">Имейте в виду, что если в данных есть идущие подряд пробельные символы, то они будут оптимизированы при выдаче в браузер.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Выдача&nbsp;данных&nbsp;с&nbsp;тегами&nbsp;из&nbsp;БД,&nbsp;помещённых&nbsp;туда&nbsp;администратором</b><b>:</b><b>&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;</b><b>body</b><b>&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$id}]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[as-is][$body]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">В данном случае необходимо использовать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> с видом преобразования </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> (или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> с таким же видом преобразования или без указания оного), т.к. требуется, чтобы теги в тексте новости, помещённые туда администратором, были выданы именно как теги и в них не было произведено никаких преобразований. Ни в коем случае нельзя выводить подобным образом данные из БД, помещённые туда от посетителей сайта (например данные гостевых книг, форумов и т.д.).
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Выдача&nbsp;даннных&nbsp;(могут&nbsp;содержать&nbsp;теги),&nbsp;пришедших&nbsp;от&nbsp;пользователя&nbsp;или&nbsp;из&nbsp;БД</b><b>
+<br>
+</b><b>в&nbsp;форму&nbsp;для&nbsp;редактирования&nbsp;с&nbsp;сохранением&nbsp;пробельных&nbsp;символов&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$form:body){
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$body[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:body</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;$body[^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;</b><b>body</b><b>&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$id}]
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;textarea&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^taint[html][$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>body</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+В данном случае нужно использовать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с видом преобразования </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> (или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> с таким же видом преобразования)</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, чтобы встретившиеся в данных теги не «поломали» страницу </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>и</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> чтобы отключить оптимизацию пробельных символов.
+<br>
+
+<br>
+
+<br>
+Из примеров выше можно заметить, что нам пришлось использовать оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> лишь трижды: один раз для того, чтобы разрешить отображать теги в тексте из БД и помещённом туда администратором, второй раз чтобы отключить оптимизацию пробельных символов и третий раз чтобы выдать ссылку с query string содержащей русские буквы таким образом, чтобы эти буквы были закодированы.
+<br>
+Во всех остальных случаях мы вообще не использовали ни </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> ни </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и Parser сам всё сделал хорошо.
+<br>
+
+<br>
+Запомните: в подавляющем большинстве случаев использовать данные операторы не нужно!
+<br>
+
+<br>
+
+<br>
+Как мы уже отметили, в приведённых примерах ни разу не был использован оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, поэтому возникает вопрос, для чего он вообще нужен? Я знаю ему буквально пару практических применений.
+<br>
+
+<br>
+Во первых иногда его использование позволяет уменьшить количество операторов </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> в коде</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, например при выводе данных в форму, содержащую много полей и необходимостью отключить оптимизацию пробельных символов. В этом случае вместо того, чтобы писать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^taint[html][...]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> вокруг вывода содержимого каждой textarea (как в примере выше), можно написать один раз </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^untaint[html]{...}</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> вокруг всей формы.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Выдача&nbsp;даннных&nbsp;(могут&nbsp;содержать&nbsp;теги),&nbsp;пришедших&nbsp;от&nbsp;пользователя&nbsp;или&nbsp;из&nbsp;БД</b><b>
+<br>
+</b><b>в&nbsp;большую&nbsp;форму&nbsp;для&nbsp;редактирования&nbsp;с&nbsp;сохранением&nbsp;пробельных&nbsp;символов&lt;br&nbsp;/&gt;</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$form:title){
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$data[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$form:fields</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[$SQL.connect-string]{
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;$data[^table::sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>SELECT&nbsp;</b><b>title,&nbsp;lead,&nbsp;body</b><b>&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$id}]
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^untaint[html]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;p&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;b&gt;Заголовок:&lt;/b&gt;&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="title"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>data.title</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;p&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>&lt;b&gt;Анонс</b><b>:</b><b>&lt;/b&gt;</b><b>&lt;br&nbsp;/&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="lead"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>data.lead</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;
+<br>
+</b><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;p&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>&lt;b&gt;Текст&nbsp;новости</b><b>:</b><b>&lt;/b&gt;</b><b>&lt;br&nbsp;/&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="body"&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>data.body</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/textarea&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+
+<br>
+И во вторых - когда нам нужно выдать в браузер xml, а не html (например для ajax, RSS, SOAP и т.п.). В этом случае автоматическое преобразование (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) не подходит и вокруг всего кода нужно написать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^untaint</b><b>[optimized-xml]{...}</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и расслабиться :)
+<br>
+
+<br>
+
+<br>
+
+<br>
+Преобразование заключается в замене одних символов на другие в соответствии с внутренними таблицами преобразований. Предусмотрены следующие виды преобразований:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is
+<br>
+file-spec
+<br>
+http-header
+<br>
+mail-header
+<br>
+uri
+<br>
+sql
+<br>
+js
+<br>
+regex&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.5]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+xml
+<br>
+html
+<br>
+
+<br>
+optimized-as-is</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-xml
+<br>
+optimized-html
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Таблицы преобразований
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>as-is</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">изменений в тексте не делается
+<br>
+
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b><b>-spec</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">символы <span style="font-family:Monospace; font-size:10pt; color:#000000">*&nbsp;?&nbsp;'&nbsp;"&nbsp;&lt;&nbsp;&gt;</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"> |</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> 
+<br>
+преобразуются в "_XX", 
+<br>
+где XX - код символа в шестнадцатеричной форме
+<br>
+
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>uri</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">символы за исключением цифр, строчных и прописных латинских букв, а также следующих символов: <span style="font-family:Monospace; font-size:10pt; color:#000000">_&nbsp;-&nbsp;.&nbsp;"
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">преобразуется в %XX где XX - код символа в шестнадцатеричной форме
+<br>
+
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http-</b><b>header</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">то же, что и URI  
+<br>
+
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>mail-header</b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">если известен charset (если неизвестен, не будут работать up/low case), то фрагмент, начиная с первой буквы с восьмым битом и до конца строки, будет представлен в подобном виде:  
+<br>
+Subject: Re: parser3: =?koi8-r?Q?=D3=C5=CD=C9=CE=C1=D2?=
+<br>
+
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sql</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">в зависимости от SQL-сервера  
+<br>
+для Oracle, ODBC и SQLite меняется <span style="font-family:Monospace; font-size:10pt; color:#000000">'</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> на </span><span style="font-family:Monospace; font-size:10pt; color:#000000">''</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+для PgSQL делается средствами самого PgSQL
+<br>
+для MySQL делается средствами самого MySQL
+<br>
+
+<br>
+для выполнения данного преобразования необходимо чтобы код, в результате работы которого преобразование должно выполниться, находился внутри оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^connect[]{}.
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>js</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">"<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\"
+<br>
+'</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в  </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\'&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> 
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">\</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в  </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\\</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">символ&nbsp;конца&nbsp;строки</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в \n
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">символ&nbsp;с&nbsp;кодом&nbsp;0xFF</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> предваряется </span><span style="font-family:Monospace; font-size:10pt; color:#000000">\
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser-code</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><a href=stringlit.htm>служебные символы</a> предваряются символом ^
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>regex</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">символы
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000">\&nbsp;^&nbsp;$&nbsp;.&nbsp;[&nbsp;]&nbsp;|&nbsp;(&nbsp;)&nbsp;?&nbsp;*&nbsp;+&nbsp;{&nbsp;}&nbsp;-</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+предваряются символом
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">\</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<b><i>[3.1.5]
+<br>
+</i></b>
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">&amp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;amp;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&gt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;gt;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&lt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;lt;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">"</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;quot;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">'</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;apos;
+<br>
+
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>html</b>
+<br>
+</span></td><td align="left" valign="top" width="453">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">&amp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;amp;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&gt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;gt;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">&lt;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;lt;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">"</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуется в &amp;quot;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="126">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-as-is</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-xml
+<br>
+</b><b>optimized-html</b></span><span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="453">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">дополнительно к заменам выполняется оптимизация по "white spaces" (символы пробела, табуляция, перевода строки). 
+<br>
+
+<br>
+Идущие подряд перечисленные символы заменяются только одним, который встречается в коде первым
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+Ряд </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>taint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразований Parser делает автоматически, так, имена и пути файлов всегда автоматически </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file-spec</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуются, и когда вы пишите…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+^</b><b><a href=fileload.htm>file::load</a></b><b>[filename]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…Parser выполняет…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^file::load[^taint[file-spec][filename]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Аналогично, при задании HTTP-заголовков и заголовков писем, происходят </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http-header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>mail-header</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразования соответственно. А при DOM-операциях текстовые параметры всех методов автоматически </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразуются.
+<br>
+
+<br>
+
+<br>
+Также Parser выполняет ряд автоматических </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>untaint</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> преобразований:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="142">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>вид</i>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>что преобразуется</i><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="142">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sql</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">тело SQL-запроса
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="142">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>xml</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">XML код при создании объекта класса <span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=xdocclass.htm>xdoc</a></b>
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="142">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>optimized-html</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:Arial; font-size:10pt; color:#000000">результат страницы, отдаваемый в браузер<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="142">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>regex</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:Arial; font-size:10pt; color:#000000">шаблоны-регулярные выражения<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="142">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>parser-code</b>
+<br>
+</span></td><td align="left" valign="top" width="534">
+<span style="font-family:Arial; font-size:10pt; color:#000000">тело оператора <a href=opprocess.htm>process</a><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+</b></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="table,table, Methods,flip">
+    <title>flip. Transposing a table</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tableflip.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tableflip.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>flip. Transposing a table
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b>table</b><b>.flip[]&nbsp;&nbsp;&nbsp;
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The method creates a new table </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>nameless</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> with entries resulted from transposing a table. That means, the method turns columns of the given table into rows and rows into columns.
+<br>
+<u>
+<br>
+</u></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>words</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{id&nbsp;&nbsp;&nbsp;number</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>Zero</b><b>&nbsp;&nbsp;&nbsp;01
+<br>
+</b><b>One</b><b>&nbsp;&nbsp;&nbsp;02
+<br>
+</b><b>Two</b><b>&nbsp;&nbsp;&nbsp;03
+<br>
+Three&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]
+<br>
+$fliped[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>words</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.flip[]]
+<br>
+^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>words</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablesave.htm>save</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>words</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.txt]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+As the result of the code, the following table will be saved as a file named </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>flipped.txt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="74">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="92">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="90">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>3</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Zero</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="74">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>One</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="92">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Two</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="90">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Three</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>01</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="74">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>02</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="92">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>03</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td><td align="left" valign="top" width="90">
+<p align="center"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>04</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span></span></p></td></tr></table>
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

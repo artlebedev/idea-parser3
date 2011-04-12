@@ -1,0 +1,96 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="response,response, Статические поля,location,refresh,status,HTTP *">
+    <title>Заголовки HTTP-ответа</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?responsefields.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='responsefields.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Заголовки HTTP-ответа
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$response:поле[значение]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$response:поле</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Поле соответствует заголовку HTTP-ответа, выдаваемого Parser. Его можно как задавать, так и считывать. Значением может быть <a href=dateclass.htm>дата</a>, <a href=stringclass.htm>строка</a> или <a href=hashclass.htm>хеш</a> с обязательным ключом </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Дата может использоваться и в качестве значения поля и в качестве значения атрибута поля, при этом она будет стандартно отформатирована.
+<br>
+
+<br>
+<i>Примечание: при задании значения имя поля преобразуется к нижнему регистру, а при считывании ищется в нижнем регистре.</i><i>
+<br>
+</i><i>Примечание</i><i>: </i><i>при выдаче</i><i> браузеру</i><i> имя </i><i>HTTP</i><i>-заголовка</i><i> капитализируется (например </i><b><i>content-type</i></b><i> </i><i>будет преобразован в </i><b><i>Content-Type</i></b><i>)</i><i>.&nbsp;&nbsp;&nbsp;</i></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>[3.4.0]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример перенаправления браузера на стартовую страницу
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#работает&nbsp;если&nbsp;администратор&nbsp;веб-сервера&nbsp;правильно&nbsp;настроил&nbsp;передачу&nbsp;параметра&nbsp;SERVER_NAME
+<br>
+#обычно&nbsp;настроено&nbsp;все&nbsp;правильно
+<br>
+$response:location[http://$env:SERVER_NAME/]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Другой пример перенаправления браузера на стартовую страницу
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#работает&nbsp;вне&nbsp;зависимости&nbsp;от&nbsp;правильности&nbsp;SERVER_NAME
+<br>
+$response:refresh[
+<br>
+&nbsp;&nbsp;&nbsp;$.value(0)
+<br>
+&nbsp;&nbsp;&nbsp;$.url[/]
+<br>
+]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример задания заголовка expires в значение «завтра»
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$response:expires[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=dateclass.htm>date</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datenow.htm>now</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(+1)]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 04.09.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

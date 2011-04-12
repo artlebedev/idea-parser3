@@ -1,0 +1,92 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="hash,hash, Методы,_keys,keys *">
+    <title>_keys. Список ключей хеша</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?hash_keys.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='hash_keys.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>_keys. Список ключей хеша
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^хеш._keys[]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^хеш._keys[имя&nbsp;столбца]&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.2]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Метод возвращает таблицу (объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href=tableclass.htm>table</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), содержащую единственный столбец, где перечислены все ключи хеша (начиная с версии </span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>3.4.0</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> порядок ключей в полученной таблице соответствует порядку добавления элементов в хеш, до этой версии - порядок не определен).
+<br>
+Имя столбца -  «key» или переданное </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>имя</b><b>&nbsp;</b><b>столбца</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$man[
+<br>
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Вася</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>22</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>m</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]
+<br>
+$tab_keys[^man._keys[]]
+<br>
+^tab_keys.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablesave.htm>save</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[keys.txt]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Будет создан файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">keys.txt</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с такой таблицей:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>key</i></b><b>
+<br>
+name
+<br>
+age
+<br>
+sex
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 11.07.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

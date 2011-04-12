@@ -1,0 +1,112 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="operator *">
+    <title>Операторы, определяемые пользователем</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opuserdefined.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opuserdefined.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>Операторы, определяемые пользователем
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Иногда вам будет казаться, что каких-то операторов в языке не хватает. Parser позволяет вам определить собственные операторы, которые затем можно будет использовать наравне с системными.
+<br>
+
+<br>
+Операторами в Parser считаются методы класса <a href=mainclass.htm>MAIN</a>, добавляя новые методы в этот класс вы расширяете базовый набор операторов.
+<br>
+<span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Внимание: при описании оператора можно использовать и не локальные переменные, при этом вы будете читать и записывать в поля класса </i><i><a href=mainclass.htm>MAIN</a></i><i>.</i>
+<br>
+
+<br>
+Пользовательские операторы могут определяться и в отдельных текстовых файлах без заголовка </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@CLASS</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, которые <a href=opuse.htm>подключаются</a> к нужным разделам сайта. Если в таком файле определить оператор (написав, скажем, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@</b><b><a href=opprocess.htm>include</a></b><b>[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), то при обращении </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^include</b><b>[…]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> всегда будет вызываться пользовательский оператор. 
+<br>
+
+<br>
+<i>Будьте внимательны! Если определить оператор, одноименный с системным, то всегда будет вызываться пользовательский. При этом системный оператор вызвать нельзя никак. Стоит делать как можно меньше пользовательских операторов, используя вместо них статические методы пользовательских классов.
+<br>
+</i>
+<br>
+Создавать классы и пользоваться их методами гораздо удобнее, чем пользовательскими операторами. Простой пример: есть несколько разделов сайта, и для каждого из них нужно сделать раздел помощи. Создав несколько файлов, описывающих разные классы, можно получить одноименные методы разных классов. Вызывая методы как статические, мы имеем совершенно ясную картину, что к какому разделу относится:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^news:help[]
+<br>
+^forum:help[]
+<br>
+^search:help[]
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Примеры</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Поместите этот код…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@default[a;b]
+<br>
+^if(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>def</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;$a){$a}{$b}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+… в файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">operators.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, в корень вашего веб-сайта.
+<br>
+
+<br>
+Там, где вам необходимы дополнительные операторы, <a href=opuse.htm>подключите</a> этот модуль. Например, в корневом </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, напишите…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opuse.htm>USE</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+/operators.p
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…теперь не только в любой странице, но, что главное, в любом вашем <a href=defineclass.htm>классе</a> можно будет воспользоваться конструкцией
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^default[$form:name;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Аноним</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Подробности в разделе <a href=definemethod.htm>Создание методов и пользовательских операторов</a>.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 30.03.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

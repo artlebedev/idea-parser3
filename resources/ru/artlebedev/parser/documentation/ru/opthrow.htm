@@ -1,0 +1,152 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="throw">
+    <title>throw. Сообщение об ошибке</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opthrow.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opthrow.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>throw. Сообщение об ошибке
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^throw[type]&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+^throw[type;source]
+<br>
+^throw[type;source;comment]
+<br>
+^throw[хеш]
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>throw</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> сообщает об ошибке типа </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>type</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, произошедшей по вине </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>source</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, с комментарием </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>comment</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Эта ошибка может быть перехвачена и обработана при помощи оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=optry.htm>try</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Не перехватывайте ошибки <b>только </b>для их красивого вывода, пусть этим централизованно займется метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=exceptionunhandled.htm>unhandled_exception</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, вызываемый Parser если ни одного обработчика ошибки так и не будет найдено. Кроме прочего, произойдет запись в журнал ошибок веб-сервера, который можно регулярно просматривать на предмет имевших место проблем.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@method[command]
+<br>
+^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opswitch.htm>switch</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[$command]{
+<br>
+&nbsp;&nbsp;&nbsp;^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opswitch.htm>case</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[add]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;добавляем…
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;^case[delete]{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;удаляем…
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;^case[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opswitch.htm>DEFAULT</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[bad.command;$command;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Wrong&nbsp;command&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$command</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^rem{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;допустим&nbsp;также&nbsp;следующий&nbsp;формат&nbsp;вызова&nbsp;оператора&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>throw</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.type[bad.command]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.source[$command]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.comment[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Wrong&nbsp;command&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$command</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+}
+<br>
+
+<br>
+@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>main</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]
+<br>
+$action[format&nbsp;c:]
+<br>
+^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=optry.htm>try</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{
+<br>
+&nbsp;&nbsp;&nbsp;^method[$action]
+<br>
+}{
+<br>
+&nbsp;&nbsp;&nbsp;^if($</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=optry.htm>exception</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.type&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>eq</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;bad.command){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=boollit.htm>true</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Неправильная&nbsp;команда&nbsp;'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.source</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>',&nbsp;задана
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;в&nbsp;файле&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.file</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>,&nbsp;в&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.lineno</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;строке.</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Результатом работы примера будет
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Неправильная&nbsp;команда&nbsp;'format&nbsp;c:',&nbsp;задана&nbsp;
+<br>
+в&nbsp;файле&nbsp;c:/parser3tests/www/htdocs/throw.html,&nbsp;в&nbsp;15&nbsp;строке.
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Обращаем ваше внимание на то, что пользователи вашего сайта не должны увидеть технические подробности в сообщениях об ошибках, тем более содержащие пути к файлам, это некрасиво и ненадежно.
+<br>
+Вывод </i><b><i>$exception.file</i></b><i> дан в качестве примера и настоятельно не рекомендуется к использованию на промышленных серверах - только для отладки.</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><i>
+<br>
+</i></span></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 03.07.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

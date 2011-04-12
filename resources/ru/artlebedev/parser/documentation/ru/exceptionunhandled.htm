@@ -1,0 +1,114 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="unhandled_exception">
+    <title>@unhandled_exception. Вывод необработанных ошибок</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?exceptionunhandled.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='exceptionunhandled.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>@unhandled_exception. Вывод необработанных ошибок
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Если ошибка так и не была обработана ни одним обработчиком (см. оператор <span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=optry.htm>try</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), Parser вызывает метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=exceptionunhandled.htm>unhandled_exception</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, ему передается информация об ошибке и стек вызовов, приведших к ошибке, и выдаются результаты его работы. Также ошибка записывается в журнал ошибок веб-сервера.
+<br>
+
+<br>
+Хороший тон, это оформить сообщение об ошибке в общем дизайне вашего сайта.
+<br>
+А также проверить, и <b>не </b>показывать технические подробности вашим посетителям.
+<br>
+
+<br>
+Рекомендуем поместить этот метод в <a href=parserconfig.htm>Конфигурационный файл сайта</a>.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Имеется возможность предотвратить запись ошибки в журнал ошибок, для чего <b>только</b> для нужных ошибок можно зажечь флаг:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$exception.handled(</b><b><a href=boollit.htm>true</a></b><b>)&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.1.4]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@unhandled_exception[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=optry.htm>exception</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;stack]
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=responsefields.htm>response:content-type</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.value[text/html]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.charset[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=responsecharset.htm>$response:charset</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+]
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;title&gt;UNHANDLED&nbsp;EXCEPTION&nbsp;(root)&lt;/title&gt;
+<br>
+&lt;body&nbsp;bgcolor=white&gt;
+<br>
+&lt;font&nbsp;color=black&gt;
+<br>
+&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opuntainttaint.htm>untaint</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[html]{$exception.comment}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;
+<br>
+^</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>if(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>def</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;$exception.source){
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;b&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.source</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/b&gt;&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^untaint[html]{$exception.file^($exception.lineno^)}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}
+<br>
+^if(def&nbsp;$exception.type){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>exception.type=</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exception.type}
+<br>
+^if($stack){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;hr&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;^stack.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablemenu.htm>menu</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;tt&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stack.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/tt&gt;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stack.file^($stack.lineno^)</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

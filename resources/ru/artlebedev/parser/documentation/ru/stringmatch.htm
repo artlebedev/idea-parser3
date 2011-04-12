@@ -1,0 +1,176 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="string,string, Методы,match,prematch,postmatch,find *">
+    <title>match. Поиск подстроки по шаблону</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?stringmatch.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='stringmatch.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>match. Поиск подстроки по шаблону
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^строка.match[шаблон]  
+<br>
+^строка.match[шаблон][опции поиска]</b>
+<br>
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Осуществляет поиск в строке по шаблону. 
+<br>
+Шаблон&nbsp;- это строка с <i>регулярным выражением</i>, совместимым с PCRE (Perl compatible regular expressions) или объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=regexclass.htm>regex</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.4.0]</i></b>.
+<br>
+Частичный перевод описания PCRE приведен в&nbsp;<a href=app4.htm>Приложении 4</a>. 
+<br>
+
+<br>
+Предусмотрены следующие опции поиска:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>i</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;- не&nbsp;учитывать регистр;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>x</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - игнорировать символы white space и разрешить </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>#комментарий&nbsp;до&nbsp;конца&nbsp;строки</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>s</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - символ </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> считать концом всего текста (опция по умолчанию);
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>m</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - символ </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> считать концом строки, но не всего текста;
+<br>
+<b>U</b> - инвертировать «жадность» квантификаторов (они становятся не «жадными», чтобы сделать их «жадными» необходимо поставить после них символ </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>?</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">);<b><i> [3.3.0]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>g</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - найти все вхождения строки (а не только первое);
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>n</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - вернуть число с количеством совпадений вместо таблицы;<b><i> [3.2.2]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - вычислять значения столбцов </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>prematch</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>match</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>postmatch</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Поскольку символы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и&nbsp;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> используются в&nbsp;Parser, в&nbsp;шаблоне вместо символа </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> используется строка </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^^</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а&nbsp;вместо символа </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">&nbsp;- строка </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^$&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(см. <a href=exprlit.htm>Литералы</a>).
+<br>
+
+<br>
+Если указана опция поиска </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>g</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, будет создана </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>таблица</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=tableclass.htm>table</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) найденного по шаблону (по одной строке на каждое вхождение). Если опция </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>g</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> не была указана, то таблица будет содержать лишь одну строку с первым вхождением. Если не было найдено ни одного совпадения, то результатом операции будет </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>пустая&nbsp;таблица</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Если указана опция </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>n</b><b>&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">то вместо таблицы с результатами будет возвращаться </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>число</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - количество найденных совпадений.
+<br>
+
+<br>
+Таблица совпадений имеет следующие столбцы: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">,…, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>n</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;prematch</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>match</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>postmatch</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">,
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">где:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>prematch&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">столбец с подстрокой от начала строки до совпадения&nbsp;&nbsp;&nbsp;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>match</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">столбец с подстрокой, совпавшей с шаблоном&nbsp;&nbsp;&nbsp;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>postmatch</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">столбец с подстрокой, следующей за совпавшей подстрокой до конца строки&nbsp;&nbsp;&nbsp;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">,…, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>n</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">столбцы с подстроками, соответствующими фрагментам шаблона, заключенным в круглые скобки, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>n</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - номер открывающей круглой скобки. 
+<br>
+<i>
+<br>
+Замечание 1: значения столбцов </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>prematch</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>, </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>match</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>, </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>postmatch</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> <i>вычисляются только е</i><i>сли указана опция </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>'</i></b>.<i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Замечание 2</i><i>: </i><i>начения столбцов </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">,…, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>n&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>вычисляются лишь в случае, если в шаблоне указаны круглые скобки.
+<br>
+Замечание 3</i><i>: </i><i>если в шаблоне вам нужно использовать круглые скобки, но не требуется запоминания заключённого в них в результирующей таблице, то вместо них лучше использовать конструкцию </i><i>(?:)</i>
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Примеры использования
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$str[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>www.parser.ru?user=admin</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^if(^str.match[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;\?&nbsp;#есть&nbsp;разделитель
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.+&nbsp;#и&nbsp;есть&nbsp;хоть&nbsp;что-то&nbsp;за&nbsp;ним
+<br>
+][x]){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Есть&nbsp;совпадение</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Совпадений&nbsp;нет</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет на экран: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Есть&nbsp;совпадение</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+Внимание: настоятельно советуем </i><i>задавать комментарии к частям сложного регулярного выражения. Бывает, что даже вам самим через какое-то время бывает трудно в них разобраться. Для этого включите опцию </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>x</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">,<i> разрешающую расширенный синтаксис выражений, допускающий комментарии.</i>
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$str[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>www.parser.ru?user=admin</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+$mtc[^str.match[(\?.+)][']]
+<br>
+^mtc.save[match.txt]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Создаст файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>match.txt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, содержащий такую таблицу:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><table border="1" cellpadding="1"><tr><td align="left" valign="top" width="123">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>prematch</b>
+<br>
+</span></td><td align="left" valign="top" width="130">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>match</b>
+<br>
+</span></td><td align="left" valign="top" width="113">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>postmatch</b>
+<br>
+</span></td><td align="left" valign="top" width="117">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1</b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="123">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>www.parser.ru</b>
+<br>
+</span></td><td align="left" valign="top" width="130">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>?user=admin</b><b>
+<br>
+</b></span></td><td align="left" valign="top" width="113">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="117">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>?user=admin</b>
+<br>
+</span></td></tr></table>
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 29.06.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

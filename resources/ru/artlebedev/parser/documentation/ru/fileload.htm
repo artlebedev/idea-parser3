@@ -1,0 +1,114 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="file,file, Конструкторы,load,HTTP *">
+    <title>load. Загрузка файла с диска или HTTP-сервера</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?fileload.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='fileload.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>load. Загрузка файла с диска или HTTP-сервера
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file::load[формат;</b><b><a href=app1.htm>имя файла</a></b><b>]
+<br>
+^file::load[формат;</b><b><a href=app1.htm>имя файла</a></b><b>;</b><b><a href=app1.htm>опции загрузки</a></b><b>]
+<br>
+^file::load[формат;</b><b><a href=app1.htm>имя файла</a></b><b>;новое&nbsp;имя&nbsp;файла]</b><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file::load[формат;</b><b><a href=app1.htm>имя файла</a></b><b>;новое&nbsp;имя&nbsp;файла;</b><b><a href=app1.htm>опции загрузки</a></b><b>]</b></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Загружает файл с диска или HTTP-сервера.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Формат</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - формат представления загружаемого файла. Может быть </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(текстовый) или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(двоичный). Различие между этими типами в разных символах переноса строк. Для PC эти символы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0D&nbsp;0A</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. При использовании формата </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> при загрузке </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>0D</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> отбросится за ненадобностью, при записи методом </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filesave.htm>save</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> добавится. 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>имя&nbsp;файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла с <a href=app1.htm>путем</a> или URL файла на HTTP-сервере.
+<br>
+
+<br>
+Необходимо иметь ввиду, что если в конструкторе задан параметр </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>новое&nbsp;имя&nbsp;файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, его значение будет присвоено полю </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Этим параметром удобно пользоваться при использовании метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>mail:send</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> для передачи файла под нужным именем.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+опции&nbsp;загрузки</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - см. «<a href=app1.htm>Работа с HTTP-серверами</a>».
+<br>
+
+<br>
+Если файл был загружен с HTTP-сервера, поля заголовков HTTP-ответа в верхнем регистре доступны как <a href=filefields.htm>поля</a> объекта класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. 
+<br>
+Также доступно поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>tables</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, это хеш, ключами которого являются поля заголовки HTTP-ответа в верхнем регистре, а значениями таблицы с единственным столбцом </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>value</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, содержащими все значения одноименных полей HTTP-ответа. <b><i>[3.1.1]</i></b>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример загрузки файла с диска
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::load[binary;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>article.txt</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Файл&nbsp;с&nbsp;именем&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=filefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;имеет&nbsp;размер&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f.size</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;и&nbsp;содержит&nbsp;текст:&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f.text
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет размер, имя и текст файла.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример загрузки файла с HTTP-сервера
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$file[^file::load[text;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://www.parser.ru/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;
+<br>
+&nbsp;&nbsp;&nbsp;$.timeout(5)
+<br>
+]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Программное&nbsp;обеспечение&nbsp;сервера:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$file.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=filefields.htm>SERVER</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;hr&nbsp;/&gt;
+<br>
+&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$file.text</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

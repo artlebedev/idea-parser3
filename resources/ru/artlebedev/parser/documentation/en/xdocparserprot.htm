@@ -1,0 +1,86 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="xdoc,xdoc, parser://method/parameter. Reading XML from arbitrary source,parser:// *">
+    <title>parser://method/parameter. Reading XML from arbitrary source</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xdocparserprot.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xdocparserprot.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>parser://method/parameter. Reading XML from arbitrary source
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Parser can read XML from arbitrary source.
+<br>
+Everywhere where XML can be read, one may specify the address of the document in this form&#133;
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000">parser://method/parameter
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Reading a document from address like this is, in fact, reading the result of Parser </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^m</b><b>ethod</b><b>[/p</b><b>arameter</b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> call.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of keeping XSL templates in database
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@main[]
+<br>
+&#133;
+<br>
+#&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>at&nbsp;this&nbsp;point&nbsp;$xdoc&nbsp;contains&nbsp;a&nbsp;document&nbsp;we&nbsp;want&nbsp;to&nbsp;transform
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^xdoc.transform[parser://xsl_database/main.xsl]
+<br>
+
+<br>
+@xsl_database[name]
+<br>
+^string:sql{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>select&nbsp;text&nbsp;from&nbsp;xsl&nbsp;where&nbsp;name='</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Relative links would be handled exactly same way as if files would be read from disk.
+<br>
+Say, if </span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser://xsl_database/main.xsl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> template refers to </span><span style="font-family:Monospace; font-size:10pt; color:#000000">utils/common.xsl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, the document
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser://xsl_database/utils/common.xsl</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> would be read, by calling Parser method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^xsl_database[/utils/common.xsl]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

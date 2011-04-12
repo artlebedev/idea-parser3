@@ -1,0 +1,134 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="string,string, Methods,save,upsize *">
+    <title>save. Saving string to a file</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?stringsave.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='stringsave.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>save. Saving string to a file
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b>string</b><b>.save[</b><b><a href=app1.htm>path_and_filename</a></b><b>]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b>string</b><b>.save[append;</b><b><a href=app1.htm>path_and_filename</a></b><b>]</b><b>
+<br>
+</b><b>^</b><b>string</b><b>.save[</b><b><a href=app1.htm>path_and_filename</a></b><b>;options]</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;</span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Saves or appends </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> to a file in specified directory.
+<br>
+While being saved, string fragments undergo necessary transformation, see  "<a href=opuntainttaint.htm>Transforming data</a>".
+<br>
+
+<br>
+The </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> are <a href=hash.htm>hash</a>, with such keys as:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.charset[</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">charset</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]
+<br>
+$.append(true)
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u>Task: retrieve data from SQL-server A and store them to SQL-server B.
+<br>
+
+<br>
+If both servers are accessible from some computer, it can be done this way:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opconnect.htm>connect</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[&#192;]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$data[
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;to&nbsp;fill&nbsp;'data'&nbsp;with&nbsp;data&nbsp;from&nbsp;SQL-server&nbsp;A</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^connect[&#193;]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=voidsql.htm>void:sql</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$data</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)}
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+In this case, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$data</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in SQL-query insert will be correctly adapted to SQL-dialect used by server B.
+<br>
+
+<br>
+Yet, if one CANNOT access both servers from one computer, the task may be accomplished the following way:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opconnect.htm>connect</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[&#192;]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$data[
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;to&nbsp;fill&nbsp;'data'&nbsp;with&nbsp;data&nbsp;from&nbsp;SQL-server&nbsp;A
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opuntainttaint.htm>untaint</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[sql]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$data</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>')</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;^connect[local&nbsp;fictitious&nbsp;B]{
+<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;connection&nbsp;is&nbsp;needed
+<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only&nbsp;to&nbsp;specify&nbsp;rules&nbsp;to&nbsp;conform&nbsp;SQL-syntax&nbsp;used&nbsp;by&nbsp;SQL-server&nbsp;B
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^string.save[B-inserts.sql]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+In this case file </span><span style="font-family:Monospace; font-size:10pt; color:#000000">B-inserts.sql</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will contain correctly transformed SQL-query.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 19.09.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

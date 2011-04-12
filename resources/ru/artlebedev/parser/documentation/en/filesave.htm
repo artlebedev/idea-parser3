@@ -1,0 +1,82 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="file,file, Methods,save,text,binary">
+    <title>save. Saving file to disk</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filesave.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filesave.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>save. Saving file to disk</b><b>
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^some_file.save[format;</b><b><a href=app1.htm>filename</a></b><b>]
+<br>
+^some_file.save[format;</b><b><a href=app1.htm>filename</a></b><b>;options]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Method saves object to file in specified format and with specified name.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>format</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-format of saving file (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">)
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-name of file and path for the file to be saved
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-<a href=hash.htm>hash</a>, in which you can specify</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;$.charset[</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">charset</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> of saving text file</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>Note</i><i>: if file with specified filename is exist, it will be overwrited.</i><i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>N</i><i>ote</i><i>: </i><i>to append some text to a file, use </i><i>^</i><i><a href=stringsave.htm>string.save</a></i><i>[append;&#133;]</i><i>.</i><i>
+<br>
+</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^archive.save[text;/arch/archive.txt]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+This code will save object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> as </span><span style="font-family:Monospace; font-size:10pt; color:#000000">archive.txt</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in text format to directory </span><span style="font-family:Monospace; font-size:10pt; color:#000000">/arch/</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 19.09.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="date,date, Методы,sql *,sql-string">
+    <title>sql-string. Преобразование даты к виду, стандартному для СУБД</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?datesqlstring.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='datesqlstring.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>sql-string. Преобразование даты к виду, стандартному для СУБД
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^date.sql-string[]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Метод преобразует дату к виду </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>ГГГГ-ММ-ДД&nbsp;ЧЧ:ММ:СС</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, который принят для хранения дат в СУБД. Использование данного метода позволяет вносить в базы данных значения дат без дополнительных преобразований.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$date_now[^date::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datenow.htm>now</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]
+<br>
+^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opconnect.htm>connect</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=app3.htm>строка подключения</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]{
+<br>
+&nbsp;&nbsp;&nbsp;^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=voidsql.htm>void:sql</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>insert&nbsp;into&nbsp;access_log
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(access_date)
+<br>
+&nbsp;&nbsp;&nbsp;values
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^date_now.sql-string[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>')</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;}
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Получаем строку вида '</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2001-11-30&nbsp;13:09:56</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">' с текущей датой и временем, которую сразу помещаем в колонку таблицы СУБД. Без использования данного метода пришлось бы выполнять необходимое форматирование вручную. Обратите внимание, данный метод не формирует кавычки, их требуется задавать вручную.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

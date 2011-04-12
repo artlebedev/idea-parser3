@@ -1,0 +1,96 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="loop *,for">
+    <title>for. Цикл с заданным числом повторов</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opfor.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opfor.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>for. Цикл с заданным числом повторов
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^for[счетчик](от;до){тело}
+<br>
+^for[счетчик](от;до){тело}[разделитель]&nbsp;&nbsp;
+<br>
+^for[счетчик](от;до){тело}{разделитель}
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Оператор </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>for</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> повторяет тело цикла, перебирая значения счетчика </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>от</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> начального значения </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>до</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> конечного. С каждым выполнением тела значение счетчика автоматически увеличивается на 1. 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Счетчик</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя переменной, которая является счетчиком цикла;
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>От</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>до</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - начальное и конечное значения счетчика, математические выражения, задающие соответственно начало и конец диапазона значений, принимаемых счетчиком. Если конечное значение счетчика меньше начального, тело цикла не выполнится ни разу;
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Разделитель</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - строка или код, который вставляется перед каждым непустым не первым телом.
+<br>
+
+<br>
+<i>Замечание: поскольку имена счетчиков могут повторяться, полезно объявлять их локальными переменными метода, где используется цикл</i><i> </i><b><i>for</i></b><i>.</i>
+<br>
+<i>Замечание</i><i>: </i><i>если разделитель задан в виде кода, то этот код выполняется после следующего не пустого тела цикла.</i>
+<br>
+
+<br>
+В любой момент можно принудительно выйти из цикла с помошью оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opbreak.htm>break</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, или принудительно закончить текущую итерацию и перейти к следующей с помощью оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opcontinue.htm>continue</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^for[week](1;4){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="/news/archive.html?week=</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$week</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;Новости&nbsp;за&nbsp;неделю&nbsp;№</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$week</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/a&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Пример выводит ссылки на недели с первой по четвертую, после очередной строки ставится тег перевода строки.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 25.11.2010</font></td>
+</tr>
+</table>
+</body>
+</html>

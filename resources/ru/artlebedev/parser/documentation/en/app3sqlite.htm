@@ -1,0 +1,88 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="connect,connect, Format of connect string,SQLite">
+    <title>For SQLite</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?app3sqlite.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='app3sqlite.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>For SQLite</b><b>
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000">sqlite://path-to-DB-file?
+<br>
+&nbsp;&nbsp;&nbsp;autocommit=1&amp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.3.0]</i></b><b><i>
+<br>
+&nbsp;&nbsp;&nbsp;</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">multi_statements=0&amp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i> [3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+Path to file with database specified from <a href=requestdocroot.htm>document_root</a>.
+<br>
+As path to file with database the driver also accepts special values </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:memory:</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:temporary:</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">. First one means that for this session will be created temporary database i</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">n memory. Second one-for this session will be created temporary database on disk (you don't need to remove database file manually).
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">autocommit</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-by default SQLite commits all queries automatically. If this option sets to 0, Parser executes </span><span style="font-family:Monospace; font-size:10pt; color:#000000">BEGIN</span><span style="font-family:Arial; font-size:10pt; color:#000000"> statement </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">at the beginning </span><span style="font-family:Arial; font-size:10pt; color:#000000">and </span><span style="font-family:Monospace; font-size:10pt; color:#000000">COMMIT/ROLLBACK</span><span style="font-family:Arial; font-size:10pt; color:#000000"> </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">at the end of operator </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opconnect.htm>connect</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, so all statements in one connect operator will be executed in single transaction;<b><i>
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">multi_statements</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-if set to </span><span style="font-family:Arial; font-size:10pt; color:#000000">1, the single SQL query can contains more then one SQL statements separated by ";" character</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"> (</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>character ";" must be </i><i><a href=stringlit.htm>escaped</a></i><i> by character "^"</i></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">)</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Examples</b><b>:
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Assume, file </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>my.db</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> with database located in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>data</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> directory which located near your document root directory. Connect string should look like this:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">sqlite://../data/my.db
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">Assume, you need temporary table in memory without autocommit (one connect-one transaction).</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> Connect string should look like this:</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+sqlite://:memory:?autocommit=0
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 03.07.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="image,image, Поля,width,height,src,EXIF *">
+    <title>Поля</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imagefields.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imagefields.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Поля
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$картинка.src</b><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- имя файла<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$картинка.width</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- ширина
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$картинка.height</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- высота
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$картинка.</b><b>exif</b><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="282">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- <a href=hash.htm>хеш</a> с EXIF информацией<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><i>
+<br>
+</i></span></span></td></tr></table>
+<br>
+
+<br>
+Ключами <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$картинка.exif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> являются названия EXIF тегов, см. спецификацию (<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.exif.org/specifications.html" target="_blank">http://www.exif.org/specifications.html</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">). Значения бывают типов </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>int</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Когда тег имеет несколько значений, они считываются в хеш, ключами которого являются цифры (0…количество_значений-1).</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Часто используемые EXIF теги (см. подробности в спецификации):
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="104">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>Тег</b>
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>Тип</b>
+<br>
+</span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>Описание</b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Make
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Производитель фотоаппарата
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Model
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Модель фотоаппарата
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DateTimeOriginal
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Дата и время съемки
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">ExposureTime
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Выдержка в секундах
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">FNumber
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Диафрагменное число F
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Flash
+<br>
+</span></td><td align="left" valign="top" width="74">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>int</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="295">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">0= не использовалась
+<br>
+другие значения=использовалась
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+<i>Примечание: ключами нестандартных EXIF тегов являются их значения  в десятичной системе счисления.
+<br>
+</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo[^image::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagemeasure.htm>measure</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[photo.jpg]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Имя&nbsp;файла:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo.src</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+Ширина&nbsp;изображения&nbsp;в&nbsp;пикселах:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo.width</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+Высота&nbsp;изображения&nbsp;в&nbsp;пикселах:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo.height</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$date_time_original[$photo.exif.DateTimeOriginal]
+<br>
+^if(def&nbsp;$date_time_original){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Снимок&nbsp;сделан&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^date_time_original.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datesqlstring.htm>sql-string</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Будет выведено имя файла, а также ширина и высота изображения, хранящегося в этом файле. Если снимок был сделан цифровым фотоаппаратом, вероятно, будет выведена дата и время съемки.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

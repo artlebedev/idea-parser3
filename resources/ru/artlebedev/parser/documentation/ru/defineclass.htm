@@ -1,0 +1,296 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="CLASS,auto,USE,BASE">
+    <title>Определяемые пользоватем классы</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?defineclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='defineclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Определяемые пользоватем классы
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Файл в таком формате определяет <a href=lesson5.htm>пользовательский класс</a>:
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+@CLASS
+<br>
+имя_класса
+<br>
+
+<br>
+#&nbsp;необязательно
+<br>
+@USE
+<br>
+файл_с_родительским&nbsp;классом&nbsp;&nbsp;
+<br>
+
+<br>
+#&nbsp;необязательно
+<br>
+@OPTIONS</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+locals
+<br>
+partial</b><b>
+<br>
+dynamic</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>static</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+#&nbsp;необязательно</b><b>
+<br>
+#&nbsp;</b><b>нельзя&nbsp;наследоваться&nbsp;от&nbsp;системных&nbsp;классов</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i> [3.4.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+@BASE
+<br>
+имя_родительского_класса&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>#&nbsp;так&nbsp;рекомендуется&nbsp;называть&nbsp;</b><b><a href=obj.htm>метод-конструктор</a></b><b>&nbsp;класса
+<br>
+@create[параметры]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>#&nbsp;далее&nbsp;следуют&nbsp;</b><b><a href=definemethod.htm>определения методов</a></b><b>&nbsp;класса
+<br>
+@method1[параметры]
+<br>
+…
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Модуль можно подключить (см. «<a href=opuse.htm>Подключение модулей</a>») к произвольному файлу - там появится возможность использования определенного здесь класса.
+<br>
+
+<br>
+Если происходит обращение к неизвестному классу, вызывается метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>autouse</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>MAIN</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, и имя класса </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">передается единственным параметром этому методу.</span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Если не указать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@CLASS</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, файл определит ряд дополнительных <a href=opuserdefined.htm>операторов</a>.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Если определен метод…</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@auto[]
+<br>
+код</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+…он будет выполнен автоматически при загрузке класса как статический метод (так называемый статический конструктор). Используется для инициализации статических полей (переменных) класса.
+<br>
+<i>Примечание: результат работы метода игнорируется - никуда не попадает.</i>
+<br>
+
+<br>
+У метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>auto</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> может быть объявлен параметр:</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><b>@auto[</b><b>filespec</b><b>]</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">В этом параметре Parser передаст полное имя файла, содержащего метод.
+<br>
+
+<br>
+В Parser создаваемые классы наследуют методы классов, от которых были унаследованы. Унаследованные методы можно переопределить.
+<br>
+<i>Примечание: метод </i><b><i>auto</i></b><i> </i><i>не наследуется, благодаря чему не происходит его множественного выполнения, сначала при инициализации родительского класса, а затем - текущего.</i></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.1]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+В том случае, когда в качестве родительского класса выступает другой пользовательский класс, необходимо <a href=opuse.htm>подключить</a> модуль, в котором он находится, а также объявить класс базовым (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@BASE</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Для того, чтобы пользоваться методами и полями родительских классов, необходимо использовать следующие конструкции:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^класс:метод[</b><b><a href=params.htm>параметры</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - вызов метода родительского класса<i> (примечание: хотя такой синтаксис вызова метода и похож на синтаксис вызова статического метода, фактически, в случае динамического метода, происходит динамический вызов метода родительского класса)</i>, для обращения к своему ближайшему родительскому классу (базовому классу) можно использовать конструкции </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^BASE::конструктор[</b><b><a href=params.htm>параметры</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^BASE:метод[</b><b><a href=params.htm>параметры</a></b><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+С помощью </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@OPTIONS</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> можно определить дополнительное поведение класса.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Примечание: пробельные символы в конце метокоманд </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>@USE</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>, </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>@CLASS</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>, </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>@BASE</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>, </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>@OPTIONS</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> </i><i>игнорируются.</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.4.1]</i></b>
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+Так, указанная опция </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>locals</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> автоматически объявит локальными все переменные во всех методах определяемого класса. Если она указана, то для обращения к полям объекта или класса необходимо пользоваться системной переменной <a href=definemethod.htm>self</a>.
+<br>
+
+<br>
+С помощью опции </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>partial</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> можно разрешить последующую подгрузку методов в класс. Если впоследствии будет сделан <a href=opuse.htm>use</a> файла, в котором указано такое-же имя класса и эта-же опция, то вместо создания нового класса с таким-же именем, описанные в подключаемом файле методы будут добавлены к ранее загруженному классу. Опция может быть удобна для условного добавления в класс громоздких и редкоиспользуемых методов. После создания класса с использованием данной опции возможно лишь добавление методов классу, но не изменение его родительского класса.</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+С помощью опций </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>static</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>dynamic</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> можно задать возможный тип вызова определяемых в файле методов класса. П</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">о умолчанию описываемые в файле методы могут вызываться как динамически так и статически, что может быть не всегда безопасно, и эти опции помогут запретить небезопасные вызовы.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+Пример:
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@CLASS
+<br>
+my</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+@OPTIONS
+<br>
+dynamic
+<br>
+
+<br>
+#&nbsp;вызов&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$object[^my::create[]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;будет&nbsp;допустим</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>,&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>а&nbsp;вызов&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$var[^my:create[]]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>будет&nbsp;вызывать&nbsp;исключение
+<br>
+@create[]
+<br>
+Код
+<br>
+
+<br>
+#&nbsp;вызов&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^object.method1[]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>будет&nbsp;допустим,&nbsp;а&nbsp;вызов&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^my:method1[]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>будет&nbsp;вызывать&nbsp;исключение
+<br>
+@method1[]
+<br>
+Код
+<br>
+
+<br>
+#&nbsp;вызов&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^my:method</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>2</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>будет&nbsp;допустим,&nbsp;а&nbsp;вызов&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^object.method</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>2</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>будет&nbsp;вызывать&nbsp;исключение
+<br>
+@static:method2[]
+<br>
+Код
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Работа с переменными в статических методах
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Поиск значения переменной происходит в:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">в списке <a href=definemethod.htm>локальных</a> переменных;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">в текущем классе или его родителях.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Запись значения переменной производится в уже имеющуюся переменную (см. область поиска выше), если таковая имеется. В противном случае создается новая переменная (поле) в текущем классе.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Работа с переменными в динамических методах</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Поиск значения переменной происходит в:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">в списке <a href=definemethod.htm>локальных</a> переменных;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">в текущем объекте и его классе;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">в родительских объектах и их классах.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Запись значения переменной производится в уже имеющуюся переменную (см. область поиска выше), если таковая имеется. В противном случае создается новая переменная (поле) в текущем объекте.
+<br>
+
+<br>
+<i>Примечание: старайтесь всячески избегать использования полей класса не из методов класса, кроме простейших случаев! По-возможности, общайтесь с объектом только через его методы.
+<br>
+</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Системное поле класса: CLASS
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$имя_класса:CLASS</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - хранит ссылку на класс объекта. 
+<br>
+
+<br>
+Это удобно при задании контекста компиляции кода (см. «<a href=opprocess.htm>process. Компиляция и исполнение строки</a>».
+<br>
+
+<br>
+По этой ссылке также доступны статические поля класса, пример:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@main[]
+<br>
+^method[$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=cookieclass.htm>cookie</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>:CLASS]
+<br>
+
+<br>
+@method[storage]
+<br>
+$storage.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=cookiestats.htm>field</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Этот код напечатает значение </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=cookiestats.htm>$cookie:field</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Системное поле класса: CLASS_NAME</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.2.2]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$объект.CLASS_NAME</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - хранит имя класса объекта. 
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$var[123]
+<br>
+$var.CLASS_NAME</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b>Выведет 'string'.<b>
+<br>
+</b></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

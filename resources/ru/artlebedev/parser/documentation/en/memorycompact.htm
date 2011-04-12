@@ -1,0 +1,88 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="memory,memory, Methods,compact">
+    <title>compact. Collecting garbage</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?memorycompact.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='memorycompact.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>compact. Collecting garbage
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^memory:compact[]</b><b>
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+This method collects so-called "garbage" in memory, cleaning it up for reuse by your code.
+<br>
+Garbage is memory no longer used by your code, i.e. to which there are no references in your code.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">For example:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$table[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablesql.htm>sql</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{query}]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=vars.htm>$table[]</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;free&nbsp;up&nbsp;memory&nbsp;occupied&nbsp;by&nbsp;SQL-query&nbsp;result
+<br>
+^memory:compact[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Parser does not collect garbage automatically leaving decision-making to coder: call </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>compact</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> from place(s) where you expect greatest benefit, for example before <a href=xdoctransform.htm>XSL-transformation</a>.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=statusmemory.htm>$status:memory</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will help you fix and find places most favorable for collecting garbage.
+<br>
+
+<br>
+<i>Important notice: it is necessary to use local variables as intensely as possible and zero out, which you no longer need. All this will help </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><i>compact</i></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> free up more memory.
+<br>
+</i>
+<br>
+<i>Important notice: total memory cleaning is not guaranteed.</i><i>
+<br>
+</i></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 20.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

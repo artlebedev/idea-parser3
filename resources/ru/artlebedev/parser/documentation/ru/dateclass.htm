@@ -1,0 +1,100 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="date,date, Класс">
+    <title>Date  (класс)</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?dateclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='dateclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Date  (класс)
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Класс <span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> предназначен для работы с датами. Возможные варианты использования - календари, всевозможные проверки, основывающиеся на датах и т.п. 
+<br>
+
+<br>
+Диапазон возможных значений - от 01.01.1970 до 01.01.2038 года. 
+<br>
+Не забывайте, что в нашем календарном времени есть разрывы и нахлесты: во многих странах принято так-называемое «летнее» время, когда весной часы переводят вперед, а осенью назад.
+<br>
+Скажем, в Москве не бывает времени «02:00, 31 марта 2002», а время «02:00, 27 октября 2002» бывает дважды.
+<br>
+
+<br>
+Числовое значение объекта класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>date</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> равно числу суток с EPOCH (01.01.1970 00:00:00, UTC) до даты, заданной в объекте. Этим значением полезно пользоваться для вычисления относительной даты, например:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;проверка&nbsp;"обновлен&nbsp;ли&nbsp;файл&nbsp;позже,&nbsp;чем&nbsp;неделю&nbsp;назад?"
+<br>
+^if($last_update&nbsp;&gt;&nbsp;$now-7){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;новый
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;старый
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Число суток может быть дробным, скажем, полтора дня = </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1.5</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. 
+<br>
+
+<br>
+Обычно класс оперирует локальными датой и временем, однако можно узнать значение хранимой им даты/времени в произвольном часовом поясе, см. </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^date.</b><b><a href=dateroll.htm>roll</a></b><b>[TZ;…]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+
+<br>
+Для общения между компьютерами, работающими в разных часовых поясах, удобно обмениваться значениями даты/времени, не зависящими от пояса - здесь очень удобен UNIX формат, представляющий собой число секунд, прошедших с EPOCH.
+<br>
+
+<br>
+Unix формат можно использовать в JavaScript и ряде других языков сценариев, работающих в браузере.
+<br>
+
+<br>
+Parser полностью поддерживает работу с UNIX форматом дат.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 24.12.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

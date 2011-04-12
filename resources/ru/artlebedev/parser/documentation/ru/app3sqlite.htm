@@ -1,0 +1,86 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="connect,connect, Формат строки подключения,SQLite">
+    <title>Для SQLite</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?app3sqlite.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='app3sqlite.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Для SQLite
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000">sqlite://path-to-DB-file?
+<br>
+&nbsp;&nbsp;&nbsp;<a href=app3clientcharset.htm>ClientCharset</a>=UTF-8&amp;&nbsp;<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;autocommit=1&amp;&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]
+<br>
+</i></b>
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">Путь к файлу с базой данных задаётся относительно <a href=requestdocroot.htm>document_root</a>, кроме того в качестве пути к файлу драйвер понимает специальные значения </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:memory:</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:temporary:</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">. В первом случае на сессию будет создаваться временная база данных в памяти, а во втором случае -  на диске.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">autocommit</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - по умолчанию SQLite автоматически выполняет </span><span style="font-family:Monospace; font-size:10pt; color:#000000">COMMIT</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> после каждого успешно выполненного запроса. Если указать опцию </span><span style="font-family:Monospace; font-size:10pt; color:#000000">autocommit=0</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, то такое поведение будет изменено, и Parser в начале оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opconnect.htm>connect</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будет выдавать комманду </span><span style="font-family:Monospace; font-size:10pt; color:#000000">BEGIN</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а в конце - </span><span style="font-family:Monospace; font-size:10pt; color:#000000">COMMIT</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000">ROLLBACK</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Таким образом все запросы, написанные внутри одного оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000">connect</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будут выполняться в рамках одной транзакции;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000">multi_statements</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - если установлен в 1, то текст SQL запроса может содержать несколько инструкций, разделённых символом ';' (<i>символ ";" необходимо </i><i><a href=stringlit.htm>предварять</a></i><i> символом "^"</i>);<b><i>
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><a href=app3clientcharset.htm>ClientCharset</a></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - по умолчанию драйвер перекодирует все отправляемые текстовые данные в UTF-8 и обратно (числа и BLOB-ы не перекодируются), однако в некоторых случаях, если у вас есть БД, содержащая данные в иной кодировке (что в применении к SQLite некорректно), используя данную опцию вы можете задать кодировку, в которую драйвер будет производить перекодирование данных при общении с SQL-сервером.<b><i>
+<br>
+</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Примеры
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">Для работы с базой данных </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>my.db</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> которая располагается в директории </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>data</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, находящейся рядом с директорией, на которую указывает document_root, </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">строку подключения стоит написать так</span><span style="font-family:Arial; font-size:10pt; color:#000000">:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">sqlite://../data/my.db
+<br>
+
+<br>
+</span><span style="font-family:Arial; font-size:10pt; color:#000000">Для работы с временной базой данных, расположенной в памяти и без autocommit, </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">строку подключения стоит написать так</span><span style="font-family:Arial; font-size:10pt; color:#000000">:</span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+sqlite://:memory:?autocommit=0
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 03.07.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

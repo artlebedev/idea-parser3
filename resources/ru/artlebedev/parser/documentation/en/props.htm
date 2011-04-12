@@ -1,0 +1,400 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="properties *,getter *,setter *,@GET_name,@SET_name[value],GET_name,SET_name[value]">
+    <title>Properties</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?props.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='props.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Properties&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.2.0]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET_name[]
+<br>
+</b><b>code,&nbsp;returns&nbsp;value</b><b>
+<br>
+
+<br>
+@SET_name[value]
+<br>
+co</b><b>de</b><b>,&nbsp;accepts&nbsp;new&nbsp;$value</b><b>
+<br>
+
+<br>
+@GET_DEFAULT[]</b><b>&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET_DEFAULT[name]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code,&nbsp;executed&nbsp;when&nbsp;non-existing&nbsp;field&nbsp;is&nbsp;accessed&nbsp;for&nbsp;reading</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@SET_DEFAULT[name;value]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.4.1]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code,&nbsp;executed&nbsp;when&nbsp;non-existing&nbsp;field&nbsp;is&nbsp;accessed&nbsp;for&nbsp;writing</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET[]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET[access&nbsp;type]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.4.0]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>code,&nbsp;executed&nbsp;when&nbsp;class/object&nbsp;is&nbsp;used&nbsp;in&nbsp;different&nbsp;calling&nbsp;contexts
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+You can define default getter (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET_DEFAULT[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">)-special getter, which will be executed</span><span style="font-family:Arial; font-size:10pt; color:#000000"> when non-existing field is accessed for reading</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. The field name, which was accessed, will be available in method only one param.
+<br>
+<i>Important</i>: <i>it is forbidden to work with default getter as with ordinary getter: if you try to write $DEFAULT you will receive an error message.</i>
+<br>
+
+<br>
+You can also specify default setter (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@SET_DEFAULT</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">)-special setter, which will be executed when non-existing fiels is accessing for writing. The field name, which was accessed and the written value will be available in method's params.
+<br>
+
+<br>
+User-defined classes may have special getter </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, which will be executed when class/object is used in different calling contexts such as scalar context, expression, etc. The access type, which was used, will be available in the method only param. The access type values are: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>def</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>expression</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>bool</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>hash</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file.</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Note: in construction $a[$b] method @GET[] is not executed.</i>
+<br>
+
+<br>
+<a href=definemethod.htm>Methods</a> named like that define "<b>property</b>", which one can use as an ordinary <a href=vars.htm>variable</a>:
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="179">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>we w</i><i>rite</i><i>
+<br>
+</i></span></td><td align="left" valign="top" width="195">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>Parser executes</i><i>
+<br>
+</i></span></td></tr><tr><td align="left" valign="top" width="179">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$name</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="195">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^GET_name[]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="179">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$name</b><b>[</b><b>value</b><b>]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="195">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^SET_name</b><b><a href=params.htm>[value]</a></b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+<i>N</i><i>ote</i><i>: </i><i>if writing or reading property is not needed, corresponding method may be ommited.
+<br>
+Important: it is forbidden to have both properties and variables with same name.
+<br>
+</i>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b><b>: age </b><b>and e-mail</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Take a person. It is convenient to store it's birthday, but we often need to output the age. Person needs e-mail, but one can forget to check its validity.
+<br>
+
+<br>
+Let <a href=defineclass.htm>class</a> a handle persons, its properties "age" and "e-mail" allow us to hide unnecessary details:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opuse.htm>USE</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>/</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>person.p</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>@main[]</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$person[^person::create[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>John&nbsp;Dow</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.birthday[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=dateclass.htm>date</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datecreateabs.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(2000;6;3)]
+<br>
+]]
+<br>
+#&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>can&nbsp;change,&nbsp;but&nbsp;they&nbsp;check&nbsp;us</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$person.email[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>john@dow.com</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$person.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;(</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$person.email</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>)</b><b>,&nbsp;age:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$person.age</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Outputs:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>John&nbsp;Dow&nbsp;(</b><b>john@dow.com</b><b>)</b><b>,&nbsp;age:&nbsp;</b><b>5&lt;br&nbsp;/&gt;</b><b>&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(will be older with time)
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">It is now allowed to change person's age:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>t</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>his&nbsp;will&nbsp;cause&nbsp;error</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>!
+<br>
+$person.age(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>99</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">It is not allowed to assign invalid e-mail values:</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>t</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>his&nbsp;will&nbsp;cause&nbsp;error</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>!
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$person.email[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>john#dow.com</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Definition of person class
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Above example works with </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>person</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> class, one must define it and it's properties.
+<br>
+In web-space root create </span><span style="font-family:Monospace; font-size:10pt; color:#000000">person.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> file, put this code inside it:</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=defineclass.htm>CLASS</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+person
+<br>
+
+<br>
+@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>create[p]
+<br>
+$name[$p.name]
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>birthday</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[$p.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>birthday</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;"age"&nbsp;prop</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>erty</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@GET_age[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=definemethod.htm>[now;today;celebday]</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$now[^date::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datenow.htm>now</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]
+<br>
+$today[^date::create($now.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datefields.htm>year</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;$now.month;$now.day)]
+<br>
+$celebday[^date::create($now.year;$birthday.month;$birthday.day)]
+<br>
+#&nbsp;numeric&nbsp;value&nbsp;of&nbsp;boolean&nbsp;expression:&nbsp;true=1;&nbsp;false=0
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=definemethod.htm>result</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(^if($birthday&gt;$today)(0)($today.year&nbsp;-&nbsp;$birthday.year&nbsp;-&nbsp;($today&lt;$celebday)))
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+#&nbsp;"e-mail</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"&nbsp;property</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+@SET_email[value]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(!^Lib:isEmail[$value]){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opthrow.htm>throw</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[email.invalid;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>I</b><b>ncorrect</b><b>&nbsp;e-mail:&nbsp;'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$value</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+}
+<br>
+#</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>variable&nbsp;name&nbsp;must&nbsp;differ&nbsp;from&nbsp;property&nbsp;name!
+<br>
+$private_email[$value]
+<br>
+
+<br>
+@GET_email[]
+<br>
+$private_email
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>N</i><i>ote</i><i>: </i><i>class </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Lib</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i> with method </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>isEmail</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> and other useful methods and </i><i><a href=defineclass.htm>operators</a></i><i>: </i><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://www.parser.ru/off-line/examples/lib/Lib.zip" target="_blank">http://www.parser.ru/off-line/examples/lib/Lib.zip</a></u></i></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+Note: it is better to store classes in a separate folder and not to specify path when using them. See </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b><a href=app1pathclass.htm>CLASS_PATH</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+
+<br>
+
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example</b><b> of</b><b> class</b><b> which is</b><b> </b><b>similar to table class and has additional functionality</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@main[]
+<br>
+$t[^MyTable::create{a&nbsp;&nbsp;&nbsp;b
+<br>
+0a&nbsp;&nbsp;&nbsp;0b
+<br>
+1a&nbsp;&nbsp;&nbsp;1</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>b</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+2a&nbsp;&nbsp;&nbsp;2b
+<br>
+3a&nbsp;&nbsp;&nbsp;3b}]
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Object&nbsp;value&nbsp;in&nbsp;expression:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^eval($t)&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^^t.count:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^t.count[]&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Print&nbsp;content&nbsp;of&nbsp;the&nbsp;object:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^print[$t]&lt;br&nbsp;/&gt;
+<br>
+
+<br>
+
+<br>
+&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Copy&nbsp;object&nbsp;and&nbsp;print&nbsp;^^c.count[]:</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$c[^MyTable::create[$t]]
+<br>
+^c.count[]&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Remove&nbsp;2&nbsp;lines&nbsp;starting&nbsp;with&nbsp;offset=1&nbsp;and&nbsp;print&nbsp;content&nbsp;of&nbsp;the&nbsp;object:</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^c.remove(1;2)
+<br>
+^print[$c]&lt;br&nbsp;/&gt;
+<br>
+
+<br>
+
+<br>
+&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Create&nbsp;new&nbsp;table-object&nbsp;based&nbsp;on&nbsp;MyTable&nbsp;and&nbsp;print&nbsp;^^z.count[]:</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$z[^table::create[$t]]
+<br>
+^z.count[]&lt;br&nbsp;/&gt;
+<br>
+
+<br>
+
+<br>
+@print[t]
+<br>
+^t.menu{$t.a=$t.b}[&lt;br&nbsp;/&gt;]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Definition of </b><b>MyTable </b><b>class</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@CLASS
+<br>
+MyTable
+<br>
+
+<br>
+@create[uParam]
+<br>
+^switch[$uParam.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=defineclass.htm>CLASS_NAME</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]{
+<br>
+&nbsp;&nbsp;&nbsp;^case[string;void]{$t[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{$uParam}]}
+<br>
+&nbsp;&nbsp;&nbsp;^case[table;MyTable]{$t[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreateclone.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[$uParam]]}
+<br>
+&nbsp;&nbsp;&nbsp;^case[DEFAULT]{^throw[MyTable;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Unsupported&nbsp;type&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$uParam.CLASS_NAME]}
+<br>
+}
+<br>
+
+<br>
+#&nbsp;method&nbsp;will&nbsp;return&nbsp;value&nbsp;in&nbsp;different&nbsp;calling&nbsp;contexts
+<br>
+@GET[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>sMode</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^switch[$sMode]{
+<br>
+&nbsp;&nbsp;&nbsp;^case[table]{$result[$t]}
+<br>
+&nbsp;&nbsp;&nbsp;^case[bool]{$result($t!=0)}
+<br>
+&nbsp;&nbsp;&nbsp;^case[def]{$result(true)}
+<br>
+&nbsp;&nbsp;&nbsp;^case[expression;double]{$result($t)}
+<br>
+&nbsp;&nbsp;&nbsp;^case[DEFAULT]{^throw[MyTable;Unsupported&nbsp;mode&nbsp;'$sMode']}
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+
+<br>
+#&nbsp;method&nbsp;will&nbsp;handle&nbsp;a</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>ccess&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>to&nbsp;the&nbsp;"columns"
+<br>
+@GET_DEFAULT[sName]
+<br>
+$result[$t.$sName]
+<br>
+
+<br>
+
+<br>
+#&nbsp;wrappers&nbsp;for&nbsp;all&nbsp;existing&nbsp;methods&nbsp;are&nbsp;required
+<br>
+@count[]
+<br>
+^t.count[]
+<br>
+
+<br>
+@menu[jCode;sSeparator]
+<br>
+^t.menu{$jCode}[$sSeparator]
+<br>
+
+<br>
+
+<br>
+#&nbsp;new&nbsp;functionality
+<br>
+@remove[iOffset;iLimit]
+<br>
+$iLimit(^iLimit.int(0))
+<br>
+$t[^t.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tableselect.htm>select</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(^t.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tableoffset.htm>offset</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]&lt;$iOffset&nbsp;||&nbsp;^t.offset[]&gt;=$iOffset+$iLimit)]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i>
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

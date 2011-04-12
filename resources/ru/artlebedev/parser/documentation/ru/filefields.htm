@@ -1,0 +1,174 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="file,file, Поля,name,size,text,mime-type,HTTP *">
+    <title>Поля</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filefields.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filefields.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Поля
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>name. Имя файла
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.name</b></span></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Поле содержит имя файла. Объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> имеет поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, если пользователь закачал файл через поле формы. Также в конструкторе </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file::load</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> может быть указано альтернативное имя файла.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>size. Размер файла
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.size</b></span></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Поле содержит размер файла в байтах.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>text. Текст файла
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.text</b></span></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Поле содержит текст файла. Использование этого поля позволяет выводить на странице содержимое текстовых файлов или результатов работы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::exec</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Дополнительная информация о файле</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.cdate</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - дата создания;  
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.mdate</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - дата изменения;  
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.adate</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - дата последнего обращения к файлу.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">Поля доступны если объект получен конструкторами </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filestat.htm>file::stat</a></b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file::load</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> путём загрузки локального файла</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>stderr. Текст ошибки выполнения программы
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.stderr</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+При выполнении </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::exec</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> сюда попадает текст из стандартного потока ошибок программы.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>status. Статус получения файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.status</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+При выполнении </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::exec</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>status</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> попадает статус выполнения программы (0=успех).
+<br>
+При выполнении </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=fileload.htm>file::load</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с <a href=app1.htm>HTTP сервера</a>, сюда попадает статус выполнения HTTP запроса (200=успех).
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>mode. Формат файла&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>4</i></b><b><i>.0]</i></b>
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.mode</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">Может иметь значение </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>text</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>binary.</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>content-type. MIME-тип файла
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.content-type</b></span></span><span style="font-family:Times New Roman; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Поле может содержать MIME-тип файла. При выполнении CGI-скрипта (см. </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filecgiexec.htm>file::cgi</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) MIME-тип может задаваться CGI-скриптом, полем  заголовка ответа «</span><span style="font-family:Monospace; font-size:10pt; color:#000000">content-type</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">». При загрузке (см. </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=fileload.htm>file::load</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) или получении информации о файле (см. </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=filestat.htm>file::stat</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) MIME-тип определяется по таблице </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b><a href=parserconfmethod.htm>MAIN:MIME-TYPES</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (см. «<a href=parserconfmethod.htm>Конфигурационный метод</a>»), если в таблице расширение имени файла найдено не будет, будет использован тип «</span><span style="font-family:Monospace; font-size:10pt; color:#000000">application/octet-stream</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">».
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Поля HTTP-ответа
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Если файл был загружен с HTTP-сервера, поля заголовков HTTP-ответа доступны, как поля объекта класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.ПОЛЕ_HTTP_ОТВЕТА</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">  (ЗАГЛАВНЫМИ БУКВАМИ)</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Например: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$файл.SERVER</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Если один заголовок повторяется в ответе несколько раз, все его значения доступны в поле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>tables</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.tables[
+<br>
+&nbsp;&nbsp;&nbsp;$.HTTP-ЗАГОЛОВОК[</b>таблица&nbsp;значений,&nbsp;единственный&nbsp;столбец&nbsp;<b>value]
+<br>
+]</b>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Пример:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$f[^file::load[binary;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://www.parser.ru</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+^f.tables.foreach[key;value]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$key=^value.menu{$value.value}[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>|</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

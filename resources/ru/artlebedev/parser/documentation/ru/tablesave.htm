@@ -1,0 +1,82 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="table,table, Методы,save">
+    <title>save. Сохранение таблицы в файл</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tablesave.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tablesave.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>save. Сохранение таблицы в файл
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^таблица.save[путь]</b>
+<br>
+<b>^таблица.save[путь;</b><b><a href=tableoptionsfmt.htm>опции</a></b><b>]&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+<b>^таблица.save[nameless;путь]&nbsp;&nbsp;&nbsp;
+<br>
+^таблица.save[nameless;путь;</b><b><a href=tableoptionsfmt.htm>опции</a></b><b>]&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+<b>^таблица.save[append;путь]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+<b>^таблица.save[append;путь;</b><b><a href=tableoptionsfmt.htm>опции</a></b><b>]&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Сохраняет таблицу в текстовый файл в формате tab-delimited.
+<br>
+Использование опции </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>nameless</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> сохраняет таблицу без имен столбцов.
+<br>
+При использование опции </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>append</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> таблица сохраняется с именами столбцов только в том случае, если файла ещё не существует.
+<br>
+Также доступны опции записи, см. «<a href=tableoptionsfmt.htm>Опции формата файла</a>», позволяющие, например, сохранить файл в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">.csv</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> формате, для последующей загрузки данных в программы, которые понимают такой формат (Miscrosoft Excel).
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^conf.save[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/conf/old_conf.txt</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Таблица </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$conf</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будет сохранена в текстовом файле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>old_conf.txt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в каталоге </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/conf/</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

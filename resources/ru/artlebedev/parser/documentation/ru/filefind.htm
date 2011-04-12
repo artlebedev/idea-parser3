@@ -1,0 +1,86 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="file,file, Статические методы,find">
+    <title>find. Поиск файла на диске</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filefind.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filefind.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>find. Поиск файла на диске
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file:find[файл]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file:find[файл]{код,&nbsp;если&nbsp;файл&nbsp;не&nbsp;найден}</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Метод возвращает строку (объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href=stringclass.htm>string</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), содержащую имя файла с путем от корня веб пространства, если он существует по указанному пути, либо в каталогах более высокого уровня. В противном случае выполняется заданный код, если он указан.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример  без указания пути
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;img&nbsp;src="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^file:find[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header.gif</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/i/header.gif</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Допустим, этот код расположен в документе </span><span style="font-family:Monospace; font-size:10pt; color:#000000">/news/sport/index.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, здесь ищется файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header.gif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в каталоге </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/news/sport/</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, разработанный специально для раздела спортивных новостей. Если он не найден, и не существует </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/news/sport/header.gif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, то используется стандартный заголовочный рисунок новостного раздела.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример с указанием пути
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;img&nbsp;src="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^file:find[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/i/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$section</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$subsection</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/header.gif</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Здесь ищется файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>header.gif</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в каталоге </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/i/раздел/подраздел/</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Если он не найден, он будет последовательно искаться в каталогах
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/i/раздел/
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/i/
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 20.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

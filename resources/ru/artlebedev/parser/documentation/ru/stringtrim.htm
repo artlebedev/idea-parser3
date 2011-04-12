@@ -1,0 +1,100 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="string,string, Методы,trim">
+    <title>trim. Отсечение букв с концов строки</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?stringtrim.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='stringtrim.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>trim. Отсечение букв с концов строки&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^строка.trim[]
+<br>
+^строка.trim[откуда]
+<br>
+^строка.trim[откуда;набор]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Метод отсекает любые буквы из указанного </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>набора</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с концов строки. По умолчанию отсекаются white spaces с начала и конца строки.
+<br>
+Можно указать, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>откуда</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> именно отсекать буквы, задав одно из значений:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>both</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - отсекать и с начала и с конца;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>left</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>start</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - отсекать с начала;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>right</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>end</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - отсекать с конца.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+&nbsp;<br>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b></span></td><td></td></tr></table><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример отсечения white space
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;Вася&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^name.trim[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&nbsp;Вася&nbsp;"
+<br>
+"Вася"
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример отсечения указанных букв
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$path[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/section/subsection/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+^path.trim[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>right</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;/]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/section/subsection</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 04.07.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

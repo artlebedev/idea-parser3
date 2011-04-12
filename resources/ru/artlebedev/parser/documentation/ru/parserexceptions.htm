@@ -1,0 +1,331 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="exception">
+    <title>Системные ошибки</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?parserexceptions.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='parserexceptions.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Системные ошибки
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>type</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>Пример возникновения</b>
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>Описание</b>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">parser.compile<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^test[}</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка компиляции кода. Непарная скобка, и т.п.<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+&nbsp;<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">parser.runtime<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=opif.htm>if</a></b><b>(0).</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Методу передано неправильное количество параметров или не тех типов, и т.п.<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">parser.interrupted<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Загрузка страницы прервалась (пользователь остановил загрузку страницы или истекло время ожидания)<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">number.zerodivision<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=opeval.htm>eval</a></b><b>(1/0)</b><b>,</b><span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000"> </span><span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^eval(1\0)</b></span><span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^eval(1%0)</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Деление или остаток от деления на ноль<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">number.format<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^eval(abc*5)</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Преобразование к числу нечисловых данных<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">file.missing<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=filedelete.htm>file:delete</a></b><b>[skdfjs.delme]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Файл отсутствует<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">file.access<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=tableload.htm>table::load</a></b><b>[.]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Нет доступа к файлу <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">file.read<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка чтения файла<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">file.execute<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка выполнения внешней программы, например отсутствующий CGI заголовок при выполнении <span style="font-family:Monospace; font-size:8pt; color:#000000">^file::cgi[...]</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">date.range<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=datecreateabs.htm>date::create</a></b><b>(1950;1;1)</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Дата не принадлежит <a href=dateclass.htm>поддерживаемому диапазону</a><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">pcre.execute<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^строка.</b><b><a href=stringmatch.htm>match</a></b><b>[((\w)]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка компиляции или выполнения PCRE шаблона<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">image.format<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=imagemeasure.htm>image::measure</a></b><b>[index.html]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Файл изображения имеет неправильный формат (возможно, расширение имени не соответствует содержимому, или файл пуст?)<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">sql.connect<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=opconnect.htm>connect</a></b><b>[mysql://baduser:pass@host/db]{}</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер баз данных не может быть найден или временно недоступен<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">sql.execute<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=voidsql.htm>void:sql</a></b><b>{bad&nbsp;select}</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка исполнения SQL запроса<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">xml<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=xdoccreatexml.htm>xdoc::create</a></b><b>{&lt;forgot?&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>}</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибочный XML код или операция<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">smtp.connect<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">SMTP сервер не может быть найден или временно недоступен<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">smtp.execute<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка отправки письма по SMTP протоколу<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">email.format<span style="font-family:Monospace; font-size:10pt; color:#000000">&nbsp;</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка в email адресе: адрес пустой или содержит неправильные символы<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">email.send<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Ошибка запуска почтовой программы<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">http.host<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=fileload.htm>file::load</a></b><b>[http://notfound/there]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер не найден<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">http.connect<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^file::load[http://not_accepting/there]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер найден, но не принимает соединение<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">http.response<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^file::load[http://ok/there]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер найден, соединение принял, но выдал некорректный ответ (нет статуса, заголовка)<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">http.status<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^file::load[http://ok/there]</b><span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер выдал ответ со статусом не равным 200 (не успешное выполнение запроса)<span style="font-family:Monospace; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">http.timeout<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Загрузка документа с HTTP-сервера не завершилась в отведенное для нее время<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">curl.host<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=curlload.htm>curl:load</a></b><b>[$.url[http://notfound/there]]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер не найден<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">curl.connect<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=curlload.htm>curl:load</a></b><b>[$.url[http://not_accepting/there]]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер найден, но не принимает соединение<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">curl.status<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=curlload.htm>curl:load</a></b><b>[$.url[http://ok/there]]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер выдал ответ со статусом не равным 200 (не успешное выполнение запроса)<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">curl.ssl<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^</b><b><a href=curlload.htm>curl:load</a></b><b>[$.url[http</b><b>s</b><b>://not_accepting/there]]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Сервер найден, но не принимает соединение по причине ошибок с сертификатом<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">curl.timeout<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Загрузка документа с сервера не завершилась в отведенное для нее время<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span style="font-family:Monospace; font-size:8pt; color:#000000">curl.fail<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="333">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></td><td align="left" valign="top" width="210">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Другая ошибка при общении с сервером через библиотеку libcurl.<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+</span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

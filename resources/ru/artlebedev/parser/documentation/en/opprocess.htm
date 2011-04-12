@@ -1,0 +1,156 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="process,include">
+    <title>process. Compiling and processing string</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opprocess.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opprocess.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>process. Compiling and processing string
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^process{string}
+<br>
+^process[scope]{string}
+<br>
+^process[scope]{string}</b><b>[options]</b><b>
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>String</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be compiled and executed as code in Parser, within specified </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>scope</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or current scope. Specified </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>scope</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> can be an <a href=obj.htm>object</a> or a <a href=defineclass.htm>class</a>, but </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>not&nbsp;method</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (this meaning if you process something inside your method, the method`s local varuables will not available inside processed code).
+<br>
+
+<br>
+This operator is useful when you need to store fragments of code or your own methods in files with extension other than </span><span style="font-family:Monospace; font-size:10pt; color:#000000">.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-and which therefore will not be processed by Parser by default-or in a DB.
+<br>
+
+<br>
+Several </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>options</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (<a href=hash.htm>hash</a>) may be specified:
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.main[</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">a new name for </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> method, declared in code in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.file[</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">a name of file, from which this </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> comes from</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$.lineno(</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">a line number in file, where this </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>string</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> cames from</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>.</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> m</i><i>ay be negative</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>)</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Simple examples
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^process{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@extra[]
+<br>
+&nbsp;&nbsp;&nbsp;</b><b>PS:&nbsp;you&nbsp;look&nbsp;really&nbsp;good&#133;</b></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>extra</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be added to the current class and you will be able to call it later on.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^process[$engine:</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=defineclass.htm>CLASS</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@start[]
+<br>
+&nbsp;&nbsp;&nbsp;</b><b>5&#133;&nbsp;4&#133;&nbsp;3&#133;&nbsp;2&#133;&nbsp;1&#133;&nbsp;GO!</b></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>start</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be added to user class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>engine</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$running_man[^man</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=obj.htm>::</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>create[Jack]]
+<br>
+^process[$running_man]{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Name</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">As the code is executed within the scope of object </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$running_man</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, it is able to use the object's field </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and output "Jack".</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Include</b><b> o</b><b>perator
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@include[filename][file]
+<br>
+$file[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=fileload.htm>file::load</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[text;$filename]]
+<br>
+^process[$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=definemethod.htm>caller.self</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]{^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opuntainttaint.htm>taint</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[as-is][$file.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=filefields.htm>text</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;$.file[$filename]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">The code loads specified file and executes it within the scope of the current object/class when </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>include</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> was called. </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>File</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> option allows us to specify the name of file, where this code were loaded from. In case there would be some error, you would see this "file name".
+<br>
+<i>Note: "scope of current call" does not include any local variables or parameters!
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+Complex example
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">It is often convinient to compile a code to some method, which name evaluated dynamically:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;this&nbsp;is&nbsp;source&nbsp;code,&nbsp;note&nbsp;^^
+<br>
+$source_code[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>2*2=</b><b><a href=stringlit.htm>^^</a></b><b>eval(2*2)</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+#&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>it&nbsp;is&nbsp;evaluated&nbsp;dynamically,&nbsp;that&nbsp;we&nbsp;need&nbsp;to&nbsp;create&nbsp;the&nbsp;"method</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>1</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>"</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>method&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$method_name[method1]
+<br>
+#&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>compiling&nbsp;source&nbsp;code,&nbsp;storing&nbsp;it&nbsp;to&nbsp;new&nbsp;method</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^process{$source_code}[
+<br>
+&nbsp;&nbsp;&nbsp;$.main[$method_name]
+<br>
+]
+<br>
+&#133;
+<br>
+#&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>later&nbsp;in&nbsp;code&nbsp;it&nbsp;can&nbsp;be&nbsp;called</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^method1[]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">This example would continue to work even if in </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$source_code</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> there would be declared several methods, because </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main&nbsp;option</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> sets the name of </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> method.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 21.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

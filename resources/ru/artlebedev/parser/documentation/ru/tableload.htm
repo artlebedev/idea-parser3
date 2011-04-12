@@ -1,0 +1,104 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="table,table, Конструкторы,load,HTTP *">
+    <title>load. Загрузка таблицы с диска или HTTP-сервера</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tableload.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tableload.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>load. Загрузка таблицы с диска или HTTP-сервера
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::load[</b><b><a href=app1.htm>имя файла</a></b><b>]&nbsp;
+<br>
+^table::load[</b><b><a href=app1.htm>имя файла</a></b><b>;опции&nbsp;загрузки]&nbsp;
+<br>
+^table::load[nameless;</b><b><a href=app1.htm>имя файла</a></b><b>]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::load[nameless;</b><b><a href=app1.htm>имя файла</a></b><b>;опции&nbsp;загрузки]</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Конструктор создает объект, используя таблицу, определенную в некотором файле или документе на HTTP-сервере. Данные должны быть представлены в формате tab-delimited (см. </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=tablecreate.htm>table::create</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Имя&nbsp;файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла с <a href=app1.htm>путем</a> или URL документа на HTTP-сервере.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Опции&nbsp;загрузки</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - об основных опция см. раздел «<a href=app1.htm>Работа с HTTP-серверами</a>», также доступны дополнительные опции, см. «<a href=tableoptionsfmt.htm>Опции формата файла</a>».
+<br>
+
+<br>
+Использование параметра </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>nameless</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> такое же, как и в конструкторе </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=tablecreate.htm>table::create</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример загрузки таблицы с диска
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$loaded_table[^table::load[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>/addresses.cfg</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Пример создает объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, содержащий именованную таблицу, определенную в файле </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>addresses.cfg</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, который находится в корневом каталоге веб-сайта.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример загрузки таблицы с HTTP-сервера</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$table[^table::load[nameless;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>http://www.parser.ru/</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;$.headers[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=app1.htm>USER-AGENT</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table&nbsp;load&nbsp;example</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;]
+<br>
+]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Количество&nbsp;строк:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^table.count[]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;hr</b><b>&nbsp;/</b><b>&gt;
+<br>
+&lt;pre&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$table.0</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/pre&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

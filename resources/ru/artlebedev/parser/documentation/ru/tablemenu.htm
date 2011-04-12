@@ -1,0 +1,108 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="table,table, Методы,menu,foreach *">
+    <title>menu. Последовательный перебор всех строк таблицы</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tablemenu.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tablemenu.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>menu. Последовательный перебор всех строк таблицы
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^таблица.menu{код}&nbsp;&nbsp;
+<br>
+^таблица.menu{код}[разделитель]&nbsp;&nbsp;
+<br>
+^таблица.menu{код}{разделитель}</b>&nbsp;<b>&nbsp;&nbsp;&nbsp;
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>menu</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> выполняет код для каждой строки таблицы, последовательно перебирая все строки. 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Разделитель</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - код, который вставляется перед каждым непустым не первым телом. Разделитель в квадратных скобках вычисляется один раз, в фигурных - много раз по ходу вызова.
+<br>
+
+<br>
+<i>Примечание</i><i>: </i><i>если разделитель задан в виде кода, то этот код выполняется после следующего не пустого тела цикла.</i>
+<br>
+
+<br>
+В любой момент можно принудительно выйти из цикла с помошью оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opbreak.htm>break</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, или принудительно закончить текущую итерацию и перейти к следующей с помощью оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opcontinue.htm>continue</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$goods[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{&nbsp;&nbsp;&nbsp;pos&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>1&nbsp;&nbsp;&nbsp;Монитор&nbsp;&nbsp;&nbsp;1000
+<br>
+2&nbsp;&nbsp;&nbsp;Системный&nbsp;блок&nbsp;&nbsp;&nbsp;1500
+<br>
+3&nbsp;&nbsp;&nbsp;Клавиатура&nbsp;&nbsp;&nbsp;15</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;border=1&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^goods.menu{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;td&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$goods.pos</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/td&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;td&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$goods.good</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/td&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;td&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$goods.price</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/td&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/table&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Пример выводит все содержимое таблицы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$goods</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в виде HTML-таблицы.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

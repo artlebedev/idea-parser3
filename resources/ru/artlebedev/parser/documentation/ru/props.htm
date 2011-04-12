@@ -1,0 +1,398 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="properties *,свойства *,getter *,setter *,@GET_имя,@SET_имя[значение],GET_имя,SET_имя[значение]">
+    <title>Свойства</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?props.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='props.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Свойства</b><b>&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.2.0]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET_имя[]
+<br>
+код,&nbsp;выдает&nbsp;значение
+<br>
+
+<br>
+@SET_имя[value]
+<br>
+код,&nbsp;обрабатывает&nbsp;новое&nbsp;$value
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET_DEFAULT[]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+@GET_DEFAULT[имя]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+код,&nbsp;обрабатывающий&nbsp;обращения&nbsp;к&nbsp;несуществующим&nbsp;полям</b><b>
+<br>
+
+<br>
+</b><b>@</b><b>SET</b><b>_DEFAULT[имя</b><b>;</b><b>значение]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.4.1]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+код,&nbsp;обрабатывающий&nbsp;запись&nbsp;в&nbsp;несуществующие&nbsp;поля</b><b>
+<br>
+
+<br>
+@GET[]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>[3.3.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+@GET[</b><b>тип&nbsp;обращения</b><b>]</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i> [3.4.0]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+код,&nbsp;</b><b>обрабатывающий&nbsp;обращения&nbsp;к&nbsp;объекту/классу&nbsp;в&nbsp;определённых&nbsp;контекстах&nbsp;вызова
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Можно определить default getter (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET_DEFAULT[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) - метод, который будет вызываться при обращении к несуществующим полям. Имя поля, к которому пытались обратиться, передаётся единственным параметром этому методу.
+<br>
+<i>Важно: с этим методом нельзя работать как с обычным «</i><b><i>свойством</i></b><i>», при попытке написать </i><i>$DEFAULT</i><i> будет выдано сообщение об ошибке</i><i>.</i>
+<br>
+
+<br>
+Также можно определить default setter (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@SET_DEFAULT[name;value]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) - метод, который будет вызываться при попытках записи в несуществующие поля. Имя поля, к которому пытались обратиться и записываемое значение будут переданы этому методу.
+<br>
+
+<br>
+У пользовательских классов можно определить специальное свойство </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@GET[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, которое будет вызываться при обращении к классу/объекту этого класса в определённых контекстах вызова, например: в скалярном контексте, в выражении и т.п. Если у этого свойства определён параметр, то через него будет передан </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>тип&nbsp;обращения</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">, который может принимать одно из следующих значений</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>def</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>expression</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>bool</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>double</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>hash</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> или </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+<i>Примечание</i><i>: </i><i>при обычном присваивании вида </i><i>$a[$b] </i><i>метод </i><i>@GET[] </i><i>не вызывается.</i>
+<br>
+
+<br>
+Так названные <a href=definemethod.htm>методы</a> задают «<b>свойство</b>», которым можно пользоваться, как обычной <a href=vars.htm>переменной</a>:
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="179">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>пишем
+<br>
+</i></span></td><td align="left" valign="top" width="195">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>происходит
+<br>
+</i></span></td></tr><tr><td align="left" valign="top" width="179">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$имя</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="195">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^GET_имя[]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="179">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$имя</b><b>[</b><b>значение</b><b>]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="195">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^SET_имя</b><b><a href=params.htm>[значение]</a></b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+<i>Примечание: если не требуется возможность записи или чтения свойства, соответствующий метод можно не определять.
+<br>
+Важно: нельзя иметь и свойство и переменную с одним именем.
+<br>
+</i>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример: возраст и e-mail
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Возьмем человека - хранить удобно дату рождения, а выводить частенько нужно возраст. Нужен e-mail, но можно позабыть проверить его на корректность.
+<br>
+
+<br>
+Пусть людьми занимается <a href=defineclass.htm>класс</a>, его свойства «возраст» и «e-mail» позволят спрятать ненужные детали, сделав код проще и нагляднее:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opuse.htm>@USE</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+/person.p
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>@main[]</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$person[^person::create[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Василий&nbsp;Пупкин</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$.birthday[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=dateclass.htm>date</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datecreateabs.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(2000;8;5)]
+<br>
+]]
+<br>
+#&nbsp;можно&nbsp;менять,&nbsp;но&nbsp;значение&nbsp;проверят
+<br>
+$person.email[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>vasya@pupkin.ru</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+$person.name</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;(</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$person.email</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>),&nbsp;возраст:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$person.age</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Выведет:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Василий&nbsp;Пупкин&nbsp;(vasya@pupkin.ru),&nbsp;возраст:&nbsp;5&lt;br&nbsp;/&gt;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(с ходом времени возраст будет увеличиваться)
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">При этом менять возраст человека нельзя:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;это&nbsp;вызовет&nbsp;ошибку!
+<br>
+$person.age(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>99</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>)
+<br>
+
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Также нельзя присваивать свойству </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>email</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> некорректные значения:</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+#&nbsp;это&nbsp;вызовет&nbsp;ошибку!
+<br>
+$person.email[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>vasya#pupkin.ru</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Определение класса person
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Чтобы вышеописанный пример сработал, нужно <a href=defineclass.htm>определить</a> класс </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>person</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и его свойства.
+<br>
+В корне веб-пространства в файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">person.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> поместим это:</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+@CLASS
+<br>
+person
+<br>
+
+<br>
+@create[p]
+<br>
+$name[$p.name]
+<br>
+$birthday[$p.birthday]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#&nbsp;свойство&nbsp;«возраст»
+<br>
+@GET_age[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=definemethod.htm>[now;today;celebday]</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$now[^date::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datenow.htm>now</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]]
+<br>
+$today[^date::create($now.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datefields.htm>year</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;$now.month;$now.day)]
+<br>
+$celebday[^date::create($now.year;$birthday.month;$birthday.day)]
+<br>
+#&nbsp;числовое&nbsp;значение&nbsp;логического&nbsp;выражения:&nbsp;истина=1;&nbsp;ложь=0
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=definemethod.htm>result</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(^if($birthday&gt;$today)(0)($today.year&nbsp;-&nbsp;$birthday.year&nbsp;-&nbsp;($today&lt;$celebday)))
+<br>
+
+<br>
+#&nbsp;свойство&nbsp;«e-mail»
+<br>
+@SET_email[value]
+<br>
+^if(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>!</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>Lib:</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>is</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>E</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>mail[$value]){
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opthrow.htm>throw</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[email.invalid;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Некорректный&nbsp;e-mail:&nbsp;'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$value</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+}
+<br>
+#&nbsp;имя&nbsp;переменной&nbsp;не&nbsp;должно&nbsp;совпадать&nbsp;с&nbsp;именем&nbsp;свойства!
+<br>
+$private_email[$value]
+<br>
+
+<br>
+@GET_email[]
+<br>
+$private_email
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Примечание: метод </i><b><i>isEmail</i></b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><i>, как</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> и ряд других полезных методов и </i><i><a href=defineclass.htm>операторов</a></i><i> можно скачать по следующему адресу: </i><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://www.parser.ru/examples/lib/" target="_blank">http://www.parser.ru/examples/lib/</a></u></i></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+Примечание: классы лучше помещать в отдельное удобное место и при подключении не указывать путь, см. </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b><a href=app1pathclass.htm>CLASS_PATH</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+
+<br>
+
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример: класс, расширяющий функционал системного класса </b><b>table</b><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@main[]
+<br>
+$t[^MyTable::create{a&nbsp;&nbsp;&nbsp;b
+<br>
+0a&nbsp;&nbsp;&nbsp;0b
+<br>
+1a&nbsp;&nbsp;&nbsp;1</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>b</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+2a&nbsp;&nbsp;&nbsp;2b
+<br>
+3a&nbsp;&nbsp;&nbsp;3b}]
+<br>
+
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Значение&nbsp;в&nbsp;выражении:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^eval($t)&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^^t.count:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^t.count[]&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Выводим&nbsp;содержимое&nbsp;пользовательского&nbsp;объекта:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^print[$t]&lt;br&nbsp;/&gt;
+<br>
+
+<br>
+
+<br>
+&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Копируем&nbsp;объект&nbsp;и&nbsp;выводим&nbsp;^^c.count[]:</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$c[^MyTable::create[$t]]
+<br>
+^c.count[]&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Удаляем&nbsp;2&nbsp;строки,&nbsp;начиная&nbsp;со&nbsp;строки&nbsp;с&nbsp;offset=1&nbsp;и&nbsp;выводим&nbsp;содержимое&nbsp;пользовательского&nbsp;объекта:</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^c.remove(1;2)
+<br>
+^print[$c]&lt;br&nbsp;/&gt;
+<br>
+
+<br>
+
+<br>
+&lt;br&nbsp;/&gt;
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Создаём&nbsp;объект&nbsp;системного&nbsp;класса&nbsp;</b><b>table</b><b>&nbsp;на&nbsp;основании&nbsp;объекта&nbsp;класса&nbsp;MyTable&nbsp;и&nbsp;выводим&nbsp;^^z.count[]:</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+$z[^table::create[$t]]
+<br>
+^z.count[]&lt;br&nbsp;/&gt;
+<br>
+
+<br>
+
+<br>
+@print[t]
+<br>
+^t.menu{$t.a=$t.b}[&lt;br&nbsp;/&gt;]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+
+<br>
+</b><b>Определение класса </b><b>MyTable
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@CLASS
+<br>
+MyTable
+<br>
+
+<br>
+@create[uParam]
+<br>
+^switch[$uParam.CLASS_NAME]{
+<br>
+&nbsp;&nbsp;&nbsp;^case[string]{$t[^table::create{$uParam}]}
+<br>
+&nbsp;&nbsp;&nbsp;^case[table;MyTable]{$t[^table::create[$uParam]]}
+<br>
+&nbsp;&nbsp;&nbsp;^case[DEFAULT]{^throw[MyTable;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Unsupported&nbsp;type&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$uParam.CLASS_NAME]}
+<br>
+}
+<br>
+
+<br>
+#&nbsp;метод&nbsp;возвращающий&nbsp;значение&nbsp;объекта&nbsp;в&nbsp;разных&nbsp;контекстах&nbsp;вызова
+<br>
+@GET[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>sMode</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^switch[$sMode]{
+<br>
+&nbsp;&nbsp;&nbsp;^case[table]{$result[$t]}
+<br>
+&nbsp;&nbsp;&nbsp;^case[bool]{$result($t!=0)}
+<br>
+&nbsp;&nbsp;&nbsp;^case[def]{$result(true)}
+<br>
+&nbsp;&nbsp;&nbsp;^case[expression;double]{$result($t)}
+<br>
+&nbsp;&nbsp;&nbsp;^case[DEFAULT]{^throw[MyTable;Unsupported&nbsp;mode&nbsp;'$sMode']}
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+
+<br>
+
+<br>
+#&nbsp;метод&nbsp;обрабатывает&nbsp;обращения&nbsp;к&nbsp;"столбцам"
+<br>
+@GET_DEFAULT[sName]
+<br>
+$result[$t.$sName]
+<br>
+
+<br>
+
+<br>
+#&nbsp;для&nbsp;всех&nbsp;существующих&nbsp;методов&nbsp;нужно&nbsp;написать&nbsp;wrapper-ы
+<br>
+@count[]
+<br>
+^t.count[]
+<br>
+
+<br>
+@menu[jCode;sSeparator]
+<br>
+^t.menu{$jCode}[$sSeparator]
+<br>
+
+<br>
+
+<br>
+#&nbsp;добавляем&nbsp;новый&nbsp;функционал
+<br>
+@remove[iOffset;iLimit]
+<br>
+$iLimit(^iLimit.int(0))
+<br>
+$t[^t.select(^t.offset[]&lt;$iOffset&nbsp;||&nbsp;^t.offset[]&gt;=$iOffset+$iLimit)]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

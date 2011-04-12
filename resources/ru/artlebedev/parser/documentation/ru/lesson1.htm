@@ -1,0 +1,400 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="">
+    <title>Урок 1. Меню навигации</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?lesson1.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='lesson1.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Урок 1. Меню навигации
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Давайте начнем с самого начала. Итак, вы хотите сделать сайт (узел, сервер). Первым делом, необходимо уяснить, каким образом на сайте будет упорядочена та или иная информация. Сколько будет категорий, подразделов т.д. Все эти вопросы возникают на первом этапе - "Организация сайта". 
+<br>
+
+<br>
+А какой должна быть навигация сайта? Требований к хорошей навигации много. Она должна быть понятна, легко узнаваема, единообразна, удобна в использовании, быстро загружаться, давать четкое понятие о текущем местоположении. При этом на сайте не должно возникать 404-й ошибки, т.е. все ссылки должны работать. Если у вас есть опыт создания сайтов, то вам, скорее всего, приходилось сталкиваться с проблемой создания грамотной навигации. 
+<br>
+
+<br>
+Не правда ли, хочется иметь какое-то решение, которое всегда будет под рукой и позволит автоматизировать весь этот процесс? Что-то такое, что даст возможность единственный раз написать код и потом, в одном месте, дописывать столько разделов, сколько нужно? 
+<br>
+
+<br>
+Создание меню, которое ориентирует пользователя на сайте, не дает ему заблудиться - вот задача, с которой нам хочется начать повествование о Parser. Почему именно это? Прежде всего потому, что большое количество тегов:
+<br>
+
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;a&nbsp;href="страница_сайта.html"&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+трудно контролировать. А если вам понадобится добавить еще один раздел? Придется в каждую страницу вносить изменения, а человеку свойственно делать ошибки. При этом отнюдь не исключено, что после такой «модернизации» ваш ресурс в ответ на запросы пользователей сообщит о том что «данная страница не найдена». Вот где проблема, которую с помощью Parser можно решить очень легко.
+<br>
+
+<br>
+Решение следующее. Мы создаем некую функцию на Parser, которая будет генерировать нужный нам фрагмент HTML-кода. В терминологии Parser функции называются методами. В тех местах, где этот код понадобится, будем просто давать указание «Вставить меню навигации» и сразу же будет создана страница, содержащая меню. Для этого сделаем несколько простых шагов:
+<br>
+
+<br>
+1. Всю информацию о наших ссылках будем хранить в одном файле, что позволит впоследствии вносить необходимые изменения только в нем. В корневом каталоге будущего сайта создаем файл sections.cfg, в который помещаем следующую информацию:
+<br>
+
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>section_id
+<br>
+</i></span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>name
+<br>
+</i></span></td><td align="left" valign="top" width="158">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>uri</i><u>
+<br>
+</u></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">1
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Главная
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">2
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Новости
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/news/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">3
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Контакты
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/contacts/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">4
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Цены
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/price/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">5
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Ваше мнение
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/gbook/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span></td></tr></table>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<i>Здесь используется так называемый формат tab-delimited. Столбцы разделяются знаком табуляции, а строки - переводом каретки. При копировании этой таблицы в текстовый редактор данное форматирование будет создано автоматически, но если вы будете создавать таблицу вручную, необходимо это учитывать. Для таблиц ВСЕГДА применяется формат tab-delimited.
+<br>
+</i>
+<br>
+2. В том же каталоге, где и </span><span style="font-family:Monospace; font-size:10pt; color:#000000">sections.cfg</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, создаем файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b> 
+<br>
+</b>В нем мы будем хранить все те кирпичики, из которых впоследствии Parser соберет наш сайт. AUTO означает, что все эти кирпичики будут всегда доступны для Parser в нужный момент, а расширение ".p", как вы, наверное, догадались, это… правильно! Он самый!
+<br>
+
+<br>
+3. В файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> вставим следующий код:
+<br>
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@navigation[]
+<br>
+$sections[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tableload.htm>table::load</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[sections.cfg]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;width="100%"&nbsp;border="1"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablemenu.htm>menu</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF">
+<br>
+</span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>uri</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;&lt;nobr&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/nobr&gt;&lt;/a&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Данные из этого файла и будут служить основой для нашего навигационного меню.
+<br>
+
+<br>
+Вот и все, подготовительные работы закончены. Теперь открываем код страницы,  где все это должно появиться (например, <b>index.html</b>), и говорим: «Вставить меню навигации». На Parser это называется «вызов метода» и пишется так:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^navigation[]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Осталось только открыть в браузере файл, в который мы вставили вызов метода и посмотреть на готовое меню навигации. Теперь в любом месте на любой странице мы можем написать заветное </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^navigation[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, и Parser вставит туда наше меню. Страница будет сформирована «на лету». Что хотели, то и получили. 
+<br>
+
+<br>
+Если у вас дела обстоят именно так, то поздравляем - вы вступили в мир динамических сайтов. Очень скоро вы также запросто будете использовать базы данных для формирования страниц и делать многое другое.
+<br>
+
+<br>
+Однако не будем радоваться раньше времени. Давайте разберемся, что же мы сделали, чтобы добиться такого результата. Взгляните на код в </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Если кажется, что все непонятно, не надо бежать прочь. Уверяем, через несколько минут все встанет на свои места. Итак, посмотрим на первую строчку:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@navigation[]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Она аналогична строке </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^navigation[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, которую мы вставили в текст страницы для создания меню. Различие только в первом символе: </span><span style="font-family:Monospace; font-size:10pt; color:#000000">^</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000">@</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Однако логический смысл этого выражения совершенно иной - здесь мы определяем метод, который вызовем позже. Символ </span><span style="font-family:Monospace; font-size:10pt; color:#000000">@</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (собака) в первой колонке строки в Parser означает, что мы хотим описать некоторый блок, которым воспользуемся в дальнейшем. Следующее слово определяет имя нашего метода: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>navigation</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Это только наше решение, как ее назвать. Вполне допустимы имена: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>а_ну_ка_вставь_меню_быстро</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Но читаться такая программа будет хуже, впрочем, кому как понятнее, можете назвать и так. 
+<br>
+
+<br>
+<i>Жизненно необходимо давать простые, понятные имена. Они должны точно соответствовать тому, что именуемый объект будет хранить и делать. Сохраните нервы и время себе и всем тем, кому придется разбираться в ваших текстах, отнеситесь, пожалуйста, к именам внимательно. Имена могут быть русские или латинские, главное соблюдать единообразие: или все по-русски, или по-английски.
+<br>
+</i>
+<br>
+Идем дальше. 
+<br>
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections[^</b><b><a href=tableload.htm>table::load</a></b><b>[sections.cfg]]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Это ключевая строка нашего кода. Она достаточно большая, поэтому давайте разберем ее по частям. 
+<br>
+
+<br>
+Строка начинается символом </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (рубль) и следующим сразу за ним именем </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Так в Parser обозначаются переменные. Это надо запомнить. Все просто: видим  в тексте </span><span style="font-family:Monospace; font-size:10pt; color:#000000">$var</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имеем  дело с переменной </span><span style="font-family:Monospace; font-size:10pt; color:#000000">var</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Переменная может содержать любые данные: числа, строки, таблицы, файлы, рисунки и даже часть кода. Присвоение переменной </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$parser_home_url&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">значения </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>www.parser3.ru</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> на Parser выглядит так: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$parser_home_url[www.parser3.ru]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. После этого мы можем обратиться к переменной по имени, т.е. написать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$parser_home_url</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и получить значение </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>www.parser3.ru</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Еще раз тоже самое:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="103">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$var[…]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="167">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- присваиваем
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="103">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$var</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="167">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">- получаем
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+<i>Подробности в разделе «</i><i><a href=vars.htm>Переменные</a></i><i>».</i>
+<br>
+
+<br>
+В нашем случае переменная </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> будет хранить таблицу из файла </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>sections.cfg</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Любую таблицу Parser рассматривает как самостоятельный объект, с которым он умеет производить только вполне определенные действия, например, добавить или удалить из нее строку. Поскольку переменная может хранить любые данные, необходимо указать, что присвоенное нами переменной значение является именно таблицей. 
+<br>
+
+<br>
+
+<br>
+<i>Лирическое отступление. 
+<br>
+Пример из жизни. Всю автомобильную технику можно грубо разделить на несколько классов: легковые автомашины, грузовики, трактора и гусеничная техника. Любой автомобиль является объектом одного из этих классов. Вы легко можете определить, к какому классу относится автомобиль, поскольку их всех объединяют общие характеристики, такие как вес, масса перевозимого груза и т.д. Любой автомобиль может совершать действия: двигаться, стоять или ломаться. Каждый из автомобилей обладает своими собственными свойствами. И самое главное, автомобиль не может появиться сам собой, его нужно создать. Когда конструктор придумывает новую модель автомобиля, он точно знает, автомобиль какого класса он создает, какими свойствами будет наделено его творение и что оно сможет делать. Также и в Parser: каждый объект относится к определенному классу, объект класса создается конструктором этого класса и наделен характеристиками (полями) и методами (действиями), общими для всех подобных объектов.
+<br>
+</i></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Итог
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Любой </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>объект</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в Parser принадлежит конкретному </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>классу</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, характеризуется </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>полями</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>методами</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> именно этого класса. Чтобы он появился, его нужно создать. Делает это </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>конструктор</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> данного класса. Разберитесь с этой терминологией, это основа.
+<br>
+
+<br>
+Отвлеклись? Продолжим. Переменной </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> мы присвоили вот что: 
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::load[sections.cfg]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Буквально это означает следующее: мы создали объект класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> при помощи конструктора </span><span style="font-family:Monospace; font-size:10pt; color:#000000">load</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Общее правило для создания объекта записывается так:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^имя_класса::конструктор[параметры_конструктора]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>Подробности в разделе «</i><i><a href=params.htm>Передача параметров</a></i><i>».</i>
+<br>
+
+<br>
+В качестве параметра конструктору мы передали имя файла с таблицей и путь к нему. 
+<br>
+
+<br>
+Теперь переменная </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> содержит таблицу с разделами нашего сайта. Parser считает ее объектом класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и точно знает, какие действия с ней можно выполнить. Пока нам понадобится только один метод этого класса - </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>menu</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, который последовательно перебирает все строки таблицы. Также нам потребуются значения из полей самой таблицы. Синтаксис вызова методов объекта:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^объект.метод_класса[параметры]
+<br>
+</b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Получение значений полей объекта (мы ведь имеем дело с вполне определенной таблицей с заданными нами же полями):
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$объект.имя_поля
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Знания, полученные выше, теперь позволяют без труда разобраться в последней части нашего кода:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;width="100%"&nbsp;border="1"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>
+&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablemenu.htm>menu</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>uri</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;&lt;nobr&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/nobr&gt;&lt;/a&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>
+&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Мы формируем HTML-таблицу, в каждый столбец которой помещаем значения, содержащиеся в полях нашей таблицы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>uri</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - адрес и </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя. При помощи метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>menu</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> мы автоматически перебираем все строки таблицы. Таким образом, даже если у нас будет несколько десятков разделов, ни один из них не будет потерян или пропущен. Мы можем свободно добавлять разделы, удалять их и даже менять местами. Изменения вносятся только в файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">sections.cfg</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Логика работы не нарушится. Все просто и красиво.
+<br>
+
+<br>
+Давайте подведем итоги первого урока. 
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что мы сделали:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> написали свой первый код на Parser, а именно, научились создавать меню навигации на любой странице сайта, опираясь на данные, хранящиеся в отдельном файле.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что узнали:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> познакомились c концептуальными понятиями языка (класс, объект, свойство, метод), а также некоторыми базовыми конструкциями Parser. 
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что надо запомнить:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> Parser использует объектную модель. Любой объект языка принадлежит какому-то классу, имеет собственные свойства и наделен методами своего класса. Для того чтобы создать объект, необходимо воспользоваться конструктором класса.</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Синтаксис работы с объектами:
+<br>
+
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="350">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$переменная[значение]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="251">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">- задаем значение<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="350">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$переменная</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="251">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">- получаем значение<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="350">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$переменная[^имя_класса::конструктор[параметры]]</b><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="251">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">- создаем объекта класса <span style="font-family:Monospace; font-size:8pt; color:#000000"><b>имя_класса</b></span><span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000"> и присваиваем его переменной</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="350">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$переменная.имя_поля</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="251">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">- получаем поле самого объекта, хранящегося в переменной<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="350">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^переменная.метод[]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="251">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">- вызываем действие (метод класса, к которому принадлежит объект, хранящийся в переменной)<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Что будем делать дальше:</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> заниматься модернизацией меню. Ведь пока оно не отвечает многим требованиям: ставит лишнюю ссылку на текущий раздел, выдает столбцы разной ширины. На втором уроке мы исправим все эти недостатки и сделаем еще кое-что.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 04.09.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="image,image, Methods,gif,GIF *">
+    <title>gif. Encoding objects of class image in GIF format</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imagegif.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imagegif.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>gif. Encoding objects of class image in GIF format
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b><b>image</b><b>.gif[]
+<br>
+^</b><b>image</b><b>.gif[</b><b>file&nbsp;name</b><b>]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Used to encode objects of class image created by Parser in GIF format.
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>File&nbsp;name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be passed to visitor if </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=responsedownload.htm>$response:download</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> is used.
+<br>
+
+<br>
+<i>Important notice: as a result, this method creates an object of class</i> </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href=fileclass.htm>file</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, <i>not image</i>! 
+<br>
+
+<br>
+Besides, it is important to keep in mind that colors are taken from the palette, and when there are no colors left in the palette, nearest shades will be picked up. If you create a complex graphics, especially with background loaded in advance, you must keep in mind the sequence of colors captured.</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$square[^image::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(100;100;0x000000)]
+<br>
+$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=responsebody.htm>response:body</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[^square.gif[]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Browser will display a black 100x100 pixels square.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 20.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

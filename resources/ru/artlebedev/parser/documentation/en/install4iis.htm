@@ -1,0 +1,72 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="install,install, Installing and configuring Parser,IIS">
+    <title>Installing Parser on web-server IIS, version 5.0 or higher</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?install4iis.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='install4iis.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Installing Parser on web-server IIS, version 5.0 or higher
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Place Parser's module executables (<span style="font-family:Monospace; font-size:10pt; color:#000000">parser3isapi.dll</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in current version) into an arbitrary directory. If you use version with XML support, unpack XML libraries into directory specified in environment variable PATH (for example </span><span style="font-family:Monospace; font-size:10pt; color:#000000">C:\WinNT</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+
+<br>
+Having placed files to needed locations, you need to declare Parser as .html files handler:</span><span style="font-family:Times New Roman; font-size:10pt; color:#000000">
+<br>
+
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span style="font-family:Times New Roman; font-size:10pt; color:#000000"></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">1.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Run </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Management&nbsp;Console</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, right-click icon with your web server and choose </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Properties</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">2.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Go to </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Application&nbsp;settings</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and under </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Home&nbsp;directory</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> click on the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Configuration&nbsp;button</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">3.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Click </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Add</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">4.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">In the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Executable</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> box, type full path to </span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3.exe</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> or </span><span style="font-family:Monospace; font-size:10pt; color:#000000">parser3isapi.dll</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">5.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">In the </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Extension</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> box, type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>.html</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">6.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Check </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Check&nbsp;that&nbsp;file&nbsp;exists</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> box;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">7.</span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Click </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>OK</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></span></td></tr></table><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 30.03.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

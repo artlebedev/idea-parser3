@@ -1,0 +1,114 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="table,table, Методы,locate,firstthat *">
+    <title>locate. Поиск в таблице</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?tablelocate.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='tablelocate.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>locate. Поиск в таблице
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^таблица.locate[столбец;искомое_значение]
+<br>
+^таблица.locate(логическое_выражение)
+<br>
+^таблица.locate[столбец;искомое_значение;</b><b><a href=tablecopylocateoptions.htm>опции</a></b><b>]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^таблица.locate(логическое_выражение)[</b><b><a href=tablecopylocateoptions.htm>опции</a></b><b>]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Метод ищет в указанном </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>столбце</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> значение, равное </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>искомому</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> и возвращает логическое значение «истина/ложь» в зависимости от успеха поиска. В случае если искомое значение найдено, строка, его содержащая, делается текущей. Если искомое значение найдено не было, указатель текущей строки не меняется.
+<br>
+Второй вариант вызова метода ищет первую запись, для которой истинно </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>логическое&nbsp;выражение</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Также можно задать ряд опций, контролирующих поиск, см. «<a href=tablecopylocateoptions.htm>Опции поиска</a>».
+<br>
+
+<br>
+Поиск чувствителен к регистру букв.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stuff[^table::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos&nbsp;&nbsp;&nbsp;status
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Александр&nbsp;&nbsp;&nbsp;босс&nbsp;&nbsp;&nbsp;1
+<br>
+Сергей&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;технолог&nbsp;&nbsp;&nbsp;1
+<br>
+Тема&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;арт-директор&nbsp;&nbsp;&nbsp;2</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}]
+<br>
+^if(^stuff.locate[name;Тема]){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Запись&nbsp;найдена&nbsp;в&nbsp;строке&nbsp;номер&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^stuff.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tableline.htm>line</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>.&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stuff.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$stuff.pos</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;Запись&nbsp;не&nbsp;найдена
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+На экран будет выведено:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Запись&nbsp;найдена&nbsp;в&nbsp;строке&nbsp;номер&nbsp;3.
+<br>
+Тема:&nbsp;арт-директор
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Подставьте такой поиск в пример…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^stuff.locate($stuff.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>status</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&gt;1)
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…и будет найдена первая запись со статусом, большим 1.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 22.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="xnode,xnode, Поля,nodeName,nodeValue,nodeType,parentNode,childNodes,firstChild,lastChild,previousSibling,nextSibling,ownerDocument,attributes,tagName,specified,target,name,publicId,systemId">
+    <title>DOM</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xnodedomfields.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xnodedomfields.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>DOM
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM1-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-1950641247" target="_blank">Node</a></u></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-nodeName" target="_blank">nodeName</a></b><b>
+<br>
+$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-nodeValue" target="_blank">nodeValue</a></b><b>
+<br>
+$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-nodeValue" target="_blank">nodeValue</a></b><b>[новое&nbsp;значение]&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+^if($узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-nodeType" target="_blank">nodeType</a></b><b>&nbsp;==&nbsp;$xnode:</b><b><a href=dom_nodetype.htm>ELEMENT_NODE</a></b><b>){…}
+<br>
+$</b><b><a href=xnodeclass.htm>Node</a></b><b>[$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-parentNode" target="_blank">parentNode</a></b><b>]
+<br>
+$</b><b><a href=hashclass.htm>NodeList</a></b><b>[$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-childNodes" target="_blank">childNodes</a></b><b>]
+<br>
+$</b><b><a href=xnodeclass.htm>Node</a></b><b>[$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-firstChild" target="_blank">firstChild</a></b><b>]
+<br>
+$</b><b><a href=xnodeclass.htm>Node</a></b><b>[$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-lastChild" target="_blank">lastChild</a></b><b>]
+<br>
+$</b><b><a href=xnodeclass.htm>Node</a></b><b>[$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-previousSibling" target="_blank">previousSibling</a></b><b>]
+<br>
+$</b><b><a href=xnodeclass.htm>Node</a></b><b>[$узел.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-nextSibling" target="_blank">nextSibling</a></b><b>]
+<br>
+$</b><b><a href=hashclass.htm>NamedNodeMap</a></b><b>[$узел_типа_ELEMENT.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-attributes" target="_blank">attributes</a></b><b>]
+<br>
+$</b><b><a href=xdocclass.htm>Document</a></b><b>[$node.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-ownerDocument" target="_blank">ownerDocument</a></b><b>]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+DOM2-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1950641247" target="_blank">Node</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$узел.</b><b><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-NodeNSPrefix" target="_blank">prefix</a></b><b>
+<br>
+$узел.</b><b><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-NodeNSname" target="_blank">namespaceURI</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+DOM1-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-745549614" target="_blank">Element</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$узел_типа_ELEMENT.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-tagName" target="_blank">tagName</a></b><b>
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM1-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-637646024" target="_blank">Attr</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+$узел_типа_ATTRIBUTE.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-name" target="_blank">name</a></b><b>
+<br>
+^if($узел_типа_ATTRIBUTE.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-specified" target="_blank">specified</a></b><b>){…}
+<br>
+$узел_типа_ATTRIBUTE.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-value" target="_blank">value</a></b><b>
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM1-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-1004215813" target="_blank">ProcessingInstruction</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$узел_типа_PROCESSING_INSTRUCTION.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-target" target="_blank">target</a></b><b>
+<br>
+$узел_типа_PROCESSING_INSTRUCTION.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-837822393" target="_blank">data</a></b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+DOM1-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-412266927" target="_blank">DocumentType</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$узел_типа_DOCUMENT_TYPE.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-1844763134" target="_blank">name</a></b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#C0C0C0"><b>$узел_типа_DOCUMENT_TYPE.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#C0C0C0"><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-entities" target="_blank">entities</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#C0C0C0"><b>
+<br>
+$узел_типа_DOCUMENT_TYPE.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#C0C0C0"><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-notations" target="_blank">notations</a></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#C0C0C0"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+DOM1-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#ID-5431D1B9" target="_blank">Notation</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$узел_типа_NOTATION.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-publicId" target="_blank">publicId</a></b><b>
+<br>
+$узел_типа_NOTATION.</b><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-systemId" target="_blank">systemId</a></b><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+В Parser 
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-536297177" target="_blank">NodeList</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - класс </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=hashclass.htm>hash</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> с ключами 0, 1, …;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-интерфейс <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1780488922" target="_blank">NamedNodeMap</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - класс </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=hashclass.htm>hash</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> где в качестве ключей выступают имена аттрибутов;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-тип <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-C74D1578" target="_blank">DOMString</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - класс </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=stringclass.htm>string</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">;
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DOM-тип boolean - логическое значение: 0=ложь, 1=истина.
+&nbsp;<br>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"></span></td><td></td></tr></table><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Подробная спецификация DOM1 доступна здесь: <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html" target="_blank">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html</a></u></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Подробная спецификация DOM2 доступна здесь: <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html" target="_blank">http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 08.09.2010</font></td>
+</tr>
+</table>
+</body>
+</html>

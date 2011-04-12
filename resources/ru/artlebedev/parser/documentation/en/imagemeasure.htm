@@ -1,0 +1,116 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="image,image, Constructors,measure,thumbnail *,GIF *,JPEG *,JPG *,PNG *,EXIF *">
+    <title>measure. Creating an object based on existing graphics file</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?imagemeasure.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='imagemeasure.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>measure. Creating an object based on existing graphics file
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^image::measure[file]
+<br>
+^image::measure[file_name]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Creates an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>image</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, measuring dimensions of an existing graphics file or an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in supported format (Parser presently supports GIF, JPEG and PNG formats).
+<br>
+
+<br>
+Constructor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>measure</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> also reads EXIF information stored in JPEG files (<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), if it is present. While creating JPEG file, most of today cameras also add information about the image, exposure parameters and other information in EXIF format.
+<br>
+
+<br>
+The picture itself is not used-the constructor only keeps in memory the dimensions and the name of the file. Basic function of the constructor is to later call method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=imagehtml.htm>html</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> for the created object.
+<br>
+
+<br>
+Parameters:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>file</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>filename</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-filename with path
+<br>
+
+<br>
+<i>Note: supports EXIF 1.0 and reads tags IFD0 and SubIFD, if any.</i><i>
+<br>
+</i>
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of creating tag IMG with width and height attributes</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$photo[^image::measure[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>myphoto.png</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+^photo</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagehtml.htm>html</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">will create object </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>photo</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>image</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, based on existing graphics in PNG format. Tag </span><span style="font-family:Monospace; font-size:10pt; color:#000000">IMG</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be created with reference to the file and </span><span style="font-family:Monospace; font-size:10pt; color:#000000">width</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and </span><span style="font-family:Monospace; font-size:10pt; color:#000000">height</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> specified.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Example of working with EXIF information
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$image[^image::measure[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>jpg/DSC00003.JPG</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]
+<br>
+$exif[$image.exif]
+<br>
+^if</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>($exif){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Camera&nbsp;manufacturer,&nbsp;model</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagefields.htm>Make</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.Model</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Shooting&nbsp;time</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^exif.DateTimeOriginal.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=datesqlstring.htm>sql-string</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Exposure&nbsp;time</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.ExposureTime</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;seconds</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Aperture</b><b>:</b><b>&nbsp;F</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$exif.FNumber</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Flash&nbsp;used</b><b>:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^if(def&nbsp;$exif.Flash){^if($exif.Flash){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>yes</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>no</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>};</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>not&nbsp;known</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>No&nbsp;EXIF&nbsp;information</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 02.03.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

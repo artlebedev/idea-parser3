@@ -1,0 +1,110 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="main,MAIN,postprocess,auto">
+    <title>Класс MAIN, обработка запроса</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?mainclass.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='mainclass.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Класс MAIN, обработка запроса
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Parser обрабатывает запрошенный документ следующим образом:
+<br>
+
+<br>
+1.
+<br>
+Считываются, компилируются и инициализируются  <a href=parserconfig.htm>Конфигурационный файл</a>; затем все файлы с именем <span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, поиск которых производится начиная от корня веб-пространства, и ниже по структуре каталогов, вплоть до каталога с запрошенным документом; наконец, сам запрошенный документ.
+<br>
+Все вместе они составляют определение класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>MAIN</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Инициализация заключается в вызове метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>auto</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> каждого загруженного файла. Если определение этого метода содержит параметр, при вызове в нем будет передано имя загруженного файла.
+<br>
+<i>Примечание: результат работы метода посетителю не выводится.</i>
+<br>
+
+<br>
+2.
+<br>
+Затем вызывается без параметров метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> класса </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>MAIN</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Т.е. в любом из перечисленных файлов может быть определен метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, и будет вызван тот, который был определен последним - скажем, определение этого метода в запрошенном документе перекрывает все остальные возможные определения, и будет вызван именно он.
+<br>
+Результат работы этого метода будет передан пользователю, если не был определен метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>postprocess</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+Если в файле не определен ни один метод, то все его тело считается определением метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.<i>
+<br>
+Примечание: задание </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b><b><a href=responseclass.htm>response</a></b><b>:</b><b><a href=responsebody.htm>body</a></b><b>[нестандартного&nbsp;ответа]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> переопределяет текст, получаемый пользователем.</i>
+<br>
+
+<br>
+3.
+<br>
+Если в классе </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>MAIN</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> определен метод </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>postprocess</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, то результат работы метода </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>main</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> передается единственным параметром этому методу, и пользователь получит уже его результат работы.
+<br>
+Таким образом вы получаете возможность «дополнительной полировки» результата работы вашего кода.
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Простой пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Добавление такого определения, скажем, в файл </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> в корне вашего веб-пространства…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@postprocess[body]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^if($body&nbsp;is&nbsp;string){</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^body.match[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>шило</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>][g]{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>мыло</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+}{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$body
+<br>
+}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…приведет к замене одних слов на другие в результатах обработки всех страниц.
+<br>
+Не забудьте проверить тип </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>body</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, ведь там может быть <a href=responsebody.htm>файл</a>.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 29.08.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

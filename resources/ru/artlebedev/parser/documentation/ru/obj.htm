@@ -1,0 +1,144 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="MAIN,CLASS,constructor *">
+    <title>Объект класса</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?obj.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='obj.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Объект класса
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Создание объекта
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^класс::конструктор[</b><b><a href=params.htm>параметры</a></b><b>]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Конструктор создает объект класса, наделяя его полями и методами класса. Параметры конструкторов подробно описаны в соответствующем разделе.
+<br>
+<i>Примечание: результат работы конструктора - созданный объект, обычный результат работы метода игнорируется (никуда не попадает).</i>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Вызов метода
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^объект.метод[</b><b><a href=params.htm>параметры</a></b><b>]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Вызов метода класса, к которому принадлежит объект. Параметры конструкторов подробно описаны в соответствующем разделе.
+<br>
+
+<br>
+Если не указан объект, то конструкция является вызовом метода текущего класса (если у класса нет метода с таким именем, будет вызван метод базового класса) или  оператора. При совпадении имен вызывается <a href=definemethod.htm>оператор</a>.
+<br>
+
+<br>
+Методы бывают статические и динамические.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Динамический&nbsp;метод</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - код выполняется в контексте объекта (экземпляра класса).
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href=stats.htm>Статический метод</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - код выполняется в контексте самого класса, то есть метод работает не с конкретным объектом класса, а со всем классом (например, классы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=mainclass.htm>MAIN</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href=mathclass.htm>math</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><u><a href=mailclass.htm>mail</a></u></b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">)
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Значение поля объекта
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$объект.поле</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Получение значения поля объекта.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Получение полей объекта в виде хеша</b></span><span style="font-family:Arial; font-size:10pt; color:#000000"><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>хеш</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[^hash::create[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$объект</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Будет создан хеш со всеми полями объекта.
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Системное поле объекта: CLASS
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$объект.CLASS</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - хранит ссылку на класс объекта. 
+<br>
+
+<br>
+Это необходимо при задании контекста компиляции кода (см. «<a href=opprocess.htm>process. Компиляция и исполнение строки</a>».
+<br>
+
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Системное поле класса: CLASS_NAME</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.2.2]</i></b></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$объект.CLASS_NAME</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - хранит имя класса объекта. 
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$var[123]
+<br>
+$var.CLASS_NAME</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b>Выведет 'string'.<b>
+<br>
+</b>
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 04.09.2009</font></td>
+</tr>
+</table>
+</body>
+</html>

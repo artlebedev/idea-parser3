@@ -1,0 +1,78 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="file,file, Статические методы,fullpath,mod_rewrite *">
+    <title>fullpath. Полное имя файла от корня веб-пространства</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?filefullpath.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='filefullpath.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>fullpath. Полное имя файла от корня веб-пространства
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^file:fullpath[имя&nbsp;файла]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Из </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>имени&nbsp;файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> получает полное имя файла от корня веб-пространства. См. также «<a href=app1.htm>Приложение 1. Пути к файлам и каталогам</a>».
+<br>
+
+<br>
+Пример: в странице </span><span style="font-family:Monospace; font-size:10pt; color:#000000">/document.html</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> вы создаете ссылку на картинку, но настоящий адрес запрошенного документа может быть иным, скажем, при применении модуля </span><span style="font-family:Monospace; font-size:10pt; color:#000000">mod_rewrite</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> веб-сервера Apache, если поставить относительную ссылку на картинку, она не будет отображена браузером, поскольку браузер относительные пути разбирает относительно к текущему запрашиваемому документу, и ничего не знает про то, что на веб-сервере использован </span><span style="font-family:Monospace; font-size:10pt; color:#000000">mod_rewrite</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Поэтому удобно заменить относительное имя на полное:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$image[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imageclass.htm>image</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>::</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagemeasure.htm>measure</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[^file:fullpath[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>image.gif</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]]]
+<br>
+^image.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=imagehtml.htm>html</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Такая конструкция…
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;img&nbsp;src="/image.gif"&nbsp;width="</b><b>…</b><b>"&nbsp;height="</b><b>…</b><b>"&nbsp;/&gt;</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+…создаст код, содержащий абсолютный путь.
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 23.02.2011</font></td>
+</tr>
+</table>
+</body>
+</html>

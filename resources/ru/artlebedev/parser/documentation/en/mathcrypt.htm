@@ -1,0 +1,198 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="math,math, Static methods,crypt,password *,hashing passwords *,.htaccess *,htaccess *,apache passwords *">
+    <title>crypt. Hashing passwords</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?mathcrypt.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='mathcrypt.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>crypt. Hashing passwords
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^math:crypt[password;salt]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+The method hashes </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>password</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Parameters are </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>password</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> to be encrypted and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>salt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> to base encryption on.
+<br>
+
+<br>
+Arguments:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>password</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-initial string;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>salt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-string determining hashing algorithm and introducing an element of randomness into hashing process-consists of head and body. If body is not specified, Parser will generate a random body.
+<br>
+
+<br>
+It is not very sensible to store users' passwords simply storing them in a database or saving to disk-since, having managed to steal a file or DB table with passwords, someone will be able to use them. That is why one should store not passwords themselves but their hashes-that is the result of safe and irreversible transformation of password string. While password typed in by a visitor is checked, the received string is encrypted according to the same algorithm as that of password stored in a file/database (this encrypted password is used as </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>salt</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">), and the two strings are then compared</span><span style="font-family:Times New Roman; font-size:10pt; color:#000000"> </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Table with available algorithms:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="75">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Algorithm</i></b><i>
+<br>
+</i></span></td><td align="left" valign="top" width="194">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>Description</i></b><i>
+<br>
+</i></span></td><td align="left" valign="top" width="142">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>salt head</i></b><i>
+<br>
+</i></span></td><td align="left" valign="top" width="170">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>salt body</i></b><i>
+<br>
+</i></span></td></tr><tr><td align="left" valign="top" width="75">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">MD5
+<br>
+</span></td><td align="left" valign="top" width="194">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">built-in in Parser, available on all platforms<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="142">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$apr1$</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="170">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Up to 8 random letters (in uppercase or lowercase) or numbers<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="75">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">MD5
+<br>
+</span></td><td align="left" valign="top" width="194">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">if supported by UNIX OS<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="142">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$1$</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="170">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Up to 8 random letters (in uppercase or lowercase) or numbers<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="75">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">DES
+<br>
+</span></td><td align="left" valign="top" width="194">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">if supported by UNIX OS<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="142">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">(no)
+<br>
+</span></td><td align="left" valign="top" width="170">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">2 random letters (in uppercase or lowercase) or numbers<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="75">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">others
+<br>
+</span></td><td align="left" valign="top" width="194">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">those supported by UNIX OS<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="142">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">read the documentation on your operating system, function crypt<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="170">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">read the documentation on your operating system, function crypt<span style="font-family:MS Sans Serif; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+<i>Note: to use </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> in Parser, you must precede it with </i></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>.
+<br>
+</i>
+<br>
+<i>Note: Apache web-server allows using hashed passwords in password files (</i></span><span style="font-family:Monospace; font-size:10pt; color:#000000">.htpasswd</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>). In this case you may use hashes of passwords created by any of the algorithms given in the above table, including algorithm built into Parser.</i>
+<br>
+<i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>How to create .htpasswd file:</b><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mainclass.htm>main</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>[]
+<br>
+$users[^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablecreate.htm>table::create</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{name&nbsp;&nbsp;&nbsp;password
+<br>
+alice&nbsp;&nbsp;&nbsp;xxxxxx
+<br>
+bob&nbsp;&nbsp;&nbsp;yyyyyy
+<br>
+}]
+<br>
+
+<br>
+$htpasswd[^table::create[nameless]{}]
+<br>
+^users.menu{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^htpasswd.append{$users.name:^math:crypt[$users.password;^$apr1^$]}
+<br>
+}
+<br>
+
+<br>
+^htpasswd.save[nameless;.htpasswd-parser-test]
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+How to check password</b><u>
+<br>
+</u></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$right[123]
+<br>
+$from_user[123]
+<br>
+$crypted[^math:crypt[$right;^$apr1^$]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>#Note:&nbsp;$crypted&nbsp;will&nbsp;be&nbsp;different&nbsp;every&nbsp;time&nbsp;it&nbsp;is&nbsp;referred&nbsp;to
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$crypted</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;br&nbsp;/&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+^if(^math:crypt[$from_user;$crypted]&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>eq</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;$crypted){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Eat,&nbsp;drink,&nbsp;and&nbsp;be&nbsp;merry</b><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}{
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Call&nbsp;911&#133;
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Detailed information on MD5 is available at <span style="font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF"><i><u><a href="http://www.ietf.org/rfc/rfc1321.txt" target="_blank">http://www.ietf.org/rfc/rfc1321.txt</a></u></i></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 04.09.2008</font></td>
+</tr>
+</table>
+</body>
+</html>

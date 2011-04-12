@@ -1,0 +1,136 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="cache">
+    <title>cache. Сохранение результатов работы кода</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opcache.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opcache.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>cache. Сохранение результатов работы кода
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^cache[файл]
+<br>
+^cache[файл](число&nbsp;секунд){код}
+<br>
+^cache[файл](число&nbsp;секунд){код}{обработчик&nbsp;проблем}&nbsp;&nbsp;&nbsp;</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+^cache[файл][дата&nbsp;устаревания]{код}
+<br>
+^cache[файл][дата&nbsp;устаревания]{код}{обработчик&nbsp;проблем}&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.2]
+<br>
+</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^cache[]&nbsp;=&nbsp;дата&nbsp;устаревания&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b><i>[3.1.5]</i></b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Оператор сохраняет строку, которая получится в результате работы кода. При последующих вызовах обычно происходит считывание ранее сохраненного результата, вместо повторного вычисления, что сильно экономит время обработки запроса и снижает нагрузку на ваши сервера.
+<br>
+
+<br>
+Крайне рекомендуется подключать модули (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opuse.htm>^use[…]</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) изнутри </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>кода</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cache</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, а не делать это статически (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=defineclass.htm>@USE</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">).
+<br>
+По-возможности, работайте с базой данных (</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opconnect.htm>^connect[…]</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) также внутри </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>кода</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> оператора </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>cache</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - вы существенно снизите нагрузку на ваш SQL-сервер и повысите производительность ваших сайтов.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Файл</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - имя файла-кеша. Если такой файл существует и не устарел, то его содержимое выдается клиенту, если не существует - выполняется код, и результат сохраняется в файл с указанным именем.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Число&nbsp;секунд</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - время хранения результата работы кода в секундах. Если это число равно нулю, то результат не сохраняется, а файл с ранее сохраненным результатом уничтожается.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Дата&nbsp;устаревания</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - время, до которого хранится результата работы кода. Если она в прошлом, то результат не сохраняется, а файл с предыдущим сохраненным результатом уничтожается.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Код</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - код, результат которого будет сохранен.
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Обработчик&nbsp;проблем</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> - здесь можно обработать проблему, если она возникнет в </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>коде</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. В этом отношении оператор похож на </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=optry.htm>try</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, см. раздел «<a href=exceptions.htm>Обработка ошибок</a>». В отличие от </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>try</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, можно задать </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$exception.handled[cache]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>-</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> это дает указание Parser обработать ошибку особенным образом: достать из </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>файла</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> ранее сохраненный результат работы </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>кода</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, проигнорировав тот факт, что этот результат устарел.</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Для принудительного удаления файла-кеша можно использовать:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^cache[файл]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+
+<br>
+Внутри </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>кода</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> допустимы команды, изменяющие время хранения результата работы кода:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^cache(число&nbsp;секунд)
+<br>
+^cache[дата&nbsp;устаревания]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Берется минимальное время хранения кода.
+<br>
+
+<br>
+Текущую дату устаревания можно узнать, вызвав:
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$expire_date[^cache[]]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^cache[/data/cache/test1](5){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;Нажимайте&nbsp;reload,&nbsp;меняется&nbsp;каждые&nbsp;5&nbsp;секунд:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=mathrandom.htm>math:random</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>(100)</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Изменение времени хранения
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^cache[/data/cache/test2](5){
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;по&nbsp;ходу&nbsp;работы&nbsp;вы&nbsp;выяснили,&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;что&nbsp;страницу&nbsp;сохранять&nbsp;не&nbsp;нужно:&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^cache(0)
+<br>
+}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 02.10.2010</font></td>
+</tr>
+</table>
+</body>
+</html>

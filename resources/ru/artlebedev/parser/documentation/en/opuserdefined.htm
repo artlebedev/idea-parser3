@@ -1,0 +1,112 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="operator *">
+    <title>User-defined operators</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?opuserdefined.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='opuserdefined.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>User-defined operators
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Sometimes it will seem to you that Parser lacks some operators. Parser allows you to define your own operators which could be later used along with system operators.
+<br>
+
+<br>
+Operators in parser are methods of class <a href=mainclass.htm>MAIN</a>, By adding new methods into this class you extend built-in set of operators.
+<br>
+
+<br>
+<i>Important notice: while defining an operator you may use not only local variables, but also global ones.</i><span style="font-family:Times New Roman; font-size:10pt; color:#000000"> </span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i> By doing so, you will assign and refer to fields of class</i><i> </i><i><a href=mainclass.htm>MAIN</a></i><i>.</i>
+<br>
+
+<br>
+<a href=opuse.htm>User-defined operators</a> may be defined in separate files without header </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@CLASS</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and be linked to relevant sections of a site. If you define an operator (e.g. </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@</b><b><a href=opprocess.htm>include</a></b><b>[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">) in such a file, every call </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^include[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be addressed to the user-defined operator.
+<br>
+
+<br>
+<i>CAUTION: If the name of the operator you define is same as a system operator's, user-defined operator will be called. Using of system operator will then be impossible. We advise you to use as few user-defined operators as possible. Consider using static methods of user-defined classes instead.
+<br>
+</i>
+<br>
+Creating classes and using their methods is far more comfortable than employing user-defined operators for the same purpose. For example: there are several sections of the site and each one needs a help section. By creating several files defining different classes, we can get methods of different classes bearing the same name. While calling these methods as static ones, we can clearly see the relation between methods and sections:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^news:help[]
+<br>
+^forum:help[]
+<br>
+^search:help[]</b><b>
+<br>
+</b></span><span style="font-family:Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Examples
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Place the code&#133;
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@default[a;b]
+<br>
+^if(</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=exprops.htm>def</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&nbsp;$a){$a}{$b}
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;into file </span><span style="font-family:Monospace; font-size:10pt; color:#000000">operators.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in root directory of your website.
+<br>
+
+<br>
+After you have done it, you can link this module whenever you need <a href=opuse.htm>additional operators</a>. For example, write such a construction in your root </span><span style="font-family:Monospace; font-size:10pt; color:#000000">auto.p</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=opuse.htm>USE</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+/operators.p
+<br>
+</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&#133;and you will be able to use construction of type </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^default[$form:name;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>Anonymous</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> not only on any page, but also in any <a href=defineclass.htm>user-defined class</a></span><span style="font-family:Arial; font-size:10pt; color:#000000">.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Details can be found in section <a href=definemethod.htm>Defining methods and user operators</a>.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 01.04.2004</font></td>
+</tr>
+</table>
+</body>
+</html>

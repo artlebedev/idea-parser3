@@ -1,0 +1,86 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=windows-1251">
+    <meta name="keywords" content="xdoc,xdoc, Методы,string,html,text,xml">
+    <title>string. Преобразование документа в строку</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?xdocstring.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='xdocstring.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>string. Преобразование документа в строку
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^документ.string[]
+<br>
+^документ.string[</b><b><a href=xdocoptions.htm>Параметры_преобразования_в_текст</a></b><b>]
+<br>
+</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Преобразует документ в текстовую форму. Возможно задание </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>параметров_преобразования</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+По умолчанию создается XML-представление документа с заголовком </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>&lt;?xml&nbsp;…&nbsp;?&gt;</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (можно отключить вывод заголовка, задав <a href=xdocoptions.htm>соответствующий параметр</a>).
+<br>
+
+<br>
+Результат выдается посетителю </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b><a href=opuntainttaint.htm>as-is</a></b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.<b><i> [3.1.4]</i></b>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Пример
+<br>
+</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$document[</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^xdoc::</b><b><a href=xdoccreatexml.htm>create</a></b><b>{&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br>
+&lt;document&gt;
+<br>
+строка1&lt;br/&gt;
+<br>
+строка2&lt;br/&gt;
+<br>
+&lt;/document&gt;}</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^document.string[
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=xdocoptions.htm>$.method[html]</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>
+<br>
+]</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span><br>
+
+<!--#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.ru/" target="_blank">http://www.artlebedev.ru</a></font></td>
+<td align="right"><font size="1">Дата обновления: 20.09.2007</font></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+    <meta name="keywords" content="">
+    <title>Lesson 1. Navigation menu</title>
+
+    <script language="JavaScript"><!--
+    if(top.frames.length==0) {
+        top.location.href='./?lesson1.htm'
+    } else {
+        if(document.referrer!='' && 0>document.referrer.indexOf(top.frames[0].location.pathname)) {
+            top.frames[0].location.hash='lesson1.htm'
+        }
+    }
+    //--></script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="black">
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Lesson 1. Navigation menu
+<br>
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br>
+
+
+
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Let's begin at the beginning, as they say. Let's assume you want to build a site. The first thing you'll need to figure out is how the information on the site should be organized, how many categories, sections, etc. should be there. All these questions arise at the very first stage, which is "The site's organization".
+<br>
+
+<br>
+And what should the navigation be like? A good navigation system must meet many demands. It must be simple, easily recognizable, uniform, usable, quickly loadable, and it must indicate precisely where the user is at the moment. Moreover, the site shouldn't give out "Error 404" message, that is, none of the links must be "dead". If you have previously made sites, you have probably faced the problem of proper navigation.
+<br>
+
+<br>
+Is there anyone who doesn't want to have a handy solution, which could automate the whole process-a solution, which would enable you to write a code once and for ever, leaving just one place to edit further on, and add as many sections as you wish?
+<br>
+
+<br>
+Creating a menu which can guide a user safely through the site is the task we want to begin this manual with. Why this? Simply because a great amount of tags like:
+<br>
+
+<br>
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;a&nbsp;href="some_page.html"&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+is hard to control. What if you have to add one more section? You will have a tough time changing every page with your own hands. And, keeping in mind that "to err is human," can you be sure that after such an update your visitors won't get "Error 404" messages? Here is the problem which can be easily solved by Parser.
+<br>
+
+<br>
+The solution is simple: we create a function in Parser that will generate a necessary fragment of HTML. In Parser's terminology, functions are called methods. Wherever we need such a code, we will simply command to insert the navigation menu and the page containing the menu will be created. This needs just a few simple steurips:
+<br>
+
+<br>
+1. All information about our links will be stored in one file, which will further allow us to make necessary changes in just one place. In the root directory of our future site we'll thus create file sections.cfg with the following content:
+<br>
+
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>section_id
+<br>
+</i></span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>name</i>
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>uri</i>
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">1
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Mainpage
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">2
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">News
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/news/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">3
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Contacts
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/contacts/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">4
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Prices
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/price/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">5
+<br>
+</span></p></td><td align="left" valign="top" width="159">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Your opinion
+<br>
+</span></td><td align="left" valign="top" width="158">
+<span style="font-family:Monospace; font-size:10pt; color:#000000">/gbook/<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+
+<br>
+Here we use a so-called tab-delimited format, where table's columns are delimited with tab character and rows-with newline character. If you copy this table into a text editor, tab and new line characters will be just pasted by it automatically. However, if you are going to create and edit such tables manually, what you should keep in mind is that when dealing with tables, we ALWAYS use tab-delimited format.
+<br>
+
+<br>
+2. In the same directory (root directory) we create file auto.p, where we'll store all the parts, which Parser will use further on to construct the site. AUTO means that these parts will always be available to Parser at any time and extension ".p"-as you have probably guessed already-means... yeah, right-in the flesh!
+<br>
+
+<br>
+3. File auto.p will contain the following code:
+<br>
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>@navigation[]
+<br>
+$sections[^table::load[sections.cfg]]
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;width="100%"&nbsp;border="1"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;</b></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^sections.menu{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF">
+<br>
+</span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>uri"&gt;&lt;nobr&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name&lt;/nobr&gt;&lt;/a&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+&nbsp;&nbsp;&nbsp;</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}</b></span></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Data stored in this file is what our navigation menu will be based on further.
+<br>
+
+<br>
+All preliminary work is now complete. Now we should create the file where it all will appear (e.g. index.html) and tell Parser to insert the navigation menu. In Parser we use the term "to call method" and write it like this:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^navigation[]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Now we just open the HTML file in browser and see ready-to-serve navigation menu. From now on, we can put this magic </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^navigation[]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in any page and Parser will insert our menu there. The page will be generated "on-the-fly." Gotcha!
+<br>
+
+<br>
+If you can see it in your browser-congratulations! You have just entered the world of dynamic sites. Very soon you will be able to use databases to generate your pages and do many other things.
+<br>
+
+<br>
+Still, between the cup and the lip a morsel may slip, as they say. Let's now analyze what we've done to succeed. Look at the code in auto.p. Don't be scared if it still seems unclear. In just a few moments we'll clear up the matter. Look at the first line, which is</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@navigation[]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+It looks almost exactly like ^navigation[], which we put into our page (index.html) to get the menu. The only difference is the first character (@ instead of ^), but it is this character that makes all difference-by using it, we define a method to be called later. Starting a line in Parser with character @ we imply that we now define some block to be used later. The word following character </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>@</b><b>&nbsp;(</b><b>navigation</b><b>)</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will be the name of the new method. It is up to us to pick up a name for a method. We may call this method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>let_us_place_the_menu_here</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, but such a name will be harder to operate with. Still, if you wish, you may call it so.
+<br>
+
+<br>
+It is vitally important to give simple and clear names. They must indicate clearly what the object will store and do. Don't fray nerves and don't waste time of yours or those, who may have to analyze your code later. Your names may be in any language, but you should keep uniformity-don't mix languages naming one object in German and another one-in Swahili...
+<br>
+
+<br>
+Let's take the next line:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections[^</b><b><a href=tableload.htm>table::load</a></b><b>[sections.cfg]]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Here is the key line of our code. It is quite big, so let's examine it part by part. The line starts with </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (dollar sign) and word </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'</b><b>sections</b><b>'</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> after it. This is the way we indicate a variable in Parser. It's easy, yet worth remembering: if you see </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$var</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> in the text, that means you deal with a variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>'var'</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. A variable may contain any type of data: numbers, strings, tables, files, images, or even a piece of code. If we want to assign '<b>www.parser.ru</b>' to variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$parser_home_url</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> we should use structure like this: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$parser_home_url[www.parser.ru]</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Later on, we can access the variable's value by referring to it, that is, writing </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$parser_home_url</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> wherever we need, and then the value, which is <b>www.parser.ru</b>, will be output.
+<br>
+
+<br>
+In short:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="103">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$var[&#133;]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="167">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-assign variable
+<br>
+</span></td></tr><tr><td align="left" valign="top" width="103">
+<span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$var</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="167">
+<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">-retrieve value
+<br>
+</span></td></tr></table>
+<br>
+
+<br>
+<i>A detailed explanation can be found in section </i><i> "</i><i><a href=vars.htm>Variables</a></i><i>".</i>
+<br>
+
+<br>
+In our case, variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> will store the table taken from </span><span style="font-family:Monospace; font-size:10pt; color:#000000">sections.cfg</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">.
+<br>
+
+<br>
+Any table in Parser is regarded as an independent object, with which only certain actions can be performed. For example, if object is a table, we can add or delete rows in it. As long as a variable can store any data, we should indicate that the value we assign is nothing else but table.
+<br>
+
+<br>
+<i>A lyrical digression:
+<br>
+Let's take a real world example. All vehicles can be roughly divided into certain major classes such as cars, trucks, vans, caterpillars, motorcycles, etc. Any vehicle is inevitably an object of a class. You can tell vehicles of one class from those of another, because all the vehicles belonging to a class have common characteristics, such as vehicle weight, maximum load weight, etc. Any vehicle can perform some actions like move, stand still, or break. Any vehicle has its own distinctive properties. And, what is most important, every vehicle must be CREATED, it cannot just appear by itself. When someone invents a new vehicle model, one knows what class the vehicle will belong to, what properties it will have, and what it will be able to do. It's just the same in Parser: every object belongs to a certain class. Every object of a class can be created by the constructor of this class and will inherit properties (fields) and methods (actions) common to all such objects.</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><i>
+<br>
+</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>Let's sum it up
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Any <b>object</b> in Parser belongs to a certain <b>class</b> and has the <b>fields</b> and <b>methods</b> of this very class. To use this object, you must first create it with the class <b>constructor</b>. Learn this terminology by heart-it is what your work will be totally based on.
+<br>
+
+<br>
+Let's get back to our code. We assigned the following value to variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^table::load[sections.cfg]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+By this, we have created an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> with constructor </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>load</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">. Common rule we use to create an object looks like the following:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^class::constructor[parameters]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<i>A detailed description may be found in section</i></span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><i> </i></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"><i>"</i><i><a href=params.htm>Passing parameters</a></i><i>".</i>
+<br>
+
+<br>
+As a parameter here, we passed the path to our file with the table.
+<br>
+
+<br>
+Variable </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> now contains the table with sections of our site. Parser regards it as an object of class </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>table</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and knows precisely what actions can be performed with it. So far, we need only one method of the class-</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>menu</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">, which iterates through the table. We also need values from fields of the table itself. The syntax used to call a method of an object is:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>^object.class_method[parameters]
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+To retrieve a value from object fields (as we deal with a definite table with the fields defined by ourselves) we use a construction:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$object.field
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+Now, that we know it all, we can easily see the meaning of the last part of our code:
+<br>
+
+<br>
+</span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;table&nbsp;width="100%"&nbsp;border="1"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>
+&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>^sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablemenu.htm>menu</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>{</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>uri</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>"&gt;&lt;nobr&gt;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>$sections.</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b><a href=tablefields.htm>name</a></b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&lt;/nobr&gt;&lt;/a&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>
+&nbsp;&nbsp;&nbsp;</b><span style="font-family:Monospace; font-size:10pt; color:#0000FF"><b>}
+<br>
+</b></span></span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>
+&lt;/table&gt;
+<br>
+
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">We generate an HTML table, where each column will contain values taken from the fields of our table </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>$sections</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">: </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>uri</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (section's uri) and </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>name</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> (section's name). We use method </span><span style="font-family:Monospace; font-size:10pt; color:#000000"><b>menu</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> to iterate through the table and retrieve data stored in it. Thus, it doesn't actually matter how many sections we have-none of them will be lost or skipped. We are free to add or remove sections, or even change their order. All changes will be made only to file </span><span style="font-family:Monospace; font-size:10pt; color:#000000">sections.cfg</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000"> and the logic of the work will remain intact-simple but nice!
+<br>
+
+<br>
+Let's summarize:
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>What have we done? 
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">We have written our first piece of code in Parser and learnt how to create a navigation menu for any page of our site using data stored in a separate file.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>What have we learnt? 
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">We got a glimpse of conceptual definitions of the language (class, object, property, and method) as well as certain basic constructions of Parser.
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>
+<br>
+</b><b>What should we remember?
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">Parser is an object-oriented language. Every object belongs to a certain class, has its own properties and can use methods of the class it belongs to. To create an object one must use a constructor of the class.
+<br>
+
+<br>
+Syntax of working with objects:</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000">
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="335">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$variable[value]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="274">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Assigning a variable<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$</b><b>variable</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="274">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Retrieving a variable's value<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$variable[^class_name::constructor[parameters]]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="274">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Creating an object of class <span style="font-family:Monospace; font-size:8pt; color:#000000"><b>class_name</b></span><span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000"> and assigning it to variable</span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>$</b><b>variable.field_name</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="274">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Retrieving the value of an object's field stored in variable<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span style="font-family:Monospace; font-size:8pt; color:#000000"><b>^variable.method[]</b><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td><td align="left" valign="top" width="274">
+<span style="font-family:FreeSetC,Arial; font-size:8pt; color:#000000">Calling an action (method of the class, which the object stored in the variable belongs to)<span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">
+<br>
+</span></span></td></tr></table>
+<br>
+
+<br>
+</span><span style="font-family:FreeSetC,Arial; font-size:12pt; color:#000000"><b>What's next?
+<br>
+</b></span><span style="font-family:FreeSetC,Arial; font-size:10pt; color:#000000">We are going to improve our menu, because it has certain imperfections so far: it places a useless link (which leads to the page we see at the moment), has columns of different width. In our second lesson, we are going to solve these problems and add some useful extras.
+<br>
+</span></span><br>
+
+<!--(later)#include virtual="/docs/comment.html" -->
+
+
+<hr size=1>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr valign="top">
+<td><font size="1">Copyright &copy; 1997&#150;2011 Art. Lebedev Studio | <a href="http://www.artlebedev.com/" target="_blank">http://www.artlebedev.com</a></font></td>
+<td align="right"><font size="1">Last updated: 04.09.2008</font></td>
+</tr>
+</table>
+</body>
+</html>
