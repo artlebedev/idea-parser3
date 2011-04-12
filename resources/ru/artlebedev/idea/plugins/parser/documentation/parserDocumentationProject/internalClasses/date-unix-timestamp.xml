@@ -1,0 +1,18 @@
+<html>
+<head>
+ <title>unix-timestamp. Converting date and time to UNIX format</title>
+</head>
+<body>
+<h1><b>unix-timestamp. Converting date and time to UNIX format
+<br />
+</b></h1>
+<br />
+<mono><b>^date.unix-timestamp[]
+<br />
+</b><normal>
+<br />
+Converts date and time to value in UNIX format (see also <a href="dateclass.htm">brief description</a>).
+<br />
+</mono></normal><br />
+</body>
+</html>

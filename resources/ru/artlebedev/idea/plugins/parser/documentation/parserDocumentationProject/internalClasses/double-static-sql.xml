@@ -1,0 +1,54 @@
+<html>
+<head>
+ <title>sql. Retrieving number from database</title>
+</head>
+<body>
+<h1><b>sql. Retrieving number from database
+<br />
+</b></h1>
+<br />
+<mono><b>^int:sql{query}
+<br />
+^int:sql{query}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(</b><b>expression</b><b>)]
+<br />
+^double:sql{query}
+<br />
+^double:sql{query}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(</b><b>expression</b><b>)]
+<br />
+</b><normal>
+<br />
+The method returns number resulted from SQL-query to a database server. The query must return value of single column of single row.
+<br />
+<br />
+</mono><mono><b>query</b></mono><normal> - query to a DB, written in SQL language;
+<br />
+</normal><mono><b>$.offset(o)</b></mono><normal> - ignore first </normal><mono><b>o</b></mono><normal> query records;
+<br />
+if SQL-server response was empty (0 records), &#133;
+<br />
+</normal><mono><b>$.default(</b><b>expression)</b></mono><normal> &#133;the given </normal><mono><b>expression&nbsp;</b></mono><normal>will be evaluated returned;
+<br />
+</normal><mono><b>$.default{code}</b></mono><normal> &#133;the given </normal><mono><b>code</b></mono><normal> will be executed and string result returned.
+<br />
+<br />
+This method demands connection with database server (see operator </normal><mono><b><a href="opconnect.htm">connect</a></b></mono><normal>).
+<br />
+<br />
+</normal><h1><b>Example</b><u>
+<br />
+</u></h1><normal>Code&#133;</normal><h1>
+<br />
+<br />
+</h1><mono><monoblue><b>^</b></monoblue></mono><mono><monoblue><b><a href="opconnect.htm">connect</a></b></monoblue></mono><mono><monoblue><b>[</b></monoblue></mono><mono><monoblue><b><a href="app3.htm">connect string</a></b></monoblue></mono><mono><monoblue><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^int:sql{</b></monoblue></mono><mono><b>select&nbsp;count(*)&nbsp;from&nbsp;news</b><monoblue><b>}
+<br />
+}
+<br />
+</b></monoblue></mono><normal>
+<br />
+&#133;will return number of records in table </normal><mono><b>news</b></mono><normal>.
+<br />
+</normal></normal><br />
+</body>
+</html>

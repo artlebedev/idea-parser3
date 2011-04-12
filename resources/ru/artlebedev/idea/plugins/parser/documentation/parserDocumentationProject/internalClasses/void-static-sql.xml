@@ -1,0 +1,37 @@
+<html>
+<head>
+ <title>sql. SQL-query returning no result</title>
+</head>
+<body>
+<h1><b>sql. SQL-query returning no result
+<br />
+</b></h1>
+<br />
+<mono><b>^void:sql{SQL-query}
+<br />
+^void:sql{SQL-query}</b><b>[$.</b><b><a href="app7.htm">bind</a></b><b>[variables&nbsp;hash]]</b><normal><b><i> [3.1.4]</i></b>
+<br />
+<br />
+This method sends SQL-query that returns no result (operations on data management in a database). For this method to work, you must have connection with DB-server established (see operator </mono><mono><b><a href="opconnect.htm">connect</a></b></mono><normal>).
+<br />
+<br />
+It is possible to use additional parameter with the constructor:
+<br />
+</normal><mono><b>$.bind</b><b>[hash]</b></mono><normal> - variables to bind, see &#171;<a href="app7.htm">Queries with bound variables</a>&#187;<b><i> [3.1.4]</i></b>.
+<br />
+<br />
+</normal><h1><b>Example</b></h1><normal><u>
+<br />
+</u></normal><mono><monoblue><b>^</b></monoblue></mono><mono><monoblue><b><a href="opconnect.htm">connect</a></b></monoblue></mono><mono><monoblue><b>[</b></monoblue></mono><mono><monoblue><b><a href="app3.htm">connect string</a></b></monoblue></mono><mono><monoblue><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^void:sql{</b></monoblue></mono><mono><b>create&nbsp;table&nbsp;users(id&nbsp;int,name&nbsp;text,email&nbsp;text)</b><monoblue><b>}
+<br />
+}
+<br />
+</b></monoblue></mono><normal>
+<br />
+</normal><normal>As a result of this code's work, new table </normal><mono>users</mono><normal> will be created. The query will return no result. This example is for MySQL DBMS.
+<br />
+</normal></normal><br />
+</body>
+</html>

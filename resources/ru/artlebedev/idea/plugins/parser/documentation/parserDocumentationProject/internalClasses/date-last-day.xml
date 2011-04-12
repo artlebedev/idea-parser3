@@ -1,0 +1,18 @@
+<html>
+<head>
+ <title>last-day. Getting last day of month</title>
+</head>
+<body>
+<h1><b>Example
+<br />
+</b></h1><mono><monoblue><b>$date[^date::</b></monoblue></mono><mono><monoblue><b><a href="datecreateabs.htm">create</a></b></monoblue></mono><mono><monoblue><b>(2008;02;01)]
+<br />
+^date.last-day[]
+<br />
+</b></monoblue></mono><mono><monoblue><b>
+<br />
+</b></monoblue></mono><normal>Will return </normal><mono><b>29</b></mono><normal>
+<br />
+</normal></normal><br />
+</body>
+</html>
