@@ -4,7 +4,7 @@ import com.intellij.lang.documentation.QuickDocumentationProvider;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiManager;
-import ru.artlebedev.idea.plugins.parser.documentation.DocumentationProvider;
+import ru.artlebedev.idea.plugins.parser.documentation.provider.DocumentationProvider;
 
 import java.util.List;
 
