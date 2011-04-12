@@ -1,0 +1,36 @@
+<html>
+<head>
+ <title>load. Loading file from HTTP/HTTPS server</title>
+</head>
+<body>
+<h1><b>load. Loading file from HTTP/HTTPS server</b><b>
+<br />
+</b></h1>
+<br />
+<mono><b>^curl:load[]&nbsp;
+<br />
+^curl:load[</b><b><a href="curloptionsdesc.htm">options</a></b><b>]&nbsp;</b><normal><b>
+<br />
+</b>
+<br />
+</mono><normal>Loads file from HTTP or HTTPS server and returns it as an object of class <a href="fileclass.htm">file</a>. Inside the <a href="curlsession.htm">curl session</a> it could be called without parameters.</normal><normal>
+<br />
+<br />
+</normal><normal><b>Example</b></normal><normal>
+<br />
+</normal><mono><monoblue><b>$file[^curl:load[&nbsp;
+<br />
+</b></monoblue></mono><mono><monoblue><b>&nbsp;&nbsp;&nbsp;</b></monoblue></mono><mono><monoblue><b>$.url[</b></monoblue></mono><mono><b>https://store.artlebedev.ru/</b><monoblue><b>]&nbsp;
+<br />
+</b></monoblue></mono><mono><monoblue><b>&nbsp;&nbsp;&nbsp;</b></monoblue></mono><mono><monoblue><b>$.useragent[</b></monoblue></mono><mono><b>Parser3</b><monoblue><b>]&nbsp;
+<br />
+</b></monoblue></mono><mono><monoblue><b>&nbsp;&nbsp;&nbsp;</b></monoblue></mono><mono><monoblue><b>$.timeout(</b></monoblue></mono><mono><b>10</b><monoblue><b>)&nbsp;
+<br />
+]]&nbsp;</b></monoblue></mono><normal>
+<br />
+<br />
+</normal><normal>
+<br />
+</normal></normal><br />
+</body>
+</html>

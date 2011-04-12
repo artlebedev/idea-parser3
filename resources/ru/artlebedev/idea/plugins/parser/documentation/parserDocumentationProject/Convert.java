@@ -60,25 +60,25 @@ public class Convert {
 
   // date
   public final static ConvertPair dateClass = new ConvertPair(SOURCES_DIR + "dateclass.htm", INTERNAL_CLASSES_DIR + "date.xml");
-  public final static ConvertPair dateRollMethod = new ConvertPair(SOURCES_DIR + "dateroll.htm", INTERNAL_CLASSES_DIR + "date-roll.xml");
-  public final static ConvertPair dateSqlStringMethod = new ConvertPair(SOURCES_DIR + "datesqlstring.htm", INTERNAL_CLASSES_DIR + "date-sql-string.xml");
-  public final static ConvertPair dateUnixTimestampMethod = new ConvertPair(SOURCES_DIR + "dateunixts.htm", INTERNAL_CLASSES_DIR + "date-unix-timestamp.xml");
-  public final static ConvertPair dateLastDayMethod = new ConvertPair(SOURCES_DIR + "datelastdaym.htm", INTERNAL_CLASSES_DIR + "date-last-day.xml");
-  public final static ConvertPair dateGmtStringMethod = new ConvertPair(SOURCES_DIR + "dategmtstring.htm", INTERNAL_CLASSES_DIR + "date-gmt-string.xml");
+  public final static ConvertPair dateRollMethod = new ConvertPair(SOURCES_DIR + "dateroll.htm", INTERNAL_METHODS_DIR + "date-roll.xml");
+  public final static ConvertPair dateSqlStringMethod = new ConvertPair(SOURCES_DIR + "datesqlstring.htm", INTERNAL_METHODS_DIR + "date-sql-string.xml");
+  public final static ConvertPair dateUnixTimestampMethod = new ConvertPair(SOURCES_DIR + "dateunixts.htm", INTERNAL_METHODS_DIR + "date-unix-timestamp.xml");
+  public final static ConvertPair dateLastDayMethod = new ConvertPair(SOURCES_DIR + "datelastdaym.htm", INTERNAL_METHODS_DIR + "date-last-day.xml");
+  public final static ConvertPair dateGmtStringMethod = new ConvertPair(SOURCES_DIR + "dategmtstring.htm", INTERNAL_METHODS_DIR + "date-gmt-string.xml");
   // static methods missing
 
   // double
   public final static ConvertPair doubleClass = new ConvertPair(SOURCES_DIR + "intdoubleclasses.htm", INTERNAL_CLASSES_DIR + "double.xml");
-  public final static ConvertPair doubleIntMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "double-int.xml");
-  public final static ConvertPair doubleDoubleMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "double-double.xml");
-  public final static ConvertPair doubleBoolMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "double-bool.xml");
-  public final static ConvertPair doubleIncMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-inc.xml");
-  public final static ConvertPair doubleDecMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-dec.xml");
-  public final static ConvertPair doubleMulMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-mul.xml");
-  public final static ConvertPair doubleDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-div.xml");
-  public final static ConvertPair doubleModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "double-mod.xml");
-  public final static ConvertPair doubleFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_CLASSES_DIR + "double-format.xml");
-  public final static ConvertPair doubleSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_CLASSES_DIR + "double-static-sql.xml");
+  public final static ConvertPair doubleIntMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_METHODS_DIR + "double-int.xml");
+  public final static ConvertPair doubleDoubleMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_METHODS_DIR + "double-double.xml");
+  public final static ConvertPair doubleBoolMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_METHODS_DIR + "double-bool.xml");
+  public final static ConvertPair doubleIncMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "double-inc.xml");
+  public final static ConvertPair doubleDecMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "double-dec.xml");
+  public final static ConvertPair doubleMulMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "double-mul.xml");
+  public final static ConvertPair doubleDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "double-div.xml");
+  public final static ConvertPair doubleModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "double-mod.xml");
+  public final static ConvertPair doubleFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_METHODS_DIR + "double-format.xml");
+  public final static ConvertPair doubleSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_METHODS_DIR + "double-static-sql.xml");
 
   // env
   public final static ConvertPair envClass = new ConvertPair(SOURCES_DIR + "envclass.htm", INTERNAL_CLASSES_DIR + "env.xml");
@@ -97,16 +97,16 @@ public class Convert {
 
   // int
   public final static ConvertPair intClass = new ConvertPair(SOURCES_DIR + "intdoubleclasses.htm", INTERNAL_CLASSES_DIR + "int.xml");
-  public final static ConvertPair intIntMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "int-int.xml");
-  public final static ConvertPair intDoubleMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "int-double.xml");
-  public final static ConvertPair intBoolMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_CLASSES_DIR + "int-bool.xml");
-  public final static ConvertPair intIncMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-inc.xml");
-  public final static ConvertPair intDecMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-dec.xml");
-  public final static ConvertPair intMulMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-mul.xml");
-  public final static ConvertPair intDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-div.xml");
-  public final static ConvertPair intModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_CLASSES_DIR + "int-mod.xml");
-  public final static ConvertPair intFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_CLASSES_DIR + "int-format.xml");
-  public final static ConvertPair intSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_CLASSES_DIR + "int-static-sql.xml");
+  public final static ConvertPair intIntMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_METHODS_DIR + "int-int.xml");
+  public final static ConvertPair intDoubleMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_METHODS_DIR + "int-double.xml");
+  public final static ConvertPair intBoolMethod = new ConvertPair(SOURCES_DIR + "intdoublefield.htm", INTERNAL_METHODS_DIR + "int-bool.xml");
+  public final static ConvertPair intIncMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "int-inc.xml");
+  public final static ConvertPair intDecMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "int-dec.xml");
+  public final static ConvertPair intMulMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "int-mul.xml");
+  public final static ConvertPair intDivMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "int-div.xml");
+  public final static ConvertPair intModMethod = new ConvertPair(SOURCES_DIR + "intdoubleincetc.htm", INTERNAL_METHODS_DIR + "int-mod.xml");
+  public final static ConvertPair intFormatMethod = new ConvertPair(SOURCES_DIR + "intdoubleformat.htm", INTERNAL_METHODS_DIR + "int-format.xml");
+  public final static ConvertPair intSqlStaticMethod = new ConvertPair(SOURCES_DIR + "intdoublesql.htm", INTERNAL_METHODS_DIR + "int-static-sql.xml");
 
   // json
   public final static ConvertPair jsonClass = new ConvertPair(SOURCES_DIR + "jsonclass.htm", INTERNAL_CLASSES_DIR + "json.xml");
@@ -146,7 +146,7 @@ public class Convert {
 
   // void
   public final static ConvertPair voidClass = new ConvertPair(SOURCES_DIR + "voidclass.htm", INTERNAL_CLASSES_DIR + "void.xml");
-  public final static ConvertPair voidSqlStaticMethod = new ConvertPair(SOURCES_DIR + "voidsql.htm", INTERNAL_CLASSES_DIR + "void-static-sql.xml");
+  public final static ConvertPair voidSqlStaticMethod = new ConvertPair(SOURCES_DIR + "voidsql.htm", INTERNAL_METHODS_DIR + "void-static-sql.xml");
 
   // xdoc
   public final static ConvertPair xdocClass = new ConvertPair(SOURCES_DIR + "xdocclass.htm", INTERNAL_CLASSES_DIR + "xdoc.xml");

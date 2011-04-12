@@ -1,0 +1,18 @@
+<html>
+<head>
+ <title>version. Returning cURL library version</title>
+</head>
+<body>
+<h1><b>version. Returning cURL library version
+<br />
+</b></h1>
+<br />
+<mono><b>^curl:version[]&nbsp;</b><normal><b>
+<br />
+</b>
+<br />
+</mono><normal>Returns string with </normal><mono><b>libcurl</b></mono><normal> version.
+<br />
+</normal></normal><br />
+</body>
+</html>
