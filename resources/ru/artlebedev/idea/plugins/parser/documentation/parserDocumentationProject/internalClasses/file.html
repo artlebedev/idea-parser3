@@ -1,0 +1,28 @@
+<html>
+<head>
+ <title>File class</title>
+</head>
+<body>
+<h1><b>File class
+<br />
+</b></h1>
+<br />
+<normal>Class <mono><b>file</b></mono><normal> is designed for working with files. Objects of this class can be created by different means:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><normal>
+&nbsp;<br />
+</normal></normal></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><normal>1.&nbsp;&nbsp;&nbsp;by means of method POST through form field
+&nbsp;<br />
+</normal></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><normal></normal><mono><b>&nbsp;&nbsp;&nbsp;&lt;form&nbsp;method="post"&nbsp;enctype="multipart/form-data"&gt;&#133;
+&nbsp;<br />
+</b></mono></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><mono><b>&nbsp;&nbsp;&nbsp;&lt;input&nbsp;name="photo"&nbsp;type="file"&gt;</b></mono><normal>.
+&nbsp;<br />
+</normal></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><normal>2.&nbsp;&nbsp;&nbsp;by one of constructors of class </normal><mono><b>file</b></mono><normal>.
+&nbsp;<br />
+</normal></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><normal></normal></td></tr></table><normal>
+<br />
+While sending files to client (for example, by method </normal><mono><monoblue><b><u><a href="mailclass.htm">mail:send</a></u></b></monoblue></mono><normal> or through field </normal><mono><b><a href="responseclass.htm">response:body</a></b></mono><normal>) one should define HTTP-header </normal><mono>content-type</mono><normal>. Parser determines file type by its extension with the help of table </normal><mono><b>MIME-TYPES</b></mono><normal>, defined in <a href="parserconfmethod.htm">Configuration method</a> (see also Chapter <a href="install.htm">Installing and configuring Parser</a>). Parser uses it to automatically determine, by file extension, the type of content to be sent in header </normal><mono>content-type</mono><normal>. If type of content cannot be determined, </normal><mono>content-type</mono><normal> will be </normal><mono>application/octet-stream</mono><normal>.
+<br />
+</normal></normal><br />
+</body>
+</html>
