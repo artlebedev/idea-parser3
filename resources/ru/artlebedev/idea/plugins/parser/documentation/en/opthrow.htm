@@ -1,0 +1,133 @@
+<html>
+<head>
+    
+    
+    <title>throw. Reporting an error</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>throw. Reporting an error
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^throw[type]&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b><b>^throw[type;source]
+<br />
+^throw[type;source;comment]
+<br />
+^throw[hash]
+<br />
+
+<br />
+</b></span><span>Operator </span><span><b>throw</b></span><span> reports error of </span><span><b>type</b></span><span>, which was caused by </span><span><b>source</b></span><span>, and provides </span><span><b>comment</b></span><span>.
+<br />
+
+<br />
+This error can be intercepted and handled by using operator </span><span><b><a href="optry.htm">try</a></b></span><span>.
+<br />
+
+<br />
+Do not intercept errors only to provide a good-looking output. Let method </span><span><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span>, do it all instead, if no handler can be found. Besides, the method will add entries to server's error log, which you can regularly look through to find problems that might crop up.
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>@method[command]
+<br />
+^</b></span></span><span><span><b><a href="opswitch.htm">switch</a></b></span></span><span><span><b>[$command]{
+<br />
+&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="opswitch.htm">case</a></b></span></span><span><span><b>[add]{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>adding</b><b>&#133;
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;^case[delete]{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>deleting</b><b>&#133;
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;^case[</b></span></span><span><span><b><a href="opswitch.htm">DEFAULT</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[bad.command;$command;</b></span></span><span><b>Wrong&nbsp;command&nbsp;</b><span><b>$command</b></span></span><span><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span><b>]</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^rem{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;next&nbsp;format&nbsp;also&nbsp;acceptable:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.type[</b></span></span><span><span><b>bad.command</b></span></span><span><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.source[</b></span></span><span><span><b>$command</b></span></span><span><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.comment[</b></span></span><span><b>Wrong&nbsp;command&nbsp;</b><span><b>$command</b></span></span><span><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}
+<br />
+
+<br />
+@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+$action[format&nbsp;c:]
+<br />
+^</b></span></span><span><span><b><a href="optry.htm">try</a></b></span></span><span><span><b>{
+<br />
+&nbsp;&nbsp;&nbsp;^method[$action]
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;^if($</b></span></span><span><span><b><a href="optry.htm">exception</a></b></span></span><span><span><b>.type&nbsp;</b></span></span><span><span><b><a href="exprops.htm">eq</a></b></span></span><span><span><b>&nbsp;bad.command){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span><b><a href="boollit.htm">true</a></b><span><b>)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>Wrong&nbsp;command&nbsp;</b><b>'</b><span><b>$exception.source</b></span></span><span><b>',&nbsp;</b><b>in&nbsp;file</b><b>&nbsp;</b><span><b>$exception.file</b></span></span><span><b>,&nbsp;</b><b>in&nbsp;line</b><b>&nbsp;</b><span><b>$exception.lineno</b></span></span><span><b>.</b><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}</b></span></span><span>
+<br />
+
+<br />
+The result of this code's work will be:
+<br />
+</span><span><b>Wrong&nbsp;command&nbsp;'format&nbsp;c:',&nbsp;in&nbsp;file&nbsp;c:/parser3tests/www/htdocs/throw.html,&nbsp;in&nbsp;line&nbsp;15.
+<br />
+</b></span><span>
+<br />
+<i>We would like to remind you that visitors should not see errors' technical details, especially if such details contain paths to files-it is both ugly and unsafe.
+<br />
+Outputting </i></span><span><b>$exception.file</b></span><span><i> is nothing but an example that you can use while debugging the site at server, but by no means in production mode.</i></span><span><span><i>
+<br />
+</i></span></span></span><br />
+
+
+
+
+</body>
+</html>

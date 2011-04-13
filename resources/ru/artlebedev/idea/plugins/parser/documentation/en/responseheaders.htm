@@ -1,0 +1,47 @@
+<html>
+<head>
+    
+    
+    <title>headers. HTTP-response headers</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>headers. HTTP-response headers&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.5]</i></b></span>
+<br />
+
+
+
+<span><b>$form:headers
+<br />
+</b><span>
+<br />
+Such a construction returns <a href="hash.htm">hash</a> with all HTTP-response headers set so far.
+<br />
+
+<br />
+</span><span><b>Example</b><b>
+<br />
+</b></span><span><b>$response:</b><b><a href="responsefields.htm">expires</a></b><b>[^</b><b><a href="dateclass.htm">date</a></b><b>::</b><b><a href="datenow.htm">now</a></b><b>(+1)]</b></span><span><b>
+<br />
+</b></span><span><span><b>^response:headers.</b></span></span><span><span><b><a href="hashforeach.htm">foreach</a></b></span></span><span><span><b>[header;value]{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><span><b>$</b></span></span><span><span><b>header</b></span></span><span><b>&nbsp;-&nbsp;</b><b>^if(</b><span><b>$value</b></span></span><span><b>&nbsp;is&nbsp;"string"&nbsp;||&nbsp;</b><span><b>$value</b></span></span><span><b>&nbsp;is&nbsp;"int"&nbsp;||&nbsp;</b><span><b>$value</b></span></span><span><b>&nbsp;is&nbsp;"double"){</b><span><b>$value</b></span></span><span><span><b>}{not&nbsp;printable}</b></span></span><span><b>
+<br />
+</b><span><b>}[</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>]
+<br />
+</b></span></span><span>
+<br />
+&#133;will output all HTTP-response headers that were set up to that moment.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

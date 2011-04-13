@@ -1,0 +1,40 @@
+<html>
+<head>
+    
+    
+    <title>selectBool. XPath search for a Boolean value</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b></h1><span><u>
+<br />
+</u></span><span><span><b>$d[^xdoc::</b></span></span><span><span><b><a href="xdoccreatexml.htm">create</a></b></span></span><span><span><b>{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br />
+&lt;t&nbsp;attr="</b><b>hello</b><b>"&nbsp;n="123"/&gt;</b><span><b>}]
+<br />
+^if(^d.selectBool[/t/@n&nbsp;&gt;&nbsp;10]){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>/t/@n&nbsp;greater&nbsp;than&nbsp;10</b><b>
+<br />
+</b><span><b>}{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>not&nbsp;greater</b><b>
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span>
+<br />
+Detailed specification of XPath is available at: <span><u><a href="http://www.w3.org/TR/xpath" target="_blank">http://www.w3.org/TR/xpath</a></u></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

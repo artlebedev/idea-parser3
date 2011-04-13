@@ -1,0 +1,139 @@
+<html>
+<head>
+    
+    
+    <title>Junction (�����)</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Junction (�����)
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>����� ������������ ��� �������� <b><a href="vars.htm">����</a></b> � <b>���������</b> ��� ����������.
+<br />
+��� ��������� � ����������, �������� � ���� <span><b>junction</b></span><span>, Parser ��������� <b>���</b> � ����������� <b>���������</b>.
+<br />
+
+<br />
+�������� ���� </span><span><b>junction</b></span><span> ���������� � ����������
+<br />
+
+<br />
+���� ������������ �� ����:
+<br />
+</span><span><span><b>$junction{</b></span></span><span><b>���,&nbsp;�������������&nbsp;����������:&nbsp;</b><span><b>^do_something[]}
+<br />
+</b></span></span><span>
+<br />
+���� �������� ���� ����������:
+<br />
+</span><span><span><b>@somewhere[]
+<br />
+^method{</b></span></span><span><b>���,&nbsp;������������&nbsp;����������:&nbsp;</b><span><b>^do_something_else[]}
+<br />
+�
+<br />
+@method[parameter]
+<br />
+#�����&nbsp;�&nbsp;$parameter&nbsp;������&nbsp;junction
+<br />
+</b></span></span><span>
+<br />
+���� ��������� � ����� ������ ������:
+<br />
+</span><span><span><b>$action[</b></span></span><span><span><b>$</b></span></span><span><span><b><a href="defineclass.htm">user</a></b></span></span><span><span><b>:</b></span></span><span><span><b>edit</b></span></span><span><span><b>]
+<br />
+#$action[</b></span></span><span><span><b>$</b></span></span><span><span><b>user:delete]
+<br />
+</b></span></span><span><span><b>^action[��������]
+<br />
+</b></span></span><span>
+<br />
+����� </span><span><b>$action</b></span><span> ������ ������ �� ����� � ��� �����, ����� </span><span><b>action</b></span><span> ������ ���������� ������ </span><span><b>^edit[��������]</b></span><span>.
+<br />
+
+<br />
+���� ��������� � ����� ������ �������:
+<br />
+</span><span><span><b>$action[$person.show_info]
+<br />
+^action[full]
+<br />
+</b></span></span><span>
+<br />
+����� </span><span><b>$action</b></span><span> ������ ������ �� ����� � ��� ������, ����� </span><span><b>action</b></span><span> ������ ���������� ������ </span><span><b>^person.show_info[���������]</b></span><span>.
+<br />
+
+<br />
+</span><span><b>������ </b><b>junction </b><b>��������� � ����</b><b>
+<br />
+</b></span><span><span><b>@</b></span></span><span><span><b>possible_reminder[age;have_passport]
+<br />
+</b></span></span><span><span><b>^m</b></span></span><span><span><b>yif</b></span></span><span><span><b>($age&gt;=16</b></span></span><span><span><b>&nbsp;&amp;&amp;&nbsp;!$have_passport</b></span></span><span><span><b>){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;����&nbsp;���&nbsp;</b><span><b>$age</b></span></span><span><b>&nbsp;���,&nbsp;����&nbsp;�������&nbsp;�&nbsp;�������</b><b>.</b><b>
+<br />
+</b><span><b>}
+<br />
+
+<br />
+</b></span></span><span><span><b>@myif[condition;action][age]
+<br />
+$age(11)
+<br />
+^if($condition){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$action
+<br />
+}</b></span></span><span><span><b>
+<br />
+</b></span></span><span>
+<br />
+<i>�����������: </i><i><a href="params.htm">��������</a></i><i> � ����������, ��� ���, ����������� ���������, �� ����������� - ����������� ��������� - ��� ������ ��������� � ��������� ������ ������.</i>
+<br />
+
+<br />
+����� ��������� </span><span><b>myif</b></span><span> ������� ���, ����������, ����� �������, </span><span><b>$age</b></span><span>. ���������� �������� � ���� �������� ���������� � ����������� (������ </span><span><b>$condition</b></span><span> � </span><span><b>$action</b></span><span>) <b>���������</b>, ������� ������� � </span><span><b>myif</b></span><span> ��������� ���������� </span><span><b>age</b></span><span> � �� �������� ����� �� ������ �� ��, ��� ����� ��������� � ��� ����������.
+<br />
+
+<br />
+</span><span><b>������ �������� ������� ������</b><b>
+<br />
+</b></span><span><span><b>^if($some_method&nbsp;is&nbsp;junction){</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^some_method[</b></span></span><span><span><b>��������</b></span></span><span><span><b>]
+<br />
+}</b></span></span><span><span><b>{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>���&nbsp;������
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span>
+<br />
+����� </span><span><b>some_meth</b><b>od</b></span><span>, ����� ������ ������, ���� ���������.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

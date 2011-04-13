@@ -1,0 +1,253 @@
+<html>
+<head>
+    
+    
+    <title>Configuration method</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Configuration method
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>If configuration file contains method <span><b>conf</b></span><span>, this method will be executed first, before method </span><span><b><a href="mainclass.htm">auto</a></b></span><span>, to set vital system parameters:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>Files defining character sets;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>HTTP POST-request size limit;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>Mail-sending server/application;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>SQL-drivers and their parameters;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>Table to associate filename extension with its mime-type.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+We recommend that you place this method in <a href="parserconfig.htm">in configuration file</a>.
+<br />
+
+<br />
+Method is defined like the following:
+<br />
+</span><span><b>@conf[filespec]
+<br />
+</b></span><span>
+<br />
+&#133;where </span><span><b>filespec</b></span><span> is full name of file containing the method.
+<br />
+
+<br />
+Charset </span><span><b>UTF-8</b></span><span>, used in Parser by default, is always available and thus doesn't have to be loaded. To use other charsets, specify files defining them. This should be done in the following way:
+<br />
+</span><span><b>$CHARSETS[
+<br />
+&nbsp;&nbsp;&nbsp;$.windows-1251[/full/path/to/windows-1251.cfg]
+<br />
+&nbsp;&nbsp;&nbsp;&#133;
+<br />
+]
+<br />
+</b></span><span>
+<br />
+See "<a href="installcharset.htm">Files defining character sets</a>".
+<br />
+
+<br />
+Size limit for POST data:
+<br />
+</span><span><b>$LIMITS[
+<br />
+&nbsp;&nbsp;&nbsp;$.post_max_size(10*0x400*0x400)
+<br />
+]
+<br />
+</b></span><span>
+<br />
+Parameters for mail-sending program (see </span><span><b><a href="mailsend.htm">^mail:send[�]</a></b></span><span>)&#133;
+<br />
+
+<br />
+&#133;under Windows&nbsp;and UNIX-SMTP-server address
+<br />
+
+<br />
+</span><span><b>$MAIL[
+<br />
+&nbsp;&nbsp;&nbsp;$.SMTP[mail.office.design.ru]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+&#133;under UNIX:
+<br />
+
+<br />
+in safe mode versions you can configure mail-sending program only if you <a href="compilesrc.htm">compile Parser from source code</a>, by yourself. Binary versions, which are available for download directly from </span><span>http://parser.ru/en/download/,</span><span> configure mail-sending in such a way:
+<br />
+
+<br />
+</span><span>&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-i&nbsp;-t&nbsp;-f&nbsp;postmaster
+<br />
+</span><span>
+<br />
+It is only in unsafe-mode versions that you can specify mail-sending program by yourself:
+<br />
+</span><span><b>$MAIL[
+<br />
+&nbsp;&nbsp;&nbsp;$.sendmail[/custom/mail/sending/program&nbsp;params]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+&#133;and by default Parser uses command&#133;
+<br />
+
+<br />
+</span><span>&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-t&nbsp;-i&nbsp;-f&nbsp;postmaster
+<br />
+</span><span>
+<br />
+&#133;or command&#133;
+<br />
+
+<br />
+</span><span>&nbsp;&nbsp;&nbsp;/usr/lib/sendmail&nbsp;-t&nbsp;-i&nbsp;-f&nbsp;postmaster
+<br />
+</span><span>
+<br />
+&#133;depending on system you use.
+<br />
+
+<br />
+When a message is being sent, Parser will replace "</span><span>postmaster</span><span>" with mail-sender's address from obligatory header field "</span><span>from</span><span>".
+<br />
+
+<br />
+One can also provide a table of SQL-drivers:
+<br />
+</span><span><b>$SQL[
+<br />
+$.drivers</b><b>[^</b><b><a href="tablecreate.htm">table::create</a></b><b>{protocol&nbsp;&nbsp;&nbsp;driver&nbsp;&nbsp;&nbsp;client
+<br />
+mysql&nbsp;&nbsp;&nbsp;/full/disk/path/parser3mysql.dll&nbsp;&nbsp;&nbsp;/full/disk/path/libmySQL.dll
+<br />
+odbc&nbsp;&nbsp;&nbsp;/full/disk/path/parser3odbc.dll
+<br />
+pgsql&nbsp;/full/disk/path/parser3pgsql.dll&nbsp;&nbsp;&nbsp;/full/disk/path/libpq.dll
+<br />
+sqlite&nbsp;/full/disk/path/parser3sqlite.dll&nbsp;&nbsp;&nbsp;/full/disk/path/sqlite3.dll
+<br />
+oracle&nbsp;&nbsp;&nbsp;/path/to/parser3oracle.dll&nbsp;&nbsp;&nbsp;C:\Oracle\Ora81\BIN\oci.dll?PATH+=^;C:\Oracle\Ora81\bin
+<br />
+}]
+<br />
+]
+<br />
+</b></span><span>Column </span><span><b>client</b></span><span> of table </span><span><b>drivers</b></span><span> may contain parameters passed to client's library, delimited from file name with character </span><span><b>?</b></span><span>. The whole construction will look like:
+<br />
+</span><span><b>name1=value1&amp;name2=name2&amp;&#133;</b></span><span>
+<br />
+&#133;as well as&#133;
+<br />
+</span><span><b>name+=value</b></span><span>
+<br />
+These variables will replace (=) or be appended to (+=) already existing value in program environment before the library is initialized. Such an approach is particularly useful when you add path to Oracle libraries, if this path has not been already specified in program's system environment.
+<br />
+
+<br />
+Table to associate filename extension with its mime-type:
+<br />
+</span><span><b>
+<br />
+#</b><b>&nbsp;</b><b>file&nbsp;created&nbsp;with&nbsp;</b><b><a href="fileload.htm">^file::load[�]</a></b><b>,
+<br />
+#</b><b>&nbsp;</b><b>will&nbsp;specify&nbsp;this</b><b>&nbsp;</b><b><a href="responsefields.htm">$response:content-type</a></b><b>&nbsp;when&nbsp;output&nbsp;in&nbsp;</b><b><a href="responsebody.htm">$response:body</a></b><b>
+<br />
+$MIME-TYPES[^</b><b><a href="tablecreate.htm">table::create</a></b><b>{ext&nbsp;mime-type
+<br />
+zip&nbsp;application/zip
+<br />
+doc&nbsp;application/msword
+<br />
+xls&nbsp;application/vnd.ms-excel
+<br />
+pdf&nbsp;application/pdf
+<br />
+ppt&nbsp;application/powerpoint
+<br />
+rtf&nbsp;application/rtf
+<br />
+gif&nbsp;image/gif
+<br />
+jpg&nbsp;image/jpeg
+<br />
+jpeg&nbsp;image/jpeg
+<br />
+png&nbsp;image/png
+<br />
+tif&nbsp;image/tiff
+<br />
+html&nbsp;text/html
+<br />
+htm&nbsp;text/html
+<br />
+txt&nbsp;text/plain
+<br />
+mts&nbsp;application/metastream
+<br />
+mid&nbsp;audio/midi
+<br />
+midi&nbsp;audio/midi
+<br />
+mp3&nbsp;audio/mpeg
+<br />
+ram&nbsp;audio/x-pn-realaudio
+<br />
+rpm&nbsp;audio/x-pn-realaudio-plugin
+<br />
+ra&nbsp;audio/x-realaudio
+<br />
+wav&nbsp;audio/x-wav
+<br />
+au&nbsp;audio/basic
+<br />
+mpg&nbsp;video/mpeg
+<br />
+avi&nbsp;video/x-msvideo
+<br />
+mov&nbsp;video/quicktime
+<br />
+swf&nbsp;application/x-shockwave-flash
+<br />
+}]
+<br />
+
+<br />
+</b></span><span>File name extensions in this table should be given in lowercase. Table search is case-insensitive, so, for example, file </span><span>FACE.GIF</span><span> will acquire mime-type </span><span>image/gif</span><span>.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

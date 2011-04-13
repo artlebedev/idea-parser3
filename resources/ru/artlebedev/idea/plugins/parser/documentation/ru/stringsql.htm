@@ -1,0 +1,75 @@
+<html>
+<head>
+    
+    
+    <title>sql. ��������� ������ �� ���� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>sql. ��������� ������ �� ���� ������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^string:sql{SQL-������}&nbsp;&nbsp;
+<br />
+^string:sql{SQL-������}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default{���}&nbsp;$.</b><b><a href="app7.htm">bind</a></b><b>[variables&nbsp;hash]]</b>&nbsp;&nbsp;&nbsp;<span>
+<br />
+</span><span>
+<br />
+<i>���������: ������ �����, �� �����������!</i>
+<br />
+
+<br />
+���������� ������, ���������� �� ���� ������ ����� SQL-������. ����������� ������� ������ ���� ������ ���� ������� �� ����� ������. ��� ������ ��������� ���������� ������������� ���������� � �������� ���� ������ (��. �������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span>).
+<br />
+
+<br />
+�������������� ���������:</span><span>
+<br />
+</span><span><b>$.limit(1)</b></span><span> - � ������ �������� ����� ����������� ������ ���� ������;
+<br />
+</span><span><b>$.offset(o)</b></span><span> - ��������� ������ </span><span><b>o</b></span><span> ������� �������;
+<br />
+</span><span><b>$.bind[hash]</b></span><span> - ��������� ����������, ��. �<a href="app7.htm">������ � IN/OUT �����������</a>�.<b><i> [3.1.4]</i></b>
+<br />
+���� ����� SQL-������� ��� ���� (0 �������), �� �����
+<br />
+</span><span><b>$.default{���}</b></span><span> ��������� ��������� </span><span><b>���</b></span><span>, � ������, ������� �� ���������, ����� ����������� ������;
+<br />
+</span><span><b>$.default(���������)</b></span><span> ���������� ��������� </span><span><b>���������</b></span><span>, � ��� ����� ����������� ������;
+<br />
+</span><span><b>$.default[������]</b></span><span> ������ ���������� ��������� </span><span><b>������</b></span><span>;
+<br />
+
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>^string:sql{</b></span></span><span><b>select&nbsp;name&nbsp;from&nbsp;company&nbsp;where&nbsp;company_id=</b><span><b>$company_id}</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+��������� ���� �����, ������� �������������� SQL-������ ���, ����� � ������ �������� ����������� ���� ������ �� ������ �������.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

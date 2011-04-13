@@ -1,0 +1,56 @@
+<html>
+<head>
+    
+    
+    <title>measure. Creating an object based on existing graphics file</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example of creating tag IMG with width and height attributes</b></h1><span><u>
+<br />
+</u></span><span><span><b>$photo[^image::measure[</b></span></span><span><b>myphoto.png</b><span><b>]]
+<br />
+^photo</b></span></span><span><span><b>.</b></span></span><span><span><b><a href="imagehtml.htm">html</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+<br />
+</b><span><b>
+<br />
+</b></span></span><span>will create object </span><span><b>photo</b></span><span> of class </span><span><b>image</b></span><span>, based on existing graphics in PNG format. Tag </span><span>IMG</span><span> will be created with reference to the file and </span><span>width</span><span> and </span><span>height</span><span> specified.
+<br />
+
+<br />
+</span><span><b>Example of working with EXIF information
+<br />
+</b></span><span><span><b>$image[^image::measure[</b></span></span><span><b>jpg/DSC00003.JPG</b><span><b>]]
+<br />
+$exif[$image.exif]
+<br />
+^if</b></span></span><span><span><b>($exif){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Camera&nbsp;manufacturer,&nbsp;model</b><b>:&nbsp;</b><span><b>$exif.</b></span></span><span><span><b><a href="imagefields.htm">Make</a></b></span></span><span><b>&nbsp;</b><span><b>$exif.Model</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Shooting&nbsp;time</b><b>:&nbsp;</b><span><b>^exif.DateTimeOriginal.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Exposure&nbsp;time</b><b>:&nbsp;</b><span><b>$exif.ExposureTime</b></span></span><span><b>&nbsp;seconds</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Aperture</b><b>:</b><b>&nbsp;F</b><span><b>$exif.FNumber</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Flash&nbsp;used</b><b>:&nbsp;</b><span><b>^if(def&nbsp;$exif.Flash){^if($exif.Flash){</b></span></span><span><b>yes</b><span><b>;</b></span></span><span><b>no</b><span><b>};</b></span></span><span><b>not&nbsp;known</b><span><b>}</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+<br />
+}{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>No&nbsp;EXIF&nbsp;information</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br />
+</b><span><b>}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

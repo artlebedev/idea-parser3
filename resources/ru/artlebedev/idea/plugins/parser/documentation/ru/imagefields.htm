@@ -1,0 +1,164 @@
+<html>
+<head>
+    
+    
+    <title>����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="139">
+<span><b>$��������.src</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>- ��� �����<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span><b>$��������.width</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>- ������
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span><b>$��������.height</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>- ������
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span><b>$��������.</b><b>exif</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>- <a href="hash.htm">���</a> � EXIF �����������<span><i>
+<br />
+</i></span></span></td></tr></table>
+<br />
+
+<br />
+������� <span><b>$��������.exif</b></span><span> �������� �������� EXIF �����, ��. ������������ (<span><u><a href="http://www.exif.org/specifications.html" target="_blank">http://www.exif.org/specifications.html</a></u></span></span><span>). �������� ������ ����� </span><span><b>string</b></span><span>, </span><span><b>int</b></span><span>, </span><span><b>double</b></span><span>, </span><span><b>date</b></span><span>. ����� ��� ����� ��������� ��������, ��� ����������� � ���, ������� �������� �������� ����� (0�����������_��������-1).</span><span><i>
+<br />
+</i></span><span>
+<br />
+����� ������������ EXIF ���� (��. ����������� � ������������):
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="104">
+<span><b>���</b>
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>���</b>
+<br />
+</span></td><td align="left" valign="top" width="295">
+<span><b>��������</b>
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span>Make
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>string</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>������������� ������������
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span>Model
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>string</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>������ ������������
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span>DateTimeOriginal
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>date</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>���� � ����� ������
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span>ExposureTime
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>double</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>�������� � ��������
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span>FNumber
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>double</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>������������� ����� F
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="104">
+<span>Flash
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>int</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>0= �� ��������������
+<br />
+������ ��������=��������������
+<br />
+</span></td></tr></table>
+<br />
+
+<br />
+<i>����������: ������� ������������� EXIF ����� �������� �� ��������  � ���������� ������� ���������.
+<br />
+</i>
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>$photo[^image::</b></span></span><span><span><b><a href="imagemeasure.htm">measure</a></b></span></span><span><span><b>[photo.jpg]]
+<br />
+</b></span></span><span><b>���&nbsp;�����:&nbsp;</b><span><b>$photo.src</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+������&nbsp;�����������&nbsp;�&nbsp;��������:&nbsp;</b><span><b>$photo.width</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+������&nbsp;�����������&nbsp;�&nbsp;��������:&nbsp;</b><span><b>$photo.height</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>$date_time_original[$photo.exif.DateTimeOriginal]
+<br />
+^if(def&nbsp;$date_time_original){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;������&nbsp;������&nbsp;</b><span><b>^date_time_original.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span>
+<br />
+����� �������� ��� �����, � ����� ������ � ������ �����������, ����������� � ���� �����. ���� ������ ��� ������ �������� �������������, ��������, ����� �������� ���� � ����� ������.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

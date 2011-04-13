@@ -1,0 +1,251 @@
+<html>
+<head>
+    
+    
+    <title>���������� 4. Perl-����������� ���������� ���������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>���������� 4. Perl-����������� ���������� ���������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>��������� ���������� �� Perl-����������� ���������� ���������� (Perl Compatible Regular Expressions, PCRE) ����� ����� � ������������ � Perl (��. <span><u><a href="http://perldoc.perl.org/perlre.html" target="_blank">http://perldoc.perl.org/perlre.html</a></u></span><span>), � ������������ � �������������� � Parser ���������� PCRE 2.09 (��. <span><u><a href="http://www.pcre.org/man.txt" target="_blank">http://www.pcre.org/man.txt</a></u></span></span><span>),  � ����� � ������� ���������� ����������� ����������, ���������� ������ ����� ���������� ����� ������������ ��������. �������� �������� ������������� ���������� ��������� ������� � ����� ��. ������ ����������� ���������� ������������ �O'Reilly�  (ISBN 1-56592-257-3), ������� ����� �� ������� ����: ������������ ������ (ISBN: 5-272-00331-4, ������ �������; ISBN: 5-318-00056-8 ������ �������).
+<br />
+
+<br />
+������� ��������, ������� ���������� ���, ����� ���������� ��������.
+<br />
+
+<br />
+���������� ��������� - ��� ������ ��� ������ ���������, ������� ������ �������� � ���������� ����� ������� � ������ ������. ����������� �������� � ���� ������� ������������ ���� �����, � ��� ������ ������ ����������� ������� ���� �������� � ������ ������ � �������� ������������������. � �������� ����������� ������� ����� �������� ������ ��� ������ �<b>������� ����</b>�, ������� ������ �������� � ����������� ������� �������� � ������ ������. ���� ���������� ��������� ������� � ���, ��� ������ ������� ��������, ��� ��������� �������� � ������� �������������� �������� ������ � ������������� ��������� � ������� ������������. ��� ����������� ������ �� ������ ���� �� ����, �� ��� ������������� �� � ���������� ����������, ��� �������������� ������ �������. 
+<br />
+
+<br />
+���������� ��� ��������� ������ ������������: 
+<br />
+
+<br />
+1.&nbsp;&nbsp;&nbsp;�������������� � ����� ����� �������, �� ����������� � ���������� ������
+<br />
+2.&nbsp;&nbsp;&nbsp;�������������� � ������ �������, ����������� � ���������� ������
+<br />
+
+<br />
+� ������������, �������������� ��� ���������� ������ ��������� ���������:
+<br />
+
+<br />
+</span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>\</b><span><b>
+<br />
+</b></span></span></p></td><td align="left" valign="top" width="415">
+<span>����� ����������� ��� escape-�������������������. ����� ��������� �������������, ����������� ����<span>
+<br />
+</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>^</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>��������� � ������� ��������� ��� ������ ��� ����� ������� ������ � ������������� ������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>$</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>��������� � ������ ��������� ��� ������ ��� ����� ������ ������ � ������������� ������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>.</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>���������� �����, ���������� ��� �������. ���� ����������, ��������� � ����� �������� ����� ������� ����� ������ �� ���������.
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>[...]</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>���������� �����. ���������� ���������� � ����� ��������� �� ��������� � ���������� ������� ������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>|</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>���������� ���������� ����. ��������� ���������� ��������� ���������� ��������� � ����, ����������� � ����� �� ���������-�����������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>(...)</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>����������� ��������� ������ � ����� ������� ������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>?</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>��������� � ����� �������������� ��������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>*</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>��������� � �������������� ����������� ����� �������������� ��������, ��������� �����
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>+</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>��������� � �������������� ����������� ��������, ��������� �����. ��� ���������� ��������� ���� �� ���� ������������ ������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>{���,&nbsp;����}</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>������������ ������������� - ��������� ������� �����������, ����������� �������� �����������.
+<br />
+</span></td></tr></table>
+<br />
+</span><span>
+<br />
+����� �������, ����������� � ���������� ������ ���������� ���������� �������. � �������� ����������� ������ ����� ������������ ������ ��������� �����������:
+<br />
+
+<br />
+</span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>\</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>Escape - ������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>^</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>��������������� ���������� �����, ����-������ ����������� ������ ���� ������ �������� � �������� ������. ���������� ����� ����������� � ������ ���������, �� ��������� � ���������� �����
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>-</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>������������ ��� ����������� ��������� ��������
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>[...]</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>������������ ����������� ������
+<br />
+</span></td></tr></table>
+<br />
+</span><span>
+<br />
+������������� ����������� �</span><span><b>\</b></span><span>�.
+<br />
+
+<br />
+�������� ���� ����� ��������� ��������� �������������. � ������ ���� ����� �� ��� ������� ������, �� ������������ ����� ��������, �������� ���� ��������� ������� ������������� � �������� ����������� ��������, ������� ����� ����� ���� ������. ����� ������������� ����� ����������� �������� ��� ������ ����������� ������, ��� � ��� ���. � �������� �������, ���� ���������� ����� ������ �</span><span><b>*</b></span><span>�, �� ������������ ��������� ������ � ������� �</span><span><b>\*</b></span><span>�. � ������ ������������� ������������ ��� ������ �</span><span><b>\</b></span><span>� ������������ ������ �</span><span><b>\\</b></span><span>�.
+<br />
+
+<br />
+������ ������� ������������� ����� ����-������� - ��� �������� ����������� �������� � �������. ����� ������������ ��������� escape-������������������:
+<br />
+
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\�</b></span><span>&nbsp;&nbsp;&nbsp;������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\cx</b></span><span>    &nbsp;&nbsp;&nbsp;�control-x�, ��� � - ����� ������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\�</b></span><span>&nbsp;&nbsp;&nbsp;ASCII-������ escape&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\f</b></span><span>     &nbsp;&nbsp;&nbsp;������ ������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\n</b></span><span>     &nbsp;&nbsp;&nbsp;����� ������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\r</b></span><span>     &nbsp;&nbsp;&nbsp;������� �������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\t</b></span><span>     &nbsp;&nbsp;&nbsp;���������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\xhh</b></span><span>   &nbsp;&nbsp;&nbsp;����������������� ��� ������� hh&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\ddd</b></span><span>   &nbsp;&nbsp;&nbsp;������������ ��� ������� ddd&nbsp;&nbsp;&nbsp;
+<br />
+
+<br />
+������ ������� - ��� ����������� ������������� ���������� �������
+<br />
+
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\d</b></span><span>     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;����� ���������� ����� [0-9]&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\s</b></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�������, ������ [ \f\n\r\t] ������ ������ ���������� ������� - ������&nbsp;&nbsp;&nbsp;</span><span>
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\w&nbsp;&nbsp;&nbsp;</b></span><span>     &nbsp;&nbsp;&nbsp;������ �����, ������ [a-zA-Z0-9_]&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\D&nbsp;&nbsp;\S&nbsp;&nbsp;\W</b></span><span>&nbsp;&nbsp;&nbsp;��������� \d \s \w&nbsp;&nbsp;&nbsp;
+<br />
+
+<br />
+��������� ������� - ��� ����������� ������ ��������. � PCRE ���������� �������, ������� ������������� �� �����-���� ������ ��� �������, � �������� ���������� ������������� �������, ������� � ���������� ����� ��� ���������� ������������� (assertion). �� ����� ������������� ��� ������ ������� �������� �������, ������������� �� ������� ����� ��������� ��������� � �����, ��������������� ������������� �������. ��� ����������� �� ����� �������������� � ���������� ������� (</span><span><b>\b</b></span><span> ����� �������������� �������� � ���������� ������� ������� ������ ����������� ������)
+<br />
+
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\b</b></span><span>     &nbsp;&nbsp;&nbsp;������� �����&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\B</b></span><span>     &nbsp;&nbsp;&nbsp;���������� ������� �����&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\A</b></span><span>     &nbsp;&nbsp;&nbsp;��������� ������ ������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\Z</b></span><span>     &nbsp;&nbsp;&nbsp;��������� ����� ������ ��� ������� ����� �������� ������ ����� ������, 
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�������������� � ��������� ����� ������&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\z</b></span><span>     &nbsp;&nbsp;&nbsp;��������� ����� ������
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

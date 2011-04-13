@@ -1,0 +1,87 @@
+<html>
+<head>
+    
+    
+    <title>Hashfile (�����)</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Hashfile (�����) </b><span><b><i>[3.1.2]</i></b></span>
+<br />
+
+
+
+<span>����� ������������ ��� ������ � ������, ����������� �� �����. � ������� �� ������ <span><b><a href="hashclass.htm">hash</a></b></span><span> ������� ������� ������ ��������� ������ ������������ (</span><span><b>def</b></span><span>) � �� ����� ��������� ��������.
+<br />
+
+<br />
+���� ����� </span><span><b>hash</b></span><span> ������ ���� ������ � ����������� ������, </span><span><b>hashfile</b></span><span> ������ �� �� �����, ������ ����� �������� �������� ����� �������� ������ ���� ����-��������.
+<br />
+<i>���������: ��� �������� ������ </i></span><span><b>hashfile</b></span><span><i> ������������ ��� �����: .dir � .pag.
+<br />
+���������: ���������� ����������� �� ����� ����� ����� � ��������, � ����� ��� �� ������ ��������� 8000 ����.
+<br />
+</i>
+<br />
+<a href="hashfileread.htm">������</a> � <a href="hashfilewrite.htm">������</a> ������ ���������� ����� ������ - ���� ������ ������ � ������������ ����������� ������ ������.
+<br />
+�� ������� ������� </span><span><b>hashfile</b></span><span> �������� ����������� ������� ��� ������.
+<br />
+<i>���������: � ���� ������ ������� ���� ����� ���������� ������ ����� ��������, ��������� ���� ��������� ��� ������.</i><i>
+<br />
+</i>
+<br />
+</span><span><b>������</b></h1><span>
+<br />
+��������, ���������� ��������� ���������� �������� �� ���������� �� ����� �������� �����, � ����� ����������� ���������� �� - �� ������ �������� �����. ������ ����������, ����� ���������� �� ��� �� �� ������� �� ���������.
+<br />
+
+<br />
+����� ��������� ���������� � </span><span><b>hashfile</b></span><span>, ������������ �� �� ��������� ������� - ��������������� ������� ������� � �����������. ������������� ������ ������� ����� ��������� � </span><span><b><a href="cookieclass.htm">cookie</a></b></span><span>, ������ ������ �������� �� �������, �� ����� ���������� � �� ����� ���� �� ���������.
+<br />
+
+<br />
+</span><span><span><b>#&nbsp;�������/���������&nbsp;����&nbsp;�&nbsp;�����������
+<br />
+$sessions[^hashfile::</b></span></span><span><span><b><a href="hashfileopen.htm">open</a></b></span></span><span><span><b>[</b></span></span><span><b>/sessions</b><span><b>]]
+<br />
+^if(!def&nbsp;</b></span></span><span><span><b><a href="cookiestats.htm">$cookie:sid</a></b></span></span><span><span><b>){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b><a href="cookierec.htm">$cookie:sid</a></b></span></span><span><span><b>[^</b></span></span><span><span><b><a href="mathclass.htm">math</a></b></span></span><span><span><b>:</b></span></span><span><span><b><a href="mathuuid.htm">uuid</a></b></span></span><span><span><b>[]]
+<br />
+}
+<br />
+#&nbsp;�����&nbsp;�����
+<br />
+
+<br />
+$information_string[</b></span></span><span><b>������������&nbsp;��������</b><span><b>]
+<br />
+#&nbsp;����&nbsp;����������&nbsp;������������&nbsp;$information_string&nbsp;���&nbsp;������&nbsp;sid&nbsp;��&nbsp;2&nbsp;���
+<br />
+$sid[$cookie:sid]
+<br />
+$sessions.$sid[</b></span></span><span><span><b><a href="hashfilewrite.htm">$.value[$information_string] $.expires(2)</a></b></span></span><span><span><b>]
+<br />
+
+<br />
+#&nbsp;��&nbsp;���&nbsp;�����&nbsp;�������&nbsp;�����������&nbsp;�����&nbsp;��������
+<br />
+#&nbsp;����&nbsp;�&nbsp;�������&nbsp;����������&nbsp;������&nbsp;������&nbsp;2�&nbsp;����
+<br />
+$sid[$cookie:sid]
+<br />
+$information_string[</b></span></span><span><span><b><a href="hashfileread.htm">$sessions.</a></b></span></span><span><span><b>$sid]
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

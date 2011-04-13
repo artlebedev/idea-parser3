@@ -1,0 +1,69 @@
+<html>
+<head>
+    
+    
+    <title>search-namespaces. ��� ����������� ���� ��� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>search-namespaces. ��� ����������� ���� ��� ������&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span>
+<br />
+
+
+
+<span><b>$��������.search-namespaces</b><span>
+<br />
+
+<br />
+��� ������������� ��������� <span><u><a href=""http://www.w3.org/TR/2004/REC-xml-names11-20040204/#concepts" target="_blank">����������� ����</a></u></span></span><span> �  ������� </span><span><b><a href=xnodeselect.htm">xnode.select*</a></b></span><span> ���������� ������� ��� �������� ���������� � ������ ����.
+<br />
+
+<br />
+�����
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>����� - �������� ����������� ����, 
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>�������� - �� URI.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+</span><span><b>���������� ���������� ���������
+<br />
+</b></span><span><span><b>$xdoc[^xdoc::create{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"?&gt;
+<br />
+&lt;document&nbsp;xmlns:s="urn:special"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;s:code&nbsp;xmlns:o="urn:other"&nbsp;o:attr="123"&gt;�����&nbsp;��������&nbsp;�&nbsp;������&lt;/s:code&gt;
+<br />
+&lt;/document&gt;
+<br />
+</b><span><b>}]
+<br />
+^xdoc.search-namespaces.</b></span></span><span><span><b><a href="hashadd.htm">add</a></b></span></span><span><span><b>[
+<br />
+&nbsp;&nbsp;&nbsp;$.s[urn:special]
+<br />
+&nbsp;&nbsp;&nbsp;$.o[urn:other]
+<br />
+]
+<br />
+^xdoc.</b></span></span><span><span><b><a href="xnodeselectstring.htm">selectString</a></b></span></span><span><span><b>[string(//s:code[@o:attr=123])]
+<br />
+</b></span></span><span><b>
+<br />
+���������� ������ ��������
+<br />
+</b></span><span><span><b>$xdoc.search-namespaces.s[urn:special]
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

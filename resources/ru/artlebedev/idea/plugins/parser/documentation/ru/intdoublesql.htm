@@ -1,0 +1,79 @@
+<html>
+<head>
+    
+    
+    <title>sql. ��������� ����� �� ���� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>sql. ��������� ����� �� ���� ������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^int:sql{������}&nbsp;&nbsp;
+<br />
+^int:sql{������}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(���������)]&nbsp;&nbsp;
+<br />
+^double:sql{������}&nbsp;&nbsp;
+<br />
+^double:sql{������}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(���������)]&nbsp;&nbsp;&nbsp;
+<br />
+</b><span>
+<br />
+���������� �����, ���������� � ���������� SQL-������� � ������� ��� ������. ������ ������ ���������� �������� �� ������ ������� ����� ������.
+<br />
+
+<br />
+</span><span><b>������</b></span><span> - ������ � ���� ������, ���������� �� ����� SQL
+<br />
+</span><span><b>$.offset(o)</b></span><span> - ��������� ������ o ������� �������
+<br />
+
+<br />
+���� ����� SQL-������� ��� ���� (0 �������), �� �����
+<br />
+</span><span><b>$.default{���}</b></span><span> ��������� ��������� </span><span><b>���</b></span><span>, � �����, ������� �� ���������, ����� ����������� ������;
+<br />
+</span><span><b>$.default(���������)</b></span><span> ���������� ��������� </span><span><b>���������</b></span><span>, � ��� ����� ����������� ������.
+<br />
+
+<br />
+��� ������ ����� ������ ���������� ������������� ���������� � �������� ���� ������ (��. �������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span>).
+<br />
+
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">������ �����������</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^int:sql{</b></span></span><span><b>select&nbsp;count(*)&nbsp;from&nbsp;news</b><span><b>}
+<br />
+}</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+������ ���������� ������� � ������� </span><span><b>news</b></span><span>.</span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

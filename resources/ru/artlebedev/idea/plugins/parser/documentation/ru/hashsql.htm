@@ -1,0 +1,60 @@
+<html>
+<head>
+    
+    
+    <title>sql. �������� ���� �� ������ ������� �� ���� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>������ hash of bool&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.1.2]</i></b></span><span><b>
+<br />
+</b></span><span>� �� ���������� ������� </span><span>participants</span><span>:
+<br />
+</span><span><b><i>name
+<br />
+</i></b><b>����������
+<br />
+���������
+<br />
+</b></span><span>
+<br />
+���������� �����
+<br />
+</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">������ �����������</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;$participants[^hash::sql{</b></span></span><span><b>select&nbsp;</b><b><i>name</i></b><b>&nbsp;from&nbsp;participants</b><span><b>}]
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+����� ��� ����� ���������
+<br />
+</span><span><span><b>$participants[
+<br />
+&nbsp;&nbsp;&nbsp;$.����������(</b></span></span><span><b><a href="boollit.htm">true</a></b><span><b>)
+<br />
+&nbsp;&nbsp;&nbsp;$.���������(true)
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+��� �������� ����� ���������� ��������� ����������, ��������, ���:
+<br />
+</span><span><span><b>$name[</b></span></span><span><b>����</b><span><b>]
+<br />
+$name&nbsp;^if($participants.$name){</b></span></span><span><b>���������</b><span><b>}{</b></span></span><span><b>��&nbsp;���������</b><span><b>}</b></span></span><span><b>&nbsp;�&nbsp;�����������</b><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

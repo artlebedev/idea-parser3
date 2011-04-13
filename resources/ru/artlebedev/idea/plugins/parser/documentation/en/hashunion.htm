@@ -1,0 +1,89 @@
+<html>
+<head>
+    
+    
+    <title>union. Joining hashes</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>union. Joining hashes
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^hash_a.union[hash_b]
+<br />
+</b><span>
+<br />
+The method joins two hashes. It returns hash containing all keys from </span><span><b>$hash_a</b></span><span> and those keys from </span><span><b>$hash_b</b></span><span>, which are absent in </span><span><b>$hash_a</b></span><span>. The result has to be assigned to a new hash.
+<br />
+</span><span><b>
+<br />
+Example</b></span><span><u>
+<br />
+</u>Code&#133;
+<br />
+
+<br />
+</span><span><span><b>$man[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Jack</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span><b>22</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span><b>m</b><span><b>]
+<br />
+]
+<br />
+$woman[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Mary</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span><b>20</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.weight[</b></span></span><span><b>50</b><span><b>]
+<br />
+]
+<br />
+$union_hash[^man.union[$woman]]
+<br />
+</b></span></span><span>
+<br />
+&#133;will result in hash </span><span><b>$union_hash</b></span><span>:
+<br />
+
+<br />
+</span><span><b>$union_hash[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[Jack]
+<br />
+&nbsp;&nbsp;&nbsp;$.age[22]
+<br />
+&nbsp;&nbsp;&nbsp;$.sex[m]
+<br />
+&nbsp;&nbsp;&nbsp;$.weight[50]
+<br />
+]</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

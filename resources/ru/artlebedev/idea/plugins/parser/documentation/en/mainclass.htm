@@ -1,0 +1,44 @@
+<html>
+<head>
+    
+    
+    <title>Class MAIN. Processing request</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Simple example</b></h1><span><b><i>
+<br />
+</i></b></span><span>If we add this definition into file </span><span>auto.p</span><span> located in your root directory&#133;
+<br />
+
+<br />
+</span><span><span><b>@postprocess[body]
+<br />
+</b></span></span><span><span><b>^if($body&nbsp;is&nbsp;string){</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^body.match[</b></span></span><span><b>Jack</b><span><b>][g]{</b></span></span><span><b>Jill</b><span><b>}
+<br />
+</b></span></span><span><span><b>}{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$body
+<br />
+}</b></span></span><span><span><b>
+<br />
+</b></span></span><span>
+<br />
+&#133;it will result in replacing </span><span><b>Jack</b></span><span> with </span><span><b>Jill</b></span><span> in every page.
+<br />
+Do not forget to check the type, there can be some <a href="responsebody.htm">file</a>.</span><span><b>
+<br />
+</b></span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+    
+    
+    <title>Form (�����)</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Form (�����)
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>����� <span><b>form</b></span><span> ������������ ��� ������ � ������ ����. ����� ����� ����������� ����, ��������� ������ ��� ������.
+<br />
+
+<br />
+��� �������� ���������� ����� � �������������� ��������� ������� �� ���� ������ ������ ������������ ����� ������:
+<br />
+
+<br />
+</span><span><span><b>^if($edit){
+<br />
+#&nbsp;������&nbsp;��&nbsp;����
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$record[^</b></span></span><span><span><b><a href="tablesql.htm">table::sql</a></b></span></span><span><span><b>{</b></span></span><span><b>�&nbsp;where&nbsp;id=�</b><span><b>}]
+<br />
+}{
+<br />
+#&nbsp;�����&nbsp;������,&nbsp;������&nbsp;���&nbsp;����������,&nbsp;����������&nbsp;�������&nbsp;
+<br />
+#&nbsp;����&nbsp;�����
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$record[$form:</b></span></span><span><span><b><a href="formfields.htm">fields</a></b></span></span><span><span><b>]
+<br />
+}
+<br />
+</b></span></span><span><b>&lt;input&nbsp;name="age"&nbsp;value="</b><span><b>$record.age</b></span></span><span><b>"</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

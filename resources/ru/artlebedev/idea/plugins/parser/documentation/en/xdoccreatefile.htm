@@ -1,0 +1,55 @@
+<html>
+<head>
+    
+    
+    <title>create. Creating a document based on specified file</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>create. Creating a document based on specified file</b><b>
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^xdoc::create[file]
+<br />
+
+<br />
+</b><span>This constructor creates object of class </span><span><b>xdoc</b></span><span> based on </span><span><b>XML-code</b></span><span> in specified file.
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>$file[^file::load[binary;http://server/data.xml;
+<br />
+&nbsp;&nbsp;&nbsp;$.timeout(10)
+<br />
+]]
+<br />
+</b></span></span><span><span><b>$xdoc[^xdoc::create[</b></span></span><span><span><b>$file]]</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>$</b></span></span><span><span><b><a href="responseclass.htm">response</a></b></span></span><span><span><b>:</b></span></span><span><span><b><a href="responsebody.htm">body</a></b></span></span><span><span><b>[^xdoc.</b></span></span><span><span><b><a href="xdocstring.htm">string</a></b></span></span><span><span><b>[]]</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+<head>
+    
+    
+    <title>���������� 7. SQL �������, ������ � IN/OUT �����������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>���������� 7. SQL �������, ������ � IN/OUT �����������</b><span><b><i> [3.1.4]</i></b></span>
+<br />
+
+
+
+<span>��� ������ � SQL �������� Oracle �������������� ������ �� ���������� ����������� (bind variables), �������������� <span>IN</span><span>, </span><span>OUT</span><span> � </span><span>IN/OUT</span><span> ����������, ������� ����������� � ������������ � ������ <a href="hash.htm">�����</a>.
+<br />
+
+<br />
+��� ������ ������������� ����������� </span><span>CALL</span><span> </span><span>�</span><span> </span><span>EXECUTE</span><span> � ��������� ������� Oracle ������� ��������� ��������, ����������� ������������ PL/SQL �������� (</span><span>begin&nbsp;�;&nbsp;end;</span><span>), �� ��������� <a href="stringlit.htm">������������</a> ���� �;�.
+<br />
+
+<br />
+<i>����������: �������� ���� </i></span><span><b><a href="voidclass.htm">void</a></b></span><span><i> ������������� </i></span><span>NULL</span><span><i>. �� ������ ������� </i></span><span><b>days</b></span><span><i> ����� ��������� �������� </i></span><span>NULL</span><span><i>.</i>
+<br />
+
+<br />
+</span><span><b>������ ������������� IN ����������
+<br />
+</b></span><span><b>
+<br />
+</b><span><b>#procedure&nbsp;ban_user(user_id&nbsp;in&nbsp;number,&nbsp;days&nbsp;in&nbsp;number)</b></span></span><span><b>
+<br />
+
+<br />
+</b><span><b>^void:sql{</b></span></span><span><b>begin&nbsp;ban_user(:user_id,&nbsp;:days)^;&nbsp;end^;</b><span><b>}[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.bind[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.user_id(7319)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.days(10)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+</span><span><b>������ ������������� IN � OUT ����������
+<br />
+</b></span><span><b>
+<br />
+</b><span><b>#procedure&nbsp;read_user_ban_days(user_id&nbsp;in&nbsp;number,&nbsp;days&nbsp;out&nbsp;number)</b></span></span><span><b>
+<br />
+
+<br />
+</b><span><b>$variables[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.user_id(7319)
+<br />
+#��������&nbsp;��&nbsp;��,&nbsp;���&nbsp;��������&nbsp;OUT,&nbsp;���&nbsp;�����&nbsp;����������&nbsp;���&nbsp;��������
+<br />
+#���&nbsp;�������&nbsp;��������&nbsp;�����&nbsp;���������������
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.days[]
+<br />
+]
+<br />
+
+<br />
+^void:sql{</b></span></span><span><b>begin&nbsp;read_user_ban_days(:user_id,&nbsp;:days)^;&nbsp;end^;</b><span><b>}[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.bind[$variables]
+<br />
+]
+<br />
+</b></span></span><span><b>
+<br />
+������������&nbsp;��������&nbsp;��</b><span><b>&nbsp;$variables.days!</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

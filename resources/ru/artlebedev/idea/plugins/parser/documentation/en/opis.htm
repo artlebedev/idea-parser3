@@ -1,0 +1,94 @@
+<html>
+<head>
+    
+    
+    <title>is. Checking type</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Simple type check</b></h1><span><b>
+<br />
+</b></span><span><span><b>@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+$date[</b></span></span><span><b>1999-10-10</b><span><b>]
+<br />
+</b></span></span><span><span><b>#$date[^</b></span></span><span><span><b><a href="datenow.htm">date::now</a></b></span></span><span><span><b>[]]
+<br />
+</b></span></span><span><span><b>^if($date&nbsp;is&nbsp;string){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^parse[$date]
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^print_date[$date.</b></span></span><span><span><b><a href="datefields.htm">year</a></b></span></span><span><span><b>;$date.month;$date.day]
+<br />
+}
+<br />
+
+<br />
+@parse[date_string][date_parts]
+<br />
+$date_parts[^date_string.</b></span></span><span><span><b><a href="stringmatch.htm">match</a></b></span></span><span><span><b>[(\d{4})-(\d{2})-(\d{2})][]]
+<br />
+^print_date[$date_parts.</b></span></span><span><span><b><a href="stringmatch.htm">1</a></b></span></span><span><span><b>;$date_parts.2;$date_parts.3]
+<br />
+
+<br />
+@print_date[year;month;day]
+<br />
+</b></span></span><span><b>Working&nbsp;with&nbsp;date</b><b>:&lt;br&nbsp;/&gt;
+<br />
+</b><b>Day</b><b>:&nbsp;</b><b>&nbsp;</b><b>&nbsp;</b><span><b>$day</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><b>Month</b><b>:&nbsp;</b><span><b>$month</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><b>Year</b><b>:&nbsp;&nbsp;</b><span><b>$year</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b></span><span>
+<br />
+This example will check the type of variable </span><span><b>$date</b></span><span> and will either perform syntactical analysis or pass to method </span><span><b>print_date</b></span><span> the fields of </span><span><b>$date</b></span><span> (if type is </span><span><b>object</b></span><span> of class </span><span><b>date</b></span><span>).</span><span>
+<br />
+</span><span>
+<br />
+</span><span><b>Checking if </b><b><a href="definemethod.htm">method</a></b><b> is defined
+<br />
+</b></span><span>The value of </span><span><b>$method_name</b></span><span> is also </span><span><b><a href="junctionclass.htm">junction</a></b></span><span>, that is why we should also use </span><span><b>is</b></span><span> and not </span><span><b><a href="opdef.htm">def</a></b></span><span> in this case.
+<br />
+</span><span><span><b>@body[]
+<br />
+</b></span></span><span><b>body
+<br />
+</b><span><b>
+<br />
+@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+</b></span></span><span><b>Start
+<br />
+</b><span><b>^if($body&nbsp;is&nbsp;</b></span></span><span><span><b><a href="junctionclass.htm">junction</a></b></span></span><span><span><b>){
+<br />
+&nbsp;&nbsp;&nbsp;^body[]
+<br />
+}{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><b>Method&nbsp;"body"&nbsp;is&nbsp;not&nbsp;defined!
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span><b>Finish
+<br />
+</b><b>
+<br />
+</b></span><span>Note: using operator </span><span><b>is</b></span><span> you can't check variables which contains </span><span><b><a href="vars.htm">code</a></b></span><span> because of any address to such variables execute the code.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

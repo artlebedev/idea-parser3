@@ -1,0 +1,207 @@
+<html>
+<head>
+    
+    
+    <title>sql. Getting SQL-query result as a hash</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>sql. Getting SQL-query result as a hash
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^hash::sql{query}
+<br />
+^hash::sql{query}[$.limit(n)&nbsp;$.offset(o)&nbsp;$.distinct(true/false)</b><b>&nbsp;</b><b>$.</b><b><a href="app7.htm">bind</a></b><b>[variables&nbsp;hash]&nbsp;$.type[hash/string/table]</b><b>]
+<br />
+</b><span>
+<br />
+This constructor creates hash, in which keys' names are the values of fields in the first column of SQL-query's result. Other columns' names become nested keys' names, and their values become respective keys' values.
+<br />
+When the result contains only one column, constructor creates the hash, where values of the column become keys of hash associated with logical value </span><span><b>truth</b></span><span> .
+<br />
+
+<br />
+Optional parameters:
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="210">
+<span><b>$.limit(n)</b>
+<br />
+</span></td><td align="left" valign="top" width="448">
+<span>get only <span><b>n</b></span><span> records.</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="210">
+<span><b>$.offset(o)</b>
+<br />
+</span></td><td align="left" valign="top" width="448">
+<span>skip first <span><b>o</b></span><span> records of the query result.</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="210">
+<span><b>$.bind</b><b>[hash]
+<br />
+</b><span><b><i>[3.1.4]</i></b></span><span>
+<br />
+</span></span></td><td align="left" valign="top" width="448">
+<span>variables to bind, see &#171;<a href="app7.htm">Queries with bound variables</a>&#187;<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="210">
+<span><b>$.distinct(</b><b>true</b><b>/</b><b>false</b><b>)</b>
+<br />
+</span></td><td align="left" valign="top" width="448">
+<span><b>false</b><span> or </span><span><b>0</b></span><span>=consider duplicate an error (default);
+<br />
+</span><span><b>true</b></span><span> or </span><span><b>1</b></span><span>=get records with unique keys.</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="210">
+<span><b>$.type[hash/string/table]
+<br />
+</b><span><b><i>[3.3.0]</i></b>
+<br />
+</span></span></td><td align="left" valign="top" width="448">
+<span><b>hash</b><span>=each hash item contain hash (default);
+<br />
+</span><span><b>string</b></span><span>=each hash item contain string. You must specify </span><span><b>exactly&nbsp;two&nbsp;</b><b>columns</b><b>&nbsp;</b></span><span>in your SQL query</span><span>;
+<br />
+</span><span><b>table</b></span><span>=each hash item containing table.
+<br />
+</span></span></td></tr></table>
+<br />
+
+<br />
+By default, duplicate of a value in key column is considered an error, but if you want the method to get the records with unique keys, set flag </span><span><b>$.distinct(</b><b><a href="boollit.htm">true</a></b><b>)</b></span><span>.
+<br />
+<i>Note: such us</i><i>e</i><i> results in spare data interchange between client and server. You had better change the query so that the desired uniqueness should be the server's responsibility. If you need data as both table and hash, consider using</i><i> </i></span><span><b><i><a href="tablesql.htm">table::sql</a></i></b></span><span><i> </i><i>and</i><i> </i></span><span><b><i><a href="table2hash.htm">table.hash</a></i></b></span><span><i> </i><i>together</i><i>.</i><i>
+<br />
+</i>
+<br />
+</span><span><b>Example</b><b>:</b><b> hash of hash</b><u>
+<br />
+</u></span><span>With database containing </span><span>hash_table</span><span>&#133;</span><span>
+<br />
+</span><span><b><i>pet&nbsp;&nbsp;&nbsp;food&nbsp;&nbsp;&nbsp;aggressive</i></b></span><span><b>
+<br />
+</b></span><span><b>cat&nbsp;&nbsp;&nbsp;milk&nbsp;&nbsp;&nbsp;very</b></span><span><b>
+<br />
+</b></span><span><b>dog&nbsp;&nbsp;&nbsp;bone&nbsp;&nbsp;&nbsp;never</b></span><span><b>
+<br />
+</b></span><span>
+<br />
+&#133;the code&#133;</span><span>
+<br />
+</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">connect string</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;$hash</b></span></span><span><span><b>_of_hash</b></span></span><span><span><b>[^hash::sql{</b></span></span><span><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>select&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;</b><b>pet,</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>food,</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>aggressive
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;from&nbsp;
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hash_table
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;}]
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+&#133;will result in hash of the following structure:
+<br />
+</span><span><span><b>$</b></span></span><span><span><b>hash</b></span></span><span><span><b>_of_hash</b></span></span><span><span><b>[
+<br />
+&nbsp;&nbsp;&nbsp;$.cat[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.food[milk]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.aggressive[very]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;$.dog[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.food[bone]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.aggressive[never]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+&#133;from which we can effectively retrieve information, e.g. in such a way:
+<br />
+</span><span><span><b>$animal[cat]
+<br />
+$animal</b></span></span><span><b>&nbsp;</b><b>likes&nbsp;eating</b><b>&nbsp;</b><span><b>$multi_level_hash.$animal.food</b></span></span><span><span><b>
+<br />
+</b></span></span><span>
+<br />
+</span><span><b>E</b><b>xample: </b><b>hash of bool
+<br />
+</b></span><span>With database containing </span><span>participants</span><span> table&#133;
+<br />
+</span><span><b><i>name
+<br />
+</i></b><b>Konstantin
+<br />
+Alexander
+<br />
+</b></span><span>
+<br />
+&#133;the code&#133;</span><span>
+<br />
+</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">connect string</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;$participants[^hash::sql{</b></span></span><span><b>select&nbsp;name&nbsp;from&nbsp;participants</b><span><b>}]
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+&#133;will result in hash of the following structure:
+<br />
+</span><span><span><b>$participants[
+<br />
+&nbsp;&nbsp;&nbsp;$.Konstantin(</b></span></span><span><b><a href="boollit.htm">true</a></b><span><b>)
+<br />
+&nbsp;&nbsp;&nbsp;$.</b></span></span><span><span><b>Alexander</b></span></span><span><span><b>(t</b></span></span><span><span><b>rue</b></span></span><span><span><b>)
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+&#133;from which we can effectively retrieve information, e.g. in such a way:
+<br />
+</span><span><span><b>$name[Ivan]
+<br />
+$name&nbsp;^if($participants.$name){</b></span></span><span><b>partici</b><b>pates</b><span><b>}{</b></span></span><span><b>do&nbsp;not&nbsp;particip</b><b>ate</b><span><b>}</b></span></span><span><b>&nbsp;i</b><b>n&nbsp;the&nbsp;project</b><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

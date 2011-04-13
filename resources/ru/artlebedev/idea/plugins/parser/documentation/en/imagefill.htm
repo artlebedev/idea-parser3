@@ -1,0 +1,57 @@
+<html>
+<head>
+    
+    
+    <title>fill. Filling one-color areas of an image</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>fill. Filling one-color areas of an image
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^</b><b>image</b><b>.fill(x;y;</b><b>color</b><b>)&nbsp;&nbsp;&nbsp;
+<br />
+</b><span>
+<br />
+The method is used to fill single-color areas of an image with a new color. The area to fill is defined by a dot with coordinates (x;y), which is located within it.</span><span>
+<br />
+<u>
+<br />
+</u><b>Example
+<br />
+</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+<br />
+^square.</b></span></span><span><span><b><a href="imageline.htm">line</a></b></span></span><span><span><b>(0;0;100;100;0xFFFFFF)
+<br />
+^square.fill(10;0;0xFFFF00)
+<br />
+$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]
+<br />
+</b></span></span><span>
+<br />
+Browser will display a black 100x100 square diagonally crossed by a white line. The lower section will be black and the upper-yellow.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<html>
+<head>
+    
+    
+    <title>Document-to-text conversion parameters</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Document-to-text conversion parameters
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>Certain methods accept <span><b>Document_to_text_conversion_parameters</b></span><span> <a href="hash.htm">hash</a>.
+<br />
+
+<br />
+These parameters are identical to attributes of </span><span><span><b><u><a href="http://www.w3.org/TR/xslt#output" target="_blank">&lt;xsl:output � /&gt;</a></u></b></span></span><span>.
+<br />
+except </span><span><b>doctype-public</b></span><span> and </span><span><b>doctype-system</b></span><span>, which cannot be specified this way.
+<br />
+<span>So far, </span></span><span><span><b>cdata-section-elements</b></span></span><span><span> are also excluded.
+<br />
+</span></span><span>
+<br />
+By default text rendered in </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span>, but in XML-header or in </span><span><b>meta</b></span><span> element for HTML-method Parser specifies </span><span><b><a href="responsecharset.htm">$response:charset</a></b></span><span>. This behaviour can be altered by specifying the charset in </span><span><span><b><u><a href="http://www.w3.org/TR/xslt#output" target="_blank">&lt;xsl:output � /&gt;</a></u></b></span></span><span> or corresponding conversion parameter.
+<br />
+
+<br />
+While creating object of class </span><span><b><a href="xdocfile.htm">file</a></b></span><span> one can also specify parameter </span><span><span><b>media-type</b></span></span><span>: when new <a href="responsebody.htm">response body </a> </span><span><span><b>body</b></span></span><span> is generated, response header </span><span><b>content-type</b></span><span> will be assigned the value of this parameter.
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>#&nbsp;output&nbsp;document&nbsp;as&nbsp;HTML&nbsp;without&nbsp;indents
+<br />
+^document</b></span></span><span><span><b>.</b></span></span><span><span><b><a href="xdocstring.htm">string</a></b></span></span><span><span><b>[
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;$.method[html]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.indent[no]
+<br />
+]</b></span></span><span><b>
+<br />
+</b></span><span><b>
+<br />
+</b><b>O</b><b>utputting</b><b> XHTML</b><b>
+<br />
+</b></span><span>If you need an <span><u><a href="http://www.w3.org/TR/xhtml1/" target="_blank">XHTML</a></u></span></span><span> output, you must specify these attributes for </span><span><span><b><u><a href="http://www.w3.org/TR/xslt#stylesheet-element" target="_blank">&lt;xsl:stylesheet � /&gt;</a></u></b></span></span><span> element:
+<br />
+
+<br />
+</span><span><span><b>&lt;xsl:stylesheet&nbsp;version="1.0"
+<br />
+&nbsp;&nbsp;&nbsp;xmlns="http://www.w3.org/1999/xhtml"
+<br />
+&nbsp;&nbsp;&nbsp;xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<br />
+&gt;
+<br />
+</b></span></span><span>
+<br />
+Note </span><span><span><b>xmlns</b></span></span><span> without prefix specification, this should be done for all created in template prefixless elements to get to </span><span>xhtml</span><span> name space. It is necessary to specify </span><span><span><b>xmlns</b></span></span><span> without prefix in each </span><span>.xsl</span><span> file, because this parameter does not influence included files.
+<br />
+
+<br />
+Also these attributes for </span><span><span><b><u><a href="http://www.w3.org/TR/xslt#output" target="_blank">&lt;xsl:output � /&gt;</a></u></b></span></span><span> must be set:
+<br />
+</span><span><span><b>&lt;xsl:output&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;doctype-public="-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN"
+<br />
+&nbsp;&nbsp;&nbsp;doctype-system="DTD/xhtml1-strict.dtd"
+<br />
+&nbsp;&nbsp;&nbsp;/&gt;
+<br />
+</b></span></span><span>
+<br />
+<i>Note: </i><i>do not specify method attribute. XHTML is an xml with a certain difference in rendering, it switches on when any of these doctypes are used:</i><i>
+<br />
+</i></span><span><span><b>&nbsp;&nbsp;&nbsp;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN
+<br />
+&nbsp;&nbsp;&nbsp;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Frameset//EN
+<br />
+&nbsp;&nbsp;&nbsp;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Transitional//EN</b></span></span><span><b>
+<br />
+</b></span></span><br />
+
+
+
+
+</body>
+</html>

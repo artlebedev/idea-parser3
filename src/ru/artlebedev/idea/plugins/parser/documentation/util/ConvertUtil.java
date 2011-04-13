@@ -40,4 +40,24 @@ public class ConvertUtil {
 
     return content;
   }
+
+  public static String prettifyContent2(String content) {
+    content = content.replaceAll("<script(.*?)>([\\w\\W]*?)</script>", "");
+    content = content.replaceAll("<hr(.*?)>([\\w\\W]*?)</body>", "</body>");
+    content = content.replaceAll("<!--([\\w\\W]*?)-->", "");
+    content = content.replaceAll("<(m|M)(e|E)(t|T)(a|A)(.*)>", "");
+    content = content.replaceAll("<span style=\"font-family:Monospace; font-size:10pt; color:#0000FF\">", "<span class=\"monoblue\">");
+    content = content.replaceAll("<span style=\"font-family:Monospace; font-size:10pt; color:#000000\">", "<span class=\"mono\">");
+    content = content.replaceAll("<span style=\"font-family:FreeSetC,Arial; font-size:10pt; color:#0000FF\">", "<span class=\"blue\">");
+    content = content.replaceAll("<span style=\"font-family:FreeSetC,Arial; font-size:12pt; color:#000000\">(.*?)</span>", "<span class=\"h1\">$1</h1>");
+    content = content.replaceAll("<table(.*?)>([\\w\\W]*?)<span class=\"h1\">", "<span class=\"h1\">");
+    content = content.replaceAll("</h1>([\\w\\W]*?)</table>", "</span>");
+    content = content.replaceAll("<br>", "<br />");
+    content = content.replaceAll("<span(.*?)>", "<span>");
+    content = content.replaceAll("\\r", "");
+    content = content.replaceAll("<body(.*?)>", "<body>");
+    content = content.replaceAll("<a href=(.*?)\\.htm>", "<a href=\"$1.htm\">");
+
+    return content;
+  }
 }

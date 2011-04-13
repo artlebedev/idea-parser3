@@ -1,0 +1,42 @@
+<html>
+<head>
+    
+    
+    <title>selectString. XPath search for a string</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span> </h1><span>in the scope of specified </span><span><b>node</b></span><span>, if it is a </span><span><span><b>number</b></span></span><span>. If resulted value is not a </span><span><span><b>number</b></span></span><span>, method returns </span><span><span><b>exception</b></span></span><span> of type </span><span><b>parser.runtime</b></span><span>.
+<br />
+<b>
+<br />
+</b></span><span>Before using prefixes of name spaces in the </span><span><b>query</b></span><span> one must define them, see </span><span><b><a href="xdocsearchns.htm">$xdoc.search-namespaces</a></b></span><span>.
+<br />
+
+<br />
+</span><span><b>Example</b></h1><span><u>
+<br />
+</u></span><span><span><b>$d[^xdoc::</b></span></span><span><span><b><a href="xdoccreatexml.htm">create</a></b></span></span><span><span><b>{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br />
+&lt;t&nbsp;attr="</b><b>hello</b><b>"&nbsp;n="123"/&gt;</b><span><b>}]
+<br />
+</b></span></span><span><span><b>#&nbsp;result=hello
+<br />
+</b></span></span><span><span><b>^d.selectString[string(t/@attr)]
+<br />
+</b></span></span><span>
+<br />
+Detailed specification of XPath is available at: <span><u><a href="http://www.w3.org/TR/xpath" target="_blank">http://www.w3.org/TR/xpath</a></u></span></span><span><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

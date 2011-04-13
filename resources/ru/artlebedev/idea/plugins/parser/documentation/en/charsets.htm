@@ -1,0 +1,95 @@
+<html>
+<head>
+    
+    
+    <title>Charsets</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Charsets
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>We are sure: existence of various charsets gives you as much pleasure as it does to us.
+<br />
+
+<br />
+Parser has a built-in capability of transcoding documents from charset used on server into that used by visitor and back. Parser transcodes:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span><a href="formclass.htm">form</a> data;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>strings (before  <a href="opuntainttaint.htm">transformation of type uri</a>);
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>text resulting from page processing.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+You specify charset used in documents on server in field </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span>.
+<br />
+You specify charset to be used in output in field </span><span><b><a href="responsecharset.htm">$response:charset</a></b></span><span>.
+<br />
+You should do it in one of </span><span><b><a href="mainclass.htm">auto</a></b></span><span> methods.
+<br />
+
+<br />
+We recommend you to specify result charset in HTTP-header </span><span><b>content-type</b></span><span>, so that a browser knew about it and a visitor did not have to select charsets manually.
+<br />
+</span><span><b>$response:content-type[
+<br />
+&nbsp;&nbsp;&nbsp;$.value[text/html]
+<br />
+&nbsp;&nbsp;&nbsp;$.charset[$response:charset]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+Charsets to be used in email messages can be specified as different from that of the output, see </span><span><b><a href="mailsend.htm">^mail:send[�]</a></b></span><span>.
+<br />
+
+<br />
+While working with databases, you should specify connection settings in such a way that SQL query and response data were in charset given in </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span>, see <a href="app3.htm">Format of connect string</a>.
+<br />
+
+<br />
+
+<br />
+A list of allowable charsets is defined in <a href="parserconfig.htm">Configuration file</a>.
+<br />
+Default charset for all documents is </span><span><b>UTF-8</b></span><span>.
+<br />
+
+<br />
+<i>Note: when transcoding </i><b><i>from</i></b><i> UTF-8 if some character is not specified in </i><i><a href="installcharset.htm">transcode table</a></i><i>, a sequence </i></span><span><b>&amp;#DDDD;</b></span><span><i> is inserted instead. </i></span><span><b>DDDD</b></span><span><i> is decimal</i><i> </i><i>Unicode of that character</i><i>.</i>
+<br />
+
+<br />
+<i>Note: when transcoding </i><b><i>to</i></b><i> UTF-8</i> <i>if some character is not specified in transcode table, a sequence </i></span><span><b>%HH</b></span><span><i> is inserted instead. </i></span><span><b>HH</b></span><span><i> is hexadecimal code of that character.</i> <b><i>[3.1.4]</i></b><i>
+<br />
+</i>
+<br />
+<i>Note: charset's name is case insensitive</i><i>.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<html>
+<head>
+    
+    
+    <title>roll. ����� ����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>roll. ����� ����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^date.roll[year](��������)
+<br />
+^date.roll[month](��������)
+<br />
+^date.roll[day](��������)</b><span>
+<br />
+</span><span><b>^date.roll[TZ][�����&nbsp;�������&nbsp;����</b><b>]&nbsp;&nbsp;&nbsp;&nbsp;</b><b><i>[3.1.1]</i></b><b>
+<br />
+</b></span><span>
+<br />
+� ������� ����� ������ ����� �����������/��������� �������� ����� </span><span><b>year</b></span><span>, </span><span><b>month</b></span><span>, </span><span><b>day</b></span><span> �������� ������ </span><span><b>date</b></span><span>. 
+<br />
+
+<br />
+����� ����� ������ ����/�����, ���������������  ���������� � ������� ������ </span><span><b>date</b></span><span> � ������ ������� �����, ����� ��������� ��� ������ �������� �����. ������ ���� ��. � ������������ �� ���� ������������ �������, �������� �����: ����������� ��������� </span><span>TZ</span><span>�.
+<br />
+
+<br />
+</span><span><b>������ ������ ������
+<br />
+</b></span><span><span><b>$today[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+<br />
+^today.roll[month](-1)
+<br />
+$today.</b></span></span><span><span><b><a href="datefields.htm">month</a></b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+� ������ ������� �� ����������� ���������� </span><span><b>$today</b></span><span> �������� ������� ���� � ����� ��������� ����� �������� ������ �� �������. � ���������� �� �������� ����� ����������� ������. 
+<br />
+
+<br />
+</span><span><b>������ ������ �������� �����
+<br />
+</b></span><span><span><b>@main[]
+<br />
+$now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+<br />
+^show[]
+<br />
+^show[</b></span></span><span><b>������</b><span><b>;MSK-3MSD]
+<br />
+^show[</b></span></span><span><b>���������</b><span><b>;MET-1DST]
+<br />
+^show[</b></span></span><span><b>������</b><span><b>;GMT0BST]
+<br />
+^show[</b></span></span><span><b>���-����</b><span><b>;EST5EDT]
+<br />
+^show[</b></span></span><span><b>������</b><span><b>;CST6CDT]
+<br />
+^show[</b></span></span><span><b>������</b><span><b>;MST7MDT]
+<br />
+^show[</b></span></span><span><b>���-�������</b><span><b>;PST8PDT]
+<br />
+
+<br />
+@show[town;TZ]
+<br />
+^if(</b></span></span><span><span><b><a href="opdef.htm">def</a></b></span></span><span><span><b>&nbsp;$town){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$town
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^now.roll[TZ;$TZ]
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>���������&nbsp;�����&nbsp;�������</b><span><b>
+<br />
+}
+<br />
+</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+$now.year/$now.month/$now.day,&nbsp;$now.hour&nbsp;�.&nbsp;$now.minute&nbsp;���.</b></span></span><span><b>&lt;hr&nbsp;/&gt;</b><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

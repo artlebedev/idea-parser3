@@ -1,0 +1,75 @@
+<html>
+<head>
+    
+    
+    <title>sql. Retrieving string from a database</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>sql. Retrieving string from a database
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^string:sql{SQL-query}
+<br />
+^string:sql{SQL-query}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default{code}</b><b>&nbsp;</b><b>$.</b><b><a href="app7.htm">bind</a></b><b>[variables&nbsp;hash]</b><b>]
+<br />
+</b><span>
+<br />
+<i>Note: this is method, not a constructor!
+<br />
+</i>
+<br />
+Returns </span><span><b>string</b></span><span> retrieved from database through SQL-query. The query must result in only one column of only one row. For this operator to work, you must have connection with database server established (see operator </span><span><b><a href="opconnect.htm">connect</a></b></span><span>).
+<br />
+
+<br />
+Optional parameters:
+<br />
+</span><span><b>$.limit(1)</b></span><span> - limit response to one row only;
+<br />
+</span><span><b>$.offset(o)</b></span><span> - ignore first </span><span><b>o</b></span><span> records in the query results;
+<br />
+</span><span><b>$.bind</b><b>[hash]</b></span><span> - variables to bind, see &#171;<a href="app7.htm">Queries with bound variables</a>&#187;<b><i> [3.1.4]</i></b>.
+<br />
+if SQL-server response was empty (0 records), &#133;
+<br />
+</span><span><b>$.default{code}</b></span><span> &#133;the given code will be executed and string result returned;
+<br />
+</span><span><b>$.default(</b><b>expression)</b></span><span> &#133;the given expression will be evaluated returned;
+<br />
+</span><span><b>$.default[string]</b></span><span> &#133;the given string returned;
+<br />
+</span><span><b>
+<br />
+Example</b></span><span><u>
+<br />
+</u></span><span><span><b>^string:sql{</b></span></span><span><b>select&nbsp;name&nbsp;from&nbsp;company&nbsp;where&nbsp;company_id=</b><span><b>$company_id}</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+While using this method, it is recommendable to construct SQL-query in such a way as to limit response to one column in one row only.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<html>
+<head>
+    
+    
+    <title>foreach. Going through hash keys</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>foreach. Going through hash keys
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^hash.foreach[key;value]{body}
+<br />
+^hash.foreach[key;value]{body}[delimiter]
+<br />
+^hash.foreach[key;value]{body}{delimiter}
+<br />
+</b><span>
+<br />
+The method works the same way as the method </span><span><b>menu</b></span><span> of class </span><span><b>table</b></span><span>. It goes through all hash keys and relevant values (since version <b><i>3.4.0</i></b> the method goes through elements in order of putting the elements into the hash, before-order is not defined).
+<br />
+
+<br />
+</span><span><b>key</b></span><span>-name of variable to return keys' names
+<br />
+</span><span><b>value</b></span><span>-name of variable to return keys' values
+<br />
+</span><span><b>body</b></span><span>-code to be executed for each key-value
+<br />
+</span><span><b>delimiter</b></span><span>-code to be executed before each non-empty non-first body
+<br />
+</span><span><b>
+<br />
+</b></span><span>You can force finish the loop using </span><span><span><b><a href="opbreak.htm">break</a></b></span></span><span> operator or finish current step and go to next one using </span><span><span><b><a href="opcontinue.htm">continue</a></b></span></span><span> operator.</span><span><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br />
+</span><span><b>
+<br />
+Example</b></span><span><u>
+<br />
+</u>Code&#133;
+<br />
+
+<br />
+</span><span><span><b>$man[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Jack</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span><b>22</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span><b>m</b><span><b>]
+<br />
+]
+<br />
+^man.foreach[key;value]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key</b></span></span><span><b>=</b><span><b>$value
+<br />
+}[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]
+<br />
+</b></span></span><span>
+<br />
+&#133;will return&#133;
+<br />
+
+<br />
+</span><span><b>name=Jack
+<br />
+age=22
+<br />
+sex=m
+<br />
+</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

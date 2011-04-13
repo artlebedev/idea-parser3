@@ -1,0 +1,42 @@
+<html>
+<head>
+    
+    
+    <title>body. Specifying a new response body</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example of how to replace the whole body of the response with the results of the script's work </b></h1><span><u>
+<br />
+</u></span><span><span><b>$response:body[^</b></span></span><span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span></span><span><span><b>[script.cgi]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+&#133;will replace the body of the response with the data returned by the program </span><span><b>script.cgi</b></span><span>.
+<br />
+</span><span><b>
+<br />
+</b></span><span><b>Example of how to create and output an image</b></h1><span><u>
+<br />
+</u></span><span><span><b>$square[^</b></span></span><span><span><b><a href="imagecreate.htm">image::create</a></b></span></span><span><span><b>(100;100;0x000000)]
+<br />
+^square.</b></span></span><span><span><b><a href="imagecircle.htm">circle</a></b></span></span><span><span><b>(50;50;10;0xFFFFFF)
+<br />
+$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+As a result, the browser will output a black square with a white circle. Besides, a necessary type of file (content-type) according to table </span><span><b>MIME-TYPES</b></span><span> will be reported to the browser.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

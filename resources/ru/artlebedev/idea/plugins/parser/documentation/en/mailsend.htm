@@ -1,0 +1,102 @@
+<html>
+<head>
+    
+    
+    <title>send. Sending a message via e-mail</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span><span><b>.</b></span></span><span><span><b>header_field</b></span></span><span><span><b>[</b></span></span><span><b>value</b><span><b>]
+<br />
+]</b></span></span><span><span><b>
+<br />
+</b></span></span><span><b>
+<br />
+</b><b>File</b></span><span> is an object of class </span><span><b><a href="fileclass.htm">file</a></b></span><span>, which will be attached to the message. MIME-type of sent data (</span><span>content-type</span><span> header of a part) is determined according to table </span><span><b>MIME-TYPES</b></span><span> (see also <a href="parserconfmethod.htm">Configuration method</a>).
+<br />
+</span><span><b>
+<br />
+</b><b>Filename</b></span><span> is the name that the file to be sent will bear.
+<br />
+By default the file will be sent in uuencode form.
+<br />
+
+<br />
+Default file encoding </span><span><b>format</b></span><span> is <i>base64</i> since version 3.4.0 and <i>uue</i> prior version 3.4.0.
+<br />
+
+<br />
+Attaching a message:
+<br />
+</span><span><span><b>$.message[</b></span></span><span><b>message_text</b><span><b>]</b></span></span><span><span><b>
+<br />
+</b></span></span><span><b>
+<br />
+</b></span><span>The format of the message is the same as that of the whole method's parameter.
+<br />
+
+<br />
+There may be several attachments. In this case you must add an integer after the name.
+<br />
+Example:
+<br />
+</span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;$.file
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.file</b></span></span><span><b>2</b><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.message
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.message</b></span></span><span><b>2</b><span><b>
+<br />
+</b></span></span><span>
+<br />
+Example of how to use alternative blocks and attachments
+<br />
+</span><span><span><b>^mail:send[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.from[</b></span></span><span><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><b>&gt;</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.to[</b></span></span><span><b>Peter&nbsp;&lt;peter@hotmail.com&gt;</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.subject[</b></span></span><span><b>How&nbsp;is&nbsp;it&nbsp;going?</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.text[</b></span></span><span><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;great&nbsp;in&nbsp;here!!!</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.html{</b></span></span><span><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;&lt;b&gt;great&lt;/b&gt;&nbsp;in&nbsp;here!!!
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&nbsp;/&gt;&lt;img&nbsp;src="cid:pic2"&nbsp;border="0"&nbsp;width="100"&nbsp;height="50"&nbsp;/&gt;
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.file[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[binary;perfect_life1.jpg]]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.file2[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.value[^file::load[binary;perfect_life2.jpg]]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>pf_life2</b><b>.jpg</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.content-id[</b></span></span><span><b>p</b><b>ic2</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+As a result, a message will be sent to </span><span><b>peter@hotmail.com</b></span><span> containing text "How is it going? It's really great in here!!!" in plain text and HTML. Two photographs will be attached to the message to support the idea, and on these photos&#133;
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<html>
+<head>
+    
+    
+    <title>Fields</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Fields
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>By referring to the fields of objects of class <span><b>date</b></span><span>, you can retrieve the following values:
+<br />
+
+<br />
+</span><span><b>$date.month</b></span><span>  month
+<br />
+</span><span><b>$date.year</b><b>&nbsp;&nbsp;</b></span><span>year
+<br />
+</span><span><b>$date.day</b></span><span>  day
+<br />
+</span><span><b>$date.hour</b><b>&nbsp;&nbsp;</b></span><span>hours
+<br />
+</span><span><b>$date.minute</b><b>&nbsp;&nbsp;</b></span><span>minutes
+<br />
+</span><span><b>$date.second</b></span><span>  seconds
+<br />
+</span><span><b>$date.weekday</b><b>&nbsp;&nbsp;</b></span><span>weekday, i.e. number of day in a week (0 = Sunday, 1 = Monday, etc.)
+<br />
+</span><span><b>$date.week</b></span><span>  week number in year (according to </span><span>ISO&nbsp;8601</span><span> standard)   <b><i>[3.1.5]</i></b>
+<br />
+</span><span><b>$date.week</b><b>year</b></span><span>  year for this week (according to </span><span>ISO&nbsp;8601</span><span> standard)   <b><i>[3.2.2]</i></b>
+<br />
+</span><span><b>$date.yearday</b></span><span>  year day (0 = January 1, 1 = January 2, etc.)
+<br />
+</span><span><b>$date.daylightsaving</b></span><span>  1 - Daylight Saving Time, 0 - standard time
+<br />
+</span><span><b>$date.TZ</b></span><span>  time zone; contains the value, if the date was </span><span><b>^date.roll[TZ;&#133;]
+<br />
+</b></span><span><b>
+<br />
+</b></span><span><b>Example
+<br />
+</b></span><span><span><b>$date_now[^date:</b></span></span><span><span><b>:</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]&nbsp;
+<br />
+</b></span></span><span><span><b>$date_now.year</b></span></span><span><b>&lt;br&nbsp;/&gt;&nbsp;
+<br />
+</b><span><b>$date_now.month</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>$date_now.day</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>$date_now.hour</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>$date_now.minute</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>$date_now.second</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>$date_now.weekday
+<br />
+</b></span></span><span>
+<br />
+As a result, an object of class </span><span><b>date</b></span><span> will be created, containing current date, and the value of:
+<br />
+
+<br />
+</span><span><b>year
+<br />
+month
+<br />
+day
+<br />
+hour
+<br />
+minute
+<br />
+second
+<br />
+weekday
+<br />
+</b></span><span>
+<br />
+&#133;will be output.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -50,12 +50,24 @@ public class ParserDocumentationForm extends javax.swing.JFrame {
 
     jEditorPane1.setContentType("text/html");
     jEditorPane1.setEditable(false);
+    jEditorPane1.addKeyListener(new java.awt.event.KeyAdapter() {
+      public void keyPressed(java.awt.event.KeyEvent evt) {
+        jEditorPane1KeyPressed(evt);
+      }
+    });
     jScrollPane1.setViewportView(jEditorPane1);
 
     getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
+
+    private void jEditorPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jEditorPane1KeyPressed
+      // TODO add your handling code here:
+      if(evt.getKeyCode() == 27) {
+        setVisible(false);
+      }
+    }//GEN-LAST:event_jEditorPane1KeyPressed
 
     /**
     * @param args the command line arguments

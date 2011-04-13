@@ -1,0 +1,89 @@
+<html>
+<head>
+    
+    
+    <title>Appendix 7. SQL queries with bound variables</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Appendix 7. SQL queries with bound variables</b><span><b><i> </i></b><b><i>[3.1.4]</i></b></span>
+<br />
+
+
+
+<span>Parser's Oracle SQL driver can work with bound variables. <span>IN</span><span>, </span><span>OUT</span><span> and </span><span>IN/OUT</span><span> variables are supported, they are bound to <a href="hash.htm">hash</a> you pass to query.
+<br />
+
+<br />
+There are known problems with </span><span>CALL</span><span> and </span><span>EXECUTE</span><span> constructs in Oracle versions, we recommend using PL/SQL wrapper (</span><span>begin&nbsp;&#133;;&nbsp;end;</span><span>), do not forget to <a href="stringlit.htm">escape</a> &#171;;&#187; character.
+<br />
+
+<br />
+<i>Note: values of </i></span><span><b><a href="voidclass.htm">void</a></b></span><span><i> type correspond to NULL. In second example below </i></span><span><b>days</b></span><span><i> is initially </i></span><span>NULL</span><span><i>.</i><i>
+<br />
+</i>
+<br />
+</span><span><b>Example of using IN variables</b><b>
+<br />
+</b></span><span><b>
+<br />
+#procedure&nbsp;</b><b>ban_user</b><b>(</b><b>user_id</b><b>&nbsp;in&nbsp;number,&nbsp;</b><b>days</b><b>&nbsp;</b><b>in&nbsp;number</b><b>)
+<br />
+
+<br />
+^void:sql</b><b>{begin&nbsp;ban_user(:user_id,&nbsp;:days)^;&nbsp;end^;}[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.bind[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.user_id(7319)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.days(10)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />
+]
+<br />
+
+<br />
+</b></span><span><b>Example of using IN and OUT variables</b><b>
+<br />
+</b></span><span><b>
+<br />
+#procedure&nbsp;</b><b>read_user_ban_days</b><b>(</b><b>user_id</b><b>&nbsp;in&nbsp;number,&nbsp;</b><b>days</b><b>&nbsp;</b><b>out&nbsp;number</b><b>)
+<br />
+
+<br />
+$</b><b>variables[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.user_id(7319)
+<br />
+#we&nbsp;still&nbsp;must&nbsp;pass&nbsp;something&nbsp;in,&nbsp;though&nbsp;current&nbsp;value&nbsp;will&nbsp;be&nbsp;discarded
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.days[]
+<br />
+]</b><b>
+<br />
+
+<br />
+^void:sql</b><b>{begin&nbsp;read_user_ban_days(:user_id,&nbsp;:days)^;&nbsp;end^;}[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.bind[$variables]
+<br />
+]
+<br />
+
+<br />
+</b><span><b>User&nbsp;is&nbsp;banned&nbsp;for&nbsp;</b></span></span><span><b>$variables.days</b><span><b>&nbsp;days</b></span></span><span><span><b>!</b></span></span><span><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

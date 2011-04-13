@@ -1,0 +1,103 @@
+<html>
+<head>
+    
+    
+    <title>Passing parameters</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Passing parameters
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>Parameters can be passed within different brackets and will then be processed different ways:
+<br />
+
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="112">
+<span><b>(</b><b>expression</b><b>)</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="489">
+<span>-value of parameter is calculated every time it is referred to from within the method
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span><b>[</b><b>code</b><b>]</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="489">
+<span>-value of parameter is processed only once-before the method is called
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span><b>{</b><b>code</b><b>}</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="489">
+<span>-value of parameter is processed every time it is referred to from within the method
+<br />
+</span></td></tr></table>
+<br />
+
+<br />
+An example to demonstrate difference between brackets:
+<br />
+<span><span><b>@main[]
+<br />
+$a(20)
+<br />
+$b(10)
+<br />
+^sum[^</b></span></span><span><span><b><a href="opeval.htm">eval</a></b></span></span><span><span><b>($a+$b)]
+<br />
+</b></span></span><span><b>&lt;hr</b><b>&nbsp;/</b><b>&gt;
+<br />
+</b><span><b>^sum{^eval($a+$b)}
+<br />
+
+<br />
+@sum[c]
+<br />
+^</b></span></span><span><span><b><a href="opfor.htm">for</a></b></span></span><span><span><b>[b](100;110){
+<br />
+&nbsp;&nbsp;&nbsp;$c
+<br />
+}[</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>]
+<br />
+</b></span></span><span>
+<br />
+As you can see, in the first case the code was calculated only once-before method </span><span><b>sum</b></span><span> was called-and the method received the result of this calculation-number </span><span><b>30</b></span><span>. In the second case the code was executed every time the parameter was referred to-that is why the result was different each time, depending on the counter's value.
+<br />
+
+<br />
+There can be many parameters or none. If you place many parameters inside single-type brackets, they can be separated by semicolon. Any combination of different types of parameters is allowed.
+<br />
+
+<br />
+For example, the construction...
+<br />
+</span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="opif.htm">if</a></b></span></span><span><span><b>(</b></span></span><span><span><b>condition</b></span></span><span><span><b>){</b></span></span><span><span><b>when&nbsp;true;when&nbsp;false</b></span></span><span><span><b>}
+<br />
+</b></span></span><span>...is equal to...
+<br />
+</span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^if(</b></span></span><span><span><b>condition</b></span></span><span><span><b>){</b></span></span><span><span><b>when&nbsp;true</b></span></span><span><span><b>}{</b></span></span><span><span><b>when&nbsp;false</b></span></span><span><span><b>}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

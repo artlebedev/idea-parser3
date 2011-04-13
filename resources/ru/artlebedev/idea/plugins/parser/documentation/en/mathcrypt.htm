@@ -1,0 +1,183 @@
+<html>
+<head>
+    
+    
+    <title>crypt. Hashing passwords</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>crypt. Hashing passwords
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^math:crypt[password;salt]
+<br />
+</b><span>
+<br />
+The method hashes </span><span><b>password</b></span><span>. Parameters are </span><span><b>password</b></span><span> to be encrypted and </span><span><b>salt</b></span><span> to base encryption on.
+<br />
+
+<br />
+Arguments:
+<br />
+</span><span><b>password</b></span><span>-initial string;
+<br />
+</span><span><b>salt</b></span><span>-string determining hashing algorithm and introducing an element of randomness into hashing process-consists of head and body. If body is not specified, Parser will generate a random body.
+<br />
+
+<br />
+It is not very sensible to store users' passwords simply storing them in a database or saving to disk-since, having managed to steal a file or DB table with passwords, someone will be able to use them. That is why one should store not passwords themselves but their hashes-that is the result of safe and irreversible transformation of password string. While password typed in by a visitor is checked, the received string is encrypted according to the same algorithm as that of password stored in a file/database (this encrypted password is used as </span><span><b>salt</b></span><span>), and the two strings are then compared</span><span> </span><span>.
+<br />
+
+<br />
+Table with available algorithms:</span><span>
+<br />
+</span><span>
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="75">
+<span><b><i>Algorithm</i></b><i>
+<br />
+</i></span></td><td align="left" valign="top" width="194">
+<span><b><i>Description</i></b><i>
+<br />
+</i></span></td><td align="left" valign="top" width="142">
+<span><b><i>salt head</i></b><i>
+<br />
+</i></span></td><td align="left" valign="top" width="170">
+<span><b><i>salt body</i></b><i>
+<br />
+</i></span></td></tr><tr><td align="left" valign="top" width="75">
+<span>MD5
+<br />
+</span></td><td align="left" valign="top" width="194">
+<span>built-in in Parser, available on all platforms<span>
+<br />
+</span></span></td><td align="left" valign="top" width="142">
+<span><b>$apr1$</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="170">
+<span>Up to 8 random letters (in uppercase or lowercase) or numbers<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="75">
+<span>MD5
+<br />
+</span></td><td align="left" valign="top" width="194">
+<span>if supported by UNIX OS<span>
+<br />
+</span></span></td><td align="left" valign="top" width="142">
+<span><b>$1$</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="170">
+<span>Up to 8 random letters (in uppercase or lowercase) or numbers<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="75">
+<span>DES
+<br />
+</span></td><td align="left" valign="top" width="194">
+<span>if supported by UNIX OS<span>
+<br />
+</span></span></td><td align="left" valign="top" width="142">
+<span>(no)
+<br />
+</span></td><td align="left" valign="top" width="170">
+<span>2 random letters (in uppercase or lowercase) or numbers<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="75">
+<span>others
+<br />
+</span></td><td align="left" valign="top" width="194">
+<span>those supported by UNIX OS<span>
+<br />
+</span></span></td><td align="left" valign="top" width="142">
+<span>read the documentation on your operating system, function crypt<span>
+<br />
+</span></span></td><td align="left" valign="top" width="170">
+<span>read the documentation on your operating system, function crypt<span>
+<br />
+</span></span></td></tr></table>
+<br />
+<i>Note: to use </i></span><span><b>$</b></span><span><i> in Parser, you must precede it with </i></span><span><b>^</b></span><span><i>.
+<br />
+</i>
+<br />
+<i>Note: Apache web-server allows using hashed passwords in password files (</i></span><span>.htpasswd</span><span><i>). In this case you may use hashes of passwords created by any of the algorithms given in the above table, including algorithm built into Parser.</i>
+<br />
+<i>
+<br />
+</i></span><span><b>How to create .htpasswd file:</b><u>
+<br />
+</u></span><span><span><b>@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+$users[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{name&nbsp;&nbsp;&nbsp;password
+<br />
+alice&nbsp;&nbsp;&nbsp;xxxxxx
+<br />
+bob&nbsp;&nbsp;&nbsp;yyyyyy
+<br />
+}]
+<br />
+
+<br />
+$htpasswd[^table::create[nameless]{}]
+<br />
+^users.menu{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^htpasswd.append{$users.name:^math:crypt[$users.password;^$apr1^$]}
+<br />
+}
+<br />
+
+<br />
+^htpasswd.save[nameless;.htpasswd-parser-test]
+<br />
+</b></span></span><span><b>
+<br />
+How to check password</b><u>
+<br />
+</u></span><span><span><b>$right[123]
+<br />
+$from_user[123]
+<br />
+$crypted[^math:crypt[$right;^$apr1^$]]
+<br />
+</b></span></span><span><span><b>#Note:&nbsp;$crypted&nbsp;will&nbsp;be&nbsp;different&nbsp;every&nbsp;time&nbsp;it&nbsp;is&nbsp;referred&nbsp;to
+<br />
+</b></span></span><span><span><b>$crypted</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+^if(^math:crypt[$from_user;$crypted]&nbsp;</b></span></span><span><span><b><a href="exprops.htm">eq</a></b></span></span><span><span><b>&nbsp;$crypted){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Eat,&nbsp;drink,&nbsp;and&nbsp;be&nbsp;merry</b><b>
+<br />
+</b><span><b>}{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Call&nbsp;911&#133;
+<br />
+</b><span><b>}</b></span></span><span><b>
+<br />
+
+<br />
+</b></span><span>Detailed information on MD5 is available at <span><i><u><a href="http://www.ietf.org/rfc/rfc1321.txt" target="_blank">http://www.ietf.org/rfc/rfc1321.txt</a></u></i></span></span><span><i>
+<br />
+</i></span></span><br />
+
+
+
+
+</body>
+</html>

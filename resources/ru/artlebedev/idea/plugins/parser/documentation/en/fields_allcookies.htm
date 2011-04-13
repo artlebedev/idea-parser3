@@ -1,0 +1,45 @@
+<html>
+<head>
+    
+    
+    <title>fields. All cookies</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>fields. All cookies</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.2.2]</i></b></span>
+<br />
+
+
+
+<span><b>$cookie:fields
+<br />
+</b><span>
+<br />
+Such a construction returns <a href="hash.htm">hash</a> with all cookies.
+<br />
+
+<br />
+</span><span><b>Example</b><b>
+<br />
+</b></span><span><span><b>^cookie:</b></span></span><span><span><b>fields.</b></span></span><span><span><b><a href="hashforeach.htm">foreach</a></b></span></span><span><span><b>[</b></span></span><span><span><b>name;value]{
+<br />
+&nbsp;&nbsp;&nbsp;$name&nbsp;-&nbsp;^if($value&nbsp;is&nbsp;"hash"){$value.value}{$value}
+<br />
+}[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]
+<br />
+</b></span></span><span>
+<br />
+&#133;will output all cookies' names and their values.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

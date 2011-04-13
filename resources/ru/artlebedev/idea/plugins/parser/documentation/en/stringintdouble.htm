@@ -1,0 +1,113 @@
+<html>
+<head>
+    
+    
+    <title>int, double, bool. Converting string into number or bool</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>int, double, bool. Converting string into number or bool
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^string.int[]
+<br />
+^string.int(default&nbsp;value)
+<br />
+^string.double[]
+<br />
+^string.double(default&nbsp;value)
+<br />
+^string.bool[]
+<br />
+^string.bool(default&nbsp;value)
+<br />
+</b><span>
+<br />
+Converts value of variable </span><span><b>$string</b></span><span> into integer or real number or bool respectively and returns the result.
+<br />
+
+<br />
+One can specify default value to be returned if conversion is impossible, a string is empty or consists of white space characters (tabs, spaces, newlines).
+<br />
+
+<br />
+Default value can be used while processing data, which is received from users interactively. It will help avoiding text values in mathematical expressions-in cases of incorrect input (e.g. when a string is received instead of expected number).
+<br />
+
+<br />
+Note: method </span><span><b>.bool</b></span><span> can convert to </span><span><b>bool</b></span><span> not only strings with numbers (0-</span><span><b>false</b></span><span>, not 0-</span><span><b>true</b></span><span>) but strings containing values 'true'/'false' as well (case insensitive). It can be usable for reading data from external source (xml for example).
+<br />
+
+<br />
+<i>Note: using empty string in mathematical </i><i><a href="stringclass.htm">expressions</a></i><i> </i><i>expressions is not considered error. Its value is then regarded as zero.
+<br />
+
+<br />
+Note: attempt of converting non-integer string into integer is considered error (e.g. string "1.5" is not an integer).
+<br />
+</i></span><span><b>
+<br />
+</b><b>Example</b></span><span><u>
+<br />
+</u></span><span><span><b>$str[12</b></span></span><span><b>3</b><span><b>]
+<br />
+^str.int[]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+&#133;outputs number </span><span><b>123</b></span><span>, since object </span><span><b>str</b></span><span> can be converted into number.
+<br />
+
+<br />
+</span><span><span><b>$str[much]
+<br />
+^str.double(-1)</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+&#133;outputs number </span><span><b>-1</b></span><span>, since conversion is impossible.
+<br />
+
+<br />
+
+<br />
+</span><span><span><b>$str[</b></span></span><span><b>1</b><span><b>]
+<br />
+^if(^str.bool[]){</b></span></span><span><b>true</b><span><b>}
+<br />
+
+<br />
+$str[</b></span></span><span><b>True</b><span><b>]
+<br />
+^if(^str.bool[]){</b></span></span><span><b>true</b><span><b>}
+<br />
+
+<br />
+</b></span></span><span>&#133;outputs strings "</span><span><b>true</b></span><span>".
+<br />
+
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

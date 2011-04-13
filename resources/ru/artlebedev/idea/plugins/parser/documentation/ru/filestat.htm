@@ -1,0 +1,67 @@
+<html>
+<head>
+    
+    
+    <title>stat. ��������� ���������� � �����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>stat. ��������� ���������� � �����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file::stat[���&nbsp;�����]</b><span>&nbsp;&nbsp;&nbsp;
+<br />
+</span><span>������, ��������� ���� �������������, ����� �������������� ���� (������� ������ </span><span><b>date</b></span><span>):
+<br />
+
+<br />
+</span><span><b>$����.size</b></span><span> - ������ ����� � ������;  
+<br />
+</span><span><b>$����.cdate</b></span><span> - ���� ��������;  
+<br />
+</span><span><b>$����.mdate</b></span><span> - ���� ���������;  
+<br />
+</span><span><b>$����.adate</b></span><span> - ���� ���������� ��������� � �����.
+<br />
+
+<br />
+</span><span><b>���&nbsp;�����</b></span><span> - ��� ����� � �����.
+<br />
+
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>$f[^file::stat[some.zip]]
+<br />
+</b></span></span><span><b>������&nbsp;�&nbsp;������:&nbsp;</b><span><b>$f.</b></span></span><span><span><b><a href="filefields.htm">size</a></b></span></span><span><span><b>&lt;br</b></span></span><span><span><b>&nbsp;/</b></span></span><span><span><b>&gt;
+<br />
+</b></span></span><span><b>���&nbsp;��������:</b><span><b>&nbsp;$f.cdate.</b></span></span><span><span><b><a href="datefields.htm">year</a></b></span></span><span><span><b>&lt;br</b></span></span><span><span><b>&nbsp;/</b></span></span><span><span><b>&gt;
+<br />
+$new_after[^date::now(-3)]
+<br />
+</b></span></span><span><b>������:&nbsp;</b><span><b>^if($f.mdate&nbsp;&gt;=&nbsp;$new_after){</b></span></span><span><b>�����</b><span><b>;</b></span></span><span><b>������</b><span><b>}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

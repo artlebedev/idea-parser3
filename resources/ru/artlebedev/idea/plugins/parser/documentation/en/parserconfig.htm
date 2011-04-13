@@ -1,0 +1,95 @@
+<html>
+<head>
+    
+    
+    <title>Configuration file</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Configuration file
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>Exemplary of file is included in distribution package (see <span>auto.p.dist</span><span>).
+<br />
+
+<br />
+This is the cornerstone of class </span><span><b><a href="mainclass.htm">MAIN</a></b></span><span>. It may contain <a href="parserconfmethod.htm">configuration method</a>, which will be executed first, before method  </span><span><b><a href="mainclass.htm">auto</a></b></span><span>, to set vital system parameters.
+<br />
+
+<br />
+After configuration method is executed, output <a href="charsets.htm">charset</a> and code charset may be specified (default charset in both cases is </span><span><b>UTF-8</b></span><span>).
+<br />
+
+<br />
+Recommended code:
+<br />
+</span><span><b>@auto[]
+<br />
+#source/client&nbsp;charsets
+<br />
+</b><b><a href="requestcharset.htm">$request:charset</a></b><b>[windows-1251]
+<br />
+</b><b><a href="responsecharset.htm">$response:charset</a></b><b>[windows-1251]
+<br />
+</b><b><a href="responsefields.htm">$response:content-type</a></b><b>[
+<br />
+&nbsp;&nbsp;&nbsp;$.value[text/html]
+<br />
+&nbsp;&nbsp;&nbsp;$.charset[$response:charset]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+<i>Note: if you want methods </i></span><span><b><a href="stringuplow.htm">upper</a></b></span><span><i> </i><i>and</i><i> </i></span><span><b><a href="stringuplow.htm">lower</a></b></span><span><i> </i><i>(</i><i>class </i></span><span><b><a href="stringclass.htm">string</a></b></span><span><i>)</i><i> </i><i>to work with languages other than English correctly, you will need to correctly specify</i><i> </i></span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span><i>.
+<br />
+</i>
+<br />
+It is also recommended that you specify path to classes used at your site here:
+<br />
+</span><span><b><a href="app1pathclass.htm">$CLASS_PATH</a></b><b>[/../classes]
+<br />
+</b></span><span>
+<br />
+&#133;as well as connect string for SQL-server you are going to use (example for <a href="app3odbc.htm">ODBC</a>):
+<br />
+</span><span><b>$SQL.connect-string[odbc://DSN=www_mydomain_ru^;UID=user^;PWD=password]</b><b>
+<br />
+</b></span><span><i>
+<br />
+Note: it will be used in your code like&#133;
+<br />
+</i></span><span><b>^</b><b><a href="opconnect.htm">connect</a></b><b>[$SQL.connect-string]{&#133;}&nbsp;
+<br />
+</b><span><b>
+<br />
+</b></span></span><span>It is recommended that you also define method </span><span><span><b><a href="exceptions.htm">unhandled_exception</a></b></span></span><span>, which will output error messages on problems at your site.
+<br />
+
+<br />
+<i>Note: configuration file is definitely optional. You can place your </i><i><a href="parserconfmethod.htm">configuration method</a></i><i> </i><i>in file</i><i> </i></span><span><a href="mainclass.htm">auto.p</a></span><span><i> </i><i>in your web-space root. Configurations, however, will most probably be different for different hosting locations (for example: debug and production servers). That is why it would be more comfortable to keep these differences in a separate file outside web-space.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

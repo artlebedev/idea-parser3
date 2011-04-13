@@ -1,0 +1,99 @@
+<html>
+<head>
+    
+    
+    <title>@unhandled_exception. ����� �������������� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>@unhandled_exception. ����� �������������� ������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>���� ������ ��� � �� ���� ���������� �� ����� ������������ (��. �������� <span><b><a href="optry.htm">try</a></b></span><span>), Parser �������� ����� </span><span><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span>, ��� ���������� ���������� �� ������ � ���� �������, ��������� � ������, � �������� ���������� ��� ������. ����� ������ ������������ � ������ ������ ���-�������.
+<br />
+
+<br />
+������� ���, ��� �������� ��������� �� ������ � ����� ������� ������ �����.
+<br />
+� ����� ���������, � <b>�� </b>���������� ����������� ����������� ����� �����������.
+<br />
+
+<br />
+����������� ��������� ���� ����� � <a href="parserconfig.htm">���������������� ���� �����</a>.
+<br />
+</span><span><b>
+<br />
+</b></span><span>������� ����������� ������������� ������ ������ � ������ ������, ��� ���� <b>������</b> ��� ������ ������ ����� ������ ����:
+<br />
+</span><span><b>$exception.handled(</b><b><a href="boollit.htm">true</a></b><b>)&nbsp;&nbsp;&nbsp;</b></span><span><b><i> [3.1.4]</i></b></span><span><b>
+<br />
+</b></span><span><b>
+<br />
+������
+<br />
+</b></span><span><span><b>@unhandled_exception[</b></span></span><span><span><b><a href="optry.htm">exception</a></b></span></span><span><span><b>;stack]
+<br />
+$</b></span></span><span><span><b><a href="responsefields.htm">response:content-type</a></b></span></span><span><span><b>[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.value[text/html]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.charset[</b></span></span><span><span><b><a href="responsecharset.htm">$response:charset</a></b></span></span><span><span><b>]
+<br />
+]
+<br />
+
+<br />
+</b></span></span><span><b>&lt;title&gt;UNHANDLED&nbsp;EXCEPTION&nbsp;(root)&lt;/title&gt;
+<br />
+&lt;body&nbsp;bgcolor=white&gt;
+<br />
+&lt;font&nbsp;color=black&gt;
+<br />
+&lt;pre&gt;</b><span><b>^</b></span></span><span><span><b><a href="opuntainttaint.htm">untaint</a></b></span></span><span><span><b>[html]{$exception.comment}</b></span></span><span><b>&lt;/pre&gt;
+<br />
+^</b><span><b>if(</b></span></span><span><span><b><a href="exprops.htm">def</a></b></span></span><span><span><b>&nbsp;$exception.source){
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span><b>&lt;b&gt;</b><span><b>$exception.source</b></span></span><span><b>&lt;/b&gt;&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span><b>&lt;pre&gt;</b><span><b>^untaint[html]{$exception.file^($exception.lineno^)}</b></span></span><span><b>&lt;/pre&gt;</b><span><b>
+<br />
+}
+<br />
+^if(def&nbsp;$exception.type){</b></span></span><span><b>exception.type=</b><span><b>$exception.type}
+<br />
+^if($stack){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&lt;hr&nbsp;/&gt;
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;^stack.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>&lt;tt&gt;</b><span><b>$stack.name</b></span></span><span><b>&lt;/tt&gt;&nbsp;</b><span><b>$stack.file^($stack.lineno^)</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

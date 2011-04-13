@@ -1,0 +1,115 @@
+<html>
+<head>
+    
+    
+    <title>��������� Parser �� ���-������ Apache, CGI ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>��������� Parser �� ���-������ Apache, CGI ������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>��� ��������� Parser ���������� ������ ��������� � �������� ���������������� ���� ���-�������, ���, ���� � ��� ��� � ���� �������, ���������� ����������� ������������ <span>.htaccess</span><span> �����.
+<br />
+
+<br />
+��-���������, � ��������� Apache ����������� ������������� </span><span>.htaccess</span><span> ���������.
+<br />
+���� ��� ��� ����������, ��������� �� ������������ (�� ������� ����, �������� </span><span><span><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">FileInfo</a></u></span></span><span>). ��� ���� � �������� ���������������� ����� ���-������� (������ </span><span>httpd.conf</span><span>) � ������  </span><span>&lt;virtualhost&nbsp;�&gt;</span><span> ������ �����, ��� ��� �� - ��� ���� ������, �������� ���������:
+<br />
+</span><span><b>&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#directory" target="_blank">Directory</a></u></b></span></span><span><b>&nbsp;/����/�/������/���/������������&gt;
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">AllowOverride</a></u></b></span></span><span><b>&nbsp;FileInfo
+<br />
+&lt;/Directory&gt;</b></span><span><i>
+<br />
+</i>
+<br />
+Parser3 �������������� ��������� ����������� <a href="charsets.htm">���������������</a>, ��� ��� ��� <span><u><a href="http://apache.lexa.ru/" target="_blank">�������� Apache</a></u></span></span><span> �������� � �������� ���������������� ���� ���-������� (������ </span><span>httpd.conf</span><span>) ������: 
+<br />
+</span><span><span><b><u><a href="http://apache.lexa.ru/configure.html#charsetturnoff" target="_blank">CharsetDisable</a></u></b></span></span><span><b>&nbsp;On
+<br />
+</b></span><span>����������� ������������� ������������ ��������������� �������� Apache ��� ������ �������.
+<br />
+���� ����������� �������� �������� ���������������� ���� ���-������� � ��� ���, �������� ��� ������ � </span><span>.htaccess</span><span> ����.</span><span>
+<br />
+</span><span>
+<br />
+��������� ���� � ����������� ����� Parser (� ������� ������, </span><span>parser3</span><span>) � ������� ��� CGI-�������� (���������� ���� �� ftp ����� � ������ binary, � �� text). ����� ��� ����� �� ����������, ������� ����� �������� � ������ �������-���������� (������ ����������� ����� - 755).
+<br />
+��� </span><span>Win32</span><span>: ���� �� ����������� ������ Parser � ���������� XML, � ���� �� ������� ���������� XML ����������.
+<br />
+
+<br />
+�������� � ���� </span><span>.htaccess</span><span> ������ ����� (��� � </span><span>httpd.conf</span><span> � ������ </span><span>&lt;virtualhost&nbsp;�&gt;</span><span> ������ �����, ��� ��� �� - ��� ���� ������) �����:
+<br />
+</span><span><b>#&nbsp;����������&nbsp;������������&nbsp;.html&nbsp;�������
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_mime.html#addhandler" target="_blank">AddHandler</a></u></b></span></span><span> </span><span><b>parser3-handler</b></span><span> </span><span><b>html
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_actions.html#action" target="_blank">Action</a></u></b></span></span><span> </span><span><b>parser3-handler</b></span><span> </span><span><b>/cgi-bin/parser3
+<br />
+
+<br />
+#&nbsp;������&nbsp;��&nbsp;������&nbsp;�&nbsp;.p&nbsp;������,&nbsp;�&nbsp;��������,&nbsp;�&nbsp;auto.p
+<br />
+&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#files" target="_blank">Files</a></u></b></span></span><span> </span><span><b>~</b></span><span> </span><span><b>"\.p$"&gt;
+<br />
+</b></span><span>    </span><span><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#order" target="_blank">Order</a></u></b></span></span><span> </span><span><b>allow,deny
+<br />
+</b></span><span>    </span><span><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#deny" target="_blank">Deny</a></u></b></span></span><span> </span><span><b>from</b></span><span> </span><span><b>all
+<br />
+&lt;/Files&gt;
+<br />
+
+<br />
+</b></span><span>���� ��� �� ���������� ������������ ����������������� ����� �� ��������� (��. <a href="install.htm">��������� � ��������� Parser</a>), �� ������ ������ ��� ����:</span><span><b>
+<br />
+
+<br />
+#&nbsp;�������&nbsp;����������&nbsp;���������&nbsp;�&nbsp;�����&nbsp;�&nbsp;auto.p
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_env.html#setenv" target="_blank">SetEnv</a></u></b></span></span><span> </span><span><b>CGI_PARSER_CONFIG</b></span><span> </span><span><b>/����/�/�����/auto.p
+<br />
+
+<br />
+</b></span><span><i>���������: ��� ����� ��������� ������ </i></span><span><span><i><u><a href="http://httpd.apache.org/docs/mod/mod_env.html" target="_blank">mod_env</a></u></i></span></span><span><i>, ������� �� ��������� ����������.</i></span><span><b><i>
+<br />
+</i></b></span><span>
+<br />
+�� ������� Parser ������ ������ � ������ ������ </span><span>parser3.log</span><span>, �������, �� ���������, ���������� � ��� �� ��������, ��� � CGI-������ Parser. ���� � Parser ��� ����������� ������� ������ � ������ ����, �� ������ ����� �������� � ����������� ����� ������, � ������ �� ������ ������� � ������ ������ ���-�������. ���� ��� �� ���������� ������������ ������� ������ </span><span>parser3.log</span><span>, �� ������ ������ ��� ����:</span><span><b>
+<br />
+
+<br />
+#&nbsp;�������&nbsp;����������&nbsp;���������&nbsp;�&nbsp;�����&nbsp;�&nbsp;parser3.log
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_env.html#setenv" target="_blank">SetEnv</a></u></b></span></span><span> </span><span><b>CGI_PARSER_LOG</b></span><span> </span><span><b>/����/�/�����/parser3.log
+<br />
+
+<br />
+</b></span><span><i>���������: ��� ����� ��������� ������ </i></span><span><span><i><u><a href="http://httpd.apache.org/docs/mod/mod_env.html" target="_blank">mod_env</a></u></i></span></span><span><i>, ������� �� ��������� ����������.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

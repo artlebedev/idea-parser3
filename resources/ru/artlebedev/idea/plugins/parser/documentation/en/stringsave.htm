@@ -1,0 +1,82 @@
+<html>
+<head>
+    
+    
+    <title>save. Saving string to a file</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b></h1><span><u>
+<br />
+</u>Task: retrieve data from SQL-server A and store them to SQL-server B.
+<br />
+
+<br />
+If both servers are accessible from some computer, it can be done this way:
+<br />
+
+<br />
+</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[&#192;]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$data[
+<br />
+</b></span></span><span><span><b>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;to&nbsp;fill&nbsp;'data'&nbsp;with&nbsp;data&nbsp;from&nbsp;SQL-server&nbsp;A</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^connect[&#193;]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="voidsql.htm">void:sql</a></b></span></span><span><span><b>{</b></span></span><span><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span><b>$data</b></span></span><span><b>'</b><span><b>)}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+In this case, </span><span><b>$data</b></span><span> in SQL-query insert will be correctly adapted to SQL-dialect used by server B.
+<br />
+
+<br />
+Yet, if one CANNOT access both servers from one computer, the task may be accomplished the following way:
+<br />
+
+<br />
+</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[&#192;]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$data[
+<br />
+</b></span></span><span><span><b>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;to&nbsp;fill&nbsp;'data'&nbsp;with&nbsp;data&nbsp;from&nbsp;SQL-server&nbsp;A
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span><span><b><a href="opuntainttaint.htm">untaint</a></b></span></span><span><span><b>[sql]{</b></span></span><span><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span><b>$data</b></span></span><span><b>')</b><span><b>}]
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^connect[local&nbsp;fictitious&nbsp;B]{
+<br />
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;connection&nbsp;is&nbsp;needed
+<br />
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only&nbsp;to&nbsp;specify&nbsp;rules&nbsp;to&nbsp;conform&nbsp;SQL-syntax&nbsp;used&nbsp;by&nbsp;SQL-server&nbsp;B
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^string.save[B-inserts.sql]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+In this case file </span><span>B-inserts.sql</span><span> will contain correctly transformed SQL-query.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

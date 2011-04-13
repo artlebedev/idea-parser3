@@ -1,0 +1,85 @@
+<html>
+<head>
+    
+    
+    <title>lock. Exclusive use of code</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>lock. Exclusive use of code
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file:lock[file_to_be_locked]{code}
+<br />
+</b><span>
+<br />
+</span><span><b>Code</b></span><span> is not simultaneously executed by multiple visitors. </span><span><b>File_to_be_locked</b></span><span> is used to ensure exclusive use.
+<br />
+</span><span><b>
+<br />
+</b><b>Example</b><b>
+<br />
+</b></span><span><span><b>^file:lock[/counter.lock]{&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$file[^file::</b></span></span><span><span><b><a href="fileload.htm">load</a></b></span></span><span><span><b>[text;/counter.txt]]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span><span><b><a href="opeval.htm">eval</a></b></span></span><span><span><b>($file.text+1)]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^string.</b></span></span><span><span><b><a href="stringsave.htm">save</a></b></span></span><span><span><b>[/counter.txt]
+<br />
+}
+<br />
+</b></span></span><span><b>Number&nbsp;of&nbsp;visitors</b><b>:&nbsp;</b><span><b>$string</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b></span><span>
+<br />
+If locking is not used, two simultaneous requests can increase the counter's value... by 1, not by 2:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>first visitor comes;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>second visitor comes;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>first visitor reads counter's value-value equals 0;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>second visitor reads counter's value-value equals 0;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>first visitor increases counter's value-value now equals 1;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>second visitor increases counter's value-value now equals 1;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>first visitor writes new value-1;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>second visitor writes new value <b>immediately after the first visitor</b>, the value is <b>1, not 2</b>.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+<i>Note: you should always keep in mind simultaneous requests. If you work with databases, SQL-servers usually have built-in means that provide correct processing for simultaneously incoming requests.
+<br />
+
+<br />
+Note: when there are more then one lock, always analize there mutual relations to avoid "A waits B, B waits A", so called deadlock situation.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

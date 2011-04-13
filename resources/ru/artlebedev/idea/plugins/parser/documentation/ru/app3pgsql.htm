@@ -1,0 +1,121 @@
+<html>
+<head>
+    
+    
+    <title>��� PostgreSQL</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>��� PostgreSQL
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>pgsql://user:password@host[:port]|[local]/database?
+<br />
+&nbsp;&nbsp;&nbsp;charset=��������&amp;
+<br />
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=���������&amp;&nbsp;<span><b><i>[3.1.2]
+<br />
+</i></b></span><span>&nbsp;&nbsp;&nbsp;autocommit=1&amp;</span><span><b><i> [3.3.0]</i></b></span><span>
+<br />
+&nbsp;&nbsp;&nbsp;datestyle=ISO,SQL,Postgres,European,US,German
+<br />
+</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�� ��������� ISO
+<br />
+
+<br />
+�������������� ���������:
+<br />
+</span><span>port</span><span> - ����� �����. 
+<br />
+
+<br />
+����� ������:
+<br />
+</span><span>user:password@host:port/database</span><span>,
+<br />
+</span><span>
+<br />
+� �����:
+<br />
+</span><span>user:password@local/database</span><span>
+<br />
+</span><span>
+<br />
+� ���� ������ ���������� ���������� � ��������, ������������� �� ��������� ������.
+<br />
+
+<br />
+</span><span>charset</span><span> - ����� ����� ���������� ��������� ������� </span><span>�<span><u><a href="http://www.postgresql.org/docs/7.4/interactive/multibyte.html" target="_blank">SET CLIENT_ENCODING=��������</a></u></span></span><span>�</span><span>;</span><span>
+<br />
+</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - ������ ���������, � ������� ���������� �������� � SQL-��������, ���������������� ���������� �������;<b><i>
+<br />
+</i></b></span><span>autocommit</span><span> - �� ��������� Parser ������������� ��������� </span><span>COMMIT</span><span> ����� ������� ������� ������������ �������. ���� ������� ����� </span><span>autocommit=0</span><span>, �� ����� ��������� ����� �������� � ��� �������, ���������� ������ ������ ��������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span> ����� ����������� � ������ ����� ����������;
+<br />
+</span><span>datestyle</span><span> - ���� ����� ���� ��������, �� ��� ���������� � �������� ������� �������� ������� </span><span>�<span><u><a href="http://www.postgresql.org/docs/7.4/interactive/datatype-datetime.html#DATATYPE-DATETIME-OUTPUT-TABLE" target="_blank">SET DATESTYLE=��������</a></u></span></span><span>�</span><span>
+<br />
+</span><span><b>
+<br />
+
+<br />
+</b><b>������: ��������������� ���������� </b><b>SQL </b><b>�������</b><b> (</b><b>�������������</b><b>)
+<br />
+</b></span><span>�������� ������ � ����� ���� �������� � ��������� </span><span>UTF-8</span><span>, � ���� �������� � ��������� </span><span>windows-1251</span><span>, � ���� ������</span><span> ����� ������������ ��������� ������ �����������:</span><span>pgsql://user:password@host/database?charset=win</span><span>
+<br />
+</span><span><b>
+<br />
+</b></span><span>� ���� ������ ����� ����� ���������� SQL ������� ����� ������ ������� </span><span>�<b>SET&nbsp;CLIENT&nbsp;ENCODING=win</b>�</span><span> � ������ ��� ����� �������������� ����������� ������ �� ��������� </span><span>win</span><span> � ���������, � ������� ������ �������� � ���� � ������� � �������.
+<br />
+</span><span><b>
+<br />
+</b></span><span><i>��������: � ������ ������ �� ������ ������� ���������, � ������� �������� ����.</i></span><span><b>
+<br />
+</b></span><span><i>��������: ������ ����� ��������� ������� </i><i>PgSQL</i><i>, ������� ���������� ������������ </i><span><i><u><a href=""http://www.postgresql.org/docs/7.4/interactive/multibyte.html" target="_blank">�������� ��������� PgSQL �������</a></u></i></span></span><span><i>, ������� ���������� �� �������� ��������� Parser, ������������ ���� � </i><i><a href=parserconfmethod.htm">���������������� �����</a></i><i>.</i></span><span><b>
+<br />
+</b><b>
+<br />
+
+<br />
+</b><b>������</b><b>: </b><b>��������������� ��������� (�������� �� ����� �������� </b><b>PgSQL </b><b>�������)
+<br />
+</b></span><span>� ��������� ������ ������� ������, ��� ���������� ������������ ������� ���������������, ��������������� PgSQL ��������. ����� ����� ������������� ��������� ��������������� ��������, ��������� ����� </span><span>ClientCharset</span><span>.
+<br />
+��������, ������ � ����� ���� �������� � ��������� </span><span>windows-1251</span><span>, � ���� �������� � ��������� </span><span>koi8-r</span><span>, � ���� ������ ����� ������������ ����� ������ �����������:
+<br />
+</span><span>pgsql://user:password@host/database?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251
+<br />
+
+<br />
+</span><span>� ���� ������ ������������ SQL ������� ������ ����� ���������������� ��������� �� ��������� </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span> (� ������ ������� </span><span>koi8-r</span><span>) � ��������� </span><span>windows-1251</span><span>, � ����������� �� SQL ������� ������ - �������.
+<br />
+</span><span><b>
+<br />
+</b></span><span><i>��������: � ������ ������ �� ������ ������� ���������, � ������� ������ �������� � ���� ������.</i></span><span>
+<br />
+</span><span><i>��������: � ������ ����� �� ������ ��������� �������� ��������� </i><i>Parser, ������� ������������ ���� � </i><i><a href="parserconfmethod.htm">���������������� �����</a></i><i>.
+<br />
+</i></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

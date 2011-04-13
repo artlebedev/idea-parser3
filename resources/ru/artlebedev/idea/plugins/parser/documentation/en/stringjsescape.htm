@@ -1,0 +1,59 @@
+<html>
+<head>
+    
+    
+    <title>js-escape. Encoding similar to escape function in JavaScript</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>&nbsp;&nbsp;&nbsp;</b></span>
+<br />
+
+
+
+<span><b>^string.</b><b>js-</b><b>escape[]
+<br />
+</b><span>
+<br />
+Escapes a string. This method do the transformation similar to </span><span><b>escape</b></span><span> function described in ECMA-262.
+<br />
+Strings, which were escaped using this method, can be unescaped in browser with JavaScript function </span><span><b>unescape</b></span><span>.
+<br />
+
+<br />
+To unescape a string use
+<br />
+</span><span><b>^string:</b><b><a href="stringjsunescape.htm">js-unescape</a></b><b>[escaped]
+<br />
+</b></span><span>
+<br />
+<i>Detailed information on </i><i>ECMA-262</i><i> is available here</i><i>:</i><i>
+<br />
+</i><span><i><u><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank">http://www.ecma-international.org/publications/standards/Ecma-262.htm</a></u></i></span></span><span><i> (B.2.1)
+<br />
+</i>
+<br />
+</span><span><b>Example</b></h1><span>
+<br />
+</span><span><span><b>$value[</b></span></span><span><b>abcd&nbsp;`+-=~!@#%&amp;*()_&nbsp;[]{}&lt;&gt;:'",./?&#224;&#225;&#226;&#227;&#228;</b><span><b>]
+<br />
+</b></span></span><span><b>&lt;pre&gt;</b><span><b>^value.js-escape[]</b></span></span><span><b>&lt;/pre&gt;</b><span><b>
+<br />
+</b></span></span><span>
+<br />
+Outputs&#133;
+<br />
+</span><span><b>abcd%20%60+-%3D%7E%21@%23%25%26*%28%29_%20%5B%5D%7B%7D%3C%3E%3A%27%22%2C./%3F%u0430%u0431%u0432%u0433%u0434</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

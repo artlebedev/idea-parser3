@@ -1,0 +1,87 @@
+<html>
+<head>
+    
+    
+    <title>For PostgreSQL</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>For PostgreSQL
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>pgsql://user:password@host[:port]|[local]/database?
+<br />
+&nbsp;&nbsp;&nbsp;charset=value&amp;&nbsp;<i>[value&nbsp;is&nbsp;pgsql&nbsp;charset&nbsp;name]</i><b>
+<br />
+</b>&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=charset&amp;<b>
+<br />
+</b>&nbsp;&nbsp;&nbsp;autocommit=1&amp;<span><b><i> [3.3.0]</i></b></span><span>
+<br />
+&nbsp;&nbsp;&nbsp;datestyle=value<i>&nbsp;[valid&nbsp;values&nbsp;are&nbsp;ISO,SQL,Postgres,European,US,German.&nbsp;</i><i>ISO&nbsp;by&nbsp;default]</i></span><span>
+<br />
+
+<br />
+Optional parameters:
+<br />
+</span><span>port</span><span>-port number.
+<br />
+
+<br />
+One can also specify:
+<br />
+</span><span>user:password@host:port/database</span><span>,
+<br />
+
+<br />
+or:
+<br />
+</span><span>user:password@local/database
+<br />
+</span><span>
+<br />
+In latter case, Parser will connect to server established at local computer.
+<br />
+
+<br />
+</span><span>charset</span><span>-right after connection executes </span><span>"</span><span><span><u><a href="http://www.postgresql.org/docs/7.4/interactive/multibyte.html" target="_blank">SET CLIENT_ENCODING=value</a></u></span></span><span>"</span><span>;</span><span>
+<br />
+</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span>-specifies the charset, in which Parser must communicate with SQL server. Conversion will be done by driver;
+<br />
+</span><span>autocommit</span><span>-by default Parser executes </span><span>COMMIT</span><span> after each sucessfull query. If option </span><span>autocommit=0</span><span> was specified this behaviour will changed and all queries inside one </span><span><b><a href="opconnect.htm">connect</a></b></span><span> operator will be executed in single transaction;<b><i>
+<br />
+</i></b></span><span>datestyle</span><span>-if this parameter is specified, after connection the driver will executes "</span><span><span><u><a href="http://www.postgresql.org/docs/7.4/interactive/datatype-datetime.html#DATATYPE-DATETIME-OUTPUT-TABLE" target="_blank">SET DATESTYLE=value</a></u></span></span><span><b>"
+<br />
+</b></span><span>
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span>Assume, data in your database is stored in windows-1257, connect string should look like this:
+<br />
+</span><span>mysql://user:password@host/database?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1257</span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

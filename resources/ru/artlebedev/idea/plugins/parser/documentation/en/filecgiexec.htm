@@ -1,0 +1,50 @@
+<html>
+<head>
+    
+    
+    <title>cgi and exec. Executing a program</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example of receiving binary data from an external script</b></h1><span><u>
+<br />
+</u></span><span><span><b>$response:body[</b></span></span><span><span><b>^</b></span></span><span><span><b>file::exec[binary;getfile.pl;$.CGI_FILENAME[</b></span></span><span><span><b><a href="formfields.htm">$form:filename</a></b></span></span><span><span><b>]]</b></span></span><span><span><b>]</b></span></span><span><b>
+<br />
+</b></span><span><b>
+<br />
+
+<br />
+</b><b>Example of passing several arguments
+<br />
+</b></span><span>You can also send a number of arguments to the program by specifying them-separated by semicolon-after </span><span><b>env_hash</b></span><span>:
+<br />
+</span><span><span><b>$script[</b></span></span><span><span><b>^file::exec[script.pl;;</b></span></span><span><b>height</b><span><b>;</b></span></span><span><b>width</b><span><b>]</b></span></span><span><span><b>]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+...or specify arguments as a table with one column:</span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br />
+</span><span><span><b>$</b></span></span><span><span><b>args[^table::create{arg
+<br />
+</b></span></span><span><b>height</b><span><b>
+<br />
+</b></span></span><span><b>width</b><span><b>}]
+<br />
+$</b></span></span><span><span><b>script[^file::exec[script.pl;;</b></span></span><span><span><b>$args</b></span></span><span><span><b>]]</b></span></span><span>
+<br />
+
+<br />
+<i>Note: we insist that you store scripts to be run by constructors </i></span><span><b>cgi</b></span><span><i> and </i></span><span><b>exec</b></span><span><i> beyond web-space, since executing a script with arbitrary arguments may case unexpected consequences.</i><i>
+<br />
+</i></span></span><br />
+
+
+
+
+</body>
+</html>

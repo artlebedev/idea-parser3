@@ -1,0 +1,137 @@
+<html>
+<head>
+    
+    
+    <title>throw. ��������� �� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>throw. ��������� �� ������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^throw[type]&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.3.0]</i></b></span><span><b>
+<br />
+^throw[type;source]
+<br />
+^throw[type;source;comment]
+<br />
+^throw[���]
+<br />
+
+<br />
+</b></span><span>�������� </span><span><b>throw</b></span><span> �������� �� ������ ���� </span><span><b>type</b></span><span>, ������������ �� ���� </span><span><b>source</b></span><span>, � ������������ </span><span><b>comment</b></span><span>.
+<br />
+
+<br />
+��� ������ ����� ���� ����������� � ���������� ��� ������ ��������� </span><span><b><a href="optry.htm">try</a></b></span><span>.
+<br />
+
+<br />
+�� �������������� ������ <b>������ </b>��� �� ��������� ������, ����� ���� ��������������� �������� ����� </span><span><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span>, ���������� Parser ���� �� ������ ����������� ������ ��� � �� ����� �������. ����� �������, ���������� ������ � ������ ������ ���-�������, ������� ����� ��������� ������������� �� ������� ������� ����� �������.
+<br />
+
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>@method[command]
+<br />
+^</b></span></span><span><span><b><a href="opswitch.htm">switch</a></b></span></span><span><span><b>[$command]{
+<br />
+&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="opswitch.htm">case</a></b></span></span><span><span><b>[add]{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���������
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;^case[delete]{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�������
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;^case[</b></span></span><span><span><b><a href="opswitch.htm">DEFAULT</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[bad.command;$command;</b></span></span><span><b>Wrong&nbsp;command&nbsp;</b><span><b>$command</b></span></span><span><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^rem{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��������&nbsp;�����&nbsp;���������&nbsp;������&nbsp;������&nbsp;���������&nbsp;</b></span></span><span><span><b>throw</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.type[bad.command]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.source[$command]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.comment[</b></span></span><span><b>Wrong&nbsp;command&nbsp;</b><span><b>$command</b></span></span><span><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}
+<br />
+
+<br />
+@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+$action[format&nbsp;c:]
+<br />
+^</b></span></span><span><span><b><a href="optry.htm">try</a></b></span></span><span><span><b>{
+<br />
+&nbsp;&nbsp;&nbsp;^method[$action]
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;^if($</b></span></span><span><span><b><a href="optry.htm">exception</a></b></span></span><span><span><b>.type&nbsp;</b></span></span><span><span><b><a href="exprops.htm">eq</a></b></span></span><span><span><b>&nbsp;bad.command){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span><span><b><a href="boollit.htm">true</a></b></span></span><span><span><b>)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>������������&nbsp;�������&nbsp;'</b><span><b>$exception.source</b></span></span><span><b>',&nbsp;������
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�&nbsp;�����&nbsp;</b><span><b>$exception.file</b></span></span><span><b>,&nbsp;�&nbsp;</b><span><b>$exception.lineno</b></span></span><span><b>&nbsp;������.</b><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}</b></span></span><span>
+<br />
+
+<br />
+����������� ������ ������� �����
+<br />
+</span><span><b>������������&nbsp;�������&nbsp;'format&nbsp;c:',&nbsp;������&nbsp;
+<br />
+�&nbsp;�����&nbsp;c:/parser3tests/www/htdocs/throw.html,&nbsp;�&nbsp;15&nbsp;������.
+<br />
+
+<br />
+</b></span><span><i>�������� ���� �������� �� ��, ��� ������������ ������ ����� �� ������ ������� ����������� ����������� � ���������� �� �������, ��� ����� ���������� ���� � ������, ��� ��������� � ���������.
+<br />
+����� </i><b><i>$exception.file</i></b><i> ��� � �������� ������� � ������������ �� ������������� � ������������� �� ������������ �������� - ������ ��� �������.</i></span><span><span><i>
+<br />
+</i></span></span></span><br />
+
+
+
+
+</body>
+</html>

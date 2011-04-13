@@ -1,0 +1,209 @@
+<html>
+<head>
+    
+    
+    <title>hash. Transforming a table into hash with specified keys</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>hash. Transforming a table into hash with specified keys
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^table.hash[key]
+<br />
+^table.hash[key][options]
+<br />
+^table.hash[key][column_of_values]
+<br />
+^table.hash[key][column_of_values][options]
+<br />
+^table.hash[key][table_with_columns_of_values]
+<br />
+^table.hash[key][table_with_column_of_values][options]
+<br />
+</b><span>
+<br />
+</span><span><b>Key</b></span><span> may be specified as:
+<br />
+
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span><b>[string]</b></span><span>-name of column, whose value will be regarded as key;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span><b>{code}</b></span><span>-code, whose result will be regarded as key;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span><b>(mathematical&nbsp;expression)</b></span><span>-whose result will be regarded as key.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+With default options the method transforms table into <a href="hash.htm">hash</a> of the following structure:
+<br />
+</span><span><b>$hash[
+<br />
+&nbsp;&nbsp;&nbsp;$.value_of_key[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.name_of_column[value_of_column]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#133;
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;&#133;
+<br />
+]
+<br />
+</b></span><span><i>
+<br />
+</i>In other words, the method creates hash, where the values from the specified column serve as hash keys. Every key is associated with a hash, where the keys are the names of all table's columns.
+<br />
+
+<br />
+If a column of values is specified, every key will be associated with a hash with one key/value pair (the name of the specified column).
+<br />
+
+<br />
+Besides, one may specify several columns to serve as keys of hash relevant to the specified column-in this case, as an additional parameter a table must be given with all necessary columns listed.
+<br />
+
+<br />
+</span><span><b>Options</b></span><span>-<a href="hash.htm">hash</a> with transformation options.
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="206">
+<span><b>$.type[hash/string/table]
+<br />
+</b><span><b><i>[3.2.2]</i></b>
+<br />
+</span></span></td><td align="left" valign="top" width="422">
+<span><b>hash</b><span>=each hash item contain hash (default);
+<br />
+</span><span><b>string</b></span><span>=each hash item contain string. You must specify </span><span><b>one</b></span><span> </span><span><b>column_of_values</b></span><span>;
+<br />
+</span><span><b>table</b></span><span>=each element containing table. Using this option you can't specify </span><span><b>column_of_values</b>&nbsp;</span><span>or</span><span>&nbsp;<b>table_with_column_of_values</b>.</span><span> This made for save memory because of tables in resulting hash just have links to tables' rows which already exist in memory.
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="206">
+<span><b>$.distinct(</b><b>true</b><b>/</b><b>false</b><b>)</b><span> </span><span>
+<br />
+</span></span></td><td align="left" valign="top" width="422">
+<span><b>false</b><span>=identical values in key column are considered error (default);
+<br />
+</span><span><b>true</b></span><span>=get identical values from key column.</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="206">
+<span><b>$.distinct[tables]
+<br />
+</b><span><b><i>[3.0.8]</i></b></span><span><b>
+<br />
+</b></span></span></td><td align="left" valign="top" width="422">
+<span>make up <b><a href="hash.htm">hash</a></b> of tables containing rows with key.
+<br />
+Deprecated option which do the same as <span><b>$.distinct(1)&nbsp;</b></span><span>and </span><span><b>$.type[table]</b></span><span> if they specified together.
+<br />
+</span></span></td></tr></table>
+<br />
+
+<br />
+</span><span><b>Example</b><b>
+<br />
+</b></span><span>We have a list of goods, where each item has a </span><span><b>name</b></span><span> and a unique </span><span><b>id</b></span><span>. We also have a price-list of available goods. Instead of the name of each item, we use relevant ids given in the goods list. This all is stored in two tables, which referred to as "linked". We need to get data in the format "item-price", that is to get data from two tables simultaneously.
+<br />
+
+<br />
+Realisation:
+<br />
+
+<br />
+</span><span><span><b>#&nbsp;this&nbsp;is&nbsp;the&nbsp;table&nbsp;with&nbsp;goods</b></span></span><span><span><b>
+<br />
+$product_list[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{id&nbsp;&nbsp;&nbsp;name
+<br />
+</b></span></span><span><b>1&nbsp;&nbsp;&nbsp;</b><b>bread</b><b>
+<br />
+2&nbsp;&nbsp;&nbsp;</b><b>meat</b><b>
+<br />
+3&nbsp;&nbsp;&nbsp;</b><b>butter</b><b>&nbsp;
+<br />
+4&nbsp;&nbsp;&nbsp;</b><b>whisky</b><span><b>
+<br />
+}]
+<br />
+
+<br />
+</b></span></span><span><span><b>#&nbsp;this&nbsp;is&nbsp;the&nbsp;table&nbsp;with&nbsp;prices</b></span></span><span><span><b>
+<br />
+$price_list[^table::create{id&nbsp;&nbsp;&nbsp;price
+<br />
+</b></span></span><span><b>1&nbsp;&nbsp;&nbsp;6.50
+<br />
+2&nbsp;&nbsp;&nbsp;70.00
+<br />
+3&nbsp;&nbsp;&nbsp;60.85</b><span><b>
+<br />
+}]
+<br />
+
+<br />
+</b></span></span><span><span><b>#hash&nbsp;of&nbsp;the&nbsp;table&nbsp;with&nbsp;prices&nbsp;by&nbsp;id&nbsp;field</b></span></span><span><span><b>
+<br />
+$price_list_hash[^price_list.hash[id]]&nbsp;
+<br />
+
+<br />
+</b></span></span><span><span><b>#looking&nbsp;through&nbsp;the&nbsp;entries&nbsp;of&nbsp;the&nbsp;table&nbsp;with&nbsp;goods&nbsp;
+<br />
+</b></span></span><span><span><b>^product_list.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{&nbsp;
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>$product_price[$price_list_hash.</b></span></span><span><span><b><a href="vars.htm">[</a></b></span></span><span><span><b>$product_list.</b></span></span><span><span><b><a href="tablefields.htm">id</a></b></span></span><span><span><b>].</b></span></span><span><span><b><a href="hashfields.htm">price</a></b></span></span><span><span><b>]
+<br />
+</b></span></span><span><span><b>#checking&nbsp;if&nbsp;there&nbsp;is&nbsp;a&nbsp;price&nbsp;for&nbsp;the&nbsp;item&nbsp;in&nbsp;our&nbsp;hash</b></span></span><span><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>^if($product_price){&nbsp;
+<br />
+</b></span></span><span><span><b>#printing&nbsp;item's&nbsp;name&nbsp;and&nbsp;price
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>$product_list.name</b></span></span><span><b>-</b><span><b>$product_price</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>}{&nbsp;
+<br />
+</b></span></span><span><span><b>#and&nbsp;this&nbsp;item&nbsp;has&nbsp;no&nbsp;price,&nbsp;i.e.&nbsp;is&nbsp;unavailable
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>$product_list.name</b></span></span><span><b>-</b><span><b>unavailable</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>}&nbsp;
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+The output will be:
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>bread</b><b>-6.50
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>meat</b><b>-70.00
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>butter-</b><b>60.85
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>whisky-</b><b>unavailable</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

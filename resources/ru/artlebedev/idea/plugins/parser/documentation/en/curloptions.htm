@@ -1,0 +1,65 @@
+<html>
+<head>
+    
+    
+    <title>options. Defining session's options</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>options. Defining session's options</b><b>
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^curl:options[</b><b><a href="curloptionsdesc.htm">options</a></b><b>]&nbsp;</b><span><b>
+<br />
+</b>
+<br />
+</span><span>Method must be called within a <a href="curlsession.htm">curl session</a> only.
+<br />
+When the method sets options the following <a href="curlload.htm">file loading calls</a> within the session will use these options until options will be redefined in file loading method or by another method's call.</span><span>
+<br />
+
+<br />
+</span><span><b>Example</b></span><span><b>
+<br />
+</b><span><b>^curl:session{
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^curl:options[
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.charset[</b></span></span><span><b>UTF-8</b><span><b>]
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.timeout(</b></span></span><span><b>10</b><span><b>)
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>]
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>&#133;
+<br />
+}</b></span></span><span>
+<br />
+
+<br />
+</span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

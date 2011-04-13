@@ -1,0 +1,47 @@
+<html>
+<head>
+    
+    
+    <title>mod_rewrite analogue</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>mod_rewrite analogue</b><b> </b><span><b><i>[3.1.4]</i></b></span>
+<br />
+
+
+
+<span>For IIS web server there is no built in analogue to <span><u><a href="http://httpd.apache.org/" target="_blank">Apache</a></u></span><span> module </span><span><span><u><a href="http://httpd.apache.org/docs/mod/mod_rewrite.html" target="_blank">mod_rewrite</a></u></span></span><span><b>,</b> there are only modules by third parties.
+<br />
+
+<br />
+But one can set up any arbitrary page </span><span>handler.html</span><span> as handler of 404 page (we also recommend set it up as a handler for 403.14 and 405 errors).
+<br />
+
+<br />
+Original uri accessible in </span><span><b><a href="requesturi.htm">$request:uri</a></b></span><span>.
+<br />
+
+<br />
+Regretfully when IIS handles </span><span>POST</span><span> requests which have no document name (&#133;/), IIS <b>does not pass</b> </span><span>POST</span><span>ed body to CGI-scripts.
+<br />
+Possible walkaround:for such pages set this action:
+<br />
+</span><span><span><b>&lt;form&nbsp;action="form.html"&#133;</b></span></span><span>
+<br />
+and handle inevitable "</span><span>form.html</span><span> file not found" error in </span><span><b>@</b><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span> and <a href="exceptionunhandled.htm">suppress</a> writing it to error log.
+<br />
+
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

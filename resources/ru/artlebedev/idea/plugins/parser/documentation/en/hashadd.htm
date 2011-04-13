@@ -1,0 +1,89 @@
+<html>
+<head>
+    
+    
+    <title>add. Adding hashes</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>add. Adding hashes
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^hash.add[hash_to_be_added]
+<br />
+</b><span>
+<br />
+Adds </span><span><b>hash_to_be_added</b></span><span> to </span><span><b>$hash</b></span><span>. Keys bearing the same name are overwritten by those in </span><span><b>hash_to_be_added</b></span><span>.
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>$man[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Jack</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.age(</b></span></span><span><b>22</b><span><b>)
+<br />
+&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span><b>m</b><span><b>]
+<br />
+]
+<br />
+$woman[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Mary</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.age(</b></span></span><span><b>20</b><span><b>)
+<br />
+&nbsp;&nbsp;&nbsp;$.smile[</b></span></span><span><b>yes</b><span><b>]
+<br />
+]
+<br />
+^man.add[$woman]
+<br />
+</b></span></span><span>
+<br />
+New content of hash </span><span><b>$man</b></span><span> will be:
+<br />
+
+<br />
+</span><span><b>$man[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[Mary]
+<br />
+&nbsp;&nbsp;&nbsp;$.age(20)
+<br />
+&nbsp;&nbsp;&nbsp;$.sex[m]
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;$.smile[yes]
+<br />
+</b><b>]</b><b>
+<br />
+
+<br />
+</b></span><span><i>Note: field </i></span><span><b>_default&nbsp;</b></span><span><i>is also added, if it existed, it is overwritten with new value.</i><b><i> [3.1.4]</i></b>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

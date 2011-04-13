@@ -1,0 +1,73 @@
+<html>
+<head>
+    
+    
+    <title>html. Displaying an image</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>html. Displaying an image
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^</b><b>image</b><b>.html[]</b>&nbsp;&nbsp;&nbsp;
+<br />
+<b>^</b><b>image</b><b>.html[</b><b>hash</b><b>]&nbsp;&nbsp;&nbsp;
+<br />
+</b><span>
+<br />
+</span><span><b>&lt;img&nbsp;src="$image.src"&nbsp;width="$image.width"&nbsp;height="$image.height"&nbsp;border="0"&nbsp;/&gt;
+<br />
+</b></span><span>
+<br />
+As a parameter, a hash may be specified in the method, containing optional image attributes, such as </span><span><b>alt</b></span><span> and </span><span><b>border</b></span><span>, determining pop-up text-which appears when cursor is placed over the image-and border width.
+<br />
+
+<br />
+<i>Note: image attributes can be re-defined.
+<br />
+</i></span><span><b>
+<br />
+</b></span><span><i>Note: for suppressing output of border attribute you have to specify option </i></span><span><b>$.border[]</b></span><span><i>.
+<br />
+</i></span><span><b>
+<br />
+</b><b>Example</b></span><span><u>
+<br />
+</u></span><span><span><b>$myphoto[^image:</b></span></span><span><span><b>:</b></span></span><span><span><b><a href="imagemeasure.htm">measure</a></b></span></span><span><span><b>[</b></span></span><span><b>myphoto.jpg</b><span><b>]]</b></span></span><span><span><b>
+<br />
+^photo.html[
+<br />
+&nbsp;&nbsp;&nbsp;$.border[</b></span></span><span><b>0</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.alt[</b></span></span><span><b>That's&nbsp;me&nbsp;at&nbsp;school&#133;</b><span><b>]</b></span></span><span><span><b>
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+The browser will display an image stored in variable </span><span><b>$myphoto</b></span><span>. Each time, cursor is placed over the image, a pop-up text </span><span><b>That's&nbsp;me&nbsp;at&nbsp;school&#133;</b></span><span> will appear.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

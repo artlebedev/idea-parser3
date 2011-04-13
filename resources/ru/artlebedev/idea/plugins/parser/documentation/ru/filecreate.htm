@@ -1,0 +1,85 @@
+<html>
+<head>
+    
+    
+    <title>create. �������� ���������� �����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>create. �������� ���������� �����&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.5]</i></b></span>
+<br />
+
+
+
+<span><b>^file::create[������;���;�����]
+<br />
+^file::create[������;���;�����;�����]</b><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b></span><span>
+<br />
+������� ������ ������ </span><span><b>file</b></span><span>, � ���������� </span><span><b>������</b></span><span> � </span><span><b>���������</b></span><span> ����������.
+<br />
+
+<br />
+</span><span><b>������</b></span><span> - ������ ������������� ������������ �����. ���� ����� ���� ������ </span><span><b>text</b></span><span>(���������) .
+<br />
+</span><span><b>�����</b></span><span> - ���, � ������� ����� �������: </span><span><b>$.charset[</b></span><span>���������</span><span><b>]</b></span><span> ��� </span><span><b>$.content-type[...]</b></span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b>
+<br />
+
+<br />
+<i>����������: ���� ���� ����� ��������� �� ���� </i><b><i>�������</i></b><i>, ���� ����� ������� ������: </i></span><span><b>^</b><b><a href="stringclass.htm">string</a></b><b>.</b><b><a href="stringsave.htm">save</a></b><b>[�]</b></span><span><i>.
+<br />
+</i>
+<br />
+</span><span><b>������ �������� ������ � XML ����
+<br />
+</b></span><span><span><b>#export.html
+<br />
+^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">������ ����������</a></b></span></span><span><span><b>]{
+<br />
+$products[^</b></span></span><span><span><b><a href="tableclass.htm">table</a></b></span></span><span><span><b>::</b></span></span><span><span><b><a href="tablesql.htm">sql</a></b></span></span><span><span><b>{</b></span></span><span><b>select&nbsp;product_id,&nbsp;name&nbsp;from&nbsp;products</b><span><b>}]
+<br />
+$file[^file::create[text;</b></span></span><span><b>export.xml</b><span><b>;^</b></span></span><span><span><b><a href="opuntainttaint.htm">untaint</a></b></span></span><span><span><b>[xml]{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="</b><span><b>$</b></span></span><span><span><b><a href="requestclass.htm">request</a></b></span></span><span><span><b>:</b></span></span><span><span><b><a href="requestcharset.htm">charset</a></b></span></span><span><span><b>"</b></span></span><span><b>?&gt;
+<br />
+&lt;products&gt;
+<br />
+&nbsp;&nbsp;&nbsp;</b><span><b>^products.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{</b></span></span><span><b>&lt;product&nbsp;id="</b><span><b>$products.</b></span></span><span><span><b><a href="tablefields.htm">product_id</a></b></span></span><span><b>"&nbsp;name="</b><span><b>$products.name</b></span></span><span><b>"/&gt;</b><span><b>}
+<br />
+</b></span></span><span><b>&lt;/products&gt;</b><span><b>
+<br />
+}]]
+<br />
+$</b></span></span><span><span><b><a href="responseclass.htm">response</a></b></span></span><span><span><b>:</b></span></span><span><span><b><a href="responsedownload.htm">download</a></b></span></span><span><span><b>[$file]
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+��� �������� ����� ��������� ���������� �������� ����� </span><span>export.xml</span><span> � ������� ��������� ���������� ��������� ���� ����.
+<br />
+��������� �������� ����� ��������� ����:
+<br />
+
+<br />
+</span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="WINDOWS-1251"?&gt;
+<br />
+&lt;products&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;product&nbsp;id="1"&nbsp;name="������&nbsp;&amp;quot;�&nbsp;��������&amp;quot;"/&gt;</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;</b><b>&lt;product&nbsp;id="2"&nbsp;name="Johnson&amp;amp;Johnson"/&gt;
+<br />
+&lt;/products&gt;
+<br />
+</b></span></span><br />
+
+
+
+
+</body>
+</html>

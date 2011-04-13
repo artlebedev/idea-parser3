@@ -1,0 +1,54 @@
+<html>
+<head>
+    
+    
+    <title>locate. Locating a specified value in a table</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b></h1><span><u>
+<br />
+</u></span><span><span><b>$stuff[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos
+<br />
+</b></span></span><span><b>Ivanov</b><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><b>boss</b><span><b>
+<br />
+</b></span></span><span><b>Petrov</b><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><b>engineer</b><span><b>
+<br />
+</b></span></span><span><b>Lebedev&nbsp;&nbsp;&nbsp;</b><b>art-director</b><span><b>
+<br />
+}]
+<br />
+^if(^stuff.locate[name;</b></span></span><span><b>Lebedev</b><span><b>]){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><b>The&nbsp;entry&nbsp;is&nbsp;found&nbsp;in&nbsp;line&nbsp;</b><span><b>^stuff.</b></span></span><span><span><b><a href="tableline.htm">line</a></b></span></span><span><span><b>[]</b></span></span><span><b>.&lt;br</b><b>&nbsp;/</b><b>&gt;</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;</b><span><b>$stuff.</b></span></span><span><span><b><a href="tablefields.htm">name</a></b></span></span><span><b>:&nbsp;</b><span><b>$stuff.pos</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br />
+</b><span><b>}{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><b>No&nbsp;such&nbsp;entry</b><b>
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span>
+<br />
+
+<br />
+The code will output:
+<br />
+</span><span><b>The&nbsp;entry&nbsp;is&nbsp;found&nbsp;in&nbsp;line&nbsp;3.
+<br />
+Lebedev:&nbsp;art-director</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

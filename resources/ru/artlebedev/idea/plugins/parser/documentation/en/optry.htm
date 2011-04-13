@@ -1,0 +1,127 @@
+<html>
+<head>
+    
+    
+    <title>try. Intercepting and handling errors</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>try. Intercepting and handling errors
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^try{the&nbsp;code&nbsp;whose&nbsp;errors&nbsp;get&#133;}{&#133;into&nbsp;this&nbsp;handler&nbsp;as&nbsp;$exception}
+<br />
+^try{the&nbsp;code&nbsp;whose&nbsp;errors&nbsp;get&#133;}{&#133;into&nbsp;this&nbsp;handler&nbsp;as&nbsp;$exception}{the&nbsp;code&nbsp;which&nbsp;will&nbsp;be&nbsp;executed&nbsp;anyway}</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b></span><span>
+<br />
+If an error occurred during processing the </span><span><b>code</b></span><span>, a variable </span><span><b>$exception</b></span><span> will be created and control over processing will be handed over to </span><span><b>handler</b></span><span>.
+<br />
+If third parameter was specified, that code will be executed anyway regardless of unhandled exception.
+<br />
+
+<br />
+</span><span><b>$exception</b></span><span> is such a </span><span><b><a href="hashclass.htm">hash</a></b></span><span>:
+<br />
+</span><span><b>
+<br />
+</b></span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="153">
+<span><b>$exception.type</b>
+<br />
+</span></td><td align="left" valign="top" width="443">
+<span>string, error type. 
+<br />
+There is a number of system error types; a type can also be defined in operator  <span><b><a href="opthrow.htm">throw</a></b></span><span>.</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.source</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="443">
+<span>string, error source (wrong filename, method's name, &#133;)
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.file</b><b>
+<br />
+</b><b>$exception.lineno</b><b>
+<br />
+</b><b>$exception.</b><b>colno</b>
+<br />
+</span></td><td align="left" valign="top" width="443">
+<span>file containing <span><b>source</b></span><span>, line and column numbers in it</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.comment</b>
+<br />
+</span></td><td align="left" valign="top" width="443">
+<span>error comment, in English<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.handled</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="443">
+<span>true or false, flag "if error has been handled"
+<br />
+you will need to set the flag in the <span><b>handler</b></span><span> if you have handled the received error
+<br />
+</span></span></td></tr></table>
+<br />
+
+<br />
+</span><span><b>Handler</b></span><span> must report Parser if the error has been handled. For this purpose, it must set the flag but <b>only</b> for the needed error types:
+<br />
+</span><span><b>$exception.handled(</b><b><a href="boollit.htm">true</a></b><b>)
+<br />
+</b></span><span>
+<br />
+If </span><span><b>handler</b></span><span> has not set the flag, the error is considered unhandled and will be handed over to another handler, if it exists.
+<br />
+
+<br />
+If the error remains unhandled, method </span><span><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span> is called. This method will receive information on the error as well as the stack of calls that caused it. The method's work will result in a custom message to be output to a visitor. The error will also be recorded in server's error log.
+<br />
+</span><span><b>
+<br />
+</b><b>Example</b></span><span><b>
+<br />
+</b></span><span><span><b>^try{
+<br />
+&nbsp;&nbsp;&nbsp;$srcDoc[^</b></span></span><span><span><b><a href="xdoccreatexml.htm">xdoc::create</a></b></span></span><span><span><b>{$untrustedXML}]
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;^if($exception.type&nbsp;</b></span></span><span><span><b><a href="exprops.htm">eq</a></b></span></span><span><span><b>&nbsp;xml){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span><span><b><a href="boollit.htm">true</a></b></span></span><span><span><b>)
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Invalid&nbsp;XML</b><b>,
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>&lt;pre&gt;</b><span><b>$exception.comment</b></span></span><span><b>&lt;/pre&gt;</b><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<html>
+<head>
+    
+    
+    <title>parse. Parsing JSON string into hash</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b></h1><span>
+<br />
+</span><span><span><b>@main[]
+<br />
+$json_string[</b></span></span><span><b>{
+<br />
+&nbsp;&nbsp;&nbsp;"a1":{"b":&nbsp;1,&nbsp;"c":&nbsp;"xyz",&nbsp;"d":&nbsp;"zzz"}
+<br />
+&nbsp;&nbsp;&nbsp;"a2":{</b><b>"b":&nbsp;1,&nbsp;"b":&nbsp;2,&nbsp;"b":&nbsp;3</b><b>}
+<br />
+}</b><span><b>]
+<br />
+
+<br />
+$h[^json:parse[$json_string;
+<br />
+&nbsp;&nbsp;&nbsp;$.double(false)</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;$.distinct[all]
+<br />
+&nbsp;&nbsp;&nbsp;$.object[$handler]
+<br />
+]]
+<br />
+
+<br />
+@handler[key;value]
+<br />
+</b></span></span><span><span><b>$result[^if($keq&nbsp;eq&nbsp;"d"){=^value.length[]=}{$value}]</b></span></span><span><span><b>
+<br />
+</b></span></span><span>
+<br />
+The specified JSON-string will be transformed into the following hash:</span><span>
+<br />
+</span><span><b>$h[
+<br />
+&nbsp;&nbsp;&nbsp;$.a1[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b[1]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.c[xyz]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.d[=3=]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;$.a2[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b[1]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b_2[2]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.b_3[3]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+]</b><span><b>
+<br />
+
+<br />
+</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

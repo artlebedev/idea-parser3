@@ -1,0 +1,135 @@
+<html>
+<head>
+    
+    
+    <title>try. �������� � ��������� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>try. �������� � ��������� ������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^try{���,&nbsp;������&nbsp;��������&nbsp;��������}{��&nbsp;����&nbsp;����������&nbsp;�&nbsp;����&nbsp;$exception}
+<br />
+^try{���,&nbsp;������&nbsp;��������&nbsp;��������}{��&nbsp;����&nbsp;����������&nbsp;�&nbsp;����&nbsp;$exception}{�&nbsp;���&nbsp;���,&nbsp;�������&nbsp;�&nbsp;�����&nbsp;������&nbsp;����������&nbsp;�&nbsp;�����}&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.3.0]</i></b>
+<br />
+
+<br />
+
+<br />
+���� �� ���� ������ </span><span><b>����</b></span><span> �������� ������, ��������� ���������� </span><span><b>$exception</b></span><span>, � ���������� ���������� </span><span><b>�����������</b></span><span>.
+<br />
+
+<br />
+���� ������ ������ �������� (finally), �� �� � ����� ������ ����� �������� ����� ���������� ��������� ���� ��� ����������� ����������, ���� ���� ���������� �� ����� �����������.
+<br />
+
+<br />
+
+<br />
+</span><span><b>$exception</b></span><span>, ��� ����� </span><span><b><a href="hashclass.htm">hash</a></b></span><span>:
+<br />
+</span><span><b>
+<br />
+</b></span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="153">
+<span><b>$exception.type</b>
+<br />
+</span></td><td align="left" valign="top" width="473">
+<span>������, ��� ������.
+<br />
+��������� ��� ��������� �����, ����� ��� ������ ����� ���� ����� � ��������� <span><b><a href="opthrow.htm">throw</a></b></span><span>.</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.source</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="473">
+<span>������, �������� ������ (��������� ��� �����, ������, �)
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.file</b><b>
+<br />
+</b><b>$exception.lineno</b><b>
+<br />
+</b><b>$exception.</b><b>colno</b>
+<br />
+</span></td><td align="left" valign="top" width="473">
+<span>����, ���������� <span><b>source</b><b>,
+<br />
+</b></span><span>������ ������ � ������� � ���</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.comment</b>
+<br />
+</span></td><td align="left" valign="top" width="473">
+<span>����������� � ������, ��-��������� <span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="153">
+<span><b>$exception.handled</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="473">
+<span>������ ��� ����, ���� ����������� �� ������
+<br />
+���������� ������ ���� ���� � <span><b>�����������</b></span><span>, ���� �� ���������� ���������� ��� ������
+<br />
+</span></span></td></tr></table>
+<br />
+
+<br />
+</span><span><b>����������</b></span><span> ������ �������� Parser, ��� ������ ������ �� ���������, ��� ���� <b>������</b> ��� ������ ����� ������ �� ������ ������ ����:
+<br />
+</span><span><b>$exception.handled(</b><b><a href="boollit.htm">true</a></b><b>)
+<br />
+</b></span><span>
+<br />
+���� ���������� �� ����� ����� �����, ������ ��������� <b>��������������</b>, � ���������� ���������� �����������, ���� �� ����.
+<br />
+
+<br />
+���� ������ ��� � �� ����� ����������, ���� ����, ���������� ����� </span><span><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span> � ��� ���������� ���������� �� ������, ���� �������, ��������� � ������, � �������� ���������� ��� ������. � ����� ������������ ������ � ������ ������ ���-�������.
+<br />
+</span><span><b>
+<br />
+������
+<br />
+</b></span><span><span><b>^try{
+<br />
+&nbsp;&nbsp;&nbsp;$srcDoc[^</b></span></span><span><span><b><a href="xdoccreatexml.htm">xdoc::create</a></b></span></span><span><span><b>{$untrustedXML}]
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;^if($exception.type&nbsp;</b></span></span><span><span><b><a href="exprops.htm">eq</a></b></span></span><span><span><b>&nbsp;xml){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span><span><b><a href="boollit.htm">true</a></b></span></span><span><span><b>)
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���������&nbsp;XML,
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>&lt;pre&gt;</b><span><b>$exception.comment</b></span></span><span><b>&lt;/pre&gt;</b><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

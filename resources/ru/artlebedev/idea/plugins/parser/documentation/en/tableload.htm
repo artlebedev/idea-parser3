@@ -1,0 +1,89 @@
+<html>
+<head>
+    
+    
+    <title>load. Loading table from a file or HTTP-server</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>load. Loading table from a file or HTTP-server
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^table::load[</b><b><a href="app1.htm">filename</a></b><b>]&nbsp;
+<br />
+^table::load[</b><b><a href="app1.htm">filename</a></b><b>;loading&nbsp;options]&nbsp;
+<br />
+^table::load[nameless;</b><b><a href="app1.htm">filename</a></b><b>]</b><span>
+<br />
+</span><span><b>^table::load[nameless;</b><b><a href="app1.htm">filename</a></b><b>;loading&nbsp;options]</b></span><span>
+<br />
+</span><span>
+<br />
+The constructor creates an object using the table stored in a file or a document on HTTP-server. The data in the file must be provided in <i>tab-delimited</i> format (see also </span><span><b><a href="tablecreate.htm">table::create</a></b></span><span>).
+<br />
+
+<br />
+</span><span><b>Filename</b></span><span>-name of file with <a href="app1.htm">path</a> or document's URL on HTTP-server;
+<br />
+
+<br />
+</span><span><b>Loading&nbsp;options</b></span><span>-for general options read "<a href="app1.htm">with HTTP-servers</a>" section,  there are additional options, see "<a href="tableoptionsfmt.htm">Options of file format</a>".
+<br />
+
+<br />
+The usage of parameter </span><span><b>nameless</b></span><span> is the same as in constructor </span><span><b>table::create</b></span><span>.
+<br />
+</span><span><b>
+<br />
+</b><b>Example of loading table from disk</b></span><span><u>
+<br />
+</u></span><span><span><b>$loaded_table[^table::load[</b></span></span><span><b>/addresses.cfg</b><span><b>]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+The code given in example creates an object of class </span><span><b>table</b></span><span>, containing named table stored in file </span><span><b>addresses</b></span><span>.</span><span><b>cfg</b></span><span> located in the root directory of the website.
+<br />
+</span><span><b>
+<br />
+Example of loading file from HTTP-server
+<br />
+</b></span><span><span><b>$table[^table::load[nameless;</b></span></span><span><b>http://www.parser.ru/</b><span><b>;</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;$.headers[</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.</b></span></span><span><span><b><a href="app1.htm">USER-AGENT</a></b></span></span><span><span><b>[table&nbsp;load&nbsp;example]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+]]
+<br />
+</b></span></span><span><b>Number&nbsp;of&nbsp;rows:&nbsp;</b><span><b>^table.count[]
+<br />
+</b></span></span><span><b>&lt;hr</b><b>&nbsp;/</b><b>&gt;
+<br />
+&lt;pre&gt;</b><span><b>$table.0</b></span></span><span><b>&lt;/pre&gt;</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

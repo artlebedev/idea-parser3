@@ -1,0 +1,44 @@
+<html>
+<head>
+    
+    
+    <title>transform. XSL transformation</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example (see also </b><b>"</b><b><a href="lesson6.htm">Lesson 6. Working with XML</a></b><b>")</b></h1><span><b>
+<br />
+</b></span><span><span><b>#&nbsp;</b></span></span><span><span><b>source&nbsp;xdoc&nbsp;document
+<br />
+</b></span></span><span><span><b>$sourceDoc[^xdoc::</b></span></span><span><span><b><a href="xdocload.htm">load</a></b></span></span><span><span><b>[article.xml]]
+<br />
+
+<br />
+#&nbsp;</b></span></span><span><span><b>transformation&nbsp;of&nbsp;xdoc&nbsp;document&nbsp;using&nbsp;template&nbsp;article.xsl</b></span></span><span><span><b>$transformedDoc[^sourceDoc.transform[article.xsl]]
+<br />
+
+<br />
+#&nbsp;</b></span></span><span><span><b>outputting&nbsp;result&nbsp;as&nbsp;HTML</b></span></span><span><span><b>
+<br />
+^transformedDoc.</b></span></span><span><span><b><a href="xdocstring.htm">string</a></b></span></span><span><span><b>[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b><a href="xdocoptions.htm">$.method[html]</a></b></span></span><span><span><b>
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+If template is not loaded from disk but created dynamically, it is important to determine where </span><span><b>&lt;xsl:import&nbsp;href="some.xsl"/&gt;</b></span><span> should be taken from, since, in this case, document's base path does not exist and its directory, therefore, cannot be determined. That means, you will need to specify base path in standard "<a href="xdocuriparam.htm">xml:base</a>" attribute.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

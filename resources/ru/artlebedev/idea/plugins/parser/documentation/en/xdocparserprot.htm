@@ -1,0 +1,71 @@
+<html>
+<head>
+    
+    
+    <title>parser://method/parameter. Reading XML from arbitrary source</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>parser://method/parameter. Reading XML from arbitrary source
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>Parser can read XML from arbitrary source.
+<br />
+Everywhere where XML can be read, one may specify the address of the document in this form&#133;
+<br />
+<span>parser://method/parameter
+<br />
+</span><span>
+<br />
+Reading a document from address like this is, in fact, reading the result of Parser </span><span><b>^m</b><b>ethod</b><b>[/p</b><b>arameter</b><b>]</b></span><span> call.
+<br />
+
+<br />
+</span><span><b>Example of keeping XSL templates in database
+<br />
+</b></span><span><span><b>@main[]
+<br />
+&#133;
+<br />
+#&nbsp;</b></span></span><span><span><b>at&nbsp;this&nbsp;point&nbsp;$xdoc&nbsp;contains&nbsp;a&nbsp;document&nbsp;we&nbsp;want&nbsp;to&nbsp;transform
+<br />
+</b></span></span><span><span><b>^xdoc.transform[parser://xsl_database/main.xsl]
+<br />
+
+<br />
+@xsl_database[name]
+<br />
+^string:sql{</b></span></span><span><b>select&nbsp;text&nbsp;from&nbsp;xsl&nbsp;where&nbsp;name='</b><span><b>$name</b></span></span><span><b>'</b><span><b>}</b></span></span><span><b>
+<br />
+
+<br />
+</b></span><span>Relative links would be handled exactly same way as if files would be read from disk.
+<br />
+Say, if </span><span>parser://xsl_database/main.xsl</span><span> template refers to </span><span>utils/common.xsl</span><span>, the document
+<br />
+</span><span>parser://xsl_database/utils/common.xsl</span><span> would be read, by calling Parser method </span><span><b>^xsl_database[/utils/common.xsl]</b></span><span>.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

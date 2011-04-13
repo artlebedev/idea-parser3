@@ -1,0 +1,204 @@
+<html>
+<head>
+    
+    
+    <title>������������ ������������� ������ � ���������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b><b>����&nbsp;������&nbsp;������,&nbsp;�������&nbsp;�����&nbsp;����&nbsp;������&nbsp;������&nbsp;����������&nbsp;(</b><b><a href="defineclass.htm">�����������</a></b><b>)</b></span><span>
+<br />
+</span><span><b>
+<br />
+@���[*���������]</b></span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b><b>����</b></span><span>
+<br />
+</span><span><b>
+<br />
+@���[��������1</b><b>;</b><b>��������2</b><b>;</b><b>*���������]</b></span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b><b>����</b></span><span>
+<br />
+</span><span><b>
+<br />
+</b></span><span>�����, ��� ���� ����, ������� ���, ����������� ���������, � ������������ ���������. ����� ���������� ������ ������������� ����� ����� � �������. ����� ����� ����� ����� ��������� ����������, ������� ���������� �������� � ��������� ������, ����� ���������� ����������, ����� ����������� ������ � �������.
+<br />
+
+<br />
+��������� ���������� ����� � �������� ��������� ��� ������, � ������� ���������� ��� ���������� � �������, ��. ���� </span><span><b>$caller</b></span><span>.
+<br />
+
+<br />
+��� �������� ������ ����� ������������ �� ������ ����������� ��� ���������� �����������, � ����� ������ ������� �������, ��� ���� �� ������ �������� � ������ ������, ��� ������ �������, � ����������� �� ����, ��� ��� ������ ������������ ���� �����, <a href="stats.htm">����������</a>, ��� <a href="obj.htm">�����������</a>.
+<br />
+
+<br />
+� Parser �� ������ <a href="opuserdefined.htm">���������</a> ������� ����� ����������, ����������� � Parser ��������� ������ ������ <a href="mainclass.htm">MAIN</a>.<i>
+<br />
+�����: ���������, ��� ������ ������ </i><i><a href="mainclass.htm">MAIN</a></i><i>, �� � ������� �� ������� ������ �������, �� ����� ������� �� ������ ������ ������ �� �����, �.�. ����� ������ </i></span><span><b>^include[�]</b></span><span><i>, ������ ����������� </i></span><span><b>^MAIN:include[�]</b></span><span><i>.
+<br />
+</i><i>
+<br />
+</i></span><span>� �������, ������� ����� ��������� ������������ ����� ���������� ��� ������� ��������� �������� � ���� ���� � ��������� �������.
+<br />
+</span><span><b>
+<br />
+������:
+<br />
+</b></span><span><span><b>@main[]
+<br />
+^call[a;b;c]
+<br />
+
+<br />
+@call[p;*args][k;v]
+<br />
+p=$p
+<br />
+^args.foreach[k;v]{
+<br />
+&nbsp;&nbsp;&nbsp;$k=$v
+<br />
+}[^#0A]</b></span></span><span><i>
+<br />
+</i><i>
+<br />
+</i>�������:
+<br />
+</span><span><b>p=a
+<br />
+0=b
+<br />
+1=c</b></span><span><i>
+<br />
+
+<br />
+</i><i>
+<br />
+</i></span><span><b>��������� ����������: self
+<br />
+</b></span><span>��� ������ � ��������� ����� ��������� ���������� </span><span><b>self</b></span><span>, ��� ������ ������ �� ������� ������, � ����������� ������� ������  �� ��, ��� � </span><span><b>$CLASS</b></span><span>.
+<br />
+
+<br />
+<b>������: </b></span><span>
+<br />
+</span><span><span><b>@main[]&nbsp;&nbsp;
+<br />
+$a[</b></span></span><span><b>�����������&nbsp;����&nbsp;</b><span><b>^$a</b></span></span><span><b>&nbsp;������&nbsp;MAIN</b><span><b>]
+<br />
+^test[</b></span></span><span><b>��������&nbsp;������</b><span><b>]
+<br />
+
+<br />
+@test[a]&nbsp;&nbsp;
+<br />
+^$a</b></span></span><span><b>&nbsp;-&nbsp;</b><span><b>$a</b></span></span><span><b>&nbsp;&nbsp;&lt;br&nbsp;/&gt;&nbsp;&nbsp;
+<br />
+</b><span><b>^$self.a</b></span></span><span><b>&nbsp;-&nbsp;</b><span><b>$self.a&nbsp;&nbsp;
+<br />
+</b></span></span><span>&nbsp;&nbsp;&nbsp;
+<br />
+</span><span>�������:   
+<br />
+</span><span><b>$a&nbsp;-&nbsp;��������&nbsp;������&nbsp;&nbsp;
+<br />
+$self.a&nbsp;-&nbsp;�����������&nbsp;����&nbsp;$a&nbsp;������&nbsp;MAIN</b></span><span>  
+<br />
+
+<br />
+</span><span><b>��������� ����������: result
+<br />
+</b></span><span>��� ������ � ��������� ����� ��������� ���������� </span><span><b>result</b></span><span>. ���� �� ��������� �����-�� ��������, �� ������ ��� ����� ����������� ���������� ������. �������� ���������� </span><span><b>result</b></span><span> ����� ��������� � ������������ � �����������. 
+<br />
+
+<br />
+<b>������:</b>
+<br />
+</span><span><span><b>@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+$a(2)
+<br />
+$b(3)
+<br />
+$summa[^sum[$a;$b]]
+<br />
+$summa
+<br />
+
+<br />
+@sum[a;b]
+<br />
+^eval($a+$b)
+<br />
+$result[</b></span></span><span><b>������&nbsp;��&nbsp;�����!</b><span><b>]
+<br />
+</b></span></span><span>
+<br />
+����� ������� ����� ������ ������ </span><span><b>������&nbsp;��&nbsp;�����!</b></span><span>, � �� ��������� �������� ���� �����.
+<br />
+
+<br />
+</span><span><b>��������� ����������: result</b><b>, </b><b>����� �����������&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.1.5]</i></b></span><span><b>
+<br />
+</b></span><span>���� � ������ ���� �������� ��������� ���������� </span><span><b>result</b></span><span>, ��� ������ Parser, ��� ����� ��������������� ��� ���������� ������� � ������� ���������� ����� �� ���������� �������, ���� �� ���� �� ����������� ���������� </span><span><b>result</b></span><span>.
+<br />
+
+<br />
+<b>������:</b>
+<br />
+</span><span><span><b>@lookup[table;findcol;resultcol;</b></span></span><span><span><b>findvalue;</b></span></span><span><span><b>notfound]</b></span></span><span><span><b>[result]</b></span></span><span><span><b>
+<br />
+^if</b></span></span><span><span><b>(^</b></span></span><span><span><b><a href="tableclass.htm">table</a></b></span></span><span><span><b>.</b></span></span><span><span><b><a href="tablelocate.htm">locate</a></b></span></span><span><span><b>[$</b></span></span><span><span><b>findcol</b></span></span><span><span><b>;$findvalue]){
+<br />
+&nbsp;&nbsp;&nbsp;$table.$</b></span></span><span><span><b>resultcol</b></span></span><span><span><b>
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;$</b></span></span><span><span><b>notfound</b></span></span><span><span><b>
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+����� ������� ����� ������ ���� �������� �� ������� </span><span><b>$resultcol</b></span><span>, ���� �������� </span><span><b>$notfound</b></span><span>.
+<br />
+�����: � ����������� ������� <b>�� �����</b> ������ �� ������ ������� �������� ������, ������� ��� ���������. 
+<br />
+�����: ������� �������� $notfound �������, ���������� ����� � ���� ������, �������� � ������. ����� Parser �� ����������� ���������� � ���� ������ �� ���������� ������� ��� ������ �� ����� ���� ����������� ���������� result.
+<br />
+
+<br />
+
+<br />
+</span><span><b>��������� ����������: caller
+<br />
+</b></span><span>��� ������ � ��������� ����� ��������� ���������� </span><span><b>caller</b></span><span>, ������� ������ ��������� ������ ������ ��� ���������.
+<br />
+
+<br />
+����� ��� �����:
+<br />
+<span><b>��������� ����������: locals</b><b>, </b><b>����� �����������&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.3.0]
+<br />
+</i></b></span><span>���� � ������ ���� �������� ��������� ���������� </span><span><b>locals</b></span><span>, </span><span>��� ����� ����������� ���������� ���� ����������, ������������ � ��� ����������.
+<br />
+��� ��������� � ���������� ������ ��� ������� � ���� ������ ���������� ������������ </span><span><b>self</b></span><span>.
+<br />
+</span><span><b><i>
+<br />
+</i></b></span></span><br />
+
+
+
+
+</body>
+</html>

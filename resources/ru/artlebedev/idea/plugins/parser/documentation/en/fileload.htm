@@ -1,0 +1,95 @@
+<html>
+<head>
+    
+    
+    <title>load. Loading file from disk or HTTP-server</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>load. Loading file from disk or HTTP-server
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file::load[</b><b>format</b><b>;</b><b><a href="app1.htm">filename</a></b><b>]
+<br />
+^file::load[</b><b>format</b><b>;</b><b><a href="app1.htm">filename</a></b><b>;</b><b><a href="app1.htm">download options</a></b><b>]
+<br />
+^file::load[</b><b>format</b><b>;</b><b><a href="app1.htm">filename</a></b><b>;</b><b>new&nbsp;filename</b><b>]</b><span>
+<br />
+</span><span><b>^file::load[</b><b>format</b><b>;</b><b><a href="app1.htm">filename</a></b><b>;</b><b>new&nbsp;filename</b><b>;</b><b><a href="app1.htm">download options</a></b><b>]</b></span><span>
+<br />
+</span><span>
+<br />
+Loads file from disk or HTTP-server.
+<br />
+
+<br />
+</span><span><b>Format</b></span><span> defines format of loaded file and can be either </span><span><b>text</b></span><span> or </span><span><b>binary</b></span><span>. The two types differ in newline characters. For PC these characters are </span><span><b>0D&nbsp;0A</b></span><span>. If file is being loaded in format </span><span><b>text</b></span><span>, </span><span><b>0D</b></span><span> will be deemed unnecessary and truncated. These characters will be added back to the file by method </span><span><b><a href="filesave.htm">save</a></b></span><span>. 
+<br />
+
+<br />
+</span><span><b>Filename</b></span><span>-name of file with <a href="app1.htm">path</a> or file's URL on HTTP-server.
+<br />
+
+<br />
+It should be kept in mind that if argument </span><span><b>new&nbsp;filename</b></span><span> is specified, its value will be assigned to field </span><span><b>name</b></span><span>. This argument is especially useful in dealing with method </span><span><b>mail:send</b></span><span> to send a file with needed name.
+<br />
+</span><span><b>
+<br />
+</b><b>Download&nbsp;options</b></span><span>-see  "<a href="app1.htm">Working with HTTP-servers</a>".
+<br />
+
+<br />
+If a file was loaded from an HTTP-server, fields of HTTP-response headers can be accessed as fields of object of class </span><span><b>file</b></span><span>.</span><span>
+<br />
+</span><span>Also there would be field </span><span><b>tables</b></span><span>, hash, keys of which are HTTP-response headers in upper case, and values are tables with sole column </span><span><b>value</b></span><span>, containing all values of HTTP-response fields of same name.
+<br />
+</span><span><u>
+<br />
+</u><b>Example of downloading file from disk
+<br />
+</b></span><span><span><b>$f[^file::load[binary;article.txt]]
+<br />
+</b></span></span><span><b>File&nbsp;</b><span><b>$f.name</b></span></span><span><b>&nbsp;is&nbsp;</b><span><b>$f.size</b></span></span><span><b>&nbsp;in&nbsp;size&nbsp;and&nbsp;has&nbsp;the&nbsp;text:&lt;br&nbsp;/&gt;
+<br />
+</b><span><b>$f.text</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>
+<br />
+</b></span></span><span><b>Example of downloading file from HTTP-server</b><u>
+<br />
+</u></span><span><span><b>$file[^file::load[text;http://</b></span></span><span><span><b>www.</b></span></span><span><span><b>parser.ru/;
+<br />
+&nbsp;&nbsp;&nbsp;$.timeout(5)
+<br />
+]]
+<br />
+</b></span></span><span><b>Server&nbsp;software:&nbsp;$file.SERVER
+<br />
+&lt;hr&nbsp;/&gt;
+<br />
+&lt;pre&gt;</b><span><b>$file.text</b></span></span><span><b>&lt;/pre&gt;</b><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

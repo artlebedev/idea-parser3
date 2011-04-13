@@ -1,0 +1,151 @@
+<html>
+<head>
+    
+    
+    <title>��� MySQL</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>��� MySQL
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>mysql://user:password@host[:port]|[/unix/socket]/database?
+<br />
+&nbsp;&nbsp;&nbsp;charset=��������&amp;<i>&nbsp;</i><span><i>[���������&nbsp;�����&nbsp;����&nbsp;�����������&nbsp;���������������&nbsp;���&nbsp;</i><i>MySQL&nbsp;3.x/4.0&nbsp;</i><i>���&nbsp;��������&nbsp;���������&nbsp;���&nbsp;</i><i>MySQL&nbsp;4.1+</i><i>]</i></span><span>
+<br />
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=���������&amp;&nbsp;</span><span><b><i>[3.1.2]</i></b></span><span><b>
+<br />
+</b>&nbsp;&nbsp;&nbsp;timeout=3&amp;
+<br />
+&nbsp;&nbsp;&nbsp;compress=0&amp;
+<br />
+&nbsp;&nbsp;&nbsp;named_pipe=1&amp;
+<br />
+&nbsp;&nbsp;&nbsp;autocommit=1&amp;
+<br />
+&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span><b><i>[3.3.0]</i></b></span><span>
+<br />
+</span><span>
+<br />
+�������������� ���������:
+<br />
+</span><span>Port</span><span> - ����� ����� ������� ��� ������. ����� ������������ ���������:
+<br />
+</span><span>user:password@���_�����:�����_�����/database</span><span>,
+<br />
+</span><span>
+<br />
+� ����� ������ </span><span>�����_�����</span><span> � </span><span>������_�����</span><span> �������� ���� � UNIX ������ � ���������� ������� (UNIX socket - ��� ����� ���������� ����� �������� (����), ������� ��� ��������� ������������� MySQL, ���� �� - ��� �� ��. ����� ���� ����� ����� ���� ������� � ��������):
+<br />
+</span><span>user:password@[/unix/socket]/database
+<br />
+</span><span>
+<br />
+</span><span>charset</span><span> - ����� ����� ���������� ��������� ������� </span><span>�<span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/charset-connection.html" target="_blank">SET CHARACTER SET ��������</a></u></span></span><span>�</span><span>;</span><span>
+<br />
+</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - ������ ���������, � ������� ���������� �������� � SQL-��������, ���������������� ���������� �������;
+<br />
+</span><span>timeout</span><span> - ������ �������� ��������� </span><span>Connect&nbsp;timeout&nbsp;</span><span>� ��������;
+<br />
+</span><span>compress</span><span> - ����� ������ ������� ����� �������� � ��������;
+<br />
+</span><span>named_pipe</span><span> - ������������� ����������� ������� ��� ���������� � �������� MySQL, ���������� ��� ����������� Windows NT;
+<br />
+</span><span>autocommit</span><span> - ���� ���������� � 0, �� ����� ���������� ��������� ������� </span><span>�<span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/commit.html" target="_blank">SET AUTOCOMMIT=0</a></u></span></span><span>�</span><span> (� ������������ �� MySQL ������� ��������, ��� �������� autocommit, � ��� ����� <span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/implicit-commit.html" target="_blank">����� ������� �������� COMMIT</a></u></span></span><span>);</span><span><b><i>
+<br />
+</i></b></span><span>multi_statements</span><span> - ���� ���������� � 1, �� ����� SQL ������� ����� ��������� ��������� ����������, ���������� �������� ';' (<i>������ ";" ���������� </i><i><a href="stringlit.htm">����������</a></i><i> �������� "^"</i>).<b><i>
+<br />
+</i></b></span><span><b>
+<br />
+</b><b>
+<br />
+������: ��������������� ���������� </b><b>SQL </b><b>������� (�������������, ��������� </b><b>MySQL </b><b>4.1 ��� ����)
+<br />
+</b></span><span>MySQL ������ ������ 4.1 � ���� ����� ������� ����������� �� ��������������� ������, ������� � ������ ��� ������������� ������������� ������������� ������ ��, ��������� ����� </span><span>charset</span><span>, � �� ���������� ���������������� ���������� �������� � ������� ����� </span><span>ClientCharset</span><span>. � ������, ���� �� ����������� ������ MySQL 4.1 � ����, �� ���� ������ � ������ �������� ������� ������ � <span><u><a href="http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">������ ����������</a></u></span></span><span>, ���� �� �������, ��� � ���� ������ ����� ����� ������� ������ � ��������� </span><span>UTF-8</span><span>.
+<br />
+
+<br />
+��������, ������ � ����� ���� �������� � ��������� </span><span>UTF-8</span><span>, � ���� �������� � ��������� </span><span>windows-1251</span><span>, � ���� ������</span><span> ����� ������������ ��������� ������ �����������:
+<br />
+</span><span>mysql://user:password@host/database?charset=cp1251
+<br />
+</span><span>
+<br />
+� ���� ������ ����� ����� ���������� SQL ������� ����� ������ ������� </span><span>�<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251</b>�</span><span> � ������ ��� ����� �������������� ����������� ������ �� ��������� </span><span>cp1251</span><span> � ���������, � ������� ������ �������� � ���� � ������� � �������.
+<br />
+</span><span><b>
+<br />
+</b></span><span><i>��������: � ������ ������ �� ������ ������� ���������, � ������� �������� ����.</i></span><span><b>
+<br />
+</b></span><span><i>��������: ������ ����� ��������� ������� </i><i>MySQL</i><i>, ������� ���������� ������������ </i><span><i><u><a href=""http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">�������� ��������� MySQL �������</a></u></i></span></span><span><i>, ������� ���������� �� �������� ��������� Parser, ������������ ���� � </i><i><a href=parserconfmethod.htm">���������������� �����</a></i><i>.</i></span><span><b>
+<br />
+
+<br />
+
+<br />
+������: ���� � koi8-r, �������� � windows-1251, ��������������� </b><b>SQL </b><b>�������� (�������������, </b><b>MySQL 3</b><b>.</b><b>x</b><b> � 4.</b><b>0</b><b>)
+<br />
+</b></span><span>MySQL ������ ������ 3.x � 4.0 �� ����� �������������� ������ ������������ �������, ������ ����� �������������� �� ��� �������� ���������������� ��� �������� ����� ������, ����� ������� � �� �������� � ��������� </span><span>koi8-r</span><span>, � ���� �������� � ��������� </span><span>windows-1251</span><span>.
+<br />
+
+<br />
+� ���� ������ ������ ����� �������������� ���������� ��������, ����� ����� </span><span>ClientCharset=koi8-r</span><span> (��. ����)</span><span>, ������ ����� ��� ������ ���������� SQL �������, ����������� ��������� ������ �����������:
+<br />
+</span><span>mysql://user:password@host/database?charset=cp1251_koi8
+<br />
+</span><span><b>
+<br />
+</b></span><span>� ���� ������ ����� ����� ���������� SQL ������� ����� ������ ������� </span><span>�<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251_koi8</b>�</span><span>, ������ MySQL ������ ������ ������ �������� � �����, � ������: �� ����� ���������� ������ �������������� �� ��������� </span><span>cp1251</span><span> � ��������� </span><span>koi8-r</span><span> � �������.</span><span><b>
+<br />
+
+<br />
+</b></span><span><i>��������: �� ���������� �����, ����������� ����������� ���������������, ��� ���� ������ �������� ������ �����, �������� </i><i>koi8_cp1251</i><i>,</i><i> MySQL </i><i>������ �� �����.</i></span><span><b>
+<br />
+
+<br />
+
+<br />
+������: ���� � windows-1251, �������� � </b><b>koi8-r, </b><b>��������������� ��������� (�������� �� ����� �������� </b><b>MySQL </b><b>�������)
+<br />
+</b></span><span>� ��������� ������ ������� ������, ��� ���������� ������������ ������� ���������������, ��������������� MySQL ��������. ����� ����� ������������� ��������� ��������������� ��������, ��������� ����� </span><span>ClientCharset</span><span>.
+<br />
+��������, ������ � ����� ���� �������� � ��������� </span><span>windows-1251</span><span>, � ���� �������� � ��������� </span><span>koi8-r</span><span>, � ���� ������ ����� ������������ ����� ������ �����������:
+<br />
+</span><span>mysql://user:password@host/database?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251
+<br />
+</span><span>
+<br />
+� ���� ������ ������������ SQL ������� ������ ����� ���������������� ��������� �� ��������� </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span> (� ������ ������� </span><span>koi8-r</span><span>) � ��������� </span><span>windows-1251</span><span>, � ����������� �� SQL ������� ������ - �������.
+<br />
+</span><span><b>
+<br />
+</b></span><span><i>��������: � ������ ������ �� ������ ������� ���������, � ������� ������ �������� � ���� ������.</i></span><span>
+<br />
+</span><span><i>��������: � ������ ����� �� ������ ��������� �������� ��������� </i><i>Parser, ������� ������������ ���� � </i><i><a href="parserconfmethod.htm">���������������� �����</a></i><i>.
+<br />
+</i><i> </i></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

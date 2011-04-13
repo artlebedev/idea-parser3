@@ -1,0 +1,373 @@
+<html>
+<head>
+    
+    
+    <title>��������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>��������</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.2.0]</i></b></span>
+<br />
+
+
+
+<span><b>@GET_���[]
+<br />
+���,&nbsp;������&nbsp;��������
+<br />
+
+<br />
+@SET_���[value]
+<br />
+���,&nbsp;������������&nbsp;�����&nbsp;$value
+<br />
+</b><span>
+<br />
+</span><span><b>@GET_DEFAULT[]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.3.0]</i></b></span><span><b>
+<br />
+@GET_DEFAULT[���]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.3.0]</i></b></span><span><b>
+<br />
+���,&nbsp;��������������&nbsp;���������&nbsp;�&nbsp;��������������&nbsp;�����</b><b>
+<br />
+
+<br />
+</b><b>@</b><b>SET</b><b>_DEFAULT[���</b><b>;</b><b>��������]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.4.1]</i></b></span><span><b>
+<br />
+���,&nbsp;��������������&nbsp;������&nbsp;�&nbsp;��������������&nbsp;����</b><b>
+<br />
+
+<br />
+@GET[]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.3.0]</i></b></span><span><b>
+<br />
+@GET[</b><b>���&nbsp;���������</b><b>]</b></span><span><b><i> [3.4.0]</i></b></span><span><b>
+<br />
+���,&nbsp;</b><b>��������������&nbsp;���������&nbsp;�&nbsp;�������/������&nbsp;�&nbsp;�����������&nbsp;����������&nbsp;������
+<br />
+</b></span><span>
+<br />
+
+<br />
+����� ���������� default getter (</span><span><b>@GET_DEFAULT[]</b></span><span>) - �����, ������� ����� ���������� ��� ��������� � �������������� �����. ��� ����, � �������� �������� ����������, ��������� ������������ ���������� ����� ������.
+<br />
+<i>�����: � ���� ������� ������ �������� ��� � ������� �</i><b><i>���������</i></b><i>�, ��� ������� �������� </i><i>$DEFAULT</i><i> ����� ������ ��������� �� ������</i><i>.</i>
+<br />
+
+<br />
+����� ����� ���������� default setter (</span><span><b>@SET_DEFAULT[name;value]</b></span><span>) - �����, ������� ����� ���������� ��� �������� ������ � �������������� ����. ��� ����, � �������� �������� ���������� � ������������ �������� ����� �������� ����� ������.
+<br />
+
+<br />
+� ���������������� ������� ����� ���������� ����������� �������� </span><span><b>@GET[]</b></span><span>, ������� ����� ���������� ��� ��������� � ������/������� ����� ������ � ����������� ���������� ������, ��������: � ��������� ���������, � ��������� � �.�. ���� � ����� �������� �������� ��������, �� ����� ���� ����� ������� </span><span><b>���&nbsp;���������</b></span><span>, ������� ����� ��������� ���� �� ��������� ��������</span><span>: </span><span><b>def</b></span><span>, </span><span><b>expression</b></span><span>, </span><span><b>bool</b></span><span>, </span><span><b>double</b></span><span>, </span><span><b>hash</b></span><span>, </span><span><b>table</b></span><span> ��� </span><span><b>file</b></span><span>.
+<br />
+
+<br />
+<i>����������</i><i>: </i><i>��� ������� ������������ ���� </i><i>$a[$b] </i><i>����� </i><i>@GET[] </i><i>�� ����������.</i>
+<br />
+
+<br />
+��� ��������� <a href="definemethod.htm">������</a> ������ �<b>��������</b>�, ������� ����� ������������, ��� ������� <a href="vars.htm">����������</a>:
+<br />
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="179">
+<span><i>�����
+<br />
+</i></span></td><td align="left" valign="top" width="195">
+<span><i>����������
+<br />
+</i></span></td></tr><tr><td align="left" valign="top" width="179">
+<span><b>$���</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="195">
+<span><b>^GET_���[]</b><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="179">
+<span><b>$���</b><b>[</b><b>��������</b><b>]</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="195">
+<span><b>^SET_���</b><b><a href="params.htm">[��������]</a></b><span>
+<br />
+</span></span></td></tr></table>
+<br />
+<i>����������: ���� �� ��������� ����������� ������ ��� ������ ��������, ��������������� ����� ����� �� ����������.
+<br />
+�����: ������ ����� � �������� � ���������� � ����� ������.
+<br />
+</i>
+<br />
+
+<br />
+</span><span><b>������: ������� � e-mail
+<br />
+</b></span><span>������� �������� - ������� ������ ���� ��������, � �������� ��������� ����� �������. ����� e-mail, �� ����� �������� ��������� ��� �� ������������.
+<br />
+
+<br />
+����� ������ ���������� <a href="defineclass.htm">�����</a>, ��� �������� �������� � �e-mail� �������� �������� �������� ������, ������ ��� ����� � ���������:
+<br />
+</span><span><span><b><a href="opuse.htm">@USE</a></b></span></span><span><span><b>
+<br />
+/person.p
+<br />
+
+<br />
+</b></span></span><span><span><b><a href="mainclass.htm">@main[]</a></b></span></span><span><span><b>
+<br />
+$person[^person::create[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>�������&nbsp;������</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.birthday[^</b></span></span><span><span><b><a href="dateclass.htm">date</a></b></span></span><span><span><b>::</b></span></span><span><span><b><a href="datecreateabs.htm">create</a></b></span></span><span><span><b>(2000;8;5)]
+<br />
+]]
+<br />
+#&nbsp;�����&nbsp;������,&nbsp;��&nbsp;��������&nbsp;��������
+<br />
+$person.email[</b></span></span><span><b>vasya@pupkin.ru</b><span><b>]
+<br />
+$person.name</b></span></span><span><b>&nbsp;(</b><span><b>$person.email</b></span></span><span><b>),&nbsp;�������:&nbsp;</b><span><b>$person.age</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+</b></span></span><span>
+<br />
+�������:
+<br />
+</span><span><b>�������&nbsp;������&nbsp;(vasya@pupkin.ru),&nbsp;�������:&nbsp;5&lt;br&nbsp;/&gt;&nbsp;</b></span><span>(� ����� ������� ������� ����� �������������)
+<br />
+</span><span><span><b>
+<br />
+</b></span></span><span>��� ���� ������ ������� �������� ������:
+<br />
+</span><span><span><b>#&nbsp;���&nbsp;�������&nbsp;������!
+<br />
+$person.age(</b></span></span><span><b>99</b><span><b>)
+<br />
+
+<br />
+</b></span></span><span>����� ������ ����������� �������� </span><span><b>email</b></span><span> ������������ ��������:</span><span><span><b>
+<br />
+#&nbsp;���&nbsp;�������&nbsp;������!
+<br />
+$person.email[</b></span></span><span><b>vasya#pupkin.ru</b><span><b>]
+<br />
+
+<br />
+</b></span></span><span><b>����������� ������ person
+<br />
+</b></span><span>����� ������������� ������ ��������, ����� <a href="defineclass.htm">����������</a> ����� </span><span><b>person</b></span><span> � ��� ��������.
+<br />
+� ����� ���-������������ � ���� </span><span>person.p</span><span> �������� ���:</span><span><span><b>
+<br />
+@CLASS
+<br />
+person
+<br />
+
+<br />
+@create[p]
+<br />
+$name[$p.name]
+<br />
+$birthday[$p.birthday]
+<br />
+</b></span></span><span><i>
+<br />
+</i></span><span><span><b>#&nbsp;��������&nbsp;��������
+<br />
+@GET_age[]</b></span></span><span><span><b><a href="definemethod.htm">[now;today;celebday]</a></b></span></span><span><span><b>
+<br />
+$now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+<br />
+$today[^date::create($now.</b></span></span><span><span><b><a href="datefields.htm">year</a></b></span></span><span><span><b>;$now.month;$now.day)]
+<br />
+$celebday[^date::create($now.year;$birthday.month;$birthday.day)]
+<br />
+#&nbsp;��������&nbsp;��������&nbsp;�����������&nbsp;���������:&nbsp;������=1;&nbsp;����=0
+<br />
+$</b></span></span><span><span><b><a href="definemethod.htm">result</a></b></span></span><span><span><b>(^if($birthday&gt;$today)(0)($today.year&nbsp;-&nbsp;$birthday.year&nbsp;-&nbsp;($today&lt;$celebday)))
+<br />
+
+<br />
+#&nbsp;��������&nbsp;�e-mail�
+<br />
+@SET_email[value]
+<br />
+^if(</b></span></span><span><span><b><a href="exprops.htm">!</a></b></span></span><span><span><b>^</b></span></span><span><span><b>Lib:</b></span></span><span><span><b>is</b></span></span><span><span><b>E</b></span></span><span><span><b>mail[$value]){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="opthrow.htm">throw</a></b></span></span><span><span><b>[email.invalid;</b></span></span><span><b>������������&nbsp;e-mail:&nbsp;'</b><span><b>$value</b></span></span><span><b>'</b><span><b>]
+<br />
+}
+<br />
+#&nbsp;���&nbsp;����������&nbsp;��&nbsp;������&nbsp;���������&nbsp;�&nbsp;������&nbsp;��������!
+<br />
+$private_email[$value]
+<br />
+
+<br />
+@GET_email[]
+<br />
+$private_email
+<br />
+</b></span></span><span>
+<br />
+<i>����������: ����� </i><b><i>isEmail</i></b></span><span><i>, ���</i></span><span><i> � ��� ������ �������� ������� � </i><i><a href="defineclass.htm">����������</a></i><i> ����� ������� �� ���������� ������: </i><span><i><u><a href="http://www.parser.ru/examples/lib/" target="_blank">http://www.parser.ru/examples/lib/</a></u></i></span></span><span><i>.
+<br />
+����������: ������ ����� �������� � ��������� ������� ����� � ��� ����������� �� ��������� ����, ��. </i></span><span><b>$</b><b><a href="app1pathclass.htm">CLASS_PATH</a></b></span><span><i>.
+<br />
+
+<br />
+
+<br />
+</i></span><span><b>������: �����, ����������� ���������� ���������� ������ </b><b>table</b><b>
+<br />
+</b></span><span><span><b>@main[]
+<br />
+$t[^MyTable::create{a&nbsp;&nbsp;&nbsp;b
+<br />
+0a&nbsp;&nbsp;&nbsp;0b
+<br />
+1a&nbsp;&nbsp;&nbsp;1</b></span></span><span><span><b>b</b></span></span><span><span><b>
+<br />
+2a&nbsp;&nbsp;&nbsp;2b
+<br />
+3a&nbsp;&nbsp;&nbsp;3b}]
+<br />
+
+<br />
+</b></span></span><span><b>��������&nbsp;�&nbsp;���������:&nbsp;</b><span><b>^eval($t)&lt;br&nbsp;/&gt;
+<br />
+</b></span></span><span><b>^^t.count:&nbsp;</b><span><b>^t.count[]&lt;br&nbsp;/&gt;
+<br />
+</b></span></span><span><b>�������&nbsp;����������&nbsp;�����������������&nbsp;�������:&nbsp;</b><span><b>^print[$t]&lt;br&nbsp;/&gt;
+<br />
+
+<br />
+
+<br />
+&lt;br&nbsp;/&gt;
+<br />
+</b></span></span><span><b>��������&nbsp;������&nbsp;�&nbsp;�������&nbsp;^^c.count[]:</b><span><b>
+<br />
+$c[^MyTable::create[$t]]
+<br />
+^c.count[]&lt;br&nbsp;/&gt;
+<br />
+</b></span></span><span><b>�������&nbsp;2&nbsp;������,&nbsp;�������&nbsp;��&nbsp;������&nbsp;�&nbsp;offset=1&nbsp;�&nbsp;�������&nbsp;����������&nbsp;�����������������&nbsp;�������:</b><span><b>
+<br />
+^c.remove(1;2)
+<br />
+^print[$c]&lt;br&nbsp;/&gt;
+<br />
+
+<br />
+
+<br />
+&lt;br&nbsp;/&gt;
+<br />
+</b></span></span><span><b>������&nbsp;������&nbsp;����������&nbsp;������&nbsp;</b><b>table</b><b>&nbsp;��&nbsp;���������&nbsp;�������&nbsp;������&nbsp;MyTable&nbsp;�&nbsp;�������&nbsp;^^z.count[]:</b><span><b>
+<br />
+$z[^table::create[$t]]
+<br />
+^z.count[]&lt;br&nbsp;/&gt;
+<br />
+
+<br />
+
+<br />
+@print[t]
+<br />
+^t.menu{$t.a=$t.b}[&lt;br&nbsp;/&gt;]
+<br />
+</b></span></span><span><b>
+<br />
+
+<br />
+</b><b>����������� ������ </b><b>MyTable
+<br />
+</b></span><span><span><b>@CLASS
+<br />
+MyTable
+<br />
+
+<br />
+@create[uParam]
+<br />
+^switch[$uParam.CLASS_NAME]{
+<br />
+&nbsp;&nbsp;&nbsp;^case[string]{$t[^table::create{$uParam}]}
+<br />
+&nbsp;&nbsp;&nbsp;^case[table;MyTable]{$t[^table::create[$uParam]]}
+<br />
+&nbsp;&nbsp;&nbsp;^case[DEFAULT]{^throw[MyTable;</b></span></span><span><b>Unsupported&nbsp;type&nbsp;</b><span><b>$uParam.CLASS_NAME]}
+<br />
+}
+<br />
+
+<br />
+#&nbsp;�����&nbsp;������������&nbsp;��������&nbsp;�������&nbsp;�&nbsp;������&nbsp;����������&nbsp;������
+<br />
+@GET[</b></span></span><span><span><b>sMode</b></span></span><span><span><b>]</b></span></span><span><span><b>
+<br />
+^switch[$sMode]{
+<br />
+&nbsp;&nbsp;&nbsp;^case[table]{$result[$t]}
+<br />
+&nbsp;&nbsp;&nbsp;^case[bool]{$result($t!=0)}
+<br />
+&nbsp;&nbsp;&nbsp;^case[def]{$result(true)}
+<br />
+&nbsp;&nbsp;&nbsp;^case[expression;double]{$result($t)}
+<br />
+&nbsp;&nbsp;&nbsp;^case[DEFAULT]{^throw[MyTable;Unsupported&nbsp;mode&nbsp;'$sMode']}
+<br />
+}</b></span></span><span><span><b>
+<br />
+
+<br />
+
+<br />
+#&nbsp;�����&nbsp;������������&nbsp;���������&nbsp;�&nbsp;"��������"
+<br />
+@GET_DEFAULT[sName]
+<br />
+$result[$t.$sName]
+<br />
+
+<br />
+
+<br />
+#&nbsp;���&nbsp;����&nbsp;������������&nbsp;�������&nbsp;�����&nbsp;��������&nbsp;wrapper-�
+<br />
+@count[]
+<br />
+^t.count[]
+<br />
+
+<br />
+@menu[jCode;sSeparator]
+<br />
+^t.menu{$jCode}[$sSeparator]
+<br />
+
+<br />
+
+<br />
+#&nbsp;���������&nbsp;�����&nbsp;����������
+<br />
+@remove[iOffset;iLimit]
+<br />
+$iLimit(^iLimit.int(0))
+<br />
+$t[^t.select(^t.offset[]&lt;$iOffset&nbsp;||&nbsp;^t.offset[]&gt;=$iOffset+$iLimit)]
+<br />
+</b></span></span><span><i>
+<br />
+</i></span></span><br />
+
+
+
+
+</body>
+</html>

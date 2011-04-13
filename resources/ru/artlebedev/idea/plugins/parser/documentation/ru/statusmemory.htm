@@ -1,0 +1,124 @@
+<html>
+<head>
+    
+    
+    <title>memory. ���������� � ������ ��� ��������� �������� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>memory. ���������� � ������ ��� ��������� �������� ������</b><b> </b><span><b><i>[3.1]</i></b> </span>
+<br />
+
+
+
+<span>��� ���� - <a href="hash.htm">���</a> � ����������� � ������, ����������� ��� ��������� �������� ������.
+<br />
+
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="205">
+<span><b><i>����</i></b>
+<br />
+</span></td><td align="left" valign="top" width="225">
+<span><b><i>�������� (� ����������)</i></b>
+<br />
+</span></td><td align="left" valign="top" width="196">
+<span><b><i>������</i></b>
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="205">
+<span><b>used</b>
+<br />
+</span></td><td align="left" valign="top" width="225">
+<span>������
+<br />
+</span></td><td align="left" valign="top" width="196">
+<span>� ��� ����� �� ������� ������ c�������� ������ ������ �������� ������.
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="205">
+<span><b>free</b>
+<br />
+</span></td><td align="left" valign="top" width="225">
+<span>��������
+<br />
+</span></td><td align="left" valign="top" width="196">
+<span>��������� ������ ������ ����� ���������������.
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="205">
+<span><b>ever_allocated_since_compact</b>
+<br />
+</span></td><td align="left" valign="top" width="225">
+<span>���� �������� � ������� ��������� ������ ������. ��. <span><b><a href="memorycompact.htm">memory:compact</a></b></span><span>.
+<br />
+</span></span></td><td align="left" valign="top" width="196">
+<span>����� �������� ������ ��� ����� ������ ������.
+<br />
+����� ������������ ������ ��� ������ ������ �� ���� �� ������, ������ ������ ������.
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="205">
+<span><b>ever_allocated_since_start</b>
+<br />
+</span></td><td align="left" valign="top" width="225">
+<span>���� �������� �� ��� ����� ��������� �������
+<br />
+</span></td><td align="left" valign="top" width="196">
+<span>��� ����� ������ ������.
+<br />
+�� ����� ������ ������, �� ������������ ������ ����� �������� ������ �� ���� �� ������.
+<br />
+</span></td></tr></table>
+<br />
+
+<br />
+<span><b>������������� ������ �������
+<br />
+</b></span><span>�������� �������� ������
+<br />
+</span><span><b>^musage[before&nbsp;XXX]
+<br />
+^musage[</b><b>after&nbsp;XXX</b><b>]
+<br />
+</b></span><span>
+<br />
+������� ������������� ��� ����� ��� ����� �������
+<br />
+
+<br />
+</span><span><span><b>@musage[comment][v;now;prefix;message;line]
+<br />
+$v[$status:memory]
+<br />
+$now[^</b></span></span><span><span><b><a href="datenow.htm">date::now</a></b></span></span><span><span><b>[]]
+<br />
+$prefix[[^now.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]]&nbsp;</b></span></span><span><span><b><a href="envhttpfield.htm">$env:REMOTE_ADDR</a></b></span></span><span><span><b>:&nbsp;$comment]
+<br />
+$message[$v.used&nbsp;$v.free&nbsp;$v.ever_allocated_since_compact&nbsp;$v.ever_allocated_since_start&nbsp;</b></span></span><span><span><b><a href="requesturi.htm">$request:uri</a></b></span></span><span><span><b>]
+<br />
+$line[$prefix&nbsp;$message&nbsp;</b></span></span><span><span><b><a href="stringlit.htm">^#0A</a></b></span></span><span><span><b>]
+<br />
+^line.</b></span></span><span><span><b><a href="stringsave.htm">save</a></b></span></span><span><span><b>[append;/musage.log]
+<br />
+$</b></span></span><span><span><b><a href="definemethod.htm">result</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+�� ��������������� ������.
+<br />
+
+<br />
+<i>�����: � ���� ������ Parser ����������� � ������������ ������� �������������� ����� ������ �� ���� �������������</i><i>. </i><i>������� ���� �������, ����� � </i></span><span><b><i>used</i></b></span><span><i> </i><i>� </i></span><span><b><i>free</i></b></span><span><i>, </i><i>�������������.</i><i> </i><i>��� ���������.
+<br />
+</i>
+<br />
+<i>����������: ��� ������ ������� �� ������������� ������������ ���-������������.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

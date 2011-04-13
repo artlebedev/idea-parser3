@@ -1,0 +1,162 @@
+<html>
+<head>
+    
+    
+    <title>Fields</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Fields
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="139">
+<span><b>$</b><b>image</b><b>.src</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>-filename<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="139">
+<span><b>$</b><b>image</b><b>.width</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>-width
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span><b>$</b><b>image</b><b>.height</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>-height
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="139">
+<span><b>$</b><b>image</b><b>.</b><b>exif</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="282">
+<span>-<a href="hash.htm">hash</a> with EXIF information<i>
+<br />
+</i></span></td></tr></table>
+<br />
+
+<br />
+Keys of <span><b>$image.exif</b></span><span> are names of EXIF-tags, see specification (<span><u><a href="http://www.exif.org/specifications.html" target="_blank">http://www.exif.org/specifications.html</a></u></span></span><span>). Values may be of type </span><span><b>string</b></span><span>, </span><span><b>int</b></span><span>, </span><span><b>double</b></span><span>, </span><span><b>date</b></span><span>. When a tag has several values, they are turned into hash, with numbers as keys (0&#133;number_of_values-1).</span><span>
+<br />
+</span><span>
+<br />
+Frequently used EXIF-tags are (for detailed description see specification):
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="112">
+<span><b><i>Tag</i></b><i>
+<br />
+</i></span></td><td align="left" valign="top" width="74">
+<span><b><i>Type</i></b><b>
+<br />
+</b></span></td><td align="left" valign="top" width="295">
+<span><b><i>D</i></b><b><i>escription</i></b><b>
+<br />
+</b></span></td></tr><tr><td align="left" valign="top" width="112">
+<span>Make
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>string</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>Camera manufacturer
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span>Model
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>string</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>Camera model
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span>DateTimeOriginal
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>date</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>Shooting date and time
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="112">
+<span>ExposureTime
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>double</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>Exposure time (in seconds)<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="112">
+<span>FNumber
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>double</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>Aperture number F<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="112">
+<span>Flash
+<br />
+</span></td><td align="left" valign="top" width="74">
+<span><b>int</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="295">
+<span>0=was not used, other values=was used
+<br />
+</span></td></tr></table>
+<br />
+
+<br />
+<i>Note: Keys of non-standard EXIF-tags are their values in decimal numbers.
+<br />
+</i></span><span><b>
+<br />
+Example</b><b>
+<br />
+</b></span><span><span><b>$photo[^image::</b></span></span><span><span><b><a href="imagemeasure.htm">measure</a></b></span></span><span><span><b>[photo.jpg]]
+<br />
+</b></span></span><span><b>Filename:&nbsp;</b><span><b>$photo.src</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b><b>Image&nbsp;width&nbsp;in&nbsp;pixels:</b><b>&nbsp;</b><span><b>$photo.width</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br />
+</b><b>Image&nbsp;height&nbsp;in&nbsp;pixels:</b><b>&nbsp;</b><span><b>$photo.height</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br />
+</b><span><b>$date_time_original[$photo.exif.DateTimeOriginal]
+<br />
+^if(def&nbsp;$date_time_original){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Picture&nbsp;taken&nbsp;on</b><b>&nbsp;</b><span><b>^date_time_original.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span>
+<br />
+As a result, filename, as well as width and height of the image stored in this file will be output. If picture was taken with a digital camera, shooting date and time will most likely be output.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

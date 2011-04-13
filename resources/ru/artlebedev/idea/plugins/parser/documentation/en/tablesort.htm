@@ -1,0 +1,68 @@
+<html>
+<head>
+    
+    
+    <title>sort. Sorting table data</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b></h1><span><u>
+<br />
+</u></span><span><span><b>$men[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{name</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>age
+<br />
+</b></span></span><span><b>Serge</b><b>y</b><b>&nbsp;&nbsp;&nbsp;26
+<br />
+Alex&nbsp;&nbsp;&nbsp;20
+<br />
+Mishk</b><b>a&nbsp;&nbsp;&nbsp;</b><b>29</b><span><b>
+<br />
+}]
+<br />
+^men.sort{$men.</b></span></span><span><span><b><a href="tablefields.htm">name</a></b></span></span><span><span><b>}
+<br />
+^men.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$men.name:&nbsp;$men.age</b></span></span><span><span><b>
+<br />
+}[</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>]
+<br />
+</b></span></span><span>
+<br />
+As the result of this code, the rows of table </span><span><b>$men</b></span><span> will be sorted according to the values given in column </span><span><b>name</b></span><span>:
+<br />
+</span><span><b>Alex:&nbsp;20</b></span><span>
+<br />
+</span><span><b>Mishka:&nbsp;29&nbsp;
+<br />
+Serge</b><b>y</b><b>:&nbsp;26&nbsp;
+<br />
+</b></span><span>
+<br />
+You may sort the table rows by the values given in column </span><span><b>age</b></span><span> in descending order (</span><span><b>desc</b></span><span>) if you substitute the line of the code which is calling method sort for this one:
+<br />
+
+<br />
+</span><span><span><b>^men.sort($men.age)[desc]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+The code will result in:
+<br />
+</span><span><b>Mishka:&nbsp;29</b></span><span><b>
+<br />
+</b></span><span><b>Serge</b><b>y</b><b>:&nbsp;26
+<br />
+Alex:&nbsp;20</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

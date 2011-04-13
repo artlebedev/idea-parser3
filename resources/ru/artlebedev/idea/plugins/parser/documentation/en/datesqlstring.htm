@@ -1,0 +1,65 @@
+<html>
+<head>
+    
+    
+    <title>sql-string. Getting date in DBMS-style format</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>sql-string. Getting date in DBMS-style format
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^date.sql-string[]
+<br />
+</b><span>
+<br />
+Method transforms the date into </span><span><b>YYYY-MM-DD&nbsp;HH:MM:SS</b></span><span> format, used by DBMS for storing dates. Using this method you can add date values to DB without any additional transformations.
+<br />
+
+<br />
+</span><span><b>E</b><b>xample</b><b>
+<br />
+</b></span><span><span><b>$date_now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+<br />
+^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">connect string</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="voidsql.htm">void:sql</a></b></span></span><span><span><b>{</b></span></span><span><b>insert&nbsp;into&nbsp;access_log
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(access_date)
+<br />
+&nbsp;&nbsp;&nbsp;values
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('</b><span><b>^date_now.sql-string[]</b></span></span><span><b>')
+<br />
+&nbsp;&nbsp;&nbsp;</b><span><b>}
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+We get string of format '</span><span><b>2001-11-30&nbsp;13:09:56</b></span><span>' with current date and time and at once place it into a DB field. Without this method at hand, we would have to put together the needed strings manually. Note: the method doesn't form the apostrophes-you should add them by yourself.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

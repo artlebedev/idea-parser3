@@ -1,0 +1,69 @@
+<html>
+<head>
+    
+    
+    <title>fields. All form fields</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>fields. All form fields
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>$form:fields
+<br />
+</b><span>
+<br />
+Such a construction returns <a href="hash.htm">hash</a> with all form fields. Hash keys' names are the same as the names of form fields. Hash keys' values are the form fields' values.
+<br />
+
+<br />
+</span><span><b>Example</b><b>
+<br />
+</b></span><span><span><b>^form:fields.</b></span></span><span><span><b><a href="hashforeach.htm">foreach</a></b></span></span><span><span><b>[</b></span></span><span><span><b>field;value]{
+<br />
+&nbsp;&nbsp;&nbsp;$field&nbsp;-&nbsp;$value
+<br />
+}[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]
+<br />
+</b></span></span><span>
+<br />
+&#133;will output all form fields' names and their values.
+<br />
+Assume, requested URI is&#133;
+<br />
+</span><span><b>www.mysite.com/testing/index.html?name=worst&amp;grade=F
+<br />
+</b></span><span>
+<br />
+Then the example will output:
+<br />
+
+<br />
+</span><span><b>name&nbsp;-&nbsp;worst
+<br />
+grade&nbsp;-&nbsp;F</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

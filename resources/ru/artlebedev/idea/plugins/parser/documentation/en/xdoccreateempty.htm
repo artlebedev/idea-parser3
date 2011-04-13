@@ -1,0 +1,55 @@
+<html>
+<head>
+    
+    
+    <title>create. Creating a new empty document</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>create. Creating a new empty document
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^xdoc::create[tag_name]
+<br />
+</b><b>^xdoc::create[</b><b><a href="xdocuriparam.htm">base_path</a></b><b>;</b><span><b>tag_name</b></span><span><b>]</b></span><span>
+<br />
+
+<br />
+This constructor creates object of class </span><span><b>xdoc</b></span><span>, containing single tag </span><span><b>tag_name</b></span><span>. One can also specify </span><span><b>base&nbsp;path</b></span><span>.
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>$document[^xdoc::create[document]]</b></span></span><span><b>
+<br />
+</b><span><b>$paraNode[^document.</b></span></span><span><b><a href="xdocdommethods.htm">createElement</a></b><span><b>[</b></span></span><span><b>para</b><span><b>]]</b></span></span><span><b>
+<br />
+</b><span><b>$addedNode[^document.</b></span></span><span><b><a href="xdocdomfields.htm">documentElement</a></b><b>.</b><b><a href="xnodedommethods.htm">appendChild</a></b><span><b>[$paraNode]]</b></span></span><span><b>
+<br />
+$</b><b><a href="responseclass.htm">response</a></b><b>:</b><b><a href="responsebody.htm">body</a></b><span><b>[^document.</b></span></span><span><b><a href="xdocstring.htm">string</a></b><span><b>[]]</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

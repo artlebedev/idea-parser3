@@ -1,0 +1,49 @@
+<html>
+<head>
+    
+    
+    <title>sql-string. ���������� ����� �� SQL-�������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>sql-string. ���������� ����� �� SQL-�������&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span>
+<br />
+
+
+
+<span><b>^file.sql-string[]</b><span>
+<br />
+
+<br />
+������ ������, ������� ����� ������������ � SQL-�������. ��������� ��������� ���� � ���� ������.
+<br />
+
+<br />
+<i>��������: �� ������ ������ ����������� ��������� ������ MySQL-�������.
+<br />
+
+<br />
+</i></span><span><b>������
+<br />
+</b></span><span><span><b>$name[</b></span></span><span><b>image.gif</b><span><b>]
+<br />
+$file[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[$name]]
+<br />
+^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">������ ����������</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^void:sql{</b></span></span><span><b>insert&nbsp;into&nbsp;images&nbsp;(name,&nbsp;bytes)&nbsp;values&nbsp;('</b><span><b>$name</b></span></span><span><b>',&nbsp;'</b><span><b>^file.sql-string[]</b></span></span><span><b>')</b><span><b>}
+<br />
+}
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

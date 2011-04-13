@@ -1,0 +1,109 @@
+<html>
+<head>
+    
+    
+    <title>roll. Shifting date</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>roll. Shifting date
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^date.roll[year](shift)
+<br />
+^date.roll[month](shift)
+<br />
+^date.roll[day](shift)
+<br />
+^date.roll[TZ][new&nbsp;time&nbsp;zone]
+<br />
+</b><span>
+<br />
+This method increases/decreases values of fields </span><span><b>year</b></span><span>, </span><span><b>month</b></span><span>, and </span><span><b>day</b></span><span> of objects of class </span><span><b>date</b></span><span>.
+<br />
+
+<br />
+You can also get date/time stored in an object of class </span><span><b>date</b></span><span> in another time zone by specifying system name of a new time zone. For the list of these names, please see your system documentation (search for: "Environment variable TZ").
+<br />
+</span><span><b>
+<br />
+Example of shifting a month
+<br />
+</b></span><span><span><b>$today[^date:</b></span></span><span><span><b>:</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+<br />
+^today.roll[month](-1)
+<br />
+$today.</b></span></span><span><span><b><a href="datefields.htm">month</a></b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+In this example, we assign variable </span><span><b>$today</b></span><span> the value of current day and then decrease the number of the current month by one. As a result, we get the value of the previous month.
+<br />
+</span><span><b>
+<br />
+</b><b>Example of shifting time zone</b></span><span><b>
+<br />
+</b></span><span><span><b>@main[]
+<br />
+$now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+<br />
+</b></span></span><span><span><b>^show[]</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>^show[Mosco</b></span></span><span><b>w</b><span><b>;MSK-3MSD]
+<br />
+^show[</b></span></span><span><b>Amsterdam</b><span><b>;MET-1DST]
+<br />
+^show[</b></span></span><span><b>London</b><span><b>;GMT0BST]
+<br />
+^show[</b></span></span><span><b>New&nbsp;York</b><span><b>;EST5EDT]
+<br />
+^show[</b></span></span><span><b>Chicago</b><span><b>;CST6CDT]
+<br />
+^show[</b></span></span><span><b>Denver</b><span><b>;MST7MDT]
+<br />
+^show[</b></span></span><span><b>Los&nbsp;Angeles</b><span><b>;PST8PDT]
+<br />
+</b></span></span><span><span><b>
+<br />
+@show[town;TZ]
+<br />
+^if(</b></span></span><span><span><b><a href="opdef.htm">def</a></b></span></span><span><span><b>&nbsp;$town){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$town
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^now.roll[TZ;$TZ]
+<br />
+}{
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>Server&nbsp;local&nbsp;time</b><span><b>
+<br />
+</b></span></span><span><span><b>}</b></span></span><span><b>
+<br />
+</b><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b></span></span><span><b>$now.year/$now.month/$now.day,&nbsp;$now.hour&nbsp;</b><span><b>hrs</b></span></span><span><b>&nbsp;$now.minute&nbsp;</b><span><b>mins&lt;hr&nbsp;/&gt;</b></span></span><span><span><b>
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

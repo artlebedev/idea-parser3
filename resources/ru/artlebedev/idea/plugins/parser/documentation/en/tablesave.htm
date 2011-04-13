@@ -1,0 +1,67 @@
+<html>
+<head>
+    
+    
+    <title>save. Saving table to a file</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>save. Saving table to a file
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^table.save[path]
+<br />
+^table.save[path;</b><b><a href="tableoptionsfmt.htm">options</a></b><b>]</b><b>
+<br />
+^table.save[nameless;path]
+<br />
+^table.save[nameless;path;</b><b><a href="tableoptionsfmt.htm">options</a></b><b>]</b><b>
+<br />
+^table.save[append;path]&nbsp;&nbsp;&nbsp;</b><span><b><i> </i></b><b><i>&nbsp;&nbsp;&nbsp;</i></b><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
+<br />
+^table.save[append;path;</b><b><a href="tableoptionsfmt.htm">options</a></b><b>]&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
+<br />
+</b></span><span>
+<br />
+Saves a table in a text file in <i>tab-delimited</i> format.
+<br />
+Using </span><span><b>nameless</b></span><span> option will save table without columns' names.
+<br />
+With </span><span><b>append</b></span><span> option the table will be saved with columns' names only if file doesn't exist on disk.
+<br />
+One can also specify saving options , see "<a href="tableoptionsfmt.htm">Options of file format</a>", allowing, for example, to save a file in </span><span>.csv</span><span> format to be used in programs which understand it (Miscrosoft Excel).
+<br />
+</span><span><b>
+<br />
+Example</b></span><span><u>
+<br />
+</u></span><span><span><b>^conf.save[</b></span></span><span><b>/conf/old_conf.txt</b><span><b>]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+Table </span><span><b>$conf</b></span><span> will be saved in text file </span><span><b>old_conf.txt</b></span><span> in </span><span><b>/conf/</b></span><span> directory.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

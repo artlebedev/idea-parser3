@@ -1,0 +1,153 @@
+<html>
+<head>
+    
+    
+    <title>������ Parser �� �������� �����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>������ Parser �� �������� �����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>��������� �� CVS �������� ���� Parser3 � ����������� �������������� �������. ��� ����� ��������� ��������� �������:
+<br />
+<span>cvs&nbsp;-d&nbsp;:pserver:anonymous@cvs.parser.ru:/parser3project&nbsp;login
+<br />
+</span><span>������ ������.
+<br />
+
+<br />
+</span><span>cvs&nbsp;-d&nbsp;:pserver:anonymous@cvs.parser.ru:/parser3project&nbsp;get&nbsp;-r&nbsp;���_�����&nbsp;���_������
+<br />
+</span><span>
+<br />
+</span><span>���_�����</span><span> - ���� �� ��������� </span><span><b>-r</b></span><span>, �� �������� ������� ��������������� ������ (HEAD).
+<br />
+��� ��������� ���������� ������, ��������� ����� �</span><span>release_3_X_XXXX</span><span>�.
+<br />
+</span><span><b>
+<br />
+</b>���&nbsp;������</span><span>:</span><span><b>
+<br />
+</b></span><span>��� ��������� ������: </span><span>parser3</span><span>.</span><span><b>
+<br />
+</b></span><span>
+<br />
+������ � SQL ����������: </span><span>sql</span><span>.
+<br />
+������ � ��� �������� ��������:
+<br />
+</span><span>sql/mysql
+<br />
+sql/pgsql
+<br />
+sql/oracle
+<br />
+sql/odbc
+<br />
+sql/sqlite
+<br />
+</span><span>
+<br />
+
+<br />
+��� ������ SQL ��������� ���������� ������� ���������� Parser3 �, �.�. .h ����� ������ �� ������������� �����, ��������� ��������� ������ ���� ���������:
+<br />
+</span><span>
+<br />
+parser3project&nbsp;&nbsp;&lt;-&nbsp;����������,&nbsp;���&nbsp;��&nbsp;������&nbsp;��������&nbsp;���������
+<br />
+&nbsp;&nbsp;|
+<br />
+&nbsp;&nbsp;+-parser3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-&nbsp;���������&nbsp;�������&nbsp;
+<br />
+&nbsp;&nbsp;|
+<br />
+&nbsp;&nbsp;+-sql
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-mysql&nbsp;&nbsp;&nbsp;&nbsp;&lt;-&nbsp;���������&nbsp;��������&nbsp;mysql
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-&nbsp;���������&nbsp;������&nbsp;�����������&nbsp;���&nbsp;���������</span><span>
+<br />
+
+<br />
+
+<br />
+��� ���������� ��� UNIX�
+<br />
+
+<br />
+��������� Parser � ���� ������ Apache 1.3 ���������� ������� � �������� � ��������� ������ Apache ��������� �������
+<br />
+</span><span>./configure
+<br />
+</span><span>� ������ ����� ����� �������� Parser.
+<br />
+
+<br />
+
+<br />
+��� ���������� ��� Win32�
+<br />
+
+<br />
+���������� �������:
+<br />
+</span><span>win32/tools
+<br />
+</span><span>
+<br />
+�SQL ��������� ���������� ��������:
+<br />
+</span><span>win32/sql/mysql
+<br />
+win32/sql/pgsql
+<br />
+win32/sql/oracle
+<br />
+win32/sql/sqlite
+<br />
+</span><span>
+<br />
+��������� Parser, ����������� � XML, � ����� </span><span>parser3/src/include/pa_config_fixed.h&nbsp;</span><span>���������� ���������
+<br />
+</span><span><b>#define&nbsp;XML
+<br />
+</b></span><span>
+<br />
+��������� Parser, ������������ ������ �� ����������� �����, � ����� </span><span>parser3/src/include/pa_config_fixed.h&nbsp;</span><span>���������� ���������
+<br />
+</span><span><b>#define&nbsp;WITH_MAILRECEIVE
+<br />
+</b></span><span>
+<br />
+������������ <i>UNIX/Cygwin</i>, ���������� �� ���������� � ��������� ������� � ������ INSTALL ������� ������.
+<br />
+
+<br />
+��� ���������� ��� Win32 ����������� <i>Microsoft Visual Studio.NET (2003 ��� �����)</i>, ����������� ����� </span><span>.sln</span><span> ������� ������. �������������� ��� ������ � ������� </span><span>parser3project</span><span>, ����������� � ����� (�����!) �����.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

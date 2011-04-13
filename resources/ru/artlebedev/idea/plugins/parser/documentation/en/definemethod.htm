@@ -1,0 +1,68 @@
+<html>
+<head>
+    
+    
+    <title>Methods and user-defined operators</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span>I</h1><span>n this case, the client will receive a string </span><span><b>I&nbsp;won't&nbsp;say&nbsp;anything!</b></span><span>, but not the result of addition of the two numbers.
+<br />
+
+<br />
+</span><span><b>System variable: result</b><b>, explicit declaration</b><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.1.5]</i></b><b><i>
+<br />
+</i></b>If </span><span><b>result</b></span><span> variable is explicitly declared, this means to Parser that it should ignore all whitespace characters in method code and perceive as error any non-whitespace characrers, if those characters are not explicitly assigned to </span><span><b>result</b></span><span> variable.</span><span><b>
+<br />
+</b></span><span>
+<br />
+Example:
+<br />
+</span><span><span><b>@lookup[table;findcol;resultcol;</b></span></span><span><span><b>findvalue;</b></span></span><span><span><b>notfound]</b></span></span><span><span><b>[result]</b></span></span><span><span><b>
+<br />
+^if</b></span></span><span><span><b>(^</b></span></span><span><span><b><a href="tableclass.htm">table</a></b></span></span><span><span><b>.</b></span></span><span><span><b><a href="tablelocate.htm">locate</a></b></span></span><span><span><b>[$</b></span></span><span><span><b>findcol</b></span></span><span><span><b>;$findvalue]){
+<br />
+&nbsp;&nbsp;&nbsp;$table.$</b></span></span><span><span><b>resultcol</b></span></span><span><span><b>
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;$</b></span></span><span><span><b>notfound</b></span></span><span><span><b>
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+</span><span>I</h1><span>n this case, the client will receive either a value from </span><span><b>$resultcol</b></span><span> column or </span><span><b>$notfound</b></span><span> value.
+<br />
+What important is there would be <b>no</b> whitespace characters returned (no line breaks, tabs or spaces).
+<br />
+
+<br />
+</span><span><b>System variable</b><b>: caller
+<br />
+</b></span><span>All methods and operators have local variable </span><span><b>caller</b></span><span>, which stores the method's or operator's "scope of the call".
+<br />
+
+<br />
+You can use it:
+<br />
+<span><b>System variable: locals</b><b>, explicit declaration</b><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.3.0]
+<br />
+</i></b>If </span><span><b>locals</b></span><span> variable is explicitly declared, this means to Parser that all variables used in the method are declarated locally.
+<br />
+To access object or class variables you should use self or CLASS prefixes.
+<br />
+</span><span><b><i>
+<br />
+</i></b></span></span><br />
+
+
+
+
+</body>
+</html>

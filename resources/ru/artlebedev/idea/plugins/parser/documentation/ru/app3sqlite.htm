@@ -1,0 +1,71 @@
+<html>
+<head>
+    
+    
+    <title>��� SQLite</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>��� SQLite
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>sqlite://path-to-DB-file?
+<br />
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=UTF-8&amp;&nbsp;<span><b><i>[3.3.0]</i></b></span><span>
+<br />
+&nbsp;&nbsp;&nbsp;autocommit=1&amp;&nbsp;</span><span><b><i>[3.3.0]
+<br />
+</i></b></span><span>&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span><b><i>[3.3.0]
+<br />
+</i></b>
+<br />
+</span><span>���� � ����� � ����� ������ ������� ������������ <a href="requestdocroot.htm">document_root</a>, ����� ���� � �������� ���� � ����� ������� �������� ����������� �������� </span><span><b>:memory:</b></span><span> � </span><span><b>:temporary:</b></span><span>. � ������ ������ �� ������ ����� ����������� ��������� ���� ������ � ������, � �� ������ ������ -  �� �����.</span><span><b>
+<br />
+
+<br />
+</b></span><span>autocommit</span><span> - �� ��������� SQLite ������������� ��������� </span><span>COMMIT</span><span> ����� ������� ������� ������������ �������. ���� ������� ����� </span><span>autocommit=0</span><span>, �� ����� ��������� ����� ��������, � Parser � ������ ��������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span> ����� �������� �������� </span><span>BEGIN</span><span>, � � ����� - </span><span>COMMIT</span><span> ��� </span><span>ROLLBACK</span><span>. ����� ������� ��� �������, ���������� ������ ������ ��������� </span><span>connect</span><span> ����� ����������� � ������ ����� ����������;
+<br />
+</span><span>multi_statements</span><span> - ���� ���������� � 1, �� ����� SQL ������� ����� ��������� ��������� ����������, ���������� �������� ';' (<i>������ ";" ���������� </i><i><a href="stringlit.htm">����������</a></i><i> �������� "^"</i>);<b><i>
+<br />
+</i></b></span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - �� ��������� ������� ������������ ��� ������������ ��������� ������ � UTF-8 � ������� (����� � BLOB-� �� ��������������), ������ � ��������� �������, ���� � ��� ���� ��, ���������� ������ � ���� ��������� (��� � ���������� � SQLite �����������), ��������� ������ ����� �� ������ ������ ���������, � ������� ������� ����� ����������� ��������������� ������ ��� ������� � SQL-��������.<b><i>
+<br />
+</i></b></span><span><b>
+<br />
+�������
+<br />
+</b></span><span>��� ������ � ����� ������ </span><span><b>my.db</b></span><span> ������� ������������� � ���������� </span><span><b>data</b></span><span>, ����������� ����� � �����������, �� ������� ��������� document_root, </span><span>������ ����������� ����� �������� ���</span><span>:</span><span><b>
+<br />
+</b></span><span>sqlite://../data/my.db
+<br />
+
+<br />
+</span><span>��� ������ � ��������� ����� ������, ������������� � ������ � ��� autocommit, </span><span>������ ����������� ����� �������� ���</span><span>:</span><span>
+<br />
+sqlite://:memory:?autocommit=0
+<br />
+</span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

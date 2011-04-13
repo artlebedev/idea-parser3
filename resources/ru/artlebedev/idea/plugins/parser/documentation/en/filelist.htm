@@ -1,0 +1,63 @@
+<html>
+<head>
+    
+    
+    <title>list. Getting directory listing</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>list. Getting directory listing
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file:list[</b><b>path</b><b>]</b><span>   
+<br />
+</span><span><b>^file:list[</b><b>path</b><b>;</b><b>filter</b><b>]</b></span><span>&nbsp;&nbsp;&nbsp;
+<br />
+</span><span>
+<br />
+Makes up a table (object of class </span><span><span><b><u><a href="tableclass.htm">table</a></u></b></span></span><span>) containing one column-</span><span><b>name</b></span><span>-containing files and directories-within specified directory-matching pattern, if specified.
+<br />
+
+<br />
+</span><span><b>filter</b></span><span>-a regular expression (see also method </span><span><b><a href="stringmatch.htm">match</a></b></span><span> of class </span><span><b><a href="stringclass.htm">string</a></b></span><span>) used to specify a pattern for names of file to match. It could be specified as a string or </span><span><span><b><a href="regexclass.htm">regex-object</a></b></span></span><span><b><i> [3.4.0]</i></b>. If </span><span><b>filter</b></span><span> is not specified, all files located in specified directory will be listed.
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>$list[^file:list[/;\.zip^$]]
+<br />
+^list.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{
+<br />
+&nbsp;&nbsp;&nbsp;$list.name</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b></span><span><span><b>}
+<br />
+</b></span></span><span>
+<br />
+Will output the names of all archives with extension </span><span><b>.zip</b></span><span>, located in web-server's root directory.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

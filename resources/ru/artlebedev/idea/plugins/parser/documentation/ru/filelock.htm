@@ -1,0 +1,85 @@
+<html>
+<head>
+    
+    
+    <title>lock. ������������ ���������� ����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>lock. ������������ ���������� ����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file:lock[���&nbsp;�����-����������]{���}</b><span>
+<br />
+
+<br />
+</span><span><b>���</b></span><span> �� ����������� ������������, ��� ����������� �������������� ������������ </span><span><b>����-����������</b></span><span>.
+<br />
+
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>^file:lock[</b></span></span><span><b>/counter.lock</b><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$file[^file::</b></span></span><span><span><b><a href="fileload.htm">load</a></b></span></span><span><span><b>[text;</b></span></span><span><b>/counter.txt</b><span><b>]]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span><span><b><a href="opeval.htm">eval</a></b></span></span><span><span><b>($file.text+1)]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^string.</b></span></span><span><span><b><a href="stringsave.htm">save</a></b></span></span><span><span><b>[</b></span></span><span><b>/counter.txt</b><span><b>]
+<br />
+}
+<br />
+</b></span></span><span><b>����������&nbsp;���������:&nbsp;</b><span><b>$string</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b></span><span>
+<br />
+� ���������� ����������, ��� ������������� ��������� � �������� ����� ������� ���������� ��������� �� 1, � �� �� 2:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>������ ������;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������ ������;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������ ������, �������� �������� 0;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������ ������, �������� �������� 0;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>�������� ������, �������� �������� 1;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>�������� ������, �������� �������� 1;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������� ������, �������� �������� 1;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������� ������ <b>������ ������ ��� ����������� ������</b>, �������� �������� <b>1, � �� 2</b>.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+<i>��������: ������ ������� �� ������������ ���������� ��������. ��� ������ � ������ ������ ������ ���� ���������� � SQL-������ �������� ��� �� ���������� ���������.
+<br />
+
+<br />
+��������: ��� ������������� ����� ����� ���������� ������ ������� �� �� �������� ���������, ����� �������� �������� �� ���� �, � ���� ��, ���-����������� deadlock.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

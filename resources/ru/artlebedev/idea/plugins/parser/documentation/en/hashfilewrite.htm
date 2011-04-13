@@ -1,0 +1,75 @@
+<html>
+<head>
+    
+    
+    <title>Writing</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Writing
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>$hashfile.key[string]
+<br />
+</b><span>
+<br />
+Stores to disk the association between </span><span><b>key</b></span><span> and </span><span><b>string</b></span><span>.
+<br />
+
+<br />
+</span><span><b>$hashfile.key[
+<br />
+&nbsp;&nbsp;&nbsp;$.value[s</b><b>tring</b><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.expires(n</b><b>umber&nbsp;of&nbsp;days</b><b>)
+<br />
+]
+<br />
+$hashfile.k</b><b>ey</b><b>[
+<br />
+&nbsp;&nbsp;&nbsp;$.value[s</b><b>tring</b><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.expires[</b><b><a href="dateclass.htm">date</a></b><b>]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+Such a construction allows to specify the date for association to expire. There can be specified </span><span><b>number&nbsp;of&nbsp;days</b></span><span> or some specific </span><span><b>date</b></span><span>.
+<br />
+
+<br />
+Optional modifiers:
+<br />
+</span><span><b>$.expires(n</b><b>umber&nbsp;of&nbsp;days</b><b>)</b></span><span> - specifies number of days (can have fractional part, 1.5=day and a half), during which to keep </span><span><b>key</b></span><span>/</span><span><b>string</b></span><span> pair, 0 days=forever;</span><span>
+<br />
+</span><span><b>$.expires[</b><b><a href="dateclass.htm">$date</a></b><b>]</b></span><span> - specifies date and time until which the association will be kept, here </span><span><b>$date</b></span><span>-the variable of </span><span><b><a href="dateclass.htm">date</a></b></span><span> type.
+<br />
+
+<br />
+<i>Note: there is a limit on key and value strings, together they must not exceed </i><i>8000 b</i><i>ytes</i><i>.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

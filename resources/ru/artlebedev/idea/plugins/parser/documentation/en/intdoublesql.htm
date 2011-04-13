@@ -1,0 +1,81 @@
+<html>
+<head>
+    
+    
+    <title>sql. Retrieving number from database</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>sql. Retrieving number from database
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^int:sql{query}
+<br />
+^int:sql{query}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(</b><b>expression</b><b>)]
+<br />
+^double:sql{query}
+<br />
+^double:sql{query}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(</b><b>expression</b><b>)]
+<br />
+</b><span>
+<br />
+The method returns number resulted from SQL-query to a database server. The query must return value of single column of single row.
+<br />
+
+<br />
+</span><span><b>query</b></span><span> - query to a DB, written in SQL language;
+<br />
+</span><span><b>$.offset(o)</b></span><span> - ignore first </span><span><b>o</b></span><span> query records;
+<br />
+if SQL-server response was empty (0 records), &#133;
+<br />
+</span><span><b>$.default(</b><b>expression)</b></span><span> &#133;the given </span><span><b>expression&nbsp;</b></span><span>will be evaluated returned;
+<br />
+</span><span><b>$.default{code}</b></span><span> &#133;the given </span><span><b>code</b></span><span> will be executed and string result returned.
+<br />
+
+<br />
+This method demands connection with database server (see operator </span><span><b><a href="opconnect.htm">connect</a></b></span><span>).
+<br />
+
+<br />
+</span><span><b>Example</b><u>
+<br />
+</u></span><span>Code&#133;</span><span>
+<br />
+
+<br />
+</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">connect string</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^int:sql{</b></span></span><span><b>select&nbsp;count(*)&nbsp;from&nbsp;news</b><span><b>}
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+&#133;will return number of records in table </span><span><b>news</b></span><span>.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

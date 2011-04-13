@@ -1,0 +1,100 @@
+<html>
+<head>
+    
+    
+    <title>hash. �������������� ������� � ���� � ��������� �������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>������</b></h1><span>
+<br />
+���� ������ �������, � ������� ������ ����� ����� ������������ � ���������� ��� - </span><span><b>id</b></span><span>. ���� �����-���� �������, ��������� � �������. ������ �������� ������ ������������ </span><span><b>id</b></span><span> ������ �� ������ �������. ��� ��� �������� � ���� ��������. �������� ������� ���������� ����������. ��� ����� �������� ������ � ���� ������ - ����, �.�. �������� ������ ����� �� ���� ������. 
+<br />
+
+<br />
+����������:
+<br />
+</span><span><span><b>#&nbsp;���&nbsp;�������&nbsp;�&nbsp;������&nbsp;��������
+<br />
+$product_list[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{id&nbsp;&nbsp;&nbsp;name
+<br />
+</b></span></span><span><b>1&nbsp;&nbsp;&nbsp;����
+<br />
+2&nbsp;&nbsp;&nbsp;�������
+<br />
+3&nbsp;&nbsp;&nbsp;�����&nbsp;
+<br />
+4&nbsp;&nbsp;&nbsp;�����</b><span><b>
+<br />
+}]
+<br />
+
+<br />
+#&nbsp;���&nbsp;�������&nbsp;�&nbsp;������&nbsp;�������
+<br />
+$price_list[^table::create{id&nbsp;&nbsp;&nbsp;price
+<br />
+</b></span></span><span><b>1&nbsp;&nbsp;&nbsp;6.50
+<br />
+2&nbsp;&nbsp;&nbsp;70.00
+<br />
+3&nbsp;&nbsp;&nbsp;60.85</b><span><b>
+<br />
+}]
+<br />
+
+<br />
+#hash&nbsp;�������&nbsp;�&nbsp;������&nbsp;��&nbsp;����&nbsp;id
+<br />
+$price_list_hash[^price_list.hash[id]]&nbsp;
+<br />
+
+<br />
+#����������&nbsp;������&nbsp;�������&nbsp;�&nbsp;��������
+<br />
+^product_list.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{&nbsp;
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>$product_price[$price_list_hash.</b></span></span><span><span><b><a href="vars.htm">[</a></b></span></span><span><span><b>$product_list.</b></span></span><span><span><b><a href="tablefields.htm">id</a></b></span></span><span><span><b>].</b></span></span><span><span><b><a href="hashfields.htm">price</a></b></span></span><span><span><b>]
+<br />
+#&nbsp;&nbsp;&nbsp;���������&nbsp;-&nbsp;����&nbsp;��&nbsp;����&nbsp;��&nbsp;�����&nbsp;�&nbsp;�����&nbsp;hash
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>^if($product_price){&nbsp;
+<br />
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��������&nbsp;��������&nbsp;������&nbsp;�&nbsp;���&nbsp;����
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>$product_list.name</b></span></span><span><b>&nbsp;-&nbsp;</b><span><b>$product_price</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>}{&nbsp;
+<br />
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�&nbsp;�&nbsp;�����&nbsp;������&nbsp;���&nbsp;����,&nbsp;�.�.&nbsp;���&nbsp;���&nbsp;�&nbsp;�������
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>$product_list.name</b></span></span><span><b>&nbsp;-&nbsp;</b><span><b>���&nbsp;�&nbsp;�������</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>}&nbsp;
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+� ���������� �������:
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;����&nbsp;-&nbsp;6.50
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;�������&nbsp;-&nbsp;70.00
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;�����&nbsp;-&nbsp;60.85
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;�����&nbsp;-&nbsp;���&nbsp;�&nbsp;�������</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

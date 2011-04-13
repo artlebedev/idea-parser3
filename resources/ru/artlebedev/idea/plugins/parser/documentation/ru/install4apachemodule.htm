@@ -1,0 +1,121 @@
+<html>
+<head>
+    
+    
+    <title>��������� Parser �� ���-������ Apache 1.3, ������ �������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>��������� Parser �� ���-������ Apache 1.3, ������ �������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>��� ��������� Parser ���������� ������ ��������� � �������� ���������������� ���� ���-�������, ���, ���� � ��� ��� � ���� �������, ���������� ����������� ������������ <span>.htaccess</span><span> �����.
+<br />
+
+<br />
+��-���������, � ��������� Apache ����������� ������������� </span><span>.htaccess</span><span> ���������.
+<br />
+���� ��� ��� ����������, ��������� �� ������������ (�� ������� ����, �������� </span><span><span><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">FileInfo</a></u></span></span><span>). ��� ���� � �������� ���������������� ����� ���-������� (������ </span><span>httpd.conf</span><span>) � ������ ������ </span><span>&lt;virtualhost&nbsp;�&gt;</span><span> ������ �����, ��� ��� �� - ��� ���� ������, �������� ���������:
+<br />
+</span><span><b>&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#directory" target="_blank">Directory</a></u></b></span></span><span><b>&nbsp;/����/�/������/���/������������&gt;
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">AllowOverride</a></u></b></span></span><span><b>&nbsp;FileInfo
+<br />
+&lt;/Directory&gt;</b></span><span><i>
+<br />
+</i>
+<br />
+Parser3 �������������� ��������� ����������� <a href="charsets.htm">���������������</a>, ��� ��� ��� <span><u><a href="http://apache.lexa.ru/" target="_blank">�������� Apache</a></u></span></span><span> �������� � �������� ���������������� ���� ���-������� (������ </span><span>httpd.conf</span><span>) ������: 
+<br />
+</span><span><span><b><u><a href="http://apache.lexa.ru/configure.html#charsetturnoff" target="_blank">CharsetDisable</a></u></b></span></span><span><b>&nbsp;On
+<br />
+</b></span><span>����������� ������������� ������������ ��������������� �������� Apache ��� ������ �������.
+<br />
+���� ����������� �������� �������� ���������������� ���� ���-������� � ��� ���, �������� ��� ������ � </span><span>.htaccess</span><span> ����.</span><span>
+<br />
+</span><span>
+<br />
+</span><span>
+<br />
+</span><span>��� UNIX:</span><span>
+<br />
+</span><span>���������� ������� Parser �� �������� �����, ����� ���� </span><span>--with-apache13</span><span> � ������� </span><span>configure</span><span>, ��� </span><span>make</span><span> �� ������ �������� ���������� �� ���������� ������ Apache �� ��� �������� �����.
+<br />
+<i>��������: �� ��������� �������� ����������� </i></span><span>make</span><span><i> �� �������� � make-������� Parser3, �������������� GNU ���������: </i></span><span>gmake</span><span><i>.</i>
+<br />
+</span><span>
+<br />
+</span><span>��� Win32:
+<br />
+��������� ����� � ����������� ����� ������ Parser (� ������� ������, </span><span>ApacheModuleParser3.dll</span><span>) � ������������ �������.
+<br />
+���� �� ����������� ������ Parser � ���������� XML, � �������, ��������� � ���������� ��������� </span><span>PATH</span><span> (��������, C:\WinNT), ���������� XML ����������.
+<br />
+�������� � ���� </span><span>httpd.conf</span><span> ����� ��������� ����� </span><span>LoadModule</span><span>:</span><span>
+<br />
+<b>#&nbsp;������������&nbsp;��������&nbsp;������
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_so.html#loadmodule" target="_blank">LoadModule</a></u></b></span></span><span><b>&nbsp;parser3_module&nbsp;x:\path\to\ApacheModuleParser3.dll
+<br />
+</b></span><span><i>��������: ���� ����������, ��������� ������������� </i></span><span>.dll</span><span><i> ����� � ��� �� �������.</i></span><span><b>
+<br />
+
+<br />
+</b></span><span>� ����� ��������� ����� </span><span>AddModule</span><span> (���� �� �������, �� ����������):</span><span><b>
+<br />
+#&nbsp;����������&nbsp;������&nbsp;�&nbsp;������&nbsp;��������&nbsp;�������
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#addmodule" target="_blank">AddModule</a></u></b></span></span><span><b>&nbsp;mod_parser3.c
+<br />
+</b></span><span><i>��������: �� </i><i>3.1.1</i></span><span><b><i>&nbsp;</i></b></span><span><i>������ </i><i>Parser: </i></span><span><span><b><i><u><a href="http://httpd.apache.org/docs/mod/core.html#addmodule" target="_blank">AddModule</a></u></i></b></span></span><span><b><i>&nbsp;mod_parser3.</i></b><b><i>C&nbsp;&nbsp;(</i></b><b><i>��&nbsp;�����&nbsp;</i></b><b><i>.C&nbsp;</i></b><b><i>�������</i></b><b><i>)</i></b><b><i>
+<br />
+</i></b>
+<br />
+</span><span>�������� � ���� </span><span>.htaccess</span><span> ������ ����� (��� � </span><span>httpd.conf</span><span> � ������ </span><span>&lt;virtualhost&nbsp;�&gt;</span><span> ������ �����, ��� ��� �� - ��� ���� ������) �����:
+<br />
+</span><span><b>#&nbsp;����������&nbsp;������������&nbsp;.html&nbsp;�������
+<br />
+</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_mime.html#addhandler" target="_blank">AddHandler</a></u></b></span></span><span><b>&nbsp;parser3-handler&nbsp;html
+<br />
+
+<br />
+#&nbsp;�������&nbsp;</b><b><a href="parserconfig.htm">����������������� �����</a></b><b>
+<br />
+ParserConfig&nbsp;x:\path\to\parser3\config\auto.p
+<br />
+
+<br />
+#&nbsp;������&nbsp;��&nbsp;������&nbsp;�&nbsp;.p&nbsp;������,&nbsp;�&nbsp;��������</b><b>,</b><b>&nbsp;�&nbsp;auto.p
+<br />
+&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#files" target="_blank">Files</a></u></b></span></span><span><b>&nbsp;~&nbsp;"\.p$"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#order" target="_blank">Order</a></u></b></span></span><span><b>&nbsp;allow,deny
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#deny" target="_blank">Deny</a></u></b></span></span><span><b>&nbsp;from&nbsp;all
+<br />
+&lt;/Files&gt;</b></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

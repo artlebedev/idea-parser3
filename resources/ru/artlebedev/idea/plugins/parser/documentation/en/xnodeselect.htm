@@ -1,0 +1,58 @@
+<html>
+<head>
+    
+    
+    <title>select. XPath search for node</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b></h1><span><u>
+<br />
+</u></span><span><span><b>$d[^xdoc::</b></span></span><span><span><b><a href="xdoccreatexml.htm">create</a></b></span></span><span><span><b>{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br />
+</b><b>&lt;document&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>&lt;t/&gt;&lt;t/&gt;</b><b>
+<br />
+&lt;/document&gt;</b><span><b>}]
+<br />
+</b></span></span><span><span><b>#&nbsp;result&nbsp;is&nbsp;list&nbsp;of&nbsp;two&nbsp;elements&nbsp;"t"
+<br />
+</b></span></span><span><span><b>$list[^d.select[</b></span></span><span><span><b>/document/</b></span></span><span><span><b>t]]
+<br />
+</b></span></span><span><span><b>#&nbsp;iterating&nbsp;through&nbsp;found&nbsp;lists:
+<br />
+#&nbsp;this&nbsp;code&nbsp;will&nbsp;work
+<br />
+#&nbsp;even&nbsp;if&nbsp;query&nbsp;returns&nbsp;no&nbsp;nodes&nbsp;at&nbsp;all
+<br />
+</b></span></span><span><span><b>^</b></span></span><span><span><b><a href="opfor.htm">for</a></b></span></span><span><span><b>[i](0;$list-1){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$node[$list.$i]
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Name</b><b>:&nbsp;</b><span><b>$node.</b></span></span><span><span><b><a href="xnodedomfields.htm">nodeName</a></b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Type</b><b>:&nbsp;</b><span><b>$node.nodeType</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+In Parser, DOM interface <span><u><a href=""http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-536297177" target="_blank">NodeList</a></u></span></span><span> is class </span><span><b><a href=hashclass.htm">hash</a></b></span><span> with keys 0, 1, &#133;;
+<br />
+
+<br />
+Detailed specification of XPath is available at: <span><u><a href="http://www.w3.org/TR/xpath" target="_blank">http://www.w3.org/TR/xpath</a></u></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

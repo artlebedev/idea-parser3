@@ -1,0 +1,655 @@
+<html>
+<head>
+    
+    
+    <title>untaint, taint. Transforming data</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>untaint, taint. Transforming data
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^untaint{</b><b>code</b><b>}
+<br />
+^untaint[</b><b>transformation type</b><b>]{code</b><b>}
+<br />
+^taint[</b><b>text</b><b>]
+<br />
+^taint[</b><b>transformation type</b><b>][text</b><b>]
+<br />
+^apply-taint</b><b>[text</b><b>]</b><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.1]</i></b></span><span>
+<br />
+</span><span><b>^apply-taint[</b><b>transformation&nbsp;type</b><b>][text</b><b>]</b></span><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.1]</i></b></span><span>
+<br />
+</span><span>
+<br />
+
+<br />
+</span><span>Parser enables automatic data transformations to protect your system against intrusion and the "default" security level is high. It works even if your code contains no operators </span><span><b>taint/untaint</b></span><span>. If you interfere by using these operators (especially for </span><span><b>as-is</b></span><span> transformations), you may increase the risk of security vulnerability. Therefore, study the mechanism carefully before writing code.</span><span>
+<br />
+</span><span>
+<br />
+</span><span>Operator </span><span><b>taint</b></span><span> marks the </span><span><b>text</b></span><span> received as "needing transformation of a certain type". If transformation type is </span><span><b>unspecified</b></span><span>, taint marks it as "tainted" (needing undefined transformation). Text marked "tainted" is subject to the type of transformation applied to external text (coming from from <a href="formfield.htm">field</a>, database, <a href="fileload.htm">file</a>, <a href="cookiestats.htm">cookies</a>, etc.).
+<br />
+
+<br />
+Operator </span><span><b>untaint</b></span><span> executes the </span><span><b>code</b></span><span> received and marks "needing transformation of a certain type" the tainted parts of the execution result (i.e. pieces that did not constitute part of the Parser code within the document body, either external or marked "tainted" by the taint operator). It does not concern parts subject to transformation of a certain type. If transformation type is </span><span><b>unspecified</b></span><span>, untaint marks the tainted pieces of the execution result as </span><span><b>as-is</b></span><span>.
+<br />
+</span><span>
+<br />
+</span><span>Text is marked for transformation to be </span><span><b>performed&nbsp;later</b></span><span>, when the </span><span><b>apply-taint</b></span><span> operator is called, the document is outputted to browser, sent to SQL server, saved into a file, sent out through e-mail, etc.</span><span>
+<br />
+</span><span>
+<br />
+Operator </span><span><b>apply-taint</b></span><span> applies inplace transformation to all tainted parts of the string. Parts within undefined transformation type will be processed using specified transformation type (as-is by default).
+<br />
+
+<br />
+
+<br />
+For simplicity you can think about it as if Parser interprets external characters as </span><span><span><b>^taint[</b></span></span><span><b>external&nbsp;text</b><span><b>]</b></span></span><span><b>,</b> and text within the body as </span><span><span><b>^taint[optimized-as-is][</b></span></span><span><b>typed&nbsp;text</b><span><b>]</b></span></span><span>.</span><span>
+<br />
+</span><span>
+<br />
+In some cases </span><span><span><b>^taint[transformation&nbsp;type][</b></span></span><span><b>text</b><span><b>]</b></span></span><span><b> </b>and </span><span><span><b>^untaint[transformation&nbsp;type]{</b></span></span><span><b>text</b><span><b>}</b></span></span><span><b>&nbsp;</b></span><span>produce the same result. It happens when the whole text is tainted (for example, </span><span><b><a href="formfield.htm">$form:field</a></b></span><span>). However, keep in mind that these operators have different default parameters, and applying both without transformation types to a tainted text will create absolutely different results. </span><span>
+<br />
+</span><span>
+<br />
+
+<br />
+When outputting to browser, Parser automatically applies type </span><span><b>optimized-html</b></span><span>, and the code looks like this:</span><span>
+<br />
+<span><b>^untaint[optimized-html]{typed&nbsp;code}</b></span></span><span><b>
+<br />
+</b>
+<br />
+It means that if you write </span><span><span><b>$form:field</b></span></span><span><b> </b>(not using </span><span><b>taint/untaint</b></span><span>) within the body, then even if "</span><span><b>?field=&lt;/html&gt;"</b></span><span><b> </b>is called, the page shall not be "crippled" due to the closing tag </span><span><b>&lt;/html&gt;</b></span><span><b> </b>appearing too early, because the content of </span><span><span><b><a href="formfield.htm">$form:field</a></b></span></span><span><b> </b>is tainted and will be subjected to automatic </span><span><b>optimized-html</b></span><span><b> </b>transformation that replaces greater-than and less-than signs ('&lt;' and '&gt;') with entity references '</span><span>&amp;lt;'</span><span><i> </i>and '</span><span>&amp;gt;'</span><span><i>.</i></span><span>
+<br />
+</span><span>Other automatic transformations are performed in the same way. For instance, an SQL query containing </span><span><span><b>^string:sql{</b></span></span><span><b>SELECT&nbsp;name&nbsp;FROM&nbsp;table&nbsp;WHERE&nbsp;uid&nbsp;=</b><span><b>&nbsp;'$form:uid'}</b></span></span><span><b> </b>(again, not using </span><span><b>taint/untaint</b></span><span>) cannot be subverted by SQL injection using parameter "</span><span><b>?uid='&nbsp;OR&nbsp;1=1&nbsp;OR&nbsp;'"</b></span><span><b>, </b>because Parser shields the single quotes in the </span><span><span><b>$form:uid</b></span></span><span> received before sending the query to server.</span><span>
+<br />
+</span><span><i>
+<br />
+</i><i>
+<br />
+</i>Text within the body is also automatically transformed. Parser optimizes whitespace symbols: space, tabulation characters and line breaks. If these symbols appear in a row, they are replaced with the first one of them. In other words, if you type several spaces, they become only one before viewing. If you need to disable this optimization (for example, when using </span><span><b>&lt;pre/&gt;</b></span><span>), do it explicitly by writing, for instance, the following:</span><span>
+<br />
+</span><span>
+<br />
+</span><span><b>&lt;pre&gt;
+<br />
+</b><span><b>^taint[as-is][</b></span></span><span><b><i>
+<br />
+</i></b>&nbsp;&nbsp;  I strode off the 
+<br />
+</span><span>&nbsp;&nbsp;&nbsp;</span><span>high cathedral </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span>top-most step like a</span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>miracle worker, or a </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>Blessed </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>passing the final exam for </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>Saint. The </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>city expanded at my </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>feet. For one </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>pico-second, I </span><span>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>flew.</span><span>
+<br />
+<span><b>]</b></span></span><span><b>
+<br />
+&lt;/pre&gt;</b>
+<br />
+</span><span><i>
+<br />
+</i>In this case, you must use </span><span><b>taint</b></span><span><b>, </b>as the typed characters are untainted and </span><span><b>untaint</b></span><span> would not produce any effect.</span><span>
+<br />
+</span><span>
+<br />
+
+<br />
+</span><span><b>Example</b></span><span><i>
+<br />
+</i></span><span><span><b>$clean[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]</b></span></span><span><b>
+<br />
+</b><b>#&nbsp;the&nbsp;above&nbsp;expression&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;this:&nbsp;</b><span><b>$clean[^taint[optimized-as-is][</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]]&nbsp;</b></span></span><span><b>
+<br />
+</b><b>
+<br />
+</b><span><b>$tainted[^taint[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]]</b></span></span><span><b>
+<br />
+
+<br />
+</b><b>Strings:&nbsp;</b><span><b>^if($clean&nbsp;eq&nbsp;$tainted){</b></span></span><span><b>match</b><span><b>}{</b></span></span><span><b>do&nbsp;not&nbsp;match</b><span><b>}</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><b>
+<br />
+Tainted&nbsp;data</b></span><span>-</span><span><b>'</b><span><b>$tainted</b></span></span><span><b>'&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><b>Untainted&nbsp;data</b></span><span>-</span><span><b>'</b><span><b>$clean</b></span></span><span><b>'&lt;br&nbsp;/&gt;</b></span><span>
+<br />
+
+<br />
+This example shows that although comparison show that strings are equal, a browser will display different results-the untainted string is not transformed, whereas '&lt;' and '&gt;' in the tainted one are replaced with '&amp;lt;' and '&amp;gt;'.
+<br />
+ 
+<br />
+
+<br />
+</span><span><b>Example</b></span><span>
+<br />
+</span><span><b>Example&nbsp;using&nbsp;</b><b><a href="stringlit.htm">^^</a></b><b>untaint.&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><b>&lt;form&gt;
+<br />
+&lt;input&nbsp;type="text"&nbsp;name="field"&nbsp;/&gt;</b><b>
+<br />
+</b><b>&lt;input&nbsp;type="submit"&nbsp;/&gt;</b><b>
+<br />
+</b><b>&lt;/form&gt;</b><b>
+<br />
+
+<br />
+</b><span><b>$tainted[$form:field]</b></span></span><span><b>
+<br />
+</b><b>Tainted&nbsp;data</b></span><span>-</span><span><b>'</b><span><b>$tainted'</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><b>Untainted&nbsp;data</b></span><span>-</span><span><b>'</b><span><b>^untaint{$tainted}'</b></span></span><span>
+<br />
+
+<br />
+Transformation type for </span><span><b>untaint</b></span><span> is specified inside square brackets. Here it is omitted, which means using the default parameter </span><span><b>as-is</b></span><span>. Note that while </span><span><b>untaint</b></span><span> with unspecified transformation type is equivalent to </span><span><b>untaint</b></span><span> with </span><span><b>as-is</b></span><span> transformation, </span><span><b>taint</b></span><span> has no transformation equivalent to </span><span><b>taint</b></span><span> with unspecified type.
+<br />
+
+<br />
+
+<br />
+</span><span><b>Example</b></span><span>
+<br />
+</span><span><b>Example&nbsp;</b><b><a href="stringlit.htm">^^</a></b><b>taint.&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><span><b>$city[New&nbsp;York]</b></span></span><span><b>
+<br />
+</b><b>&lt;a&nbsp;href="city.html?city=</b><span><b>^taint[uri][$city]</b></span></span><span><b>"&gt;</b><span><b>$city</b></span></span><span><b>&lt;/a&gt;</b></span><span>
+<br />
+
+<br />
+As a result, contents of variable city are transformed into URI type. Cyrillic characters, white spaces and other characters which must be encoded, would be replaced with hex entities and represented as %XX.
+<br />
+
+<br />
+
+<br />
+</span><span><b>Example</b></span><span>
+<br />
+</span><span><b>Ouputting&nbsp;and&nbsp;saving&nbsp;user&nbsp;submitted&nbsp;data&nbsp;and&nbsp;generating&nbsp;XML&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><b>You&nbsp;specify:&nbsp;'</b><span><b>$form:field</b></span></span><span><b>'</b><b>
+<br />
+</b><span><b>
+<br />
+</b></span></span><span><span><b>^connect[$SQL.connect-string]{
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^void:sql{</b></span></span><span><b>INSERT&nbsp;INTO&nbsp;news&nbsp;SET&nbsp;(body)&nbsp;VALUES&nbsp;('</b><span><b>$form:field</b></span></span><span><b>')</b><span><b>}</b></span></span><span><b>
+<br />
+</b><span><b>}</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>$doc[^xdoc::create{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="UTF-8"?&gt;</b><b>
+<br />
+</b><b>&lt;root&gt;</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;</b><b>&lt;data&gt;</b><span><b>$form:field</b></span></span><span><b>&lt;/data&gt;</b><b>
+<br />
+&lt;/root&gt;
+<br />
+</b><span><b>}]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+In this case, you need neither </span><span><b>taint</b></span><span> nor </span><span><b>untaint</b></span><span>, as all the necessary transformations will occur automatically with transformation type </span><span><b>optimized-html</b></span><span> for output to browser, </span><span><b>sql</b></span><span> for sending data to server and </span><span><b>xml</b></span><span> for generating xdoc object.
+<br />
+Note that you also do not need to write </span><span><b>taint/untaint</b></span><span> in SQL queries when saving data to a database using administrative interface.
+<br />
+ 
+<br />
+
+<br />
+</span><span><b>Example</b></span><span>
+<br />
+</span><span><b>Outputting&nbsp;user&nbsp;submitted&nbsp;data&nbsp;or&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;(may&nbsp;contain&nbsp;tags)&nbsp;to&nbsp;an&nbsp;edit&nbsp;form&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><span><b>^if(def&nbsp;$form:body){
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;$body[$form:body]
+<br />
+</b></span></span><span><span><b>}{
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^connect[$SQL.connect-string]{</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$body[^string:sql{</b></span></span><span><b>SELECT&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span><b>$id}]</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}
+<br />
+</b></span></span><span><b>&lt;textarea&gt;</b><span><b>$body</b></span></span><span><b>&lt;/textarea&gt;
+<br />
+</b></span><span>
+<br />
+In this example </span><span><b>optimized-html</b></span><span> transformation will be performed automatically, because the data submitted by the user or coming from a database are tainted. If the data contains any tags, they will not affect the page. Remember that sequences of white spaces in </span><span><b>$body</b></span><span> will be optimized during output.
+<br />
+
+<br />
+
+<br />
+</span><span><b>Example</b></span><span>
+<br />
+</span><span><b>Outputting&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;containing&nbsp;administrator&nbsp;written&nbsp;tags&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><span><b>^connect[$SQL.connect-string]{
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;</b></span></span><span><span><b>$body[^string:sql{</b></span></span><span><b>SELECT&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span><b>$id}]</b></span></span><span><span><b>
+<br />
+}
+<br />
+^taint[as-is][$body]
+<br />
+</b></span></span><span>
+<br />
+Here you should use </span><span><b>taint</b></span><span> specifying transformation type </span><span><b>as-is</b></span><span> (or </span><span><b>untaint</b></span><span> specifying this type), for the tags included in the news code by the administrator need not undergo any transformation. This method must not be used for the data submitted by visitors to the website such as guest book information, forum entries, etc.
+<br />
+
+<br />
+
+<br />
+</span><span><b>Example</b></span><span>
+<br />
+</span><span><b>Outputting&nbsp;user&nbsp;submitted&nbsp;data&nbsp;or&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;(may&nbsp;contain&nbsp;tags)&nbsp;to&nbsp;an&nbsp;edit&nbsp;form&nbsp;keeping&nbsp;spacing&nbsp;symbols&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><span><b>^if(def&nbsp;$form:body){
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;</b></span></span><span><span><b>$body[$form:body]</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>}{</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;</b></span></span><span><span><b>^connect[$SQL.connect-string]{</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$body[^string:sql{</b></span></span><span><b>SELECT&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=&nbsp;</b><span><b>$id}]</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;</b></span></span><span><span><b>}</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>}</b></span></span><span><span><b>
+<br />
+</b></span></span><span><b>&lt;textarea&gt;</b><span><b>^taint[html][$body]</b></span></span><span><b>&lt;/textarea&gt;</b></span><span>
+<br />
+
+<br />
+In this case, use </span><span><b>taint</b></span><span> specifying transformation type </span><span><b>html</b></span><span> (or </span><span><b>untaint</b></span><span> with this type) to avoid crippling the page and to disable optimization of space characters.
+<br />
+
+<br />
+
+<br />
+In the above examples operator </span><span><b>taint</b></span><span> was used only three times: for displaying administrator added tags in database-derived text, for disabling optimization of spacing symbols, and for outputting query string containing encoded characters (for example, white spaces and Cyrillic letters). 
+<br />
+Otherwise, there was no need for </span><span><b>taint/untaint</b></span><span>, and Parser managed everything on its own.
+<br />
+
+<br />
+Remember that it is better not to use these operators unless necessary.
+<br />
+
+<br />
+
+<br />
+You might have noticed that none of the examples used </span><span><b>untaint</b></span><span>. This raises the question of its usefulness. Here are a couple of practical examples.
+<br />
+
+<br />
+Firstly, it sometimes helps to reduce the number of the </span><span><b>taint</b></span><span> operators in the code. For example, when outputting data to a multi-field form with spacing optimization disabled. In this case, you can apply </span><span><span><b>^</b></span></span><span><span><b>untaint[html]{&#133;}</b></span></span><span> to the whole form instead of writing </span><span><span><b>^taint[html][&#133;]</b></span></span><span> for each textarea value.
+<br />
+
+<br />
+
+<br />
+</span><span><b>Example</b></span><span>
+<br />
+</span><span><b>Outputting&nbsp;user&nbsp;submitted&nbsp;data&nbsp;or&nbsp;data&nbsp;coming&nbsp;from&nbsp;a&nbsp;database&nbsp;(may&nbsp;contain&nbsp;tags)&nbsp;to&nbsp;a&nbsp;large&nbsp;edit&nbsp;for&nbsp;keeping&nbsp;spacing&nbsp;symbols&lt;br&nbsp;/&gt;</b></span><span>
+<br />
+</span><span><span><b>^if(def&nbsp;$form:title){
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$data[$form:fields]</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>}{</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;</b></span></span><span><span><b>^connect[$SQL.connect-string]{</b></span></span><span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data[^table::sql{</b></span></span><span><b>SELECT&nbsp;title,&nbsp;lead,&nbsp;body&nbsp;FROM&nbsp;news&nbsp;WHERE&nbsp;news_id&nbsp;=</b><span><b>&nbsp;$id}]&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>}</b></span></span><span><span><b>
+<br />
+</b></span></span><span><span><b>}</b></span></span><span><span><b>
+<br />
+</b></span></span><span>
+<br />
+</span><span><span><b>^untaint[html]{</b></span></span><span><span><b>
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><b>&lt;p&gt;</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Heading&lt;/b&gt;&lt;br&nbsp;/&gt;
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="title"&gt;</b><span><b>$data.title</b></span></span><span><b>&lt;/textarea&gt;
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&lt;/p&gt;</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;</b><b>&lt;p&gt;</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Announcement:&lt;/b&gt;&lt;br&nbsp;/&gt;
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="lead"&gt;</b><span><b>$data.lead</b></span></span><span><b>&lt;/textarea&gt;
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;p&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;</b><b>News&lt;/b&gt;&lt;br&nbsp;/&gt;</b><b>
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="body"&gt;</b><span><b>$data.body</b></span></span><span><b>&lt;/textarea&gt;
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&lt;/p&gt;</b><b>
+<br />
+</b><span><b>}</b></span></span><span><span><b>
+<br />
+</b></span></span><span>
+<br />
+
+<br />
+Secondly, you can use it to output xml to browser (for instance, for ajax, RSS, SOAP, etc.). In this situation </span><span><b>optimized-html</b></span><span> is not appropriate, and you must enclose the code in </span><span><span><b>^untaint[optimized-xml]{&#133;}&nbsp;</b></span></span><span>to ensure correct output.
+<br />
+</span><span>
+<br />
+
+<br />
+The transformation is replacement of some characters by others, according to built-in transformation tables. The following types of transformation are available:
+<br />
+
+<br />
+</span><span><b>as-is
+<br />
+file-spec
+<br />
+http-header
+<br />
+mail-header
+<br />
+uri
+<br />
+sql
+<br />
+js</b><b>
+<br />
+regex&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.5]</i></b></span><span><b>
+<br />
+xml
+<br />
+html
+<br />
+
+<br />
+optimized-as-is
+<br />
+optimized-xml
+<br />
+optimized-html
+<br />
+</b></span><span>
+<br />
+</span><span><b>Transformation table
+<br />
+</b></span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="133">
+<span><b>as-is</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>no transformation
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>file</b><b>-spec</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>characters <span>*&nbsp;?&nbsp;'&nbsp;"&nbsp;&lt;&nbsp;&gt;&nbsp;|&nbsp;</span><span>are replaced with "_XX", where XX is character's hex-code
+<br />
+
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>uri</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>characters other than numbers or lower/uppercase Latin letters as well as characters <span>_&nbsp;-&nbsp;.&nbsp;"</span><span> are replaced with %XX, where XX is a character's hex-code
+<br />
+</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>http-</b><b>header</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>the same as URI&nbsp;&nbsp;&nbsp;
+<br />
+<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>mail-header</b><b>
+<br />
+</b></span></td><td align="left" valign="top" width="453">
+<span>if charset is known (if not, upper/lowercase will not work), the fragment starting with the eighth-bit first letter and until the end of the string will be represented in such a way:
+<br />
+Subject: Re: parser3: =?koi8-r?Q?=D3=C5=CD=C9=CE=C1=D2?=
+<br />
+<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>sql</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>depending on SQL-server
+<br />
+for Oracle, ODBC and SQLite <span>'</span><span> is replaced with </span><span>''</span><span>
+<br />
+for PgSQL is transformed by means of PgSQL itself
+<br />
+for MySQL is transformed by means of MySQL itself
+<br />
+</span><span>
+<br />
+</span><span>for transformation needed that code which made a transformation are located inside </span><span><span><b>^connect[]{}</b></span></span><span> operator.</span><span>
+<br />
+
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>js</b><b>
+<br />
+</b><span>
+<br />
+
+<br />
+
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>"<span> is replaced with </span><span>\"</span><span> 
+<br />
+</span><span>'</span><span> is replaced with </span><span>\'</span><span>
+<br />
+</span><span>\</span><span> is replaced with </span><span>\\</span><span>
+<br />
+newline character is replaced with </span><span>\n</span><span>
+<br />
+character with code&nbsp;0xFF is preceded by </span><span>\</span><span>&nbsp;&nbsp;&nbsp;
+<br />
+
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>regex</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>Characters
+<br />
+<span>\&nbsp;^&nbsp;$&nbsp;.&nbsp;[&nbsp;]&nbsp;|&nbsp;(&nbsp;)&nbsp;?&nbsp;*&nbsp;+&nbsp;{&nbsp;}&nbsp;-</span><span>
+<br />
+are prefixed by
+<br />
+</span><span>\</span><span>
+<br />
+<b><i>[3.1.5]
+<br />
+</i></b>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>parser-code</b>
+<br />
+</span></td><td align="left" valign="top" width="453">
+<span><a href="stringlit.htm">Special characters</a> are prefixed by ^<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>xml</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>&amp;<span> is replaced with &amp;amp;  
+<br />
+</span><span>&gt;</span><span> is replaced with &amp;gt;  
+<br />
+</span><span>&lt;</span><span> is replaced with &amp;lt;  
+<br />
+</span><span>"</span><span> is replaced with &amp;quot;  
+<br />
+</span><span>'</span><span> is replaced with &amp;apos; &nbsp;&nbsp;&nbsp;
+<br />
+</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>html</b>
+<br />
+</span></td><td align="left" valign="top" width="453">
+<span>&amp;<span> is replaced with &amp;amp; 
+<br />
+</span><span>&gt;</span><span> is replaced with &amp;gt; 
+<br />
+</span><span>&lt;</span><span> is replaced with &amp;lt; 
+<br />
+</span><span>"</span><span> is replaced with &amp;quot; 
+<br />
+</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="133">
+<span><b>optimized-as-is</b><span>
+<br />
+</span><span><b>optimized-xml
+<br />
+</b><b>optimized-html</b><b>
+<br />
+
+<br />
+
+<br />
+</b></span><span>
+<br />
+</span></span></td><td align="left" valign="top" width="453">
+<span>in addition to replacements, optimizes "white spaces" (space, tab, newline characters).
+<br />
+
+<br />
+multiple repetition of above-mentioned characters in a row is replaced with a single one-that which goes first in the row<span>
+<br />
+</span></span></td></tr></table>
+<br />
+A number of </span><span><b>taint</b></span><span> transformations are made automatically. Thus, names of files and paths are always automatically transformed with </span><span><b>file-spec</b></span><span> and when you write&#133;
+<br />
+</span><span><b>
+<br />
+^</b><b><a href="fileload.htm">file::load</a></b><b>[filename]
+<br />
+</b></span><span>
+<br />
+&#133;Parser executes&#133;
+<br />
+</span><span><b>
+<br />
+</b><span><b>^file::load[^taint[file-spec][</b></span></span><span><b>filename</b><span><b>]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+Similarly, when HTTP-headers and mail headers are defined, Parser executes </span><span><b>http-header</b></span><span> and </span><span><b>mail-header</b></span><span> transformations respectively. During DOM-operations, text parameters of all methods are automatically </span><span><b>xml</b></span><span>-transformed.
+<br />
+
+<br />
+Parser also performs a number of automatic </span><span><b>untaint</b></span><span> transformations:
+<br />
+</span><span><b><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="127">
+<span><i>type</i>
+<br />
+</span></td><td align="left" valign="top" width="534">
+<span><i>what is transformed </i><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span><b>sql</b>
+<br />
+</span></td><td align="left" valign="top" width="534">
+<span>body of SQL-query<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span><b>xml</b>
+<br />
+</span></td><td align="left" valign="top" width="534">
+<span>XML-code-while an object of class  <span><b><a href="xdocclass.htm">xdoc</a></b>&nbsp;</span><span>is created</span><span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span><b>optimized-html</b>
+<br />
+</span></td><td align="left" valign="top" width="534">
+<span>page output to browser<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span><b>regex</b>
+<br />
+</span></td><td align="left" valign="top" width="534">
+<span>REGEX-patterns<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="127">
+<span><b>parser-code</b>
+<br />
+</span></td><td align="left" valign="top" width="534">
+<span>body of operator <a href="opprocess.htm">process</a><span>
+<br />
+</span></span></td></tr></table>
+<br />
+</b></span></span><br />
+
+
+
+
+</body>
+</html>

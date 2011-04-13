@@ -1,0 +1,85 @@
+<html>
+<head>
+    
+    
+    <title>files. ��������� ��������� ������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>files. ��������� ��������� ������&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span>
+<br />
+
+
+
+<span><b>$form:files</b><span>
+<br />
+</span><span>
+<br />
+����� ����������� ���������� <a href="hash.htm">���</a> �� ����� ������� �����. ����� ������ ���� �� ��, ��� � � ����� �����, ���������� �� �������� ����, ��. ����.
+<br />
+
+<br />
+</span><span><b>$form:</b><b>files</b><b>.����_�����</b></span><span>&nbsp;&nbsp;&nbsp;
+<br />
+</span><span>
+<br />
+���� ���� ����� ����� ���� �� ���� �������� ���� ����, ����� ����������� ���������� ��� (������ ������ </span><span><span><b><u><a href="hashclass.htm">hash</a></u></b></span></span><span>) � ������� 0, 1, 2... (�� ���������� ���������� ������), ���������� ��� ����� � ��������� ������. ������������ ��� ��������� ��������� ������ � ���������� ������ �����.
+<br />
+<i>
+<br />
+</i><i>��������: �� �������� ��������� ������� ���� ����� ���, ��� ������ �� �����������.</i>
+<br />
+
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>^if(def&nbsp;$form:picture){</b></span></span><span><b>
+<br />
+&nbsp;&nbsp;&nbsp;</b><b>&lt;p&gt;</b><b>���������&nbsp;�����������</b><b>&nbsp;(</b><span><b>^form:files.picture._count[]</b></span></span><span><b>):</b><b>
+<br />
+</b><span><b>&nbsp;&nbsp;&nbsp;^form:files.picture.foreach[sNum;fValue]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$fValue.name
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^fValue.save[binary;/upload/pictures/${sNum}.^file:justext[$fValue.name]]
+<br />
+&nbsp;&nbsp;&nbsp;}[,&nbsp;]
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;</b><b>
+<br />
+</b><span><b>}</b></span></span><span><b>
+<br />
+&lt;form&nbsp;method="</b><b>post</b><b>"</b><b>&nbsp;enctype="multipart/form-data"</b><b>&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;p&gt;��������&nbsp;���������&nbsp;�����������&nbsp;���&nbsp;��������</b><b>:&lt;br&nbsp;/&gt;</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="file"&nbsp;name="picture"</b><b>&nbsp;/</b><b>&gt;&lt;br&nbsp;/&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="file"&nbsp;name="picture"</b><b>&nbsp;/</b><b>&gt;&lt;br&nbsp;/&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="file"&nbsp;name="picture"</b><b>&nbsp;/</b><b>&gt;&lt;br&nbsp;/&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=</b><b>"</b><b>submit</b><b>"</b><b>&nbsp;value="���������"</b><b>&nbsp;/</b><b>&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;/p&gt;
+<br />
+&lt;/form&gt;
+<br />
+</b></span><span>
+<br />
+<i>��������: ����������� ����������� ��������� � ������������ �������.
+<br />
+</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

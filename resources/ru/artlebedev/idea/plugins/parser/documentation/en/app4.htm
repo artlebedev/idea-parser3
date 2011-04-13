@@ -1,0 +1,249 @@
+<html>
+<head>
+    
+    
+    <title>Appendix 4. Perl Compatible Regular Expressions</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Appendix 4. Perl Compatible Regular Expressions
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>Detailed information on PCRE (Perl Compatible Regular Expressions) can be found in Perl documentation (see <span><u><a href="http://perldoc.perl.org/perlre.html" target="_blank">http://perldoc.perl.org/perlre.html</a></u></span><span>), in documentation on PCRE used by Parser (see <span><u><a href="http://www.pcre.org/man.txt" target="_blank">http://www.pcre.org/man.txt</a></u></span></span><span>),  as well as in many other sources which also contain many practical examples. Most detailed information on regular expressions is given in <i>Regular Expressions</i> by J. Friddle, O'Reilly (ISBN 1-56592-257-3).
+<br />
+
+<br />
+A draft description given here is only a short reference.
+<br />
+
+<br />
+A regular expression is a pattern that is matched against a subject string from left to right. Most characters stand for themselves in a pattern, and match the corresponding characters in the subject. As a trivial example, the pattern "<b>The quick brown fox</b>" matches a portion of a subject string that is identical to itself. The power of regular expressions comes from the ability to include alternatives and repetitions in the pattern. These are encoded in the pattern by the use of meta-characters, which do not stand for themselves but instead are interpreted in some special way.
+<br />
+
+<br />
+There are two different sets of meta-characters:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span>1.</span></span></td><td><span>Those that are recognized anywhere in the pattern except within square brackets;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span>2.</span></td><td><span>Those that are recognized in square brackets.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+Outside square brackets, the meta-characters are as follows:
+<br />
+
+<br />
+</span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>\</b><span><b>
+<br />
+</b></span></span></p></td><td align="left" valign="top" width="415">
+<span>general escape character with several uses, more detailed description is given later
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>^</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>assert start of subject (or line, in multiline mode)
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>$</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>assert end of subject (or line, in multiline mode)
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>.</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>character class containing all characters; match any character except newline
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>[...]</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>character class definition. Matches any of bracketed characters
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>|</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>meta-character "OR": allows joining several patterns into one set of alternative matches
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>(...)</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>delimit subpattern within general match pattern
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>?</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>match 1 non-alphanumeric character
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>*</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>match 0 or more of any characters, specified on the left
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>+</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>match 1 or more of any characters, specified on the left
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>{min,&nbsp;max}</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>minimum/maximum quantifier: require minimum occurrences, allow maximum occurrences.
+<br />
+</span></td></tr></table>
+<br />
+</span><span>
+<br />
+Part of a pattern that is in square brackets is called a</span><span> </span><span>"character class". In a character class the only meta-characters are:
+<br />
+
+<br />
+</span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>\</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>general escape character
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>^</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>negate the class, but only if the first character of class definition, any characters but those in class will match
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>-</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>indicates character range
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span><b>[...]</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>terminates the character class
+<br />
+</span></td></tr></table>
+<br />
+</span><span>
+<br />
+
+<br />
+Backslash usage ("\")
+<br />
+
+<br />
+The backslash character has several uses. Firstly, if it is followed by a non-alphameric character, it takes away any special meaning that character may have. This use of backslash as an escape character applies both inside and outside character classes. For example, if you want to match a "*" character, you write "\*" in the pattern. This applies whether or not the following character would otherwise be interpreted as a meta-character, so it is always safe to precede a non-alphameric with "\" to specify that it stands for itself. In particular, if you want to match a backslash, you write "\\".
+<br />
+
+<br />
+A second use of backslash provides a way of encoding non-printing characters in patterns in a visible manner. It is usually easier to use one of the following escape sequences than the binary character it represents:
+<br />
+
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\a&nbsp;&nbsp;&nbsp;</b></span><span>alarm, that is, the BEL character&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\cx&nbsp;&nbsp;&nbsp;</b></span><span>"control-x", where x is any character&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\e&nbsp;&nbsp;&nbsp;</b></span><span>escape, the ASCII character&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\f&nbsp;&nbsp;&nbsp;</b></span><span>formfeed&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;</b></span><span>newline&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\r&nbsp;&nbsp;&nbsp;</b></span><span>carriage return&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\t&nbsp;&nbsp;&nbsp;</b></span><span>tab&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\xhh&nbsp;&nbsp;&nbsp;</b></span><span>character with hex code hh&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\ddd&nbsp;&nbsp;&nbsp;</b></span><span>character with octal code ddd&nbsp;&nbsp;&nbsp;
+<br />
+
+<br />
+The third use of backslash is for specifying generic character types:
+<br />
+
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\d&nbsp;&nbsp;&nbsp;</b></span><span>any decimal digit [0-9]&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\s&nbsp;&nbsp;&nbsp;</b></span><span>any white space character&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\w&nbsp;&nbsp;&nbsp;</b></span><span>any "word" character&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\D&nbsp;\S&nbsp;\W&nbsp;&nbsp;&nbsp;</b></span><span>NOT </span><span><b>\d&nbsp;\s&nbsp;\w</b></span><span>&nbsp;&nbsp;&nbsp;
+<br />
+
+<br />
+The fourth use of backslash is for certain simple assertions. An assertion specifies a condition that has to be met at a particular point in a match, without consuming any characters from the subject string. These assertions may not appear in character classes (but note that "</span><span><b>\b</b></span><span>" has a different meaning, namely the backspace character, inside a character class).
+<br />
+
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\b&nbsp;&nbsp;&nbsp;</b></span><span>word boundary&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\B&nbsp;&nbsp;&nbsp;</b></span><span>not a word boundary&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\A&nbsp;&nbsp;&nbsp;</b></span><span>start of subject (independent of multiline mode)&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\Z&nbsp;&nbsp;&nbsp;</b></span><span>end of subject or newline at end (independent of multiline mode)&nbsp;&nbsp;&nbsp;
+<br />
+</span><span><b>&nbsp;&nbsp;&nbsp;\z&nbsp;&nbsp;&nbsp;</b></span><span>end of subject (independent of multiline mode)
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

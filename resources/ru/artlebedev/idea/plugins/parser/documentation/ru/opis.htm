@@ -1,0 +1,125 @@
+<html>
+<head>
+    
+    
+    <title>is. �������� ����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>is. �������� ����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>������&nbsp;is&nbsp;���&nbsp;&nbsp;&nbsp;
+<br />
+</b><span>
+<br />
+���������� ���������  "������/����" � ����������� �� ����, ��������� �� ����� ������� � ��������� ����. 
+<br />
+������� ������������ ���� �������� � ������, ���� ���������� ����� ��������� ������������ �������� ��� ����� �������� (<a href="hash.htm">���</a>), � ����� ��� �������� �������������� �������.
+<br />
+
+<br />
+</span><span><b>���</b></span><span> - ��� ����, �� ����� ���� ��������� ���  (</span><span><b><a href="hashclass.htm">hash</a></b></span><span>, </span><span><b><a href="junctionclass.htm">junction</a></b></span><span>, �), ��� ��� <a href="defineclass.htm">�����������������</a> ������.
+<br />
+
+<br />
+</span><span><b>������� �������� ����
+<br />
+</b></span><span><span><b>@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+$date[</b></span></span><span><b>1999-10-10</b><span><b>]
+<br />
+</b></span></span><span><span><b>#$date[^</b></span></span><span><span><b><a href="datenow.htm">date::now</a></b></span></span><span><span><b>[]]
+<br />
+</b></span></span><span><span><b>^if($date&nbsp;is&nbsp;string){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^parse[$date]
+<br />
+}{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;^print_date[$date.</b></span></span><span><span><b><a href="datefields.htm">year</a></b></span></span><span><span><b>;$date.month;$date.day]
+<br />
+}
+<br />
+
+<br />
+@parse[date_string][date_parts]
+<br />
+$date_parts[^date_string.</b></span></span><span><span><b><a href="stringmatch.htm">match</a></b></span></span><span><span><b>[(\d{4})-(\d{2})-(\d{2})][]]
+<br />
+^print_date[$date_parts.</b></span></span><span><span><b><a href="stringmatch.htm">1</a></b></span></span><span><span><b>;$date_parts.2;$date_parts.3]
+<br />
+
+<br />
+@print_date[year;month;day]
+<br />
+</b></span></span><span><b>��������&nbsp;�&nbsp;�����:&lt;br&nbsp;/&gt;
+<br />
+����:&nbsp;&nbsp;</b><span><b>$day</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+�����:&nbsp;</b><span><b>$month</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+���:&nbsp;&nbsp;&nbsp;</b><span><b>$year</b></span></span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b></span><span>
+<br />
+� ���� ������� � ����������� �� ���� ���������� </span><span><b>$date</b></span><span> ���� ����������� �������������� ������ ������, ���� ������ </span><span><b>print_date</b></span><span> ���������� ���� ������� ������ </span><span><b>date</b></span><span>:
+<br />
+
+<br />
+</span><span><b>�������� �������������� </b><b><a href="definemethod.htm">������</a></b><b>
+<br />
+</b></span><span>�������� </span><span><b>$���_������</b></span><span>, ��� ���� </span><span><b><a href="junctionclass.htm">junction</a></b></span><span>, ������� ��������� ������������� ������ ���������� ����� ���������� </span><span><b>is</b></span><span>, � �� </span><span><b><a href="opdef.htm">def</a></b></span><span>:
+<br />
+</span><span><span><b>@body[]
+<br />
+</b></span></span><span><b>����
+<br />
+</b><span><b>
+<br />
+@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+<br />
+</b></span></span><span><b>�����
+<br />
+</b><span><b>^if($body&nbsp;is&nbsp;</b></span></span><span><span><b><a href="junctionclass.htm">junction</a></b></span></span><span><span><b>){
+<br />
+&nbsp;&nbsp;&nbsp;^body[]
+<br />
+}{
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;�����&nbsp;�body�&nbsp;��&nbsp;���������!
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span><b>�����
+<br />
+
+<br />
+</b></span><span><i>��������</i><i>: </i><i>� ������� ������ �������� ���������� ���������� ������� � ���������� </i><i><a href="vars.htm">����</a></i><i>, �.�. ����� ��������� � ���� �������� ��� ����������.</i>
+<br />
+
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

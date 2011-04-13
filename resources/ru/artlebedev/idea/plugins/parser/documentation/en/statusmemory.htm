@@ -1,0 +1,64 @@
+<html>
+<head>
+    
+    
+    <title>memory. Information on memory�controlled by garbage collector</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Recommended way of analysing</b></h1><span><u>
+<br />
+</u>Surround the block to be checked with constructions&#133;
+<br />
+
+<br />
+</span><span><b>^musage[before&nbsp;XXX]
+<br />
+^musage[after&nbsp;XXX]
+<br />
+</b></span><span>
+<br />
+&#133;to call this method:
+<br />
+
+<br />
+</span><span><span><b>@musage[comment][v;now;prefix;message;line]
+<br />
+$v[$status:memory]
+<br />
+$now[^</b></span></span><span><span><b><a href="datenow.htm">date::now</a></b></span></span><span><span><b>[]]
+<br />
+$prefix[[^now.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]]&nbsp;</b></span></span><span><span><b><a href="envhttpfield.htm">$env:REMOTE_ADDR</a></b></span></span><span><span><b>:&nbsp;$comment]
+<br />
+$message[$v.used&nbsp;$v.free&nbsp;$v.ever_allocated_since_compact&nbsp;$v.ever_allocated_since_start&nbsp;</b></span></span><span><span><b><a href="requesturi.htm">$request:uri</a></b></span></span><span><span><b>]
+<br />
+$line[$prefix&nbsp;$message&nbsp;</b></span></span><span><span><b><a href="stringlit.htm">^#0A</a></b></span></span><span><span><b>]
+<br />
+^line.</b></span></span><span><span><b><a href="stringsave.htm">save</a></b></span></span><span><span><b>[append;/musage.log]
+<br />
+$</b></span></span><span><span><b><a href="definemethod.htm">result</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+&#133;and analyze the log.
+<br />
+
+<br />
+<i>Important notice: while working, Parser takes additional memory blocks from system as required. That is why it is normal when both </i></span><span><b><i>used</i></b></span><span><i> and </i></span><span><b><i>free</i></b></span><span><i> increase from time to time.
+<br />
+</i>
+<br />
+Note: it is not recommended to store log file within web-space.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+    
+    
+    <title>stat. Retrieving information about a file</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>stat. Retrieving information about a file
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file::stat[filename]
+<br />
+</b><span>Object created by this constructor has additional fields (objects of class </span><span><b>date</b></span><span>).
+<br />
+
+<br />
+</span><span><b>$some_file.size</b></span><span>-size of file in bytes;
+<br />
+</span><span><b>$some_file.cdate</b></span><span>-creation date;
+<br />
+</span><span><b>$some_file.mdate</b></span><span>-modification date;
+<br />
+</span><span><b>$some_file.adate</b></span><span>-last access date.
+<br />
+
+<br />
+</span><span><b>filename</b></span><span>-path and name of file.
+<br />
+</span><span><b>
+<br />
+</b><b>Example</b></span><span><u>
+<br />
+</u></span><span><span><b>$f[^file::stat[some.zip]]
+<br />
+</b></span></span><span><b>Size&nbsp;in&nbsp;bytes:</b><span><b>&nbsp;$f.</b></span></span><span><span><b><a href="filefields.htm">size</a></b></span></span><span><span><b>&lt;br&nbsp;/&gt;
+<br />
+</b></span></span><span><b>Created&nbsp;in:</b><span><b>&nbsp;$f.cdate.</b></span></span><span><span><b><a href="datefields.htm">year</a></b></span></span><span><span><b>&lt;br&nbsp;/&gt;
+<br />
+$new_after[^date::now(-3)]
+<br />
+</b></span></span><span><b>Status</b><b>:</b><span><b>&nbsp;^if($f.mdate&nbsp;&gt;=&nbsp;$new_after){</b></span></span><span><b>new</b><b>;</b><b>old</b><span><b>}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

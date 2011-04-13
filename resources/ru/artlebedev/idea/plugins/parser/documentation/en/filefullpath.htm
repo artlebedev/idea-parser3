@@ -1,0 +1,65 @@
+<html>
+<head>
+    
+    
+    <title>fullpath. Full name of file from server�s root directory</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>fullpath. Full name of file from server's root directory
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file:fullpath[filename]
+<br />
+</b><span>
+<br />
+Retrieves full name of file from server's root directory (see also "</span><span><span><b>Appendix&nbsp;1:&nbsp;Paths&nbsp;to&nbsp;files&nbsp;and&nbsp;directories</b></span></span><span>").
+<br />
+
+<br />
+Example: page </span><span>/document.html</span><span> contains a link to some image. True path to the requested document, however, may be different (e.g. if you use module </span><span>mod_rewrite</span><span> on Apache web-server). In this case, if you place a relative link to the image, the image will not be displayed by browser, since browser has no idea about </span><span>mod_rewrite</span><span> and will regard all relative paths as relative to the requested document.
+<br />
+
+<br />
+That is why it is better to replace relative path with absolute:
+<br />
+</span><span><span><b>
+<br />
+</b></span></span><span><span><b>$image[</b></span></span><span><span><b>^</b></span></span><span><span><b><a href="imageclass.htm">image</a></b></span></span><span><span><b>::</b></span></span><span><span><b><a href="imagemeasure.htm">measure</a></b></span></span><span><span><b>[</b></span></span><span><span><b>^file:fullpath[</b></span></span><span><span><b>image.gif</b></span></span><span><span><b>]</b></span></span><span><span><b>]]
+<br />
+^image.</b></span></span><span><span><b><a href="imagehtml.htm">html</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+Construction&#133;
+<br />
+</span><span><b>&lt;img&nbsp;src="/im</b><b>age.gif</b><b>"&nbsp;width="</b><b>&#133;</b><b>"&nbsp;height="</b><b>&#133;</b><b>"&nbsp;/&gt;</b></span><span>
+<br />
+</span><span>
+<br />
+&#133;will result in code containing absolute path.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

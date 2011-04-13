@@ -1,0 +1,83 @@
+<html>
+<head>
+    
+    
+    <title>create. Creating an empty hash or copying existing hash</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>create. Creating an empty hash or copying existing hash
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^hash::create[]
+<br />
+^hash::create[existing&nbsp;hash</b><b>&nbsp;or&nbsp;</b><b><a href="hashfileclass.htm">hashfile</a></b><b>]
+<br />
+</b><span>
+<br />
+If </span><span><b>existing&nbsp;hash</b></span><span> or </span><span><b>hashfile</b></span><span> is not specified, an empty hash will be created. Otherwise, the constructor will make a copy of it.
+<br />
+
+<br />
+An empty hash is needed when we are going to dynamically fill it with data, e.g.:
+<br />
+
+<br />
+</span><span><span><b>$dyn[^hash::create[]]
+<br />
+^for[i](1;10){
+<br />
+&nbsp;&nbsp;&nbsp;$dyn.$i[$value]
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+Before performing loop </span><span><b>for</b></span><span>, we have defined what exactly we are going to fill with data.
+<br />
+
+<br />
+If we are planning to change a hash's content intensively, but still want to preserve initial values, we had better create a copy of the hash. In this case, only the hash's copy will be changed, while initial values will remain intact. For example:
+<br />
+
+<br />
+</span><span><span><b>$pets[
+<br />
+&nbsp;&nbsp;&nbsp;$.pet[</b></span></span><span><b>Dog</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span><b>Bone</b><span><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.good[</b></span></span><span><b>Collar</b><span><b>]
+<br />
+]
+<br />
+$pets_copy[^hash::create[$pets]]
+<br />
+</b></span></span><span>
+<br />
+<i>Note: field </i></span><span><b>_default&nbsp;</b></span><span><i>is also copied.</i><b><i> [3.1.4]</i></b>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

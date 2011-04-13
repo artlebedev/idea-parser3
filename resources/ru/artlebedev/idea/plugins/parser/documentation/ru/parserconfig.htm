@@ -1,0 +1,93 @@
+<html>
+<head>
+    
+    
+    <title>���������������� ����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>���������������� ����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>������ ����� ������� � �������� (��. <span>auto.p.dist</span><span>).
+<br />
+
+<br />
+���� ���� - ��������, � �������� ���������� ������ ������ </span><span><b><a href="mainclass.htm">MAIN</a></b></span><span>. ����� ��������� <a href="parserconfmethod.htm">���������������� �����</a>, ������� ����������� ������, �� ������ </span><span><b><a href="mainclass.htm">auto</a></b></span><span>, � ������ ������ ��������� ���������.
+<br />
+
+<br />
+����� ���������� ����������������� ������ ����� ������ <a href="charsets.htm">���������</a> ������ � ���������, � ������� ������ ��� (�� ��������� � ����� ������� ������������ ��������� </span><span><b>UTF-8</b></span><span>): 
+<br />
+
+<br />
+������������� ���:
+<br />
+</span><span><b>@auto[]
+<br />
+#source/client&nbsp;charsets
+<br />
+</b><b><a href="requestcharset.htm">$request:charset</a></b><b>[windows-1251]
+<br />
+</b><b><a href="responsecharset.htm">$response:charset</a></b><b>[windows-1251]
+<br />
+</b><b><a href="responsefields.htm">$response:content-type</a></b><b>[
+<br />
+&nbsp;&nbsp;&nbsp;$.value[text/html]
+<br />
+&nbsp;&nbsp;&nbsp;$.charset[$response:charset]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+<i>����������: ��� ���������� ������ ������� </i></span><span><b><a href="stringuplow.htm">upper</a></b></span><span><i> � </i></span><span><b><a href="stringuplow.htm">lower</a></b></span><span><i> ������ </i></span><span><b><a href="stringclass.htm">string</a></b></span><span><i> � ������������� ������� (� ��� ����� �������) ���������� ���������� ������� </i></span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span><i>.
+<br />
+</i>
+<br />
+����� ����� ������������� ���������� ���� � ������� ������ �����:
+<br />
+</span><span><b><a href="app1pathclass.htm">$CLASS_PATH</a></b><b>[/../classes]
+<br />
+</b></span><span>
+<br />
+� ������ ���������� � SQL-��������, ������������ �� ����� ����� (������ ��� <a href="app3odbc.htm">ODBC</a>):
+<br />
+</span><span><b>$SQL.connect-string[odbc://DSN=www_mydomain_ru^;UID=user^;PWD=password]</b><b>
+<br />
+</b></span><span><i>����������: ����� ���� �� ������ ������������ �� ���</i><i>:
+<br />
+</i></span><span><b>^</b><b><a href="opconnect.htm">connect</a></b><b>[$SQL.connect-string]{�}&nbsp;
+<br />
+</b><span><b>
+<br />
+</b></span></span><span>�������� ��������� ���� �� ����������� ������ </span><span><span><b><a href="exceptions.htm">unhandled_exception</a></b></span></span><span>, ������� ����� �������� ��������� � ��������� ��������� �� ����� �����.
+<br />
+
+<br />
+<i>��������: �������, ���������������� ���� ����� �� ������������, � </i><i><a href="parserconfmethod.htm">���������������� �����</a></i><i> ��������� � ���� </i></span><span><a href="mainclass.htm">auto.p</a></span><span><i> </i><i>� ����� ���-������������</i><i>, </i><i>������ � ������ ������ ���������� ������� (��������: ���������� ������ � �������� ������) ������������ ������ ����� ����� ����������, � ����� ������, ����� ��� �������� ��������� � ��������� ����� � ��� ���-������������</i><i>.</i>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

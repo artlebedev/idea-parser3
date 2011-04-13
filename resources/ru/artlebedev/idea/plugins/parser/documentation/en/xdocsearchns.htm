@@ -1,0 +1,79 @@
+<html>
+<head>
+    
+    
+    <title>search-namespaces. Name spaces hash to search in</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>search-namespaces. Name spaces hash to search in
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>$document.search-namespaces</b><span>
+<br />
+
+<br />
+In order to use prefixes of <span><u><a href=""http://www.w3.org/TR/2004/REC-xml-names11-20040204/#concepts" target="_blank">name spaces</a></u></span></span><span>  in </span><span><b><a href=xnodeselect.htm">xnode.select*</a></b></span><span> methods one must define these prefixes in this hash.
+<br />
+
+<br />
+Here
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>keys-name space prefixes,
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>values-their URIs.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+</span><span><b>A</b><b>dding several prefixes</b><b>
+<br />
+</b></span><span><span><b>$xdoc[^xdoc::create{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"?&gt;
+<br />
+&lt;document&nbsp;xmlns:s="urn:special"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;s:code</b><b>&nbsp;xmlns:o="urn:other"&nbsp;o:attr="123"</b><b>&gt;let's&nbsp;play&nbsp;hi</b><b>de-and-seek</b><b>&lt;/s:code&gt;
+<br />
+&lt;/document&gt;
+<br />
+</b><span><b>}]
+<br />
+</b></span></span><span><span><b>^</b></span></span><span><span><b>xdoc.search-namespaces.</b></span></span><span><span><b><a href="hashadd.htm">add</a></b></span></span><span><span><b>[
+<br />
+&nbsp;&nbsp;&nbsp;$.</b></span></span><span><span><b>s[urn:special]
+<br />
+</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;$.</b></span></span><span><span><b>o[urn:</b></span></span><span><span><b>other</b></span></span><span><span><b>]
+<br />
+</b></span></span><span><span><b>]</b></span></span><span><span><b>
+<br />
+^xdoc.</b></span></span><span><span><b><a href="xnodeselectstring.htm">selectString</a></b></span></span><span><span><b>[string(//s:code</b></span></span><span><span><b>[@o:attr=123]</b></span></span><span><span><b>)]
+<br />
+</b></span></span><span><b>
+<br />
+</b><b>Adding one prefix
+<br />
+</b></span><span><span><b>$xdoc.search-namespaces.s[</b></span></span><span><span><b>urn:special</b></span></span><span><span><b>]
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

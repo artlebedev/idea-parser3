@@ -1,0 +1,54 @@
+<html>
+<head>
+    
+    
+    <title>replace. Replacing color in the area specified by coordinates table</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b></h1><span><u>
+<br />
+</u></span><span><span><b>$paint_nodes</b></span></span><span><span><b>[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{x&nbsp;&nbsp;&nbsp;y
+<br />
+10&nbsp;&nbsp;&nbsp;20
+<br />
+90&nbsp;&nbsp;&nbsp;20
+<br />
+90&nbsp;&nbsp;&nbsp;80
+<br />
+10&nbsp;&nbsp;&nbsp;80
+<br />
+}]
+<br />
+
+<br />
+$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+<br />
+^square.</b></span></span><span><span><b><a href="imageline.htm">line</a></b></span></span><span><span><b>(0;0;100;100;0xFFFFFF)
+<br />
+^square.line(100;0;0;100;0xFFFFFF)
+<br />
+
+<br />
+^square.replace(0x000000;0xFF00FF)[$paint_nodes]
+<br />
+$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+Browser will display a black square, crossed diagonally with white lines, with a pink rectangle within it. Since method replace tells to replace with pink only black color, the lines will remain white.
+<br />
+
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

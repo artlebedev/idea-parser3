@@ -1,0 +1,85 @@
+<html>
+<head>
+    
+    
+    <title>transform. XSL ��������������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>transform. XSL ��������������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^��������.transform[������]
+<br />
+^��������.transform[������][XSLT-���������]
+<br />
+</b><span>
+<br />
+������������ XSL-�������������� </span><span><b>���������</b></span><span> �� </span><span><b>�������</b></span><span>. �������� ������� </span><span><b>XSLT-����������</b></span><span>.
+<br />
+
+<br />
+</span><span><b>������</b></span><span> - ��� </span><span><b>����_�_�����_�_��������</b></span><span>, ��� </span><span><b><a href="xdocclass.htm">xdoc</a></b></span><span> ��������.
+<br />
+Parser ����� ������� XML �� ������������� ���������, ��. ������ �<a href="xdocparserprot.htm">������ XML �� ������������� ���������</a>�.
+<br />
+</span><span><b>
+<br />
+</b><b>XSLT-���������</b></span><span> - <a href="hash.htm">���</a> �����, ��������� �� ������� ����� </span><span><span><b><u><a href="http://www.w3.org/TR/xslt#variables" target="_blank">&lt;xsl:param � /&gt;</a></u></b></span></span><span>.
+<br />
+
+<br />
+<i>��������: Parser (� ���� </i><i><a href="install4apachecgi.htm">������ � Apache</a></i><i> ��� </i><i><a href="install4iis.htm">IIS</a></i><i>) �������� ��������� ���������� </i></span><span><b>�����_�_��������</b></span><span><i> �� ���������� �����, </i><i>��������� ���������� �� ������������, � ���������������� ������ ������� �� ����. ������� CGI ����� �������� ������, �� ������ �� ���� ������. ������ ����������������� ��� ��������� ���� ������ �������.
+<br />
+</i>
+<br />
+</span><span><b>������ (��. ����� �</b><b><a href="lesson6.htm">���� 6. �������� � XML</a></b><b>�)
+<br />
+</b></span><span><span><b>#&nbsp;�������&nbsp;xdoc&nbsp;��������
+<br />
+$sourceDoc[^xdoc::</b></span></span><span><span><b><a href="xdocload.htm">load</a></b></span></span><span><span><b>[article.xml]]
+<br />
+
+<br />
+#&nbsp;��������������&nbsp;xdoc&nbsp;���������&nbsp;��������&nbsp;article.xsl
+<br />
+$transformedDoc[^sourceDoc.transform[article.xsl]]
+<br />
+
+<br />
+#&nbsp;������&nbsp;����������&nbsp;�&nbsp;HTML&nbsp;����
+<br />
+^transformedDoc.</b></span></span><span><span><b><a href="xdocstring.htm">string</a></b></span></span><span><span><b>[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b><a href="xdocoptions.htm">$.method[html]</a></b></span></span><span><span><b>
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+���� </span><span><b>������</b></span><span> �� ����������� � �����, � ��������� �����������, ������ �������� ���������� �� ������ ���������� </span><span><b>&lt;xsl:import&nbsp;href="some.xsl"/&gt;</b></span><span>?�, �������� �������� �� ����������� ������� �������� ����: �<a href="xdocuriparam.htm">�������� �������� ������ ���������: ������� ����</a>�.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

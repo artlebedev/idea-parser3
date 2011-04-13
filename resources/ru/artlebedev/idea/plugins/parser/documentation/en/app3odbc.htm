@@ -1,0 +1,50 @@
+<html>
+<head>
+    
+    
+    <title>For ODBC</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>Example</b><b>s</b></h1><span>
+<br />
+</span><span>MS-SQL:</span><span>
+<br />
+odbc://DRIVER={SQL&nbsp;Server}^;SERVER=server^;DATABASE=db^;UID=user^;PWD=password
+<br />
+
+<br />
+</span><span>Microsoft Access (</span><span>.mdb</span><span> file):
+<br />
+</span><span>odbc://Driver={Microsoft&nbsp;Access&nbsp;Driver&nbsp;(*.mdb)}^;Dbq=C:\full\path\to\file.mdb
+<br />
+
+<br />
+</span><span>Link to <b>system</b> data source configured in Start|Settings|Control Panel|Data sources(ODBC).
+<br />
+</span><span>odbc://DSN=dsn^;UID=user^;PWD=password
+<br />
+</span><span>
+<br />
+<i>Note: Parser requires character ";" in connect string to be </i><i><a href="stringlit.htm">escaped</a></i><i> by character "^".
+<br />
+</i>
+<br />
+</span><span><b>Example
+<br />
+</b></span><span>Assume, your data is in MS-SQL database in windows-1257 charset, connect string should look like this:
+<br />
+</span><span>odbc://DRIVER={SQL&nbsp;Server}^;SERVER=server^;UID=user^;PWD=password?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1257&amp;SQL=MSSQL</span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

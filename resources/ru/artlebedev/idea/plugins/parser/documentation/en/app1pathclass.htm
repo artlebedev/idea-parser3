@@ -1,0 +1,61 @@
+<html>
+<head>
+    
+    
+    <title>Variable CLASS_PATH</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>Variable CLASS_PATH
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>One may assign variable <span><b>CLASS_PATH</b></span><span> in <a href="parserconfmethod.htm">Configuration file</a>. This variable contains path(s) to classes' directory (directories). If path to a module is relative, the module will be search for in </span><span><b>CLASS_PATH</b></span><span> (if </span><span><b>CLASS_PATH</b></span><span> is a table, rows with paths will be iterated through from bottom to top).
+<br />
+
+<br />
+Example of table </span><span><b>CLASS_PATH</b></span><span>:
+<br />
+
+<br />
+</span><span><b>$CLASS_PATH[^</b><span><b>table::create</b></span></span><span><b>{path
+<br />
+/classes/common
+<br />
+/classes/specific
+<br />
+}]
+<br />
+</b></span><span>
+<br />
+In this case, relative path </span><span>my/class.p</span><span> will be searched for as:
+<br />
+
+<br />
+</span><span>/classes/specific/my/class.p
+<br />
+/classes/common/my/class.p</span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

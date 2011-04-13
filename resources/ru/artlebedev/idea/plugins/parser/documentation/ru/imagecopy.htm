@@ -1,0 +1,81 @@
+<html>
+<head>
+    
+    
+    <title>copy. ����������� ���������� �����������</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>copy. ����������� ���������� �����������
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^��������.copy[��������_�����������](x1;y1;������1;������1;x2;y2)
+<br />
+^��������.copy[��������_�����������](x1;y1;������1;������1;x2;y2;������2;������2;�����������&nbsp;�����)
+<br />
+</b><span>
+<br />
+����� �������� �������� ������ </span><span><b>�����������</b></span><span> � ������ �����������. ��� ����� ������ ������������ � �������, �������� ������������ ������� �� �����. � �������� ���������� ������ ����������:
+<br />
+
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span>1.</span></span></td><td><span>�������� </span><span><b>�����������</b></span><span>
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span>2.</span></td><td><span>���������� (X1;Y1) �������� ������ ���� ����������� ���������
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span>3.</span></td><td><span></span><span><b>������</b></span><span> � </span><span><b>������</b></span><span> ����������� ��������� 
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span>4.</span></td><td><span>���������� (X2;Y2) �� ������� ����� �������� ���������� ��������
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="28"><span>5.</span></td><td><span>� �������� �������������� ���������� ����� ���� ������ ����� ������ � ������ ������������ ��������� (� ���� ������ ���������� ���������������), � ����� ��������, ��������������� �������� �������� �����. ��� ��� ������, ��� ������ �������������, �� ���������� ������������ ������ ����������� � �������� (�� ��������� ����� 150)
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+</span><span><b>������
+<br />
+</b></span><span><span><b>$mygif[^image::</b></span></span><span><span><b><a href="imageload.htm">load</a></b></span></span><span><span><b>[test.gif]]
+<br />
+
+<br />
+$resample_width($mygif.</b></span></span><span><span><b><a href="imagefields.htm">width</a></b></span></span><span><span><b>*2)
+<br />
+$resample_height($mygif.height*2)
+<br />
+
+<br />
+$mygif_new[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>($resample_width;$resample_height)]
+<br />
+^mygif_new.</b></span></span><span><span><b><a href="imagecopy.htm">copy</a></b></span></span><span><span><b>[$mygif](0;0;20;30;0;0;$mygif_new.width;$mygif_new.height)
+<br />
+
+<br />
+$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^mygif_new.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+� ������ ������� �� ������� ��� ������� ������ </span><span><b>image</b></span><span>. ������ ������ �� ������ ������������� GIF �����. ������ - ����� ������� �� �������, ��� ������, ��������� ����� Parser, ����� ���� � ���� �� �������� �������� ������� �������� 20�30 � ������������ ���� �������� �� ��� ������ � ������ ������� �������. ��������� ������� ���� ������� ����������� �������� �� �����. ������ ������ ����� ��������� ������ ��� �����������, ������� �� ��������� �������� � ������� ���������.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

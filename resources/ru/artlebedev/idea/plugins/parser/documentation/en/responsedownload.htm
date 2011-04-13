@@ -1,0 +1,65 @@
+<html>
+<head>
+    
+    
+    <title>download. Specifying a new response body</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>download. Specifying a new response body
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>$response:download[DATA]</b>&nbsp;&nbsp;&nbsp;<span>
+<br />
+</span><span>
+<br />
+This field is identical to </span><span><b>$response:</b><b><a href="responsebody.htm">body</a></b></span><span>, but it sets flag that browser interprets as "Suggest that visitor save file to disk."
+<br />
+
+<br />
+Browsers are able to display certain file types right within their windows (for example: </span><span>.doc</span><span>, </span><span>.pdf</span><span> files).
+<br />
+Still, sometimes we should enable a visitor to download the file by simply clicking a relevant link.
+<br />
+</span><span><b>
+<br />
+</b><b>Example: outputting a PDF file</b></span><span><b>
+<br />
+</b>A visitor is at page with such HTML:
+<br />
+</span><span><b>&lt;a&nbsp;href="/download_documentation.html"&gt;Download&nbsp;documentation&lt;/a&gt;
+<br />
+</b></span><span>
+<br />
+</span><span>download_documentation.html</span><span>:
+<br />
+</span><span><span><b>$response:download</b></span></span><span><span><b>[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[</b></span></span><span><span><b>binary;documentation.pdf]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+&#133;visitor clicks the link and browser suggests Open/Download.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

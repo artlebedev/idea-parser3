@@ -1,0 +1,99 @@
+<html>
+<head>
+    
+    
+    <title>��� ODBC</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>��� ODBC
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>odbc://������_����������_��������_������������_��_ODBC?
+<br />
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=���������&amp;&nbsp;<span><b><i>[3.1.2]</i></b></span><span><b>
+<br />
+</b>&nbsp;&nbsp;&nbsp;autocommit=1&amp;&nbsp;</span><span><b><i>[3.3.0]</i></b><b><i>
+<br />
+&nbsp;&nbsp;&nbsp;</i></b></span><span>SQL=MSSQL|FireBird|Pervasive&nbsp;</span><span><b><i>[3.3.0]</i></b><b><i>
+<br />
+</i></b>
+<br />
+</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - ������ ���������, � ������� ���������� �������� � SQL-��������, ���������������� ���������� �������;
+<br />
+</span><span>autocommit</span><span> - �� ��������� Parser ������������� ��������� </span><span>COMMIT</span><span> ����� ������� ������� ������������ �������. ���� ������� ����� </span><span>autocommit=0</span><span>, �� ����� ��������� ����� �������� � ��� �������, ���������� ������ ������ ��������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span> ����� ����������� � ������ ����� ����������.
+<br />
+</span><span>SQL</span><span> - ���� �������, �� Parser ����� ������������ ��������� ��� ���������� ������� ��� ��������������� �������� � </span><span>limit/offset</span><span>. � ��������� ������ ������� �������� ������ �������� </span><span>MSSQL</span><span>, </span><span>Pervasive</span><span> � </span><span>FireBird</span><span>. ��� ������ ���� �������� SQL-������ �������������� ���� ���������� � ���� </span><span>�TOP&nbsp;(limit+offset)�</span><span>, ��� ���������� - </span><span>�FIRST&nbsp;(limit)&nbsp;SKIP&nbsp;(offset)�</span><span>.
+<br />
+
+<br />
+����������� ���� ����, ����� ������� ������ ���������� �� ������������ ����� ������: <span><u><a href="http://www.connectionstrings.com/" target="_blank">www.connectionstrings.com</a></u></span></span><span>.
+<br />
+
+<br />
+<i>��������: ��� ������ � MS-SQL ��� �������� ��������� �������� �� ���������� ��������� ���������� ��� �������������� ��� � ����� - SQL ������ ����������� �� �������� �������� ���������, ��� ������ ���������� �������� ��� �� ����������� ���������. ������������ ����������� ����� ����� ���������� � �������� ��������� ������� ������������ �������� ��������� � us_english, ��� ��������� ��������� ��� � ANSI SQL92 ������� � ����� � ���������� ������������ ������:
+<br />
+</i></span><span><b>^void:sql{SET&nbsp;LANGUAGE&nbsp;us_english}</b><b><u>
+<br />
+</u></b></span><span><u>
+<br />
+</u></span><span><b>�������
+<br />
+</b></span><span>MS-SQL:</span><span>
+<br />
+odbc://DRIVER={SQL&nbsp;Server}^;SERVER=������^;DATABASE=����^;UID=������������^;PWD=������
+<br />
+
+<br />
+</span><span>Microsoft Access (</span><span>.mdb</span><span> ����):</span><span>
+<br />
+odbc://Driver={Microsoft&nbsp;Access&nbsp;Driver&nbsp;(*.mdb)}^;Dbq=C:\������\����\�\�����.mdb
+<br />
+
+<br />
+</span><span>������ �� <b>���������</b> �������� ������, ��������� � ����|���������|������ ����������|��������� ������ (ODBC).
+<br />
+</span><span>odbc://DSN=dsn^;UID=������������^;PWD=������
+<br />
+
+<br />
+</span><span><i>���������: � ���� Parser ������ ";" � ������ ����������� � �� ���������� </i><i><a href="stringlit.htm">����������</a></i><i> �������� "^".
+<br />
+
+<br />
+</i></span><span><b>������
+<br />
+</b></span><span>�������� �� ������� ������ � MS-SQL ������� � ��������� windows-1251, ������ ����������� ����� �������� ���:
+<br />
+</span><span>odbc://DRIVER={SQL&nbsp;Server}^;SERVER=������;UID=������������^;PWD=������?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251&amp;SQL=MSSQL
+<br />
+
+<br />
+
+<br />
+</span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

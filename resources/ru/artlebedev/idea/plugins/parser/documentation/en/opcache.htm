@@ -1,0 +1,123 @@
+<html>
+<head>
+    
+    
+    <title>cache. Caching results of code�s work</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>cache. Caching results of code's work
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^cache[file]</b><b>
+<br />
+^cache[file](number&nbsp;of&nbsp;seconds){code}
+<br />
+^cache[file](number&nbsp;of&nbsp;seconds){code}</b><b>{error&nbsp;handler}</b><b>
+<br />
+^cache[file][expiration&nbsp;date]{code}
+<br />
+^cache[file][expiration&nbsp;date]{code}</b><b>{error&nbsp;handler}</b><b>
+<br />
+^cache[</b><b>]&nbsp;=&nbsp;</b><b>expiration&nbsp;date</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.5]</i></b></span><span><b>
+<br />
+</b></span><span>
+<br />
+Operator </span><span><b>cache</b></span><span> caches the string resulted from </span><span><b>code</b></span><span>'s work. Subsequent calls then do not re-execute the code, but only output cached result. It saves time and servers' resources during request processing.
+<br />
+
+<br />
+We do recommend you to link modules (</span><span><b><a href="opuse.htm">^use[�]</a></b></span><span>) from within the </span><span><b>code</b></span><span> of operator </span><span><b>cache</b></span><span> instead of doing it statically (</span><span><b><a href="defineclass.htm">@USE</a></b></span><span>).
+<br />
+We also strongly recommend that you work also with DB (</span><span><b><a href="opconnect.htm">^connect[�]</a></b></span><span>) within </span><span><b>cache</b></span><span> when possible, to save your SQL-server's resources and increase your sites' productivity.
+<br />
+
+<br />
+</span><span><b>File</b></span><span> is a name of cache-file. If this file exists and is not expired, its content will be sent to the client. If it doesn't exist, the code will be executed and result will be saved in the file with specified name.
+<br />
+
+<br />
+</span><span><b>Number&nbsp;of&nbsp;seconds</b></span><span> is time to store result of the code's work, given in seconds. If the number is zero, the result is not saved and the file with previously cached result is deleted.
+<br />
+
+<br />
+</span><span><b>Expiration&nbsp;date</b></span><span> is time, until which result of the code's work is considered valid. If the date is in the past, the result is not saved and the file with previously cached result is deleted.
+<br />
+
+<br />
+</span><span><b>Code</b></span><span> is the code, whose result is to be cached.
+<br />
+
+<br />
+</span><span><b>Error&nbsp;handler</b></span><span>-here the error in </span><span><b>code</b></span><span> can be handled. In this respect the operator resembles </span><span><b><a href="optry.htm">try</a></b></span><span>, see section "<a href="exceptions.htm">Error handling</a>". Unlike </span><span><b>try</b></span><span>, </span><span><b>$exception.handled[cache]</b></span><span> can be specified</span><span><b>,</b></span><span> which gives Parser the command to handle the error in a special way: to get from </span><span><b>fi</b><b>le</b></span><span> the expired content, earlier saved result of </span><span><b>code</b></span><span>'s work, ignoring the fact that the content has expired.</span><span><b>
+<br />
+</b></span><span>
+<br />
+</span><span>The cached file can be deleted by
+<br />
+</span><span><b>^cache[file]</b></span><span><b>
+<br />
+
+<br />
+</b></span><span>It is possible to use within the </span><span><b>code</b></span><span> commands to change the time for the result of the code's work to be stored:
+<br />
+</span><span><b>^cache(number&nbsp;of&nbsp;seconds)
+<br />
+^cache[expiration&nbsp;date]
+<br />
+</b></span><span>
+<br />
+Minimum time for the code to be stored is used.
+<br />
+
+<br />
+Current expiration date can be learned by
+<br />
+</span><span><b>$expire_date[^cache[]]
+<br />
+</b></span><span><b>
+<br />
+</b></span><span><b>E</b><b>x</b><b>ample
+<br />
+</b></span><span><span><b>^cache[/data/cache/test1](5){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><b>Press&nbsp;'reload',&nbsp;changes&nbsp;every&nbsp;5&nbsp;seconds</b><span><b>:</b></span></span><span><b><a href="mathrandom.htm">^math:random</a></b><b>(100)</b><b>
+<br />
+</b><span><b>}
+<br />
+</b></span></span><span>
+<br />
+</span><span><b>Changing expiration time
+<br />
+</b></span><span><span><b>^cache[/data/cache/test2](5){
+<br />
+</b></span></span><span><b>&nbsp;&nbsp;&nbsp;Within&nbsp;cache&nbsp;code&nbsp;you&nbsp;found&nbsp;out&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;that&nbsp;the&nbsp;page&nbsp;shouldn't&nbsp;be&nbsp;cached:&nbsp;</b><span><b>^cache(0)
+<br />
+}</b></span></span><span>
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

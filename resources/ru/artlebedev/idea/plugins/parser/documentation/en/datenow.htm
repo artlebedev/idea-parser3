@@ -1,0 +1,59 @@
+<html>
+<head>
+    
+    
+    <title>now. Current date</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>now. Current date
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^date::now[]
+<br />
+^date::now(shift&nbsp;in&nbsp;days)
+<br />
+</b><span>
+<br />
+Constructor creates object of class </span><span><b>date</b></span><span>, containing value of the current date accurate to a second, using server's system time. If </span><span><b>shift&nbsp;in&nbsp;days</b></span><span> is specified, the date will be shifted a specified number of days.
+<br />
+
+<br />
+The constructor uses local time of the server where Parser works. To find the time in another time zone, use </span><span><b>^date</b><b>.</b><b><a href="dateroll.htm">roll</a></b><b>[TZ;&#133;]</b></span><span>.
+<br />
+
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>$date_now[^date::now[]]
+<br />
+$date_now</b></span></span><span><span><b>.</b></span></span><span><span><b><a href="datefields.htm">month</a></b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+As a result, the code will create an object of class </span><span><b>date</b></span><span> containing current date's value and output the number of current month.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

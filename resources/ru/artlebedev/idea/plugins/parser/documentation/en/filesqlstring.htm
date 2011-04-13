@@ -1,0 +1,59 @@
+<html>
+<head>
+    
+    
+    <title>sql-string. Saving file to SQL-server</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>sql-string. Saving file to SQL-server
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^file.sql-string[]</b><span>
+<br />
+
+<br />
+Returns the string, which can be used in SQL-query. Allows saving file in database.
+<br />
+
+<br />
+<i>Attention</i><i>: </i><i>currenty only MySQL-server is supported</i><i>.
+<br />
+
+<br />
+</i></span><span><b>Example</b><b>
+<br />
+</b></span><span><span><b>$name[image.gif]
+<br />
+$file[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[$name]]
+<br />
+^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">connect string</a></b></span></span><span><span><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^void:sql{</b></span></span><span><b>insert&nbsp;into&nbsp;images&nbsp;(name,&nbsp;bytes)&nbsp;values&nbsp;('</b><span><b>$name</b></span></span><span><b>',&nbsp;'</b><span><b>^file.sql-string[]</b></span></span><span><b>')</b><span><b>}
+<br />
+}
+<br />
+</b></span></span></span><br />
+
+
+
+
+</body>
+</html>

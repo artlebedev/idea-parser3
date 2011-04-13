@@ -1,0 +1,114 @@
+<html>
+<head>
+    
+    
+    <title>����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<span><b>�������������� ���������� � �����</b></h1><span>
+<br />
+</span><span><span><b>$����.cdate</b></span></span><span> - ���� ��������;  
+<br />
+</span><span><span><b>$����.mdate</b></span></span><span> - ���� ���������;  
+<br />
+</span><span><span><b>$����.adate</b></span></span><span> - ���� ���������� ��������� � �����.
+<br />
+</span><span><b>
+<br />
+</b></span><span>���� �������� ���� ������ ������� �������������� </span><span><b><a href="filestat.htm">file::stat</a></b></span><span> ��� </span><span><b>file::load</b></span><span> ���� �������� ���������� �����</span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.3.0]</i></b></span><span><b>
+<br />
+</b></span><span><b>
+<br />
+</b><b>stderr. ����� ������ ���������� ���������
+<br />
+</b></span><span><span><b>$����.stderr</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+��� ���������� </span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span><span> � </span><span><b><a href="filecgiexec.htm">file::exec</a></b></span><span> ���� �������� ����� �� ������������ ������ ������ ���������.
+<br />
+
+<br />
+</span><span><b>status. ������ ��������� �����</b></h1><span>
+<br />
+</span><span><span><b>$����.status</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+��� ���������� </span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span><span> � </span><span><b><a href="filecgiexec.htm">file::exec</a></b></span><span> � ���� </span><span><b>status</b></span><span> �������� ������ ���������� ��������� (0=�����).
+<br />
+��� ���������� </span><span><b><a href="fileload.htm">file::load</a></b></span><span> � <a href="app1.htm">HTTP �������</a>, ���� �������� ������ ���������� HTTP ������� (200=�����).
+<br />
+
+<br />
+</span><span><b>mode. ������ �����&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.0]</i></b>
+<br />
+</span><span><span><b>$����.mode</b></span></span><span><b>
+<br />
+
+<br />
+</b></span><span>����� ����� �������� </span><span><b>text</b></span><span> ��� </span><span><b>binary.</b><b>
+<br />
+</b></span><span>
+<br />
+</span><span><b>content-type. MIME-��� �����
+<br />
+</b></span><span><span><b>$����.content-type</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+���� ����� ��������� MIME-��� �����. ��� ���������� CGI-������� (��. </span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span><span>) MIME-��� ����� ���������� CGI-��������, �����  ��������� ������ �</span><span>content-type</span><span>�. ��� �������� (��. </span><span><b><a href="fileload.htm">file::load</a></b></span><span>) ��� ��������� ���������� � ����� (��. </span><span><b><a href="filestat.htm">file::stat</a></b></span><span>) MIME-��� ������������ �� ������� </span><span><b>$</b><b><a href="parserconfmethod.htm">MAIN:MIME-TYPES</a></b></span><span> (��. �<a href="parserconfmethod.htm">���������������� �����</a>�), ���� � ������� ���������� ����� ����� ������� �� �����, ����� ����������� ��� �</span><span>application/octet-stream</span><span>�.
+<br />
+
+<br />
+</span><span><b>���� HTTP-������
+<br />
+</b></span><span>���� ���� ��� �������� � HTTP-�������, ���� ���������� HTTP-������ ��������, ��� ���� ������� ������ </span><span><b>file</b></span><span>:
+<br />
+
+<br />
+</span><span><span><b>$����.����_HTTP_������</b></span></span><span>  (���������� �������)</span><span><b>
+<br />
+</b></span><span>
+<br />
+��������: </span><span><span><b>$����.SERVER</b></span></span><span>
+<br />
+
+<br />
+���� ���� ��������� ����������� � ������ ��������� ���, ��� ��� �������� �������� � ���� </span><span><b>tables</b></span><span>:
+<br />
+
+<br />
+</span><span><b>$.tables[
+<br />
+&nbsp;&nbsp;&nbsp;$.HTTP-���������[</b>�������&nbsp;��������,&nbsp;������������&nbsp;�������&nbsp;<b>value]
+<br />
+]</b>
+<br />
+</span><span>
+<br />
+������:
+<br />
+
+<br />
+</span><span><span><b>$f[^file::load[binary;</b></span></span><span><b>http://www.parser.ru</b><span><b>]]
+<br />
+^f.tables.foreach[key;value]{
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$key=^value.menu{$value.value}[</b></span></span><span><b>|</b><span><b>]</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+<br />
+}</b></span></span><span><b>
+<br />
+</b></span></span><br />
+
+
+
+
+</body>
+</html>

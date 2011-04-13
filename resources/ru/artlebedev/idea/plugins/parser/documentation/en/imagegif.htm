@@ -1,0 +1,65 @@
+<html>
+<head>
+    
+    
+    <title>gif. Encoding objects of class image in GIF format</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>gif. Encoding objects of class image in GIF format
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span><b>^</b><b>image</b><b>.gif[]
+<br />
+^</b><b>image</b><b>.gif[</b><b>file&nbsp;name</b><b>]
+<br />
+</b><span>
+<br />
+Used to encode objects of class image created by Parser in GIF format.
+<br />
+</span><span><b>File&nbsp;name</b></span><span> will be passed to visitor if </span><span><b><a href="responsedownload.htm">$response:download</a></b></span><span> is used.
+<br />
+
+<br />
+<i>Important notice: as a result, this method creates an object of class</i> </span><span><span><b><u><a href="fileclass.htm">file</a></u></b></span></span><span>, <i>not image</i>! 
+<br />
+
+<br />
+Besides, it is important to keep in mind that colors are taken from the palette, and when there are no colors left in the palette, nearest shades will be picked up. If you create a complex graphics, especially with background loaded in advance, you must keep in mind the sequence of colors captured.</span><span>
+<br />
+</span><span>
+<br />
+</span><span><b>Example
+<br />
+</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+<br />
+$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.gif[]]</b></span></span><span><b>
+<br />
+</b></span><span>
+<br />
+Browser will display a black 100x100 pixels square.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>

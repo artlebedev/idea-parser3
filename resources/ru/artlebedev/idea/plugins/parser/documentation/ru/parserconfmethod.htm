@@ -1,0 +1,223 @@
+<html>
+<head>
+    
+    
+    <title>���������������� �����</title>
+
+    
+
+</head>
+
+<body>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b>���������������� �����
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td bgcolor="#99D228" height="3"></td></tr>
+</table>
+<br />
+
+
+
+<span>���� � ����� ��������� ����� <span><b>conf,</b></span><span>�� ����������� ������, �� </span><span><b><a href="mainclass.htm">auto</a></b></span><span>, � ������ ������ ��������� ���������: 
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>�����, ����������� ��������� ��������, 
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>����������� �� ������ HTTP POST-�������,
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������/��������� �������� �����, 
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>SQL-�������� � �� ���������,
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������� ������������ ���������� ����� ����� � ��� mime-����.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>������������� ��������� ���� ����� � <a href="parserconfig.htm">���������������� ����</a>.
+<br />
+
+<br />
+����������� ������:
+<br />
+</span><span><b>@conf[filespec]
+<br />
+filespec</b></span><span> - ������ ��� �����, ����������� �����.</span><span><b>
+<br />
+</b></span><span>
+<br />
+������ �������� � �� ��������� � �������� ����� ��������� </span><span><b>UTF-8</b></span><span>, ���������� ��� Parser<b> </b>���������� �� ���������.
+<br />
+����� ������� ���������� ��� ������������� Parser ������ ���������, ���������� ������� ����� �� �����������, �������� ��� ���:
+<br />
+</span><span><b>$CHARSETS[
+<br />
+&nbsp;&nbsp;&nbsp;$.windows-1251[/������/����/�/windows-1251.cfg]
+<br />
+&nbsp;&nbsp;&nbsp;�
+<br />
+]
+<br />
+</b></span><span>��. <a href="installcharset.htm">�������� ������� �����, ������������ ���������</a>.
+<br />
+
+<br />
+������������ ������ POST ������:
+<br />
+</span><span><b>$LIMITS[
+<br />
+&nbsp;&nbsp;&nbsp;$.post_max_size(10*0x400*0x400)
+<br />
+]
+<br />
+</b></span><span>
+<br />
+�������� �������� ����� (��. </span><span><b><a href="mailsend.htm">^mail:send[�]</a></b></span><span>)�
+<br />
+
+<br />
+���� Windows � UNIX (��� UNIX <b><i>[3.1.2]</i></b>) ����� SMTP-�������
+<br />
+</span><span><b>$MAIL[
+<br />
+&nbsp;&nbsp;&nbsp;$.SMTP[mail.office.design.ru]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+���� UNIX � safe-mode �������, ��������� ��������� �������� ����� ������ ��� <a href="compilesrc.htm">������ Parser �� �������� �����</a>, � �������� �������, ���������������� � ����� </span><span><a href="http://parser.ru/" target="_blank">parser.ru</a></span><span>, ������ �������
+<br />
+</span><span>&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-i&nbsp;-t&nbsp;-f&nbsp;postmaster
+<br />
+</span><span>������ � unsafe-mode ������� ����� ������ ��������� �������� ����� ������:
+<br />
+</span><span><b>$MAIL[
+<br />
+&nbsp;&nbsp;&nbsp;$.sendmail[/custom/mail/sending/program&nbsp;params]
+<br />
+]
+<br />
+</b></span><span>�, �� ���������, ������������  ����
+<br />
+</span><span>&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-t&nbsp;-i&nbsp;-f&nbsp;postmaster
+<br />
+</span><span>���� ����</span><span>
+<br />
+&nbsp;&nbsp;&nbsp;/usr/lib/sendmail&nbsp;-t&nbsp;-i&nbsp;-f&nbsp;postmaster
+<br />
+</span><span>��������, � ����������� �� ����� �������.
+<br />
+��� �������� ������ ������ �</span><span>postmaster</span><span>� ����� ���������� ����� ����������� �� ������ �� ������������� ���� ��������� �</span><span>from</span><span>�.
+<br />
+
+<br />
+����� ����� ������ ������� SQL-���������:
+<br />
+</span><span><b>$SQL[
+<br />
+$.drivers[^</b><b><a href="tablecreate.htm">table::create</a></b><b>{protocol&nbsp;&nbsp;&nbsp;driver&nbsp;&nbsp;&nbsp;client
+<br />
+mysql&nbsp;&nbsp;&nbsp;/full/disk/path/parser3mysql.dll&nbsp;&nbsp;&nbsp;/full/disk/path/libmySQL.dll
+<br />
+odbc&nbsp;&nbsp;&nbsp;/full/disk/path/parser3odbc.dll
+<br />
+pgsql&nbsp;&nbsp;&nbsp;/full/disk/path/parser3pgsql.dll&nbsp;&nbsp;&nbsp;/full/disk/path/libpq.dll
+<br />
+sqlite&nbsp;&nbsp;&nbsp;/full/disk/path/parser3sqlite.dll&nbsp;&nbsp;&nbsp;/full/disk/path/sqlite3.dll
+<br />
+oracle&nbsp;&nbsp;&nbsp;/path/to/parser3oracle.dll&nbsp;&nbsp;&nbsp;C:\Oracle\Ora81\BIN\oci.dll?PATH+=^;C:\Oracle\Ora81\bin
+<br />
+}]
+<br />
+]
+<br />
+</b></span><span>� ������� </span><span><b>client</b></span><span> ������� </span><span><b>drivers</b></span><span> ��������� ��������� ���������� ����������, ���������� ������ </span><span><b>?</b></span><span> �� ����� ����� ����������, � ����� ����:
+<br />
+</span><span><b>���1=��������1&amp;���2=��������2&amp;�
+<br />
+</b></span><span>� ����� </span><span><b>���+=��������</b></span><span>.
+<br />
+��� ���������� ����� ��������(</span><span><b>=</b></span><span>) ��� ��������� � ���������� ��������(</span><span><b>+=</b></span><span>) � ����������� ��������� (environment) ����� �������������� ����������. � ���������, ������ �������� ���� � </span><span>O</span><span>racle ����������� �����, ���� ����� �� ���� ������� � ��������� ����������� ��������� (system environment).
+<br />
+
+<br />
+������� ����� ������:
+<br />
+</span><span><b>#����,&nbsp;�����������&nbsp;</b><b><a href="fileload.htm">^file::load[�]</a></b><b>,
+<br />
+#���&nbsp;������&nbsp;�&nbsp;</b><b><a href="responsebody.htm">$response:body</a></b><b>&nbsp;������&nbsp;����&nbsp;</b><b><a href="responsefields.htm">$response:content-type</a></b><b>
+<br />
+$MIME-TYPES[^</b><b><a href="tablecreate.htm">table::create</a></b><b>{ext&nbsp;mime-type
+<br />
+zip&nbsp;application/zip
+<br />
+doc&nbsp;application/msword
+<br />
+xls&nbsp;application/vnd.ms-excel
+<br />
+pdf&nbsp;application/pdf
+<br />
+ppt&nbsp;application/powerpoint
+<br />
+rtf&nbsp;application/rtf
+<br />
+gif&nbsp;image/gif
+<br />
+jpg&nbsp;image/jpeg
+<br />
+jpeg&nbsp;image/jpeg
+<br />
+png&nbsp;image/png
+<br />
+tif&nbsp;image/tiff
+<br />
+html&nbsp;text/html
+<br />
+htm&nbsp;text/html
+<br />
+txt&nbsp;text/plain
+<br />
+mts&nbsp;application/metastream
+<br />
+mid&nbsp;audio/midi
+<br />
+midi&nbsp;audio/midi
+<br />
+mp3&nbsp;audio/mpeg
+<br />
+ram&nbsp;audio/x-pn-realaudio
+<br />
+rpm&nbsp;audio/x-pn-realaudio-plugin
+<br />
+ra&nbsp;audio/x-realaudio
+<br />
+wav&nbsp;audio/x-wav
+<br />
+au&nbsp;audio/basic
+<br />
+mpg&nbsp;video/mpeg
+<br />
+avi&nbsp;video/x-msvideo
+<br />
+mov&nbsp;video/quicktime
+<br />
+swf&nbsp;application/x-shockwave-flash
+<br />
+}]
+<br />
+
+<br />
+</b></span><span>���������� ���� ������ � ������� ������ ���� �������� � ������ ��������. ����� �� ������� �������������� � ��������, �.�. ���� </span><span>FACE.GIF</span><span> ������� mime-��� </span><span>image/gif</span><span>.
+<br />
+</span></span><br />
+
+
+
+
+</body>
+</html>
