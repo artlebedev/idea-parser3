@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>flip. ���������������� �������</title>
+    <title>flip. Транспонирование таблицы</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,7 +11,92 @@
 <body>
 
 
-<span><b>������</b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>flip. Транспонирование таблицы
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^таблица.flip[]&nbsp;&nbsp;&nbsp;
+<br />
+</b><span>
+<br />
+Создает новую </span><span class="mono"><b>nameless</b></span><span> таблицу с записями, полученными в результате транспонирования исходной таблицы. Иными словами, метод превращает столбцы исходной таблицы в строки, а строки в столбцы.
+<br />
+
+<br />
+</span><span class="h1"><b>Пример</b></span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>$emergency[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{id&nbsp;&nbsp;&nbsp;number
+<br />
+</b></span></span><span class="mono"><b>fire&nbsp;&nbsp;&nbsp;01
+<br />
+police&nbsp;&nbsp;&nbsp;02
+<br />
+ambulance&nbsp;&nbsp;&nbsp;03
+<br />
+gas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04</b><span class="monoblue"><b>
+<br />
+}]
+<br />
+
+<br />
+$fliped[^emergency.flip[]]
+<br />
+^fliped.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>fliped.txt</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+В результате выполнения кода в файл </span><span class="mono"><b>fliped.txt</b></span><span> будет сохранена такая таблица:
+<br />
+
+<br />
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>0</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="74">
+<p align="center"><span class="mono"><b>1</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="92">
+<p align="center"><span class="mono"><b>2</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="90">
+<p align="center"><span class="mono"><b>3</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>fire</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="74">
+<p align="center"><span class="mono"><b>police</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="92">
+<p align="center"><span class="mono"><b>ambulance</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="90">
+<p align="center"><span class="mono"><b>gas</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>01</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="74">
+<p align="center"><span class="mono"><b>02</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="92">
+<p align="center"><span class="mono"><b>03</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="90">
+<p align="center"><span class="mono"><b>04</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td></tr></table>
 <br />
 </span></span><br />
 

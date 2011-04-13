@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>tables. ��������� ��������� �������� ����</title>
+    <title>tables. Получение множества значений поля</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,72 +15,72 @@
   <tr>
     <td>
       
-<span><b>tables. ��������� ��������� �������� ����
+<span class="h1"><b>tables. Получение множества значений поля
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$form:tables</b><span>
+<span class="mono"><b>$form:tables</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-����� ����������� ���������� <a href="hash.htm">���</a> �� ����� ������ ����� ��� �����������, ����������� ����� URL. ����� ������ ���� �� ��, ��� � � ����� �����, ���������� �� �������� �������, ��. ����.
+Такая конструкция возвращает <a href="hash.htm">хеш</a> со всеми полями формы или параметрами, переданными через URL. Имена ключей хеша те же, что и у полей формы, значениями же являются таблицы, см. ниже.
 <br />
 
 <br />
-</span><span><b>$form:tables.����_�����</b></span><span>&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>$form:tables.поле_формы</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;
 <br />
 </span><span>
 <br />
-���� ���� ����� ����� ���� �� ���� ��������, ����� ����������� ���������� ������� (������ ������ </span><span><span><b><u><a href="tableclass.htm">table</a></u></b></span></span><span>) � ����� �������� </span><span><b>field</b></span><span>, ���������� ��� �������� ����. ������������ ��� ��������� ��������� �������� ����.
+Если поле формы имеет хотя бы одно значение, такая конструкция возвращает таблицу (объект класса </span><span class="mono"><span class="monoblue"><b><u><a href="tableclass.htm">table</a></u></b></span></span><span>) с одним столбцом </span><span class="mono"><b>field</b></span><span>, содержащим все значения поля. Используется для получения множества значений поля.
 <br />
-<i>��������: �� �������� ��������� ������� ������� ����� ���, ��� ������ �� �����������.</i>
+<i>Внимание: не забудьте проверить наличие таблицы перед тем, как начать ею оперировать.</i>
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><b>��������,&nbsp;���&nbsp;��&nbsp;�����������&nbsp;�&nbsp;���������&nbsp;�����:
+</b></span><span class="mono"><b>Выберите,&nbsp;чем&nbsp;вы&nbsp;увлекаетесь&nbsp;в&nbsp;свободное&nbsp;время:
 <br />
 &lt;form&nbsp;method="POST"&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;input&nbsp;type=checkbox&nbsp;name=hobby&nbsp;value="�����"&gt;�������&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;input&nbsp;type=checkbox&nbsp;name=hobby&nbsp;value="Театр"&gt;Театром&lt;/p&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;input&nbsp;type=checkbox&nbsp;name=hobby&nbsp;value="����"&gt;����&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;input&nbsp;type=checkbox&nbsp;name=hobby&nbsp;value="Кино"&gt;Кино&lt;/p&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;input&nbsp;type=checkbox&nbsp;name=hobby&nbsp;value="�����"&gt;�������&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;input&nbsp;type=checkbox&nbsp;name=hobby&nbsp;value="Книги"&gt;Книгами&lt;/p&gt;
 <br />
 &nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;input&nbsp;type=submit&nbsp;value="OK"&gt;&lt;/p&gt;
 <br />
 &lt;/form&gt;
 <br />
-</b><span><b>$hobby[$form:tables.hobby]
+</b><span class="monoblue"><b>$hobby[$form:tables.hobby]
 <br />
 ^if($hobby){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;����&nbsp;�����:&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Ваши&nbsp;хобби:&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^hobby.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;^hobby.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hobby.field
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;}[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]</b></span></span><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;}[</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>}{
+</b><span class="monoblue"><b>}{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;������&nbsp;��&nbsp;�������
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Ничего&nbsp;не&nbsp;выбрано
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-������ ������� �� ����� ��������� �������� ��� �������, ��� ������ �� �������.
+Пример выведет на экран выбранные варианты или напишет, что ничего не выбрано.
 <br />
 </span></span><br />
 

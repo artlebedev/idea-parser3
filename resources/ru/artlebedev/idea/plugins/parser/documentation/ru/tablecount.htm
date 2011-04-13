@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>count. ���������� ����� � �������</title>
+    <title>count. Количество строк в таблице</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,31 +11,54 @@
 <body>
 
 
-<span><b>������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>count. Количество строк в таблице
 <br />
-</span><span><span><b>$goods[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{&nbsp;&nbsp;&nbsp;pos&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</b></span></span><span><b>1&nbsp;&nbsp;&nbsp;�������&nbsp;&nbsp;&nbsp;1000
+
+
+
+<span class="mono"><b>^таблица.count[]
 <br />
-2&nbsp;&nbsp;&nbsp;���������&nbsp;����&nbsp;&nbsp;&nbsp;1500
+</b><span>
 <br />
-3&nbsp;&nbsp;&nbsp;����������&nbsp;&nbsp;&nbsp;15
+Выдает количество строк в таблице (</span><span class="mono"><b><a href="intdoubleclasses.htm">int</a></b></span><span>).
 <br />
-</b><span><b>}]
+
 <br />
-</b></span></span><span><b>����������:&nbsp;</b><span><b>^goods.count[]</b></span></span><span><b>
+</span><span class="h1"><b>Пример</b></span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>$goods[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{&nbsp;&nbsp;&nbsp;pos&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price
+<br />
+</b></span></span><span class="mono"><b>1&nbsp;&nbsp;&nbsp;Монитор&nbsp;&nbsp;&nbsp;1000
+<br />
+2&nbsp;&nbsp;&nbsp;Системный&nbsp;блок&nbsp;&nbsp;&nbsp;1500
+<br />
+3&nbsp;&nbsp;&nbsp;Клавиатура&nbsp;&nbsp;&nbsp;15
+<br />
+</b><span class="monoblue"><b>}]
+<br />
+</b></span></span><span class="mono"><b>Количество:&nbsp;</b><span class="monoblue"><b>^goods.count[]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-�������:
+Выведет:
 <br />
-</span><span><b>����������:&nbsp;3
+</span><span class="mono"><b>Количество:&nbsp;3
 <br />
 </b></span><span>
 <br />
-� ���������� �������� �������� ������� ����� ���������� �����:
+В выражениях числовое значение таблицы равно количеству строк:
 <br />
-</span><span><span><b>^if($goods&nbsp;&gt;&nbsp;2){</b></span></span><span><b>������</b><span><b>}</b></span></span><span><b>
+</span><span class="mono"><span class="monoblue"><b>^if($goods&nbsp;&gt;&nbsp;2){</b></span></span><span class="mono"><b>больше</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

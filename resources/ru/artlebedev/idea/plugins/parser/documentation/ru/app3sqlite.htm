@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��� SQLite</title>
+    <title>Для SQLite</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,48 +15,48 @@
   <tr>
     <td>
       
-<span><b>��� SQLite
+<span class="h1"><b>Для SQLite
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>sqlite://path-to-DB-file?
+<span class="mono">sqlite://path-to-DB-file?
 <br />
-&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=UTF-8&amp;&nbsp;<span><b><i>[3.3.0]</i></b></span><span>
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=UTF-8&amp;&nbsp;<span><b><i>[3.3.0]</i></b></span><span class="mono">
 <br />
 &nbsp;&nbsp;&nbsp;autocommit=1&amp;&nbsp;</span><span><b><i>[3.3.0]
 <br />
-</i></b></span><span>&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span><b><i>[3.3.0]
+</i></b></span><span class="mono">&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span><b><i>[3.3.0]
 <br />
 </i></b>
 <br />
-</span><span>���� � ����� � ����� ������ ������� ������������ <a href="requestdocroot.htm">document_root</a>, ����� ���� � �������� ���� � ����� ������� �������� ����������� �������� </span><span><b>:memory:</b></span><span> � </span><span><b>:temporary:</b></span><span>. � ������ ������ �� ������ ����� ����������� ��������� ���� ������ � ������, � �� ������ ������ -  �� �����.</span><span><b>
+</span><span>Путь к файлу с базой данных задаётся относительно <a href="requestdocroot.htm">document_root</a>, кроме того в качестве пути к файлу драйвер понимает специальные значения </span><span class="mono"><b>:memory:</b></span><span> и </span><span class="mono"><b>:temporary:</b></span><span>. В первом случае на сессию будет создаваться временная база данных в памяти, а во втором случае -  на диске.</span><span class="h1"><b>
 <br />
 
 <br />
-</b></span><span>autocommit</span><span> - �� ��������� SQLite ������������� ��������� </span><span>COMMIT</span><span> ����� ������� ������� ������������ �������. ���� ������� ����� </span><span>autocommit=0</span><span>, �� ����� ��������� ����� ��������, � Parser � ������ ��������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span> ����� �������� �������� </span><span>BEGIN</span><span>, � � ����� - </span><span>COMMIT</span><span> ��� </span><span>ROLLBACK</span><span>. ����� ������� ��� �������, ���������� ������ ������ ��������� </span><span>connect</span><span> ����� ����������� � ������ ����� ����������;
+</b></span><span class="mono">autocommit</span><span> - по умолчанию SQLite автоматически выполняет </span><span class="mono">COMMIT</span><span> после каждого успешно выполненного запроса. Если указать опцию </span><span class="mono">autocommit=0</span><span>, то такое поведение будет изменено, и Parser в начале оператора </span><span class="mono"><b><a href="opconnect.htm">connect</a></b></span><span> будет выдавать комманду </span><span class="mono">BEGIN</span><span>, а в конце - </span><span class="mono">COMMIT</span><span> или </span><span class="mono">ROLLBACK</span><span>. Таким образом все запросы, написанные внутри одного оператора </span><span class="mono">connect</span><span> будут выполняться в рамках одной транзакции;
 <br />
-</span><span>multi_statements</span><span> - ���� ���������� � 1, �� ����� SQL ������� ����� ��������� ��������� ����������, ���������� �������� ';' (<i>������ ";" ���������� </i><i><a href="stringlit.htm">����������</a></i><i> �������� "^"</i>);<b><i>
+</span><span class="mono">multi_statements</span><span> - если установлен в 1, то текст SQL запроса может содержать несколько инструкций, разделённых символом ';' (<i>символ ";" необходимо </i><i><a href="stringlit.htm">предварять</a></i><i> символом "^"</i>);<b><i>
 <br />
-</i></b></span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - �� ��������� ������� ������������ ��� ������������ ��������� ������ � UTF-8 � ������� (����� � BLOB-� �� ��������������), ������ � ��������� �������, ���� � ��� ���� ��, ���������� ������ � ���� ��������� (��� � ���������� � SQLite �����������), ��������� ������ ����� �� ������ ������ ���������, � ������� ������� ����� ����������� ��������������� ������ ��� ������� � SQL-��������.<b><i>
+</i></b></span><span class="mono"><a href="app3clientcharset.htm">ClientCharset</a></span><span> - по умолчанию драйвер перекодирует все отправляемые текстовые данные в UTF-8 и обратно (числа и BLOB-ы не перекодируются), однако в некоторых случаях, если у вас есть БД, содержащая данные в иной кодировке (что в применении к SQLite некорректно), используя данную опцию вы можете задать кодировку, в которую драйвер будет производить перекодирование данных при общении с SQL-сервером.<b><i>
 <br />
-</i></b></span><span><b>
+</i></b></span><span class="h1"><b>
 <br />
-�������
+Примеры
 <br />
-</b></span><span>��� ������ � ����� ������ </span><span><b>my.db</b></span><span> ������� ������������� � ���������� </span><span><b>data</b></span><span>, ����������� ����� � �����������, �� ������� ��������� document_root, </span><span>������ ����������� ����� �������� ���</span><span>:</span><span><b>
+</b></span><span>Для работы с базой данных </span><span class="mono"><b>my.db</b></span><span> которая располагается в директории </span><span class="mono"><b>data</b></span><span>, находящейся рядом с директорией, на которую указывает document_root, </span><span>строку подключения стоит написать так</span><span>:</span><span class="h1"><b>
 <br />
-</b></span><span>sqlite://../data/my.db
+</b></span><span class="mono">sqlite://../data/my.db
 <br />
 
 <br />
-</span><span>��� ������ � ��������� ����� ������, ������������� � ������ � ��� autocommit, </span><span>������ ����������� ����� �������� ���</span><span>:</span><span>
+</span><span>Для работы с временной базой данных, расположенной в памяти и без autocommit, </span><span>строку подключения стоит написать так</span><span>:</span><span class="mono">
 <br />
 sqlite://:memory:?autocommit=0
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��������� ��������</title>
+    <title>Строковые литералы</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,22 +15,22 @@
   <tr>
     <td>
       
-<span><b>��������� ��������
+<span class="h1"><b>Строковые литералы
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>� ���� Parser ����� �������������� ����� �����, ������� �������. ��������� ������� �������� ����������:
+<span>В коде Parser могут использоваться любые буквы, включая русские. Следующие символы являются служебными:
 <br />
 
 <br />
-<span><b>^&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;@
+<span class="mono"><b>^&nbsp;&nbsp;&nbsp;$&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;@
 <br />
 (&nbsp;&nbsp;&nbsp;)
 <br />
@@ -42,15 +42,15 @@
 <br />
 </b></span><span>
 <br />
-����� �������� ����������� �������� ���� ��������, �� ���������� ���������� �������� </span><span><b>^</b></span><span>. ��������, ��� ��������� � ������ ������� </span><span><b>$</b></span><span> ����� �������� </span><span><b>^$</b></span><span>.
+Чтобы отменить специальное действие этих символов, их необходимо предварять символом </span><span class="mono"><b>^</b></span><span>. Например, для получения в тексте символа </span><span class="mono"><b>$</b></span><span> нужно записать </span><span class="mono"><b>^$</b></span><span>.
 <br />
 
 <br />
-����� ����, ��������� ������������ ��� �������:
+Кроме того, допустимо использовать код символа:
 <br />
-</span><span><b>^#20</b></span><span> - ������
+</span><span class="mono"><b>^#20</b></span><span> - пробел
 <br />
-</span><span><b>^#XX</b></span><span> - </span><span><b>XX</b></span><span> hex ��� �����
+</span><span class="mono"><b>^#XX</b></span><span> - </span><span class="mono"><b>XX</b></span><span> hex код буквы
 <br />
 </span></span><br />
 

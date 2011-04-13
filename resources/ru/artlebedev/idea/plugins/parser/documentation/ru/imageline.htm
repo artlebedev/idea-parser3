@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>line. ��������� ����� �� �����������</title>
+    <title>line. Рисование линии на изображении</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,36 +15,36 @@
   <tr>
     <td>
       
-<span><b>line. ��������� ����� �� �����������
+<span class="h1"><b>line. Рисование линии на изображении
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.line(x0;y0;x1;y1;����)</b><span> &nbsp;&nbsp;&nbsp;</span><span><b>
+<span class="mono"><b>^картинка.line(x0;y0;x1;y1;цвет)</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000"> &nbsp;&nbsp;&nbsp;</span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-����� ������ �� ����������� ����� �� ����� � ������������ (�0:y0) � ����� (x1:y1) ��������� �����. 
+Метод рисует на изображении линию из точки с координатами (х0:y0) в точку (x1:y1) заданного цвета. 
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+</b></span><span class="mono"><span class="monoblue"><b>$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
 <br />
 ^square.line(0;0;100;100;0xFFFFFF)
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
 <br />
 </b></span></span><span>
 <br />
-� �������� ����� ������� ������ ������� �������� 100 �� 100 �������� ������������� �� ��������� ����� ������.
+В браузере будет выведен черный квадрат размером 100 на 100 пикселов перечеркнутый по диагонали белой линией.
 <br />
 </span></span><br />
 

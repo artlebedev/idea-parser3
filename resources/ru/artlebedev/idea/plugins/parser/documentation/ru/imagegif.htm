@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>gif. ����������� �������� ������ image � ������ GIF</title>
+    <title>gif. Кодирование объектов класса image в формат GIF</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,46 +15,46 @@
   <tr>
     <td>
       
-<span><b>gif. ����������� �������� ������ image � ������ GIF
+<span class="h1"><b>gif. Кодирование объектов класса image в формат GIF
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.gif[]</b>&nbsp;<b>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^картинка.gif[]</b>&nbsp;<b>&nbsp;&nbsp;&nbsp;
 <br />
-^��������.gif[���&nbsp;�����]</b>&nbsp;&nbsp;&nbsp;<span><b><i>[3.1.2]</i></b><b><i>
+^картинка.gif[имя&nbsp;файла]</b>&nbsp;&nbsp;&nbsp;<span><b><i>[3.1.2]</i></b><b><i>
 <br />
 </i></b>
 <br />
-������������ ��� ����������� ��������� Parser �������� ������ </span><span><b>image</b></span><span> � ������ GIF.  
+Используется для кодирования созданных Parser объектов класса </span><span class="mono"><b>image</b></span><span> в формат GIF.  
 <br />
-</span><span><b>���&nbsp;�����</b></span><span> ����� �������� ���������� ��� </span><span><b><a href="responsedownload.htm">$response:download</a></b></span><span>.
+</span><span class="mono"><b>Имя&nbsp;файла</b></span><span> будет передано посетителю при </span><span class="mono"><b><a href="responsedownload.htm">$response:download</a></b></span><span>.
 <br />
 
 <br />
-<i>��������: � ���������� ������������� ����� ������ ��������� ����� ������ ������ </i></span><span><b><a href="fileclass.htm">file</a></b></span><span><i>, � �� </i></span><span><b>image</b></span><span><i>! 
+<i>Внимание: в результате использования этого метода создается новый объект класса </i></span><span class="mono"><b><a href="fileclass.htm">file</a></b></span><span><i>, а не </i></span><span class="mono"><b>image</b></span><span><i>! 
 <br />
 </i>
 <br />
-����� ����, ���������� ��������� ��� ����, ��� ����� ���������� �� �������, �, ����� ������� �������������, ���������� ������ ��������� ������. � ������ �������� ������� �����������, �������� � �������������� ����������� �����, ������� ����� � ���� ������������������ ������� ������. 
+Кроме того, необходимо учитывать тот факт, что цвета выделяются из палитры, и, когда палитра заканчивается, начинается подбор ближайших цветов. В случае создания сложных изображений, особенно с предварительно загруженным фоном, следует иметь в виду последовательность захвата цветов. 
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+</b></span><span class="mono"><span class="monoblue"><b>$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.gif[]]</b></span></span><span><b>
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.gif[]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-� �������� ����� ������� ������ ������� �������� 100 �� 100 ��������.
+В браузере будет выведен черный квадрат размером 100 на 100 пикселов.
 <br />
 </span></span><br />
 

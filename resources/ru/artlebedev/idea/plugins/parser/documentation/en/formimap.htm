@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>imap. Getting mouse click coordinates</title>
+    <title>imap. Getting mouse click coordinates</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,58 +15,58 @@
   <tr>
     <td>
       
-<span><b>imap. Getting mouse click coordinates</b><b>
+<span class="h1"><b>imap. Getting mouse click coordinates</b><b>
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$form:imap
+<span class="mono"><b>$form:imap
 <br />
 </b><span>
 <br />
-If a visitor clicked on an image with attribute ISMAP, such a construction returns </span><span><b>hash</b></span><span> with fields </span><span><b>x</b></span><span> and </span><span><b>y</b></span><span> containing mouse click coordinates.
+If a visitor clicked on an image with attribute ISMAP, such a construction returns </span><span class="mono"><b>hash</b></span><span> with fields </span><span class="mono"><b>x</b></span><span> and </span><span class="mono"><b>y</b></span><span> containing mouse click coordinates.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 Example</b></span><span><b>
 <br />
-</b></span><span>In file </span><span>/go.html</span><span> you write:
+</b></span><span>In file </span><span class="mono">/go.html</span><span> you write:
 <br />
-</span><span><span><b>$clicked[$form:imap]
+</span><span class="mono"><span class="monoblue"><b>$clicked[$form:imap]
 <br />
 ^if(def&nbsp;$clicked){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;Visitor&nbsp;clicked&nbsp;on&nbsp;ISMAP&nbsp;link:&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Visitor&nbsp;clicked&nbsp;on&nbsp;ISMAP&nbsp;link:&lt;br&nbsp;/&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;x=</b><span><b>$clicked.x</b></span></span><span><b>&lt;br&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;x=</b><span class="monoblue"><b>$clicked.x</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;y=</b><span><b>$clicked.y</b></span></span><span><b>&lt;br&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;y=</b><span class="monoblue"><b>$clicked.y</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-In file </span><span>/test.html</span><span> you write:
+In file </span><span class="mono">/test.html</span><span> you write:
 <br />
-</span><span><b>&lt;a&nbsp;href="/go.html?a=b"&gt;&lt;img&nbsp;src="map.png"&nbsp;ismap&nbsp;/&gt;&lt;/a&gt;
+</span><span class="mono"><b>&lt;a&nbsp;href="/go.html?a=b"&gt;&lt;img&nbsp;src="map.png"&nbsp;ismap&nbsp;/&gt;&lt;/a&gt;
 <br />
 </b></span><span>
 <br />
-Open </span><span>/test.html</span><span> in your browser and click on the picture. You will go to&#133;
+Open </span><span class="mono">/test.html</span><span> in your browser and click on the picture. You will go to&#133;
 <br />
-</span><span>/go.html?a=b?10,30
+</span><span class="mono">/go.html?a=b?10,30
 <br />
 </span><span>
 <br />
 &#133;and you will see&#133;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;Visitor&nbsp;clicked&nbsp;on&nbsp;ISMAP&nbsp;link:
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Visitor&nbsp;clicked&nbsp;on&nbsp;ISMAP&nbsp;link:
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;x=10
 <br />

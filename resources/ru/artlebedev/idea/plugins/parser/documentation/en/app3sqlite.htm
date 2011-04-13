@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>For SQLite</title>
+    <title>For SQLite</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,22 +15,22 @@
   <tr>
     <td>
       
-<span><b>For SQLite</b><b>
+<span class="h1"><b>For SQLite</b><b>
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>sqlite://path-to-DB-file?
+<span class="mono">sqlite://path-to-DB-file?
 <br />
 &nbsp;&nbsp;&nbsp;autocommit=1&amp;<span><b><i> [3.3.0]</i></b><b><i>
 <br />
-&nbsp;&nbsp;&nbsp;</i></b></span><span>multi_statements=0&amp;</span><span><b><i> [3.3.0]</i></b></span><span>
+&nbsp;&nbsp;&nbsp;</i></b></span><span class="mono">multi_statements=0&amp;</span><span><b><i> [3.3.0]</i></b></span><span class="mono">
 <br />
 </span><span>
 <br />
@@ -38,25 +38,25 @@
 <br />
 Path to file with database specified from <a href="requestdocroot.htm">document_root</a>.
 <br />
-As path to file with database the driver also accepts special values </span><span><b>:memory:</b></span><span> and </span><span><b>:temporary:</b></span><span>. First one means that for this session will be created temporary database i</span><span>n memory. Second one-for this session will be created temporary database on disk (you don't need to remove database file manually).
+As path to file with database the driver also accepts special values </span><span class="mono"><b>:memory:</b></span><span> and </span><span class="mono"><b>:temporary:</b></span><span>. First one means that for this session will be created temporary database i</span><span>n memory. Second one-for this session will be created temporary database on disk (you don't need to remove database file manually).
 <br />
 
 <br />
-</span><span>autocommit</span><span>-by default SQLite commits all queries automatically. If this option sets to 0, Parser executes </span><span>BEGIN</span><span> statement </span><span>at the beginning </span><span>and </span><span>COMMIT/ROLLBACK</span><span> </span><span>at the end of operator </span><span><b><a href="opconnect.htm">connect</a></b></span><span>, so all statements in one connect operator will be executed in single transaction;<b><i>
+</span><span class="mono">autocommit</span><span>-by default SQLite commits all queries automatically. If this option sets to 0, Parser executes </span><span class="mono">BEGIN</span><span> statement </span><span>at the beginning </span><span>and </span><span class="mono">COMMIT/ROLLBACK</span><span> </span><span>at the end of operator </span><span class="mono"><b><a href="opconnect.htm">connect</a></b></span><span>, so all statements in one connect operator will be executed in single transaction;<b><i>
 <br />
-</i></b></span><span>multi_statements</span><span>-if set to </span><span>1, the single SQL query can contains more then one SQL statements separated by ";" character</span><span> (</span><span><i>character ";" must be </i><i><a href="stringlit.htm">escaped</a></i><i> by character "^"</i></span><span>)</span><span>.</span><span>
+</i></b></span><span class="mono">multi_statements</span><span>-if set to </span><span>1, the single SQL query can contains more then one SQL statements separated by ";" character</span><span><i>character ";" must be </i><i><a href="stringlit.htm">escaped</a></i><i> by character "^"</i></span><span>.</span><span class="mono">
 <br />
 </span><span>
 <br />
-</span><span><b>Examples</b><b>:
+</span><span class="h1"><b>Examples</b><b>:
 <br />
-</b></span><span>Assume, file </span><span><b>my.db</b></span><span> with database located in </span><span><b>data</b></span><span> directory which located near your document root directory. Connect string should look like this:</span><span><b>
+</b></span><span>Assume, file </span><span class="mono"><b>my.db</b></span><span> with database located in </span><span class="mono"><b>data</b></span><span> directory which located near your document root directory. Connect string should look like this:</span><span class="h1"><b>
 <br />
-</b></span><span>sqlite://../data/my.db
+</b></span><span class="mono">sqlite://../data/my.db
 <br />
 
 <br />
-</span><span>Assume, you need temporary table in memory without autocommit (one connect-one transaction).</span><span> Connect string should look like this:</span><span>
+</span><span>Assume, you need temporary table in memory without autocommit (one connect-one transaction).</span><span> Connect string should look like this:</span><span class="mono">
 <br />
 sqlite://:memory:?autocommit=0
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Junction (�����)</title>
+    <title>Junction (класс)</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,86 +15,86 @@
   <tr>
     <td>
       
-<span><b>Junction (�����)
+<span class="h1"><b>Junction (класс)
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>����� ������������ ��� �������� <b><a href="vars.htm">����</a></b> � <b>���������</b> ��� ����������.
+<span>Класс предназначен для хранения <b><a href="vars.htm">кода</a></b> и <b>контекста</b> его выполнения.
 <br />
-��� ��������� � ����������, �������� � ���� <span><b>junction</b></span><span>, Parser ��������� <b>���</b> � ����������� <b>���������</b>.
-<br />
-
-<br />
-�������� ���� </span><span><b>junction</b></span><span> ���������� � ����������
+При обращении к переменным, хранящим в себе <span class="mono"><b>junction</b></span><span>, Parser выполняет <b>код</b> в сохраненном <b>контексте</b>.
 <br />
 
 <br />
-���� ������������ �� ����:
+Значение типа </span><span class="mono"><b>junction</b></span><span> появляется в переменной…
 <br />
-</span><span><span><b>$junction{</b></span></span><span><b>���,&nbsp;�������������&nbsp;����������:&nbsp;</b><span><b>^do_something[]}
+
+<br />
+…при присваивании ей кода:
+<br />
+</span><span class="mono"><span class="monoblue"><b>$junction{</b></span></span><span class="mono"><b>Код,&nbsp;присваиваемый&nbsp;переменной:&nbsp;</b><span class="monoblue"><b>^do_something[]}
 <br />
 </b></span></span><span>
 <br />
-���� �������� ���� ����������:
+…при передачи кода параметром:
 <br />
-</span><span><span><b>@somewhere[]
+</span><span class="mono"><span class="monoblue"><b>@somewhere[]
 <br />
-^method{</b></span></span><span><b>���,&nbsp;������������&nbsp;����������:&nbsp;</b><span><b>^do_something_else[]}
+^method{</b></span></span><span class="mono"><b>Код,&nbsp;передаваемый&nbsp;параметром:&nbsp;</b><span class="monoblue"><b>^do_something_else[]}
 <br />
-�
+…
 <br />
 @method[parameter]
 <br />
-#�����&nbsp;�&nbsp;$parameter&nbsp;������&nbsp;junction
+#здесь&nbsp;в&nbsp;$parameter&nbsp;придет&nbsp;junction
 <br />
 </b></span></span><span>
 <br />
-���� ��������� � ����� ������ ������:
+…при обращении к имени метода класса:
 <br />
-</span><span><span><b>$action[</b></span></span><span><span><b>$</b></span></span><span><span><b><a href="defineclass.htm">user</a></b></span></span><span><span><b>:</b></span></span><span><span><b>edit</b></span></span><span><span><b>]
+</span><span class="mono"><span class="monoblue"><b>$action[</b></span></span><span class="mono"><span class="monoblue"><b>$</b></span></span><span class="mono"><span class="monoblue"><b><a href="defineclass.htm">user</a></b></span></span><span class="mono"><span class="monoblue"><b>:</b></span></span><span class="mono"><span class="monoblue"><b>edit</b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
-#$action[</b></span></span><span><span><b>$</b></span></span><span><span><b>user:delete]
+#$action[</b></span></span><span class="mono"><span class="monoblue"><b>$</b></span></span><span class="mono"><span class="monoblue"><b>user:delete]
 <br />
-</b></span></span><span><span><b>^action[��������]
+</b></span></span><span class="mono"><span class="monoblue"><b>^action[параметр]
 <br />
 </b></span></span><span>
 <br />
-����� </span><span><b>$action</b></span><span> ������ ������ �� ����� � ��� �����, ����� </span><span><b>action</b></span><span> ������ ���������� ������ </span><span><b>^edit[��������]</b></span><span>.
+Здесь </span><span class="mono"><b>$action</b></span><span> хранит ссылку на метод и его класс, вызов </span><span class="mono"><b>action</b></span><span> теперь аналогичен вызову </span><span class="mono"><b>^edit[параметр]</b></span><span>.
 <br />
 
 <br />
-���� ��������� � ����� ������ �������:
+…при обращении к имени метода объекта:
 <br />
-</span><span><span><b>$action[$person.show_info]
+</span><span class="mono"><span class="monoblue"><b>$action[$person.show_info]
 <br />
 ^action[full]
 <br />
 </b></span></span><span>
 <br />
-����� </span><span><b>$action</b></span><span> ������ ������ �� ����� � ��� ������, ����� </span><span><b>action</b></span><span> ������ ���������� ������ </span><span><b>^person.show_info[���������]</b></span><span>.
+Здесь </span><span class="mono"><b>$action</b></span><span> хранит ссылку на метод и его объект, вызов </span><span class="mono"><b>action</b></span><span> теперь аналогичен вызову </span><span class="mono"><b>^person.show_info[параметры]</b></span><span>.
 <br />
 
 <br />
-</span><span><b>������ </b><b>junction </b><b>��������� � ����</b><b>
+</span><span class="h1"><b>Пример </b><b>junction </b><b>выражений и кода</b><b>
 <br />
-</b></span><span><span><b>@</b></span></span><span><span><b>possible_reminder[age;have_passport]
+</b></span><span class="mono"><span class="monoblue"><b>@</b></span></span><span class="mono"><span class="monoblue"><b>possible_reminder[age;have_passport]
 <br />
-</b></span></span><span><span><b>^m</b></span></span><span><span><b>yif</b></span></span><span><span><b>($age&gt;=16</b></span></span><span><span><b>&nbsp;&amp;&amp;&nbsp;!$have_passport</b></span></span><span><span><b>){
+</b></span></span><span class="mono"><span class="monoblue"><b>^m</b></span></span><span class="mono"><span class="monoblue"><b>yif</b></span></span><span class="mono"><span class="monoblue"><b>($age&gt;=16</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&amp;&amp;&nbsp;!$have_passport</b></span></span><span class="mono"><span class="monoblue"><b>){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;����&nbsp;���&nbsp;</b><span><b>$age</b></span></span><span><b>&nbsp;���,&nbsp;����&nbsp;�������&nbsp;�&nbsp;�������</b><b>.</b><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Тебе&nbsp;уже&nbsp;</b><span class="monoblue"><b>$age</b></span></span><span class="mono"><b>&nbsp;лет,&nbsp;пора&nbsp;сходить&nbsp;в&nbsp;милицию</b><b>.</b><b>
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 
 <br />
-</b></span></span><span><span><b>@myif[condition;action][age]
+</b></span></span><span class="mono"><span class="monoblue"><b>@myif[condition;action][age]
 <br />
 $age(11)
 <br />
@@ -102,33 +102,33 @@ $age(11)
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$action
 <br />
-}</b></span></span><span><span><b>
+}</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-<i>�����������: </i><i><a href="params.htm">��������</a></i><i> � ����������, ��� ���, ����������� ���������, �� ����������� - ����������� ��������� - ��� ������ ��������� � ��������� ������ ������.</i>
+<i>Напоминание: </i><i><a href="params.htm">параметр</a></i><i> с выражением, это код, вычисляющий выражение, он выполняется - вычисляется выражение - при каждом обращении к параметру внутри вызова.</i>
 <br />
 
 <br />
-����� ��������� </span><span><b>myif</b></span><span> ������� ���, ����������, ����� �������, </span><span><b>$age</b></span><span>. ���������� �������� � ���� �������� ���������� � ����������� (������ </span><span><b>$condition</b></span><span> � </span><span><b>$action</b></span><span>) <b>���������</b>, ������� ������� � </span><span><b>myif</b></span><span> ��������� ���������� </span><span><b>age</b></span><span> � �� �������� ����� �� ������ �� ��, ��� ����� ��������� � ��� ����������.
+Здесь оператору </span><span class="mono"><b>myif</b></span><span> передан код, печатающий, среди прочего, </span><span class="mono"><b>$age</b></span><span>. Выполнение проверки и кода оператор производит в сохраненном (внутри </span><span class="mono"><b>$condition</b></span><span> и </span><span class="mono"><b>$action</b></span><span>) <b>контексте</b>, поэтому наличие в </span><span class="mono"><b>myif</b></span><span> локальной переменной </span><span class="mono"><b>age</b></span><span> и ее значение никак не влияет на то, что будет проверено и что напечатано.
 <br />
 
 <br />
-</span><span><b>������ �������� ������� ������</b><b>
+</span><span class="h1"><b>Пример проверки наличия метода</b><b>
 <br />
-</b></span><span><span><b>^if($some_method&nbsp;is&nbsp;junction){</b></span></span><span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>^if($some_method&nbsp;is&nbsp;junction){</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^some_method[</b></span></span><span><span><b>��������</b></span></span><span><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>^some_method[</b></span></span><span class="mono"><span class="monoblue"><b>параметр</b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
-}</b></span></span><span><span><b>{
+}</b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>���&nbsp;������
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>нет&nbsp;метода
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-����� </span><span><b>some_meth</b><b>od</b></span><span>, ����� ������ ������, ���� ���������.
+Метод </span><span class="mono"><b>some_meth</b><b>od</b></span><span>, будет вызван только, если определен.
 <br />
 </span></span><br />
 

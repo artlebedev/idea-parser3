@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��������� �������� ���� �������</title>
+    <title>Получение значения поля запроса</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,38 +15,38 @@
   <tr>
     <td>
       
-<span><b>��������� �������� ���� �������
+<span class="h1"><b>Получение значения поля запроса
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$e</b><b>nv</b><b>:</b><b>HTTP_</b><b>����_�������
+<span class="mono"><b>$e</b><b>nv</b><b>:</b><b>HTTP_</b><b>ПОЛЕ_ЗАПРОСА
 <br />
 </b><span>
 <br />
-����� ����������� ���������� �������� ���� �������, ������������ ��������� ���-������� (�� HTTP ���������).
+Такая конструкция возвращает значение поля запроса, передаваемое браузером веб-серверу (по HTTP протоколу).
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>^if(^</b></span></span><span><span><b>env</b></span></span><span><span><b>:HTTP_USER_AGENT.</b></span></span><span><span><b><a href="stringpos.htm">pos</a></b></span></span><span><span><b>[MSIE]&gt;=0){
+</b></span><span class="mono"><span class="monoblue"><b>^if(^</b></span></span><span class="mono"><span class="monoblue"><b>env</b></span></span><span class="mono"><span class="monoblue"><b>:HTTP_USER_AGENT.</b></span></span><span class="mono"><span class="monoblue"><b><a href="stringpos.htm">pos</a></b></span></span><span class="mono"><span class="monoblue"><b>[MSIE]&gt;=0){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;������������,&nbsp;��������,&nbsp;����������&nbsp;Microsoft&nbsp;Internet&nbsp;Explorer&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Пользователь,&nbsp;вероятно,&nbsp;использует&nbsp;Microsoft&nbsp;Internet&nbsp;Explorer&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-���� ������� ����� ����� � ������� �������� � ������������ � </span><span><b>HTTP_</b></span><span>, � ����� '-' � ��� �������� �� '_'.
+Поля запроса имеют имена в верхнем регистре и начинающиеся с </span><span class="mono"><b>HTTP_</b></span><span>, и знаки '-' в них заменены на '_'.
 <br />
-<i>����������� </i><i>� ������������ �� ��� ���-������.</i><i>
+<i>Подробности </i><i>в документации на ваш веб-сервер.</i><i>
 <br />
 </i></span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>cgi and exec. Executing a program</title>
+    <title>cgi and exec. Executing a program</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,35 +11,164 @@
 <body>
 
 
-<span><b>Example of receiving binary data from an external script</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>cgi and exec. Executing a program
 <br />
-</u></span><span><span><b>$response:body[</b></span></span><span><span><b>^</b></span></span><span><span><b>file::exec[binary;getfile.pl;$.CGI_FILENAME[</b></span></span><span><span><b><a href="formfields.htm">$form:filename</a></b></span></span><span><span><b>]]</b></span></span><span><span><b>]</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</b></span><span><b>
+
+
+
+<span class="mono"><b>^file::cgi[filename]
+<br />
+^file::cgi[filename;env_hash]
+<br />
+^file::cgi[filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]
+<br />
+^file::cgi[format;filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span class="mono"><b>
+<br />
+^file::exec[filename]
+<br />
+^file::exec[filename;env_hash]
+<br />
+^file::exec[filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]
+<br />
+^file::exec[format;filename;env_hash;argument</b><b>1;argument2;</b><b>&#133;]</b><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+Constructor </span><span class="mono"><b>cgi</b></span><span> creates an object of class </span><span class="mono"><b>file</b></span><span>, containing results returned by a program according to CGI standard</span><span> </span><span>.
+<br />
+
+<br />
+<i>Note: when a program/script is executed, directory with it will be its working directory.
+<br />
+</i>
+<br />
+Headers, returned by the CGI-script, will then become fields of class </span><span class="mono"><b>file</b></span><span> converted into UPPERCASE. E.g., if a CGI-script </span><span class="mono">script.pl</span><span> returns a header </span><span class="mono"><b>some_field:some_value</b></span><span>, then, on having processed
+<br />
+</span><span class="mono"><span class="monoblue"><b>$f[^file::cgi[script.pl]]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>we can address to </span><span class="mono"><b>$f.SOME_FIELD</b></span><span> and get value </span><span class="mono"><b>some_value</b></span><span>.
+<br />
+
+<br />
+Constructor </span><span class="mono"><b>exec</b></span><span> is similar to </span><span class="mono"><b>cgi</b></span><span> but doesn't separate HTTP-headers from the text returned by the script.
+<br />
+
+<br />
+</span><span class="mono"><b>format</b></span><span>-defines format of loaded file and can be either </span><span class="mono"><b>text</b></span><span> (default)</span><span> or </span><span class="mono"><b>binary</b></span><span>. While using </span><span class="mono"><b>binary</b></span><span> format the result will not transcoded to </span><span class="mono"><b><a href="requestcharset.htm">$request:charset</a></b></span><span> and will not truncated on first zero char.
+<br />
+
+<br />
+</span><span class="mono"><b>filename</b></span><span>-path and name of file.
+<br />
+
+<br />
+Object, created by these constructors, has additional fields:
+<br />
+</span><span class="mono"><b>status</b></span><span>-information on the status of program's termination (usually </span><span class="mono"><b>0</b></span><span> (zero) means successful termination, while non-zero status means error);
+<br />
+</span><span class="mono"><b>stderr</b></span><span>-standard errors stream.
+<br />
+<u>
+<br />
+</u><b>Example</b><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$cgi_file[^file::cgi[new.cgi]]
+<br />
+$cgi_file.text
+<br />
+</b></span></span><span>
+<br />
+Outputs text resulting from execution of </span><span class="mono">new.cgi</span><span>.</span><span class="mono">
+<br />
+</span><span>
+<br />
+Optional arguments of constructors:
+<br />
+
+<br />
+</span><span class="mono"><b>env_hash</b></span><span>-<a href="hash.htm">hash</a>, which can include
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>additional environment variables to be later accessed from within the script,
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>key </span><span class="mono"><b>stdin</b></span><span>, containing text sent to the script in standard input stream,
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>key </span><span class="mono"><b>charset</b></span><span>, which indicates charset in which script operates (data to and from script will be transcoded accordingly).<b><i> [3.1.3]</i></b>
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+<i>Note: you can specify only standard CGI environment variables, or variables, whose names start with </i></span><span class="mono"><b><i>CGI_</i></b></span><span><i> or </i></span><span class="mono"><b><i>HTTP_&nbsp;</i></b></span><span><i>(restricted to: UPPERCASE Latin characters, numbers, underscore and hyphen)</i>.
+<br />
+<i>Note: unsafe-mode version allows you to use CGI environment variables' names without any limitations. </i><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b><i>
+<br />
+</i><i>Note: while processing </i></span><span class="mono">HTTP&nbsp;POST</span><span><i> </i></span><span><i>request, you can use construction </i></span><span class="mono"><b>$.stdin</b><b>[</b><b><a href="requestbody.htm">$request:body</a></b><b>]</b></span><span><i> </i><i>to send received POST data to the script's standard input stream.
+<br />
+</i><i>Note: variables which were set by http server while executes Parser also will be availabe for scripts.</i>
+<br />
+
+<br />
+
+<br />
+</span><span class="h1"><b>Example of how to use an external cgi-script</b><b>
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>$search[^file::cgi[</b></span></span><span class="mono"><span class="monoblue"><b>search</b></span></span><span class="mono"><span class="monoblue"><b>.cgi;$.QUERY_STRING[text=</b></span></span><span class="mono"><span class="monoblue"><b><a href="formfields.htm">$form:q</a></b></span></span><span class="mono"><span class="monoblue"><b>&amp;page=$form:p</b></span></span><span class="mono"><span class="monoblue"><b>]]]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span class="h1"><b>
+<br />
+
+<br />
+</b><b>Example of how to use an external script</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$script[</b></span></span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b>file::exec[script.pl;$.CGI_INFORMATION[I&nbsp;have&nbsp;had&nbsp;it&nbsp;enough]]</b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+Information being sent can be accessed and used within script </span><span class="mono">script.pl</span><span>:
+<br />
+</span><span class="mono"><b>print&nbsp;"Additional&nbsp;information:&nbsp;$ENV{CGI_INFORMATION}\n";
+<br />
+</b></span><span><u>
+<br />
+
+<br />
+</u></span><span class="h1"><b>Example of receiving binary data from an external script</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$response:body[</b></span></span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b>file::exec[binary;getfile.pl;$.CGI_FILENAME[</b></span></span><span class="mono"><span class="monoblue"><b><a href="formfields.htm">$form:filename</a></b></span></span><span class="mono"><span class="monoblue"><b>]]</b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span class="h1"><b>
 <br />
 
 <br />
 </b><b>Example of passing several arguments
 <br />
-</b></span><span>You can also send a number of arguments to the program by specifying them-separated by semicolon-after </span><span><b>env_hash</b></span><span>:
+</b></span><span>You can also send a number of arguments to the program by specifying them-separated by semicolon-after </span><span class="mono"><b>env_hash</b></span><span>:
 <br />
-</span><span><span><b>$script[</b></span></span><span><span><b>^file::exec[script.pl;;</b></span></span><span><b>height</b><span><b>;</b></span></span><span><b>width</b><span><b>]</b></span></span><span><span><b>]</b></span></span><span><b>
+</span><span class="mono"><span class="monoblue"><b>$script[</b></span></span><span class="mono"><span class="monoblue"><b>^file::exec[script.pl;;</b></span></span><span class="mono"><b>height</b><span class="monoblue"><b>;</b></span></span><span class="mono"><b>width</b><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-...or specify arguments as a table with one column:</span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+...or specify arguments as a table with one column:</span><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
 <br />
-</span><span><span><b>$</b></span></span><span><span><b>args[^table::create{arg
+</span><span class="mono"><span class="monoblue"><b>$</b></span></span><span class="mono"><span class="monoblue"><b>args[^table::create{arg
 <br />
-</b></span></span><span><b>height</b><span><b>
+</b></span></span><span class="mono"><b>height</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>width</b><span><b>}]
+</b></span></span><span class="mono"><b>width</b><span class="monoblue"><b>}]
 <br />
-$</b></span></span><span><span><b>script[^file::exec[script.pl;;</b></span></span><span><span><b>$args</b></span></span><span><span><b>]]</b></span></span><span>
+$</b></span></span><span class="mono"><span class="monoblue"><b>script[^file::exec[script.pl;;</b></span></span><span class="mono"><span class="monoblue"><b>$args</b></span></span><span class="mono"><span class="monoblue"><b>]]</b></span></span><span>
 <br />
 
 <br />
-<i>Note: we insist that you store scripts to be run by constructors </i></span><span><b>cgi</b></span><span><i> and </i></span><span><b>exec</b></span><span><i> beyond web-space, since executing a script with arbitrary arguments may case unexpected consequences.</i><i>
+<i>Note: we insist that you store scripts to be run by constructors </i></span><span class="mono"><b>cgi</b></span><span><i> and </i></span><span class="mono"><b>exec</b></span><span><i> beyond web-space, since executing a script with arbitrary arguments may case unexpected consequences.</i><i>
 <br />
 </i></span></span><br />
 

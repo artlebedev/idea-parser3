@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. Text file creation</title>
+    <title>create. Text file creation</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,62 +11,72 @@
 <body>
 
 
-<span><b>create. Text file creation&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.5]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>create. Text file creation&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.5]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>^file::create[</b><b>format</b><b>;</b><b>name;content</b><b>]
+<span class="mono"><b>^file::create[</b><b>format</b><b>;</b><b>name;content</b><b>]
 <br />
-^file::create[</b><b>format</b><b>;</b><b>name;content;options</b><b>]</b><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
+^file::create[</b><b>format</b><b>;</b><b>name;content;options</b><b>]</b><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-Constructs an object of class </span><span><b>file</b></span><span>, with specified </span><span><b>name</b></span><span> and </span><span><b>content</b></span><span>.
+Constructs an object of class </span><span class="mono"><b>file</b></span><span>, with specified </span><span class="mono"><b>name</b></span><span> and </span><span class="mono"><b>content</b></span><span>.
 <br />
 
 <br />
-</span><span><b>Format</b></span><span> defines format of created file. For now it can be only </span><span><b>text</b></span><span>.
+</span><span class="mono"><b>Format</b></span><span> defines format of created file. For now it can be only </span><span class="mono"><b>text</b></span><span>.
 <br />
-</span><span><b>Options</b></span><span>-<a href="hash.htm">hash</a>, in which you can specify</span><span><b>&nbsp;$.charset[</b></span><span>charset</span><span><b>]</b></span><span> or </span><span><b>$.content-type[...]</b></span><span><b><i> [3.4.1] 
+</span><span class="mono"><b>Options</b></span><span>-<a href="hash.htm">hash</a>, in which you can specify</span><span class="mono"><b>&nbsp;$.charset[</b></span><span>charset</span><span class="mono"><b>]</b></span><span> or </span><span class="mono"><b>$.content-type[...]</b></span><span><b><i> [3.4.1] 
 <br />
 </i></b>
 <br />
-<i>Note: if there is a need to save file to </i><b><i>server</i></b><i> disk, there is simple way: </i></span><span><b>^</b><b><a href="stringclass.htm">string</a></b><b>.</b><b><a href="stringsave.htm">save</a></b><b>[&#133;]</b></span><span><i>.</i><i>
+<i>Note: if there is a need to save file to </i><b><i>server</i></b><i> disk, there is simple way: </i></span><span class="mono"><b>^</b><b><a href="stringclass.htm">string</a></b><b>.</b><b><a href="stringsave.htm">save</a></b><b>[&#133;]</b></span><span><i>.</i><i>
 <br />
 </i>
 <br />
-</span><span><b>Example of export data in XML </b><b>f</b><b>ormat
+</span><span class="h1"><b>Example of export data in XML </b><b>f</b><b>ormat
 <br />
-</b></span><span><span><b>#export.html</b></span></span><span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>#export.html</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">connection string</a></b></span></span><span><span><b>]{
+^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opconnect.htm">connect</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b><a href="app3.htm">connection string</a></b></span></span><span class="mono"><span class="monoblue"><b>]{
 <br />
-$products[^</b></span></span><span><span><b><a href="tableclass.htm">table</a></b></span></span><span><span><b>::</b></span></span><span><span><b><a href="tablesql.htm">sql</a></b></span></span><span><span><b>{select&nbsp;product_id,&nbsp;name&nbsp;from&nbsp;products}]
+$products[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tableclass.htm">table</a></b></span></span><span class="mono"><span class="monoblue"><b>::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesql.htm">sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{select&nbsp;product_id,&nbsp;name&nbsp;from&nbsp;products}]
 <br />
-</b></span></span><span><span><b>$file[^file::create[text;export.xml;^</b></span></span><span><span><b><a href="opuntainttaint.htm">untaint</a></b></span></span><span><span><b>[xml]{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="</b><span><b>$</b></span></span><span><span><b><a href="requestclass.htm">request</a></b></span></span><span><span><b>:</b></span></span><span><span><b><a href="requestcharset.htm">charset</a></b></span></span><span><span><b>"</b></span></span><span><b>?&gt;</b><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>$file[^file::create[text;export.xml;^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opuntainttaint.htm">untaint</a></b></span></span><span class="mono"><span class="monoblue"><b>[xml]{</b></span></span><span class="mono"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="</b><span class="monoblue"><b>$</b></span></span><span class="mono"><span class="monoblue"><b><a href="requestclass.htm">request</a></b></span></span><span class="mono"><span class="monoblue"><b>:</b></span></span><span class="mono"><span class="monoblue"><b><a href="requestcharset.htm">charset</a></b></span></span><span class="mono"><span class="monoblue"><b>"</b></span></span><span class="mono"><b>?&gt;</b><b>
 <br />
 &lt;products&gt;
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^products.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{</b></span></span><span><b>&lt;product&nbsp;id="</b><span><b>$products.</b></span></span><span><span><b><a href="tablefields.htm">product_id</a></b></span></span><span><b>"&nbsp;name="</b><span><b>$products.name</b></span></span><span><b>"/&gt;</b><span><b>}
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>^products.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>&lt;product&nbsp;id="</b><span class="monoblue"><b>$products.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablefields.htm">product_id</a></b></span></span><span class="mono"><b>"&nbsp;name="</b><span class="monoblue"><b>$products.name</b></span></span><span class="mono"><b>"/&gt;</b><span class="monoblue"><b>}
 <br />
-</b></span></span><span><b>&lt;/products&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&lt;/products&gt;</b><span class="monoblue"><b>
 <br />
 }]]
 <br />
-$</b></span></span><span><span><b><a href="responseclass.htm">response</a></b></span></span><span><span><b>:</b></span></span><span><span><b><a href="responsedownload.htm">download</a></b></span></span><span><span><b>[$file]
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responseclass.htm">response</a></b></span></span><span class="mono"><span class="monoblue"><b>:</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsedownload.htm">download</a></b></span></span><span class="mono"><span class="monoblue"><b>[$file]
 <br />
-</b></span></span><span><span><b>}</b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>}</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-When this document is opened then file </span><span>export.xml</span><span> is created and browser suggests visitor to save it.
+When this document is opened then file </span><span class="mono">export.xml</span><span> is created and browser suggests visitor to save it.
 <br />
 Sample result:
 <br />
 
 <br />
-</span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="U</b><b>TF-8</b><b>"?&gt;
+</span><span class="mono"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="U</b><b>TF-8</b><b>"?&gt;
 <br />
 &lt;products&gt;
 <br />

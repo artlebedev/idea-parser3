@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>load. �������� ����� � ����� ��� HTTP-�������</title>
+    <title>load. Загрузка файла с диска или HTTP-сервера</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,80 +15,80 @@
   <tr>
     <td>
       
-<span><b>load. �������� ����� � ����� ��� HTTP-�������
+<span class="h1"><b>load. Загрузка файла с диска или HTTP-сервера
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file::load[������;</b><b><a href="app1.htm">��� �����</a></b><b>]
+<span class="mono"><b>^file::load[формат;</b><b><a href="app1.htm">имя файла</a></b><b>]
 <br />
-^file::load[������;</b><b><a href="app1.htm">��� �����</a></b><b>;</b><b><a href="app1.htm">����� ��������</a></b><b>]
+^file::load[формат;</b><b><a href="app1.htm">имя файла</a></b><b>;</b><b><a href="app1.htm">опции загрузки</a></b><b>]
 <br />
-^file::load[������;</b><b><a href="app1.htm">��� �����</a></b><b>;�����&nbsp;���&nbsp;�����]</b><span>
+^file::load[формат;</b><b><a href="app1.htm">имя файла</a></b><b>;новое&nbsp;имя&nbsp;файла]</b><span>
 <br />
-</span><span><b>^file::load[������;</b><b><a href="app1.htm">��� �����</a></b><b>;�����&nbsp;���&nbsp;�����;</b><b><a href="app1.htm">����� ��������</a></b><b>]</b></span><span>
+</span><span class="mono"><b>^file::load[формат;</b><b><a href="app1.htm">имя файла</a></b><b>;новое&nbsp;имя&nbsp;файла;</b><b><a href="app1.htm">опции загрузки</a></b><b>]</b></span><span>
 <br />
 </span><span>
 <br />
-��������� ���� � ����� ��� HTTP-�������.
+Загружает файл с диска или HTTP-сервера.
 <br />
 
 <br />
-</span><span><b>������</b></span><span> - ������ ������������� ������������ �����. ����� ���� </span><span><b>text</b></span><span>(���������) ��� </span><span><b>binary</b></span><span>(��������). �������� ����� ����� ������ � ������ �������� �������� �����. ��� PC ��� ������� </span><span><b>0D&nbsp;0A</b></span><span>. ��� ������������� ������� </span><span><b>text</b></span><span> ��� �������� </span><span><b>0D</b></span><span> ���������� �� �������������, ��� ������ ������� </span><span><b><a href="filesave.htm">save</a></b></span><span> ���������. 
+</span><span class="mono"><b>Формат</b></span><span> - формат представления загружаемого файла. Может быть </span><span class="mono"><b>text</b></span><span>(текстовый) или </span><span class="mono"><b>binary</b></span><span>(двоичный). Различие между этими типами в разных символах переноса строк. Для PC эти символы </span><span class="mono"><b>0D&nbsp;0A</b></span><span>. При использовании формата </span><span class="mono"><b>text</b></span><span> при загрузке </span><span class="mono"><b>0D</b></span><span> отбросится за ненадобностью, при записи методом </span><span class="mono"><b><a href="filesave.htm">save</a></b></span><span> добавится. 
 <br />
 
 <br />
-</span><span><b>���&nbsp;�����</b></span><span> - ��� ����� � <a href="app1.htm">�����</a> ��� URL ����� �� HTTP-�������.
+</span><span class="mono"><b>имя&nbsp;файла</b></span><span> - имя файла с <a href="app1.htm">путем</a> или URL файла на HTTP-сервере.
 <br />
 
 <br />
-���������� ����� �����, ��� ���� � ������������ ����� �������� </span><span><b>�����&nbsp;���&nbsp;�����</b></span><span>, ��� �������� ����� ��������� ���� </span><span><b>name</b></span><span>. ���� ���������� ������ ������������ ��� ������������� ������ </span><span><b>mail:send</b></span><span> ��� �������� ����� ��� ������ ������.
+Необходимо иметь ввиду, что если в конструкторе задан параметр </span><span class="mono"><b>новое&nbsp;имя&nbsp;файла</b></span><span>, его значение будет присвоено полю </span><span class="mono"><b>name</b></span><span>. Этим параметром удобно пользоваться при использовании метода </span><span class="mono"><b>mail:send</b></span><span> для передачи файла под нужным именем.
 <br />
-</span><span><b>
+</span><span class="mono"><b>
 <br />
-�����&nbsp;��������</b></span><span> - ��. �<a href="app1.htm">������ � HTTP-���������</a>�.
-<br />
-
-<br />
-���� ���� ��� �������� � HTTP-�������, ���� ���������� HTTP-������ � ������� �������� �������� ��� <a href="filefields.htm">����</a> ������� ������ </span><span><b>file</b></span><span>. 
-<br />
-����� �������� ���� </span><span><b>tables</b></span><span>, ��� ���, ������� �������� �������� ���� ��������� HTTP-������ � ������� ��������, � ���������� ������� � ������������ �������� </span><span><b>value</b></span><span>, ����������� ��� �������� ����������� ����� HTTP-������. <b><i>[3.1.1]</i></b>
+опции&nbsp;загрузки</b></span><span> - см. «<a href="app1.htm">Работа с HTTP-серверами</a>».
 <br />
 
 <br />
-</span><span><b>������ �������� ����� � �����
+Если файл был загружен с HTTP-сервера, поля заголовков HTTP-ответа в верхнем регистре доступны как <a href="filefields.htm">поля</a> объекта класса </span><span class="mono"><b>file</b></span><span>. 
 <br />
-</b></span><span><span><b>$f[^file::load[binary;</b></span></span><span><b>article.txt</b><span><b>]]
+Также доступно поле </span><span class="mono"><b>tables</b></span><span>, это хеш, ключами которого являются поля заголовки HTTP-ответа в верхнем регистре, а значениями таблицы с единственным столбцом </span><span class="mono"><b>value</b></span><span>, содержащими все значения одноименных полей HTTP-ответа. <b><i>[3.1.1]</i></b>
 <br />
-</b></span></span><span><b>����&nbsp;�&nbsp;������&nbsp;</b><span><b>$f.</b></span></span><span><span><b><a href="filefields.htm">name</a></b></span></span><span><b>&nbsp;�����&nbsp;������&nbsp;</b><span><b>$f.size</b></span></span><span><b>&nbsp;�&nbsp;��������&nbsp;�����:&lt;br&nbsp;/&gt;
+
 <br />
-</b><span><b>$f.text
+</span><span class="h1"><b>Пример загрузки файла с диска
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>$f[^file::load[binary;</b></span></span><span class="mono"><b>article.txt</b><span class="monoblue"><b>]]
+<br />
+</b></span></span><span class="mono"><b>Файл&nbsp;с&nbsp;именем&nbsp;</b><span class="monoblue"><b>$f.</b></span></span><span class="mono"><span class="monoblue"><b><a href="filefields.htm">name</a></b></span></span><span class="mono"><b>&nbsp;имеет&nbsp;размер&nbsp;</b><span class="monoblue"><b>$f.size</b></span></span><span class="mono"><b>&nbsp;и&nbsp;содержит&nbsp;текст:&lt;br&nbsp;/&gt;
+<br />
+</b><span class="monoblue"><b>$f.text
 <br />
 </b></span></span><span>
 <br />
-������� ������, ��� � ����� �����.
+Выведет размер, имя и текст файла.
 <br />
 
 <br />
-</span><span><b>������ �������� ����� � HTTP-�������
+</span><span class="h1"><b>Пример загрузки файла с HTTP-сервера
 <br />
-</b></span><span><span><b>$file[^file::load[text;</b></span></span><span><b>http://www.parser.ru/</b><span><b>;
+</b></span><span class="mono"><span class="monoblue"><b>$file[^file::load[text;</b></span></span><span class="mono"><b>http://www.parser.ru/</b><span class="monoblue"><b>;
 <br />
 &nbsp;&nbsp;&nbsp;$.timeout(5)
 <br />
 ]]
 <br />
-</b></span></span><span><b>�����������&nbsp;�����������&nbsp;�������:&nbsp;</b><span><b>$file.</b></span></span><span><span><b><a href="filefields.htm">SERVER</a></b></span></span><span><span><b>
+</b></span></span><span class="mono"><b>Программное&nbsp;обеспечение&nbsp;сервера:&nbsp;</b><span class="monoblue"><b>$file.</b></span></span><span class="mono"><span class="monoblue"><b><a href="filefields.htm">SERVER</a></b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&lt;hr&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&lt;hr&nbsp;/&gt;
 <br />
-&lt;pre&gt;</b><span><b>$file.text</b></span></span><span><b>&lt;/pre&gt;</b><span><b>
+&lt;pre&gt;</b><span class="monoblue"><b>$file.text</b></span></span><span class="mono"><b>&lt;/pre&gt;</b><span class="monoblue"><b>
 <br />
 </b></span></span></span><br />
 

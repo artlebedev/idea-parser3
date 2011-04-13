@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>���������������� ����</title>
+    <title>Конфигурационный файл</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,32 +15,32 @@
   <tr>
     <td>
       
-<span><b>���������������� ����
+<span class="h1"><b>Конфигурационный файл
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>������ ����� ������� � �������� (��. <span>auto.p.dist</span><span>).
+<span>Пример файла включен в поставку (см. <span class="mono">auto.p.dist</span><span>).
 <br />
 
 <br />
-���� ���� - ��������, � �������� ���������� ������ ������ </span><span><b><a href="mainclass.htm">MAIN</a></b></span><span>. ����� ��������� <a href="parserconfmethod.htm">���������������� �����</a>, ������� ����������� ������, �� ������ </span><span><b><a href="mainclass.htm">auto</a></b></span><span>, � ������ ������ ��������� ���������.
+Этот файл - основной, с которого начинается сборка класса </span><span class="mono"><b><a href="mainclass.htm">MAIN</a></b></span><span>. Может содержать <a href="parserconfmethod.htm">Конфигурационный метод</a>, который выполняется первым, до метода </span><span class="mono"><b><a href="mainclass.htm">auto</a></b></span><span>, и задает важные системные параметры.
 <br />
 
 <br />
-����� ���������� ����������������� ������ ����� ������ <a href="charsets.htm">���������</a> ������ � ���������, � ������� ������ ��� (�� ��������� � ����� ������� ������������ ��������� </span><span><b>UTF-8</b></span><span>): 
+После выполнения конфигурационного метода можно задать <a href="charsets.htm">кодировку</a> ответа и кодировку, в которой набран код (по умолчанию в обоих случаях используется кодировка </span><span class="mono"><b>UTF-8</b></span><span>): 
 <br />
 
 <br />
-������������� ���:
+Рекомендуемый код:
 <br />
-</span><span><b>@auto[]
+</span><span class="mono"><b>@auto[]
 <br />
 #source/client&nbsp;charsets
 <br />
@@ -58,31 +58,31 @@
 <br />
 </b></span><span>
 <br />
-<i>����������: ��� ���������� ������ ������� </i></span><span><b><a href="stringuplow.htm">upper</a></b></span><span><i> � </i></span><span><b><a href="stringuplow.htm">lower</a></b></span><span><i> ������ </i></span><span><b><a href="stringclass.htm">string</a></b></span><span><i> � ������������� ������� (� ��� ����� �������) ���������� ���������� ������� </i></span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span><i>.
+<i>Примечание: для корректной работы методов </i></span><span class="mono"><b><a href="stringuplow.htm">upper</a></b></span><span><i> и </i></span><span class="mono"><b><a href="stringuplow.htm">lower</a></b></span><span><i> класса </i></span><span class="mono"><b><a href="stringclass.htm">string</a></b></span><span><i> с национальными языками (в том числе русским) необходимо корректное задание </i></span><span class="mono"><b><a href="requestcharset.htm">$request:charset</a></b></span><span><i>.
 <br />
 </i>
 <br />
-����� ����� ������������� ���������� ���� � ������� ������ �����:
+Также здесь рекомендуется определить путь к классам вашего сайта:
 <br />
-</span><span><b><a href="app1pathclass.htm">$CLASS_PATH</a></b><b>[/../classes]
+</span><span class="mono"><b><a href="app1pathclass.htm">$CLASS_PATH</a></b><b>[/../classes]
 <br />
 </b></span><span>
 <br />
-� ������ ���������� � SQL-��������, ������������ �� ����� ����� (������ ��� <a href="app3odbc.htm">ODBC</a>):
+И строку соединения с SQL-сервером, используемым на вашем сайте (пример для <a href="app3odbc.htm">ODBC</a>):
 <br />
-</span><span><b>$SQL.connect-string[odbc://DSN=www_mydomain_ru^;UID=user^;PWD=password]</b><b>
+</span><span class="mono"><b>$SQL.connect-string[odbc://DSN=www_mydomain_ru^;UID=user^;PWD=password]</b><b>
 <br />
-</b></span><span><i>����������: ����� ���� �� ������ ������������ �� ���</i><i>:
+</b></span><span><i>Примечание: вашем коде вы будете использовать ее так</i><i>:
 <br />
-</i></span><span><b>^</b><b><a href="opconnect.htm">connect</a></b><b>[$SQL.connect-string]{�}&nbsp;
+</i></span><span class="mono"><b>^</b><b><a href="opconnect.htm">connect</a></b><b>[$SQL.connect-string]{…}&nbsp;
 <br />
-</b><span><b>
+</b><span class="monoblue"><b>
 <br />
-</b></span></span><span>�������� ��������� ���� �� ����������� ������ </span><span><span><b><a href="exceptions.htm">unhandled_exception</a></b></span></span><span>, ������� ����� �������� ��������� � ��������� ��������� �� ����� �����.
+</b></span></span><span>Советуем поместить сюда же определение метода </span><span class="mono"><span class="monoblue"><b><a href="exceptions.htm">unhandled_exception</a></b></span></span><span>, который будет выводить сообщение о возможных проблемах на вашем сайте.
 <br />
 
 <br />
-<i>��������: �������, ���������������� ���� ����� �� ������������, � </i><i><a href="parserconfmethod.htm">���������������� �����</a></i><i> ��������� � ���� </i></span><span><a href="mainclass.htm">auto.p</a></span><span><i> </i><i>� ����� ���-������������</i><i>, </i><i>������ � ������ ������ ���������� ������� (��������: ���������� ������ � �������� ������) ������������ ������ ����� ����� ����������, � ����� ������, ����� ��� �������� ��������� � ��������� ����� � ��� ���-������������</i><i>.</i>
+<i>Внимание: конечно, Конфигурационный файл можно не использовать, а </i><i><a href="parserconfmethod.htm">Конфигурационный метод</a></i><i> поместить в файл </i></span><span class="mono"><a href="mainclass.htm">auto.p</a></span><span><i> </i><i>в корне веб-пространства</i><i>, </i><i>однако в разных местах размещения сервера (например: отладочная версия и основной сервер) конфигурации скорее всего будут различными, и очень удобно, когда эти различия находятся в отдельном файле и вне веб-пространства</i><i>.</i>
 <br />
 </span></span><br />
 

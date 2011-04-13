@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>join. ����������� ���� ������</title>
+    <title>join. Объединение двух таблиц</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,36 +15,36 @@
   <tr>
     <td>
       
-<span><b>join. ����������� ���� ������
+<span class="h1"><b>join. Объединение двух таблиц
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^�������1.join[�������2]
+<span class="mono"><b>^таблица1.join[таблица2]
 <br />
-^�������1.join[�������2;</b><b><a href="tablecopylocateoptions.htm">�����</a></b><b>]
+^таблица1.join[таблица2;</b><b><a href="tablecopylocateoptions.htm">опции</a></b><b>]
 <br />
 </b><span>
 <br />
-����� ��������� � ����� </span><span><b>�������1</b></span><span> ������ �� </span><span><b>�������2</b></span><span>. ��� ���� �� </span><span><b>�������2</b></span><span> ����� ����� �������� �� �������, ������������ ������� </span><span><b>�������1</b></span><span>, ��� ������ ������, ���� ����� ������� �� ������.
+Метод добавляет в конец </span><span class="mono"><b>таблицы1</b></span><span> записи из </span><span class="mono"><b>таблицы2</b></span><span>. При этом из </span><span class="mono"><b>таблицы2</b></span><span> будет взято значение из столбца, одноименного столбцу </span><span class="mono"><b>таблицы1</b></span><span>, или пустая строка, если такой столбец не найден.
 <br />
-����� ����� ������ ��� �����, �������������� ����������, ��. �<a href="tablecopylocateoptions.htm">����� �����������</a>�.
+Также можно задать ряд опций, контролирующих добавление, см. «<a href="tablecopylocateoptions.htm">Опции копирования</a>».
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>^stuff.join[$just_hired_people]</b></span></span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>^stuff.join[$just_hired_people]</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>
+</b><span class="monoblue"><b>
 <br />
-</b></span></span><span>��� ������ ������� </span><span><b>$j</b><b>ust_hired_people</b></span><span> ����� ��������� � ������� </span><span><b>$s</b><b>tuff</b></span><span>.
+</b></span></span><span>Все записи таблицы </span><span class="mono"><b>$j</b><b>ust_hired_people</b></span><span> будут добавлены в таблицу </span><span class="mono"><b>$s</b><b>tuff</b></span><span>.
 <br />
 </span></span><br />
 

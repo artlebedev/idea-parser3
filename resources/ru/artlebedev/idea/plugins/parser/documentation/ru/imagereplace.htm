@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>replace. ������ ����� � �������, �������� �������� ���������</title>
+    <title>replace. Замена цвета в области, заданной таблицей координат</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,30 +15,30 @@
   <tr>
     <td>
       
-<span><b>replace. ������ ����� � �������, �������� �������� ���������
+<span class="h1"><b>replace. Замена цвета в области, заданной таблицей координат
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.replace(������&nbsp;����;�����&nbsp;����)[�������&nbsp;�&nbsp;������������&nbsp;�����]
+<span class="mono"><b>^картинка.replace(старый&nbsp;цвет;новый&nbsp;цвет)[таблица&nbsp;с&nbsp;координатами&nbsp;точек]
 <br />
-^��������.replace(������&nbsp;����;�����&nbsp;����)</b>&nbsp;&nbsp;&nbsp;<span><b><i>[3.</i></b><b><i>4</i></b><b><i>.1]</i></b></span><span><b>
+^картинка.replace(старый&nbsp;цвет;новый&nbsp;цвет)</b>&nbsp;&nbsp;&nbsp;<span><b><i>[3.</i></b><b><i>4</i></b><b><i>.1]</i></b></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-����� ������������ ��� ������ ������ ����� ������ � ������� �����������, �������� � ������� ������� ���������. ���� ������� � ������������ �� �������, �� ������ ����� ������������ �� ��� �����������.
+Метод используется для замены одного цвета другим в области изображения, заданной с помощью таблицы координат. Если таблица с координатами не указана, то замена цвета производится во всём изображении.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$paint_nodes[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{x&nbsp;&nbsp;&nbsp;y
+</b></span><span class="mono"><span class="monoblue"><b>$paint_nodes[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">table::create</a></b></span></span><span class="mono"><span class="monoblue"><b>{x&nbsp;&nbsp;&nbsp;y
 <br />
 10&nbsp;&nbsp;&nbsp;20
 <br />
@@ -52,9 +52,9 @@
 <br />
 
 <br />
-$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
 <br />
-^square.</b></span></span><span><span><b><a href="imageline.htm">line</a></b></span></span><span><span><b>(0;0;100;100;0xFFFFFF)
+^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imageline.htm">line</a></b></span></span><span class="mono"><span class="monoblue"><b>(0;0;100;100;0xFFFFFF)
 <br />
 ^square.line(100;0;0;100;0xFFFFFF)
 <br />
@@ -62,11 +62,11 @@ $square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">creat
 <br />
 ^square.replace(0x000000;0xFF00FF)[$paint_nodes]
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-� �������� ����� �������  ������ �������, ������������� �� ��������� ������ �������, �� �������� � ���� ������� ���������������. ��������� � ������ replace ������ ������ �� ������� ���� ������ ��� ������� �����, ����� ����� �� �������������.
+В браузере будет выведен  черный квадрат, перечеркнутый по диагонали белыми линиями, со вписаным в него розовым прямоугольником. Поскольку в методе replace задана замена на розовый цвет только для черного цвета, белые линии не перекрасились.
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>load. Loading XML from disk or HTTP-server or other source</title>
+    <title>load. Loading XML from disk or HTTP-server or other source</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,35 +11,64 @@
 <body>
 
 
-<span><b>Example of loading a file from disk</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>load. Loading XML from disk or HTTP-server or other source
 <br />
-</u></span><span><span><b>$document[^xdoc::load[article.xml]]</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</b><span><b>$</b></span></span><span><b><a href="responseclass.htm">response</a></b><b>:</b><b><a href="responsebody.htm">body</a></b><span><b>[^document.</b></span></span><span><b><a href="xdocstring.htm">string</a></b><span><b>[]]</b></span></span><span><b>
+
+
+
+<span class="mono"><b>^xdoc::load[</b><b><a href="app1.htm">filename</a></b><b>]
+<br />
+
+<br />
+</b><span>This constructor loads XML-code from a file or document on HTTP-server and creates a new object of class </span><span class="mono"><b>xdoc</b></span><span> based on it.
+<br />
+Parser can load XML from arbitrary source, see "<a href="xdocparserprot.htm">Reading XML from arbitrary source</a>".
+<br />
+
+<br />
+</span><span class="mono"><b>filename</b></span><span>&nbsp;- <a href="app1.htm">path</a> and filename or URL of document on HTTP-serve.
+<br />
+
+<br />
+</span><span class="h1"><b>Example of loading a file from disk</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$document[^xdoc::load[article.xml]]</b></span></span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>$</b></span></span><span class="mono"><b><a href="responseclass.htm">response</a></b><b>:</b><b><a href="responsebody.htm">body</a></b><span class="monoblue"><b>[^document.</b></span></span><span class="mono"><b><a href="xdocstring.htm">string</a></b><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-</span><span><b>Example of loading an XML document from HTTP-server:</b></h1><span><b>
+</span><span class="h1"><b>Example of loading an XML document from HTTP-server:</b></span><span><b>
 <br />
-</b></span><span><span><b>$xdoc[^xdoc::load[http://www.cbr.ru/scripts/XML_daily.asp]]
+</b></span><span class="mono"><span class="monoblue"><b>$xdoc[^xdoc::load[http://www.cbr.ru/scripts/XML_daily.asp]]
 <br />
-</b></span></span><span><b>Rate&nbsp;exchange&nbsp;of
+</b></span></span><span class="mono"><b>Rate&nbsp;exchange&nbsp;of
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;$node[^xdoc.selectSingle[/ValCurs/Valute[CharCode='USD']]]
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;$node[^xdoc.selectSingle[/ValCurs/Valute[CharCode='USD']]]
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;"</b><span><b>^node.</b></span></span><span><span><b><a href="xnodeselectstring.htm">selectString</a></b></span></span><span><span><b>[string(Name)]</b></span></span><span><b>"
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;"</b><span class="monoblue"><b>^node.</b></span></span><span class="mono"><span class="monoblue"><b><a href="xnodeselectstring.htm">selectString</a></b></span></span><span class="mono"><span class="monoblue"><b>[string(Name)]</b></span></span><span class="mono"><b>"
 <br />
 for
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^xdoc.selectString[string(/ValCurs/@Date)]
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;^xdoc.selectString[string(/ValCurs/@Date)]
 <br />
-</b></span></span><span><b>is
+</b></span></span><span class="mono"><b>is
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^node.selectString[string(Value)]
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;^node.selectString[string(Value)]
 <br />
-</b></span></span><span><b>&lt;hr&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&lt;hr&nbsp;/&gt;
 <br />
-&lt;pre&gt;</b><span><b>^taint[^xdoc.</b></span></span><span><span><b><a href="xdocstring.htm">string</a></b></span></span><span><span><b>[]]</b></span></span><span><b>&lt;/pre&gt;</b></span><span>
+&lt;pre&gt;</b><span class="monoblue"><b>^taint[^xdoc.</b></span></span><span class="mono"><span class="monoblue"><b><a href="xdocstring.htm">string</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>&lt;/pre&gt;</b></span><span>
 <br />
 </span></span><br />
 

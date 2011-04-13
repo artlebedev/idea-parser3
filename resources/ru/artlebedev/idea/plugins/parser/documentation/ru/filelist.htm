@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>list. ��������� ���������� ��������</title>
+    <title>list. Получение оглавления каталога</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,44 +15,44 @@
   <tr>
     <td>
       
-<span><b>list. ��������� ���������� ��������
+<span class="h1"><b>list. Получение оглавления каталога
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file:list[����]</b><span>   
+<span class="mono"><b>^file:list[путь]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">   
 <br />
-</span><span><b>^file:list[����;������]</b></span><span>&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>^file:list[путь;фильтр]</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;
 <br />
 </span><span>
 <br />
-��������� ������� (������ ������ </span><span><span><b><u><a href="tableclass.htm">table</a></u></b></span></span><span>) � ����� �������� </span><span><b>name</b></span><span>, ���������� ����� � �������� �� ���������� ����, ����� ������� ������������� �������, ���� �� �����. 
+Формирует таблицу (объект класса </span><span class="mono"><span class="monoblue"><b><u><a href="tableclass.htm">table</a></u></b></span></span><span>) с одним столбцом </span><span class="mono"><b>name</b></span><span>, содержащим файлы и каталоги по указанному пути, имена которых удовлетворяют шаблону, если он задан. 
 <br />
 
 <br />
-</span><span><b>������</b></span><span> - ������ � ���������� ���������� (��. ����� </span><span><b><a href="stringmatch.htm">match</a></b></span><span> ������ </span><span><span><b><u><a href="stringclass.htm">string</a></u></b></span></span><span>)  ��� ������ </span><span><span><b><a href="regexclass.htm">regex</a></b></span></span><span><b><i> [3.4.0]</i></b>. ��� �������� ������� ����� �������� ��� �������� �� ��������� ���� �����
+</span><span class="mono"><b>фильтр</b></span><span> - строка с регулярным выражением (см. метод </span><span class="mono"><b><a href="stringmatch.htm">match</a></b></span><span> класса </span><span class="mono"><span class="monoblue"><b><u><a href="stringclass.htm">string</a></u></b></span></span><span>)  или объект </span><span class="mono"><span class="monoblue"><b><a href="regexclass.htm">regex</a></b></span></span><span><b><i> [3.4.0]</i></b>. Без указания фильтра будут выведены все найденые по заданному пути файлы
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$list[^file:list[/;\.zip^$]]
+</b></span><span class="mono"><span class="monoblue"><b>$list[^file:list[/;\.zip^$]]
 <br />
-^list.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{
+^list.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
-&nbsp;&nbsp;&nbsp;$list.name</b></span></span><span><b>&lt;br&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;$list.name</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
 </b></span><span><span><b>}
 <br />
 </b></span></span><span>
 <br />
-������� ����� ���� �������� ������ � ����������� ����� </span><span><b>.zip</b></span><span>, ����������� � �������� �������� ���-�������.
+Выведет имена всех архивных файлов с расширением имени </span><span class="mono"><b>.zip</b></span><span>, находящихся в корневом каталоге веб-сервера.
 <br />
 </span></span><br />
 

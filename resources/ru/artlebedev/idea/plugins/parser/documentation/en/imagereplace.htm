@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>replace. Replacing color in the area specified by coordinates table</title>
+    <title>replace. Replacing color in the area specified by coordinates table</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,9 +11,34 @@
 <body>
 
 
-<span><b>Example</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>replace. Replacing color in the area specified by coordinates table
 <br />
-</u></span><span><span><b>$paint_nodes</b></span></span><span><span><b>[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{x&nbsp;&nbsp;&nbsp;y
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^image.replace(old&nbsp;color;new&nbsp;color)[coordinates&nbsp;table]
+<br />
+^image.replace(old&nbsp;color;new&nbsp;color)</b><b>&nbsp;</b><span><b><i>[3.4.</i></b><b><i>1</i></b><b><i>]</i></b></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+The method is used to replace one color with another within the area restricted by coordinates table. If the table is not specified, the color will be replaced in the whole image.
+<br />
+<u>
+<br />
+</u></span><span class="h1"><b>Example</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$paint_nodes</b></span></span><span class="mono"><span class="monoblue"><b>[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">table::create</a></b></span></span><span class="mono"><span class="monoblue"><b>{x&nbsp;&nbsp;&nbsp;y
 <br />
 10&nbsp;&nbsp;&nbsp;20
 <br />
@@ -27,9 +52,9 @@
 <br />
 
 <br />
-$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
 <br />
-^square.</b></span></span><span><span><b><a href="imageline.htm">line</a></b></span></span><span><span><b>(0;0;100;100;0xFFFFFF)
+^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imageline.htm">line</a></b></span></span><span class="mono"><span class="monoblue"><b>(0;0;100;100;0xFFFFFF)
 <br />
 ^square.line(100;0;0;100;0xFFFFFF)
 <br />
@@ -37,7 +62,7 @@ $square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">creat
 <br />
 ^square.replace(0x000000;0xFF00FF)[$paint_nodes]
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />

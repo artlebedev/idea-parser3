@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Status (�����)</title>
+    <title>Status (класс)</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,30 +15,30 @@
   <tr>
     <td>
       
-<span><b>Status (�����)
+<span class="h1"><b>Status (класс)
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>����� ������������ ��� ������� �������� ��������� ������� �� Parser.
+<span>Класс предназначен для анализа текущего состояния скрипта на Parser.
 <br />
-��� ������������� ������� ��� ����� ����� ����� � ����� ��������.
+Его использование поможет вам найти узкие места в ваших скриптах.
 <br />
 
 <br />
-���� �� ����������� parser ��� ������ Apache, �� ������ �������� ��������� <b>class not found</b> ��� ������� ������������ ����� status, ���� �� �������� � httpd.conf ������:
+Если вы используете parser как модуль Apache, вы будете получать сообщение <b>class not found</b> при попытке использовать класс status, пока не добавите в httpd.conf строки:
 <br />
 
 <br />
 &lt;Location /&gt;
 <br />
-# ��������� ������������ ���������� ����� status
+# Разрешает использовать встроенный класс status
 <br />
 ParserStatusAllowed
 <br />
@@ -46,7 +46,7 @@ ParserStatusAllowed
 <br />
 
 <br />
-� �� ������������� Apache.
+и не перезапустите Apache.
 <br />
 </span><br />
 

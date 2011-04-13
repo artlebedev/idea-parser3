@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Console (�����)</title>
+    <title>Console (класс)</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,30 +11,40 @@
 <body>
 
 
-<span><b>Console (�����)</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Console (класс)</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span>����� ������������ ��� �������� ������� ������������� �����, ���������� � ��������� ���������� ������.
+<span>Класс предназначен для создания простых интерактивных служб, работающих в текстовом построчном режиме.
 <br />
 
 <br />
-�������� ����� ������ ����� � ���� �� ����������� UNIX ���������� <span>inetd</span><span>.
+Работать такие службы могут в паре со стандартной UNIX программой <span class="mono">inetd</span><span>.
 <br />
 
 <br />
-��������, ����� �� Parser ����������� news-������ (NNTP).
+Например, можно на Parser реализовать news-сервер (NNTP).
 <br />
-�������� ����� ������ � ��� </span><span>/etc/inetd.conf</span><span> � ������������� </span><span>inetd</span><span>:
+Добавьте такую строку в ваш </span><span class="mono">/etc/inetd.conf</span><span> и перезапустите </span><span class="mono">inetd</span><span>:
 <br />
-</span><span>nntp&nbsp;stream&nbsp;tcp&nbsp;nowait&nbsp;�������_������&nbsp;/����/�/parser3&nbsp;/����/�/parser3&nbsp;/����/�/nntp.p
+</span><span class="mono">nntp&nbsp;stream&nbsp;tcp&nbsp;nowait&nbsp;учетная_запись&nbsp;/путь/к/parser3&nbsp;/путь/к/parser3&nbsp;/путь/к/nntp.p
 <br />
 </span><span>
 <br />
-� ������� </span><span>nntp.p</span><span> ������� ��� NNTP ������.
+В скрипте </span><span class="mono">nntp.p</span><span> опишите ваш NNTP сервер.
 <br />
-��� ���� ����������� ����� ��� ������������ - </span><span>nntp://���_������</span><span>.
+Что даст возможность людям его использовать - </span><span class="mono">nntp://ваш_сервер</span><span>.
 <br />
 </span></span><br />
 

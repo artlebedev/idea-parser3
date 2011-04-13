@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>int, double, bool. Converting string into number or bool</title>
+    <title>int, double, bool. Converting string into number or bool</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>int, double, bool. Converting string into number or bool
+<span class="h1"><b>int, double, bool. Converting string into number or bool
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^string.int[]
+<span class="mono"><b>^string.int[]
 <br />
 ^string.int(default&nbsp;value)
 <br />
@@ -40,7 +40,7 @@
 <br />
 </b><span>
 <br />
-Converts value of variable </span><span><b>$string</b></span><span> into integer or real number or bool respectively and returns the result.
+Converts value of variable </span><span class="mono"><b>$string</b></span><span> into integer or real number or bool respectively and returns the result.
 <br />
 
 <br />
@@ -52,7 +52,7 @@ Default value can be used while processing data, which is received from users in
 <br />
 
 <br />
-Note: method </span><span><b>.bool</b></span><span> can convert to </span><span><b>bool</b></span><span> not only strings with numbers (0-</span><span><b>false</b></span><span>, not 0-</span><span><b>true</b></span><span>) but strings containing values 'true'/'false' as well (case insensitive). It can be usable for reading data from external source (xml for example).
+Note: method </span><span class="mono"><b>.bool</b></span><span> can convert to </span><span class="mono"><b>bool</b></span><span> not only strings with numbers (0-</span><span class="mono"><b>false</b></span><span>, not 0-</span><span class="mono"><b>true</b></span><span>) but strings containing values 'true'/'false' as well (case insensitive). It can be usable for reading data from external source (xml for example).
 <br />
 
 <br />
@@ -62,45 +62,45 @@ Note: method </span><span><b>.bool</b></span><span> can convert to </span><span>
 <br />
 Note: attempt of converting non-integer string into integer is considered error (e.g. string "1.5" is not an integer).
 <br />
-</i></span><span><b>
+</i></span><span class="h1"><b>
 <br />
 </b><b>Example</b></span><span><u>
 <br />
-</u></span><span><span><b>$str[12</b></span></span><span><b>3</b><span><b>]
+</u></span><span class="mono"><span class="monoblue"><b>$str[12</b></span></span><span class="mono"><b>3</b><span class="monoblue"><b>]
 <br />
-^str.int[]</b></span></span><span><b>
-<br />
-</b></span><span>
-<br />
-&#133;outputs number </span><span><b>123</b></span><span>, since object </span><span><b>str</b></span><span> can be converted into number.
-<br />
-
-<br />
-</span><span><span><b>$str[much]
-<br />
-^str.double(-1)</b></span></span><span><b>
+^str.int[]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-&#133;outputs number </span><span><b>-1</b></span><span>, since conversion is impossible.
+&#133;outputs number </span><span class="mono"><b>123</b></span><span>, since object </span><span class="mono"><b>str</b></span><span> can be converted into number.
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>$str[much]
+<br />
+^str.double(-1)</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+&#133;outputs number </span><span class="mono"><b>-1</b></span><span>, since conversion is impossible.
 <br />
 
 <br />
 
 <br />
-</span><span><span><b>$str[</b></span></span><span><b>1</b><span><b>]
+</span><span class="mono"><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>1</b><span class="monoblue"><b>]
 <br />
-^if(^str.bool[]){</b></span></span><span><b>true</b><span><b>}
-<br />
-
-<br />
-$str[</b></span></span><span><b>True</b><span><b>]
-<br />
-^if(^str.bool[]){</b></span></span><span><b>true</b><span><b>}
+^if(^str.bool[]){</b></span></span><span class="mono"><b>true</b><span class="monoblue"><b>}
 <br />
 
 <br />
-</b></span></span><span>&#133;outputs strings "</span><span><b>true</b></span><span>".
+$str[</b></span></span><span class="mono"><b>True</b><span class="monoblue"><b>]
+<br />
+^if(^str.bool[]){</b></span></span><span class="mono"><b>true</b><span class="monoblue"><b>}
+<br />
+
+<br />
+</b></span></span><span>&#133;outputs strings "</span><span class="mono"><b>true</b></span><span>".
 <br />
 
 <br />

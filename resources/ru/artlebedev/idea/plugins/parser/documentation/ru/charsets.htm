@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>���������</title>
+    <title>Кодировки</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,80 +15,80 @@
   <tr>
     <td>
       
-<span><b>���������
+<span class="h1"><b>Кодировки
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>�������, ������� ������ ��������� ���������� ��� ����� �� ������������, ��� � ���.
+<span>Уверены, наличие разных кодировок доставляет вам такое же удовольствие, как и нам.
 <br />
 
 <br />
-� Parser �������� ����������� ����������� ��������������� ���������� �� ���������, ������������ �� ������� � ��������� ���������� � �������.
+В Parser встроена возможность прозрачного перекодирования документов из кодировки, используемой на сервере в кодировку посетителя и обратно.
 <br />
 
 <br />
-Parser ������������ 
+Parser перекодирует 
 <br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������ <a href="formclass.htm">����</a>;
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>данные <a href="formclass.htm">форм</a>;
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������ ��� <a href="opuntainttaint.htm">�������������� ���� uri</a>;
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>строки при <a href="opuntainttaint.htm">преобразовании вида uri</a>;
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>��������� ��������� ��������� ��������.
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>текстовый результат обработки страницы.
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
 <br />
-���������, ������������ ���� � ���������� �� �������, �� ������� � ���� </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span>.
+Кодировку, используемую вами в документах на сервере, вы задаете в поле </span><span class="mono"><b><a href="requestcharset.htm">$request:charset</a></b></span><span>.
 <br />
-���������, �������� ���� � ���������� - � </span><span><b><a href="responsecharset.htm">$response:charset</a></b></span><span>.
+Кодировку, желаемую вами в результате - в </span><span class="mono"><b><a href="responsecharset.htm">$response:charset</a></b></span><span>.
 <br />
-������� ��� ���������� � ����� �� </span><span><b><a href="mainclass.htm">auto</a></b></span><span> �������.
+Сделать это необходимо в одном из </span><span class="mono"><b><a href="mainclass.htm">auto</a></b></span><span> методов.
 <br />
 
 <br />
-����������� �������� ��������� ���������� � HTTP ��������� </span><span><b>content-type</b></span><span>, ����� ��������� ��������� ������� ����� � ���, � ������������ ������ ������� �� ����� ���� ����������� �� �������.
+Рекомендуем задавать кодировку результата в HTTP заголовке </span><span class="mono"><b>content-type</b></span><span>, чтобы программа просмотра страниц знала о ней, и пользователю вашего сервера не нужно было переключать ее вручную.
 <br />
-</span><span><span><b>$response:content-type[
+</span><span class="mono"><span class="monoblue"><b>$response:content-type[
 <br />
 &nbsp;&nbsp;&nbsp;$.value[text/html]
 <br />
 &nbsp;&nbsp;&nbsp;$.charset[$response:charset]
 <br />
-]</b></span></span><span><b>
+]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-��������� ������ ������������ ���� ����� ����� ������ �������� �� ��������� ����������, ��. </span><span><b><a href="mailsend.htm">^mail:send[�]</a></b></span><span>.
+Кодировку текста отправляемых вами писем можно задать отличной от кодировки результата, см. </span><span class="mono"><b><a href="mailsend.htm">^mail:send[…]</a></b></span><span>.
 <br />
 
 <br />
-��� ������ � ������ ������ ���������� ������ ���������, � ������� �������� � SQL-��������, ��. <a href="app3.htm">������ ������ �����������</a>.
+При работе с базами данных необходимо задать кодировку, в которой общаться с SQL-сервером, см. <a href="app3.htm">Формат строки подключения</a>.
 <br />
 
 <br />
 
 <br />
-������ ���������� ��������� ������������ � <a href="parserconfig.htm">���������������� �����</a>.
+Список допустимых кодировок определяется в <a href="parserconfig.htm">Конфигурационном файле</a>.
 <br />
-�� ��������� ����� ������������ ��������� </span><span><b>UTF-8</b></span><span>.
-<br />
-
-<br />
-<i>����������: ���� ��� ��������������� </i><b><i>��</i></b><i> UTF-8 �����-�� ������ �� ������ � </i><i><a href="installcharset.htm">������� ���������������</a></i><i>, ������ ����� ������� ��������� ������������������ </i></span><span><b>&amp;#DDDD;</b></span><span><i> ��� </i></span><span><b>DDDD</b></span><span><i> ��� Unicode ������� ������� � ���������� ������� ���������. </i><b><i>[3.0.8]</i></b>
+По умолчанию везде используется кодировка </span><span class="mono"><b>UTF-8</b></span><span>.
 <br />
 
 <br />
-<i>����������: ���� ��� ��������������� </i><b><i>�</i></b><i> UTF-8 �����-�� ������ �� ������ � ������� ���������������, ������ ����� ������� ��������� ������������������ </i></span><span><b>%HH</b></span><span><i> ��� </i></span><span><b>HH</b></span><span><i> ��� ����������������� ��� ������� �������. </i><b><i>[3.1.4]</i></b><i>
+<i>Примечание: если при перекодировании </i><b><i>из</i></b><i> UTF-8 какой-то символ не указан в </i><i><a href="installcharset.htm">таблице перекодирования</a></i><i>, вместо этого символа создается последовательность </i></span><span class="mono"><b>&amp;#DDDD;</b></span><span><i> где </i></span><span class="mono"><b>DDDD</b></span><span><i> это Unicode данного символа в десятичной системе счисления. </i><b><i>[3.0.8]</i></b>
+<br />
+
+<br />
+<i>Примечание: если при перекодировании </i><b><i>в</i></b><i> UTF-8 какой-то символ не указан в таблице перекодирования, вместо этого символа создается последовательность </i></span><span class="mono"><b>%HH</b></span><span><i> где </i></span><span class="mono"><b>HH</b></span><span><i> это шестнадцатиричный код данного символа. </i><b><i>[3.1.4]</i></b><i>
 <br />
 </i>
 <br />
-<i>����������: ��� ��������� ��������������� � ��������. </i><b><i>[3.1]</i></b>
+<i>Примечание: имя кодировки нечувствительно к регистру. </i><b><i>[3.1]</i></b>
 <br />
 </span></span><br />
 

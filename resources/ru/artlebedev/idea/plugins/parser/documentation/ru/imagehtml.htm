@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>html. ����� �����������</title>
+    <title>html. Вывод изображения</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,56 +15,56 @@
   <tr>
     <td>
       
-<span><b>html. ����� �����������
+<span class="h1"><b>html. Вывод изображения
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.html[]</b>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^картинка.html[]</b>&nbsp;&nbsp;&nbsp;
 <br />
-<b>^��������.html[���]&nbsp;&nbsp;&nbsp;
+<b>^картинка.html[хеш]&nbsp;&nbsp;&nbsp;
 <br />
 </b><span>
 <br />
-������� ��������� HTML-���:
+Создает следующий HTML-тег:
 <br />
-</span><span><b>&lt;img&nbsp;src="</b><span><b>$image.src</b></span></span><span><b>"&nbsp;width="</b><span><b>$image.width</b></span></span><span><b>"&nbsp;height="</b><span><b>$image.height</b></span></span><span><b>"</b><b>&nbsp;border="0"</b><b>&nbsp;/&gt;</b></span><span>
+</span><span class="mono"><b>&lt;img&nbsp;src="</b><span class="monoblue"><b>$image.src</b></span></span><span class="mono"><b>"&nbsp;width="</b><span class="monoblue"><b>$image.width</b></span></span><span class="mono"><b>"&nbsp;height="</b><span class="monoblue"><b>$image.height</b></span></span><span class="mono"><b>"</b><b>&nbsp;border="0"</b><b>&nbsp;/&gt;</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-� �������� ��������� ������ ����� ���� ������� ���, ���������� �������������� �������� �����������, �������� </span><span><b>alt</b></span><span> � </span><span><b>border</b></span><span>, �������� �������, ������������ ��� ��������� ������� � ������ �����. 
+В качестве параметра методу может быть передан хеш, содержащий дополнительные атрибуты изображения, например </span><span class="mono"><b>alt</b></span><span> и </span><span class="mono"><b>border</b></span><span>, задающие надпись, появляющуюся при наведении курсора и ширину рамки. 
 <br />
 
 <br />
-���������: �������� ����������� ����� ��������������.
+Замечание: атрибуты изображения можно переопределять.
 <br />
 
 <br />
-���������: ����� ����� �� ������� ������� border ��� ���������� �������� �������� </span><span><b>$.border[]</b><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b>
+Замечание: чтобы метод не выводил атрибут border ему необходимо передать параметр </span><span class="mono"><b>$.border[]</b><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b>
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$photo[^image::</b></span></span><span><span><b><a href="imagemeasure.htm">measure</a></b></span></span><span><span><b>[</b></span></span><span><b>myphoto.jpg</b><span><b>]]
+</b></span><span class="mono"><span class="monoblue"><b>$photo[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagemeasure.htm">measure</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>myphoto.jpg</b><span class="monoblue"><b>]]
 <br />
 ^photo.html[
 <br />
-&nbsp;&nbsp;&nbsp;$.border[</b></span></span><span><b>0</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.border[</b></span></span><span class="mono"><b>0</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.alt[</b></span></span><span><b>���&nbsp;�&nbsp;�&nbsp;���������</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.alt[</b></span></span><span class="mono"><b>Это&nbsp;я&nbsp;в&nbsp;молодости…</b><span class="monoblue"><b>]
 <br />
 ]
 <br />
 </b></span></span><span>
 <br />
-� �������� ����� �������� �������� �� ���������� </span><span><b>$photo</b></span><span>.  ��� ��������� ������� ����� ���������� �������: </span><span><b>���&nbsp;�&nbsp;�&nbsp;���������</b></span><span>
+В браузере будет выведена картинка из переменной </span><span class="mono"><b>$photo</b></span><span>.  При наведении курсора будет появляться надпись: </span><span class="mono"><b>это&nbsp;я&nbsp;в&nbsp;молодости…</b></span><span>
 <br />
 </span></span><br />
 

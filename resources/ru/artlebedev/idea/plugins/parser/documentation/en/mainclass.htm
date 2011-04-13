@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Class MAIN. Processing request</title>
+    <title>Class MAIN. Processing request</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,29 +11,88 @@
 <body>
 
 
-<span><b>Simple example</b></h1><span><b><i>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Class MAIN. Processing request
 <br />
-</i></b></span><span>If we add this definition into file </span><span>auto.p</span><span> located in your root directory&#133;
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span>Parser processes requested document in the following way:
 <br />
 
 <br />
-</span><span><span><b>@postprocess[body]
+1.
 <br />
-</b></span></span><span><span><b>^if($body&nbsp;is&nbsp;string){</b></span></span><span><span><b>
+It reads, compiles, and initializes:
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^body.match[</b></span></span><span><b>Jack</b><span><b>][g]{</b></span></span><span><b>Jill</b><span><b>}
+a) <a href="parserconfig.htm">Configuration file</a>; 
 <br />
-</b></span></span><span><span><b>}{
+b) all files named <span class="mono">auto.p</span><span>, which are searched for in root directory and down-through directories tree until the directory where requested document belongs;
+<br />
+c) requested document itself.
+<br />
+Taken all together, they are what is defined as class </span><span class="mono"><b>MAIN</b></span><span>.
+<br />
+Initialization is done by calling method </span><span class="mono"><b>auto</b></span><span> in each of the loaded files. If method's definition contains a parameter, the loaded file's name will be passed.
+<br />
+<i>Note: result of method's work will not be output to a visitor.
+<br />
+</i>
+<br />
+2.
+<br />
+Then, method </span><span class="mono"><b>main</b></span><span> of class </span><span class="mono"><b>MAIN</b></span><span> is called without parameters.
+<br />
+This means that each of the mentioned files can define method </span><span class="mono"><b>main</b></span><span>. The one which was defined last will be called. This method's definition will override all other possible definitions.
+<br />
+The result of this method's work will be output to the visitor unless method </span><span class="mono"><b>postprocess</b></span><span> is defined.
+<br />
+If file has not a single method defined, its whole content will be regarded as definition of method </span><span class="mono"><b>main</b></span><span>.
+<br />
+<i>Note: specifying </i><i> </i></span><span class="mono"><b>$</b><b><a href="responseclass.htm">response</a></b><b>:</b><b><a href="responsebody.htm">body</a></b><b>[</b><b><i>of&nbsp;non-standard&nbsp;response</i></b><b>]</b></span><span><i> redefines text received by a visitor.
+<br />
+</i>
+<br />
+3.
+<br />
+If class </span><span class="mono"><b>MAIN</b></span><span> has method </span><span class="mono"><b>postprocess</b></span><span> defined, result of method </span><span class="mono"><b>main</b></span><span>'s work is passed to it as the only parameter and it is the result of </span><span class="mono"><b>postprocess</b></span><span> that a visitor will get.
+<br />
+Thus, you get an opportunity of "extra polishing" the result of your code's work.
+<br />
+
+<br />
+</span><span class="h1"><b>Simple example</b></span><span><b><i>
+<br />
+</i></b></span><span>If we add this definition into file </span><span class="mono">auto.p</span><span> located in your root directory&#133;
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>@postprocess[body]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>^if($body&nbsp;is&nbsp;string){</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>^body.match[</b></span></span><span class="mono"><b>Jack</b><span class="monoblue"><b>][g]{</b></span></span><span class="mono"><b>Jill</b><span class="monoblue"><b>}
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>}{
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$body
 <br />
-}</b></span></span><span><span><b>
+}</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-&#133;it will result in replacing </span><span><b>Jack</b></span><span> with </span><span><b>Jill</b></span><span> in every page.
+&#133;it will result in replacing </span><span class="mono"><b>Jack</b></span><span> with </span><span class="mono"><b>Jill</b></span><span> in every page.
 <br />
-Do not forget to check the type, there can be some <a href="responsebody.htm">file</a>.</span><span><b>
+Do not forget to check the type, there can be some <a href="responsebody.htm">file</a>.</span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

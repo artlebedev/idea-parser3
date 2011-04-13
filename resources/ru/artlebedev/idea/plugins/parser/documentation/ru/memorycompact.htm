@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>compact. ������ ������</title>
+    <title>compact. Сборка мусора</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,46 +11,56 @@
 <body>
 
 
-<span><b>compact. ������ ������ </b><span><b><i>[3.1]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>compact. Сборка мусора </b><span><b><i>[3.1]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>^memory:compact[]
+<span class="mono"><b>^memory:compact[]
 <br />
 </b><span>
 <br />
-�������� ��� ���������� ������ � ������, ���������� �� ��� ���������� ������������� ����� �����.
+Собирает так называемый «мусор» в памяти, освобождая ее для повторного использования вашим кодом.
 <br />
-������� ��������� ������, ����� �� ������������ ����� �����, �.�. ��, �� ������� � ����� ���� ��� ������.
+Мусором считается память, более не используемая вашим кодом, т.е. та, на которую в вашем коде нет ссылок.
 <br />
 
 <br />
-��������,
+Например,
 <br />
-</span><span><span><b>$table[^table::</b></span></span><span><span><b><a href="tablesql.htm">sql</a></b></span></span><span><span><b>{</b></span></span><span><b>SQL&nbsp;������</b><span><b>}]
+</span><span class="mono"><span class="monoblue"><b>$table[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesql.htm">sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>SQL&nbsp;запрос</b><span class="monoblue"><b>}]
 <br />
-</b></span></span><span><span><b><a href="vars.htm">$table[]</a></b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b><a href="vars.htm">$table[]</a></b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-#&nbsp;���������&nbsp;������,&nbsp;����������&nbsp;�����������&nbsp;����������&nbsp;SQL-�������
+#&nbsp;освободит&nbsp;память,&nbsp;занимаемую&nbsp;результатом&nbsp;выполнения&nbsp;SQL-запроса
 <br />
-^memory:compact[]</b></span></span><span><b>
+^memory:compact[]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-Parser �� �������� ����� �������������, ��������� � ������ ������� �� ������: ��������� ����� </span><span><b>compact</b></span><span> � ��� ����� (������), ��� �������� ���������� ������, ��������, ����� <a href="xdoctransform.htm">XSL ���������������</a>.
+Parser не собирает мусор автоматически, полагаясь в данном вопросе на кодера: поставьте вызов </span><span class="mono"><b>compact</b></span><span> в той точке (точках), где ожидаете наибольшей выгоды, например, перед <a href="xdoctransform.htm">XSL преобразованием</a>.
 <br />
 
 <br />
-</span><span><b><a href="statusmemory.htm">$status:memory</a></b></span><span> ������� ��� � ������� � ������ ����, �������� �������� ��� ������ ������.
+</span><span class="mono"><b><a href="statusmemory.htm">$status:memory</a></b></span><span> поможет вам в отладке и поиске мест, наиболее выгодных для сборки мусора.
 <br />
 
 <br />
-<i>�����: ���������� ��� ����� ����� ���������� ������������ ��������� ����������, � �������� ����������, ������� ��� �� ����� ����� ��� ���������� ������ ����. ��� ������� </i></span><span><b><i>compact</i></b></span><span><i> ���������� ������.
+<i>Важно: необходимо как можно более интенсивно использовать локальные переменные, и обнулить глобальные, которые вам не будут нужны для дальнейшей работы кода. Это поможет </i></span><span class="mono"><b><i>compact</i></b></span><span><i> освободить больше.
 <br />
 
 <br />
-�����: �� �������������, ��� ����� ����������� ��������� ��� �������������� ������.
+Важно: не гарантируется, что будет освобождена абсолютно вся неиспользуемая память.
 <br />
 </i></span></span><br />
 

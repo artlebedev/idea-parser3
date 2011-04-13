@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>find. Finding file on disk</title>
+    <title>find. Finding file on disk</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,52 +15,52 @@
   <tr>
     <td>
       
-<span><b>find. Finding file on disk
+<span class="h1"><b>find. Finding file on disk
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file:find[file]
+<span class="mono"><b>^file:find[file]
 <br />
 ^file:find[file]{code&nbsp;to&nbsp;be&nbsp;executed&nbsp;if&nbsp;file&nbsp;is&nbsp;not&nbsp;found}
 <br />
 </b><span>
 <br />
-The method returns a string (object of class </span><span><b>string</b></span><span>) containing name of file and full path if it exists in specified directory or in any of the parent directories. Otherwise, if a code is specified, it will be executed.
+The method returns a string (object of class </span><span class="mono"><b>string</b></span><span>) containing name of file and full path if it exists in specified directory or in any of the parent directories. Otherwise, if a code is specified, it will be executed.
 <br />
 <b>
 <br />
-</b></span><span><b>Example without path</b><b>
+</b></span><span class="h1"><b>Example without path</b><b>
 <br />
-</b></span><span><b>&lt;img&nbsp;src="</b><span><b>^file:find[</b></span></span><span><b>header.gif</b><span><b>]{</b></span></span><span><b>/i/header.gif</b><span><b>}</b></span></span><span><b>"&gt;
+</b></span><span class="mono"><b>&lt;img&nbsp;src="</b><span class="monoblue"><b>^file:find[</b></span></span><span class="mono"><b>header.gif</b><span class="monoblue"><b>]{</b></span></span><span class="mono"><b>/i/header.gif</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>"&gt;
 <br />
 </b></span><span>
 <br />
-Assume, the code is located in </span><span>/news/sport/index.html</span><span>. Then, the file </span><span><b>header.gif</b></span><span> will be searched within </span><span><b>/news/sport/</b></span><span> intended solely for sports news. In case it cannot be found, and </span><span><b>/news/sports/header.gif</b></span><span> doesn't exist, a standard headline image for news section will be used.
+Assume, the code is located in </span><span class="mono">/news/sport/index.html</span><span>. Then, the file </span><span class="mono"><b>header.gif</b></span><span> will be searched within </span><span class="mono"><b>/news/sport/</b></span><span> intended solely for sports news. In case it cannot be found, and </span><span class="mono"><b>/news/sports/header.gif</b></span><span> doesn't exist, a standard headline image for news section will be used.
 <br />
 <u>
 <br />
-</u></span><span><b>Example with path specified
+</u></span><span class="h1"><b>Example with path specified
 <br />
-</b></span><span><b>&lt;img&nbsp;src="</b><span><b>^file:find[</b></span></span><span><b>/i/</b><span><b>$section</b></span></span><span><b>/</b><span><b>$subsection</b></span></span><span><b>/header.gif</b><span><b>]</b></span></span><span><b>"&gt;
+</b></span><span class="mono"><b>&lt;img&nbsp;src="</b><span class="monoblue"><b>^file:find[</b></span></span><span class="mono"><b>/i/</b><span class="monoblue"><b>$section</b></span></span><span class="mono"><b>/</b><span class="monoblue"><b>$subsection</b></span></span><span class="mono"><b>/header.gif</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>"&gt;
 <br />
 </b></span><span>
 <br />
-File </span><span><b>header.gif</b></span><span> will be searched within </span><span><b>/i/section/subsection/</b></span><span>. If it still cannot be found, it will be looked for in (in the order as follows):
+File </span><span class="mono"><b>header.gif</b></span><span> will be searched within </span><span class="mono"><b>/i/section/subsection/</b></span><span>. If it still cannot be found, it will be looked for in (in the order as follows):
 <br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span><b>/i/section/
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span></span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span class="mono"><b>/i/section/
 &nbsp;<br />
-</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span><b></b></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span><b>/i/
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span class="mono"><b></b></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span class="mono"><b>/i/
 &nbsp;<br />
-</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span><b></b></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span><b>/
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"><span class="mono"><b></b></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span class="mono"><b>/
 &nbsp;<br />
-</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span><b></b></span></td><td></td></tr></table><span></span><span>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span class="mono"><b></b></span></td><td></td></tr></table><span class="mono"></span><span>
 <br />
 </span></span><br />
 

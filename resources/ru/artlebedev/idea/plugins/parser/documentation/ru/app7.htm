@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>���������� 7. SQL �������, ������ � IN/OUT �����������</title>
+    <title>Приложение 7. SQL сервера, работа с IN/OUT переменными</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,32 +11,42 @@
 <body>
 
 
-<span><b>���������� 7. SQL �������, ������ � IN/OUT �����������</b><span><b><i> [3.1.4]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Приложение 7. SQL сервера, работа с IN/OUT переменными</b><span><b><i> [3.1.4]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span>��� ������ � SQL �������� Oracle �������������� ������ �� ���������� ����������� (bind variables), �������������� <span>IN</span><span>, </span><span>OUT</span><span> � </span><span>IN/OUT</span><span> ����������, ������� ����������� � ������������ � ������ <a href="hash.htm">�����</a>.
+<span>При работе с SQL сервером Oracle поддерживается работа со связанными переменными (bind variables), поддерживаются <span class="mono">IN</span><span>, </span><span class="mono">OUT</span><span> и </span><span class="mono">IN/OUT</span><span> переменные, которые связываются с передаваемым в запрос <a href="hash.htm">хешем</a>.
 <br />
 
 <br />
-��� ������ ������������� ����������� </span><span>CALL</span><span> </span><span>�</span><span> </span><span>EXECUTE</span><span> � ��������� ������� Oracle ������� ��������� ��������, ����������� ������������ PL/SQL �������� (</span><span>begin&nbsp;�;&nbsp;end;</span><span>), �� ��������� <a href="stringlit.htm">������������</a> ���� �;�.
+При прямом использовании конструкций </span><span class="mono">CALL</span><span> </span><span class="mono">и</span><span> </span><span class="mono">EXECUTE</span><span> в некоторых версиях Oracle имеются известные проблемы, рекомендуем пользоваться PL/SQL оберткой (</span><span class="mono">begin&nbsp;…;&nbsp;end;</span><span>), не забывайте <a href="stringlit.htm">экранировать</a> знак «;».
 <br />
 
 <br />
-<i>����������: �������� ���� </i></span><span><b><a href="voidclass.htm">void</a></b></span><span><i> ������������� </i></span><span>NULL</span><span><i>. �� ������ ������� </i></span><span><b>days</b></span><span><i> ����� ��������� �������� </i></span><span>NULL</span><span><i>.</i>
+<i>Примечание: значение типа </i></span><span class="mono"><b><a href="voidclass.htm">void</a></b></span><span><i> соответствует </i></span><span class="mono">NULL</span><span><i>. Во втором примере </i></span><span class="mono"><b>days</b></span><span><i> имеет начальное значение </i></span><span class="mono">NULL</span><span><i>.</i>
 <br />
 
 <br />
-</span><span><b>������ ������������� IN ����������
+</span><span class="h1"><b>Пример использования IN переменных
 <br />
-</b></span><span><b>
+</b></span><span class="mono"><b>
 <br />
-</b><span><b>#procedure&nbsp;ban_user(user_id&nbsp;in&nbsp;number,&nbsp;days&nbsp;in&nbsp;number)</b></span></span><span><b>
+</b><span class="monoblue"><b>#procedure&nbsp;ban_user(user_id&nbsp;in&nbsp;number,&nbsp;days&nbsp;in&nbsp;number)</b></span></span><span class="mono"><b>
 <br />
 
 <br />
-</b><span><b>^void:sql{</b></span></span><span><b>begin&nbsp;ban_user(:user_id,&nbsp;:days)^;&nbsp;end^;</b><span><b>}[
+</b><span class="monoblue"><b>^void:sql{</b></span></span><span class="mono"><b>begin&nbsp;ban_user(:user_id,&nbsp;:days)^;&nbsp;end^;</b><span class="monoblue"><b>}[
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$.bind[
 <br />
@@ -50,21 +60,21 @@
 <br />
 </b></span></span><span>
 <br />
-</span><span><b>������ ������������� IN � OUT ����������
+</span><span class="h1"><b>Пример использования IN и OUT переменных
 <br />
-</b></span><span><b>
+</b></span><span class="mono"><b>
 <br />
-</b><span><b>#procedure&nbsp;read_user_ban_days(user_id&nbsp;in&nbsp;number,&nbsp;days&nbsp;out&nbsp;number)</b></span></span><span><b>
+</b><span class="monoblue"><b>#procedure&nbsp;read_user_ban_days(user_id&nbsp;in&nbsp;number,&nbsp;days&nbsp;out&nbsp;number)</b></span></span><span class="mono"><b>
 <br />
 
 <br />
-</b><span><b>$variables[
+</b><span class="monoblue"><b>$variables[
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$.user_id(7319)
 <br />
-#��������&nbsp;��&nbsp;��,&nbsp;���&nbsp;��������&nbsp;OUT,&nbsp;���&nbsp;�����&nbsp;����������&nbsp;���&nbsp;��������
+#несмотря&nbsp;на&nbsp;то,&nbsp;что&nbsp;параметр&nbsp;OUT,&nbsp;все&nbsp;равно&nbsp;необходимо&nbsp;его&nbsp;передать
 <br />
-#���&nbsp;�������&nbsp;��������&nbsp;�����&nbsp;���������������
+#его&nbsp;текущее&nbsp;значение&nbsp;будет&nbsp;проигнорировано
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$.days[]
 <br />
@@ -72,15 +82,15 @@
 <br />
 
 <br />
-^void:sql{</b></span></span><span><b>begin&nbsp;read_user_ban_days(:user_id,&nbsp;:days)^;&nbsp;end^;</b><span><b>}[
+^void:sql{</b></span></span><span class="mono"><b>begin&nbsp;read_user_ban_days(:user_id,&nbsp;:days)^;&nbsp;end^;</b><span class="monoblue"><b>}[
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$.bind[$variables]
 <br />
 ]
 <br />
-</b></span></span><span><b>
+</b></span></span><span class="mono"><b>
 <br />
-������������&nbsp;��������&nbsp;��</b><span><b>&nbsp;$variables.days!</b></span></span><span>
+Пользователь&nbsp;выключен&nbsp;на</b><span class="monoblue"><b>&nbsp;$variables.days!</b></span></span><span>
 <br />
 </span></span><br />
 

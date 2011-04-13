@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Fields</title>
+    <title>Fields</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,87 +11,132 @@
 <body>
 
 
-<span><b>Information about file</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Fields
 <br />
-</span><span><b>$some_file.size</b></span><span>-size of file in bytes;
-<br />
-</span><span><b>$some_file.cdate</b></span><span>-creation date;
-<br />
-</span><span><b>$some_file.mdate</b></span><span>-modification date;
-<br />
-</span><span><b>$some_file.adate</b></span><span>-last access date.
-<br />
-
-<br />
-These fields available if object was created within constructor </span><span><b><a href="filestat.htm">file::stat</a></b></span><span> or </span><span><b>file::load</b></span><span> by loading local file</span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span>.</span><span>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
+
+
+<span class="h1"><b>name. Name of file
 <br />
-</span><span><b>stderr. Standard e</b><b>rror text </b><b>of program execution
-<br />
-</b></span><span><b>$some_file.stderr
+</b><span class="mono"><b>$some_file.name
 <br />
 </b></span><span>
 <br />
-After </span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span><span> and </span><span><b><a href="filecgiexec.htm">file::exec</a></b></span><span> here goes text from standard error program stream.
-<br />
-
-<br />
-</span><span><b>status. S</b><b>tatus of getting </b><b>t</b><b>his file</b></h1><span>
-<br />
-</span><span><b>$some_file.status
-<br />
-</b></span><span>
-<br />
-After </span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span><span> and </span><span><b><a href="filecgiexec.htm">file::exec</a></b></span><span> in </span><span><b>status</b></span><span> field one can find status of program execution (success=0).
-<br />
-After </span><span><b><a href="fileload.htm">file::load</a></b></span><span> from <a href="app1.htm">HTTP-server</a> here is status of HTTP request (success=200).
-<br />
-
-<br />
-</span><span><b>mode. File's mode.</b><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
-<br />
-</b></span><span><b>$some_file.mode
-<br />
-</b></span><span><b>
-<br />
-</b></span><span>Could be </span><span><b>text</b></span><span> or </span><span><b>binary</b></span><span>.
-<br />
-
-<br />
-</span><span><b>content-type. MIME-type of file
-<br />
-</b></span><span><b>$some_file.content-type
-<br />
-</b></span><span>
-<br />
-The field may contain file's MIME-type. If a cgi-script is executed (see  </span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span><span>) MIME-type may be specified by the script-in header "</span><span><b>content-type.</b></span><span>" If a file is loaded (see </span><span><b><a href="fileload.htm">file::load</a></b></span><span>) or its status is retrieved (see </span><span><b><a href="filestat.htm">file::stat</a></b></span><span>) MIME-type will be defined with the help of table </span><span><b>$</b><b><a href="parserconfmethod.htm">MAIN:MIME-TYPES</a></b></span><span> (see "<a href="parserconfmethod.htm">Configuration method</a>"), If file extension cannot be located in the table, MIME-type will be defined as "</span><span><b>application/octet-stream</b></span><span>."
+The field contains the name of file. Object of class </span><span class="mono"><b>file</b></span><span> has field </span><span class="mono"><b>name</b></span><span> if a visitor has uploaded the file through form field </span><span class="mono"><b>&lt;input&nbsp;type=file&gt;</b></span><span>. Constructor </span><span class="mono"><b>file::load</b></span><span> may also provide an alternative name of file.
 <br />
 </span><span><b>
 <br />
-</b></span><span><b>HTTP response headers</b></h1><span><b>
+</b></span><span class="h1"><b>size. Size of file
 <br />
-</b></span><span><b>$some_file.HTTP_RESPONSE_HEADER
-<br />
-</b></span><span>
-<br />
-If a file was loaded from an HTTP-server, HTTP response headers will be accessible in UPPERCASE as fields of object of class </span><span><b>file</b></span><span>.
-<br />
-
-<br />
-</span><span><b>$</b><b>some_</b><b>fi</b><b>le</b><b>.HTTP_</b><b>RESPONSE_FIELD</b></span><span>  (in UPPERCASE)</span><span><b>
+</b></span><span class="mono"><b>$some_file.size
 <br />
 </b></span><span>
 <br />
-For example: </span><span><b>$</b><b>some_</b><b>f</b><b>ile</b><b>.SERVER</b></span><span>.
+The field contains size of file in bytes.
+<br />
+</span><span><b>
+<br />
+</b></span><span class="h1"><b>text. Text of file
+<br />
+</b></span><span class="mono"><b>$some_file.text
+<br />
+</b></span><span>
+<br />
+The field contains text of file. By using this field, one can output the content of text files or text resulted from  </span><span class="mono"><b><a href="filecgiexec.htm">file::cgi</a></b></span><span> and </span><span class="mono"><b><a href="filecgiexec.htm">file::exec</a></b></span><span>.
 <br />
 
 <br />
-If one response header occurs in a response several times, all its values are accessible in </span><span><b>tables</b></span><span> field:
+</span><span class="h1"><b>Information about file</b></span><span>
+<br />
+</span><span class="mono"><b>$some_file.size</b></span><span>-size of file in bytes;
+<br />
+</span><span class="mono"><b>$some_file.cdate</b></span><span>-creation date;
+<br />
+</span><span class="mono"><b>$some_file.mdate</b></span><span>-modification date;
+<br />
+</span><span class="mono"><b>$some_file.adate</b></span><span>-last access date.
 <br />
 
 <br />
-</span><span><b>$.tables[</b><b>
+These fields available if object was created within constructor </span><span class="mono"><b><a href="filestat.htm">file::stat</a></b></span><span> or </span><span class="mono"><b>file::load</b></span><span> by loading local file</span><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span>.</span><span>
+<br />
+
+<br />
+</span><span class="h1"><b>stderr. Standard e</b><b>rror text </b><b>of program execution
+<br />
+</b></span><span class="mono"><b>$some_file.stderr
+<br />
+</b></span><span>
+<br />
+After </span><span class="mono"><b><a href="filecgiexec.htm">file::cgi</a></b></span><span> and </span><span class="mono"><b><a href="filecgiexec.htm">file::exec</a></b></span><span> here goes text from standard error program stream.
+<br />
+
+<br />
+</span><span class="h1"><b>status. S</b><b>tatus of getting </b><b>t</b><b>his file</b></span><span>
+<br />
+</span><span class="mono"><b>$some_file.status
+<br />
+</b></span><span>
+<br />
+After </span><span class="mono"><b><a href="filecgiexec.htm">file::cgi</a></b></span><span> and </span><span class="mono"><b><a href="filecgiexec.htm">file::exec</a></b></span><span> in </span><span class="mono"><b>status</b></span><span> field one can find status of program execution (success=0).
+<br />
+After </span><span class="mono"><b><a href="fileload.htm">file::load</a></b></span><span> from <a href="app1.htm">HTTP-server</a> here is status of HTTP request (success=200).
+<br />
+
+<br />
+</span><span class="h1"><b>mode. File's mode.</b><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span class="h1"><b>
+<br />
+</b></span><span class="mono"><b>$some_file.mode
+<br />
+</b></span><span class="h1"><b>
+<br />
+</b></span><span>Could be </span><span class="mono"><b>text</b></span><span> or </span><span class="mono"><b>binary</b></span><span>.
+<br />
+
+<br />
+</span><span class="h1"><b>content-type. MIME-type of file
+<br />
+</b></span><span class="mono"><b>$some_file.content-type
+<br />
+</b></span><span>
+<br />
+The field may contain file's MIME-type. If a cgi-script is executed (see  </span><span class="mono"><b><a href="filecgiexec.htm">file::cgi</a></b></span><span>) MIME-type may be specified by the script-in header "</span><span class="mono"><b>content-type.</b></span><span>" If a file is loaded (see </span><span class="mono"><b><a href="fileload.htm">file::load</a></b></span><span>) or its status is retrieved (see </span><span class="mono"><b><a href="filestat.htm">file::stat</a></b></span><span>) MIME-type will be defined with the help of table </span><span class="mono"><b>$</b><b><a href="parserconfmethod.htm">MAIN:MIME-TYPES</a></b></span><span> (see "<a href="parserconfmethod.htm">Configuration method</a>"), If file extension cannot be located in the table, MIME-type will be defined as "</span><span class="mono"><b>application/octet-stream</b></span><span>."
+<br />
+</span><span><b>
+<br />
+</b></span><span class="h1"><b>HTTP response headers</b></span><span><b>
+<br />
+</b></span><span class="mono"><b>$some_file.HTTP_RESPONSE_HEADER
+<br />
+</b></span><span>
+<br />
+If a file was loaded from an HTTP-server, HTTP response headers will be accessible in UPPERCASE as fields of object of class </span><span class="mono"><b>file</b></span><span>.
+<br />
+
+<br />
+</span><span class="mono"><b>$</b><b>some_</b><b>fi</b><b>le</b><b>.HTTP_</b><b>RESPONSE_FIELD</b></span><span>  (in UPPERCASE)</span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+For example: </span><span class="mono"><b>$</b><b>some_</b><b>f</b><b>ile</b><b>.SERVER</b></span><span>.
+<br />
+
+<br />
+If one response header occurs in a response several times, all its values are accessible in </span><span class="mono"><b>tables</b></span><span> field:
+<br />
+
+<br />
+</span><span class="mono"><b>$.tables[</b><b>
 <br />
 &nbsp;&nbsp;&nbsp;$.HTTP_RESPONSE_FIELD[</b>table&nbsp;of&nbsp;values&nbsp;with&nbsp;sole&nbsp;column&nbsp;<b>value</b><b>]</b><b>
 <br />
@@ -101,13 +146,13 @@ If one response header occurs in a response several times, all its values are ac
 <br />
 Example:
 <br />
-</span><span><span><b>$f[^file::load[binary;</b></span></span><span><b>http://www.parser.ru</b><b>/en/</b><span><b>]]
+</span><span class="mono"><span class="monoblue"><b>$f[^file::load[binary;</b></span></span><span class="mono"><b>http://www.parser.ru</b><b>/en/</b><span class="monoblue"><b>]]
 <br />
 ^f.tables.foreach[key;value]{
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$key=^value.menu{$value.value}[|]</b></span></span><span><b>&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$key=^value.menu{$value.value}[|]</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}</b></span></span><span><b>
+</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

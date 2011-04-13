@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>sql. Querying database</title>
+    <title>sql. Querying database</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,48 +15,48 @@
   <tr>
     <td>
       
-<span><b>sql. Querying database
+<span class="h1"><b>sql. Querying database
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^table::sql{SQL-query}
+<span class="mono"><b>^table::sql{SQL-query}
 <br />
 ^table::sql{SQL-query}[$.limit(n)&nbsp;$.offset(o)</b><b>&nbsp;</b><b>$.</b><b><a href="app7.htm">bind</a></b><b>[variables&nbsp;hash]</b><b>]
 <br />
 </b><span>
 <br />
-The constructor creates an object of class </span><span><b>table</b></span><span> containing table based on the data retrieved from a database. To use this constructor you must have connection with data server established (see operator </span><span><b><a href="opconnect.htm">connect</a></b></span><span>).</span><span>
+The constructor creates an object of class </span><span class="mono"><b>table</b></span><span> containing table based on the data retrieved from a database. To use this constructor you must have connection with data server established (see operator </span><span class="mono"><b><a href="opconnect.htm">connect</a></b></span><span>).</span><span>
 <br />
 </span><span>
 <br />
-</span><span><b>SQL-query</b></span><span>-query sent to a database.
+</span><span class="mono"><b>SQL-query</b></span><span>-query sent to a database.
 <br />
 
 <br />
 It is possible to use additional parameters with the constructor:
 <br />
-</span><span><b>$.limit(n)</b></span><span>-retrieve no more than </span><span><b>n</b></span><span> entries;
+</span><span class="mono"><b>$.limit(n)</b></span><span>-retrieve no more than </span><span class="mono"><b>n</b></span><span> entries;
 <br />
-</span><span><b>$.offset(o)</b></span><span>-ignore first </span><span><b>o</b></span><span> retrieved entries;
+</span><span class="mono"><b>$.offset(o)</b></span><span>-ignore first </span><span class="mono"><b>o</b></span><span> retrieved entries;
 <br />
-</span><span><b>$.bind</b><b>[hash]</b></span><span> - variables to bind, see &#171;<a href="app7.htm">Queries with bound variables</a>&#187;<b><i> [3.1.4]</i></b>.
+</span><span class="mono"><b>$.bind</b><b>[hash]</b></span><span> - variables to bind, see &#171;<a href="app7.htm">Queries with bound variables</a>&#187;<b><i> [3.1.4]</i></b>.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 </b><b>Example</b></span><span><u>
 <br />
-</u></span><span><span><b>$sql_table[^table::sql{</b></span></span><span><b>select&nbsp;*&nbsp;from&nbsp;news</b><span><b>}]</b></span></span><span><b>
+</u></span><span class="mono"><span class="monoblue"><b>$sql_table[^table::sql{</b></span></span><span class="mono"><b>select&nbsp;*&nbsp;from&nbsp;news</b><span class="monoblue"><b>}]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-The code will result in an object containing all data from table </span><span><b>news</b></span><span>.
+The code will result in an object containing all data from table </span><span class="mono"><b>news</b></span><span>.
 <br />
 
 <br />

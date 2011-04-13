@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>For Oracle</title>
+    <title>For Oracle</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>For Oracle
+<span class="h1"><b>For Oracle
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>oracle://user:password@service?
+<span class="mono">oracle://user:password@service?
 <br />
 &nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=charset&amp;<b>
 <br />
@@ -54,15 +54,15 @@
 <br />
 <span>
 <br />
-</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span>-specifies the charset, in which Parser must communicate with SQL server. Conversion will be done by driver.
+</span><span class="mono"><a href="app3clientcharset.htm">ClientCharset</a></span><span>-specifies the charset, in which Parser must communicate with SQL server. Conversion will be done by driver.
 <br />
 
 <br />
-If you do not quote columns' names in </span><span><b>select</b></span><span> query, oracle will convert them to UPPERCASE. By default, Parser converts them to lowercase. By specifying </span><span>LowerCaseColumnNames=0</span><span> one can disable this lowercase conversion.
+If you do not quote columns' names in </span><span class="mono"><b>select</b></span><span> query, oracle will convert them to UPPERCASE. By default, Parser converts them to lowercase. By specifying </span><span class="mono">LowerCaseColumnNames=0</span><span> one can disable this lowercase conversion.
 <br />
 
 <br />
-While execution queries with </span><span>limit/offset</span><span> the driver modifies statements for cutting off not redundant data using SQL server instructions. But if any problems occurs this behaviour can be switched off with option </span><span>DisableQueryModification=1.</span><span>
+While execution queries with </span><span class="mono">limit/offset</span><span> the driver modifies statements for cutting off not redundant data using SQL server instructions. But if any problems occurs this behaviour can be switched off with option </span><span class="mono">DisableQueryModification=1.</span><span>
 <br />
 
 <br />
@@ -70,11 +70,11 @@ While execution queries with </span><span>limit/offset</span><span> the driver m
 <br />
 Information on other parameters can be found in Oracle documentation.
 <br />
-</span><span><b>Example
+</span><span class="h1"><b>Example
 <br />
 </b></span><span>Assume, data in your database is stored in windows-1257, connect string should look like this:
 <br />
-</span><span>oracle://user:password@service?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1257&amp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;NLS_DATE_FORMAT=YYYY-MM-DD&nbsp;HH24:MI:SS</span><span>
+</span><span class="mono">oracle://user:password@service?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1257&amp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;NLS_DATE_FORMAT=YYYY-MM-DD&nbsp;HH24:MI:SS</span><span>
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>polyline. Drawing broken lines through joints coordinates</title>
+    <title>polyline. Drawing broken lines through joints coordinates</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,28 +15,28 @@
   <tr>
     <td>
       
-<span><b>polyline. Drawing broken lines through joints coordinates
+<span class="h1"><b>polyline. Drawing broken lines through joints coordinates
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^image.polyline(color)[table&nbsp;with&nbsp;junctions&nbsp;coordinates]
+<span class="mono"><b>^image.polyline(color)[table&nbsp;with&nbsp;junctions&nbsp;coordinates]
 <br />
 </b><span>
 <br />
 The method draws a line according to joints coordinates specified in the table. It is used to create broken lines.
 <br />
-</span><span><u>
+</span><span class="h1"><u>
 <br />
 </u><b>Example
 <br />
-</b></span><span><span><b>$coordinates[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{x&nbsp;&nbsp;&nbsp;y
+</b></span><span class="mono"><span class="monoblue"><b>$coordinates[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">table::create</a></b></span></span><span class="mono"><span class="monoblue"><b>{x&nbsp;&nbsp;&nbsp;y
 <br />
 10&nbsp;&nbsp;&nbsp;0
 <br />
@@ -64,11 +64,11 @@ The method draws a line according to joints coordinates specified in the table. 
 <br />
 }]
 <br />
-$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0xFFFFFF)]
+$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0xFFFFFF)]
 <br />
 
 <br />
-$square.</b></span></span><span><span><b><a href="imagefields.htm">line-style</a></b></span></span><span><span><b>[***&nbsp;&nbsp;&nbsp;]
+$square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagefields.htm">line-style</a></b></span></span><span class="mono"><span class="monoblue"><b>[***&nbsp;&nbsp;&nbsp;]
 <br />
 $square.line-width(2)
 <br />
@@ -78,19 +78,19 @@ $square.line-width(2)
 <br />
 
 <br />
-$file_withgif[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]
+$file_withgif[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
 <br />
-^file_withgif.</b></span></span><span><span><b><a href="filesave.htm">save</a></b></span></span><span><span><b>[binary;</b></span></span><span><b>letter_F.gif</b><span><b>]
+^file_withgif.</b></span></span><span class="mono"><span class="monoblue"><b><a href="filesave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[binary;</b></span></span><span class="mono"><b>letter_F.gif</b><span class="monoblue"><b>]
 <br />
 
 <br />
-$letter_F[^image::</b></span></span><span><span><b><a href="imageload.htm">load</a></b></span></span><span><span><b>[letter_F.gif]]
+$letter_F[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imageload.htm">load</a></b></span></span><span class="mono"><span class="monoblue"><b>[letter_F.gif]]
 <br />
-^letter_F.</b></span></span><span><span><b><a href="imagehtml.htm">html</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+^letter_F.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagehtml.htm">html</a></b></span></span><span class="mono"><span class="monoblue"><b>[]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-Browser will display letter F drawn by a dotted line against white background. In current directory, a file </span><span>letter.gif</span><span> will be created. This example uses objects of class </span><span><b>image</b></span><span> of two different types. The table specifies coordinates of broken line. Then, against the background created by constructor </span><span><b><a href="imagecreate.htm">create</a></b></span><span> a line is drawn through specified coordinates. Created object of class </span><span><b>image</b></span><span> is encoded into GIF format. Resulted object of class </span><span><b><a href="fileclass.htm">file</a></b></span><span> is saved to disk. Afterwards, a new object of class </span><span><b>image</b></span><span>, based on saved file, is created. Method </span><span><b><a href="imagehtml.htm">html</a></b></span><span> will output this object to browser window.
+Browser will display letter F drawn by a dotted line against white background. In current directory, a file </span><span class="mono">letter.gif</span><span> will be created. This example uses objects of class </span><span class="mono"><b>image</b></span><span> of two different types. The table specifies coordinates of broken line. Then, against the background created by constructor </span><span class="mono"><b><a href="imagecreate.htm">create</a></b></span><span> a line is drawn through specified coordinates. Created object of class </span><span class="mono"><b>image</b></span><span> is encoded into GIF format. Resulted object of class </span><span class="mono"><b><a href="fileclass.htm">file</a></b></span><span> is saved to disk. Afterwards, a new object of class </span><span class="mono"><b>image</b></span><span>, based on saved file, is created. Method </span><span class="mono"><b><a href="imagehtml.htm">html</a></b></span><span> will output this object to browser window.
 <br />
 </span></span><br />
 

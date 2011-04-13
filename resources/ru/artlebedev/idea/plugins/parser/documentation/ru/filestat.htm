@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>stat. ��������� ���������� � �����</title>
+    <title>stat. Получение информации о файле</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,48 +15,48 @@
   <tr>
     <td>
       
-<span><b>stat. ��������� ���������� � �����
+<span class="h1"><b>stat. Получение информации о файле
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file::stat[���&nbsp;�����]</b><span>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^file::stat[имя&nbsp;файла]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;
 <br />
-</span><span>������, ��������� ���� �������������, ����� �������������� ���� (������� ������ </span><span><b>date</b></span><span>):
-<br />
-
-<br />
-</span><span><b>$����.size</b></span><span> - ������ ����� � ������;  
-<br />
-</span><span><b>$����.cdate</b></span><span> - ���� ��������;  
-<br />
-</span><span><b>$����.mdate</b></span><span> - ���� ���������;  
-<br />
-</span><span><b>$����.adate</b></span><span> - ���� ���������� ��������� � �����.
+</span><span>Объект, созданный этим конструктором, имеет дополнительные поля (объекты класса </span><span class="mono"><b>date</b></span><span>):
 <br />
 
 <br />
-</span><span><b>���&nbsp;�����</b></span><span> - ��� ����� � �����.
+</span><span class="mono"><b>$файл.size</b></span><span> - размер файла в байтах;  
+<br />
+</span><span class="mono"><b>$файл.cdate</b></span><span> - дата создания;  
+<br />
+</span><span class="mono"><b>$файл.mdate</b></span><span> - дата изменения;  
+<br />
+</span><span class="mono"><b>$файл.adate</b></span><span> - дата последнего обращения к файлу.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="mono"><b>имя&nbsp;файла</b></span><span> - имя файла с путем.
 <br />
-</b></span><span><span><b>$f[^file::stat[some.zip]]
+
 <br />
-</b></span></span><span><b>������&nbsp;�&nbsp;������:&nbsp;</b><span><b>$f.</b></span></span><span><span><b><a href="filefields.htm">size</a></b></span></span><span><span><b>&lt;br</b></span></span><span><span><b>&nbsp;/</b></span></span><span><span><b>&gt;
+</span><span class="h1"><b>Пример
 <br />
-</b></span></span><span><b>���&nbsp;��������:</b><span><b>&nbsp;$f.cdate.</b></span></span><span><span><b><a href="datefields.htm">year</a></b></span></span><span><span><b>&lt;br</b></span></span><span><span><b>&nbsp;/</b></span></span><span><span><b>&gt;
+</b></span><span class="mono"><span class="monoblue"><b>$f[^file::stat[some.zip]]
+<br />
+</b></span></span><span class="mono"><b>Размер&nbsp;в&nbsp;байтах:&nbsp;</b><span class="monoblue"><b>$f.</b></span></span><span class="mono"><span class="monoblue"><b><a href="filefields.htm">size</a></b></span></span><span class="mono"><span class="monoblue"><b>&lt;br</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;/</b></span></span><span class="mono"><span class="monoblue"><b>&gt;
+<br />
+</b></span></span><span class="mono"><b>Год&nbsp;создания:</b><span class="monoblue"><b>&nbsp;$f.cdate.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datefields.htm">year</a></b></span></span><span class="mono"><span class="monoblue"><b>&lt;br</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;/</b></span></span><span class="mono"><span class="monoblue"><b>&gt;
 <br />
 $new_after[^date::now(-3)]
 <br />
-</b></span></span><span><b>������:&nbsp;</b><span><b>^if($f.mdate&nbsp;&gt;=&nbsp;$new_after){</b></span></span><span><b>�����</b><span><b>;</b></span></span><span><b>������</b><span><b>}</b></span></span><span>
+</b></span></span><span class="mono"><b>Статус:&nbsp;</b><span class="monoblue"><b>^if($f.mdate&nbsp;&gt;=&nbsp;$new_after){</b></span></span><span class="mono"><b>новый</b><span class="monoblue"><b>;</b></span></span><span class="mono"><b>старый</b><span class="monoblue"><b>}</b></span></span><span>
 <br />
 </span></span><br />
 

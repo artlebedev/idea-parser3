@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Getting form field value</title>
+    <title>Getting form field value</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,33 +11,68 @@
 <body>
 
 
-<span><b>Example: text field, image field and file uploading</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Getting form field value
 <br />
-</u></span><span><span><b>^if(def&nbsp;$form:photo){
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-&nbsp;&nbsp;&nbsp;^form:photo</b></span></span><span><span><b>.</b></span></span><span><span><b><a href="filesave.htm">save</a></b></span></span><span><span><b>[binary;/upload/photos/beauty.^file:justext[$</b></span></span><span><span><b>form:photo</b></span></span><span><span><b>.name]]</b></span></span><span><span><b>
+
+
+
+<span class="mono"><b>$form:field_name
 <br />
-&nbsp;&nbsp;&nbsp;</b></span></span><span><b>Image&nbsp;</b><span><b>$form:photo.name</b></span></span><span><b>&nbsp;was&nbsp;uploaded.</b><span><b>
+</b><span>
+<br />
+Such a construction returns value of form field. Returned object may belong either to class </span><span class="mono"><b>file</b></span><span>, if field type is </span><span class="mono"><b>file</b></span><span>, or class </span><span class="mono"><span class="monoblue"><b><u><a href="stringclass.htm">string</a></u></b></span></span><span>.Further actions with object can be performed only by methods prescribed for relevant classes.
+<br />
+
+<br />
+Field bearing no name is referred to as </span><span class="mono"><b>nameless</b></span><span>.
+<br />
+Coordinates sent by browser when a visitor clicks image with attribute <b>ISMAP</b> can be accessed through </span><span class="mono"><b>$form</b><b>:</b><b><a href="formimap.htm">imap</a></b></span><span>.
+<br />
+
+<br />
+You should remember that if &lt;input type="image" name="fieldname" /&gt; is used in html and visitor click on this image, the browser will send coordinates of this action in </span><span class="mono"><b>fieldname.x</b></span><span> &#232; </span><span class="mono"><b>fieldname.y</b></span><span> fields</span><span>.
+<br />
+
+<br />
+
+<br />
+</span><span class="h1"><b>Example: text field, image field and file uploading</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>^if(def&nbsp;$form:photo){
+<br />
+&nbsp;&nbsp;&nbsp;^form:photo</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b><a href="filesave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[binary;/upload/photos/beauty.^file:justext[$</b></span></span><span class="mono"><span class="monoblue"><b>form:photo</b></span></span><span class="mono"><span class="monoblue"><b>.name]]</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>Image&nbsp;</b><span class="monoblue"><b>$form:photo.name</b></span></span><span class="mono"><b>&nbsp;was&nbsp;uploaded.</b><span class="monoblue"><b>
 <br />
 }
 <br />
 ^if(def&nbsp;$form:user){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><b>User</b><b>:&nbsp;</b><span><b>$form:user</b></span></span><span><b>&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;</b><b>User</b><b>:&nbsp;</b><span class="monoblue"><b>$form:user</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
-</b></span></span><span><span><b>^if(def</b></span></span><span><span><b>&nbsp;$form:[action.x]){</b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>^if(def</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;$form:[action.x]){</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><b>Coordinates:&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;</b><b>Coordinates:&lt;br&nbsp;/&gt;
 <br />
-&nbsp;&nbsp;&nbsp;X:&nbsp;</b><span><b>$form:[action.x]</b></span></span><span><b>&lt;br&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;X:&nbsp;</b><span class="monoblue"><b>$form:[action.x]</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-&nbsp;&nbsp;&nbsp;</b><b>Y</b><b>:&nbsp;</b><span><b>$form:[action.y]</b></span></span><span><b>&lt;br&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;</b><b>Y</b><b>:&nbsp;</b><span class="monoblue"><b>$form:[action.y]</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
-</b></span></span><span><b>&lt;form&nbsp;method="post"&nbsp;enctype="multipart/form-data"&gt;
+</b></span></span><span class="mono"><b>&lt;form&nbsp;method="post"&nbsp;enctype="multipart/form-data"&gt;
 <br />
 &lt;input&nbsp;type="file"&nbsp;name="photo"&gt;
 <br />
@@ -55,13 +90,13 @@
 <br />
 
 <br />
-</span><span><b>Example: nameless field</b></h1><span><u>
+</span><span class="h1"><b>Example: nameless field</b></span><span><u>
 <br />
-</u></span><span><b>&lt;img&nbsp;src="/show.html?123&amp;a=b"&nbsp;/&gt;
+</u></span><span class="mono"><b>&lt;img&nbsp;src="/show.html?123&amp;a=b"&nbsp;/&gt;
 <br />
 </b></span><span>
 <br />
-Within </span><span>show.html</span><span> string </span><span><b>123</b></span><span> can be accessed as </span><span><b>$form:nameless</b></span><span>.
+Within </span><span class="mono">show.html</span><span> string </span><span class="mono"><b>123</b></span><span> can be accessed as </span><span class="mono"><b>$form:nameless</b></span><span>.
 <br />
 
 <br />

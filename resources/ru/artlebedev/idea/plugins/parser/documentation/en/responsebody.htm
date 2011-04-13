@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>body. Specifying a new response body</title>
+    <title>body. Specifying a new response body</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,27 +11,72 @@
 <body>
 
 
-<span><b>Example of how to replace the whole body of the response with the results of the script's work </b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>body. Specifying a new response body
 <br />
-</u></span><span><span><b>$response:body[^</b></span></span><span><span><b><a href="filecgiexec.htm">file::cgi</a></b></span></span><span><span><b>[script.cgi]]</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>$response:body[DATA]</b>&nbsp;&nbsp;&nbsp;<span>
+<br />
+</span><span>
+<br />
+Here, </span><span class="mono"><b>DATA</b></span><span> substitutes for the whole response body.
+<br />
+
+<br />
+</span><span class="mono"><b>DATA</b></span><span> may be a <a href="stringclass.htm">string</a>, <a href="fileclass.htm">file</a> or <a href="hash.htm">hash</a> of parameters.
+<br />
+
+<br />
+Keys of hash of parameters:<b><i> [3.1.4]
+<br />
+</i></b></span><span class="mono"><b>file</b></span><span> - name of file on disk (in this case Parser supports continuing of broken downloads.<b><i>  [3.1.4]</i></b>);
+<br />
+</span><span class="mono"><b>name</b></span><span> - name of file to pass to visitor;</span><span class="mono"><b>
+<br />
+mdate</b></span><span> - date and time of file last modification to pass to visitor.</span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-&#133;will replace the body of the response with the data returned by the program </span><span><b>script.cgi</b></span><span>.
+If </span><span class="mono"><b>content-type</b></span><span> of sent file is known, Content-Type header is also output to the browser (see "</span><span class="mono"><b><a href="filefields.htm">Fields of object of class file</a></b><b>"</b>)</span><span>.
 <br />
-</span><span><b>
+
 <br />
-</b></span><span><b>Example of how to create and output an image</b></h1><span><u>
+See also </span><span class="mono"><b>$response:</b><b><a href="responsedownload.htm">download</a></b></span><span>.
 <br />
-</u></span><span><span><b>$square[^</b></span></span><span><span><b><a href="imagecreate.htm">image::create</a></b></span></span><span><span><b>(100;100;0x000000)]
+
 <br />
-^square.</b></span></span><span><span><b><a href="imagecircle.htm">circle</a></b></span></span><span><span><b>(50;50;10;0xFFFFFF)
+</span><span class="h1"><b>Example of how to replace the whole body of the response with the results of the script's work </b></span><span><u>
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+</u></span><span class="mono"><span class="monoblue"><b>$response:body[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="filecgiexec.htm">file::cgi</a></b></span></span><span class="mono"><span class="monoblue"><b>[script.cgi]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-As a result, the browser will output a black square with a white circle. Besides, a necessary type of file (content-type) according to table </span><span><b>MIME-TYPES</b></span><span> will be reported to the browser.
+&#133;will replace the body of the response with the data returned by the program </span><span class="mono"><b>script.cgi</b></span><span>.
+<br />
+</span><span class="mono"><b>
+<br />
+</b></span><span class="h1"><b>Example of how to create and output an image</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$square[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">image::create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
+<br />
+^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecircle.htm">circle</a></b></span></span><span class="mono"><span class="monoblue"><b>(50;50;10;0xFFFFFF)
+<br />
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+As a result, the browser will output a black square with a white circle. Besides, a necessary type of file (content-type) according to table </span><span class="mono"><b>MIME-TYPES</b></span><span> will be reported to the browser.
 <br />
 </span></span><br />
 

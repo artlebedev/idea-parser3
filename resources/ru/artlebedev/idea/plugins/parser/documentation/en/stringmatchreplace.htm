@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>match. Replacing pattern-matching substring</title>
+    <title>match. Replacing pattern-matching substring</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,15 +11,42 @@
 <body>
 
 
-<span><b>Example</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>match. Replacing pattern-matching substring
 <br />
-</u></span><span><span><b>$str[</b></span></span><span><b>2002.01.01</b><span><b>]
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-^str.match[(\d+)\.(\d+)\.(\d+)][g]{</b></span></span><span><b>Year:</b><b>&nbsp;</b><span><b>$match.1</b></span></span><span><b>,&nbsp;</b><b>month:</b><b>&nbsp;</b><span><b>$match.2</b></span></span><span><b>,&nbsp;</b><b>day:</b><b>&nbsp;</b><span><b>$match.3}
+
+
+
+<span class="mono"><b>^string.match[pattern][search&nbsp;options]{replacer}
+<br />
+^string.match[pattern][search&nbsp;options][replacer]</b><span><b><i> [3.4.0]</i></b></span><span class="mono"><b>
+<br />
+^string.match[pattern][search&nbsp;options]{replacer}[returns&nbsp;this&nbsp;if&nbsp;the&nbsp;pattern&nbsp;wasn't&nbsp;be&nbsp;found&nbsp;in&nbsp;the&nbsp;string]</b></span><span><b><i> [3.4.1]</i></b></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+The method searches the string for a match and replaces the pattern-matching substring with a substring given in curly brackets. The search mechanism is the same as in the previously given method. Automatically created matches' table </span><span class="mono"><b>match</b></span><span>, described in the previous method, is available within the code.
+<br />
+
+<br />
+</span><span class="h1"><b>Example</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>2002.01.01</b><span class="monoblue"><b>]
+<br />
+^str.match[(\d+)\.(\d+)\.(\d+)][g]{</b></span></span><span class="mono"><b>Year:</b><b>&nbsp;</b><span class="monoblue"><b>$match.1</b></span></span><span class="mono"><b>,&nbsp;</b><b>month:</b><b>&nbsp;</b><span class="monoblue"><b>$match.2</b></span></span><span class="mono"><b>,&nbsp;</b><b>day:</b><b>&nbsp;</b><span class="monoblue"><b>$match.3}
 <br />
 </b></span></span><span>
 <br />
-The code will output: </span><span><b>Year:&nbsp;2002,&nbsp;month:&nbsp;01,&nbsp;day:&nbsp;01</b></span><span>
+The code will output: </span><span class="mono"><b>Year:&nbsp;2002,&nbsp;month:&nbsp;01,&nbsp;day:&nbsp;01</b></span><span>
 <br />
 </span></span><br />
 

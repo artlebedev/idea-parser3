@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Appendix 2. Format strings</title>
+    <title>Appendix 2. Format strings</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,12 +15,12 @@
   <tr>
     <td>
       
-<span><b>Appendix 2. Format strings
+<span class="h1"><b>Appendix 2. Format strings
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
@@ -28,11 +28,11 @@
 
 <span>Format string determines the format in which a number will be represented. It has the following general structure:
 <br />
-<span><b>%Length.PrecisionType
+<span class="mono"><b>%Length.PrecisionType
 <br />
 </b></span><span>
 <br />
-</span><span><b>Type&nbsp;</b></span><span>determines the way of converting number into string.
+</span><span class="mono"><b>Type&nbsp;</b></span><span>determines the way of converting number into string.
 <br />
 
 <br />
@@ -40,61 +40,61 @@ The following types are available:
 <br />
 
 <br />
-</span><span><b><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="43">
-<span><b>d</b>
+</span><span class="mono"><b><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="43">
+<span class="mono"><b>d</b>
 <br />
 </span></td><td align="left" valign="top" width="511">
 <span>-decimal number with sign
 <br />
-<span>
+<span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="43">
-<span><b>u</b>
+<span class="mono"><b>u</b>
 <br />
 </span></td><td align="left" valign="top" width="511">
 <span>-decimal number without sign
 <br />
-<span>
+<span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="43">
-<span><b>o</b>
+<span class="mono"><b>o</b>
 <br />
 </span></td><td align="left" valign="top" width="511">
 <span>-octal integer without sign
 <br />
-<span>
+<span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="43">
-<span><b>x</b>
+<span class="mono"><b>x</b>
 <br />
 </span></td><td align="left" valign="top" width="511">
 <span>-hexadecimal integer without sign; to output numbers greater than 9 one should use letters a, b, c, d, e, and f
 <br />
-<span>
+<span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="43">
-<span><b>X</b>
+<span class="mono"><b>X</b>
 <br />
 </span></td><td align="left" valign="top" width="511">
 <span>-hexadecimal integer without sign; to output numbers greater than 9 one should use letters A, B, C, D, E, and F
 <br />
-<span>
+<span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="43">
-<span><b>f</b>
+<span class="mono"><b>f</b>
 <br />
 </span></td><td align="left" valign="top" width="511">
-<span>-real number<span>
+<span>-real number<span class="mono">
 <br />
 </span></span></td></tr></table>
 <br />
 
 <br />
-</b><b>Precision</b></span><span> is how precisely fractional part is to be represented, i.e. number of digits after period. If actual number contains more numbers than specified in </span><span><b>Precision</b></span><span>, the value will be rounded. Generally, </span><span><b>Precision</b></span><span> is specified when format type </span><span><b>f</b></span><span> is used. It is not recommended to specify </span><span><b>Precision</b></span><span> in cases of all other types. If </span><span><b>Precision</b></span><span> is not specified, </span><span><b>f</b></span><span> uses default value of </span><span><b>6</b></span><span>. If </span><span><b>Precision</b></span><span> is </span><span><b>0</b></span><span>, number will be output with no fractional part at all.
+</b><b>Precision</b></span><span> is how precisely fractional part is to be represented, i.e. number of digits after period. If actual number contains more numbers than specified in </span><span class="mono"><b>Precision</b></span><span>, the value will be rounded. Generally, </span><span class="mono"><b>Precision</b></span><span> is specified when format type </span><span class="mono"><b>f</b></span><span> is used. It is not recommended to specify </span><span class="mono"><b>Precision</b></span><span> in cases of all other types. If </span><span class="mono"><b>Precision</b></span><span> is not specified, </span><span class="mono"><b>f</b></span><span> uses default value of </span><span class="mono"><b>6</b></span><span>. If </span><span class="mono"><b>Precision</b></span><span> is </span><span class="mono"><b>0</b></span><span>, number will be output with no fractional part at all.
 <br />
 
 <br />
-</span><span><b>Length</b></span><span> is number of signs to be allotted for value. If actual number contains fewer symbols than specified in </span><span><b>Length</b></span><span> (e.g. Length equals </span><span><b>10</b></span><span> and actual number's value is </span><span><b>123</b></span><span>), space characters will be used to substitute lacking digits. If it is desirable to use zeros rather than space characters in such cases, one should start </span><span><b>Length</b></span><span> value with </span><span><b>0</b></span><span>, that is, specify value NOT as </span><span><b>10</b></span><span>, but as </span><span><b>010</b></span><span>. In case </span><span><b>Length</b></span><span> is not specified, actual number will use as much (or as few) digits as it requires.
+</span><span class="mono"><b>Length</b></span><span> is number of signs to be allotted for value. If actual number contains fewer symbols than specified in </span><span class="mono"><b>Length</b></span><span> (e.g. Length equals </span><span class="mono"><b>10</b></span><span> and actual number's value is </span><span class="mono"><b>123</b></span><span>), space characters will be used to substitute lacking digits. If it is desirable to use zeros rather than space characters in such cases, one should start </span><span class="mono"><b>Length</b></span><span> value with </span><span class="mono"><b>0</b></span><span>, that is, specify value NOT as </span><span class="mono"><b>10</b></span><span>, but as </span><span class="mono"><b>010</b></span><span>. In case </span><span class="mono"><b>Length</b></span><span> is not specified, actual number will use as much (or as few) digits as it requires.
 <br />
 </span></span><br />
 

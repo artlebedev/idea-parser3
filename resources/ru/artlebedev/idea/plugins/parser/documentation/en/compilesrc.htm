@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Compiling Parser from source code</title>
+    <title>Compiling Parser from source code</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,12 +15,12 @@
   <tr>
     <td>
       
-<span><b>Compiling Parser from source code
+<span class="h1"><b>Compiling Parser from source code
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
@@ -28,33 +28,33 @@
 
 <span>Download Parser's source code and necessary modules via CVS. This can be done by running command:
 <br />
-<span>cvs&nbsp;-d&nbsp;:pserver:anonymous@cvs.parser.ru:/parser3project&nbsp;login
+<span class="mono">cvs&nbsp;-d&nbsp;:pserver:anonymous@cvs.parser.ru:/parser3project&nbsp;login
 <br />
 </span><span>Password string is empty.
 <br />
 
 <br />
-</span><span>cvs&nbsp;-d&nbsp;:pserver:anonymous@cvs.parser.ru:/parser3project&nbsp;get&nbsp;-r&nbsp;branch_name&nbsp;module_name
+</span><span class="mono">cvs&nbsp;-d&nbsp;:pserver:anonymous@cvs.parser.ru:/parser3project&nbsp;get&nbsp;-r&nbsp;branch_name&nbsp;module_name
 <br />
 </span><span>
 <br />
-</span><span>Branch_name</span><span>-having specified no </span><span><b>-r</b></span><span>, you will get currently developed version (HEAD).
+</span><span class="mono">Branch_name</span><span>-having specified no </span><span class="mono"><b>-r</b></span><span>, you will get currently developed version (HEAD).
 <br />
-To get a stable version, get branch "</span><span>release_3_X_XXXX</span><span>".
-<br />
-
-<br />
-</span><span>Module_name</span><span>:
-<br />
-Name of main module: </span><span>parser3</span><span>.
+To get a stable version, get branch "</span><span class="mono">release_3_X_XXXX</span><span>".
 <br />
 
 <br />
-Module with SQL drivers: </span><span>sql</span><span>.
+</span><span class="mono">Module_name</span><span>:
+<br />
+Name of main module: </span><span class="mono">parser3</span><span>.
+<br />
+
+<br />
+Module with SQL drivers: </span><span class="mono">sql</span><span>.
 <br />
 It presently has the following directories:
 <br />
-</span><span>sql/mysql
+</span><span class="mono">sql/mysql
 <br />
 sql/pgsql
 <br />
@@ -70,7 +70,7 @@ sql/sqlite
 <br />
 To compile SQL drivers the source codes of Parser3 are required. Because of some .h files included using relative path, the directory structure must be the next:
 <br />
-</span><span>
+</span><span class="mono">
 <br />
 parser3project&nbsp;&nbsp;&lt;-&nbsp;directory&nbsp;where&nbsp;you&nbsp;decide&nbsp;to&nbsp;put&nbsp;source&nbsp;codes&nbsp;for&nbsp;Parser3&nbsp;project
 <br />
@@ -98,7 +98,7 @@ parser3project&nbsp;&nbsp;&lt;-&nbsp;directory&nbsp;where&nbsp;you&nbsp;decide&n
 <br />
 
 <br />
-</span><span>./configure
+</span><span class="mono">./configure
 <br />
 </span><span>
 <br />
@@ -116,7 +116,7 @@ To compile under Win32:
 <br />
 
 <br />
-</span><span>win32/tools
+</span><span class="mono">win32/tools
 <br />
 </span><span>
 <br />
@@ -124,7 +124,7 @@ To compile under Win32:
 <br />
 
 <br />
-</span><span>win32/sql/mysql
+</span><span class="mono">win32/sql/mysql
 <br />
 win32/sql/pgsql
 <br />
@@ -134,19 +134,19 @@ win32/sql/sqlite
 <br />
 </span><span>
 <br />
-&#133;to you use version with XML support, you need a directive in </span><span>parser3/src/include/pa_config_fixed.h</span><span>:
+&#133;to you use version with XML support, you need a directive in </span><span class="mono">parser3/src/include/pa_config_fixed.h</span><span>:
 <br />
 
 <br />
-</span><span><b>#define&nbsp;XML
+</span><span class="mono"><b>#define&nbsp;XML
 <br />
 </b></span><span>
 <br />
-&#133;to you use mail-receiving version, you need a directive in </span><span>parser3/src/include/pa_config_fixed.h</span><span>:
+&#133;to you use mail-receiving version, you need a directive in </span><span class="mono">parser3/src/include/pa_config_fixed.h</span><span>:
 <br />
 
 <br />
-</span><span><b>#define&nbsp;WITH_MAILRECEIVE
+</span><span class="mono"><b>#define&nbsp;WITH_MAILRECEIVE
 <br />
 </b></span><span>
 <br />
@@ -158,7 +158,7 @@ read instructions on compilation and installation in INSTALL files contained wit
 <br />
 
 <br />
-To compile under Win32, use <i>Microsoft Visual Studio</i><i>.NET</i><i> (2003 or higher)</i>, use </span><span>.sln</span><span> files contained with each module. Unpack all modules to directory </span><span>parser3project</span><span>, contained in disk's root (important!) directory.
+To compile under Win32, use <i>Microsoft Visual Studio</i><i>.NET</i><i> (2003 or higher)</i>, use </span><span class="mono">.sln</span><span> files contained with each module. Unpack all modules to directory </span><span class="mono">parser3project</span><span>, contained in disk's root (important!) directory.
 <br />
 </span></span><br />
 

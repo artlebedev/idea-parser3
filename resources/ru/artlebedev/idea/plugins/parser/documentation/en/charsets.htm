@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Charsets</title>
+    <title>Charsets</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,12 +15,12 @@
   <tr>
     <td>
       
-<span><b>Charsets
+<span class="h1"><b>Charsets
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
@@ -40,17 +40,17 @@ Parser has a built-in capability of transcoding documents from charset used on s
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
 <br />
-You specify charset used in documents on server in field </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span>.
+You specify charset used in documents on server in field </span><span class="mono"><b><a href="requestcharset.htm">$request:charset</a></b></span><span>.
 <br />
-You specify charset to be used in output in field </span><span><b><a href="responsecharset.htm">$response:charset</a></b></span><span>.
+You specify charset to be used in output in field </span><span class="mono"><b><a href="responsecharset.htm">$response:charset</a></b></span><span>.
 <br />
-You should do it in one of </span><span><b><a href="mainclass.htm">auto</a></b></span><span> methods.
+You should do it in one of </span><span class="mono"><b><a href="mainclass.htm">auto</a></b></span><span> methods.
 <br />
 
 <br />
-We recommend you to specify result charset in HTTP-header </span><span><b>content-type</b></span><span>, so that a browser knew about it and a visitor did not have to select charsets manually.
+We recommend you to specify result charset in HTTP-header </span><span class="mono"><b>content-type</b></span><span>, so that a browser knew about it and a visitor did not have to select charsets manually.
 <br />
-</span><span><b>$response:content-type[
+</span><span class="mono"><b>$response:content-type[
 <br />
 &nbsp;&nbsp;&nbsp;$.value[text/html]
 <br />
@@ -60,11 +60,11 @@ We recommend you to specify result charset in HTTP-header </span><span><b>conten
 <br />
 </b></span><span>
 <br />
-Charsets to be used in email messages can be specified as different from that of the output, see </span><span><b><a href="mailsend.htm">^mail:send[�]</a></b></span><span>.
+Charsets to be used in email messages can be specified as different from that of the output, see </span><span class="mono"><b><a href="mailsend.htm">^mail:send[…]</a></b></span><span>.
 <br />
 
 <br />
-While working with databases, you should specify connection settings in such a way that SQL query and response data were in charset given in </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span>, see <a href="app3.htm">Format of connect string</a>.
+While working with databases, you should specify connection settings in such a way that SQL query and response data were in charset given in </span><span class="mono"><b><a href="requestcharset.htm">$request:charset</a></b></span><span>, see <a href="app3.htm">Format of connect string</a>.
 <br />
 
 <br />
@@ -72,15 +72,15 @@ While working with databases, you should specify connection settings in such a w
 <br />
 A list of allowable charsets is defined in <a href="parserconfig.htm">Configuration file</a>.
 <br />
-Default charset for all documents is </span><span><b>UTF-8</b></span><span>.
+Default charset for all documents is </span><span class="mono"><b>UTF-8</b></span><span>.
 <br />
 
 <br />
-<i>Note: when transcoding </i><b><i>from</i></b><i> UTF-8 if some character is not specified in </i><i><a href="installcharset.htm">transcode table</a></i><i>, a sequence </i></span><span><b>&amp;#DDDD;</b></span><span><i> is inserted instead. </i></span><span><b>DDDD</b></span><span><i> is decimal</i><i> </i><i>Unicode of that character</i><i>.</i>
+<i>Note: when transcoding </i><b><i>from</i></b><i> UTF-8 if some character is not specified in </i><i><a href="installcharset.htm">transcode table</a></i><i>, a sequence </i></span><span class="mono"><b>&amp;#DDDD;</b></span><span><i> is inserted instead. </i></span><span class="mono"><b>DDDD</b></span><span><i> is decimal</i><i> </i><i>Unicode of that character</i><i>.</i>
 <br />
 
 <br />
-<i>Note: when transcoding </i><b><i>to</i></b><i> UTF-8</i> <i>if some character is not specified in transcode table, a sequence </i></span><span><b>%HH</b></span><span><i> is inserted instead. </i></span><span><b>HH</b></span><span><i> is hexadecimal code of that character.</i> <b><i>[3.1.4]</i></b><i>
+<i>Note: when transcoding </i><b><i>to</i></b><i> UTF-8</i> <i>if some character is not specified in transcode table, a sequence </i></span><span class="mono"><b>%HH</b></span><span><i> is inserted instead. </i></span><span class="mono"><b>HH</b></span><span><i> is hexadecimal code of that character.</i> <b><i>[3.1.4]</i></b><i>
 <br />
 </i>
 <br />

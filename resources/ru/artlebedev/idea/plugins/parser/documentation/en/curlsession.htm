@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>session. Creating cURL session</title>
+    <title>session. Creating cURL session</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,64 +15,64 @@
   <tr>
     <td>
       
-<span><b>session. Creating cURL session</b><b>
+<span class="h1"><b>session. Creating cURL session</b><b>
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^curl:session{c</b><b>ode</b><b>}&nbsp;</b><span>
+<span class="mono"><b>^curl:session{c</b><b>ode</b><b>}&nbsp;</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 
 <br />
 </span><span>Method creates a curl session. The code of the method is processed by Parser within current session. 
 <br />
-In one session common <a href="curloptionsdesc.htm">options</a> sould be specified and a number of <a href="curlload.htm">file loads</a> could be executed. If the server is supporded </span><span><b>keep-alive</b></span><span>, all requests within the session will be done in one HTTP-connection.
+In one session common <a href="curloptionsdesc.htm">options</a> sould be specified and a number of <a href="curlload.htm">file loads</a> could be executed. If the server is supporded </span><span class="mono"><b>keep-alive</b></span><span>, all requests within the session will be done in one HTTP-connection.
 <br />
-</span><span>
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-</span><span><b>Example</b></span><span><b> 
+</span><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>Example</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b> 
 <br />
-</b></span><span><span><b>^curl:session{
+</b></span><span class="mono"><span class="monoblue"><b>^curl:session{
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>^curl:options[
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>^curl:options[
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.url[https://store.artlebedev.ru/]
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.url[https://store.artlebedev.ru/]
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.charset[UTF-8]
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.charset[UTF-8]
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.timeout(10)
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.timeout(10)
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>]
-<br />
-
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$file1[^curl:load[&nbsp;
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.url[https://store.artlebedev.ru/login/]
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.form[
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.Username[$form:login]
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.Password[$form:password]
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$.btnSubmit[&#194;&#238;&#233;&#242;&#232;]
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>]
-<br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>]]
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
 
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>$file2[^curl:load[]]
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$file1[^curl:load[&nbsp;
 <br />
-}</b></span></span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.url[https://store.artlebedev.ru/login/]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.form[
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.Username[$form:login]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.Password[$form:password]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.btnSubmit[&#194;&#238;&#233;&#242;&#232;]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>]]
+<br />
+
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$file2[^curl:load[]]
+<br />
+}</b></span></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b>
 <br />
 </b>
 <br />

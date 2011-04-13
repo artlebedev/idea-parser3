@@ -50,7 +50,7 @@ public class ConvertTool {
         try {
           FileWriter fileWriter = new FileWriter(outputDir + "/" + getBaseName(files[i].getName()));
 
-          String content = new Scanner(new FileInputStream(files[i].getAbsolutePath())).useDelimiter("\\Z").next();
+          String content = new Scanner(new FileInputStream(files[i].getAbsolutePath()), "Cp1251").useDelimiter("\\Z").next();
 
           content = ConvertUtil.prettifyContent2(content);
 

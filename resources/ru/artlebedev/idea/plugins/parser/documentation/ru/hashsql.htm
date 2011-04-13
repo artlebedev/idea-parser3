@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>sql. �������� ���� �� ������ ������� �� ���� ������</title>
+    <title>sql. Создание хеша на основе выборки из базы данных</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,45 +11,192 @@
 <body>
 
 
-<span><b>������ hash of bool&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.1.2]</i></b></span><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>sql. Создание хеша на основе выборки из базы данных
 <br />
-</b></span><span>� �� ���������� ������� </span><span>participants</span><span>:
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</span><span><b><i>name
+
+
+
+<span class="mono"><b>^hash::sql{запрос}&nbsp;&nbsp;
 <br />
-</i></b><b>����������
-<br />
-���������
+^hash::sql{запрос}[$.limit(n)&nbsp;$.offset(o)&nbsp;$.distinct(</b><b>true</b><b>/false)&nbsp;$.</b><b><a href="app7.htm">bind</a></b><b>[variables&nbsp;hash]&nbsp;</b><b>$.type[hash|string|table]</b><b>]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b>
 <br />
 </b></span><span>
 <br />
-���������� �����
+Конструктор создает хеш, в котором имена ключей совпадают со значениями первого столбца выборки. Имена столбцов формируют ключи хеша, а значения столбцов - соответствующие этим ключам значения.
 <br />
-</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">������ �����������</a></b></span></span><span><span><b>]{
+Если же запрос возвращает только один столбец, формируется хеш, где значения столбца формируют ключи хеша, и им ставится в соответствие логическое значение </span><span class="mono"><b>истина</b></span><span>.&nbsp;&nbsp;&nbsp;<b><i>[3.1.2]</i></b>
 <br />
-&nbsp;&nbsp;&nbsp;$participants[^hash::sql{</b></span></span><span><b>select&nbsp;</b><b><i>name</i></b><b>&nbsp;from&nbsp;participants</b><span><b>}]
+
+<br />
+Дополнительные параметры конструктора:
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="206">
+<span class="mono"><b>$.limit(n)</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="418">
+<span>получить только <span class="mono"><b>n</b></span><span> записей
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="206">
+<span class="mono"><b>$.offset(o)</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="418">
+<span>отбросить первые <span class="mono"><b>o</b></span><span> записей выборки
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="206">
+<span class="mono"><b>$.bind[hash]
+<br />
+</b><span><b><i>[3.1.4]</i></b>
+<br />
+</span></span></td><td align="left" valign="top" width="418">
+<span>связанные переменные, см. «<a href="app7.htm">Работа с IN/OUT переменными</a>»
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="206">
+<span class="mono"><b>$.distinct(</b><b>true</b><b>/false</b><b>)</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="418">
+<span class="mono"><b>false</b><span> или </span><span class="mono"><b>0</b></span><span>=считать наличие дубликата ошибкой (по-умолчанию);
+<br />
+</span><span class="mono"><b>true</b></span><span> или </span><span class="mono"><b>1</b></span><span>=выбрать из таблицы записи с уникальным ключом.
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="206">
+<span class="mono"><b>$.type[hash/string/table]&nbsp;</b><span> <b><i>[3.3.0]</i></b>
+<br />
+</span></span></td><td align="left" valign="top" width="418">
+<span class="mono"><b>hash</b><span>=значение каждого элемента - хеш (по умолчанию);
+<br />
+</span><span class="mono"><b>string</b></span><span>=значение каждого элемента - строка, при этом вы должны указать ровно </span><span class="mono"><b>два</b></span><span> столбеца в SQL запросе;
+<br />
+</span><span class="mono"><b>table</b></span><span>=значение каждого элемента - таблица.
+<br />
+</span></span></td></tr></table>
+<br />
+
+<br />
+По-умолчанию, наличие в ключевом столбце одинаковых значений считается ошибкой, если вам необходимо именно отобрать из результата записи с уникальным ключом, задайте опцию </span><span class="mono"><b>$.distinct(</b><b><a href="boollit.htm">true</a></b><b>)</b></span><span>.
+<br />
+<i>Примечание: имейте в виду, что так между клиентом и сервером передаются лишние данные, и, скорее всего, запрос можно изменить, чтобы необходимая уникальность ключа обеспечивалась SQL-сервером. Если вам необходимы данные и в виде таблицы и в виде хеша, подумайте над использованием </i></span><span class="mono"><b><i><a href="tablesql.htm">table::sql</a></i></b></span><span><i> в паре с </i></span><span class="mono"><b><i><a href="table2hash.htm">table.hash</a></i></b></span><span><i>.</i><i>
+<br />
+</i>
+<br />
+</span><span class="h1"><b>Пример hash of hash
+<br />
+</b></span><span>В БД содержится таблица </span><span class="mono">hash_table</span><span>:
+<br />
+</span><span class="mono"><b><i>pet&nbsp;&nbsp;&nbsp;food&nbsp;&nbsp;&nbsp;aggressive</i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b>
+<br />
+</b></span><span class="mono"><b>cat&nbsp;&nbsp;&nbsp;milk&nbsp;&nbsp;&nbsp;very</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b>
+<br />
+</b></span><span class="mono"><b>dog&nbsp;&nbsp;&nbsp;bone&nbsp;&nbsp;&nbsp;never</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b>
+<br />
+</b></span><span>
+<br />
+Выполнение кода…
+<br />
+</span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opconnect.htm">connect</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b><a href="app3.htm">строка подключения</a></b></span></span><span class="mono"><span class="monoblue"><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;$hash_of_hash[^hash::sql{</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>select&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;</b><b>pet,</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>food,</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><b>aggressive
+<br />
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;from&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;hash_table
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;}]
 <br />
 }
 <br />
 </b></span></span><span>
 <br />
-����� ��� ����� ���������
+…даст хеш такой структуры…
 <br />
-</span><span><span><b>$participants[
+</span><span class="mono"><span class="monoblue"><b>$hash_of_hash[
 <br />
-&nbsp;&nbsp;&nbsp;$.����������(</b></span></span><span><b><a href="boollit.htm">true</a></b><span><b>)
+&nbsp;&nbsp;&nbsp;$.cat[
 <br />
-&nbsp;&nbsp;&nbsp;$.���������(true)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span class="mono"><b>milk</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.aggressive[</b></span></span><span class="mono"><b>very</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;$.dog[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span class="mono"><b>bone</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.aggressive[</b></span></span><span class="mono"><b>never</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;]
 <br />
 ]
 <br />
 </b></span></span><span>
 <br />
-��� �������� ����� ���������� ��������� ����������, ��������, ���:
+…из которого можно эффективно извлекать информацию, например, так:
 <br />
-</span><span><span><b>$name[</b></span></span><span><b>����</b><span><b>]
+</span><span class="mono"><span class="monoblue"><b>$animal[cat]
 <br />
-$name&nbsp;^if($participants.$name){</b></span></span><span><b>���������</b><span><b>}{</b></span></span><span><b>��&nbsp;���������</b><span><b>}</b></span></span><span><b>&nbsp;�&nbsp;�����������</b><span><b>
+$animal</b></span></span><span class="mono"><b>&nbsp;любит&nbsp;</b><span class="monoblue"><b>$hash_of_hash.$animal.food
+<br />
+
+<br />
+</b></span></span><span class="h1"><b>Пример hash of bool&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.2]</i></b></span><span class="h1"><b>
+<br />
+</b></span><span>В БД содержится таблица </span><span class="mono">participants</span><span>:
+<br />
+</span><span class="mono"><b><i>name
+<br />
+</i></b><b>Константин
+<br />
+Александр
+<br />
+</b></span><span>
+<br />
+Выполнение кода…
+<br />
+</span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opconnect.htm">connect</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b><a href="app3.htm">строка подключения</a></b></span></span><span class="mono"><span class="monoblue"><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;$participants[^hash::sql{</b></span></span><span class="mono"><b>select&nbsp;</b><b><i>name</i></b><b>&nbsp;from&nbsp;participants</b><span class="monoblue"><b>}]
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+…даст хеш такой структуры…
+<br />
+</span><span class="mono"><span class="monoblue"><b>$participants[
+<br />
+&nbsp;&nbsp;&nbsp;$.Константин(</b></span></span><span class="mono"><b><a href="boollit.htm">true</a></b><span class="monoblue"><b>)
+<br />
+&nbsp;&nbsp;&nbsp;$.Александр(true)
+<br />
+]
+<br />
+</b></span></span><span>
+<br />
+…из которого можно эффективно извлекать информацию, например, так:
+<br />
+</span><span class="mono"><span class="monoblue"><b>$name[</b></span></span><span class="mono"><b>Иван</b><span class="monoblue"><b>]
+<br />
+$name&nbsp;^if($participants.$name){</b></span></span><span class="mono"><b>участвует</b><span class="monoblue"><b>}{</b></span></span><span class="mono"><b>не&nbsp;участвует</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>&nbsp;в&nbsp;мероприятии</b><span class="monoblue"><b>
 <br />
 </b></span></span></span><br />
 

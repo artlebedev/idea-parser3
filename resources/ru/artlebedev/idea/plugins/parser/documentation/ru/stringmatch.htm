@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>match. ����� ��������� �� �������</title>
+    <title>match. Поиск подстроки по шаблону</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,106 +15,106 @@
   <tr>
     <td>
       
-<span><b>match. ����� ��������� �� �������
+<span class="h1"><b>match. Поиск подстроки по шаблону
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^������.match[������]  
+<span class="mono"><b>^строка.match[шаблон]  
 <br />
-^������.match[������][����� ������]</b>
+^строка.match[шаблон][опции поиска]</b>
 <br />
 <span>
 <br />
-������������ ����� � ������ �� �������. 
+Осуществляет поиск в строке по шаблону. 
 <br />
-������&nbsp;- ��� ������ � <i>���������� ����������</i>, ����������� � PCRE (Perl compatible regular expressions) ��� ������ ������ </span><span><span><b><a href="regexclass.htm">regex</a></b></span></span><span><b><i> [3.4.0]</i></b>.
+Шаблон&nbsp;- это строка с <i>регулярным выражением</i>, совместимым с PCRE (Perl compatible regular expressions) или объект класса </span><span class="mono"><span class="monoblue"><b><a href="regexclass.htm">regex</a></b></span></span><span><b><i> [3.4.0]</i></b>.
 <br />
-��������� ������� �������� PCRE �������� �&nbsp;<a href="app4.htm">����������4</a>. 
-<br />
-
-<br />
-������������� ��������� ����� ������:
-<br />
-</span><span><b>i</b></span><span>&nbsp;- ��&nbsp;��������� �������;
-<br />
-</span><span><b>x</b></span><span> - ������������ ������� white space � ��������� </span><span><b>#�����������&nbsp;��&nbsp;�����&nbsp;������</b></span><span>;
-<br />
-</span><span><b>s</b></span><span> - ������ </span><span><b>$</b></span><span> ������� ������ ����� ������ (����� �� ���������);
-<br />
-</span><span><b>m</b></span><span> - ������ </span><span><b>$</b></span><span> ������� ������ ������, �� �� ����� ������;
-<br />
-<b>U</b> - ������������� ��������� ��������������� (��� ���������� �� ��������, ����� ������� �� �������� ���������� ��������� ����� ��� ������ </span><span><span><b>?</b></span></span><span>);<b><i> [3.3.0]</i></b>
-<br />
-</span><span><b>g</b></span><span> - ����� ��� ��������� ������ (� �� ������ ������);
-<br />
-</span><span><b>n</b></span><span> - ������� ����� � ����������� ���������� ������ �������;<b><i> [3.2.2]</i></b>
-<br />
-</span><span><b>'</b></span><span> - ��������� �������� �������� </span><span><b>prematch</b></span><span>, </span><span><b>match</b></span><span>, </span><span><b>postmatch</b></span><span>.
+Частичный перевод описания PCRE приведен в&nbsp;<a href="app4.htm">Приложении 4</a>. 
 <br />
 
 <br />
-��������� ������� </span><span><b>^</b></span><span> �&nbsp;</span><span><b>$</b></span><span> ������������ �&nbsp;Parser, �&nbsp;������� ������ ������� </span><span><b>^</b></span><span> ������������ ������ </span><span><b>^^</b></span><span>, �&nbsp;������ ������� </span><span><b>$</b></span><span>&nbsp;- ������ </span><span><b>^$&nbsp;</b></span><span>(��. <a href="exprlit.htm">��������</a>).
+Предусмотрены следующие опции поиска:
+<br />
+</span><span class="mono"><b>i</b></span><span>&nbsp;- не&nbsp;учитывать регистр;
+<br />
+</span><span class="mono"><b>x</b></span><span> - игнорировать символы white space и разрешить </span><span class="mono"><b>#комментарий&nbsp;до&nbsp;конца&nbsp;строки</b></span><span>;
+<br />
+</span><span class="mono"><b>s</b></span><span> - символ </span><span class="mono"><b>$</b></span><span> считать концом всего текста (опция по умолчанию);
+<br />
+</span><span class="mono"><b>m</b></span><span> - символ </span><span class="mono"><b>$</b></span><span> считать концом строки, но не всего текста;
+<br />
+<b>U</b> - инвертировать «жадность» квантификаторов (они становятся не «жадными», чтобы сделать их «жадными» необходимо поставить после них символ </span><span class="mono"><span class="monoblue"><b>?</b></span></span><span>);<b><i> [3.3.0]</i></b>
+<br />
+</span><span class="mono"><b>g</b></span><span> - найти все вхождения строки (а не только первое);
+<br />
+</span><span class="mono"><b>n</b></span><span> - вернуть число с количеством совпадений вместо таблицы;<b><i> [3.2.2]</i></b>
+<br />
+</span><span class="mono"><b>'</b></span><span> - вычислять значения столбцов </span><span class="mono"><b>prematch</b></span><span>, </span><span class="mono"><b>match</b></span><span>, </span><span class="mono"><b>postmatch</b></span><span>.
 <br />
 
 <br />
-���� ������� ����� ������ </span><span><b>g</b></span><span>, ����� ������� </span><span><b>�������</b></span><span> (������ ������ </span><span><b><a href="tableclass.htm">table</a></b></span><span>) ���������� �� ������� (�� ����� ������ �� ������ ���������). ���� ����� </span><span><b>g</b></span><span> �� ���� �������, �� ������� ����� ��������� ���� ���� ������ � ������ ����������. ���� �� ���� ������� �� ������ ����������, �� ����������� �������� ����� </span><span><b>������&nbsp;�������</b></span><span>. ���� ������� ����� </span><span><b>n</b><b>&nbsp;</b></span><span>�� ������ ������� � ������������ ����� ������������ </span><span><b>�����</b></span><span> - ���������� ��������� ����������.
+Поскольку символы </span><span class="mono"><b>^</b></span><span> и&nbsp;</span><span class="mono"><b>$</b></span><span> используются в&nbsp;Parser, в&nbsp;шаблоне вместо символа </span><span class="mono"><b>^</b></span><span> используется строка </span><span class="mono"><b>^^</b></span><span>, а&nbsp;вместо символа </span><span class="mono"><b>$</b></span><span>&nbsp;- строка </span><span class="mono"><b>^$&nbsp;</b></span><span>(см. <a href="exprlit.htm">Литералы</a>).
 <br />
 
 <br />
-������� ���������� ����� ��������� �������: </span><span><b>1</b></span><span>, </span><span><b>2</b></span><span>,�, </span><span><b>n</b></span><span>, </span><span><b>&nbsp;prematch</b></span><span>, </span><span><b>match</b></span><span>, </span><span><b>postmatch</b></span><span>,
+Если указана опция поиска </span><span class="mono"><b>g</b></span><span>, будет создана </span><span class="mono"><b>таблица</b></span><span> (объект класса </span><span class="mono"><b><a href="tableclass.htm">table</a></b></span><span>) найденного по шаблону (по одной строке на каждое вхождение). Если опция </span><span class="mono"><b>g</b></span><span> не была указана, то таблица будет содержать лишь одну строку с первым вхождением. Если не было найдено ни одного совпадения, то результатом операции будет </span><span class="mono"><b>пустая&nbsp;таблица</b></span><span>. Если указана опция </span><span class="mono"><b>n</b><b>&nbsp;</b></span><span>то вместо таблицы с результатами будет возвращаться </span><span class="mono"><b>число</b></span><span> - количество найденных совпадений.
 <br />
-</span><span>���:
+
 <br />
-</span><span><b>prematch&nbsp;&nbsp;&nbsp;</b></span><span>������� � ���������� �� ������ ������ �� ����������&nbsp;&nbsp;&nbsp;
+Таблица совпадений имеет следующие столбцы: </span><span class="mono"><b>1</b></span><span>, </span><span class="mono"><b>2</b></span><span>,…, </span><span class="mono"><b>n</b></span><span>, </span><span class="mono"><b>&nbsp;prematch</b></span><span>, </span><span class="mono"><b>match</b></span><span>, </span><span class="mono"><b>postmatch</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">,
 <br />
-</span><span><b>match</b></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>������� � ����������, ��������� � ��������&nbsp;&nbsp;&nbsp;
+</span><span>где:
 <br />
-</span><span><b>postmatch</b></span><span>&nbsp;&nbsp;&nbsp;</span><span>������� � ����������, ��������� �� ��������� ���������� �� ����� ������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>prematch&nbsp;&nbsp;&nbsp;</b></span><span>столбец с подстрокой от начала строки до совпадения&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>1</b></span><span>, </span><span><b>2</b></span><span>,�, </span><span><b>n</b></span><span>&nbsp;&nbsp;&nbsp;</span><span>������� � �����������, ���������������� ���������� �������, ����������� � ������� ������, </span><span><b>n</b></span><span> - ����� ����������� ������� ������. 
+</span><span class="mono"><b>match</b></span><span>столбец с подстрокой, совпавшей с шаблоном&nbsp;&nbsp;&nbsp;
+<br />
+</span><span class="mono"><b>postmatch</b></span><span>столбец с подстрокой, следующей за совпавшей подстрокой до конца строки&nbsp;&nbsp;&nbsp;
+<br />
+</span><span class="mono"><b>1</b></span><span>, </span><span class="mono"><b>2</b></span><span>,…, </span><span class="mono"><b>n</b></span><span>столбцы с подстроками, соответствующими фрагментам шаблона, заключенным в круглые скобки, </span><span class="mono"><b>n</b></span><span> - номер открывающей круглой скобки. 
 <br />
 <i>
 <br />
-��������� 1: �������� �������� </i></span><span><b><i>prematch</i></b></span><span><i>, </i></span><span><b><i>match</i></b></span><span><i>, </i></span><span><b><i>postmatch</i></b></span><span> <i>����������� ������ �</i><i>��� ������� ����� </i></span><span><b><i>'</i></b>.<i>
+Замечание 1: значения столбцов </i></span><span class="mono"><b><i>prematch</i></b></span><span><i>, </i></span><span class="mono"><b><i>match</i></b></span><span><i>, </i></span><span class="mono"><b><i>postmatch</i></b></span><span> <i>вычисляются только е</i><i>сли указана опция </i></span><span class="mono"><b><i>'</i></b>.<i>
 <br />
-</i></span><span><i>��������� 2</i><i>: </i><i>������� �������� </i></span><span><b>1</b></span><span>, </span><span><b>2</b></span><span>,�, </span><span><b>n&nbsp;</b></span><span><i>����������� ���� � ������, ���� � ������� ������� ������� ������.
+</i></span><span><i>Замечание 2</i><i>: </i><i>начения столбцов </i></span><span class="mono"><b>1</b></span><span>, </span><span class="mono"><b>2</b></span><span>,…, </span><span class="mono"><b>n&nbsp;</b></span><span><i>вычисляются лишь в случае, если в шаблоне указаны круглые скобки.
 <br />
-��������� 3</i><i>: </i><i>���� � ������� ��� ����� ������������ ������� ������, �� �� ��������� ����������� ������������ � ��� � �������������� �������, �� ������ ��� ����� ������������ ����������� </i><i>(?:)</i>
-<br />
-
+Замечание 3</i><i>: </i><i>если в шаблоне вам нужно использовать круглые скобки, но не требуется запоминания заключённого в них в результирующей таблице, то вместо них лучше использовать конструкцию </i><i>(?:)</i>
 <br />
 
 <br />
-</span><span><b>������� �������������
+
 <br />
-</b></span><span><span><b>$str[</b></span></span><span><b>www.parser.ru?user=admin</b><span><b>]
+</span><span class="h1"><b>Примеры использования
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>www.parser.ru?user=admin</b><span class="monoblue"><b>]
 <br />
 ^if(^str.match[
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;\?&nbsp;#����&nbsp;�����������
+&nbsp;&nbsp;&nbsp;&nbsp;\?&nbsp;#есть&nbsp;разделитель
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;.+&nbsp;#�&nbsp;����&nbsp;����&nbsp;���-��&nbsp;��&nbsp;���
+&nbsp;&nbsp;&nbsp;&nbsp;.+&nbsp;#и&nbsp;есть&nbsp;хоть&nbsp;что-то&nbsp;за&nbsp;ним
 <br />
-][x]){</b></span></span><span><b>����&nbsp;����������</b><span><b>}{</b></span></span><span><b>����������&nbsp;���</b><span><b>}
+][x]){</b></span></span><span class="mono"><b>Есть&nbsp;совпадение</b><span class="monoblue"><b>}{</b></span></span><span class="mono"><b>Совпадений&nbsp;нет</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-������� �� �����: </span><span><b>����&nbsp;����������</b></span><span>.</span><span>
+Выведет на экран: </span><span class="mono"><b>Есть&nbsp;совпадение</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">.</span><span class="mono">
 <br />
 </span><span><i>
 <br />
-��������: ������������ �������� </i><i>�������� ����������� � ������ �������� ����������� ���������. ������, ��� ���� ��� ����� ����� �����-�� ����� ������ ������ � ��� �����������. ��� ����� �������� ����� </i></span><span><b>x</b></span><span>,<i> ����������� ����������� ��������� ���������, ����������� �����������.</i>
+Внимание: настоятельно советуем </i><i>задавать комментарии к частям сложного регулярного выражения. Бывает, что даже вам самим через какое-то время бывает трудно в них разобраться. Для этого включите опцию </i></span><span class="mono"><b>x</b></span><span>,<i> разрешающую расширенный синтаксис выражений, допускающий комментарии.</i>
 <br />
 
 <br />
-</span><span><span><b>$str[</b></span></span><span><b>www.parser.ru?user=admin</b><span><b>]
+</span><span class="mono"><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>www.parser.ru?user=admin</b><span class="monoblue"><b>]
 <br />
 $mtc[^str.match[(\?.+)][']]
 <br />
@@ -122,33 +122,33 @@ $mtc[^str.match[(\?.+)][']]
 <br />
 </b></span></span><span>
 <br />
-������� ���� </span><span><b>match.txt</b></span><span>, ���������� ����� �������:
+Создаст файл </span><span class="mono"><b>match.txt</b></span><span>, содержащий такую таблицу:
 <br />
-</span><span>
+</span><span class="mono">
 <br />
 </span><span><table border="1" cellpadding="1"><tr><td align="left" valign="top" width="123">
-<span><b>prematch</b>
+<span class="mono"><b>prematch</b>
 <br />
 </span></td><td align="left" valign="top" width="130">
-<span><b>match</b>
+<span class="mono"><b>match</b>
 <br />
 </span></td><td align="left" valign="top" width="113">
-<span><b>postmatch</b>
+<span class="mono"><b>postmatch</b>
 <br />
 </span></td><td align="left" valign="top" width="117">
-<span><b>1</b>
+<span class="mono"><b>1</b>
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="123">
-<span><b>www.parser.ru</b>
+<span class="mono"><b>www.parser.ru</b>
 <br />
 </span></td><td align="left" valign="top" width="130">
-<span><b>?user=admin</b><b>
+<span class="mono"><b>?user=admin</b><b>
 <br />
 </b></span></td><td align="left" valign="top" width="113">
-<span>
+<span class="mono">
 <br />
 </span></td><td align="left" valign="top" width="117">
-<span><b>?user=admin</b>
+<span class="mono"><b>?user=admin</b>
 <br />
 </span></td></tr></table>
 <br />

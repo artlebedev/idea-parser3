@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>save. ���������� ������ � ����</title>
+    <title>save. Сохранение строки в файл</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,60 +15,60 @@
   <tr>
     <td>
       
-<span><b>save. ���������� ������ � ����
+<span class="h1"><b>save. Сохранение строки в файл
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^������.save[</b><b><a href="app1.htm">���_�����_�_�����</a></b><b>]</b>&nbsp;&nbsp;&nbsp;<span>
+<span class="mono"><b>^строка.save[</b><b><a href="app1.htm">имя_файла_с_путем</a></b><b>]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-</span><span><b>^������.save[append;</b><b><a href="app1.htm">���_�����_�_�����</a></b><b>]</b>&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>^строка.save[append;</b><b><a href="app1.htm">имя_файла_с_путем</a></b><b>]</b>&nbsp;&nbsp;&nbsp;
 <br />
-<b>^������.save[</b><b><a href="app1.htm">���_�����_�_�����</a></b><b>;�����]</b></span><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span>
+<b>^строка.save[</b><b><a href="app1.htm">имя_файла_с_путем</a></b><b>;опции]</b></span><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-��������� ��� ��������� ������ � ���� �� ���������� ����.
+Сохраняет или добавляет строку в файл по указанному пути.
 <br />
-��� ���� � ����������� ������ ������������ ����������� ��������������, ��. �<a href="opuntainttaint.htm">�������������� ������</a>�.
+При этом с фрагментами строки производятся необходимые преобразования, см. «<a href="opuntainttaint.htm">Преобразование данных</a>».
 <br />
 
 <br />
-��� ����� �������� ��������� ��������:
+Для опций доступны следующие значения:
 <br />
-</span><span><b>$.charset[</b></span><span>���������</span><span><b>]
+</span><span class="mono"><b>$.charset[</b></span><span>кодировка</span><span class="mono"><b>]
 <br />
 $.append(true)</b></span><span>
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span>������: �� SQL-������� � ������� ������, �������� � SQL-������ �.
-<br />
-
-<br />
-���� ��� SQL-������� �������� � �����-�� ������, ����� ���:
+</b></span><span>Задача: из SQL-сервера А достать данные, положить в SQL-сервер Б.
 <br />
 
 <br />
-</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[�]{
+Если оба SQL-сервера доступны с какой-то машины, можно так:
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opconnect.htm">connect</a></b></span></span><span class="mono"><span class="monoblue"><b>[А]{
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$data[
 <br />
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���,&nbsp;�����������&nbsp;data&nbsp;�������&nbsp;��&nbsp;SQL-�������&nbsp;A
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;код,&nbsp;наполняющий&nbsp;data&nbsp;данными&nbsp;из&nbsp;SQL-сервера&nbsp;A
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;^connect[�]{
+&nbsp;&nbsp;&nbsp;&nbsp;^connect[Б]{
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="voidsql.htm">void:sql</a></b></span></span><span><span><b>{</b></span></span><span><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span><b>$data</b></span></span><span><b>'</b><span><b>)}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span class="mono"><span class="monoblue"><b><a href="voidsql.htm">void:sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span class="monoblue"><b>$data</b></span></span><span class="mono"><b>'</b><span class="monoblue"><b>)}
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;}
 <br />
@@ -76,29 +76,29 @@ $.append(true)</b></span><span>
 <br />
 </b></span></span><span>
 <br />
-��� ���� </span><span><b>$data</b></span><span> � SQL-������� insert ����� ��������� ��������� �� �������� SQL-�������� ������� �.
+При этом </span><span class="mono"><b>$data</b></span><span> в SQL-запросе insert будет правильно обработан по правилам SQL-диалекта сервера Б.
 <br />
 
 <br />
-������ ���� ��� SQL-������� <b>��</b>�������� ������������ � �����-�� ������, ����� ���:
+Однако если оба SQL-сервера <b>не</b>доступны одновременно с какой-то машины, можно так:
 <br />
 
 <br />
-</span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[�]{
+</span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opconnect.htm">connect</a></b></span></span><span class="mono"><span class="monoblue"><b>[А]{
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$data[
 <br />
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���,&nbsp;�����������&nbsp;data&nbsp;�������&nbsp;��&nbsp;SQL-�������&nbsp;A
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;код,&nbsp;наполняющий&nbsp;data&nbsp;данными&nbsp;из&nbsp;SQL-сервера&nbsp;A
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span><span><b><a href="opuntainttaint.htm">untaint</a></b></span></span><span><span><b>[sql]{</b></span></span><span><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span><b>$data</b></span></span><span><b>')</b><span><b>}]
+&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opuntainttaint.htm">untaint</a></b></span></span><span class="mono"><span class="monoblue"><b>[sql]{</b></span></span><span class="mono"><b>insert&nbsp;into&nbsp;table&nbsp;x&nbsp;(x)&nbsp;values&nbsp;('</b><span class="monoblue"><b>$data</b></span></span><span class="mono"><b>')</b><span class="monoblue"><b>}]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;^connect[���������&nbsp;���������&nbsp;�]{
+&nbsp;&nbsp;&nbsp;&nbsp;^connect[локальный&nbsp;фиктивный&nbsp;Б]{
 <br />
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���&nbsp;����������&nbsp;�����&nbsp;������&nbsp;���&nbsp;����,&nbsp;
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;это&nbsp;соединение&nbsp;нужно&nbsp;только&nbsp;для&nbsp;того,&nbsp;
 <br />
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�����&nbsp;������&nbsp;�������&nbsp;���������&nbsp;���&nbsp;SQL-��������&nbsp;�������&nbsp;�
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;чтобы&nbsp;задать&nbsp;правила&nbsp;обработки&nbsp;для&nbsp;SQL-диалекта&nbsp;сервера&nbsp;Б
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^string.save[B-inserts.sql]
 <br />
@@ -108,7 +108,7 @@ $.append(true)</b></span><span>
 <br />
 </b></span></span><span>
 <br />
-��� ���� � ���� </span><span>B-inserts.sql</span><span> ��������� ��������� ������������ SQL-������.
+При этом в файл </span><span class="mono">B-inserts.sql</span><span> запишется правильно обработанный SQL-запрос.
 <br />
 </span></span><br />
 

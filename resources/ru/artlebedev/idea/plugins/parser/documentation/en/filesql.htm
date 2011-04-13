@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>sql. Loading file from SQL-server</title>
+    <title>sql. Loading file from SQL-server</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>sql. Loading file from SQL-server
+<span class="h1"><b>sql. Loading file from SQL-server
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file::sql{query}
+<span class="mono"><b>^file::sql{query}
 <br />
 ^file::sql{query}</b><b>[$.name[name]&nbsp;$.content-type[content-type]&nbsp;$.limit(1)&nbsp;$.offset(o)]</b><b>
 <br />
@@ -38,21 +38,21 @@ Loads file from SQL-server. Result of query execution must be one record (use li
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>second column contains file name;
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>third column contains </span><span>content-type</span><span> of the file (if not specified, it will be determined by </span><span><b><a href="parserconfmethod.htm">$MIME-TYPES</a></b></span><span> table).
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>third column contains </span><span class="mono">content-type</span><span> of the file (if not specified, it will be determined by </span><span class="mono"><b><a href="parserconfmethod.htm">$MIME-TYPES</a></b></span><span> table).
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
 <br />
 Optional parameters:
 <br />
-</span><span><b>$.limit(1)</b></span><span> - limit response to one row only;<b><i> [3.3.0]</i></b>
+</span><span class="mono"><b>$.limit(1)</b></span><span> - limit response to one row only;<b><i> [3.3.0]</i></b>
 <br />
-</span><span><b>$.offset(o)</b></span><span>-ignore first </span><span><b>o</b></span><span> retrieved entries;<b><i> [3.3.0]</i></b>
+</span><span class="mono"><b>$.offset(o)</b></span><span>-ignore first </span><span class="mono"><b>o</b></span><span> retrieved entries;<b><i> [3.3.0]</i></b>
 <br />
-File </span><span><b>name</b></span><span> and </span><span><b>content-type</b></span><span> may be also specified as a parameters.<b><i> [3.1.4]</i></b>
+File </span><span class="mono"><b>name</b></span><span> and </span><span class="mono"><b>content-type</b></span><span> may be also specified as a parameters.<b><i> [3.1.4]</i></b>
 <br />
 
 <br />
-File name and its </span><span>content-type</span><span> will be passed to visitor if </span><span><b><a href="responsedownload.htm">$response:download</a></b></span><span> is used.
+File name and its </span><span class="mono">content-type</span><span> will be passed to visitor if </span><span class="mono"><b><a href="responsedownload.htm">$response:download</a></b></span><span> is used.
 <br />
 
 <br />

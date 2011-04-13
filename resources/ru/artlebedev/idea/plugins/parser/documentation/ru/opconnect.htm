@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>connect. ����������� � ���� ������</title>
+    <title>connect. Подключение к базе данных</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,48 +15,48 @@
   <tr>
     <td>
       
-<span><b>connect. ����������� � ���� ������
+<span class="h1"><b>connect. Подключение к базе данных
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^connect[������&nbsp;�����������]{���}
+<span class="mono"><b>^connect[строка&nbsp;подключения]{код}
 <br />
 </b><span>
 <br />
-�������� </span><span><b>connect</b></span><span> ������������ ����������� � ������� ���. ��� ��������� �������������� Parser, ������� � ����� ������ � ������ �������������� �����������. 
+Оператор </span><span class="mono"><b>connect</b></span><span> осуществляет подключение к серверу баз. Код оператора обрабатывается Parser, работая с базой данных в рамках установленного подключения. 
 <br />
 
 <br />
-<i>Parser (� ���� </i><i><a href="install4apachecgi.htm">������ � Apache</a></i><i> ��� </i><i><a href="install4iis.htm">IIS</a></i><i>) �������� ���������� � SQL-���������, � ��������� </i><i>SQL </i><i>������ �� ���������� � ��� �� ������� ����������� �� ������������, � ���������� ������� �� ����, ���� ��� ��� �������������.
+<i>Parser (в виде </i><i><a href="install4apachecgi.htm">модуля к Apache</a></i><i> или </i><i><a href="install4iis.htm">IIS</a></i><i>) кеширует соединения с SQL-серверами, и повторный </i><i>SQL </i><i>запрос на соединение с той же строкой подключения не производится, а соединение берется из кеша, если оно еще действительно.
 <br />
 
 <br />
-������� CGI ����� �������� ����������, �� ������ �� ���� </i><i>http </i><i>������</i><i> (</i><i>��������� ������ ���������</i><i>)</i><i>, ������� ���� ��������� ����������� ����:
+Вариант CGI также кеширует соединение, но только на один </i><i>http </i><i>запрос</i><i> (</i><i>обработка одного документа</i><i>)</i><i>, поэтому явно допустимы конструкции вида:
 <br />
 </i>
 <br />
-</span><span><b><i>^connect[������&nbsp;�����������]{�������&nbsp;</i></b><b><i>SQL&nbsp;������</i></b><b><i>�}
+</span><span class="mono"><b><i>^connect[строка&nbsp;подключения]{…первый&nbsp;</i></b><b><i>SQL&nbsp;запрос</i></b><b><i>…}
 <br />
-^connect[������&nbsp;�����������]{�������&nbsp;</i></b><b><i>SQL&nbsp;</i></b><b><i>������}
+^connect[строка&nbsp;подключения]{…второй&nbsp;</i></b><b><i>SQL&nbsp;</i></b><b><i>запрос…}
 <br />
 </i></b></span><span><i>
 <br />
-��� ���� �� ����� ���� ����������, � ��� �������, �����, ������, ������� ���������� �����, � ������� ���������� ����� ��� ��� - ������� ��� ����� �� ������, � ������ ��������� �����������, ����, ��� ��� ���������� �� �����������.
+При этом не будет двух соединений, и это полезно, когда, скажем, изредка соединение нужно, и заранее неизвестно нужно или нет - заранее его можно не делать, а делать визуально многократно, зная, что оно фактически не разрывается.
 <br />
 </i>
 <br />
-�������� SQL-������ �� ����� ���� �� ��������� ������� ��� ������������� ����� Parser:
+Передать SQL-запрос БД может один из следующих методов или конструкторов языка Parser:
 <br />
 
 <br />
-</span><span><b><a href="tablesql.htm">table::sql</a></b><b>
+</span><span class="mono"><b><a href="tablesql.htm">table::sql</a></b><b>
 <br />
 </b><b><a href="stringsql.htm">string:sql</a></b><b>
 <br />
@@ -72,19 +72,19 @@
 <br />
 </b></span><span>
 <br />
-���������: ��� ������ ��������� connect ���������� ������� ������������ �������� ��� ������ (��. ������ <a href="install.htm">���������</a>).&nbsp;&nbsp;&nbsp;
+Замечание: для работы оператора connect необходимо наличие настроенного драйвера баз данных (см. раздел <a href="install.htm">Настройка</a>).&nbsp;&nbsp;&nbsp;
 <br />
 
 <br />
-������� ������ ���������� ��� �������������� �������� ��� ������ ������� � <a href="app3.htm">����������</a>.
+Форматы строки соединения для поддерживаемых серверов баз данных описаны в <a href="app3.htm">приложении</a>.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>^connect[</b></span></span><span><span><b><a href="app3mysql.htm">mysql://admin:pwd@localhost/p3test</a></b></span></span><span><span><b>]{
+</b></span><span class="mono"><span class="monoblue"><b>^connect[</b></span></span><span class="mono"><span class="monoblue"><b><a href="app3mysql.htm">mysql://admin:pwd@localhost/p3test</a></b></span></span><span class="mono"><span class="monoblue"><b>]{
 <br />
-&nbsp;&nbsp;&nbsp;$news[^</b></span></span><span><span><b><a href="tablesql.htm">table::sql</a></b></span></span><span><span><b>{</b></span></span><span><b>select&nbsp;*&nbsp;from&nbsp;news</b><span><b>}]
+&nbsp;&nbsp;&nbsp;$news[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesql.htm">table::sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>select&nbsp;*&nbsp;from&nbsp;news</b><span class="monoblue"><b>}]
 <br />
 }</b></span></span><span>
 <br />

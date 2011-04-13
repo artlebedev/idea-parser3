@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��� MySQL</title>
+    <title>Для MySQL</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,22 +15,22 @@
   <tr>
     <td>
       
-<span><b>��� MySQL
+<span class="h1"><b>Для MySQL
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>mysql://user:password@host[:port]|[/unix/socket]/database?
+<span class="mono">mysql://user:password@host[:port]|[/unix/socket]/database?
 <br />
-&nbsp;&nbsp;&nbsp;charset=��������&amp;<i>&nbsp;</i><span><i>[���������&nbsp;�����&nbsp;����&nbsp;�����������&nbsp;���������������&nbsp;���&nbsp;</i><i>MySQL&nbsp;3.x/4.0&nbsp;</i><i>���&nbsp;��������&nbsp;���������&nbsp;���&nbsp;</i><i>MySQL&nbsp;4.1+</i><i>]</i></span><span>
+&nbsp;&nbsp;&nbsp;charset=значение&amp;<i>&nbsp;</i><span style="font-family:Monospace; font-size:8pt; color:#000000"><i>[значением&nbsp;может&nbsp;быть&nbsp;направление&nbsp;перекодирования&nbsp;для&nbsp;</i><i>MySQL&nbsp;3.x/4.0&nbsp;</i><i>или&nbsp;название&nbsp;кодировки&nbsp;для&nbsp;</i><i>MySQL&nbsp;4.1+</i><i>]</i></span><span class="mono">
 <br />
-&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=���������&amp;&nbsp;</span><span><b><i>[3.1.2]</i></b></span><span><b>
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=кодировка&amp;&nbsp;</span><span><b><i>[3.1.2]</i></b></span><span class="mono"><b>
 <br />
 </b>&nbsp;&nbsp;&nbsp;timeout=3&amp;
 <br />
@@ -40,105 +40,105 @@
 <br />
 &nbsp;&nbsp;&nbsp;autocommit=1&amp;
 <br />
-&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span><b><i>[3.3.0]</i></b></span><span>
+&nbsp;&nbsp;&nbsp;multi_statements=0&nbsp;</span><span><b><i>[3.3.0]</i></b></span><span class="mono">
 <br />
 </span><span>
 <br />
-�������������� ���������:
+Необязательные параметры:
 <br />
-</span><span>Port</span><span> - ����� ����� ������� ��� ������. ����� ������������ ���������:
+</span><span class="mono">Port</span><span> - номер порта сервера баз данных. Можно использовать выражение:
 <br />
-</span><span>user:password@���_�����:�����_�����/database</span><span>,
-<br />
-</span><span>
-<br />
-� ����� ������ </span><span>�����_�����</span><span> � </span><span>������_�����</span><span> �������� ���� � UNIX ������ � ���������� ������� (UNIX socket - ��� ����� ���������� ����� �������� (����), ������� ��� ��������� ������������� MySQL, ���� �� - ��� �� ��. ����� ���� ����� ����� ���� ������� � ��������):
-<br />
-</span><span>user:password@[/unix/socket]/database
+</span><span class="mono">user:password@имя_хоста:номер_порта/database</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">,
 <br />
 </span><span>
 <br />
-</span><span>charset</span><span> - ����� ����� ���������� ��������� ������� </span><span>�<span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/charset-connection.html" target="_blank">SET CHARACTER SET ��������</a></u></span></span><span>�</span><span>;</span><span>
+А можно вместо </span><span class="mono">имени_хоста</span><span> и </span><span class="mono">номера_порта</span><span> передать путь к UNIX сокету в квадратных скобках (UNIX socket - это некий магический набор символов (путь), который вам расскажет администратор MySQL, если он - это не вы. Через этот сокет может идти общение с сервером):
 <br />
-</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - ������ ���������, � ������� ���������� �������� � SQL-��������, ���������������� ���������� �������;
+</span><span class="mono">user:password@[/unix/socket]/database
 <br />
-</span><span>timeout</span><span> - ������ �������� ��������� </span><span>Connect&nbsp;timeout&nbsp;</span><span>� ��������;
+</span><span>
 <br />
-</span><span>compress</span><span> - ����� ������ ������� ����� �������� � ��������;
+</span><span class="mono">charset</span><span> - сразу после соединения выполняет команду </span><span class="mono">«<span class="monoblue"><u><a href="http://dev.mysql.com/doc/refman/5.0/en/charset-connection.html" target="_blank">SET CHARACTER SET значение</a></u></span></span><span class="mono">»</span><span>;</span><span>
 <br />
-</span><span>named_pipe</span><span> - ������������� ����������� ������� ��� ���������� � �������� MySQL, ���������� ��� ����������� Windows NT;
+</span><span class="mono"><a href="app3clientcharset.htm">ClientCharset</a></span><span> - задает кодировку, в которой необходимо общаться с SQL-сервером, перекодированием занимается драйвер;
 <br />
-</span><span>autocommit</span><span> - ���� ���������� � 0, �� ����� ���������� ��������� ������� </span><span>�<span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/commit.html" target="_blank">SET AUTOCOMMIT=0</a></u></span></span><span>�</span><span> (� ������������ �� MySQL ������� ��������, ��� �������� autocommit, � ��� ����� <span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/implicit-commit.html" target="_blank">����� ������� �������� COMMIT</a></u></span></span><span>);</span><span><b><i>
+</span><span class="mono">timeout</span><span> - задает значение параметра </span><span class="mono">Connect&nbsp;timeout&nbsp;</span><span>в секундах;
 <br />
-</i></b></span><span>multi_statements</span><span> - ���� ���������� � 1, �� ����� SQL ������� ����� ��������� ��������� ����������, ���������� �������� ';' (<i>������ ";" ���������� </i><i><a href="stringlit.htm">����������</a></i><i> �������� "^"</i>).<b><i>
+</span><span class="mono">compress</span><span> - режим сжатия трафика между сервером и клиентом;
 <br />
-</i></b></span><span><b>
+</span><span class="mono">named_pipe</span><span> - использование именованных каналов для соединения с сервером MySQL, работающим под управлением Windows NT;
+<br />
+</span><span class="mono">autocommit</span><span> - если установлен в 0, то после соединения выполняет команду </span><span class="mono">«<span class="monoblue"><u><a href="http://dev.mysql.com/doc/refman/5.0/en/commit.html" target="_blank">SET AUTOCOMMIT=0</a></u></span></span><span class="mono">»</span><span> (в документации по MySQL следует прочтать, как работает autocommit, в том числе <span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/implicit-commit.html" target="_blank">какие команды вызывают COMMIT</a></u></span></span><span>);</span><span><b><i>
+<br />
+</i></b></span><span class="mono">multi_statements</span><span> - если установлен в 1, то текст SQL запроса может содержать несколько инструкций, разделённых символом ';' (<i>символ ";" необходимо </i><i><a href="stringlit.htm">предварять</a></i><i> символом "^"</i>).<b><i>
+<br />
+</i></b></span><span class="h1"><b>
 <br />
 </b><b>
 <br />
-������: ��������������� ���������� </b><b>SQL </b><b>������� (�������������, ��������� </b><b>MySQL </b><b>4.1 ��� ����)
+Пример: перекодирование средствами </b><b>SQL </b><b>сервера (рекомендуется, требуется </b><b>MySQL </b><b>4.1 или выше)
 <br />
-</b></span><span>MySQL ������ ������ 4.1 � ���� ����� ������� ����������� �� ��������������� ������, ������� � ������ ��� ������������� ������������� ������������� ������ ��, ��������� ����� </span><span>charset</span><span>, � �� ���������� ���������������� ���������� �������� � ������� ����� </span><span>ClientCharset</span><span>. � ������, ���� �� ����������� ������ MySQL 4.1 � ����, �� ���� ������ � ������ �������� ������� ������ � <span><u><a href="http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">������ ����������</a></u></span></span><span>, ���� �� �������, ��� � ���� ������ ����� ����� ������� ������ � ��������� </span><span>UTF-8</span><span>.
+</b></span><span>MySQL сервер версии 4.1 и выше имеет богатые возможности по перекодированию данных, поэтому в случае его использования рекомендуется задействовать именно их, используя опцию </span><span class="mono">charset</span><span>, а не заниматься перекодированием средствами драйвера с помощью опции </span><span class="mono">ClientCharset</span><span>. В случае, если вы используете версию MySQL 4.1 и выше, вы даже можете в разных таблицах хранить данные в <span class="blue"><u><a href="http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">разных кодировках</a></u></span></span><span>, хотя мы считаем, что в этом случае лучше всего хранить данные в кодировке </span><span class="mono">UTF-8</span><span>.
 <br />
 
 <br />
-��������, ������ � ����� ���� �������� � ��������� </span><span>UTF-8</span><span>, � ���� �������� � ��������� </span><span>windows-1251</span><span>, � ���� ������</span><span> ����� ������������ ��������� ������ �����������:
+Допустим, данные в вашей базе хранятся в кодировке </span><span class="mono">UTF-8</span><span>, а сайт работает в кодировке </span><span class="mono">windows-1251</span><span>, в этом случае</span><span> нужно использовать следующую строку подключения:
 <br />
-</span><span>mysql://user:password@host/database?charset=cp1251
+</span><span class="mono">mysql://user:password@host/database?charset=cp1251
 <br />
 </span><span>
 <br />
-� ���� ������ ����� ����� ���������� SQL ������� ����� ������ ������� </span><span>�<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251</b>�</span><span> � ������ ��� ����� �������������� ����������� ������ �� ��������� </span><span>cp1251</span><span> � ���������, � ������� ������ �������� � ���� � ������� � �������.
+В этом случае сразу после соединения SQL серверу будет выдана команда </span><span class="mono">«<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251</b>»</span><span> и сервер сам будет перекодировать принимаемые данные из кодировки </span><span class="mono">cp1251</span><span> в кодировку, в которой данных хранятся у него в таблице и обратно.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-</b></span><span><i>��������: � ������ ������ �� ������ ������� ���������, � ������� �������� ����.</i></span><span><b>
+</b></span><span><i>Внимание: в данном случае вы должны указать кодировку, в которой работает сайт.</i></span><span class="h1"><b>
 <br />
-</b></span><span><i>��������: ������ ����� ��������� ������� </i><i>MySQL</i><i>, ������� ���������� ������������ </i><span><i><u><a href=""http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">�������� ��������� MySQL �������</a></u></i></span></span><span><i>, ������� ���������� �� �������� ��������� Parser, ������������ ���� � </i><i><a href=parserconfmethod.htm">���������������� �����</a></i><i>.</i></span><span><b>
-<br />
-
-<br />
-
-<br />
-������: ���� � koi8-r, �������� � windows-1251, ��������������� </b><b>SQL </b><b>�������� (�������������, </b><b>MySQL 3</b><b>.</b><b>x</b><b> � 4.</b><b>0</b><b>)
-<br />
-</b></span><span>MySQL ������ ������ 3.x � 4.0 �� ����� �������������� ������ ������������ �������, ������ ����� �������������� �� ��� �������� ���������������� ��� �������� ����� ������, ����� ������� � �� �������� � ��������� </span><span>koi8-r</span><span>, � ���� �������� � ��������� </span><span>windows-1251</span><span>.
-<br />
-
-<br />
-� ���� ������ ������ ����� �������������� ���������� ��������, ����� ����� </span><span>ClientCharset=koi8-r</span><span> (��. ����)</span><span>, ������ ����� ��� ������ ���������� SQL �������, ����������� ��������� ������ �����������:
-<br />
-</span><span>mysql://user:password@host/database?charset=cp1251_koi8
-<br />
-</span><span><b>
-<br />
-</b></span><span>� ���� ������ ����� ����� ���������� SQL ������� ����� ������ ������� </span><span>�<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251_koi8</b>�</span><span>, ������ MySQL ������ ������ ������ �������� � �����, � ������: �� ����� ���������� ������ �������������� �� ��������� </span><span>cp1251</span><span> � ��������� </span><span>koi8-r</span><span> � �������.</span><span><b>
-<br />
-
-<br />
-</b></span><span><i>��������: �� ���������� �����, ����������� ����������� ���������������, ��� ���� ������ �������� ������ �����, �������� </i><i>koi8_cp1251</i><i>,</i><i> MySQL </i><i>������ �� �����.</i></span><span><b>
+</b></span><span><i>Внимание: данная опция выполняет команду </i><i>MySQL</i><i>, поэтому необходимо использовать </i><span><i><u><a href=""http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">названия кодировок MySQL сервера</a></u></i></span></span><span><i>, которые отличаются от названий кодировок Parser, определяемых вами в </i><i><a href=parserconfmethod.htm">конфигурационном файле</a></i><i>.</i></span><span class="h1"><b>
 <br />
 
 <br />
 
 <br />
-������: ���� � windows-1251, �������� � </b><b>koi8-r, </b><b>��������������� ��������� (�������� �� ����� �������� </b><b>MySQL </b><b>�������)
+Пример: база в koi8-r, страницы в windows-1251, перекодирование </b><b>SQL </b><b>сервером (рекомендуется, </b><b>MySQL 3</b><b>.</b><b>x</b><b> и 4.</b><b>0</b><b>)
 <br />
-</b></span><span>� ��������� ������ ������� ������, ��� ���������� ������������ ������� ���������������, ��������������� MySQL ��������. ����� ����� ������������� ��������� ��������������� ��������, ��������� ����� </span><span>ClientCharset</span><span>.
+</b></span><span>MySQL сервер версии 3.x и 4.0 не умеет перекодировать данные произвольным образом, однако умеет перекодировать их для наиболее распространённого для русского языка случая, когда символы в БД хранятся в кодировке </span><span class="mono">koi8-r</span><span>, а сайт работает в кодировке </span><span class="mono">windows-1251</span><span>.
 <br />
-��������, ������ � ����� ���� �������� � ��������� </span><span>windows-1251</span><span>, � ���� �������� � ��������� </span><span>koi8-r</span><span>, � ���� ������ ����� ������������ ����� ������ �����������:
+
 <br />
-</span><span>mysql://user:password@host/database?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251
+В этом случае данные можно перекодировать средствами драйвера, задав опцию </span><span class="mono">ClientCharset=koi8-r</span><span> (см. ниже)</span><span>, однако лучше это делать средствами SQL сервера, использовав следующую строку подключения:
+<br />
+</span><span class="mono">mysql://user:password@host/database?charset=cp1251_koi8
+<br />
+</span><span class="h1"><b>
+<br />
+</b></span><span>В этом случае сразу после соединения SQL серверу будет выдана команда </span><span class="mono">«<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251_koi8</b>»</span><span>, однако MySQL сервер данных версий трактует её иначе, а именно: он будет приходящие данные перекодировать из кодировки </span><span class="mono">cp1251</span><span> в кодировку </span><span class="mono">koi8-r</span><span> и обратно.</span><span class="h1"><b>
+<br />
+
+<br />
+</b></span><span><i>Внимание: вы указываете опцию, указывающую направление перекодирования, при этом других значений данной опции, например </i><i>koi8_cp1251</i><i>,</i><i> MySQL </i><i>сервер не имеет.</i></span><span class="h1"><b>
+<br />
+
+<br />
+
+<br />
+Пример: база в windows-1251, страницы в </b><b>koi8-r, </b><b>перекодирование драйвером (работает со всеми версиями </b><b>MySQL </b><b>сервера)
+<br />
+</b></span><span>В некоторых редких случаях бывает, что невозможно использовать функции перекодирования, предоставляемые MySQL сервером. Тогда можно задействовать механизмы перекодирования драйвера, используя опцию </span><span class="mono">ClientCharset</span><span>.
+<br />
+Допустим, данные в вашей базе хранятся в кодировке </span><span class="mono">windows-1251</span><span>, а сайт работает в кодировке </span><span class="mono">koi8-r</span><span>, в этом случае можно использовать такую строку подключения:
+<br />
+</span><span class="mono">mysql://user:password@host/database?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251
 <br />
 </span><span>
 <br />
-� ���� ������ ������������ SQL ������� ������ ����� ���������������� ��������� �� ��������� </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span> (� ������ ������� </span><span>koi8-r</span><span>) � ��������� </span><span>windows-1251</span><span>, � ����������� �� SQL ������� ������ - �������.
+В этом случае отправляемые SQL серверу данные будут перекодироваться драйвером из кодировки </span><span class="mono"><b><a href="requestcharset.htm">$request:charset</a></b></span><span> (в данном примере </span><span class="mono">koi8-r</span><span>) в кодировку </span><span class="mono">windows-1251</span><span>, а принимаемые от SQL сервера данные - обратно.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-</b></span><span><i>��������: � ������ ������ �� ������ ������� ���������, � ������� ������ �������� � ���� ������.</i></span><span>
+</b></span><span><i>Внимание: в данном случае вы должны указать кодировку, в которой данные хранятся в базе данных.</i></span><span>
 <br />
-</span><span><i>��������: � ������ ����� �� ������ ��������� �������� ��������� </i><i>Parser, ������� ������������ ���� � </i><i><a href="parserconfmethod.htm">���������������� �����</a></i><i>.
+</span><span><i>Внимание: в данной опции вы должны указывать названия кодировок </i><i>Parser, которые определяются вами в </i><i><a href="parserconfmethod.htm">конфигурационном файле</a></i><i>.
 <br />
 </i><i> </i></span><span>
 <br />

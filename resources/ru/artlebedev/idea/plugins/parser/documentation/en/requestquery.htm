@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>query. Getting the query string</title>
+    <title>query. Getting the query string</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,13 +11,38 @@
 <body>
 
 
-<span><b>Example</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>query. Getting the query string
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>$request:query
+<br />
+</b><span>
+<br />
+Returns the string coming after </span><span class="mono"><b>?</b></span><span> in URI (the value of environment variable </span><span class="mono"><b>QUERY_STRING</b></span><span>).
+<br />
+To work with form fields (</span><span class="mono"><span class="monoblue"><b>&lt;FORM&gt;</b></span></span><span>) and string after second </span><span class="mono"><b>?</b></span><span> (</span><span class="mono"><b>/?a=b?thisText</b></span><span>), use class </span><span class="mono"><b>form</b></span><span>.
+<br />
+<b>
+<br />
+</b></span><span class="h1"><b>Example</b></span><span><u>
 <br />
 </u>Let us assume, a visitor requests page at
 <br />
 
 <br />
-</span><span><b>http://www.mysite.ru/news/index.html?year=2000&amp;month=05&amp;day=27
+</span><span class="mono"><b>http://www.mysite.ru/news/index.html?year=2000&amp;month=05&amp;day=27
 <br />
 </b></span><span>
 <br />
@@ -25,7 +50,7 @@ then
 <br />
 
 <br />
-</span><span><b>$request:query
+</span><span class="mono"><b>$request:query
 <br />
 </b></span><span>
 <br />
@@ -33,7 +58,7 @@ will return
 <br />
 
 <br />
-</span><span><b>year=2000&amp;month=05&amp;day=27</b></span><span>
+</span><span class="mono"><b>year=2000&amp;month=05&amp;day=27</b></span><span>
 <br />
 </span></span><br />
 

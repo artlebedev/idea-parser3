@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>User-defined operators</title>
+    <title>User-defined operators</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,12 +15,12 @@
   <tr>
     <td>
       
-<span><b>User-defined operators
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>User-defined operators
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
@@ -38,7 +38,7 @@ Operators in parser are methods of class <a href="mainclass.htm">MAIN</a>, By ad
 <br />
 
 <br />
-<a href="opuse.htm">User-defined operators</a> may be defined in separate files without header </span><span><b>@CLASS</b></span><span> and be linked to relevant sections of a site. If you define an operator (e.g. </span><span><b>@</b><b><a href="opprocess.htm">include</a></b><b>[]</b></span><span>) in such a file, every call </span><span><b>^include[]</b></span><span> will be addressed to the user-defined operator.
+<a href="opuse.htm">User-defined operators</a> may be defined in separate files without header </span><span class="mono"><b>@CLASS</b></span><span> and be linked to relevant sections of a site. If you define an operator (e.g. </span><span class="mono"><b>@</b><b><a href="opprocess.htm">include</a></b><b>[]</b></span><span>) in such a file, every call </span><span class="mono"><b>^include[]</b></span><span> will be addressed to the user-defined operator.
 <br />
 
 <br />
@@ -50,7 +50,7 @@ Creating classes and using their methods is far more comfortable than employing 
 <br />
 
 <br />
-</span><span><b>^news:help[]
+</span><span class="mono"><b>^news:help[]
 <br />
 ^forum:help[]
 <br />
@@ -58,31 +58,31 @@ Creating classes and using their methods is far more comfortable than employing 
 <br />
 </b></span><span>
 <br />
-</span><span><b>Examples
+</span><span class="h1"><b>Examples
 <br />
 </b></span><span>Place the code&#133;
 <br />
-</span><span><span><b>@default[a;b]
+</span><span class="mono"><span class="monoblue"><b>@default[a;b]
 <br />
-^if(</b></span></span><span><span><b><a href="exprops.htm">def</a></b></span></span><span><span><b>&nbsp;$a){$a}{$b}
+^if(</b></span></span><span class="mono"><span class="monoblue"><b><a href="exprops.htm">def</a></b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;$a){$a}{$b}
 <br />
 </b></span></span><span>
 <br />
-&#133;into file </span><span>operators.p</span><span> in root directory of your website.
+&#133;into file </span><span class="mono">operators.p</span><span> in root directory of your website.
 <br />
 
 <br />
-After you have done it, you can link this module whenever you need <a href="opuse.htm">additional operators</a>. For example, write such a construction in your root </span><span>auto.p</span><span>:
+After you have done it, you can link this module whenever you need <a href="opuse.htm">additional operators</a>. For example, write such a construction in your root </span><span class="mono">auto.p</span><span>:
 <br />
 
 <br />
-</span><span><span><b>@</b></span></span><span><span><b><a href="opuse.htm">USE</a></b></span></span><span><span><b>
+</span><span class="mono"><span class="monoblue"><b>@</b></span></span><span class="mono"><span class="monoblue"><b><a href="opuse.htm">USE</a></b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 /operators.p
 <br />
 </b></span></span><span>
 <br />
-&#133;and you will be able to use construction of type </span><span><span><b>^default[$form:name;</b></span></span><span><b>Anonymous</b><span><b>]</b></span></span><span> not only on any page, but also in any <a href="defineclass.htm">user-defined class</a></span><span>.
+&#133;and you will be able to use construction of type </span><span class="mono"><span class="monoblue"><b>^default[$form:name;</b></span></span><span class="mono"><b>Anonymous</b><span class="monoblue"><b>]</b></span></span><span> not only on any page, but also in any <a href="defineclass.htm">user-defined class</a></span><span>.
 <br />
 </span><span>
 <br />

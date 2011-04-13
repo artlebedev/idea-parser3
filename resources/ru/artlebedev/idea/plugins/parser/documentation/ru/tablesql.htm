@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>sql. ������� ������� �� ���� ������</title>
+    <title>sql. Выборка таблицы из базы данных</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,19 +11,60 @@
 <body>
 
 
-<span><b>������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>sql. Выборка таблицы из базы данных
 <br />
-</span><span><span><b>$sql_table[^table::sql{</b></span></span><span><b>select&nbsp;*&nbsp;from&nbsp;news</b><span><b>}]</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</b></span><span>
+
+
+
+<span class="mono"><b>^table::sql{SQL-запрос}&nbsp;
 <br />
-� ���������� ����� ������ ������, ���������� ��� ������ �� ������� </span><span><b>news</b></span><span>.
+^table::sql{SQL-запрос&nbsp;}[$.limit(n)&nbsp;$.offset(o)&nbsp;$.</b><b><a href="app7.htm">bind</a></b><b>[variables&nbsp;hash]]
+<br />
+</b><span>
+<br />
+Конструктор создает объект класса </span><span class="mono"><b>table</b></span><span>, содержащий таблицу, полученную в результате выборки из базы данных.
+<br />
+Для использования конструктора необходимо установленное соединение с сервером базы данных (см. оператор </span><span class="mono"><b><a href="opconnect.htm">connect</a></b></span><span>).</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span>
+<br />
+</span><span class="mono"><b>SQL-запрос</b></span><span> - запрос на выборку из базы данных
 <br />
 
 <br />
-<i>����������: ������ ���������� ���������� ������ ����������� ��� �����.
+Возможно использование дополнительных параметров конструктора:
 <br />
-������������� �*� ������ �� �������������, ��������� ������������ �������� (� ��� ����� ����� ��������� �����) ���������, ��� �� �� ���� ����� ���������. ����� ����, ��� ����� ������� ������ ���� (������, ������������ � ���� �������� �������), ��� �������� �������� ������� �� �� ���������� � ��������.</i>
+</span><span class="mono"><b>$.limit(n)</b></span><span> - получить не более </span><span class="mono"><b>n</b></span><span> записей;
+<br />
+</span><span class="mono"><b>$.offset(o)</b></span><span> - отбросить первые </span><span class="mono"><b>o</b></span><span> записей выборки;
+<br />
+</span><span class="mono"><b>$.bind[hash]</b></span><span> - связанные переменные, см. «<a href="app7.htm">Работа с IN/OUT переменными</a>»<b><i> [3.1.4]</i></b>.
+<br />
+
+<br />
+</span><span class="h1"><b>Пример</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span class="mono"><span class="monoblue"><b>$sql_table[^table::sql{</b></span></span><span class="mono"><b>select&nbsp;*&nbsp;from&nbsp;news</b><span class="monoblue"><b>}]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+В результате будет создан объект, содержащий все записи из таблицы </span><span class="mono"><b>news</b></span><span>.
+<br />
+
+<br />
+<i>Примечание: всегда указывайте конкретный список необходимых вам полей.
+<br />
+Использование «*» крайне не рекомендуется, поскольку постороннему читателю (и вам самим через некоторое время) непонятно, что же за поля будут извлечены. Кроме того, так можно извлечь лишние поля (скажем, добавившиеся в ходе развития проекта), что повлечет ненужные расходы на их извлечение и хранение.</i>
 <br />
 </span></span><br />
 

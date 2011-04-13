@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>fullpath. Full name of file from server�s root directory</title>
+    <title>fullpath. Full name of file from server’s root directory</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,42 +15,42 @@
   <tr>
     <td>
       
-<span><b>fullpath. Full name of file from server's root directory
+<span class="h1"><b>fullpath. Full name of file from server's root directory
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file:fullpath[filename]
+<span class="mono"><b>^file:fullpath[filename]
 <br />
 </b><span>
 <br />
-Retrieves full name of file from server's root directory (see also "</span><span><span><b>Appendix&nbsp;1:&nbsp;Paths&nbsp;to&nbsp;files&nbsp;and&nbsp;directories</b></span></span><span>").
+Retrieves full name of file from server's root directory (see also "</span><span class="mono"><span class="monoblue"><b>Appendix&nbsp;1:&nbsp;Paths&nbsp;to&nbsp;files&nbsp;and&nbsp;directories</b></span></span><span>").
 <br />
 
 <br />
-Example: page </span><span>/document.html</span><span> contains a link to some image. True path to the requested document, however, may be different (e.g. if you use module </span><span>mod_rewrite</span><span> on Apache web-server). In this case, if you place a relative link to the image, the image will not be displayed by browser, since browser has no idea about </span><span>mod_rewrite</span><span> and will regard all relative paths as relative to the requested document.
+Example: page </span><span class="mono">/document.html</span><span> contains a link to some image. True path to the requested document, however, may be different (e.g. if you use module </span><span class="mono">mod_rewrite</span><span> on Apache web-server). In this case, if you place a relative link to the image, the image will not be displayed by browser, since browser has no idea about </span><span class="mono">mod_rewrite</span><span> and will regard all relative paths as relative to the requested document.
 <br />
 
 <br />
 That is why it is better to replace relative path with absolute:
 <br />
-</span><span><span><b>
+</span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><span><b>$image[</b></span></span><span><span><b>^</b></span></span><span><span><b><a href="imageclass.htm">image</a></b></span></span><span><span><b>::</b></span></span><span><span><b><a href="imagemeasure.htm">measure</a></b></span></span><span><span><b>[</b></span></span><span><span><b>^file:fullpath[</b></span></span><span><span><b>image.gif</b></span></span><span><span><b>]</b></span></span><span><span><b>]]
+</b></span></span><span class="mono"><span class="monoblue"><b>$image[</b></span></span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b><a href="imageclass.htm">image</a></b></span></span><span class="mono"><span class="monoblue"><b>::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagemeasure.htm">measure</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b>^file:fullpath[</b></span></span><span class="mono"><span class="monoblue"><b>image.gif</b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>]]
 <br />
-^image.</b></span></span><span><span><b><a href="imagehtml.htm">html</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+^image.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagehtml.htm">html</a></b></span></span><span class="mono"><span class="monoblue"><b>[]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
 Construction&#133;
 <br />
-</span><span><b>&lt;img&nbsp;src="/im</b><b>age.gif</b><b>"&nbsp;width="</b><b>&#133;</b><b>"&nbsp;height="</b><b>&#133;</b><b>"&nbsp;/&gt;</b></span><span>
+</span><span class="mono"><b>&lt;img&nbsp;src="/im</b><b>age.gif</b><b>"&nbsp;width="</b><b>&#133;</b><b>"&nbsp;height="</b><b>&#133;</b><b>"&nbsp;/&gt;</b></span><span>
 <br />
 </span><span>
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>file. �������������� ��������� � ������� ������ file</title>
+    <title>file. Преобразование документа к объекту класса file</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,42 +15,42 @@
   <tr>
     <td>
       
-<span><b>file. �������������� ��������� � ������� ������ file
+<span class="h1"><b>file. Преобразование документа к объекту класса file
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.file[</b><b><a href="xdocoptions.htm">���������_��������������_�_�����</a></b><b>]</b><span>
+<span class="mono"><b>^документ.file[</b><b><a href="xdocoptions.htm">Параметры_преобразования_в_текст</a></b><b>]</b><span>
 <br />
 
 <br />
-����������� �������� � ���� </span><span><b><a href="fileclass.htm">file</a></b></span><span>. �������� ������� </span><span><b>����������_��������������</b></span><span> � �����.
+Преобразует документ к типу </span><span class="mono"><b><a href="fileclass.htm">file</a></b></span><span>. Возможно задание </span><span class="mono"><b>параметров_преобразования</b></span><span> в текст.
 <br />
-�� ��������� ��������� XML-������������� ��������� � ���������� </span><span><span><b>&lt;?xml&nbsp;�&nbsp;?&gt;</b></span></span><span> (����� ��������� ����� ���������, ����� <a href="xdocoptions.htm">��������������� ��������</a>).
+По умолчанию создается XML-представление документа с заголовком </span><span class="mono"><span class="monoblue"><b>&lt;?xml&nbsp;…&nbsp;?&gt;</b></span></span><span> (можно отключить вывод заголовка, задав <a href="xdocoptions.htm">соответствующий параметр</a>).
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$document[</b></span></span><span><b>^xdoc::</b><b><a href="xdoccreatexml.htm">create</a></b><b>{&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+</b></span><span class="mono"><span class="monoblue"><b>$document[</b></span></span><span class="mono"><b>^xdoc::</b><b><a href="xdoccreatexml.htm">create</a></b><b>{&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
 <br />
 &lt;document&gt;
 <br />
-������1&lt;br/&gt;
+строка1&lt;br/&gt;
 <br />
-������2&lt;br/&gt;
+строка2&lt;br/&gt;
 <br />
-&lt;/document&gt;}</b><span><b>]
+&lt;/document&gt;}</b><span class="monoblue"><b>]
 <br />
-</b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><span><b>$</b></span></span><span><span><b><a href="responseclass.htm">response</a></b></span></span><span><span><b>:</b></span></span><span><span><b><a href="responsebody.htm">body</a></b></span></span><span><span><b>[^document.file[]]</b></span></span><span>
+</b></span></span><span class="mono"><span class="monoblue"><b>$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responseclass.htm">response</a></b></span></span><span class="mono"><span class="monoblue"><b>:</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^document.file[]]</b></span></span><span>
 <br />
 </span></span><br />
 

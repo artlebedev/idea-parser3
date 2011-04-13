@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>cache. ���������� ����������� ������ ����</title>
+    <title>cache. Сохранение результатов работы кода</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,100 +15,100 @@
   <tr>
     <td>
       
-<span><b>cache. ���������� ����������� ������ ����
+<span class="h1"><b>cache. Сохранение результатов работы кода
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^cache[����]
+<span class="mono"><b>^cache[файл]
 <br />
-^cache[����](�����&nbsp;������){���}
+^cache[файл](число&nbsp;секунд){код}
 <br />
-^cache[����](�����&nbsp;������){���}{����������&nbsp;�������}&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span><span><b>
+^cache[файл](число&nbsp;секунд){код}{обработчик&nbsp;проблем}&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span><span class="mono"><b>
 <br />
-^cache[����][����&nbsp;�����������]{���}
+^cache[файл][дата&nbsp;устаревания]{код}
 <br />
-^cache[����][����&nbsp;�����������]{���}{����������&nbsp;�������}&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.2]
+^cache[файл][дата&nbsp;устаревания]{код}{обработчик&nbsp;проблем}&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.2]
 <br />
-</i></b></span><span><b>^cache[]&nbsp;=&nbsp;����&nbsp;�����������&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.5]</i></b></span><span><b>
-<br />
-</b></span><span>
-<br />
-�������� ��������� ������, ������� ��������� � ���������� ������ ����. ��� ����������� ������� ������ ���������� ���������� ����� ������������ ����������, ������ ���������� ����������, ��� ������ �������� ����� ��������� ������� � ������� �������� �� ���� �������.
-<br />
-
-<br />
-������ ������������� ���������� ������ (</span><span><b><a href="opuse.htm">^use[�]</a></b></span><span>) ������� </span><span><b>����</b></span><span> ��������� </span><span><b>cache</b></span><span>, � �� ������ ��� ���������� (</span><span><b><a href="defineclass.htm">@USE</a></b></span><span>).
-<br />
-��-�����������, ��������� � ����� ������ (</span><span><b><a href="opconnect.htm">^connect[�]</a></b></span><span>) ����� ������ </span><span><b>����</b></span><span> ��������� </span><span><b>cache</b></span><span> - �� ����������� ������� �������� �� ��� SQL-������ � �������� ������������������ ����� ������.
-<br />
-
-<br />
-</span><span><b>����</b></span><span> - ��� �����-����. ���� ����� ���� ���������� � �� �������, �� ��� ���������� �������� �������, ���� �� ���������� - ����������� ���, � ��������� ����������� � ���� � ��������� ������.
-<br />
-
-<br />
-</span><span><b>�����&nbsp;������</b></span><span> - ����� �������� ���������� ������ ���� � ��������. ���� ��� ����� ����� ����, �� ��������� �� �����������, � ���� � ����� ����������� ����������� ������������.
-<br />
-
-<br />
-</span><span><b>����&nbsp;�����������</b></span><span> - �����, �� �������� �������� ���������� ������ ����. ���� ��� � �������, �� ��������� �� �����������, � ���� � ���������� ����������� ����������� ������������.
-<br />
-
-<br />
-</span><span><b>���</b></span><span> - ���, ��������� �������� ����� ��������.
-<br />
-
-<br />
-</span><span><b>����������&nbsp;�������</b></span><span> - ����� ����� ���������� ��������, ���� ��� ��������� � </span><span><b>����</b></span><span>. � ���� ��������� �������� ����� �� </span><span><b><a href="optry.htm">try</a></b></span><span>, ��. ������ �<a href="exceptions.htm">��������� ������</a>�. � ������� �� </span><span><b>try</b></span><span>, ����� ������ </span><span><b>$exception.handled[cache]</b></span><span> </span><span><b>-</b></span><span> ��� ���� �������� Parser ���������� ������ ��������� �������: ������� �� </span><span><b>�����</b></span><span> ����� ����������� ��������� ������ </span><span><b>����</b></span><span>, �������������� ��� ����, ��� ���� ��������� �������.</span><span><b>
+</i></b></span><span class="mono"><b>^cache[]&nbsp;=&nbsp;дата&nbsp;устаревания&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.5]</i></b></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-��� ��������������� �������� �����-���� ����� ������������:
-<br />
-</span><span><b>^cache[����]</b></span><span>
+Оператор сохраняет строку, которая получится в результате работы кода. При последующих вызовах обычно происходит считывание ранее сохраненного результата, вместо повторного вычисления, что сильно экономит время обработки запроса и снижает нагрузку на ваши сервера.
 <br />
 
 <br />
-������ </span><span><b>����</b></span><span> ��������� �������, ���������� ����� �������� ���������� ������ ����:
+Крайне рекомендуется подключать модули (</span><span class="mono"><b><a href="opuse.htm">^use[…]</a></b></span><span>) изнутри </span><span class="mono"><b>кода</b></span><span> оператора </span><span class="mono"><b>cache</b></span><span>, а не делать это статически (</span><span class="mono"><b><a href="defineclass.htm">@USE</a></b></span><span>).
 <br />
-</span><span><b>^cache(�����&nbsp;������)
-<br />
-^cache[����&nbsp;�����������]
-<br />
-</b></span><span>������� ����������� ����� �������� ����.
+По-возможности, работайте с базой данных (</span><span class="mono"><b><a href="opconnect.htm">^connect[…]</a></b></span><span>) также внутри </span><span class="mono"><b>кода</b></span><span> оператора </span><span class="mono"><b>cache</b></span><span> - вы существенно снизите нагрузку на ваш SQL-сервер и повысите производительность ваших сайтов.
 <br />
 
 <br />
-������� ���� ����������� ����� ������, ������:
+</span><span class="mono"><b>Файл</b></span><span> - имя файла-кеша. Если такой файл существует и не устарел, то его содержимое выдается клиенту, если не существует - выполняется код, и результат сохраняется в файл с указанным именем.
 <br />
-</span><span><b>$expire_date[^cache[]]
+
+<br />
+</span><span class="mono"><b>Число&nbsp;секунд</b></span><span> - время хранения результата работы кода в секундах. Если это число равно нулю, то результат не сохраняется, а файл с ранее сохраненным результатом уничтожается.
+<br />
+
+<br />
+</span><span class="mono"><b>Дата&nbsp;устаревания</b></span><span> - время, до которого хранится результата работы кода. Если она в прошлом, то результат не сохраняется, а файл с предыдущим сохраненным результатом уничтожается.
+<br />
+
+<br />
+</span><span class="mono"><b>Код</b></span><span> - код, результат которого будет сохранен.
+<br />
+
+<br />
+</span><span class="mono"><b>Обработчик&nbsp;проблем</b></span><span> - здесь можно обработать проблему, если она возникнет в </span><span class="mono"><b>коде</b></span><span>. В этом отношении оператор похож на </span><span class="mono"><b><a href="optry.htm">try</a></b></span><span>, см. раздел «<a href="exceptions.htm">Обработка ошибок</a>». В отличие от </span><span class="mono"><b>try</b></span><span>, можно задать </span><span class="mono"><b>$exception.handled[cache]</b></span><span> </span><span class="mono"><b>-</b></span><span> это дает указание Parser обработать ошибку особенным образом: достать из </span><span class="mono"><b>файла</b></span><span> ранее сохраненный результат работы </span><span class="mono"><b>кода</b></span><span>, проигнорировав тот факт, что этот результат устарел.</span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-</span><span><b>������
+Для принудительного удаления файла-кеша можно использовать:
 <br />
-</b></span><span><span><b>^cache[/data/cache/test1](5){
+</span><span class="mono"><b>^cache[файл]</b></span><span>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;���������&nbsp;reload,&nbsp;��������&nbsp;������&nbsp;5&nbsp;������:&nbsp;</b><span><b>^</b></span></span><span><span><b><a href="mathrandom.htm">math:random</a></b></span></span><span><span><b>(100)</b></span></span><span><b>
+
 <br />
-</b><span><b>}
+Внутри </span><span class="mono"><b>кода</b></span><span> допустимы команды, изменяющие время хранения результата работы кода:
+<br />
+</span><span class="mono"><b>^cache(число&nbsp;секунд)
+<br />
+^cache[дата&nbsp;устаревания]
+<br />
+</b></span><span>Берется минимальное время хранения кода.
+<br />
+
+<br />
+Текущую дату устаревания можно узнать, вызвав:
+<br />
+</span><span class="mono"><b>$expire_date[^cache[]]
+<br />
+</b></span><span>
+<br />
+</span><span class="h1"><b>Пример
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>^cache[/data/cache/test1](5){
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;Нажимайте&nbsp;reload,&nbsp;меняется&nbsp;каждые&nbsp;5&nbsp;секунд:&nbsp;</b><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b><a href="mathrandom.htm">math:random</a></b></span></span><span class="mono"><span class="monoblue"><b>(100)</b></span></span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-</span><span><b>��������� ������� ��������
+</span><span class="h1"><b>Изменение времени хранения
 <br />
-</b></span><span><span><b>^cache[/data/cache/test2](5){
+</b></span><span class="mono"><span class="monoblue"><b>^cache[/data/cache/test2](5){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;��&nbsp;����&nbsp;������&nbsp;��&nbsp;��������,&nbsp;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;по&nbsp;ходу&nbsp;работы&nbsp;вы&nbsp;выяснили,&nbsp;
 <br />
-&nbsp;&nbsp;&nbsp;���&nbsp;��������&nbsp;���������&nbsp;��&nbsp;�����:&nbsp;</b><span><b>^cache(0)
+&nbsp;&nbsp;&nbsp;что&nbsp;страницу&nbsp;сохранять&nbsp;не&nbsp;нужно:&nbsp;</b><span class="monoblue"><b>^cache(0)
 <br />
 }</b></span></span><span>
 <br />

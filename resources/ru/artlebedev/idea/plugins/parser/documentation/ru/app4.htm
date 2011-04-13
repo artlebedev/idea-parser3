@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>���������� 4. Perl-����������� ���������� ���������</title>
+    <title>Приложение 4. Perl-совместимые регулярные выражения</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,232 +15,232 @@
   <tr>
     <td>
       
-<span><b>���������� 4. Perl-����������� ���������� ���������
+<span class="h1"><b>Приложение 4. Perl-совместимые регулярные выражения
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>��������� ���������� �� Perl-����������� ���������� ���������� (Perl Compatible Regular Expressions, PCRE) ����� ����� � ������������ � Perl (��. <span><u><a href="http://perldoc.perl.org/perlre.html" target="_blank">http://perldoc.perl.org/perlre.html</a></u></span><span>), � ������������ � �������������� � Parser ���������� PCRE 2.09 (��. <span><u><a href="http://www.pcre.org/man.txt" target="_blank">http://www.pcre.org/man.txt</a></u></span></span><span>),  � ����� � ������� ���������� ����������� ����������, ���������� ������ ����� ���������� ����� ������������ ��������. �������� �������� ������������� ���������� ��������� ������� � ����� ��. ������ ����������� ���������� ������������ �O'Reilly�  (ISBN 1-56592-257-3), ������� ����� �� ������� ����: ������������ ������ (ISBN: 5-272-00331-4, ������ �������; ISBN: 5-318-00056-8 ������ �������).
+<span>Подробную информацию по Perl-совместимым регулярные выражениям (Perl Compatible Regular Expressions, PCRE) можно найти в документации к Perl (см. <span class="blue"><u><a href="http://perldoc.perl.org/perlre.html" target="_blank">http://perldoc.perl.org/perlre.html</a></u></span><span>), в документации к использованной в Parser библиотеке PCRE 2.09 (см. <span class="blue"><u><a href="http://www.pcre.org/man.txt" target="_blank">http://www.pcre.org/man.txt</a></u></span></span><span>),  а также в большом количестве специальной литературы, содержащей помимо всего остального много практических примеров. Особенно детально использование регулярных выражений описано в книге Дж. Фридла «Регулярные выражения» издательства «O'Reilly»  (ISBN 1-56592-257-3), перевод книги на русский язык: издательство «Питер» (ISBN: 5-272-00331-4, второе издание; ISBN: 5-318-00056-8 первое издание).
 <br />
 
 <br />
-������� ��������, ������� ���������� ���, ����� ���������� ��������.
+Краткое описание, которое приводится тут, имеет справочный характер.
 <br />
 
 <br />
-���������� ��������� - ��� ������ ��� ������ ���������, ������� ������ �������� � ���������� ����� ������� � ������ ������. ����������� �������� � ���� ������� ������������ ���� �����, � ��� ������ ������ ����������� ������� ���� �������� � ������ ������ � �������� ������������������. � �������� ����������� ������� ����� �������� ������ ��� ������ �<b>������� ����</b>�, ������� ������ �������� � ����������� ������� �������� � ������ ������. ���� ���������� ��������� ������� � ���, ��� ������ ������� ��������, ��� ��������� �������� � ������� �������������� �������� ������ � ������������� ��������� � ������� ������������. ��� ����������� ������ �� ������ ���� �� ����, �� ��� ������������� �� � ���������� ����������, ��� �������������� ������ �������. 
+Регулярное выражение - это шаблон для поиска подстроки, который должен совпасть с подстрокой слева направо в строке поиска. Большинство символов в этом шаблоне представлены сами собою, и при поиске просто проверяется наличие этих символов в строке поиска в заданной последовательности. В качестве простейшего примера можно привести шаблон для поиска «<b>шустрая лиса</b>», который должен совпасть с аналогичным набором символов в строке поиска. Мощь регулярных выражений состоит в том, что помимо обычных символов, они позволяют включать в шаблоны альтернативные варианты выбора и повторяющиеся фрагменты с помощью метасимволов. Эти метасимволы ничего не значат сами по себе, но при использовании их в регулярных выражениях, они обрабатываются особым образом. 
 <br />
 
 <br />
-���������� ��� ��������� ������ ������������: 
+Существует два различных набора метасимволов: 
 <br />
 
 <br />
-1.&nbsp;&nbsp;&nbsp;�������������� � ����� ����� �������, �� ����������� � ���������� ������
+1.&nbsp;&nbsp;&nbsp;Распознаваемые в любой части шаблона, не заключенной в квадратные скобки
 <br />
-2.&nbsp;&nbsp;&nbsp;�������������� � ������ �������, ����������� � ���������� ������
-<br />
-
-<br />
-� ������������, �������������� ��� ���������� ������ ��������� ���������:
+2.&nbsp;&nbsp;&nbsp;Распознаваемые в частях шаблона, заключенных в квадратные скобки
 <br />
 
 <br />
-</span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>\</b><span><b>
+К метасимволам, распознаваемым вне квадратных скобок относятся следующие:
+<br />
+
+<br />
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
+<p align="center"><span class="mono"><b>\</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><b>
 <br />
 </b></span></span></p></td><td align="left" valign="top" width="415">
-<span>����� ����������� ��� escape-�������������������. ����� ��������� �������������, ����������� ����<span>
+<span>общее обозначение для escape-последовательностей. Имеют различное использование, рассмотрены ниже<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>^</b><span>
+<p align="center"><span class="mono"><b>^</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>��������� � ������� ��������� ��� ������ ��� ����� ������� ������ � ������������� ������
+<span>совпадает с началом фрагмента для поиска или перед началом строки в многострочном режиме
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>$</b><span>
+<p align="center"><span class="mono"><b>$</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>��������� � ������ ��������� ��� ������ ��� ����� ������ ������ � ������������� ������
+<span>совпадает с концом фрагмента для поиска или перед концом строки в многострочном режиме
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>.</b><span>
+<p align="center"><span class="mono"><b>.</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>���������� �����, ���������� ��� �������. ���� ����������, ��������� � ����� �������� ����� ������� ����� ������ �� ���������.
+<span>символьный класс, содержащий все символы. Этот метасимвол, совпадает с любым символом кроме символа новой строки по умолчанию.
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>[...]</b><span>
+<p align="center"><span class="mono"><b>[...]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>���������� �����. ���������� ���������� � ����� ��������� �� ��������� � ���������� ������� ������
+<span>символьный класс. Совпадение происходит с любым элементом из заданного в квадратных скобках списка
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>|</b><span>
+<p align="center"><span class="mono"><b>|</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>���������� ���������� ����. ��������� ���������� ��������� ���������� ��������� � ����, ����������� � ����� �� ���������-�����������
+<span>метасимвол означающий «или». Позволяет объединить несколько регулярных выражений в одно, совпадающее с любым из выражений-компонентов
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>(...)</b><span>
+<p align="center"><span class="mono"><b>(...)</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>����������� ��������� ������ � ����� ������� ������
+<span>ограничение подстроки поиска в общем шаблоне поиска
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>?</b><span>
+<p align="center"><span class="mono"><b>?</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>��������� � ����� �������������� ��������
+<span>совпадает с одним необязательным символом
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>*</b><span>
+<p align="center"><span class="mono"><b>*</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>��������� � �������������� ����������� ����� �������������� ��������, ��������� �����
+<span>совпадает с неограниченным количеством любых необязательных символов, указанных слева
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>+</b><span>
+<p align="center"><span class="mono"><b>+</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>��������� � �������������� ����������� ��������, ��������� �����. ��� ���������� ��������� ���� �� ���� ������������ ������
+<span>совпадает с неограниченным количеством символов, указанный слева. Для совпадения требуется хотя бы один произвольный символ
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>{���,&nbsp;����}</b><span>
+<p align="center"><span class="mono"><b>{мин,&nbsp;макс}</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>������������ ������������� - ��������� ������� �����������, ����������� �������� �����������.
+<span>интервальный квантификатор - требуется минимум экземпляров, допускается максимум экземпляров.
 <br />
 </span></td></tr></table>
 <br />
 </span><span>
 <br />
-����� �������, ����������� � ���������� ������ ���������� ���������� �������. � �������� ����������� ������ ����� ������������ ������ ��������� �����������:
+Часть шаблона, заключенная в квадратные скобки называется символьным классом. В описании символьного класса можно использовать только следующие метасимволы:
 <br />
 
 <br />
-</span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>\</b><span>
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
+<p align="center"><span class="mono"><b>\</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>Escape - ������
-<br />
-
-<br />
-</span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>^</b><span>
-<br />
-</span></span></p></td><td align="left" valign="top" width="415">
-<span>��������������� ���������� �����, ����-������ ����������� ������ ���� ������ �������� � �������� ������. ���������� ����� ����������� � ������ ���������, �� ��������� � ���������� �����
+<span>Escape - символ
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>-</b><span>
+<p align="center"><span class="mono"><b>^</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>������������ ��� ����������� ��������� ��������
+<span>Инвертированный символьный класс, мета-символ обязательно должен быть первым символом в описании класса. Совпадение будет происходить с любыми символами, не входящими в символьный класс
 <br />
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>[...]</b><span>
+<p align="center"><span class="mono"><b>-</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
-<span>������������ ����������� ������
+<span>Используется для обозначения интервала символов
+<br />
+
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="113">
+<p align="center"><span class="mono"><b>[...]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span></span></p></td><td align="left" valign="top" width="415">
+<span>Ограничитель символьного класса
 <br />
 </span></td></tr></table>
 <br />
 </span><span>
 <br />
-������������� ����������� �</span><span><b>\</b></span><span>�.
+Использование метасимвола «</span><span class="mono"><b>\</b></span><span>».
 <br />
 
 <br />
-�������� ���� ����� ��������� ��������� �������������. � ������ ���� ����� �� ��� ������� ������, �� ������������ ����� ��������, �������� ���� ��������� ������� ������������� � �������� ����������� ��������, ������� ����� ����� ���� ������. ����� ������������� ����� ����������� �������� ��� ������ ����������� ������, ��� � ��� ���. � �������� �������, ���� ���������� ����� ������ �</span><span><b>*</b></span><span>�, �� ������������ ��������� ������ � ������� �</span><span><b>\*</b></span><span>�. � ������ ������������� ������������ ��� ������ �</span><span><b>\</b></span><span>� ������������ ������ �</span><span><b>\\</b></span><span>�.
+Обратный слеш имеет несколько вариантов использования. В случае если вслед за ним следует символ, не обозначающий букву алфавита, обратный слеш выполняет функцию экранирования и отменяет специальное значение, которое может иметь этот символ. Такое использование этого метасимвола возможно как внутри символьного класса, так и вне его. В качестве примера, если необходимо найти символ «</span><span class="mono"><b>*</b></span><span>», то используется следующая запись в шаблоне «</span><span class="mono"><b>\*</b></span><span>». В случае необходимости экранировать сам символ «</span><span class="mono"><b>\</b></span><span>» используется запись «</span><span class="mono"><b>\\</b></span><span>».
 <br />
 
 <br />
-������ ������� ������������� ����� ����-������� - ��� �������� ����������� �������� � �������. ����� ������������ ��������� escape-������������������:
+Второй вариант использования этого мета-символа - для описания управляющих символов в шаблоне. Можно использовать следующие escape-последовательности:
 <br />
 
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\�</b></span><span>&nbsp;&nbsp;&nbsp;������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\а</b></span><span>&nbsp;&nbsp;&nbsp;сигнал&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\cx</b></span><span>    &nbsp;&nbsp;&nbsp;�control-x�, ��� � - ����� ������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\cx</b></span><span>    &nbsp;&nbsp;&nbsp;«control-x», где х - любой символ&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\�</b></span><span>&nbsp;&nbsp;&nbsp;ASCII-������ escape&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\е</b></span><span>&nbsp;&nbsp;&nbsp;ASCII-символ escape&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\f</b></span><span>     &nbsp;&nbsp;&nbsp;������ ������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\f</b></span><span>     &nbsp;&nbsp;&nbsp;подача бумаги&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\n</b></span><span>     &nbsp;&nbsp;&nbsp;����� ������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\n</b></span><span>     &nbsp;&nbsp;&nbsp;новая строка&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\r</b></span><span>     &nbsp;&nbsp;&nbsp;������� �������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\r</b></span><span>     &nbsp;&nbsp;&nbsp;возврат курсора&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\t</b></span><span>     &nbsp;&nbsp;&nbsp;���������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\t</b></span><span>     &nbsp;&nbsp;&nbsp;табуляция&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\xhh</b></span><span>   &nbsp;&nbsp;&nbsp;����������������� ��� ������� hh&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\xhh</b></span><span>   &nbsp;&nbsp;&nbsp;шестнадцатиричный код символа hh&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\ddd</b></span><span>   &nbsp;&nbsp;&nbsp;������������ ��� ������� ddd&nbsp;&nbsp;&nbsp;
-<br />
-
-<br />
-������ ������� - ��� ����������� ������������� ���������� �������
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\ddd</b></span><span>   &nbsp;&nbsp;&nbsp;восьмиричный код символа ddd&nbsp;&nbsp;&nbsp;
 <br />
 
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\d</b></span><span>     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;����� ���������� ����� [0-9]&nbsp;&nbsp;&nbsp;
-<br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\s</b></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�������, ������ [ \f\n\r\t] ������ ������ ���������� ������� - ������&nbsp;&nbsp;&nbsp;</span><span>
-<br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\w&nbsp;&nbsp;&nbsp;</b></span><span>     &nbsp;&nbsp;&nbsp;������ �����, ������ [a-zA-Z0-9_]&nbsp;&nbsp;&nbsp;
-<br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\D&nbsp;&nbsp;\S&nbsp;&nbsp;\W</b></span><span>&nbsp;&nbsp;&nbsp;��������� \d \s \w&nbsp;&nbsp;&nbsp;
+Третий вариант - для определения специфических символьных классов
 <br />
 
 <br />
-��������� ������� - ��� ����������� ������ ��������. � PCRE ���������� �������, ������� ������������� �� �����-���� ������ ��� �������, � �������� ���������� ������������� �������, ������� � ���������� ����� ��� ���������� ������������� (assertion). �� ����� ������������� ��� ������ ������� �������� �������, ������������� �� ������� ����� ��������� ��������� � �����, ��������������� ������������� �������. ��� ����������� �� ����� �������������� � ���������� ������� (</span><span><b>\b</b></span><span> ����� �������������� �������� � ���������� ������� ������� ������ ����������� ������)
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\d</b></span><span>     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;любое десятичное число [0-9]&nbsp;&nbsp;&nbsp;
+<br />
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\s</b></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;пропуск, обычно [ \f\n\r\t] Первый символ квадратных скобках - пробел&nbsp;&nbsp;&nbsp;</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\w&nbsp;&nbsp;&nbsp;</b></span><span>     &nbsp;&nbsp;&nbsp;символ слова, обычно [a-zA-Z0-9_]&nbsp;&nbsp;&nbsp;
+<br />
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\D&nbsp;&nbsp;\S&nbsp;&nbsp;\W</b></span><span>&nbsp;&nbsp;&nbsp;отрицание \d \s \w&nbsp;&nbsp;&nbsp;
 <br />
 
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\b</b></span><span>     &nbsp;&nbsp;&nbsp;������� �����&nbsp;&nbsp;&nbsp;
+Четвертый вариант - для обозначения мнимых символов. В PCRE существуют символы, которые соответствуют не какой-либо литере или литерам, а означают выполнение определенного условия, поэтому в английском языке они называются утверждениями (assertion). Их можно рассматривать как мнимые символы нулевого размера, расположенные на границе между реальными символами в точке, соответствующей определенному условию. Эти утверждения не могут использоваться в символьных классах (</span><span class="mono"><b>\b</b></span><span> имеет дополнительное значение и обозначает возврат каретки внутри символьного класса)
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\B</b></span><span>     &nbsp;&nbsp;&nbsp;���������� ������� �����&nbsp;&nbsp;&nbsp;
+
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\A</b></span><span>     &nbsp;&nbsp;&nbsp;��������� ������ ������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\b</b></span><span>     &nbsp;&nbsp;&nbsp;граница слова&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\Z</b></span><span>     &nbsp;&nbsp;&nbsp;��������� ����� ������ ��� ������� ����� �������� ������ ����� ������, 
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\B</b></span><span>     &nbsp;&nbsp;&nbsp;отсутствие границы слова&nbsp;&nbsp;&nbsp;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�������������� � ��������� ����� ������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\A</b></span><span>     &nbsp;&nbsp;&nbsp;«истинное» начало строки&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\z</b></span><span>     &nbsp;&nbsp;&nbsp;��������� ����� ������
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\Z</b></span><span>     &nbsp;&nbsp;&nbsp;«истинный» конец строки или позиция перед символом начала новой строки, 
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;расположенного в «истинном» конце строки&nbsp;&nbsp;&nbsp;
+<br />
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\z</b></span><span>     &nbsp;&nbsp;&nbsp;«истинный» конец строки
 <br />
 </span></span><br />
 

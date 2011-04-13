@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Date class</title>
+    <title>Date class</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>Date class
+<span class="h1"><b>Date class
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>Class <span><b>date</b></span><span> is designed for working with dates. Possible variants of using it include: calendars, various checks based on dates, etc.
+<span>Class <span class="mono"><b>date</b></span><span> is designed for working with dates. Possible variants of using it include: calendars, various checks based on dates, etc.
 <br />
 
 <br />
@@ -40,29 +40,29 @@ For example, in Moscow, there cannot be "02:00, 31 March 2002," while "02:00, 27
 <br />
 
 <br />
-Numeric value of object of class </span><span><b>date</b></span><span> equals to the number of days from EPOCH (00:00:00, 1 January 1970, UTC) to the date specified in the object. This feature is useful when you want to get a relative date, e.g.:
+Numeric value of object of class </span><span class="mono"><b>date</b></span><span> equals to the number of days from EPOCH (00:00:00, 1 January 1970, UTC) to the date specified in the object. This feature is useful when you want to get a relative date, e.g.:
 <br />
 
 <br />
-</span><span><span><b>#&nbsp;checking&nbsp;if&nbsp;the&nbsp;file&nbsp;was&nbsp;updated&nbsp;more&nbsp;than&nbsp;a&nbsp;week&nbsp;ago
+</span><span class="mono"><span class="monoblue"><b>#&nbsp;checking&nbsp;if&nbsp;the&nbsp;file&nbsp;was&nbsp;updated&nbsp;more&nbsp;than&nbsp;a&nbsp;week&nbsp;ago
 <br />
 ^if($last_update&nbsp;&gt;&nbsp;$now-7){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;new
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;new
 <br />
-</b><span><b>}{
+</b><span class="monoblue"><b>}{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;old
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;old
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-The number of days can be fractional, e.g. a day and half is equal to </span><span><b>1.5</b></span><span>.
+The number of days can be fractional, e.g. a day and half is equal to </span><span class="mono"><b>1.5</b></span><span>.
 <br />
 
 <br />
-The class usually operates local date and time. Still, you can get date and time in arbitrary time zone (see </span><span><b>^date</b><b>.</b><b><a href="dateroll.htm">roll</a></b><b>[TZ;&#133;]</b></span><span>.
+The class usually operates local date and time. Still, you can get date and time in arbitrary time zone (see </span><span class="mono"><b>^date</b><b>.</b><b><a href="dateroll.htm">roll</a></b><b>[TZ;&#133;]</b></span><span>.
 <br />
 
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��� Oracle</title>
+    <title>Для Oracle</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,26 +15,26 @@
   <tr>
     <td>
       
-<span><b>��� Oracle
+<span class="h1"><b>Для Oracle
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>oracle://user:password@service?
+<span class="mono">oracle://user:password@service?
 <br />
-&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=���������&amp;&nbsp;<span><b><i>[3.1.2]</i></b></span><span><b>
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=кодировка&amp;&nbsp;<span><b><i>[3.1.2]</i></b></span><span class="mono"><b>
 <br />
 </b>&nbsp;&nbsp;&nbsp;LowerCaseColumnNames=0&amp;&nbsp;</span><span><b><i>[3.1.1]</i></b><b><i>
 <br />
-&nbsp;&nbsp;&nbsp;</i></b></span><span>DisableQueryModification=0&amp;&nbsp;</span><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b><b><i>
+&nbsp;&nbsp;&nbsp;</i></b></span><span class="mono">DisableQueryModification=0&amp;&nbsp;</span><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b><b><i>
 <br />
-</i></b></span><span>&nbsp;&nbsp;&nbsp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;
+</i></b></span><span class="mono">&nbsp;&nbsp;&nbsp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;
 <br />
 &nbsp;&nbsp;&nbsp;NLS_DATE_FORMAT=YYYY-MM-DD&nbsp;HH24:MI:SS&amp;
 <br />
@@ -56,27 +56,27 @@
 <br />
 </span><span>
 <br />
-</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - ������ ���������, � ������� ���������� �������� � SQL-��������, ���������������� ���������� �������.
+</span><span class="mono"><a href="app3clientcharset.htm">ClientCharset</a></span><span> - задает кодировку, в которой необходимо общаться с SQL-сервером, перекодированием занимается драйвер.
 <br />
 
 <br />
-���� ����� ������� � ������� </span><span><b>select</b></span><span> �� ����� � �������, Oracle ����������� �� � �������� ��������. ��-���������,  Parser ����������� �� � ������� ��������. ������ �������� </span><span>LowerCaseColumnNames=0</span><span> ����� ��������� �������������� � ������ �������.
+Если имена колонок в запросе </span><span class="mono"><b>select</b></span><span> не взять в кавычки, Oracle преобразует их к ВЕРХНЕМУ регистру. По-умолчанию,  Parser преобразует их к нижнему регистру. Указав параметр </span><span class="mono">LowerCaseColumnNames=0</span><span> можно отключить преобразование в нижний регистр.
 <br />
 
 <br />
-</span><span>��� ���������� ������� � </span><span>limit/offset</span><span> ������� ������������ ����� ������� ��� ��������� �������� ������ ���������� SQL �������. ������ � ������ ������� ��� ��������� ����� ��������� � ������� ��������� </span><span>DisableQueryModification=1.</span><span>
+</span><span>При выполнении запроса с </span><span class="mono">limit/offset</span><span> драйвер модифицирует текст запроса для отсечения ненужных данных средствами SQL сервера. Однако в случае проблем это поведение можно отключить с помощью параметра </span><span class="mono">DisableQueryModification=1.</span><span>
 <br />
 
 <br />
-���������� �� ��������� ���������� ����� ����� � ������������ �� �Environment variables� ��� Oracle. ������, �� ����������� ������ �������� ��������� </span><span>NLS_LANG</span><span> � </span><span>NLS_DATE_FORMAT</span><span> ������, ����� ������� ����.
+Информацию по остальным параметрам можно найти в документации по «Environment variables» для Oracle. Однако, мы рекомендуем всегда задавать параметры </span><span class="mono">NLS_LANG</span><span> и </span><span class="mono">NLS_DATE_FORMAT</span><span> такими, какие указаны выше.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span>�������� ������ � ����� ���� �������� � ��������� windows-1251, ������ ����������� ����� �������� ���:
+</b></span><span>Допустим данные в вашей базе хранятся в кодировке windows-1251, строку подключения стоит написать так:
 <br />
-</span><span>oracle://user:password@service?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251&amp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;NLS_DATE_FORMAT=YYYY-MM-DD&nbsp;HH24:MI:SS</span><span>
+</span><span class="mono">oracle://user:password@service?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251&amp;NLS_LANG=RUSSIAN_AMERICA.CL8MSWIN1251&amp;NLS_DATE_FORMAT=YYYY-MM-DD&nbsp;HH24:MI:SS</span><span>
 <br />
 </span></span><br />
 

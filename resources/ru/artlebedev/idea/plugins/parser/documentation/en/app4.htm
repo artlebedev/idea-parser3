@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Appendix 4. Perl Compatible Regular Expressions</title>
+    <title>Appendix 4. Perl Compatible Regular Expressions</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>Appendix 4. Perl Compatible Regular Expressions
+<span class="h1"><b>Appendix 4. Perl Compatible Regular Expressions
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>Detailed information on PCRE (Perl Compatible Regular Expressions) can be found in Perl documentation (see <span><u><a href="http://perldoc.perl.org/perlre.html" target="_blank">http://perldoc.perl.org/perlre.html</a></u></span><span>), in documentation on PCRE used by Parser (see <span><u><a href="http://www.pcre.org/man.txt" target="_blank">http://www.pcre.org/man.txt</a></u></span></span><span>),  as well as in many other sources which also contain many practical examples. Most detailed information on regular expressions is given in <i>Regular Expressions</i> by J. Friddle, O'Reilly (ISBN 1-56592-257-3).
+<span>Detailed information on PCRE (Perl Compatible Regular Expressions) can be found in Perl documentation (see <span class="blue"><u><a href="http://perldoc.perl.org/perlre.html" target="_blank">http://perldoc.perl.org/perlre.html</a></u></span><span>), in documentation on PCRE used by Parser (see <span class="blue"><u><a href="http://www.pcre.org/man.txt" target="_blank">http://www.pcre.org/man.txt</a></u></span></span><span>),  as well as in many other sources which also contain many practical examples. Most detailed information on regular expressions is given in <i>Regular Expressions</i> by J. Friddle, O'Reilly (ISBN 1-56592-257-3).
 <br />
 
 <br />
@@ -51,7 +51,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>\</b><span><b>
+<p align="center"><span class="mono"><b>\</b><span><b>
 <br />
 </b></span></span></p></td><td align="left" valign="top" width="415">
 <span>general escape character with several uses, more detailed description is given later
@@ -59,7 +59,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>^</b><span>
+<p align="center"><span class="mono"><b>^</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>assert start of subject (or line, in multiline mode)
@@ -67,7 +67,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>$</b><span>
+<p align="center"><span class="mono"><b>$</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>assert end of subject (or line, in multiline mode)
@@ -75,7 +75,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>.</b><span>
+<p align="center"><span class="mono"><b>.</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>character class containing all characters; match any character except newline
@@ -83,7 +83,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>[...]</b><span>
+<p align="center"><span class="mono"><b>[...]</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>character class definition. Matches any of bracketed characters
@@ -91,7 +91,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>|</b><span>
+<p align="center"><span class="mono"><b>|</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>meta-character "OR": allows joining several patterns into one set of alternative matches
@@ -99,7 +99,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>(...)</b><span>
+<p align="center"><span class="mono"><b>(...)</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>delimit subpattern within general match pattern
@@ -107,7 +107,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>?</b><span>
+<p align="center"><span class="mono"><b>?</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>match 1 non-alphanumeric character
@@ -115,7 +115,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>*</b><span>
+<p align="center"><span class="mono"><b>*</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>match 0 or more of any characters, specified on the left
@@ -123,7 +123,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>+</b><span>
+<p align="center"><span class="mono"><b>+</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>match 1 or more of any characters, specified on the left
@@ -131,7 +131,7 @@ Outside square brackets, the meta-characters are as follows:
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>{min,&nbsp;max}</b><span>
+<p align="center"><span class="mono"><b>{min,&nbsp;max}</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>minimum/maximum quantifier: require minimum occurrences, allow maximum occurrences.
@@ -145,7 +145,7 @@ Part of a pattern that is in square brackets is called a</span><span> </span><sp
 
 <br />
 </span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>\</b><span>
+<p align="center"><span class="mono"><b>\</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>general escape character
@@ -153,7 +153,7 @@ Part of a pattern that is in square brackets is called a</span><span> </span><sp
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>^</b><span>
+<p align="center"><span class="mono"><b>^</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>negate the class, but only if the first character of class definition, any characters but those in class will match
@@ -161,7 +161,7 @@ Part of a pattern that is in square brackets is called a</span><span> </span><sp
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>-</b><span>
+<p align="center"><span class="mono"><b>-</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>indicates character range
@@ -169,7 +169,7 @@ Part of a pattern that is in square brackets is called a</span><span> </span><sp
 
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="113">
-<p align="center"><span><b>[...]</b><span>
+<p align="center"><span class="mono"><b>[...]</b><span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="415">
 <span>terminates the character class
@@ -192,23 +192,23 @@ A second use of backslash provides a way of encoding non-printing characters in 
 <br />
 
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\a&nbsp;&nbsp;&nbsp;</b></span><span>alarm, that is, the BEL character&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\a&nbsp;&nbsp;&nbsp;</b></span><span>alarm, that is, the BEL character&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\cx&nbsp;&nbsp;&nbsp;</b></span><span>"control-x", where x is any character&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\cx&nbsp;&nbsp;&nbsp;</b></span><span>"control-x", where x is any character&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\e&nbsp;&nbsp;&nbsp;</b></span><span>escape, the ASCII character&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\e&nbsp;&nbsp;&nbsp;</b></span><span>escape, the ASCII character&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\f&nbsp;&nbsp;&nbsp;</b></span><span>formfeed&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\f&nbsp;&nbsp;&nbsp;</b></span><span>formfeed&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;</b></span><span>newline&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;</b></span><span>newline&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\r&nbsp;&nbsp;&nbsp;</b></span><span>carriage return&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\r&nbsp;&nbsp;&nbsp;</b></span><span>carriage return&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\t&nbsp;&nbsp;&nbsp;</b></span><span>tab&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\t&nbsp;&nbsp;&nbsp;</b></span><span>tab&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\xhh&nbsp;&nbsp;&nbsp;</b></span><span>character with hex code hh&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\xhh&nbsp;&nbsp;&nbsp;</b></span><span>character with hex code hh&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\ddd&nbsp;&nbsp;&nbsp;</b></span><span>character with octal code ddd&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\ddd&nbsp;&nbsp;&nbsp;</b></span><span>character with octal code ddd&nbsp;&nbsp;&nbsp;
 <br />
 
 <br />
@@ -216,29 +216,29 @@ The third use of backslash is for specifying generic character types:
 <br />
 
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\d&nbsp;&nbsp;&nbsp;</b></span><span>any decimal digit [0-9]&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\d&nbsp;&nbsp;&nbsp;</b></span><span>any decimal digit [0-9]&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\s&nbsp;&nbsp;&nbsp;</b></span><span>any white space character&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\s&nbsp;&nbsp;&nbsp;</b></span><span>any white space character&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\w&nbsp;&nbsp;&nbsp;</b></span><span>any "word" character&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\w&nbsp;&nbsp;&nbsp;</b></span><span>any "word" character&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\D&nbsp;\S&nbsp;\W&nbsp;&nbsp;&nbsp;</b></span><span>NOT </span><span><b>\d&nbsp;\s&nbsp;\w</b></span><span>&nbsp;&nbsp;&nbsp;
-<br />
-
-<br />
-The fourth use of backslash is for certain simple assertions. An assertion specifies a condition that has to be met at a particular point in a match, without consuming any characters from the subject string. These assertions may not appear in character classes (but note that "</span><span><b>\b</b></span><span>" has a different meaning, namely the backspace character, inside a character class).
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\D&nbsp;\S&nbsp;\W&nbsp;&nbsp;&nbsp;</b></span><span>NOT </span><span class="mono"><b>\d&nbsp;\s&nbsp;\w</b></span><span>&nbsp;&nbsp;&nbsp;
 <br />
 
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\b&nbsp;&nbsp;&nbsp;</b></span><span>word boundary&nbsp;&nbsp;&nbsp;
+The fourth use of backslash is for certain simple assertions. An assertion specifies a condition that has to be met at a particular point in a match, without consuming any characters from the subject string. These assertions may not appear in character classes (but note that "</span><span class="mono"><b>\b</b></span><span>" has a different meaning, namely the backspace character, inside a character class).
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\B&nbsp;&nbsp;&nbsp;</b></span><span>not a word boundary&nbsp;&nbsp;&nbsp;
+
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\A&nbsp;&nbsp;&nbsp;</b></span><span>start of subject (independent of multiline mode)&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\b&nbsp;&nbsp;&nbsp;</b></span><span>word boundary&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\Z&nbsp;&nbsp;&nbsp;</b></span><span>end of subject or newline at end (independent of multiline mode)&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\B&nbsp;&nbsp;&nbsp;</b></span><span>not a word boundary&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;\z&nbsp;&nbsp;&nbsp;</b></span><span>end of subject (independent of multiline mode)
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\A&nbsp;&nbsp;&nbsp;</b></span><span>start of subject (independent of multiline mode)&nbsp;&nbsp;&nbsp;
+<br />
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\Z&nbsp;&nbsp;&nbsp;</b></span><span>end of subject or newline at end (independent of multiline mode)&nbsp;&nbsp;&nbsp;
+<br />
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;\z&nbsp;&nbsp;&nbsp;</b></span><span>end of subject (independent of multiline mode)
 <br />
 </span></span><br />
 

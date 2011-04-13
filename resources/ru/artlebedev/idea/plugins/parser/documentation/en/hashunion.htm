@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>union. Joining hashes</title>
+    <title>union. Joining hashes</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,24 +15,24 @@
   <tr>
     <td>
       
-<span><b>union. Joining hashes
+<span class="h1"><b>union. Joining hashes
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^hash_a.union[hash_b]
+<span class="mono"><b>^hash_a.union[hash_b]
 <br />
 </b><span>
 <br />
-The method joins two hashes. It returns hash containing all keys from </span><span><b>$hash_a</b></span><span> and those keys from </span><span><b>$hash_b</b></span><span>, which are absent in </span><span><b>$hash_a</b></span><span>. The result has to be assigned to a new hash.
+The method joins two hashes. It returns hash containing all keys from </span><span class="mono"><b>$hash_a</b></span><span> and those keys from </span><span class="mono"><b>$hash_b</b></span><span>, which are absent in </span><span class="mono"><b>$hash_a</b></span><span>. The result has to be assigned to a new hash.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 Example</b></span><span><u>
 <br />
@@ -40,23 +40,23 @@ Example</b></span><span><u>
 <br />
 
 <br />
-</span><span><span><b>$man[
+</span><span class="mono"><span class="monoblue"><b>$man[
 <br />
-&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Jack</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span class="mono"><b>Jack</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span><b>22</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span class="mono"><b>22</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span><b>m</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span class="mono"><b>m</b><span class="monoblue"><b>]
 <br />
 ]
 <br />
 $woman[
 <br />
-&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Mary</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span class="mono"><b>Mary</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span><b>20</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span class="mono"><b>20</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.weight[</b></span></span><span><b>50</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.weight[</b></span></span><span class="mono"><b>50</b><span class="monoblue"><b>]
 <br />
 ]
 <br />
@@ -64,11 +64,11 @@ $union_hash[^man.union[$woman]]
 <br />
 </b></span></span><span>
 <br />
-&#133;will result in hash </span><span><b>$union_hash</b></span><span>:
+&#133;will result in hash </span><span class="mono"><b>$union_hash</b></span><span>:
 <br />
 
 <br />
-</span><span><b>$union_hash[
+</span><span class="mono"><b>$union_hash[
 <br />
 &nbsp;&nbsp;&nbsp;$.name[Jack]
 <br />

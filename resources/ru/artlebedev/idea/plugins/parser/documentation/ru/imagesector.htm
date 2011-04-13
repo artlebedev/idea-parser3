@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>sector. ��������� �������</title>
+    <title>sector. Рисование сектора</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,34 +15,34 @@
   <tr>
     <td>
       
-<span><b>sector. ��������� �������
+<span class="h1"><b>sector. Рисование сектора
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.sector(center&nbsp;x;center&nbsp;y;width;height;start&nbsp;in&nbsp;degrees;end&nbsp;in&nbsp;degrees;color)</b>&nbsp;<b>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^картинка.sector(center&nbsp;x;center&nbsp;y;width;height;start&nbsp;in&nbsp;degrees;end&nbsp;in&nbsp;degrees;color)</b>&nbsp;<b>&nbsp;&nbsp;&nbsp;
 <br />
-</b><span>����� ������ ������ � ��������� ����������� ������ ��������� �����. ��������� ������ ���������� ������ </span><span><b>arc</b></span><span>. 
+</b><span>Метод рисует сектор с заданными параметрами линией заданного цвета. Параметры метода аналогичны методу </span><span class="mono"><b>arc</b></span><span>. 
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+</b></span><span class="mono"><span class="monoblue"><b>$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
 <br />
 ^square.sector(50;50;40;40;0;90;0xFFFFFF)
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-� �������� ����� �������  ������ ������� � �������� � �������� (�� 0 �� 90 ��������) ���������� �������� 40 ��������. ������ ��������� ������ ������ �����.
+В браузере будет выведен  черный квадрат с сектором в четверть (от 0 до 90 градусов) окружности радиусом 40 пикселов. Сектор нарисован линией белого цвета.
 <br />
 </span></span><br />
 

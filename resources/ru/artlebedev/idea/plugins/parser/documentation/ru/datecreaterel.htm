@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. ������������� ����</title>
+    <title>create. Относительная дата</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,21 +11,44 @@
 <body>
 
 
-<span><b>������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>create. Относительная дата
 <br />
-</span><span><span><b>$now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^date::create(количество&nbsp;суток&nbsp;после&nbsp;EPOCH)</b><span><b>&nbsp;&nbsp;&nbsp;</b>
+<br />
+</span><span>
+<br />
+Конструктор с одним параметром предназначен для задания <b>относительных</b> значений дат. Имея объект класса </span><span class="mono"><b>date</b></span><span>, можно сформировать новый объект того же класса с датой, смещенной относительно исходной.
+<br />
+
+<br />
+</span><span class="h1"><b>Пример</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span class="mono"><span class="monoblue"><b>$now[^date::</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">now</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
 <br />
 $date_after_week[^date::create($now+7)]
 <br />
 </b></span></span><span>
 <br />
-� ������� ���������� ����, �� ������ ������� �������. 
+В примере получается дата, на неделю большая текущей. 
 <br />
 
 <br />
-�������� ������������ �� ����������� ������ ���� ����� ������. 
+Параметр конструктора не обязательно должен быть целым числом. 
 <br />
-</span><span><span><b>$date_after_three_hours[^date::create($now+3/24)]</b></span></span><span>
+</span><span class="mono"><span class="monoblue"><b>$date_after_three_hours[^date::create($now+3/24)]</b></span></span><span>
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>For MySQL</title>
+    <title>For MySQL</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,20 +15,20 @@
   <tr>
     <td>
       
-<span><b>For MySQL
+<span class="h1"><b>For MySQL
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>mysql://user:password@host[:port]|[/unix/socket]/database?
+<span class="mono">mysql://user:password@host[:port]|[/unix/socket]/database?
 <br />
-&nbsp;&nbsp;&nbsp;charset=value&amp;<i>&nbsp;</i><span><i>[value&nbsp;must&nbsp;be&nbsp;conversion&nbsp;for&nbsp;MySQL&nbsp;3.x/4.0&nbsp;or&nbsp;character&nbsp;set&nbsp;name&nbsp;for&nbsp;MySQL&nbsp;4.1+]</i></span><span><i>
+&nbsp;&nbsp;&nbsp;charset=value&amp;<i>&nbsp;</i><span style="font-family:Monospace; font-size:8pt; color:#000000"><i>[value&nbsp;must&nbsp;be&nbsp;conversion&nbsp;for&nbsp;MySQL&nbsp;3.x/4.0&nbsp;or&nbsp;character&nbsp;set&nbsp;name&nbsp;for&nbsp;MySQL&nbsp;4.1+]</i></span><span class="mono"><i>
 <br />
 </i>&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=charset&amp;<b>
 <br />
@@ -40,7 +40,7 @@
 <br />
 &nbsp;&nbsp;&nbsp;autocommit=1&amp;
 <br />
-&nbsp;&nbsp;&nbsp;multi_statements=0</span><span><b><i> [3.3.0]</i></b></span><span>
+&nbsp;&nbsp;&nbsp;multi_statements=0</span><span><b><i> [3.3.0]</i></b></span><span class="mono">
 <br />
 </span><span>
 <br />
@@ -48,57 +48,57 @@ Optional parameters are:
 <br />
 
 <br />
-</span><span>Port</span><span> is number of port used by database server. One can use:
+</span><span class="mono">Port</span><span> is number of port used by database server. One can use:
 <br />
-</span><span>user:password@hostname:port_number/database</span><span>.
-<br />
-
-<br />
-One can also replace </span><span>hostname</span><span> and </span><span>port_number</span><span> with path to UNIX socket in square brackets (UNIX socket is a magical set of characters (path), which your administrator may tell you, provided you yourself are not the administrator in the flesh. This socket may be used to communicate with server):
+</span><span class="mono">user:password@hostname:port_number/database</span><span>.
 <br />
 
 <br />
-</span><span>user:password@[/unix/socket]/database
+One can also replace </span><span class="mono">hostname</span><span> and </span><span class="mono">port_number</span><span> with path to UNIX socket in square brackets (UNIX socket is a magical set of characters (path), which your administrator may tell you, provided you yourself are not the administrator in the flesh. This socket may be used to communicate with server):
+<br />
+
+<br />
+</span><span class="mono">user:password@[/unix/socket]/database
 <br />
 </span><span>
 <br />
-</span><span>charset</span><span>-</span><span>right after connection executes "</span><span><span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/charset-connection.html" target="_blank">SET CHARACTER SET value</a></u></span></span><span>";</span><span>
+</span><span class="mono">charset</span><span>-</span><span>right after connection executes "</span><span class="mono"><span class="monoblue"><u><a href="http://dev.mysql.com/doc/refman/5.0/en/charset-connection.html" target="_blank">SET CHARACTER SET value</a></u></span></span><span>";</span><span class="mono">
 <br />
 <a href="app3clientcharset.htm">ClientCharset</a></span><span>-specifies the charset, in which Parser must communicate with SQL server. Conversion will be done by driver;
 <br />
-</span><span>timeout</span><span>-specifies value of parameter </span><span><b>Connect&nbsp;timeout</b></span><span> in seconds;
+</span><span class="mono">timeout</span><span>-specifies value of parameter </span><span class="mono"><b>Connect&nbsp;timeout</b></span><span> in seconds;
 <br />
-</span><span>compress</span><span>-mode of compressing traffic between server and client;
+</span><span class="mono">compress</span><span>-mode of compressing traffic between server and client;
 <br />
-</span><span>named_pipe</span><span>-use named pipes to connect to MySQL-server, working under Windows NT;
+</span><span class="mono">named_pipe</span><span>-use named pipes to connect to MySQL-server, working under Windows NT;
 <br />
-</span><span>autocommit</span><span>-if set to 0 after connection executes "</span><span><span><u><a href="http://dev.mysql.com/doc/refman/5.0/en/commit.html" target="_blank">SET AUTOCOMMIT=0</a></u></span></span><span>";<b><i>
+</span><span class="mono">autocommit</span><span>-if set to 0 after connection executes "</span><span class="mono"><span class="monoblue"><u><a href="http://dev.mysql.com/doc/refman/5.0/en/commit.html" target="_blank">SET AUTOCOMMIT=0</a></u></span></span><span>";<b><i>
 <br />
-</i></b></span><span>multi_statements</span><span>-if set to </span><span>1, the single SQL query can contains more then one SQL statements separated by ";" character</span><span> (</span><span><i>character ";" must be </i><i><a href="stringlit.htm">escaped</a></i><i> by character "^"</i></span><span>).
+</i></b></span><span class="mono">multi_statements</span><span>-if set to </span><span>1, the single SQL query can contains more then one SQL statements separated by ";" character</span><span><i>character ";" must be </i><i><a href="stringlit.htm">escaped</a></i><i> by character "^"</i></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">).
 <br />
 </span><span>
 <br />
 
 <br />
-</span><span><b>Example: transcoding by </b><b>SQL </b><b>server (</b><b>it works with many character sets but </b><b>require</b><b>s</b><b> </b><b>MySQL version </b><b>4.1 or higher)
+</span><span class="h1"><b>Example: transcoding by </b><b>SQL </b><b>server (</b><b>it works with many character sets but </b><b>require</b><b>s</b><b> </b><b>MySQL version </b><b>4.1 or higher)
 <br />
-</b></span><span>MySQL server version 4.1 or higher can transcode data in different ways itself so it is recommended to use these server abilities using </span><span>charset</span><span> option and don't use </span><span>ClientCharset</span><span> option at all</span><span>. With MySQL server version 4.1 or higher you can even store data in different tables using different character sets but we recommend to store it in </span><span>UTF-8</span><span>.
+</b></span><span>MySQL server version 4.1 or higher can transcode data in different ways itself so it is recommended to use these server abilities using </span><span class="mono">charset</span><span> option and don't use </span><span class="mono">ClientCharset</span><span> option at all</span><span>. With MySQL server version 4.1 or higher you can even store data in different tables using different character sets but we recommend to store it in </span><span class="mono">UTF-8</span><span>.
 <br />
 
 <br />
-Assume, data in your database is stored in</span><span> </span><span>UTF-8</span><span>, while pages are in </span><span>windows-1257</span><span>, </span><span>connect string should look like this:
+Assume, data in your database is stored in</span><span> </span><span class="mono">UTF-8</span><span>, while pages are in </span><span class="mono">windows-1257</span><span>, </span><span>connect string should look like this:
 <br />
-</span><span>mysql://user:password@host/database?charset=cp1257
+</span><span class="mono">mysql://user:password@host/database?charset=cp1257
 <br />
 </span><span>
 <br />
-In this case right after connection to the server Parser will executes command </span><span>"<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1257</b>"</span><span> and server will transcode received data from </span><span>cp1257</span><span> to character set used for storing data in requested database/table/column and transcode it back while send response.
+In this case right after connection to the server Parser will executes command </span><span class="mono">"<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1257</b>"</span><span> and server will transcode received data from </span><span class="mono">cp1257</span><span> to character set used for storing data in requested database/table/column and transcode it back while send response.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-</b></span><span><i>Note: in this case you should specify character set used for storing pages.</i></span><span><b>
+</b></span><span><i>Note: in this case you should specify character set used for storing pages.</i></span><span class="h1"><b>
 <br />
-</b></span><span><i>Note: </i><i>this option executes the MySQL command so you must use </i><span><i><u><a href=""http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">MySQL server character set names</a></u></i></span></span><span><i> which are not equal to Parser character set names, defined in </i><i><a href=parserconfmethod.htm">configuration file</a></i><i>.</i></span><span><b>
+</b></span><span><i>Note: </i><i>this option executes the MySQL command so you must use </i><span><i><u><a href=""http://dev.mysql.com/doc/refman/4.1/en/charset-charsets.html" target="_blank">MySQL server character set names</a></u></i></span></span><span><i> which are not equal to Parser character set names, defined in </i><i><a href=parserconfmethod.htm">configuration file</a></i><i>.</i></span><span class="h1"><b>
 <br />
 
 <br />
@@ -106,23 +106,23 @@ In this case right after connection to the server Parser will executes command <
 <br />
 Example: DB in koi</b><b>8-r</b><b>, pages </b><b>are </b><b>in win</b><b>dows-1251</b><b>, transcoding by </b><b>SQL </b><b>server (</b><b>MySQL 3</b><b>.</b><b>x</b><b> and 4.</b><b>0</b><b>)
 <br />
-</b></span><span>MySQL server version 3.x and 4.0 can't transcode data in arbitrary ways but can transcode it in most common for Russian language case when data stored in </span><span>koi8-r</span><span>, while pages are in </span><span>windows-1251</span><span>.
+</b></span><span>MySQL server version 3.x and 4.0 can't transcode data in arbitrary ways but can transcode it in most common for Russian language case when data stored in </span><span class="mono">koi8-r</span><span>, while pages are in </span><span class="mono">windows-1251</span><span>.
 <br />
 
 <br />
-In this case you can also transcode data with driver transcode functions using </span><span>ClientCharset</span><span> option (see below), however it's much better to do it using </span><span>charset</span><span> option with </span><span>cp1251_koi8</span><span> value</span><span>: 
+In this case you can also transcode data with driver transcode functions using </span><span class="mono">ClientCharset</span><span> option (see below), however it's much better to do it using </span><span class="mono">charset</span><span> option with </span><span class="mono">cp1251_koi8</span><span> value</span><span>: 
 <br />
-</span><span>mysql://user:password@host/database?charset=cp1251_koi8
+</span><span class="mono">mysql://user:password@host/database?charset=cp1251_koi8
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-</b></span><span>In this case right after connection to the server Parser will executes command </span><span>"<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251_koi8</b>".
+</b></span><span>In this case right after connection to the server Parser will executes command </span><span class="mono">"<b>SET&nbsp;CHARACTER&nbsp;SET&nbsp;cp1251_koi8</b>".
 <br />
-</span><span>MySQL server version 3.x and 4.0 understands this option in different way, it will transcode receiving data from </span><span>cp1251</span><span> to </span><span>koi8-r</span><span> and transcode sending data from </span><span>koi8-r</span><span> to </span><span>cp1251</span><span>.</span><span><b>
+</span><span>MySQL server version 3.x and 4.0 understands this option in different way, it will transcode receiving data from </span><span class="mono">cp1251</span><span> to </span><span class="mono">koi8-r</span><span> and transcode sending data from </span><span class="mono">koi8-r</span><span> to </span><span class="mono">cp1251</span><span>.</span><span class="h1"><b>
 <br />
 
 <br />
-</b></span><span><i>Note: </i><i>for MySQL server version 3.x and 4.0 </i><i>value defines transcode directions, herewith server </i><i>is not supported other values</i><i>, for example </i><i>koi8_cp1251</i><i>.</i></span><span><b>
+</b></span><span><i>Note: </i><i>for MySQL server version 3.x and 4.0 </i><i>value defines transcode directions, herewith server </i><i>is not supported other values</i><i>, for example </i><i>koi8_cp1251</i><i>.</i></span><span class="h1"><b>
 <br />
 
 <br />
@@ -130,21 +130,21 @@ In this case you can also transcode data with driver transcode functions using <
 <br />
 Example: DB in win</b><b>dows-1251</b><b>, </b><b>pages are in koi8-r, </b><b>transcoding by </b><b>Parser </b><b>driver (for any version of </b><b>MySQL </b><b>server)
 <br />
-</b></span><span>In some cases it's unable to use MySQL server transcode functions. In this case you can use driver transcode functions with </span><span>ClientCharset</span><span> option</span><span>.
+</b></span><span>In some cases it's unable to use MySQL server transcode functions. In this case you can use driver transcode functions with </span><span class="mono">ClientCharset</span><span> option</span><span>.
 <br />
-Assume, data in your database is stored in </span><span>windows-1251</span><span>,  </span><span>while pages are in </span><span>koi8-r</span><span>, connect string should look like this:
+Assume, data in your database is stored in </span><span class="mono">windows-1251</span><span>,  </span><span>while pages are in </span><span class="mono">koi8-r</span><span>, connect string should look like this:
 <br />
-</span><span>mysql://user:password@host/database?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251
+</span><span class="mono">mysql://user:password@host/database?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251
 <br />
 </span><span>
 <br />
-For Parser code all received data will be automatically converted from </span><span>windows-1251</span><span> to </span><span><b><a href="requestcharset.htm">$request:charset</a></b></span><span> (</span><span>koi8-r</span><span> in this example).
+For Parser code all received data will be automatically converted from </span><span class="mono">windows-1251</span><span> to </span><span class="mono"><b><a href="requestcharset.htm">$request:charset</a></b></span><span> (</span><span class="mono">koi8-r</span><span> in this example).
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 </b></span><span><i>Note: in this case you should specify character set used for storing data in </i><i>database</i><i>.</i></span><span>
 <br />
-</span><span><i>Note: </i><i>in this option you must use Parser character set names, defined in </i><i><a href="parserconfmethod.htm">configuration file</a></i><i>.</i></span><span><b>
+</span><span><i>Note: </i><i>in this option you must use Parser character set names, defined in </i><i><a href="parserconfmethod.htm">configuration file</a></i><i>.</i></span><span class="h1"><b>
 <br />
 </b></span><span><i> </i></span><span>
 <br />

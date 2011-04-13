@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>memory. ���������� � ������ ��� ��������� �������� ������</title>
+    <title>memory. Информация о памяти под контролем сборщика мусора</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,109 +11,119 @@
 <body>
 
 
-<span><b>memory. ���������� � ������ ��� ��������� �������� ������</b><b> </b><span><b><i>[3.1]</i></b> </span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>memory. Информация о памяти под контролем сборщика мусора</b><b> </b><span><b><i>[3.1]</i></b> </span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span>��� ���� - <a href="hash.htm">���</a> � ����������� � ������, ����������� ��� ��������� �������� ������.
+<span>Это поле - <a href="hash.htm">хеш</a> с информацией о памяти, находящейся под контролем сборщика мусора.
 <br />
 
 <br />
 <table border="0" cellpadding="1"><tr><td align="left" valign="top" width="205">
-<span><b><i>����</i></b>
+<span><b><i>Поле</i></b>
 <br />
 </span></td><td align="left" valign="top" width="225">
-<span><b><i>�������� (� ����������)</i></b>
+<span><b><i>Значение (в килобайтах)</i></b>
 <br />
 </span></td><td align="left" valign="top" width="196">
-<span><b><i>������</i></b>
+<span><b><i>Детали</i></b>
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="205">
 <span><b>used</b>
 <br />
 </span></td><td align="left" valign="top" width="225">
-<span>������
+<span>Занято
 <br />
 </span></td><td align="left" valign="top" width="196">
-<span>� ��� ����� �� ������� ������ c�������� ������ ������ �������� ������.
+<span>В это число не включен размер cлужебных данных самого сборщика мусора.
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="205">
 <span><b>free</b>
 <br />
 </span></td><td align="left" valign="top" width="225">
-<span>��������
+<span>Свободно
 <br />
 </span></td><td align="left" valign="top" width="196">
-<span>��������� ������ ������ ����� ���������������.
+<span>Свободная память скорее всего фрагментирована.
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="205">
 <span><b>ever_allocated_since_compact</b>
 <br />
 </span></td><td align="left" valign="top" width="225">
-<span>���� �������� � ������� ��������� ������ ������. ��. <span><b><a href="memorycompact.htm">memory:compact</a></b></span><span>.
+<span>Было выделено с момента последней сборки мусора. См. <span class="mono"><b><a href="memorycompact.htm">memory:compact</a></b></span><span>.
 <br />
 </span></span></td><td align="left" valign="top" width="196">
-<span>����� �������� ������ ��� ����� ������ ������.
+<span>Между сборками мусора это число только растет.
 <br />
-����� ������������ ������ ��� ������ ������ �� ���� �� ������, ������ ������ ������.
+Факты освобождения памяти без сборки мусора на него не влияют, только сборки мусора.
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="205">
 <span><b>ever_allocated_since_start</b>
 <br />
 </span></td><td align="left" valign="top" width="225">
-<span>���� �������� �� ��� ����� ��������� �������
+<span>Было выделено за все время обработки запроса
 <br />
 </span></td><td align="left" valign="top" width="196">
-<span>��� ����� ������ ������.
+<span>Это число только растет.
 <br />
-�� ����� ������ ������, �� ������������ ������ ����� �������� ������ �� ���� �� ������.
+Ни факты сборки мусора, ни освобождения памяти между сборками мусора на него не влияют.
 <br />
 </span></td></tr></table>
 <br />
 
 <br />
-<span><b>������������� ������ �������
+<span class="h1"><b>Рекомендуемый способ анализа
 <br />
-</b></span><span>�������� �������� ������
+</b></span><span>Временно добавьте вызовы…
 <br />
-</span><span><b>^musage[before&nbsp;XXX]
+</span><span class="mono"><b>^musage[before&nbsp;XXX]
 <br />
 ^musage[</b><b>after&nbsp;XXX</b><b>]
 <br />
 </b></span><span>
 <br />
-������� ������������� ��� ����� ��� ����� �������
+…вокруг интересующего вас блока вот этого метода…
 <br />
 
 <br />
-</span><span><span><b>@musage[comment][v;now;prefix;message;line]
+</span><span class="mono"><span class="monoblue"><b>@musage[comment][v;now;prefix;message;line]
 <br />
 $v[$status:memory]
 <br />
-$now[^</b></span></span><span><span><b><a href="datenow.htm">date::now</a></b></span></span><span><span><b>[]]
+$now[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">date::now</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
 <br />
-$prefix[[^now.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]]&nbsp;</b></span></span><span><span><b><a href="envhttpfield.htm">$env:REMOTE_ADDR</a></b></span></span><span><span><b>:&nbsp;$comment]
+$prefix[[^now.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><a href="envhttpfield.htm">$env:REMOTE_ADDR</a></b></span></span><span class="mono"><span class="monoblue"><b>:&nbsp;$comment]
 <br />
-$message[$v.used&nbsp;$v.free&nbsp;$v.ever_allocated_since_compact&nbsp;$v.ever_allocated_since_start&nbsp;</b></span></span><span><span><b><a href="requesturi.htm">$request:uri</a></b></span></span><span><span><b>]
+$message[$v.used&nbsp;$v.free&nbsp;$v.ever_allocated_since_compact&nbsp;$v.ever_allocated_since_start&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><a href="requesturi.htm">$request:uri</a></b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
-$line[$prefix&nbsp;$message&nbsp;</b></span></span><span><span><b><a href="stringlit.htm">^#0A</a></b></span></span><span><span><b>]
+$line[$prefix&nbsp;$message&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><a href="stringlit.htm">^#0A</a></b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
-^line.</b></span></span><span><span><b><a href="stringsave.htm">save</a></b></span></span><span><span><b>[append;/musage.log]
+^line.</b></span></span><span class="mono"><span class="monoblue"><b><a href="stringsave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[append;/musage.log]
 <br />
-$</b></span></span><span><span><b><a href="definemethod.htm">result</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="definemethod.htm">result</a></b></span></span><span class="mono"><span class="monoblue"><b>[]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-�� ��������������� ������.
+…и проанализируйте журнал.
 <br />
 
 <br />
-<i>�����: � ���� ������ Parser ����������� � ������������ ������� �������������� ����� ������ �� ���� �������������</i><i>. </i><i>������� ���� �������, ����� � </i></span><span><b><i>used</i></b></span><span><i> </i><i>� </i></span><span><b><i>free</i></b></span><span><i>, </i><i>�������������.</i><i> </i><i>��� ���������.
+<i>Важно: в ходе работы Parser захватывает у операционной системы дополнительные блоки памяти по мере необходимости</i><i>. </i><i>Поэтому есть моменты, когда и </i></span><span class="mono"><b><i>used</i></b></span><span><i> </i><i>и </i></span><span class="mono"><b><i>free</i></b></span><span><i>, </i><i>увеличиваются.</i><i> </i><i>Это нормально.
 <br />
 </i>
 <br />
-<i>����������: ��� ������ ������� �� ������������� ������������ ���-������������.</i>
+<i>Примечание: для записи журнала не рекомендуется использовать веб-пространство.</i>
 <br />
 </span></span><br />
 

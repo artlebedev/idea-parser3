@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. Creating an empty hash or copying existing hash</title>
+    <title>create. Creating an empty hash or copying existing hash</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,24 +15,24 @@
   <tr>
     <td>
       
-<span><b>create. Creating an empty hash or copying existing hash
+<span class="h1"><b>create. Creating an empty hash or copying existing hash
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^hash::create[]
+<span class="mono"><b>^hash::create[]
 <br />
 ^hash::create[existing&nbsp;hash</b><b>&nbsp;or&nbsp;</b><b><a href="hashfileclass.htm">hashfile</a></b><b>]
 <br />
 </b><span>
 <br />
-If </span><span><b>existing&nbsp;hash</b></span><span> or </span><span><b>hashfile</b></span><span> is not specified, an empty hash will be created. Otherwise, the constructor will make a copy of it.
+If </span><span class="mono"><b>existing&nbsp;hash</b></span><span> or </span><span class="mono"><b>hashfile</b></span><span> is not specified, an empty hash will be created. Otherwise, the constructor will make a copy of it.
 <br />
 
 <br />
@@ -40,7 +40,7 @@ An empty hash is needed when we are going to dynamically fill it with data, e.g.
 <br />
 
 <br />
-</span><span><span><b>$dyn[^hash::create[]]
+</span><span class="mono"><span class="monoblue"><b>$dyn[^hash::create[]]
 <br />
 ^for[i](1;10){
 <br />
@@ -50,7 +50,7 @@ An empty hash is needed when we are going to dynamically fill it with data, e.g.
 <br />
 </b></span></span><span>
 <br />
-Before performing loop </span><span><b>for</b></span><span>, we have defined what exactly we are going to fill with data.
+Before performing loop </span><span class="mono"><b>for</b></span><span>, we have defined what exactly we are going to fill with data.
 <br />
 
 <br />
@@ -58,13 +58,13 @@ If we are planning to change a hash's content intensively, but still want to pre
 <br />
 
 <br />
-</span><span><span><b>$pets[
+</span><span class="mono"><span class="monoblue"><b>$pets[
 <br />
-&nbsp;&nbsp;&nbsp;$.pet[</b></span></span><span><b>Dog</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.pet[</b></span></span><span class="mono"><b>Dog</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span><b>Bone</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span class="mono"><b>Bone</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.good[</b></span></span><span><b>Collar</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.good[</b></span></span><span class="mono"><b>Collar</b><span class="monoblue"><b>]
 <br />
 ]
 <br />
@@ -72,7 +72,7 @@ $pets_copy[^hash::create[$pets]]
 <br />
 </b></span></span><span>
 <br />
-<i>Note: field </i></span><span><b>_default&nbsp;</b></span><span><i>is also copied.</i><b><i> [3.1.4]</i></b>
+<i>Note: field </i></span><span class="mono"><b>_default&nbsp;</b></span><span><i>is also copied.</i><b><i> [3.1.4]</i></b>
 <br />
 </span></span><br />
 

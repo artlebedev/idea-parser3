@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>while. Loop with condition</title>
+    <title>while. Loop with condition</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,58 +15,58 @@
   <tr>
     <td>
       
-<span><b>while. Loop with condition
+<span class="h1"><b>while. Loop with condition
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^while(condition){body}
+<span class="mono"><b>^while(condition){body}
 <br />
-^while(condition){body}[delimiter]&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.5]</i></b></span><span><b>
+^while(condition){body}[delimiter]&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.5]</i></b></span><span class="mono"><b>
 <br />
-^while(condition){body}{delimiter}&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.5]</i></b></span><span><b>
+^while(condition){body}{delimiter}&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.5]</i></b></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-Operator </span><span><b>while</b></span><span> repeats the body while condition is true. If provided condition is initially false, the body will not be executed at all.
+Operator </span><span class="mono"><b>while</b></span><span> repeats the body while condition is true. If provided condition is initially false, the body will not be executed at all.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-</b></span><span><b>Delimiter</b></span><span> is string or code to be implemented before every non-empty body, except the first.
+</b></span><span class="mono"><b>Delimiter</b></span><span> is string or code to be implemented before every non-empty body, except the first.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-</b></span><span>You can force finish the loop using </span><span><span><b><a href="opbreak.htm">break</a></b></span></span><span> operator or finish current step and go to next one using </span><span><span><b><a href="opcontinue.htm">continue</a></b></span></span><span> operator.</span><span><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+</b></span><span>You can force finish the loop using </span><span class="mono"><span class="monoblue"><b><a href="opbreak.htm">break</a></b></span></span><span> operator or finish current step and go to next one using </span><span class="mono"><span class="monoblue"><b><a href="opcontinue.htm">continue</a></b></span></span><span> operator.</span><span class="mono"><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-Example</b></span><span><span><b>
+Example</b></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&lt;h2&gt;TEN&nbsp;FAT&nbsp;SAUSAGES&lt;/h2&gt;
+</b></span></span><span class="mono"><b>&lt;h2&gt;TEN&nbsp;FAT&nbsp;SAUSAGES&lt;/h2&gt;
 <br />
-</b><span><b>$sausages(10)
+</b><span class="monoblue"><b>$sausages(10)
 <br />
 ^while($sausages&nbsp;&gt;&nbsp;0){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</b><span><b>$sausages</b></span></span><span><b>&nbsp;fat&nbsp;sausages&nbsp;sizzling&nbsp;in&nbsp;a&nbsp;pan&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</b><span class="monoblue"><b>$sausages</b></span></span><span class="mono"><b>&nbsp;fat&nbsp;sausages&nbsp;sizzling&nbsp;in&nbsp;a&nbsp;pan&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;$sausages</b></span></span><span><b>&nbsp;fat&nbsp;sausages&nbsp;sizzling&nbsp;in&nbsp;a&nbsp;pan&lt;br&nbsp;/&gt;
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;$sausages</b></span></span><span class="mono"><b>&nbsp;fat&nbsp;sausages&nbsp;sizzling&nbsp;in&nbsp;a&nbsp;pan&lt;br&nbsp;/&gt;
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;One&nbsp;went&nbsp;pop!&lt;br&nbsp;/&gt;
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;other&nbsp;went&nbsp;bang!&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^sausages.</b></span></span><span><span><b><a href="intdoubleincetc.htm">dec</a></b></span></span><span><span><b>(2)
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;^sausages.</b></span></span><span class="mono"><span class="monoblue"><b><a href="intdoubleincetc.htm">dec</a></b></span></span><span class="mono"><span class="monoblue"><b>(2)
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;There&nbsp;were&nbsp;</b><span><b>$sausages</b></span></span><span><b>&nbsp;fat&nbsp;sausages&nbsp;sizzling&nbsp;in&nbsp;a&nbsp;pan&lt;/p&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;There&nbsp;were&nbsp;</b><span class="monoblue"><b>$sausages</b></span></span><span class="mono"><b>&nbsp;fat&nbsp;sausages&nbsp;sizzling&nbsp;in&nbsp;a&nbsp;pan&lt;/p&gt;
 <br />
-</b><span><b>}[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]</b></span></span><span>
+</b><span class="monoblue"><b>}[</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>]</b></span></span><span>
 <br />
 </span></span><br />
 

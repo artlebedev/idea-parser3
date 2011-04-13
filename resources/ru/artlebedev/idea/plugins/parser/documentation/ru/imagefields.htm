@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>����</title>
+    <title>Поля</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,145 +15,145 @@
   <tr>
     <td>
       
-<span><b>����
+<span class="h1"><b>Поля
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
 <span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="139">
-<span><b>$��������.src</b><span>
+<span class="mono"><b>$картинка.src</b><span class="h1">
 <br />
 </span></span></td><td align="left" valign="top" width="282">
-<span>- ��� �����<span>
+<span>- имя файла<span class="h1">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="139">
-<span><b>$��������.width</b><span>
+<span class="mono"><b>$картинка.width</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="282">
-<span>- ������
+<span>- ширина
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="139">
-<span><b>$��������.height</b><span>
+<span class="mono"><b>$картинка.height</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="282">
-<span>- ������
+<span>- высота
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="139">
-<span><b>$��������.</b><b>exif</b><span>
+<span class="mono"><b>$картинка.</b><b>exif</b><span class="h1">
 <br />
 </span></span></td><td align="left" valign="top" width="282">
-<span>- <a href="hash.htm">���</a> � EXIF �����������<span><i>
+<span>- <a href="hash.htm">хеш</a> с EXIF информацией<span class="h1"><i>
 <br />
 </i></span></span></td></tr></table>
 <br />
 
 <br />
-������� <span><b>$��������.exif</b></span><span> �������� �������� EXIF �����, ��. ������������ (<span><u><a href="http://www.exif.org/specifications.html" target="_blank">http://www.exif.org/specifications.html</a></u></span></span><span>). �������� ������ ����� </span><span><b>string</b></span><span>, </span><span><b>int</b></span><span>, </span><span><b>double</b></span><span>, </span><span><b>date</b></span><span>. ����� ��� ����� ��������� ��������, ��� ����������� � ���, ������� �������� �������� ����� (0�����������_��������-1).</span><span><i>
+Ключами <span class="mono"><b>$картинка.exif</b></span><span> являются названия EXIF тегов, см. спецификацию (<span class="blue"><u><a href="http://www.exif.org/specifications.html" target="_blank">http://www.exif.org/specifications.html</a></u></span></span><span>). Значения бывают типов </span><span class="mono"><b>string</b></span><span>, </span><span class="mono"><b>int</b></span><span>, </span><span class="mono"><b>double</b></span><span>, </span><span class="mono"><b>date</b></span><span>. Когда тег имеет несколько значений, они считываются в хеш, ключами которого являются цифры (0…количество_значений-1).</span><span class="h1"><i>
 <br />
 </i></span><span>
 <br />
-����� ������������ EXIF ���� (��. ����������� � ������������):
+Часто используемые EXIF теги (см. подробности в спецификации):
 <br />
 <table border="0" cellpadding="1"><tr><td align="left" valign="top" width="104">
-<span><b>���</b>
+<span><b>Тег</b>
 <br />
 </span></td><td align="left" valign="top" width="74">
-<span><b>���</b>
+<span><b>Тип</b>
 <br />
 </span></td><td align="left" valign="top" width="295">
-<span><b>��������</b>
+<span><b>Описание</b>
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="104">
 <span>Make
 <br />
 </span></td><td align="left" valign="top" width="74">
-<span><b>string</b><span>
+<span class="mono"><b>string</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="295">
-<span>������������� ������������
+<span>Производитель фотоаппарата
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="104">
 <span>Model
 <br />
 </span></td><td align="left" valign="top" width="74">
-<span><b>string</b><span>
+<span class="mono"><b>string</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="295">
-<span>������ ������������
+<span>Модель фотоаппарата
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="104">
 <span>DateTimeOriginal
 <br />
 </span></td><td align="left" valign="top" width="74">
-<span><b>date</b><span>
+<span class="mono"><b>date</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="295">
-<span>���� � ����� ������
+<span>Дата и время съемки
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="104">
 <span>ExposureTime
 <br />
 </span></td><td align="left" valign="top" width="74">
-<span><b>double</b><span>
+<span class="mono"><b>double</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="295">
-<span>�������� � ��������
+<span>Выдержка в секундах
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="104">
 <span>FNumber
 <br />
 </span></td><td align="left" valign="top" width="74">
-<span><b>double</b><span>
+<span class="mono"><b>double</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="295">
-<span>������������� ����� F
+<span>Диафрагменное число F
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="104">
 <span>Flash
 <br />
 </span></td><td align="left" valign="top" width="74">
-<span><b>int</b><span>
+<span class="mono"><b>int</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="295">
-<span>0= �� ��������������
+<span>0= не использовалась
 <br />
-������ ��������=��������������
+другие значения=использовалась
 <br />
 </span></td></tr></table>
 <br />
 
 <br />
-<i>����������: ������� ������������� EXIF ����� �������� �� ��������  � ���������� ������� ���������.
+<i>Примечание: ключами нестандартных EXIF тегов являются их значения  в десятичной системе счисления.
 <br />
 </i>
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$photo[^image::</b></span></span><span><span><b><a href="imagemeasure.htm">measure</a></b></span></span><span><span><b>[photo.jpg]]
+</b></span><span class="mono"><span class="monoblue"><b>$photo[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagemeasure.htm">measure</a></b></span></span><span class="mono"><span class="monoblue"><b>[photo.jpg]]
 <br />
-</b></span></span><span><b>���&nbsp;�����:&nbsp;</b><span><b>$photo.src</b></span></span><span><b>&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>Имя&nbsp;файла:&nbsp;</b><span class="monoblue"><b>$photo.src</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-������&nbsp;�����������&nbsp;�&nbsp;��������:&nbsp;</b><span><b>$photo.width</b></span></span><span><b>&lt;br&nbsp;/&gt;
+Ширина&nbsp;изображения&nbsp;в&nbsp;пикселах:&nbsp;</b><span class="monoblue"><b>$photo.width</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-������&nbsp;�����������&nbsp;�&nbsp;��������:&nbsp;</b><span><b>$photo.height</b></span></span><span><b>&lt;br&nbsp;/&gt;
+Высота&nbsp;изображения&nbsp;в&nbsp;пикселах:&nbsp;</b><span class="monoblue"><b>$photo.height</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>$date_time_original[$photo.exif.DateTimeOriginal]
+</b><span class="monoblue"><b>$date_time_original[$photo.exif.DateTimeOriginal]
 <br />
 ^if(def&nbsp;$date_time_original){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;������&nbsp;������&nbsp;</b><span><b>^date_time_original.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]</b></span></span><span><b>&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Снимок&nbsp;сделан&nbsp;</b><span class="monoblue"><b>^date_time_original.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span class="mono"><span class="monoblue"><b>[]</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-����� �������� ��� �����, � ����� ������ � ������ �����������, ����������� � ���� �����. ���� ������ ��� ������ �������� �������������, ��������, ����� �������� ���� � ����� ������.
+Будет выведено имя файла, а также ширина и высота изображения, хранящегося в этом файле. Если снимок был сделан цифровым фотоаппаратом, вероятно, будет выведена дата и время съемки.
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>use. Linking modules</title>
+    <title>use. Linking modules</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,22 +15,22 @@
   <tr>
     <td>
       
-<span><b>use. Linking modules
+<span class="h1"><b>use. Linking modules
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^use[file]
+<span class="mono"><b>^use[file]
 <br />
 </b><span>
 <br />
-Operator </span><span><b>use</b></span><span> allows using a module from specified file. If path begins with symbol "</span><span>/</span><span>", it will be regarded as path from Web-space root. In any other case, Parser will look for the module by relative path first and then if nothing was found in directories specified in variable </span><span><b>$CLASS_PATH</b></span><span> in <a href="parserconfmethod.htm">Configuration method</a>. 
+Operator </span><span class="mono"><b>use</b></span><span> allows using a module from specified file. If path begins with symbol "</span><span class="mono">/</span><span>", it will be regarded as path from Web-space root. In any other case, Parser will look for the module by relative path first and then if nothing was found in directories specified in variable </span><span class="mono"><b>$CLASS_PATH</b></span><span> in <a href="parserconfmethod.htm">Configuration method</a>. 
 <br />
 
 <br />
@@ -40,7 +40,7 @@ Operator </span><span><b>use</b></span><span> allows using a module from specifi
 <br />
 The following construction can be used to link modules, too:
 <br />
-</span><span><b>@USE
+</span><span class="mono"><b>@USE
 <br />
 </b><b>filename</b><b>&nbsp;1
 <br />
@@ -50,13 +50,13 @@ The following construction can be used to link modules, too:
 <br />
 
 <br />
-The difference between these constructions lies in that </span><span><b>@USE</b></span><span> loads a module before a code is executed, while operator </span><span><b>use</b></span><span> can be called right from the script's body. 
+The difference between these constructions lies in that </span><span class="mono"><b>@USE</b></span><span> loads a module before a code is executed, while operator </span><span class="mono"><b>use</b></span><span> can be called right from the script's body. 
 <br />
 For example:
 <br />
 
 <br />
-</span><span><span><b>^if(condition){
+</span><span class="mono"><span class="monoblue"><b>^if(condition){
 <br />
 &nbsp;&nbsp;&nbsp;^use[module1]
 <br />
@@ -64,7 +64,7 @@ For example:
 <br />
 &nbsp;&nbsp;&nbsp;^use[module2]
 <br />
-}</b></span></span><span><b>
+}</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
@@ -72,7 +72,7 @@ For example:
 <br />
 </i>
 <br />
-We do recommend that you save the results of code's work by linking necessary modules with operator </span><span><b>use</b></span><span> within the code of operator </span><span><b><a href="opcache.htm">cache</a></b></span><span>.
+We do recommend that you save the results of code's work by linking necessary modules with operator </span><span class="mono"><b>use</b></span><span> within the code of operator </span><span class="mono"><b><a href="opcache.htm">cache</a></b></span><span>.
 <br />
 </span></span><br />
 

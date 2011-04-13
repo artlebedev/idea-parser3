@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��� ODBC</title>
+    <title>Для ODBC</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,74 +15,74 @@
   <tr>
     <td>
       
-<span><b>��� ODBC
+<span class="h1"><b>Для ODBC
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>odbc://������_����������_��������_������������_��_ODBC?
+<span class="mono">odbc://строка_соединения_смотрите_документацию_по_ODBC?
 <br />
-&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=���������&amp;&nbsp;<span><b><i>[3.1.2]</i></b></span><span><b>
+&nbsp;&nbsp;&nbsp;<a href="app3clientcharset.htm">ClientCharset</a>=кодировка&amp;&nbsp;<span><b><i>[3.1.2]</i></b></span><span class="mono"><b>
 <br />
 </b>&nbsp;&nbsp;&nbsp;autocommit=1&amp;&nbsp;</span><span><b><i>[3.3.0]</i></b><b><i>
 <br />
-&nbsp;&nbsp;&nbsp;</i></b></span><span>SQL=MSSQL|FireBird|Pervasive&nbsp;</span><span><b><i>[3.3.0]</i></b><b><i>
+&nbsp;&nbsp;&nbsp;</i></b></span><span class="mono">SQL=MSSQL|FireBird|Pervasive&nbsp;</span><span><b><i>[3.3.0]</i></b><b><i>
 <br />
 </i></b>
 <br />
-</span><span><a href="app3clientcharset.htm">ClientCharset</a></span><span> - ������ ���������, � ������� ���������� �������� � SQL-��������, ���������������� ���������� �������;
+</span><span class="mono"><a href="app3clientcharset.htm">ClientCharset</a></span><span> - задает кодировку, в которой необходимо общаться с SQL-сервером, перекодированием занимается драйвер;
 <br />
-</span><span>autocommit</span><span> - �� ��������� Parser ������������� ��������� </span><span>COMMIT</span><span> ����� ������� ������� ������������ �������. ���� ������� ����� </span><span>autocommit=0</span><span>, �� ����� ��������� ����� �������� � ��� �������, ���������� ������ ������ ��������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span> ����� ����������� � ������ ����� ����������.
+</span><span class="mono">autocommit</span><span> - по умолчанию Parser автоматически выполняет </span><span class="mono">COMMIT</span><span> после каждого успешно выполненного запроса. Если указать опцию </span><span class="mono">autocommit=0</span><span>, то такое поведение будет изменено и все запросы, написанные внутри одного оператора </span><span class="mono"><b><a href="opconnect.htm">connect</a></b></span><span> будут выполняться в рамках одной транзакции.
 <br />
-</span><span>SQL</span><span> - ���� �������, �� Parser ����� ������������ ��������� ��� ���������� ������� ��� ��������������� �������� � </span><span>limit/offset</span><span>. � ��������� ������ ������� �������� ������ �������� </span><span>MSSQL</span><span>, </span><span>Pervasive</span><span> � </span><span>FireBird</span><span>. ��� ������ ���� �������� SQL-������ �������������� ���� ���������� � ���� </span><span>�TOP&nbsp;(limit+offset)�</span><span>, ��� ���������� - </span><span>�FIRST&nbsp;(limit)&nbsp;SKIP&nbsp;(offset)�</span><span>.
-<br />
-
-<br />
-����������� ���� ����, ����� ������� ������ ���������� �� ������������ ����� ������: <span><u><a href="http://www.connectionstrings.com/" target="_blank">www.connectionstrings.com</a></u></span></span><span>.
+</span><span class="mono">SQL</span><span> - если указана, то Parser будет использовать специфику для указанного сервера при модифицировании запросов с </span><span class="mono">limit/offset</span><span>. В настоящий момент драйвер понимает только значения </span><span class="mono">MSSQL</span><span>, </span><span class="mono">Pervasive</span><span> и </span><span class="mono">FireBird</span><span>. Для первых двух серверов SQL-запрос модифицируется путём добавления в него </span><span class="mono">«TOP&nbsp;(limit+offset)»</span><span>, для последнего - </span><span class="mono">«FIRST&nbsp;(limit)&nbsp;SKIP&nbsp;(offset)»</span><span>.
 <br />
 
 <br />
-<i>��������: ��� ������ � MS-SQL ��� �������� ��������� �������� �� ���������� ��������� ���������� ��� �������������� ��� � ����� - SQL ������ ����������� �� �������� �������� ���������, ��� ������ ���������� �������� ��� �� ����������� ���������. ������������ ����������� ����� ����� ���������� � �������� ��������� ������� ������������ �������� ��������� � us_english, ��� ��������� ��������� ��� � ANSI SQL92 ������� � ����� � ���������� ������������ ������:
+Рекомендуем этот сайт, здесь собраны строки соединения ко всевозможным базам данных: <span class="blue"><u><a href="http://www.connectionstrings.com/" target="_blank">www.connectionstrings.com</a></u></span></span><span>.
 <br />
-</i></span><span><b>^void:sql{SET&nbsp;LANGUAGE&nbsp;us_english}</b><b><u>
+
+<br />
+<i>Внимание: при работе с MS-SQL при языковой настройке отличной от английской возникают неудобства при форматировании дат и чисел - SQL сервер форматирует их согласно языковой настройке, что обычно совершенно неудобно при их программной обработке. Настоятельно рекомендуем сразу после соединения с сервером выполнить команду переключения языковой настройки в us_english, что обеспечит поддержку дат в ANSI SQL92 формате и чисел с десятичным разделителем «точка»:
+<br />
+</i></span><span class="mono"><b>^void:sql{SET&nbsp;LANGUAGE&nbsp;us_english}</b><b><u>
 <br />
 </u></b></span><span><u>
 <br />
-</u></span><span><b>�������
+</u></span><span class="h1"><b>Примеры
 <br />
-</b></span><span>MS-SQL:</span><span>
+</b></span><span>MS-SQL:</span><span class="mono">
 <br />
-odbc://DRIVER={SQL&nbsp;Server}^;SERVER=������^;DATABASE=����^;UID=������������^;PWD=������
-<br />
-
-<br />
-</span><span>Microsoft Access (</span><span>.mdb</span><span> ����):</span><span>
-<br />
-odbc://Driver={Microsoft&nbsp;Access&nbsp;Driver&nbsp;(*.mdb)}^;Dbq=C:\������\����\�\�����.mdb
+odbc://DRIVER={SQL&nbsp;Server}^;SERVER=сервер^;DATABASE=база^;UID=пользователь^;PWD=пароль
 <br />
 
 <br />
-</span><span>������ �� <b>���������</b> �������� ������, ��������� � ����|���������|������ ����������|��������� ������ (ODBC).
+</span><span>Microsoft Access (</span><span class="mono">.mdb</span><span> файл):</span><span class="mono">
 <br />
-</span><span>odbc://DSN=dsn^;UID=������������^;PWD=������
-<br />
-
-<br />
-</span><span><i>���������: � ���� Parser ������ ";" � ������ ����������� � �� ���������� </i><i><a href="stringlit.htm">����������</a></i><i> �������� "^".
+odbc://Driver={Microsoft&nbsp;Access&nbsp;Driver&nbsp;(*.mdb)}^;Dbq=C:\полный\путь\к\файлу.mdb
 <br />
 
 <br />
-</i></span><span><b>������
+</span><span>Ссылка на <b>системный</b> источник данных, созданный в Пуск|Настройки|Панель управления|Источники данных (ODBC).
 <br />
-</b></span><span>�������� �� ������� ������ � MS-SQL ������� � ��������� windows-1251, ������ ����������� ����� �������� ���:
+</span><span class="mono">odbc://DSN=dsn^;UID=пользователь^;PWD=пароль
 <br />
-</span><span>odbc://DRIVER={SQL&nbsp;Server}^;SERVER=������;UID=������������^;PWD=������?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251&amp;SQL=MSSQL
+
+<br />
+</span><span><i>Замечание: В коде Parser символ ";" в строке подключения к БД необходимо </i><i><a href="stringlit.htm">предварять</a></i><i> символом "^".
+<br />
+
+<br />
+</i></span><span class="h1"><b>Пример
+<br />
+</b></span><span>Допустим вы храните данные в MS-SQL сервере в кодировке windows-1251, строку подключения стоит написать так:
+<br />
+</span><span class="mono">odbc://DRIVER={SQL&nbsp;Server}^;SERVER=сервер;UID=пользователь^;PWD=пароль?<a href="app3clientcharset.htm">ClientCharset</a>=windows-1251&amp;SQL=MSSQL
 <br />
 
 <br />

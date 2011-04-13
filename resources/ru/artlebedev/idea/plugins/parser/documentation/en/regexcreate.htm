@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. Creating an object</title>
+    <title>create. Creating an object</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,52 +15,52 @@
   <tr>
     <td>
       
-<span><b>create. Creating an object</b><b>
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>create. Creating an object</b><b>
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^regex::create[pattern]
+<span class="mono"><b>^regex::create[pattern]
 <br />
 ^regex::create[pattern][options]
 <br />
 </b><span>
 <br />
-Creates a regex-object from </span><span><b>string-</b><b>pattern</b></span><span>. Pattern is a PCRE-Perl-compatible regular expression. 
+Creates a regex-object from </span><span class="mono"><b>string-</b><b>pattern</b></span><span>. Pattern is a PCRE-Perl-compatible regular expression. 
 <br />
 Some examples of PCRE are given in "<a href="app4.htm">Attachment 4: Perl Compatible Regular Expressions</a>". 
 <br />
 
 <br />
-The following search </span><span><b>options</b></span><span> may be used:
+The following search </span><span class="mono"><b>options</b></span><span> may be used:
 <br />
 
 <br />
-</span><span><b>i</b></span><span>-case-insensitive;
+</span><span class="mono"><b>i</b></span><span>-case-insensitive;
 <br />
-</span><span><b>x</b></span><span>-ignore "white space" characters and allow </span><span><b>#comments&nbsp;till&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;line</b></span><span>;
+</span><span class="mono"><b>x</b></span><span>-ignore "white space" characters and allow </span><span class="mono"><b>#comments&nbsp;till&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;line</b></span><span>;
 <br />
-</span><span><b>s</b></span><span>-regard </span><span><b>$</b></span><span> as the end of the whole text (default);
+</span><span class="mono"><b>s</b></span><span>-regard </span><span class="mono"><b>$</b></span><span> as the end of the whole text (default);
 <br />
-</span><span><b>m</b></span><span>-regard </span><span><b>$</b></span><span> as the end of the line, but not the whole text;
+</span><span class="mono"><b>m</b></span><span>-regard </span><span class="mono"><b>$</b></span><span> as the end of the line, but not the whole text;
 <br />
-</span><span><b>U</b></span><span>-inverts the "greediness" of the quantifiers so that they are not greedy by default, but become greedy if followed by </span><span><b>?</b></span><span>;<b><i> [3.3.0]</i></b></span><span><b>
+</span><span class="mono"><b>U</b></span><span>-inverts the "greediness" of the quantifiers so that they are not greedy by default, but become greedy if followed by </span><span class="mono"><b>?</b></span><span>;<b><i> [3.3.0]</i></b></span><span class="mono"><b>
 <br />
 g</b></span><span>-find not only the first, but all occurrences of the pattern;
 <br />
-</span><span><b>n</b></span><span>-return number of matches instead of table with search results;<b><i> [3.2.2]</i></b>
+</span><span class="mono"><b>n</b></span><span>-return number of matches instead of table with search results;<b><i> [3.2.2]</i></b>
 <br />
-</span><span><b>'</b></span><span>-evaluate values for </span><span><b>prematch</b></span><span>, </span><span><b>match</b></span><span>, </span><span><b>postmatch</b></span><span> columns.
+</span><span class="mono"><b>'</b></span><span>-evaluate values for </span><span class="mono"><b>prematch</b></span><span>, </span><span class="mono"><b>match</b></span><span>, </span><span class="mono"><b>postmatch</b></span><span> columns.
 <br />
 
 <br />
-Characters </span><span><b>^</b></span><span> and </span><span><b>$</b></span><span> are used in Parser's syntax, that is why if you want to include them in your pattern, they must be given as </span><span><b>^^</b></span><span> and </span><span><b>^$</b></span><span> respectively (see also <a href="exprlit.htm">Literals</a>).
+Characters </span><span class="mono"><b>^</b></span><span> and </span><span class="mono"><b>$</b></span><span> are used in Parser's syntax, that is why if you want to include them in your pattern, they must be given as </span><span class="mono"><b>^^</b></span><span> and </span><span class="mono"><b>^$</b></span><span> respectively (see also <a href="exprlit.htm">Literals</a>).
 <br />
 </span><span>
 <br />

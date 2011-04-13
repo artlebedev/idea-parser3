@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>dynamical. ��� ������ ������</title>
+    <title>dynamical. Тип вызова метода</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,34 +15,34 @@
   <tr>
     <td>
       
-<span><b>dynamical. ��� ������ ������
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>dynamical. Тип вызова метода
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^reflection:dynamical[]</b><span>
+<span class="mono"><b>^reflection:dynamical[]</b><span>
 <br />
-</span><span><b>^reflection:dynamical[�����]</b></span><span>
+</span><span class="mono"><b>^reflection:dynamical[класс]</b></span><span>
 <br />
-</span><span><b>^reflection:dynamical[������]</b></span><span>
-<br />
-
-<br />
-</span><span>��� ������ ��� ���������� ���������� ���������� �������� </span><span><b>true</b></span><span>, ���� �����, �� �������� ��� ������ ����� </span><span><b>^reflection:dynamical[]</b></span><span>, ��� ������ ����������� � </span><span><b>false</b></span><span>, ���� �� ��� ������ ����������.
+</span><span class="mono"><b>^reflection:dynamical[объект]</b></span><span>
 <br />
 
 <br />
-���� ������ � �������� ��������� ��� ������� ������ ��� �����, �� ����� ���������� ���������� �������� </span><span><b>true</b></span><span>, ���� ��� ������� ������������ ������ � </span><span><b>false</b></span><span>, ���� ��� ������� �����.
+</span><span>При вызове без параметров возвращает логическое значение </span><span class="mono"><b>true</b></span><span>, если метод, из которого был вызван метод </span><span class="mono"><b>^reflection:dynamical[]</b></span><span>, был вызван динамически и </span><span class="mono"><b>false</b></span><span>, если он был вызван статически.
 <br />
 
 <br />
-����� ������ ������������ ������ ������� ������� ����� ������, ��� ������ ��� ������ ����� - <a href="obj.htm">�����������</a> ��� <a href="stats.htm">����������</a>.</span><span>
+Если методу в качестве параметра был передан объект или класс, то метод возвращает логическое значение </span><span class="mono"><b>true</b></span><span>, если был передан динамический объект и </span><span class="mono"><b>false</b></span><span>, если был передан класс.
+<br />
+
+<br />
+Метод удобно использовать внутри методов классов чтобы узнать, как именно был вызван метод - <a href="obj.htm">динамически</a> или <a href="stats.htm">статически</a>.</span><span>
 <br />
 </span></span><br />
 

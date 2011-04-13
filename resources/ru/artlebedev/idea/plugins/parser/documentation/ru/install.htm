@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��������� � ��������� Parser</title>
+    <title>Установка и настройка Parser</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,106 +15,106 @@
   <tr>
     <td>
       
-<span><b>��������� � ��������� Parser
+<span class="h1"><b>Установка и настройка Parser
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>Parser3 �������� � ���������� ���������:
+<span>Parser3 доступен в нескольких вариантах:
 <br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>CGI ������ (� ������������),
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>CGI скрипт (и интепретатор),
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������ � ���-������� Apache 1.3,
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>модуль к веб-серверу Apache 1.3,
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>ISAPI ���������� ���-������� Microsoft Internet Information Server 4.0 ��� �����.
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>ISAPI расширение веб-сервера Microsoft Internet Information Server 4.0 или новее.
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
 <br />
-������������� ����� ���������� �������� ��� ��������� SQL-�������� (������ �������� ��� MySQL, PgSQL, Oracle, ODBC). 
+Дополнительно можно установить драйверы для различных SQL-серверов (сейчас доступны для MySQL, PgSQL, Oracle, ODBC). 
 <br />
 
 <br />
-�������� ��������� � ������ :
+Описание каталогов и файлов :
 <br />
-</span><span>parser3[.exe]</span><span> - CGI ������ (� �������������)
+</span><span class="mono">parser3[.exe]</span><span> - CGI скрипт (и интерпретатор)
 <br />
-</span><span>ApacheModuleParser3.dll</span><span> - ������ � ���-������� Apache 1.3
+</span><span class="mono">ApacheModuleParser3.dll</span><span> - модуль к веб-серверу Apache 1.3
 <br />
-</span><span>parser3isapi.dll</span><span> - ISAPI ���������� ���-������� IIS 4.0 ��� �����
+</span><span class="mono">parser3isapi.dll</span><span> - ISAPI расширение веб-сервера IIS 4.0 или новее
 <br />
-</span><span>
+</span><span class="mono">
 <br />
-auto.p.dist</span><span> - ������ <a href="parserconfig.htm">����������������� �����</a>
+auto.p.dist</span><span> - пример <a href="parserconfig.htm">Конфигурационного файла</a>
 <br />
-</span><span>
+</span><span class="mono">
 <br />
-parser3.charsets/</span><span> - ������� � ������� <a href="installcharset.htm">������ ���������</a>:
+parser3.charsets/</span><span> - каталог с файлами <a href="installcharset.htm">таблиц кодировок</a>:
 <br />
 <table border="0" cellpadding="1"><tr><td align="left" valign="top" width="347">
-<p align="right"><span>koi8-r.cfg<span>
+<p align="right"><span class="mono">koi8-r.cfg<span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="347">
-<span>&nbsp;<span>- Cyrillic [KOI8-R]
+<span class="mono">&nbsp;<span>- Cyrillic [KOI8-R]
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="347">
-<p align="right"><span>windows-1250.cfg<span>
+<p align="right"><span class="mono">windows-1250.cfg<span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="347">
-<span>&nbsp;<span>- Central European[windows-1250]
+<span class="mono">&nbsp;<span>- Central European[windows-1250]
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="347">
-<p align="right"><span>windows-1251.cfg<span>
+<p align="right"><span class="mono">windows-1251.cfg<span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="347">
-<span><b>&nbsp;</b><span>- Cyrillic[windows-1251]
+<span class="mono"><b>&nbsp;</b><span>- Cyrillic[windows-1251]
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="347">
-<p align="right"><span>windows-1257.cfg<span>
+<p align="right"><span class="mono">windows-1257.cfg<span>
 <br />
 </span></span></p></td><td align="left" valign="top" width="347">
-<span><b>&nbsp;</b><span>- Baltic[windows-1257]
+<span class="mono"><b>&nbsp;</b><span>- Baltic[windows-1257]
 <br />
 </span></span></td></tr></table>
 <br />
 
 <br />
-��������� �������� ���� �������� ���������, �� ������ ���� ������� Parser (��. <a href="compilesrc.htm">������ Parser �� �������� �����</a>) � �������� ���� SQL-�������.
+Поскольку исходные коды являются открытыми, вы можете сами собрать Parser (см. <a href="compilesrc.htm">Сборка Parser их исходных кодов</a>) и написать свой SQL-драйвер.
 <br />
-�������� ���������������� ������ Parser � ��� SQL-��������� ��� ��� �������� (��. <span><u><a href="http://www.parser.ru/download/" target="_blank">http://www.parser.ru/download/</a></u></span></span><span>).
+Доступны скомпилированные версии Parser и его SQL-драйверов под ряд платформ (см. <span class="blue"><u><a href="http://www.parser.ru/download/" target="_blank">http://www.parser.ru/download/</a></u></span></span><span>).
 <br />
-<i>��������: � ����� ������������ ��� �������������� ���, ��� ����� ������ � ��������� ������ �����, ������������� ���� �� ������������</i><i>/</i><i>������ �������������, �� ����� ������� �������� ��� </i><i>Parser</i><i>.</i>
-<br />
-
-<br />
-��� ������������ ���������������� �����?
+<i>Внимание: в целях безопасности они скомпилированы так, что могут читать и исполнять только файлы, принадлежащие тому же пользователю</i><i>/</i><i>группе пользователей, от имени которых работает сам </i><i>Parser</i><i>.</i>
 <br />
 
 <br />
-��� CGI ������� (</span><span>parser3[.exe]</span><span>):
-<br />
-���������������� ���� ����������� �� �����, ��������� ���������� ��������� </span><span>CGI_PARSER_CONFIG</span><span>,
-<br />
-���� ���������� �� ������, ������ � ��� �� ��������, ��� ���������� ��� CGI ������.
+Как подключаются конфигурационные файлы?
 <br />
 
 <br />
-��� ������ � Apache ���� � ����������������� ����� �������� ����������:
+Для CGI скрипта (</span><span class="mono">parser3[.exe]</span><span>):
 <br />
-</span><span><b>#can&nbsp;be&nbsp;in&nbsp;.htaccess
+конфигурационный файл считывается из файла, заданного переменной окружения </span><span class="mono">CGI_PARSER_CONFIG</span><span>,
 <br />
-ParserConfig&nbsp;������_����
+Если переменная не задана, ищется в том же каталоге, где расположен сам CGI скрипт.
+<br />
+
+<br />
+Для модуля к Apache путь к конфигурационному файлу задается директивой:
+<br />
+</span><span class="mono"><b>#can&nbsp;be&nbsp;in&nbsp;.htaccess
+<br />
+ParserConfig&nbsp;полный_путь
 <br />
 </b></span><span>
 <br />
-��� ISAPI ���������� (</span><span>parser3isapi.dll</span><span>):
+Для ISAPI расширения (</span><span class="mono">parser3isapi.dll</span><span>):
 <br />
-���������������� ���� </span><span>auto.p</span><span> ������ � ��� �� ��������, ��� ���������� ��� ����.
+конфигурационный файл </span><span class="mono">auto.p</span><span> ищется в том же каталоге, где расположен сам файл.
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Parameter of creating a new document: Base path</title>
+    <title>Parameter of creating a new document: Base path</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,23 +11,60 @@
 <body>
 
 
-<span><b>Example</b></h1><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Parameter of creating a new document: Base path
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span>When creating a new document with one of the constructors, one can specify parameter <span class="mono"><b>base_path</b></span><span>.
+<br />
+
+<br />
+Its purpose is similar to that of attribute&#133;
+<br />
+</span><span class="mono"><span class="monoblue"><b>
+<br />
+&lt;&#133;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xml="http://www.w3.org/XML/1998/namespace"
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><u><a href="http://www.w3.org/TR/xmlbase/" target="_blank">xml:base</a></u></b></span></span><span class="mono"><span class="monoblue"><b>="</b></span></span><span class="mono"><b>base&nbsp;URI</b><span class="monoblue"><b>"&nbsp;&#133;
+<br />
+</b></span></span><span>
+<br />
+&#133;yet, the way of specifying the path is different-it conforms with general approach to paths used in Parser (see "<a href="app1.htm">Appendix 1. Paths to files and directories</a>"), This approach is much more comfortable, since you do not have to specify full path including that to web space. By default, path to the currently processed document is used.
+<br />
+<i>Note: character "/" at the end of the path is obligatory.
+<br />
+</i>
+<br />
+</span><span class="h1"><b>Example</b></span><span><b>
 <br />
 </b></span><span><b>
 <br />
-</b></span><span><span><b>$sheet[^xdoc::</b></span></span><span><span><b><a href="xdoccreatexml.htm">create</a></b></span></span><span><span><b>[/xsl/]{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="</b><b><a href="requestcharset.htm">$request:charset</a></b><b>"?&gt;&nbsp;</b><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>$sheet[^xdoc::</b></span></span><span class="mono"><span class="monoblue"><b><a href="xdoccreatexml.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>[/xsl/]{</b></span></span><span class="mono"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="</b><b><a href="requestcharset.htm">$request:charset</a></b><b>"?&gt;&nbsp;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&lt;xsl:stylesheet&nbsp;xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&nbsp;version="1.0"&gt;
+</b></span></span><span class="mono"><b>&lt;xsl:stylesheet&nbsp;xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&nbsp;version="1.0"&gt;
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:import&nbsp;href="import.xsl"/&gt;
 <br />
 &lt;/xsl:stylesheet&gt;
 <br />
-</b><span><b>}]</b></span></span><span><b>
+</b><span class="monoblue"><b>}]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-File </span><span>import.xsl</span><span> will be read from directory </span><span>/xsl/</span><span>.</span><span><b>
+File </span><span class="mono">import.xsl</span><span> will be read from directory </span><span class="mono">/xsl/</span><span>.</span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

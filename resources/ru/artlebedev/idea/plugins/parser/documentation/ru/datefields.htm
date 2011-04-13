@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>����</title>
+    <title>Поля</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,84 +15,84 @@
   <tr>
     <td>
       
-<span><b>���� �������� ������ date
+<span class="h1"><b>Поля объектов класса date
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>����� ���� �������� ������ date ����� ���� �������� ��������� ��������:
+<span>Через поля объектов класса date могут быть получены следующие величины:
 <br />
 
 <br />
-<span><b>$date.month</b></span><span>  �����&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>$date.month</b></span><span>  месяц&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>$date.year</b></span><span>  ���&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>$date.year</b></span><span>  год&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>$date.day</b></span><span>  ����&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>$date.day</b></span><span>  день&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>$date.hour</b></span><span>  ����&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>$date.hour</b></span><span>  часы&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>$date.minute</b></span><span>  ������&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>$date.minute</b></span><span>  минуты&nbsp;&nbsp;&nbsp;
 <br />
-</span><span><b>$date.second</b></span><span>  �������
+</span><span class="mono"><b>$date.second</b></span><span>  секунды
 <br />
-</span><span><b>$date.weekday</b></span><span>  ���� ������ (0 - �����������, 1 - �����������, �)
+</span><span class="mono"><b>$date.weekday</b></span><span>  день недели (0 - воскресенье, 1 - понедельник, …)
 <br />
-</span><span><b>$date.week</b></span><span>  ����� ������ � ���� (�������� ��������� </span><span>ISO&nbsp;8601</span><span>)   <b><i>[3.1.5]</i></b>
+</span><span class="mono"><b>$date.week</b></span><span>  номер недели в году (согласно стандарту </span><span class="mono">ISO&nbsp;8601</span><span>)   <b><i>[3.1.5]</i></b>
 <br />
-</span><span><b>$date.weekyear</b></span><span>  ���, � �������� ����������� ������ (�������� ��������� </span><span>ISO&nbsp;8601</span><span>)   <b><i>[3.2.2]</i></b>
+</span><span class="mono"><b>$date.weekyear</b></span><span>  год, к которому принадлежит неделя (согласно стандарту </span><span class="mono">ISO&nbsp;8601</span><span>)   <b><i>[3.2.2]</i></b>
 <br />
-</span><span><b>$date.yearday</b></span><span>  ���� ���� (0 - 1-�� ������, 1 - 2-�� ������, �)
+</span><span class="mono"><b>$date.yearday</b></span><span>  день года (0 - 1-ое января, 1 - 2-ое января, …)
 <br />
-</span><span><b>$date.daylightsaving</b></span><span>  1 - ������ �����, 0 - ����������� �����
+</span><span class="mono"><b>$date.daylightsaving</b></span><span>  1 - летнее время, 0 - стандартное время
 <br />
-</span><span><b>$date.TZ&nbsp;</b></span><span> ������� ����; �������� ��������, ���� ��� ���� ���� �������� </span><span><b>^date.</b><b><a href="dateroll.htm">roll</a></b><b>[TZ;�]</b></span><span>   <b><i>[3.1.1]</i></b>
-<br />
-
+</span><span class="mono"><b>$date.TZ&nbsp;</b></span><span> часовой пояс; содержит значение, если эта дата была получена </span><span class="mono"><b>^date.</b><b><a href="dateroll.htm">roll</a></b><b>[TZ;…]</b></span><span>   <b><i>[3.1.1]</i></b>
 <br />
 
 <br />
-</span><span><b>������
+
 <br />
-</b></span><span><span><b>$date_now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]&nbsp;
+</span><span class="h1"><b>Пример
 <br />
-$date_now.year</b></span></span><span><b>&lt;br&nbsp;/&gt;&nbsp;</b><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>$date_now[^date::</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">now</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]&nbsp;
 <br />
-$date_now.month</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+$date_now.year</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;&nbsp;</b><span class="monoblue"><b>
 <br />
-$date_now.day</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+$date_now.month</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-$date_now.hour</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+$date_now.day</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-$date_now.minute</b></span></span><span><b>&lt;br&nbsp;/&gt;
+$date_now.hour</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-</b><span><b>$date_now.second</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+$date_now.minute</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-$date_now.weekday</b></span></span><span>
+</b><span class="monoblue"><b>$date_now.second</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
+<br />
+$date_now.weekday</b></span></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-� ���������� ���������� ������� ����, ��������� ������ ������ </span><span><b>date</b></span><span>, ���������� �������� ������� ����, � �� ����� ����� �������� ��������:
+В результате выполнения данного кода, создается объект класса </span><span class="mono"><b>date</b></span><span>, содержащий значение текущей даты, а на экран будет выведено значение:
 <br />
-</span><span><b>���
+</span><span class="mono"><b>год
 <br />
-�����
+месяц
 <br />
-����
+день
 <br />
-���
+час
 <br />
-������
+минута
 <br />
-�������
+секунда
 <br />
-����&nbsp;������</b></span><span>
+день&nbsp;недели</b></span><span>
 <br />
 </span></span><br />
 

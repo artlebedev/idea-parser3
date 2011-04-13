@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>load. �������� ����� � ��������� �������</title>
+    <title>load. Загрузка файла с удалённого сервера</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,15 +11,40 @@
 <body>
 
 
-<span><b>������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>load. Загрузка файла с удалённого сервера
 <br />
-</span><span><span><b>$file[^curl:load[
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-&nbsp;&nbsp;&nbsp;$.url[</b></span></span><span><b>https://store.artlebedev.ru/</b><span><b>]
+
+
+
+<span class="mono"><b>^curl:load[]
 <br />
-&nbsp;&nbsp;&nbsp;$.useragent[</b></span></span><span><b>Parser3</b><span><b>]
+</b><b>^curl:load[</b><b><a href="curloptionsdesc.htm">опции</a></b><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.timeout(</b></span></span><span><b>10</b><span><b>)
+
+<br />
+</b><span>Метод выполняет загрузку файла с удалённого сервера. В рамках <a href="curlsession.htm">сессии</a> этот метод может быть вызван несколько раз с разными параметрами (или вообще без них).
+<br />
+
+<br />
+</span><span class="h1"><b>Пример</b></span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>$file[^curl:load[
+<br />
+&nbsp;&nbsp;&nbsp;$.url[</b></span></span><span class="mono"><b>https://store.artlebedev.ru/</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.useragent[</b></span></span><span class="mono"><b>Parser3</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.timeout(</b></span></span><span class="mono"><b>10</b><span class="monoblue"><b>)
 <br />
 ]]</b></span></span><span>
 <br />

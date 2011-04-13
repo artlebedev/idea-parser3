@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>transform. XSL ��������������</title>
+    <title>transform. XSL преобразование</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,66 +15,66 @@
   <tr>
     <td>
       
-<span><b>transform. XSL ��������������
+<span class="h1"><b>transform. XSL преобразование
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.transform[������]
+<span class="mono"><b>^документ.transform[шаблон]
 <br />
-^��������.transform[������][XSLT-���������]
+^документ.transform[шаблон][XSLT-параметры]
 <br />
 </b><span>
 <br />
-������������ XSL-�������������� </span><span><b>���������</b></span><span> �� </span><span><b>�������</b></span><span>. �������� ������� </span><span><b>XSLT-����������</b></span><span>.
+Осуществляет XSL-преобразование </span><span class="mono"><b>документа</b></span><span> по </span><span class="mono"><b>шаблону</b></span><span>. Возможно задание </span><span class="mono"><b>XSLT-параметров</b></span><span>.
 <br />
 
 <br />
-</span><span><b>������</b></span><span> - ��� </span><span><b>����_�_�����_�_��������</b></span><span>, ��� </span><span><b><a href="xdocclass.htm">xdoc</a></b></span><span> ��������.
+</span><span class="mono"><b>Шаблон</b></span><span> - или </span><span class="mono"><b>путь_к_файлу_с_шаблоном</b></span><span>, или </span><span class="mono"><b><a href="xdocclass.htm">xdoc</a></b></span><span> документ.
 <br />
-Parser ����� ������� XML �� ������������� ���������, ��. ������ �<a href="xdocparserprot.htm">������ XML �� ������������� ���������</a>�.
+Parser может считать XML из произвольного источника, см. раздел «<a href="xdocparserprot.htm">Чтение XML из произвольного источника</a>».
 <br />
-</span><span><b>
+</span><span class="mono"><b>
 <br />
-</b><b>XSLT-���������</b></span><span> - <a href="hash.htm">���</a> �����, ��������� �� ������� ����� </span><span><span><b><u><a href="http://www.w3.org/TR/xslt#variables" target="_blank">&lt;xsl:param � /&gt;</a></u></b></span></span><span>.
+</b><b>XSLT-параметры</b></span><span> - <a href="hash.htm">хеш</a> строк, доступных из шаблона через </span><span class="mono"><span class="monoblue"><b><u><a href="http://www.w3.org/TR/xslt#variables" target="_blank">&lt;xsl:param … /&gt;</a></u></b></span></span><span>.
 <br />
 
 <br />
-<i>��������: Parser (� ���� </i><i><a href="install4apachecgi.htm">������ � Apache</a></i><i> ��� </i><i><a href="install4iis.htm">IIS</a></i><i>) �������� ��������� ���������� </i></span><span><b>�����_�_��������</b></span><span><i> �� ���������� �����, </i><i>��������� ���������� �� ������������, � ���������������� ������ ������� �� ����. ������� CGI ����� �������� ������, �� ������ �� ���� ������. ������ ����������������� ��� ��������� ���� ������ �������.
+<i>Внимание: Parser (в виде </i><i><a href="install4apachecgi.htm">модуля к Apache</a></i><i> или </i><i><a href="install4iis.htm">IIS</a></i><i>) кеширует результат компиляции </i></span><span class="mono"><b>файла_с_шаблоном</b></span><span><i> во внутреннюю форму, </i><i>повторная компиляция не производится, а скомпилированный шаблон берется из кеша. Вариант CGI также кеширует шаблон, но только на один запрос. Шаблон перекомпилируется при изменении даты файлов шаблона.
 <br />
 </i>
 <br />
-</span><span><b>������ (��. ����� �</b><b><a href="lesson6.htm">���� 6. �������� � XML</a></b><b>�)
+</span><span class="h1"><b>Пример (см. также «</b><b><a href="lesson6.htm">Урок 6. Работаем с XML</a></b><b>»)
 <br />
-</b></span><span><span><b>#&nbsp;�������&nbsp;xdoc&nbsp;��������
+</b></span><span class="mono"><span class="monoblue"><b>#&nbsp;входной&nbsp;xdoc&nbsp;документ
 <br />
-$sourceDoc[^xdoc::</b></span></span><span><span><b><a href="xdocload.htm">load</a></b></span></span><span><span><b>[article.xml]]
+$sourceDoc[^xdoc::</b></span></span><span class="mono"><span class="monoblue"><b><a href="xdocload.htm">load</a></b></span></span><span class="mono"><span class="monoblue"><b>[article.xml]]
 <br />
 
 <br />
-#&nbsp;��������������&nbsp;xdoc&nbsp;���������&nbsp;��������&nbsp;article.xsl
+#&nbsp;преобразование&nbsp;xdoc&nbsp;документа&nbsp;шаблоном&nbsp;article.xsl
 <br />
 $transformedDoc[^sourceDoc.transform[article.xsl]]
 <br />
 
 <br />
-#&nbsp;������&nbsp;����������&nbsp;�&nbsp;HTML&nbsp;����
+#&nbsp;выдача&nbsp;результата&nbsp;в&nbsp;HTML&nbsp;виде
 <br />
-^transformedDoc.</b></span></span><span><span><b><a href="xdocstring.htm">string</a></b></span></span><span><span><b>[
+^transformedDoc.</b></span></span><span class="mono"><span class="monoblue"><b><a href="xdocstring.htm">string</a></b></span></span><span class="mono"><span class="monoblue"><b>[
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b><a href="xdocoptions.htm">$.method[html]</a></b></span></span><span><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><a href="xdocoptions.htm">$.method[html]</a></b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 ]
 <br />
 </b></span></span><span>
 <br />
-���� </span><span><b>������</b></span><span> �� ����������� � �����, � ��������� �����������, ������ �������� ���������� �� ������ ���������� </span><span><b>&lt;xsl:import&nbsp;href="some.xsl"/&gt;</b></span><span>?�, �������� �������� �� ����������� ������� �������� ����: �<a href="xdocuriparam.htm">�������� �������� ������ ���������: ������� ����</a>�.
+Если </span><span class="mono"><b>шаблон</b></span><span> не считывается с диска, а создается динамически, важным вопросом становится «а откуда загрузятся </span><span class="mono"><b>&lt;xsl:import&nbsp;href="some.xsl"/&gt;</b></span><span>?», обратите внимание на возможность задания базового пути: «<a href="xdocuriparam.htm">Параметр создания нового документа: Базовый путь</a>».
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>count. Number of rows in table</title>
+    <title>count. Number of rows in table</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,25 +11,48 @@
 <body>
 
 
-<span><b>Example</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>count. Number of rows in table
 <br />
-</u></span><span><span><b>$goods[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{pos</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>good</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>price
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</b></span></span><span><b>1&nbsp;&nbsp;&nbsp;</b><b>Monitor&nbsp;display</b><b>&nbsp;&nbsp;&nbsp;</b><b>1000
+
+
+
+<span class="mono"><b>^table.count[]
+<br />
+</b><span>
+<br />
+Returns the number of rows in the specified table (</span><span class="mono"><b>int</b></span><span>).
+<br />
+<u>
+<br />
+</u></span><span class="h1"><b>Example</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$goods[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{pos</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>good</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>price
+<br />
+</b></span></span><span class="mono"><b>1&nbsp;&nbsp;&nbsp;</b><b>Monitor&nbsp;display</b><b>&nbsp;&nbsp;&nbsp;</b><b>1000
 <br />
 2&nbsp;&nbsp;&nbsp;</b><b>System&nbsp;control&nbsp;unit&nbsp;&nbsp;&nbsp;</b><b>1500
 <br />
-3&nbsp;&nbsp;&nbsp;</b><b>Keyboard&nbsp;&nbsp;&nbsp;</b><b>15</b><span><b>
+3&nbsp;&nbsp;&nbsp;</b><b>Keyboard&nbsp;&nbsp;&nbsp;</b><b>15</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><span><b>}]
+</b></span></span><span class="mono"><span class="monoblue"><b>}]
 <br />
-</b></span></span><span><b>Amount</b><b>:&nbsp;</b><span><b>^goods.count[]</b></span></span><span><b>
+</b></span></span><span class="mono"><b>Amount</b><b>:&nbsp;</b><span class="monoblue"><b>^goods.count[]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
 The example will output:
 <br />
-</span><span><b>Amount</b><b>:&nbsp;3
+</span><span class="mono"><b>Amount</b><b>:&nbsp;3
 <br />
 </b></span><span>
 <br />
@@ -37,7 +60,7 @@ In expressions, the numeric value of the table equals the amount of its rows:
 <br />
 
 <br />
-</span><span><span><b>^if($goods&nbsp;&gt;&nbsp;2){</b></span></span><span><b>more</b><span><b>}</b></span></span><span><b>
+</span><span class="mono"><span class="monoblue"><b>^if($goods&nbsp;&gt;&nbsp;2){</b></span></span><span class="mono"><b>more</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

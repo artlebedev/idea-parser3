@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>measure. �������� ������� �� ������ ������������� ������������ �����</title>
+    <title>measure. Создание объекта на основе существующего графического файла</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,82 +15,82 @@
   <tr>
     <td>
       
-<span><b>measure. �������� ������� �� ������ ������������� ������������ �����
+<span class="h1"><b>measure. Создание объекта на основе существующего графического файла
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^image::measure[����]
+<span class="mono"><b>^image::measure[файл]
 <br />
-^image::measure[���&nbsp;�����]
+^image::measure[имя&nbsp;файла]
 <br />
 </b><span>
 <br />
-������� ������ ������ </span><span><b>image</b></span><span>, ������� ������� ������������� ������������ ����� ��� ������� ������ </span><span><b><a href="fileclass.htm">file</a></b></span><span> � �������������� ������� (������ �������������� GIF, JPEG � PNG). 
+Создает объект класса </span><span class="mono"><b>image</b></span><span>, измеряя размеры существующего графического файла или объекта класса </span><span class="mono"><b><a href="fileclass.htm">file</a></b></span><span> в поддерживаемом формате (сейчас поддерживаются GIF, JPEG и PNG). 
 <br />
 
 <br />
-�� JPEG ������ ����� ����������� EXIF ���������� (<span><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></span></span><span>), ���� ��� ��� ��������. ����������� ����������� �������� ������������� ��� ������ JPEG ����� ���������� � ���� ����� ���������� � ������, ���������� ���������� � ������ ���������� � ������� EXIF.
+Из JPEG файлов также считывается EXIF информация (<span class="blue"><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></span></span><span>), если она там записана. Большинство современных цифровых фотоаппаратов при записи JPEG файла записывают в него также информацию о снимке, параметрах экспозиции и другую информацию в формате EXIF.
 <br />
 
 <br />
-���� �������� �� �����������, �������� ���������� ������ - ����������� ����� ��� ���������� ������� ������ </span><span><b><a href="imagehtml.htm">html</a></b></span><span>.
+Сама картинка не считывается, основное назначение метода - последующий вызов для созданного объекта метода </span><span class="mono"><b><a href="imagehtml.htm">html</a></b></span><span>.
 <br />
 
 <br />
-���������:
+Параметры:
 <br />
-</span><span><b>����</b></span><span> - ������ ������ </span><span><b>file</b></span><span> 
+</span><span class="mono"><b>Файл</b></span><span> - объект класса </span><span class="mono"><b>file</b></span><span> 
 <br />
-</span><span><b>���&nbsp;�����</b></span><span> - ��� ����� � �����
+</span><span class="mono"><b>Имя&nbsp;файла</b></span><span> - имя файла с путем
 <br />
 
 <br />
-<i>����������: �������������� EXIF 1.0, ����������� ���� �� IFD0 � SubIFD.
+<i>Примечание: поддерживается EXIF 1.0, считываются теги из IFD0 и SubIFD.
 <br />
 </i>
 <br />
-</span><span><b>������ �������� ���� IMG � ��������� �������� �����������
+</span><span class="h1"><b>Пример создания тега IMG с указанием размеров изображения
 <br />
-</b></span><span><b>$photo[^image::measure[photo.png]]
+</b></span><span class="mono"><b>$photo[^image::measure[photo.png]]
 <br />
 ^photo.</b><b><a href="imagehtml.htm">html</a></b><b>[]
 <br />
-</b><span><b>
+</b><span class="monoblue"><b>
 <br />
-</b></span></span><span>����� ������ ������ </span><span><b>photo</b></span><span> ������ </span><span><b>image</b></span><span>, �� ������ �������� ������������ ����������� � ������� </span><span>PNG</span><span>, � ����� ��� </span><span>IMG</span><span>, ����������� �� ������ ����, � ��������� </span><span>width</span><span> � </span><span>height</span><span>.
+</b></span></span><span>Будет создан объект </span><span class="mono"><b>photo</b></span><span> класса </span><span class="mono"><b>image</b></span><span>, на основе готового графического изображения в формате </span><span>PNG</span><span>, и выдан тег </span><span class="mono">IMG</span><span>, ссылающийся на данный файл, с указанием </span><span class="mono">width</span><span> и </span><span class="mono">height</span><span>.
 <br />
 
 <br />
-</span><span><b>������ ������ � EXIF �����������
+</span><span class="h1"><b>Пример работы с EXIF информацией
 <br />
-</b></span><span><span><b>$image[^image::measure[jpg/DSC00003.JPG]]
+</b></span><span class="mono"><span class="monoblue"><b>$image[^image::measure[jpg/DSC00003.JPG]]
 <br />
-$exif[$image.</b></span></span><span><span><b><a href="imagefields.htm">exif</a></b></span></span><span><span><b>]
+$exif[$image.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagefields.htm">exif</a></b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
 ^if($exif){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;�������������&nbsp;������������,&nbsp;������:&nbsp;</b><span><b>$exif.</b></span></span><span><span><b><a href="imagefields.htm">Make</a></b></span></span><span><b>&nbsp;</b><span><b>$exif.Model</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Производитель&nbsp;фотоаппарата,&nbsp;модель:&nbsp;</b><span class="monoblue"><b>$exif.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagefields.htm">Make</a></b></span></span><span class="mono"><b>&nbsp;</b><span class="monoblue"><b>$exif.Model</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;�����&nbsp;������:&nbsp;</b><span><b>^exif.DateTimeOriginal.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Время&nbsp;съемки:&nbsp;</b><span class="monoblue"><b>^exif.DateTimeOriginal.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span class="mono"><span class="monoblue"><b>[]</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;��������:&nbsp;</b><span><b>$exif.ExposureTime&nbsp;�������</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Выдержка:&nbsp;</b><span class="monoblue"><b>$exif.ExposureTime&nbsp;секунды</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;���������:&nbsp;F</b><span><b>$exif.FNumber</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Диафрагма:&nbsp;F</b><span class="monoblue"><b>$exif.FNumber</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;��������������&nbsp;�������:&nbsp;</b><span><b>^if(def&nbsp;$exif.Flash){^if($exif.Flash){</b></span></span><span><b>��</b><span><b>;</b></span></span><span><b>���</b><span><b>};</b></span></span><span><b>����������</b><span><b>}</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Использовалась&nbsp;вспышка:&nbsp;</b><span class="monoblue"><b>^if(def&nbsp;$exif.Flash){^if($exif.Flash){</b></span></span><span class="mono"><b>да</b><span class="monoblue"><b>;</b></span></span><span class="mono"><b>нет</b><span class="monoblue"><b>};</b></span></span><span class="mono"><b>неизвестно</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
 }{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;���&nbsp;EXIF&nbsp;����������&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;нет&nbsp;EXIF&nbsp;информации&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}</b></span></span><span>
+</b><span class="monoblue"><b>}</b></span></span><span>
 <br />
 </span></span><br />
 

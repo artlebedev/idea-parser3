@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Appendix 5. How to name variables, methods, and classes correctly</title>
+    <title>Appendix 5. How to name variables, methods, and classes correctly</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>Appendix 5. How to name variables, methods, and classes correctly
+<span class="h1"><b>Appendix 5. How to name variables, methods, and classes correctly
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>A name should be clear at least to you, and ideally-to anyone else reading your code. The name may be in any language. The only principle you should stick to is uniformity. We however recommend that you use English language (what if you become world-famous one day?). Words in names had better be in singular. Whenever a need occurs, use compound names like "<span><b>column_color</b></span><span>": it is always easy to understand what such a name implies.
+<span>A name should be clear at least to you, and ideally-to anyone else reading your code. The name may be in any language. The only principle you should stick to is uniformity. We however recommend that you use English language (what if you become world-famous one day?). Words in names had better be in singular. Whenever a need occurs, use compound names like "<span class="mono"><b>column_color</b></span><span>": it is always easy to understand what such a name implies.
 <br />
 
 <br />
@@ -34,7 +34,7 @@ Parser is case-sensitive!
 <br />
 
 <br />
-</span><span><b>$Parser</b></span><span> and </span><span><b>$parser</b></span><span> are different variables!
+</span><span class="mono"><b>$Parser</b></span><span> and </span><span class="mono"><b>$parser</b></span><span> are different variables!
 <br />
 
 <br />
@@ -46,7 +46,7 @@ tab character
 <br />
 newline character
 <br />
-</span><span><b>;&nbsp;]&nbsp;}&nbsp;)&nbsp;"&nbsp;&lt;&nbsp;&gt;&nbsp;#&nbsp;+&nbsp;*&nbsp;/&nbsp;%&nbsp;&amp;&nbsp;|&nbsp;=&nbsp;!&nbsp;'&nbsp;,&nbsp;?
+</span><span class="mono"><b>;&nbsp;]&nbsp;}&nbsp;)&nbsp;"&nbsp;&lt;&nbsp;&gt;&nbsp;#&nbsp;+&nbsp;*&nbsp;/&nbsp;%&nbsp;&amp;&nbsp;|&nbsp;=&nbsp;!&nbsp;'&nbsp;,&nbsp;?
 <br />
 </b></span><span>character "-" in expressions.
 <br />
@@ -56,7 +56,7 @@ Code&#133;
 <br />
 
 <br />
-</span><span><b>$var[value_of_variable]
+</span><span class="mono"><b>$var[value_of_variable]
 <br />
 $var&gt;text
 <br />
@@ -66,27 +66,27 @@ $var&gt;text
 <br />
 
 <br />
-</span><span><b>value_of_variable&gt;text
+</span><span class="mono"><b>value_of_variable&gt;text
 <br />
 </b></span><span>
 <br />
-&#133;, i.e. Parser regards character "&gt;" as end of name of variable </span><span><b>$var</b></span><span> and outputs its value. That is why the characters listed above had better be avoided in names.
+&#133;, i.e. Parser regards character "&gt;" as end of name of variable </span><span class="mono"><b>$var</b></span><span> and outputs its value. That is why the characters listed above had better be avoided in names.
 <br />
 
 <br />
 Whenever one needs any of characters not listed above to immediately (i.e. with nothing in between) follow a variable's value, one should use syntax:
 <br />
-</span><span><b>${var}.text
+</span><span class="mono"><b>${var}.text
 <br />
 </b></span><span>
 <br />
 In this case, the output will be:
 <br />
-</span><span><b>value_of_variable.text
+</span><span class="mono"><b>value_of_variable.text
 <br />
 </b></span><span>
 <br />
-One must NOT use characters "</span><span><span><b>.</b></span></span><span>", "</span><span><span><b>:</b></span></span><span>", "</span><span><span><b>^</b></span></span><span>" in names, since these will be regarded as part of Parser's code, which will inevitably cause errors during code processing.
+One must NOT use characters "</span><span class="mono"><span><b>.</b></span></span><span>", "</span><span class="mono"><span><b>:</b></span></span><span>", "</span><span class="mono"><span><b>^</b></span></span><span>" in names, since these will be regarded as part of Parser's code, which will inevitably cause errors during code processing.
 <br />
 
 <br />

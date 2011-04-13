@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>foreach. Going through hash keys</title>
+    <title>foreach. Going through hash keys</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>foreach. Going through hash keys
+<span class="h1"><b>foreach. Going through hash keys
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^hash.foreach[key;value]{body}
+<span class="mono"><b>^hash.foreach[key;value]{body}
 <br />
 ^hash.foreach[key;value]{body}[delimiter]
 <br />
@@ -34,23 +34,23 @@
 <br />
 </b><span>
 <br />
-The method works the same way as the method </span><span><b>menu</b></span><span> of class </span><span><b>table</b></span><span>. It goes through all hash keys and relevant values (since version <b><i>3.4.0</i></b> the method goes through elements in order of putting the elements into the hash, before-order is not defined).
+The method works the same way as the method </span><span class="mono"><b>menu</b></span><span> of class </span><span class="mono"><b>table</b></span><span>. It goes through all hash keys and relevant values (since version <b><i>3.4.0</i></b> the method goes through elements in order of putting the elements into the hash, before-order is not defined).
 <br />
 
 <br />
-</span><span><b>key</b></span><span>-name of variable to return keys' names
+</span><span class="mono"><b>key</b></span><span>-name of variable to return keys' names
 <br />
-</span><span><b>value</b></span><span>-name of variable to return keys' values
+</span><span class="mono"><b>value</b></span><span>-name of variable to return keys' values
 <br />
-</span><span><b>body</b></span><span>-code to be executed for each key-value
+</span><span class="mono"><b>body</b></span><span>-code to be executed for each key-value
 <br />
-</span><span><b>delimiter</b></span><span>-code to be executed before each non-empty non-first body
+</span><span class="mono"><b>delimiter</b></span><span>-code to be executed before each non-empty non-first body
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-</b></span><span>You can force finish the loop using </span><span><span><b><a href="opbreak.htm">break</a></b></span></span><span> operator or finish current step and go to next one using </span><span><span><b><a href="opcontinue.htm">continue</a></b></span></span><span> operator.</span><span><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+</b></span><span>You can force finish the loop using </span><span class="mono"><span class="monoblue"><b><a href="opbreak.htm">break</a></b></span></span><span> operator or finish current step and go to next one using </span><span class="mono"><span class="monoblue"><b><a href="opcontinue.htm">continue</a></b></span></span><span> operator.</span><span class="mono"><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 Example</b></span><span><u>
 <br />
@@ -58,21 +58,21 @@ Example</b></span><span><u>
 <br />
 
 <br />
-</span><span><span><b>$man[
+</span><span class="mono"><span class="monoblue"><b>$man[
 <br />
-&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Jack</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span class="mono"><b>Jack</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span><b>22</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span class="mono"><b>22</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span><b>m</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span class="mono"><b>m</b><span class="monoblue"><b>]
 <br />
 ]
 <br />
 ^man.foreach[key;value]{
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key</b></span></span><span><b>=</b><span><b>$value
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key</b></span></span><span class="mono"><b>=</b><span class="monoblue"><b>$value
 <br />
-}[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]
+}[</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>]
 <br />
 </b></span></span><span>
 <br />
@@ -80,7 +80,7 @@ Example</b></span><span><u>
 <br />
 
 <br />
-</span><span><b>name=Jack
+</span><span class="mono"><b>name=Jack
 <br />
 age=22
 <br />

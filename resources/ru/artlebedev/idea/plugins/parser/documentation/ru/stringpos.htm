@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>pos. ��������� ������� ���������</title>
+    <title>pos. Получение позиции подстроки</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,52 +15,52 @@
   <tr>
     <td>
       
-<span><b>pos. ��������� ������� ���������
+<span class="h1"><b>pos. Получение позиции подстроки
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^������.pos[���������]</b>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^строка.pos[подстрока]</b>&nbsp;&nbsp;&nbsp;
 <br />
-<b>^������.pos[���������](�������&nbsp;������&nbsp;������)</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.3.0]
+<b>^строка.pos[подстрока](позиция&nbsp;начала&nbsp;поиска)</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.3.0]
 <br />
 </i></b>
 <br />
-���������� ����� </span><span><b><a href="intdoubleclasses.htm">int</a></b></span><span> - ������� ������� ������� ��������� � ������ (������� � ����), ��� -1, ���� ��������� �� �������.
+Возвращает число </span><span class="mono"><b><a href="intdoubleclasses.htm">int</a></b></span><span> - позицию первого символа подстроки в строке (начиная с нуля), или -1, если подстрока не найдена.
 <br />
-���� ����� ������ ��������, �� ����� ��������� ����� ���������� � ��������� � ��� �������.
-<br />
-
+Если задан второй параметр, то поиск подстроки будет начинаться с указанной в нем позиции.
 <br />
 
 <br />
-</span><span><b>�������
+
 <br />
-</b></span><span><span><b>$str[</b></span></span><span><b>�������</b><span><b>]
+</span><span class="h1"><b>Примеры
 <br />
-^str.pos[���]</b></span></span><span>
+</b></span><span class="mono"><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>полигон</b><span class="monoblue"><b>]
+<br />
+^str.pos[гон]</b></span></span><span class="mono">
 <br />
 </span><span>
 <br />
-������: </span><span><b>4
+Вернет: </span><span class="mono"><b>4
 <br />
 
 <br />
 
 <br />
-</b><span><b>$str[</b></span></span><span><b>�������</b><span><b>]
+</b><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>полигон</b><span class="monoblue"><b>]
 <br />
-^str.pos[�](2)</b></span></span><span>
+^str.pos[о](2)</b></span></span><span class="mono">
 <br />
 </span><span>
 <br />
-������: </span><span><b>5</b></span><span>
+Вернет: </span><span class="mono"><b>5</b></span><span>
 <br />
 
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>send. Sending a message via e-mail</title>
+    <title>send. Sending a message via e-mail</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,17 +11,202 @@
 <body>
 
 
-<span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>send. Sending a message via e-mail
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span><span><b>.</b></span></span><span><span><b>header_field</b></span></span><span><span><b>[</b></span></span><span><b>value</b><span><b>]
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-]</b></span></span><span><span><b>
+
+
+
+<span class="mono"><b>^mail:send[message]
 <br />
-</b></span></span><span><b>
+</b><span>
 <br />
-</b><b>File</b></span><span> is an object of class </span><span><b><a href="fileclass.htm">file</a></b></span><span>, which will be attached to the message. MIME-type of sent data (</span><span>content-type</span><span> header of a part) is determined according to table </span><span><b>MIME-TYPES</b></span><span> (see also <a href="parserconfmethod.htm">Configuration method</a>).
+The method sends message to the specified e-mail address. One can specify several addresses separated by comma.
 <br />
-</span><span><b>
+</span><span class="mono"><span class="monoblue"><b>
+<br />
+^mail:send[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.from[</b></span></span><span class="mono"><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.to[</b></span></span><span class="mono"><b>Peter&nbsp;&lt;peter@hotmail.com</b><b>&gt;</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.subject[</b></span></span><span class="mono"><b>Hi&nbsp;there!!!</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.text[</b></span></span><span class="mono"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;Haven't&nbsp;seen&nbsp;you&nbsp;for&nbsp;ages!</b><span class="monoblue"><b>]
+<br />
+]
+<br />
+</b></span></span><span>As a result of this code, a message will be sent to </span><span class="mono"><b>peter@hotmail.com</b></span><span> containing text: "How is it going? Haven't seen you for ages!"
+<br />
+
+<br />
+</span><span class="mono"><b>message</b></span><span>-is a <a href="hash.htm">hash</a>, where you can specify the following keys:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span></span><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>header_field</b><b>
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>text
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>html
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>file
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>charset</b><b>
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>options</b><b>
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>print-debug</b></span><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span class="mono"><b>
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span class="mono"><b></b></span></td><td></td></tr></table><span class="mono"></span><span><i>
+<br />
+</i><i>Note: It is recommended that in </i></span><span class="mono">errors-to</span><span><i> header you specify the address to which delivery report will be sent if the message cannot be delivered to the addressee. Default value is "</i></span><span class="mono">postmaster</span><span><i>".
+<br />
+</i></span><span class="mono"><b>
+<br />
+</b><b>charse</b><b>t</b></span><span>-if this key is specified, the headers and text blocks will be transcoded using specified charset. Default charset for all messages is that, specified in </span><span class="mono"><b><a href="responsecharset.htm">$request:charset</a></b><b>&nbsp;</b></span><span>(i.e. is not transcoded).
+<br />
+</span><span class="mono"><b>
+<br />
+</b></span><span>Example:
+<br />
+</span><span class="mono"><span class="monoblue"><b>$.charset[</b></span></span><span class="mono"><b>koi8-r</b><span class="monoblue"><b>]
+<br />
+</b></span></span><span class="mono"><b>
+<br />
+options</b></span><span>-these options will be passed to command line of </span><span class="mono">sendmail</span><span> program (only on UNIX). 
+<br />
+</span><span class="mono"><b>
+<br />
+</b><b>p</b><b>rint-debug</b></span><span>-the message text will be printed instead of sending message.</span><span class="mono"><b>
+<br />
+</b><b>
+<br />
+</b></span><span>You can also specify all message headers, specifying their values in the following way (short form):
+<br />
+</span><span class="mono"><span class="monoblue"><b>$</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b>header_field</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>value</b><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+</b></span></span><span>or with parameters (complete form):
+<br />
+</span><span class="mono"><span class="monoblue"><b>
+<br />
+$.</b></span></span><span class="mono"><span class="monoblue"><b>header_field</b></span></span><span class="mono"><span class="monoblue"><b>[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.value[</b></span></span><span class="mono"><b>string</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b>parameter</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>string</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+Examples:
+<br />
+</span><span class="mono"><span class="monoblue"><b>$.from</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><span class="monoblue"><b>]
+<br />
+$.to[</b></span></span><span class="mono"><b>Peter&nbsp;&lt;peter@hotmail.com&gt;</b><span class="monoblue"><b>]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>$.subject[</b></span></span><span class="mono"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;Haven't&nbsp;seen&nbsp;you&nbsp;for&nbsp;ages!</b><span class="monoblue"><b>]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>$.x-mailer[</b></span></span><span class="mono"><b>Parser&nbsp;3</b><span class="monoblue"><b>]
+<br />
+</b></span></span><span>
+<br />
+Along with the header you can send one or both text blocks </span><span>(</span><span class="mono"><b>text</b></span><span>, </span><span class="mono"><b>html</b></span><span>)</span><span> as well as any number of blocks </span><span class="mono"><b>file</b></span><span> and </span><span class="mono"><b>message</b></span><span> (see below).
+<br />
+If you send both text blocks, section </span><span class="mono">MULTIPART/ALTERNATIVE</span><span> will be formed, and having received this message, modern mail clients will display HTML, whereas obsolete ones will display plain text.
+<br />
+</span><span class="mono"><span class="monoblue"><b>
+<br />
+</b></span></span><span>short form:
+<br />
+</span><span class="mono"><span class="monoblue"><b>$.text[</b></span></span><span class="mono"><b>string</b><span class="monoblue"><b>]
+<br />
+</b></span></span><span>
+<br />
+full form:
+<br />
+</span><span class="mono"><span class="monoblue"><b>$.text[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.value[</b></span></span><span class="mono"><b>string</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b>header_field</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>value</b><span class="monoblue"><b>]
+<br />
+]</b></span></span><span>
+<br />
+
+<br />
+&#133;where </span><span class="mono"><b>value</b></span><span> is the value of text block and you can specify all header fields the same way we did with hash </span><span class="mono"><b>message</b></span><span> (see above).
+<br />
+<i>Note: It is not imperative to specify </i></span><span class="mono">content-type</span><span><i> header-it will be generated automatically. This header does not affect transcoding process and is used only to tell mail client what charset it must use to display message.
+<br />
+</i>
+<br />
+Sending HTML. Short form:
+<br />
+</span><span class="mono"><span class="monoblue"><b>
+<br />
+$.html{</b></span></span><span class="mono"><b>string</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+full form:
+<br />
+</span><span class="mono"><span class="monoblue"><b>$.html[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.value{</b></span></span><span class="mono"><b>string</b><span class="monoblue"><b>}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b>header_field</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>value</b><span class="monoblue"><b>]
+<br />
+]</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+</b></span></span><span class="mono"><b>
+<br />
+</b></span><span>Curly brackets are necessary to <a href="tainting.htm">switch default transformation type</a><i> </i>to HTML.
+<br />
+
+<br />
+Attaching a file. Short form:
+<br />
+</span><span class="mono"><span class="monoblue"><b>
+<br />
+$.file[</b></span></span><span class="mono"><b>file</b><span class="monoblue"><b>]
+<br />
+</b></span></span><span>
+<br />
+full form:
+<br />
+</span><span class="mono"><span class="monoblue"><b>
+<br />
+$.file[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$.value[</b></span></span><span class="mono"><b>file</b><span class="monoblue"><b>]
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.name</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>filename</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.content-id</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>XYZ</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>$.format</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>uue</b>|<b>base64</b><span class="monoblue"><b>]</b></span></span><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;$</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b>header_field</b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>value</b><span class="monoblue"><b>]
+<br />
+]</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+</b></span></span><span class="mono"><b>
+<br />
+</b><b>File</b></span><span> is an object of class </span><span class="mono"><b><a href="fileclass.htm">file</a></b></span><span>, which will be attached to the message. MIME-type of sent data (</span><span class="mono">content-type</span><span> header of a part) is determined according to table </span><span class="mono"><b>MIME-TYPES</b></span><span> (see also <a href="parserconfmethod.htm">Configuration method</a>).
+<br />
+</span><span class="mono"><b>
 <br />
 </b><b>Filename</b></span><span> is the name that the file to be sent will bear.
 <br />
@@ -29,15 +214,15 @@ By default the file will be sent in uuencode form.
 <br />
 
 <br />
-Default file encoding </span><span><b>format</b></span><span> is <i>base64</i> since version 3.4.0 and <i>uue</i> prior version 3.4.0.
+Default file encoding </span><span class="mono"><b>format</b></span><span> is <i>base64</i> since version 3.4.0 and <i>uue</i> prior version 3.4.0.
 <br />
 
 <br />
 Attaching a message:
 <br />
-</span><span><span><b>$.message[</b></span></span><span><b>message_text</b><span><b>]</b></span></span><span><span><b>
+</span><span class="mono"><span class="monoblue"><b>$.message[</b></span></span><span class="mono"><b>message_text</b><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>
+</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>The format of the message is the same as that of the whole method's parameter.
 <br />
@@ -47,43 +232,43 @@ There may be several attachments. In this case you must add an integer after the
 <br />
 Example:
 <br />
-</span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;$.file
+</span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;$.file
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.file</b></span></span><span><b>2</b><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;$.file</b></span></span><span class="mono"><b>2</b><span class="monoblue"><b>
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$.message
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.message</b></span></span><span><b>2</b><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;$.message</b></span></span><span class="mono"><b>2</b><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
 Example of how to use alternative blocks and attachments
 <br />
-</span><span><span><b>^mail:send[
+</span><span class="mono"><span class="monoblue"><b>^mail:send[
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.from[</b></span></span><span><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><b>&gt;</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;$.from[</b></span></span><span class="mono"><b>Fred&nbsp;&lt;freddy@hotmail.com&gt;</b><b>&gt;</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.to[</b></span></span><span><b>Peter&nbsp;&lt;peter@hotmail.com&gt;</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;$.to[</b></span></span><span class="mono"><b>Peter&nbsp;&lt;peter@hotmail.com&gt;</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.subject[</b></span></span><span><b>How&nbsp;is&nbsp;it&nbsp;going?</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;$.subject[</b></span></span><span class="mono"><b>How&nbsp;is&nbsp;it&nbsp;going?</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.text[</b></span></span><span><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;great&nbsp;in&nbsp;here!!!</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;$.text[</b></span></span><span class="mono"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;great&nbsp;in&nbsp;here!!!</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.html{</b></span></span><span><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;&lt;b&gt;great&lt;/b&gt;&nbsp;in&nbsp;here!!!
+&nbsp;&nbsp;&nbsp;&nbsp;$.html{</b></span></span><span class="mono"><b>How&nbsp;is&nbsp;it&nbsp;going?&nbsp;It's&nbsp;really&nbsp;&lt;b&gt;great&lt;/b&gt;&nbsp;in&nbsp;here!!!
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&nbsp;/&gt;&lt;img&nbsp;src="cid:pic2"&nbsp;border="0"&nbsp;width="100"&nbsp;height="50"&nbsp;/&gt;
 <br />
-</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b>}
+</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><span class="monoblue"><b>}
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$.file[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[binary;perfect_life1.jpg]]
+&nbsp;&nbsp;&nbsp;&nbsp;$.file[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="fileload.htm">file::load</a></b></span></span><span class="mono"><span class="monoblue"><b>[binary;perfect_life1.jpg]]
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$.file2[
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.value[^file::load[binary;perfect_life2.jpg]]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>pf_life2</b><b>.jpg</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span class="mono"><b>pf_life2</b><b>.jpg</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.content-id[</b></span></span><span><b>p</b><b>ic2</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.content-id[</b></span></span><span class="mono"><b>p</b><b>ic2</b><span class="monoblue"><b>]
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;]
 <br />
@@ -91,7 +276,7 @@ Example of how to use alternative blocks and attachments
 <br />
 </b></span></span><span>
 <br />
-As a result, a message will be sent to </span><span><b>peter@hotmail.com</b></span><span> containing text "How is it going? It's really great in here!!!" in plain text and HTML. Two photographs will be attached to the message to support the idea, and on these photos&#133;
+As a result, a message will be sent to </span><span class="mono"><b>peter@hotmail.com</b></span><span> containing text "How is it going? It's really great in here!!!" in plain text and HTML. Two photographs will be attached to the message to support the idea, and on these photos&#133;
 <br />
 </span></span><br />
 

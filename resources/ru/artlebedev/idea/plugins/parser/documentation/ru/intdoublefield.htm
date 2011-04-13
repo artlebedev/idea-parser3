@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>int, double, bool. �������������� �������� � ������ ��� bool</title>
+    <title>int, double, bool. Преобразование объектов к числам или bool</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,35 +11,93 @@
 <body>
 
 
-<span><b>�������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>int, double, bool. Преобразование объектов к числам или bool
 <br />
-</span><span><span><b>$str[</b></span></span><span><b>�����</b><span><b>]
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-^str.int(</b></span></span><span><b>1024</b><span><b>)</b></span></span><span><b>
+
+
+
+<span class="mono"><b><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="117">
+<span class="mono"><b>^имя.int[]</b>
+<br />
+</span></td><td align="left" valign="top" width="73">
+<p align="center"><span>или<span class="mono">
+<br />
+</span></span></p></td><td align="left" valign="top" width="179">
+<span class="mono"><b>^имя.int(default)</b>
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="117">
+<span class="mono"><b>^имя.double[]</b>
+<br />
+</span></td><td align="left" valign="top" width="73">
+<p align="center"><span>или<span class="mono">
+<br />
+</span></span></p></td><td align="left" valign="top" width="179">
+<span class="mono"><b>^имя.double(default)</b>
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="117">
+<span class="mono"><b>^</b><b>имя</b><b>.bool[]</b>
+<br />
+</span></td><td align="left" valign="top" width="73">
+<p align="center"><span>или<span class="mono">
+<br />
+</span></span></p></td><td align="left" valign="top" width="179">
+<span class="mono"><b>^</b><b>имя</b><b>.bool(true|false)</b>
+<br />
+</span></td></tr></table>
+<br />
+</b><span>
+<br />
+Преобразуют значение переменной </span><span class="mono"><b>$имя</b></span><span> к целому, вещественному числу или bool соответственно, и возвращает это значение. При преобразовании вещественного числа к целому дробная часть отбрасывается. 
+<br />
+
+<br />
+Можно задать значение по умолчанию, которое будет получено, если преобразование невозможно. Значение по умолчанию можно использовать при обработке данных, получаемых интерактивно от пользователей. Это позволит избежать появления текстовых значений в математических выражениях при вводе некорректных данных, например, строки вместо ожидаемого числа.
+<br />
+
+<br />
+<i>Внимание: пустая строка и строка состоящая только из "white spaces" (символы пробела, табуляция, перевода строки) считается нулем или </i><i>false</i><i>.
+<br />
+</i>
+<br />
+</span><span class="h1"><b>Примеры</b></span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>Штука</b><span class="monoblue"><b>]
+<br />
+^str.int(</b></span></span><span class="mono"><b>1024</b><span class="monoblue"><b>)</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-������� ����� </span><span><b>1024</b></span><span>, ��������� ������ </span><span><b>str</b></span><span> ������ ������������� � ������ </span><span><b>int</b></span><span>.
+Выведет число </span><span class="mono"><b>1024</b></span><span>, поскольку объект </span><span class="mono"><b>str</b></span><span> нельзя преобразовать к классу </span><span class="mono"><b>int</b></span><span>.
 <br />
 
 <br />
 
 <br />
-</span><span><span><b>$double(1.5)
+</span><span class="mono"><span class="monoblue"><b>$double(1.5)
 <br />
 ^double.int[]</b></span></span><span>
 <br />
 
 <br />
-������� ����� </span><span><b>1</b></span><span>, ��������� ������� ����� ����� ���������.
+Выведет число </span><span class="mono"><b>1</b></span><span>, поскольку дробная часть будет отброшена.
 <br />
 
 <br />
 
 <br />
-</span><span><span><b>^if(^form:search_in_text.bool(false)){
+</span><span class="mono"><span class="monoblue"><b>^if(^form:search_in_text.bool(false)){
 <br />
-&nbsp;&nbsp;&nbsp;</b></span></span><span><b>...����&nbsp;�&nbsp;������...</b><span><b>
+&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>...ищем&nbsp;в&nbsp;тексте...</b><span class="monoblue"><b>
 <br />
 }
 <br />

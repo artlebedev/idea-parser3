@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. Relative date</title>
+    <title>create. Relative date</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,11 +11,34 @@
 <body>
 
 
-<span><b>Example</b></h1><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>create. Relative date
 <br />
-</b></span><span><span><b>$now[^date</b></span></span><span><span><b>:</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-$date_after_week[^date::create($now+7)]</b></span></span><span><b>
+
+
+
+<span class="mono"><b>^date::create(number&nbsp;of&nbsp;days&nbsp;since&nbsp;EPOCH)
+<br />
+</b><span>
+<br />
+Constructor with only one parameter is designed for specifying <b>relative</b> date values. Having object of class </span><span class="mono"><b>date</b></span><span>, one can make up a new object of the same type, whose value will be shifted with respect to the initial.
+<br />
+</span><span><b>
+<br />
+</b></span><span class="h1"><b>Example</b></span><span><b>
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>$now[^date</b></span></span><span class="mono"><span class="monoblue"><b>:</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">now</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
+<br />
+$date_after_week[^date::create($now+7)]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
@@ -27,7 +50,7 @@ Parameter of the constructor does not have to be an integer number.
 <br />
 
 <br />
-</span><span><span><b>$date_after_three_hours[^date::create($now+3/24)]</b></span></span><span>
+</span><span class="mono"><span class="monoblue"><b>$date_after_three_hours[^date::create($now+3/24)]</b></span></span><span>
 <br />
 </span></span><br />
 

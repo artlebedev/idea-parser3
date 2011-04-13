@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>dirname. ���� � �����</title>
+    <title>dirname. Путь к файлу</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,38 +15,38 @@
   <tr>
     <td>
       
-<span><b>dirname. ���� � �����
+<span class="h1"><b>dirname. Путь к файлу
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file:dirname[filespec]</b><span>
+<span class="mono"><b>^file:dirname[filespec]</b><span>
 <br />
 
 <br />
-�� ���� � ����� ��� �������� (</span><span><b>filespec</b></span><span>) �������� ������ ����.
+Из пути к файлу или каталогу (</span><span class="mono"><b>filespec</b></span><span>) получает только путь.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>#���&nbsp;�����
+</b></span><span class="mono"><span class="monoblue"><b>#имя&nbsp;файла
 <br />
-^file:dirname[</b></span></span><span><b>/a/some.tar.gz</b><span><b>]
+^file:dirname[</b></span></span><span class="mono"><b>/a/some.tar.gz</b><span class="monoblue"><b>]
 <br />
-#���&nbsp;���������
+#имя&nbsp;каталога…
 <br />
-^file:dirname[</b></span></span><span><b>/a/b/</b><span><b>]</b></span></span><span><b>
+^file:dirname[</b></span></span><span class="mono"><b>/a/b/</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-��� ������ �������:</span><span><b>
+Оба вызова выдадут:</span><span class="mono"><b>
 <br />
 /a
 <br />

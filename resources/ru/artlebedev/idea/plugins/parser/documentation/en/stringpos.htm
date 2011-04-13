@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>pos. Getting substring's position</title>
+    <title>pos. Getting substring's position</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,39 +11,56 @@
 <body>
 
 
-<span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>pos. Getting substring's position
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^string.pos[substring]
+<br />
+^string.pos[substring](offset)</b><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-The method returns a number </span><span><b><a href="intdoubleclasses.htm">int</a></b></span><span>, that is the position of the first character of the substring (beginning with zero), or </span><span><b>-1</b></span><span> if substring cannot be found.
+The method returns a number </span><span class="mono"><b><a href="intdoubleclasses.htm">int</a></b></span><span>, that is the position of the first character of the substring (beginning with zero), or </span><span class="mono"><b>-1</b></span><span> if substring cannot be found.
 <br />
-If </span><span><b>offset</b></span><span> was specified the substring will be searching from specified position.
+If </span><span class="mono"><b>offset</b></span><span> was specified the substring will be searching from specified position.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 
 <br />
 </b><b>Examples</b></span><span><u>
 <br />
-</u></span><span><span><b>$str[</b></span></span><span><b>Strangers&nbsp;in&nbsp;the&nbsp;night&#133;</b><span><b>]
+</u></span><span class="mono"><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>Strangers&nbsp;in&nbsp;the&nbsp;night&#133;</b><span class="monoblue"><b>]
 <br />
 ^str.pos[range]</b></span></span><span>
 <br />
 
 <br />
-The code will return: </span><span><b>2
+The code will return: </span><span class="mono"><b>2
 <br />
 </b><b>
 <br />
 
 <br />
-</b><span><b>$str[</b></span></span><span><b>Strangers&nbsp;in&nbsp;the&nbsp;night&#133;</b><span><b>]
+</b><span class="monoblue"><b>$str[</b></span></span><span class="mono"><b>Strangers&nbsp;in&nbsp;the&nbsp;night&#133;</b><span class="monoblue"><b>]
 <br />
 ^str.pos[t](2)</b></span></span><span>
 <br />
 
 <br />
-The code will return: </span><span><b>13</b></span><span>
+The code will return: </span><span class="mono"><b>13</b></span><span>
 <br />
 
 <br />

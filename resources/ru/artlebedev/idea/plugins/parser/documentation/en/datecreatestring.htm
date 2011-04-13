@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. Date and time in standard DBMS format</title>
+    <title>create. Date and time in standard DBMS format</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>create. Date and time in standard DBMS format
+<span class="h1"><b>create. Date and time in standard DBMS format
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^date::create[year]
+<span class="mono"><b>^date::create[year]
 <br />
 ^date::create[</b><b>year-month</b><b>]
 <br />
@@ -46,9 +46,9 @@
 <br />
 </b><span>
 <br />
-Creates an object of class </span><span><b>date</b></span><span>, containing value of an arbitrary date and/or time accurate to a second. Obligatory parameters are </span><span><b>year</b></span><span> or </span><span><b>hour</b></span><span> and </span><span><b>minute</b></span><span>, while </span><span><b>month</b></span><span>, </span><span><b>day</b></span><span>, </span><span><b>hour</b></span><span>, </span><span><b>minute</b></span><span>, </span><span><b>second</b></span><span> and </span><span><b>millisecond</b></span><span> are optional. If these are not specified, </span><span><b>day</b></span><span> value will be assigned 1 or current day's value, while </span><span><b>hour</b></span><span>, </span><span><b>minute</b></span><span>, and </span><span><b>second</b></span><span> will be assigned 0.
+Creates an object of class </span><span class="mono"><b>date</b></span><span>, containing value of an arbitrary date and/or time accurate to a second. Obligatory parameters are </span><span class="mono"><b>year</b></span><span> or </span><span class="mono"><b>hour</b></span><span> and </span><span class="mono"><b>minute</b></span><span>, while </span><span class="mono"><b>month</b></span><span>, </span><span class="mono"><b>day</b></span><span>, </span><span class="mono"><b>hour</b></span><span>, </span><span class="mono"><b>minute</b></span><span>, </span><span class="mono"><b>second</b></span><span> and </span><span class="mono"><b>millisecond</b></span><span> are optional. If these are not specified, </span><span class="mono"><b>day</b></span><span> value will be assigned 1 or current day's value, while </span><span class="mono"><b>hour</b></span><span>, </span><span class="mono"><b>minute</b></span><span>, and </span><span class="mono"><b>second</b></span><span> will be assigned 0.
 <br />
-<i>Note: </i></span><span><b>millisecond</b></span><span><i> val</i><i>ue is ignored</i><i>.</i>
+<i>Note: </i></span><span class="mono"><b>millisecond</b></span><span><i> val</i><i>ue is ignored</i><i>.</i>
 <br />
 
 <br />
@@ -56,29 +56,29 @@ This feature is useful if you retrieve a date from DB, since the query will retu
 <br />
 
 <br />
-</span><span><b>Example</b></span><span><b>
+</span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>Example</b></span><span class="mono"><b>
 <br />
-</b><span><b>#&nbsp;articles&nbsp;created/updated&nbsp;3&nbsp;days&nbsp;ago&nbsp;and&nbsp;later&nbsp;are&nbsp;"new"
+</b><span class="monoblue"><b>#&nbsp;articles&nbsp;created/updated&nbsp;3&nbsp;days&nbsp;ago&nbsp;and&nbsp;later&nbsp;are&nbsp;"new"
 <br />
-$new_after[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>(-3)]
+$new_after[^date::</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">now</a></b></span></span><span class="mono"><span class="monoblue"><b>(-3)]
 <br />
-$articles[^</b></span></span><span><span><b><a href="tablesql.htm">table::sql</a></b></span></span><span><span><b>{select&nbsp;id,&nbsp;title,&nbsp;last_update&nbsp;from&nbsp;articles&nbsp;where&nbsp;&#133;}]
+$articles[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesql.htm">table::sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{select&nbsp;id,&nbsp;title,&nbsp;last_update&nbsp;from&nbsp;articles&nbsp;where&nbsp;&#133;}]
 <br />
-^articles.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{
+^articles.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$last_update[^date::create[$articles.last_update]]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>&lt;a&nbsp;href=</b><span><b>${articles.id}</b></span></span><span><b>.html&gt;</b><span><b>$articles.title</b></span></span><span><b>&lt;/a&gt;</b><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>&lt;a&nbsp;href=</b><span class="monoblue"><b>${articles.id}</b></span></span><span class="mono"><b>.html&gt;</b><span class="monoblue"><b>$articles.title</b></span></span><span class="mono"><b>&lt;/a&gt;</b><span class="monoblue"><b>
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;^if($last_update&nbsp;&gt;&nbsp;$new_after){</b></span></span><span><b>new</b><span><b>}
+&nbsp;&nbsp;&nbsp;&nbsp;^if($last_update&nbsp;&gt;&nbsp;$new_after){</b></span></span><span class="mono"><b>new</b><span class="monoblue"><b>}
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;br</b><b>&nbsp;/</b><b>&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;br</b><b>&nbsp;/</b><b>&gt;
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-<i>Note for Oracle users: to get date and time in convenient format, specify the format of date and time in server connection string, as recommended in</i><i> </i><i><a href="app3oracle.htm">Appendix 3</a></i><i>.</i></span><span><b>
+<i>Note for Oracle users: to get date and time in convenient format, specify the format of date and time in server connection string, as recommended in</i><i> </i><i><a href="app3oracle.htm">Appendix 3</a></i><i>.</i></span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

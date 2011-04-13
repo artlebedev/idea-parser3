@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>tables. Getting multiple field values</title>
+    <title>tables. Getting multiple field values</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,22 +15,22 @@
   <tr>
     <td>
       
-<span><b>tables. Getting multiple field values
+<span class="h1"><b>tables. Getting multiple field values
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$form:tables.field_name
+<span class="mono"><b>$form:tables.field_name
 <br />
 </b><span>
 <br />
-If a form field has at least one value, such a construction returns a table (object of class </span><span><span><b>table</b></span></span><span>) with single column </span><span><b>field</b></span><span>, containing all field values. It is used for getting multiple field values.
+If a form field has at least one value, such a construction returns a table (object of class </span><span class="mono"><span class="monoblue"><b>table</b></span></span><span>) with single column </span><span class="mono"><b>field</b></span><span>, containing all field values. It is used for getting multiple field values.
 <br />
 
 <br />
@@ -38,9 +38,9 @@ If a form field has at least one value, such a construction returns a table (obj
 <br />
 </i></span><span><b>
 <br />
-</b></span><span><b>Example
+</b></span><span class="h1"><b>Example
 <br />
-</b></span><span><b>Choose&nbsp;what&nbsp;you&nbsp;like&nbsp;doing&nbsp;in&nbsp;your&nbsp;free&nbsp;time:
+</b></span><span class="mono"><b>Choose&nbsp;what&nbsp;you&nbsp;like&nbsp;doing&nbsp;in&nbsp;your&nbsp;free&nbsp;time:
 <br />
 &lt;form&nbsp;method="POST"&gt;
 <br />
@@ -54,21 +54,21 @@ If a form field has at least one value, such a construction returns a table (obj
 <br />
 &lt;/form&gt;
 <br />
-</b><span><b>$hobby[$form:tables.hobby]
+</b><span class="monoblue"><b>$hobby[$form:tables.hobby]
 <br />
 ^if($hobby){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;Your&nbsp;hobbies&nbsp;are:&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Your&nbsp;hobbies&nbsp;are:&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^hobby</b></span></span><span><span><b>.</b></span></span><span><span><b><a href="tablemenu.htm">menu</a></b></span></span><span><span><b>{
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;^hobby</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hobby.field
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;}[</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>]</b></span></span><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;}[</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>}{
+</b><span class="monoblue"><b>}{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>None&nbsp;selected</b><span><b>}
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>None&nbsp;selected</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />

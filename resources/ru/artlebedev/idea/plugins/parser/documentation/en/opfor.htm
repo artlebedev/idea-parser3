@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>for. Loop with specified number of repetitions</title>
+    <title>for. Loop with specified number of repetitions</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,13 +11,60 @@
 <body>
 
 
-<span><b>Example</b></h1><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>for. Loop with specified number of repetitions
 <br />
-</b></span><span><span><b>^for[week](1;4){
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="/news/archive.html?week=</b><span><b>$week</b></span></span><span><b>"&gt;</b><b>News&nbsp;for&nbsp;week&nbsp;</b><span><b>$week</b></span></span><span><b>&lt;/a&gt;
+
+
+
+<span class="mono"><b>^for[counter](from;to){body}
 <br />
-</b><span><b>}[</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>]
+^for[counter](from;to){body}[delimiter]
+<br />
+^for[counter](from;to){body}{delimiter}
+<br />
+</b><span>
+<br />
+Operator </span><span class="mono"><b>for</b></span><span> repeatedly implements the body of the loop, going through counter's values </span><span class="mono"><b>from</b></span><span> initial </span><span class="mono"><b>to</b></span><span> final. Every repetition automatically increments the counter's value by one.
+<br />
+
+<br />
+</span><span class="mono"><b>Counter</b></span><span> is the name of variable used as the loop's counter.
+<br />
+
+<br />
+</span><span class="mono"><b>From</b></span><span> and </span><span class="mono"><b>to</b></span><span>, respectively, are initial and final values of the counter-mathematical expressions specifying the scope of values assigned to the counter. If final value is less than the initial, the body of the loop will not be implemented at all.
+<br />
+
+<br />
+</span><span class="mono"><b>Delimiter</b></span><span> is string or code to be implemented before every non-empty body, except the first.
+<br />
+
+<br />
+<i>Important notice: since the names of the counters can be repeated, we recommend declaring them as local variables of the method which uses </i></span><span class="mono"><b>for</b></span><span><i> loop.
+<br />
+</i>
+<br />
+You can force finish the loop using </span><span class="mono"><span class="monoblue"><b><a href="opbreak.htm">break</a></b></span></span><span> operator or finish current step and go to next one using </span><span class="mono"><span class="monoblue"><b><a href="opcontinue.htm">continue</a></b></span></span><span> operator.</span><span class="mono"><b>&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+<br />
+
+<br />
+</span><span class="h1"><b>Example</b></span><span><b>
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>^for[week](1;4){
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="/news/archive.html?week=</b><span class="monoblue"><b>$week</b></span></span><span class="mono"><b>"&gt;</b><b>News&nbsp;for&nbsp;week&nbsp;</b><span class="monoblue"><b>$week</b></span></span><span class="mono"><b>&lt;/a&gt;
+<br />
+</b><span class="monoblue"><b>}[</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>]
 <br />
 </b></span></span><span>
 <br />

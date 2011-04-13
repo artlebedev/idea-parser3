@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>process. Compiling and processing string</title>
+    <title>process. Compiling and processing string</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>process. Compiling and processing string
+<span class="h1"><b>process. Compiling and processing string
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^process{string}
+<span class="mono"><b>^process{string}
 <br />
 ^process[scope]{string}
 <br />
@@ -34,89 +34,89 @@
 <br />
 </b><span>
 <br />
-</span><span><b>String</b></span><span> will be compiled and executed as code in Parser, within specified </span><span><b>scope</b></span><span> or current scope. Specified </span><span><b>scope</b></span><span> can be an <a href="obj.htm">object</a> or a <a href="defineclass.htm">class</a>, but </span><span><b>not&nbsp;method</b></span><span> (this meaning if you process something inside your method, the method`s local varuables will not available inside processed code).
+</span><span class="mono"><b>String</b></span><span> will be compiled and executed as code in Parser, within specified </span><span class="mono"><b>scope</b></span><span> or current scope. Specified </span><span class="mono"><b>scope</b></span><span> can be an <a href="obj.htm">object</a> or a <a href="defineclass.htm">class</a>, but </span><span class="mono"><b>not&nbsp;method</b></span><span> (this meaning if you process something inside your method, the method`s local varuables will not available inside processed code).
 <br />
 
 <br />
-This operator is useful when you need to store fragments of code or your own methods in files with extension other than </span><span>.html</span><span>-and which therefore will not be processed by Parser by default-or in a DB.
+This operator is useful when you need to store fragments of code or your own methods in files with extension other than </span><span class="mono">.html</span><span>-and which therefore will not be processed by Parser by default-or in a DB.
 <br />
 
 <br />
-Several </span><span><b>options</b></span><span> (<a href="hash.htm">hash</a>) may be specified:
+Several </span><span class="mono"><b>options</b></span><span> (<a href="hash.htm">hash</a>) may be specified:
 <br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span></span><span><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>$.main[</b></span><span>a new name for </span><span><b>main</b></span><span> method, declared in code in </span><span><b>string]</b></span><span>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span></span><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>$.main[</b></span><span>a new name for </span><span class="mono"><b>main</b></span><span> method, declared in code in </span><span class="mono"><b>string]</b></span><span>
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span><span><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>$.file[</b></span><span>a name of file, from which this </span><span><b>string</b></span><span> comes from</span><span><b>]</b></span><span>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>$.file[</b></span><span>a name of file, from which this </span><span class="mono"><b>string</b></span><span> comes from</span><span class="mono"><b>]</b></span><span>
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span><span><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>$.lineno(</b></span><span>a line number in file, where this </span><span><b>string</b></span><span> cames from</span><span><b>.</b></span><span><i> m</i><i>ay be negative</i></span><span><b>)</b></span><span>
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>$.lineno(</b></span><span>a line number in file, where this </span><span class="mono"><b>string</b></span><span> cames from</span><span class="mono"><b>.</b></span><span><i> m</i><i>ay be negative</i></span><span class="mono"><b>)</b></span><span>
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
 <br />
-</span><span><b>Simple examples
+</span><span class="h1"><b>Simple examples
 <br />
-</b></span><span><span><b>^process{</b></span></span><span><b>@extra[]
+</b></span><span class="mono"><span class="monoblue"><b>^process{</b></span></span><span class="mono"><b>@extra[]
 <br />
-&nbsp;&nbsp;&nbsp;</b><b>PS:&nbsp;you&nbsp;look&nbsp;really&nbsp;good&#133;</b></span><span><b>
+&nbsp;&nbsp;&nbsp;</b><b>PS:&nbsp;you&nbsp;look&nbsp;really&nbsp;good&#133;</b></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>
 <br />
-</b></span><span><span><b>}
+</b></span><span class="mono"><span class="monoblue"><b>}
 <br />
-</b></span></span><span>Method </span><span><b>extra</b></span><span> will be added to the current class and you will be able to call it later on.</span><span>
+</b></span></span><span>Method </span><span class="mono"><b>extra</b></span><span> will be added to the current class and you will be able to call it later on.</span><span class="h1">
 <br />
-</span><span><span><b>
+</span><span class="mono"><span class="monoblue"><b>
 <br />
-^process[$engine:</b></span></span><span><span><b><a href="defineclass.htm">CLASS</a></b></span></span><span><span><b>]{</b></span></span><span><b>@start[]
+^process[$engine:</b></span></span><span class="mono"><span class="monoblue"><b><a href="defineclass.htm">CLASS</a></b></span></span><span class="mono"><span class="monoblue"><b>]{</b></span></span><span class="mono"><b>@start[]
 <br />
-&nbsp;&nbsp;&nbsp;</b><b>5&#133;&nbsp;4&#133;&nbsp;3&#133;&nbsp;2&#133;&nbsp;1&#133;&nbsp;GO!</b></span><span><b>
+&nbsp;&nbsp;&nbsp;</b><b>5&#133;&nbsp;4&#133;&nbsp;3&#133;&nbsp;2&#133;&nbsp;1&#133;&nbsp;GO!</b></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>
 <br />
-</b></span><span><span><b>}
+</b></span><span class="mono"><span class="monoblue"><b>}
 <br />
-</b></span></span><span>Method </span><span><b>start</b></span><span> will be added to user class </span><span><b>engine</b></span><span>.</span><span>
+</b></span></span><span>Method </span><span class="mono"><b>start</b></span><span> will be added to user class </span><span class="mono"><b>engine</b></span><span>.</span><span class="h1">
 <br />
-</span><span><span><b>
+</span><span class="mono"><span class="monoblue"><b>
 <br />
-$running_man[^man</b></span></span><span><span><b><a href="obj.htm">::</a></b></span></span><span><span><b>create[Jack]]
+$running_man[^man</b></span></span><span class="mono"><span class="monoblue"><b><a href="obj.htm">::</a></b></span></span><span class="mono"><span class="monoblue"><b>create[Jack]]
 <br />
 ^process[$running_man]{
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>Name</b><b>:&nbsp;</b><span><b>$name</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>Name</b><b>:&nbsp;</b><span class="monoblue"><b>$name</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
 }
 <br />
-</b></span></span><span>As the code is executed within the scope of object </span><span><b>$running_man</b></span><span>, it is able to use the object's field </span><span><b>name</b></span><span> and output "Jack".</span><span>
+</b></span></span><span>As the code is executed within the scope of object </span><span class="mono"><b>$running_man</b></span><span>, it is able to use the object's field </span><span class="mono"><b>name</b></span><span> and output "Jack".</span><span class="h1">
 <br />
 </span><span>
 <br />
-</span><span><b>Include</b><b> o</b><b>perator
+</span><span class="h1"><b>Include</b><b> o</b><b>perator
 <br />
-</b></span><span><span><b>@include[filename][file]
+</b></span><span class="mono"><span class="monoblue"><b>@include[filename][file]
 <br />
-$file[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[text;$filename]]
+$file[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="fileload.htm">file::load</a></b></span></span><span class="mono"><span class="monoblue"><b>[text;$filename]]
 <br />
-^process[$</b></span></span><span><span><b><a href="definemethod.htm">caller.self</a></b></span></span><span><span><b>]{^</b></span></span><span><span><b><a href="opuntainttaint.htm">taint</a></b></span></span><span><span><b>[as-is][$file.</b></span></span><span><span><b><a href="filefields.htm">text</a></b></span></span><span><span><b>]}</b></span></span><span><span><b>[
+^process[$</b></span></span><span class="mono"><span class="monoblue"><b><a href="definemethod.htm">caller.self</a></b></span></span><span class="mono"><span class="monoblue"><b>]{^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opuntainttaint.htm">taint</a></b></span></span><span class="mono"><span class="monoblue"><b>[as-is][$file.</b></span></span><span class="mono"><span class="monoblue"><b><a href="filefields.htm">text</a></b></span></span><span class="mono"><span class="monoblue"><b>]}</b></span></span><span class="mono"><span class="monoblue"><b>[
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;$.file[$filename]
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;$.file[$filename]
 <br />
-</b></span></span><span><span><b>]</b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span>The code loads specified file and executes it within the scope of the current object/class when </span><span><b>include</b></span><span> was called. </span><span><b>File</b></span><span> option allows us to specify the name of file, where this code were loaded from. In case there would be some error, you would see this "file name".
+</b></span></span><span>The code loads specified file and executes it within the scope of the current object/class when </span><span class="mono"><b>include</b></span><span> was called. </span><span class="mono"><b>File</b></span><span> option allows us to specify the name of file, where this code were loaded from. In case there would be some error, you would see this "file name".
 <br />
 <i>Note: "scope of current call" does not include any local variables or parameters!
 <br />
-</i></span><span><b>
+</i></span><span class="h1"><b>
 <br />
 Complex example
 <br />
 </b></span><span>It is often convinient to compile a code to some method, which name evaluated dynamically:
 <br />
-</span><span><span><b>#&nbsp;this&nbsp;is&nbsp;source&nbsp;code,&nbsp;note&nbsp;^^
+</span><span class="mono"><span class="monoblue"><b>#&nbsp;this&nbsp;is&nbsp;source&nbsp;code,&nbsp;note&nbsp;^^
 <br />
-$source_code[</b></span></span><span><b>2*2=</b><b><a href="stringlit.htm">^^</a></b><b>eval(2*2)</b><span><b>]
+$source_code[</b></span></span><span class="mono"><b>2*2=</b><b><a href="stringlit.htm">^^</a></b><b>eval(2*2)</b><span class="monoblue"><b>]
 <br />
-#&nbsp;</b></span></span><span><span><b>it&nbsp;is&nbsp;evaluated&nbsp;dynamically,&nbsp;that&nbsp;we&nbsp;need&nbsp;to&nbsp;create&nbsp;the&nbsp;"method</b></span></span><span><span><b>1</b></span></span><span><span><b>"</b></span></span><span><span><b>&nbsp;</b></span></span><span><span><b>method&nbsp;</b></span></span><span><span><b>
+#&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>it&nbsp;is&nbsp;evaluated&nbsp;dynamically,&nbsp;that&nbsp;we&nbsp;need&nbsp;to&nbsp;create&nbsp;the&nbsp;"method</b></span></span><span class="mono"><span class="monoblue"><b>1</b></span></span><span class="mono"><span class="monoblue"><b>"</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>method&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 $method_name[method1]
 <br />
-#&nbsp;</b></span></span><span><span><b>compiling&nbsp;source&nbsp;code,&nbsp;storing&nbsp;it&nbsp;to&nbsp;new&nbsp;method</b></span></span><span><span><b>
+#&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>compiling&nbsp;source&nbsp;code,&nbsp;storing&nbsp;it&nbsp;to&nbsp;new&nbsp;method</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 ^process{$source_code}[
 <br />
@@ -126,11 +126,11 @@ $method_name[method1]
 <br />
 &#133;
 <br />
-#&nbsp;</b></span></span><span><span><b>later&nbsp;in&nbsp;code&nbsp;it&nbsp;can&nbsp;be&nbsp;called</b></span></span><span><span><b>
+#&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>later&nbsp;in&nbsp;code&nbsp;it&nbsp;can&nbsp;be&nbsp;called</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 ^method1[]
 <br />
-</b></span></span><span>This example would continue to work even if in </span><span><b>$source_code</b></span><span> there would be declared several methods, because </span><span><b>main&nbsp;option</b></span><span> sets the name of </span><span><b>main</b></span><span> method.</span><span><span><b>
+</b></span></span><span>This example would continue to work even if in </span><span class="mono"><b>$source_code</b></span><span> there would be declared several methods, because </span><span class="mono"><b>main&nbsp;option</b></span><span> sets the name of </span><span class="mono"><b>main</b></span><span> method.</span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>uuid. ������������� ���������� �������������</title>
+    <title>uuid. Универсальный уникальный идентификатор</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,68 +11,78 @@
 <body>
 
 
-<span><b>uuid. ������������� ���������� ������������� </b><span><b><i>[3.0.8]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>uuid. Универсальный уникальный идентификатор </b><span><b><i>[3.0.8]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>^math:uuid[]
+<span class="mono"><b>^math:uuid[]
 <br />
 </b><span>
 <br />
-������ ��������� ������ �����
+Выдает случайную строку вида…
 <br />
-</span><span>&nbsp;&nbsp;&nbsp;&nbsp;22C0983C-E26E-4169-BD07-77ECE9405BA5
-<br />
-</span><span><i>
-<br />
-����������: �� ��������� ������������ �������� </i><i>������ </i><i>��������������� ������.
-<br />
-</i>
-<br />
-������ ������������, ����� ������ ���������� ��� ������ ��������������� ������������ �������� ��������� ��������.
-<br />
-��������, ��� �������������� �����������.
+</span><span class="mono">&nbsp;&nbsp;&nbsp;&nbsp;22C0983C-E26E-4169-BD07-77ECE9405BA5
 <br />
 </span><span><i>
 <br />
-</i></span><span><i>UUID</i><i> ����� �������� ��� </i><i>GUID</i><i>.
+Примечание: на некоторых операционных системах </i><i>выдает </i><i>псевдослучайную строку.
 <br />
 </i>
 <br />
-</span><span><b>������
+Удобно использовать, когда трудно обеспечить или вообще нецелесообразно использовать сквозную нумерацию объектов.
 <br />
-</b></span><span>� ������ �������� �������� ���������� ������, ������� ������������ ������������ � ����������� ����. ����� ���������� ������������ �������������� ������ ���������� </span><span>UUID</span><span>.
+Например, при распределенных вычислениях.
 <br />
-</span><span><b>
+</span><span class="mono"><i>
 <br />
-</b><span><b>#&nbsp;�&nbsp;������&nbsp;��������&nbsp;����������&nbsp;����������&nbsp;�������&nbsp;orders&nbsp;�&nbsp;order_details
+</i></span><span><i>UUID</i><i> также известен как </i><i>GUID</i><i>.
+<br />
+</i>
+<br />
+</span><span class="h1"><b>Пример
+<br />
+</b></span><span>В разных филиалах компании собираются заказы, которые периодически отправляются в центральный офис. Чтобы обеспечить уникальность идентификатора заказа используем </span><span class="mono">UUID</span><span>.
+<br />
+</span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>#&nbsp;в&nbsp;разных&nbsp;филиалах&nbsp;происходит&nbsp;наполнение&nbsp;таблицы&nbsp;orders&nbsp;и&nbsp;order_details
 <br />
 
 <br />
-#&nbsp;�������&nbsp;����������&nbsp;�������������
+#&nbsp;создаем&nbsp;уникальный&nbsp;идентификатор
 <br />
-$order_uuid[^math:uuid[]]</b></span></span><span><b>
+$order_uuid[^math:uuid[]]</b></span></span><span class="mono"><b>
 <br />
 
 <br />
-</b><span><b>#&nbsp;���������&nbsp;������&nbsp;�&nbsp;������
+</b><span class="monoblue"><b>#&nbsp;добавляем&nbsp;запись&nbsp;о&nbsp;заказе
 <br />
-^void:</b></span></span><span><span><b><a href="voidsql.htm">sql</a></b></span></span><span><span><b>{
+^void:</b></span></span><span class="mono"><span class="monoblue"><b><a href="voidsql.htm">sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;insert&nbsp;into&nbsp;orders
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;insert&nbsp;into&nbsp;orders
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(order_uuid,&nbsp;date_ordered,&nbsp;total)
 <br />
 &nbsp;&nbsp;&nbsp;values
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('</b><span><b>$order_uuid</b></span></span><span><b>',&nbsp;'</b><span><b>$date_ordered</b></span></span><span><b>',&nbsp;</b><span><b>$total</b></span></span><span><b>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('</b><span class="monoblue"><b>$order_uuid</b></span></span><span class="mono"><b>',&nbsp;'</b><span class="monoblue"><b>$date_ordered</b></span></span><span class="mono"><b>',&nbsp;</b><span class="monoblue"><b>$total</b></span></span><span class="mono"><b>)
 <br />
-</b><span><b>}</b></span></span><span><b>
+</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>#����&nbsp;��&nbsp;����������&nbsp;���������&nbsp;������&nbsp;����������&nbsp;������&nbsp;�&nbsp;��������
+</b><span class="monoblue"><b>#цикл&nbsp;по&nbsp;заказанным&nbsp;продуктам&nbsp;вокруг&nbsp;добавления&nbsp;записи&nbsp;о&nbsp;продукте
 <br />
-^void:</b></span></span><span><span><b><a href="voidsql.htm">sql</a></b></span></span><span><span><b>{</b></span></span><span><b>
+^void:</b></span></span><span class="mono"><span class="monoblue"><b><a href="voidsql.htm">sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>
 <br />
 </b><b>&nbsp;&nbsp;&nbsp;</b><b>insert&nbsp;into&nbsp;order_details
 <br />
@@ -80,37 +90,37 @@ $order_uuid[^math:uuid[]]</b></span></span><span><b>
 <br />
 </b><b>&nbsp;&nbsp;&nbsp;</b><b>values
 <br />
-</b><b>&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;&nbsp;('</b><span><b>$order_uuid</b></span></span><span><b>',&nbsp;</b><span><b>$item_id</b></span></span><span><b>,&nbsp;</b><span><b>$price</b></span></span><span><b>)
+</b><b>&nbsp;&nbsp;&nbsp;</b><b>&nbsp;&nbsp;&nbsp;&nbsp;('</b><span class="monoblue"><b>$order_uuid</b></span></span><span class="mono"><b>',&nbsp;</b><span class="monoblue"><b>$item_id</b></span></span><span class="mono"><b>,&nbsp;</b><span class="monoblue"><b>$price</b></span></span><span class="mono"><b>)
 <br />
-</b><span><b>}</b></span></span><span><b>
-<br />
-
+</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
 
 <br />
-</b><span><b>#&nbsp;�&nbsp;�����-��&nbsp;��������������&nbsp;����������&nbsp;�����&nbsp;�������&nbsp;orders&nbsp;(�&nbsp;order_details)
+
 <br />
-#&nbsp;������������&nbsp;(^mail:</b></span></span><span><span><b><a href="mailsend.htm">send</a></b></span></span><span><span><b>[�])&nbsp;�&nbsp;�����������&nbsp;����,&nbsp;
+</b><span class="monoblue"><b>#&nbsp;с&nbsp;какой-то&nbsp;периодичностью&nbsp;выбирается&nbsp;часть&nbsp;таблицы&nbsp;orders&nbsp;(и&nbsp;order_details)
 <br />
-#&nbsp;���&nbsp;�����&nbsp;������&nbsp;��������&nbsp;�&nbsp;�����&nbsp;�������&nbsp;orders&nbsp;�&nbsp;order_details
+#&nbsp;отправляется&nbsp;(^mail:</b></span></span><span class="mono"><span class="monoblue"><b><a href="mailsend.htm">send</a></b></span></span><span class="mono"><span class="monoblue"><b>[…])&nbsp;в&nbsp;центральный&nbsp;офис,&nbsp;
 <br />
-#&nbsp;���&nbsp;�������&nbsp;�&nbsp;�������������&nbsp;order_id</b></span></span><span><b>
+#&nbsp;где&nbsp;части&nbsp;таблиц&nbsp;попадают&nbsp;в&nbsp;общие&nbsp;таблицы&nbsp;orders&nbsp;и&nbsp;order_details
+<br />
+#&nbsp;БЕЗ&nbsp;проблем&nbsp;с&nbsp;повторяющимся&nbsp;order_id</b></span></span><span class="mono"><b>
 <br />
 
 <br />
-</b></span><span><i>����������: Parser ������� UUID ����������� �� ��������� ������, � �� �������. ���������:
+</b></span><span><i>Примечание: Parser создает UUID основываясь на случайных числах, а не времени. Параметры:
 <br />
 </i><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><i></i><font face="Symbol" size="2" color="#000000">&#183;</font><i></i></span></i></span></td><td><span><i>variant = DCE;
 &nbsp;<br />
 </i></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><i></i><font face="Symbol" size="2" color="#000000">&#183;</font><i></i></span></td><td><span><i>version = DCE Security version, with embedded POSIX UIDs.
 &nbsp;<br />
-</i></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span><i></i></span></td><td></td></tr></table><span><i>� UUID �� ��� ���� ��������, � ��� ��� � ������ ����:
+</i></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span><i></i></span></td><td></td></tr></table><span><i>В UUID не все биты случайны, и это так и должно быть:
 <br />
 xxxxxxxx-xxxx-4xxx-{8,9,A,B}xxx-xxxxxxxxxxxx
 <br />
 
 <br />
-��������� ����������  � UUID �������� �����: </i><span><i><u><a href="http://www.opengroup.org/onlinepubs/9629399/apdxa.htm" target="_blank">http://www.opengroup.org/onlinepubs/9629399/apdxa.htm</a></u></i></span></span><span><i>
+Подробная информация  о UUID доступна здесь: </i><span class="blue"><i><u><a href="http://www.opengroup.org/onlinepubs/9629399/apdxa.htm" target="_blank">http://www.opengroup.org/onlinepubs/9629399/apdxa.htm</a></u></i></span></span><span><i>
 <br />
 </i></span></span><br />
 

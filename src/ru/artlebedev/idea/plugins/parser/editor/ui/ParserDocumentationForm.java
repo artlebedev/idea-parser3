@@ -11,8 +11,11 @@
 
 package ru.artlebedev.idea.plugins.parser.editor.ui;
 
-import ru.artlebedev.parser.documentation.Marker;
+import ru.artlebedev.idea.plugins.parser.documentation.Marker;
 
+import javax.swing.*;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 import java.io.IOException;
 
 /**
@@ -26,6 +29,14 @@ public class ParserDocumentationForm extends javax.swing.JFrame {
       initComponents();
 
       try {
+        StyleSheet styleSheet = ((HTMLEditorKit) jEditorPane1.getEditorKit()).getStyleSheet();
+        styleSheet.addRule("body { padding: 5px; font-size: 10px; font-family: Arial; }");
+        styleSheet.addRule(".h1 { font-size: 12px; }");
+        styleSheet.addRule(".mono { font-family: Monospace; }");
+        styleSheet.addRule(".monoblue { font-family: Monospace; }");
+        styleSheet.addRule(".monoblue { color: #0000FF; }");
+        styleSheet.addRule(".blue { color: #0000FF; }");
+        styleSheet.addRule(".greenline { height: 3px; font-size: 3px; background:#99D228; }");
         jEditorPane1.setPage(Marker.class.getResource("ru/dateclass.htm"));
       } catch (IOException ignored) {
 
@@ -50,6 +61,7 @@ public class ParserDocumentationForm extends javax.swing.JFrame {
 
     jEditorPane1.setContentType("text/html");
     jEditorPane1.setEditable(false);
+    jEditorPane1.setBorder(BorderFactory.createEmptyBorder());
     jEditorPane1.addKeyListener(new java.awt.event.KeyAdapter() {
       public void keyPressed(java.awt.event.KeyEvent evt) {
         jEditorPane1KeyPressed(evt);

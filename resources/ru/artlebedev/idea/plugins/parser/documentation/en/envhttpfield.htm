@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Retrieving values of HTTP-header fields</title>
+    <title>Retrieving values of HTTP-header fields</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>Retrieving values of HTTP-header fields
+<span class="h1"><b>Retrieving values of HTTP-header fields
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$env:HTTP_HEADER_FIELD
+<span class="mono"><b>$env:HTTP_HEADER_FIELD
 <br />
 </b><span>
 <br />
@@ -34,17 +34,17 @@ Such a construction will return the value of HTTP-header field, sent by browser 
 <br />
 </span><span><b>
 <br />
-</b></span><span><b>Example
+</b></span><span class="h1"><b>Example
 <br />
-</b></span><span><span><b>^if(^env:HTTP_USER_AGENT.</b></span></span><span><span><b><a href="stringpos.htm">pos</a></b></span></span><span><span><b>[MSIE]&nbsp;&gt;=&nbsp;0){</b></span></span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>^if(^env:HTTP_USER_AGENT.</b></span></span><span class="mono"><span class="monoblue"><b><a href="stringpos.htm">pos</a></b></span></span><span class="mono"><span class="monoblue"><b>[MSIE]&nbsp;&gt;=&nbsp;0){</b></span></span><span class="mono"><b>
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;User&nbsp;is&nbsp;probably&nbsp;using&nbsp;MicroSoft&nbsp;Internet&nbsp;Explorer&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-Names of HTTP-header fields are all uppercase and begin with </span><span><b>HTTP_</b></span><span>. All hyphens ('</span><span><b>-</b></span><span>') in these names are substituted by underscores ('</span><span><b>_</b></span><span>'). For additional information, please read your web-server documentation.<i>
+Names of HTTP-header fields are all uppercase and begin with </span><span class="mono"><b>HTTP_</b></span><span>. All hyphens ('</span><span class="mono"><b>-</b></span><span>') in these names are substituted by underscores ('</span><span class="mono"><b>_</b></span><span>'). For additional information, please read your web-server documentation.<i>
 <br />
 </i></span></span><br />
 

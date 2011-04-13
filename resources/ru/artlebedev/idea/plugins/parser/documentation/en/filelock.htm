@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>lock. Exclusive use of code</title>
+    <title>lock. Exclusive use of code</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,38 +15,38 @@
   <tr>
     <td>
       
-<span><b>lock. Exclusive use of code
+<span class="h1"><b>lock. Exclusive use of code
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file:lock[file_to_be_locked]{code}
+<span class="mono"><b>^file:lock[file_to_be_locked]{code}
 <br />
 </b><span>
 <br />
-</span><span><b>Code</b></span><span> is not simultaneously executed by multiple visitors. </span><span><b>File_to_be_locked</b></span><span> is used to ensure exclusive use.
+</span><span class="mono"><b>Code</b></span><span> is not simultaneously executed by multiple visitors. </span><span class="mono"><b>File_to_be_locked</b></span><span> is used to ensure exclusive use.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 </b><b>Example</b><b>
 <br />
-</b></span><span><span><b>^file:lock[/counter.lock]{&nbsp;
+</b></span><span class="mono"><span class="monoblue"><b>^file:lock[/counter.lock]{&nbsp;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$file[^file::</b></span></span><span><span><b><a href="fileload.htm">load</a></b></span></span><span><span><b>[text;/counter.txt]]
+&nbsp;&nbsp;&nbsp;&nbsp;$file[^file::</b></span></span><span class="mono"><span class="monoblue"><b><a href="fileload.htm">load</a></b></span></span><span class="mono"><span class="monoblue"><b>[text;/counter.txt]]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span><span><b><a href="opeval.htm">eval</a></b></span></span><span><span><b>($file.text+1)]
+&nbsp;&nbsp;&nbsp;&nbsp;$string[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opeval.htm">eval</a></b></span></span><span class="mono"><span class="monoblue"><b>($file.text+1)]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;^string.</b></span></span><span><span><b><a href="stringsave.htm">save</a></b></span></span><span><span><b>[/counter.txt]
+&nbsp;&nbsp;&nbsp;&nbsp;^string.</b></span></span><span class="mono"><span class="monoblue"><b><a href="stringsave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[/counter.txt]
 <br />
 }
 <br />
-</b></span></span><span><b>Number&nbsp;of&nbsp;visitors</b><b>:&nbsp;</b><span><b>$string</b></span></span><span><b>&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>Number&nbsp;of&nbsp;visitors</b><b>:&nbsp;</b><span class="monoblue"><b>$string</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
 </b></span><span>
 <br />

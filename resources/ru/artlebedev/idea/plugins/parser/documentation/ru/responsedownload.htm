@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>download. ������� ������ ���� ������</title>
+    <title>download. Задание нового тела ответа</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,46 +15,46 @@
   <tr>
     <td>
       
-<span><b>download. ������� ������ ���� ������
+<span class="h1"><b>download. Задание нового тела ответа
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$response:download[DATA]</b>&nbsp;&nbsp;&nbsp;<span>
+<span class="mono"><b>$response:download[DATA]</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-��������� </span><span><b>$response:</b><b><a href="responsebody.htm">body</a></b></span><span>, �� ���������� ����, ������� ������� ������������ ��� ����������� ���������� ��������� ���� �� �����.
+Идентичен </span><span class="mono"><b>$response:</b><b><a href="responsebody.htm">body</a></b></span><span>, но выставляет флаг, который браузер воспринимает как «Предложить посетителю сохранить файл на диске».
 <br />
 
 <br />
-�������� ����� ���������� ����� ��������� ����� ����� ������ ������ ���� (��������: </span><span>.doc</span><span>, </span><span>.pdf</span><span> �����).
+Браузеры умеют отображать файлы некоторых типов прямо внутри своего окна (например: </span><span class="mono">.doc</span><span>, </span><span class="mono">.pdf</span><span> файлы).
 <br />
-������ ������ ���������� ���� ����������� ���������� ������� ���� �� �������� ������� �� ������.
+Однако бывает необходимо дать возможность посетителю скачать файл по простому нажатию на ссылку.
 <br />
 
 <br />
-</span><span><b>������: ������ PDF �����
+</span><span class="h1"><b>Пример: выдача PDF файла
 <br />
-</b></span><span>���������� ������� �� �������� � ����� HTML�
+</b></span><span>Посетитель заходит на страницу с таким HTML…
 <br />
-</span><span><b>&lt;a&nbsp;href="/download</b><b>_</b><b>documentation.html"&gt;�������&nbsp;������������&lt;/a&gt;</b><span><b>
+</span><span class="mono"><b>&lt;a&nbsp;href="/download</b><b>_</b><b>documentation.html"&gt;Скачать&nbsp;документацию&lt;/a&gt;</b><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-</span><span>download_documentation.html</span><span>:
+</span><span class="mono">download_documentation.html</span><span>:
 <br />
-</span><span><span><b>$response:download[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[binary;</b></span></span><span><b>documentation.pdf</b><span><b>]]</b></span></span><span><b>
+</span><span class="mono"><span class="monoblue"><b>$response:download[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="fileload.htm">file::load</a></b></span></span><span class="mono"><span class="monoblue"><b>[binary;</b></span></span><span class="mono"><b>documentation.pdf</b><span class="monoblue"><b>]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-�� �������� �� ������, ������� ���������� ��� �������/���������.
+…и нажимает на ссылку, браузер предлагает ему Скачать/Запустить.
 <br />
 </span></span><br />
 

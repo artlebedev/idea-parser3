@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>�������� ����������</title>
+    <title>Передача параметров</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,80 +15,80 @@
   <tr>
     <td>
       
-<span><b>�������� ����������
+<span class="h1"><b>Передача параметров
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>��������� ����� ������������ � ������ ������� �, ��������������, ����� ��-������� ��������������:
+<span>Параметры могут передаваться в разных скобках и, соответственно, будут по-разному обрабатываться:
 <br />
 
 <br />
 <table border="0" cellpadding="1"><tr><td align="left" valign="top" width="112">
-<span><b>(���������)
+<span class="mono"><b>(выражение)
 <br />
-{���}</b><span>
+{код}</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="580">
-<span>- ���������� ��������� ���������� ��� ������ ��������� � ���� ������ ������ ������
+<span>- вычисление параметра происходит при каждом обращении к нему внутри вызова метода
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="112">
-<span><b>[���]</b><span>
+<span class="mono"><b>[код]</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="580">
-<span>- ���������� ��������� ���������� ���� ��� ����� ������� ������
+<span>- вычисление параметра происходит один раз перед вызовом метода
 <br />
 </span></td></tr></table>
 <br />
 
 <br />
-������ �� �������� ������, � ������� ���������� ���������:
+Пример на различие скобок, в которых передаются параметры:
 <br />
-<span><span><b>@main[]
+<span class="mono"><span class="monoblue"><b>@main[]
 <br />
 $a(20)
 <br />
 $b(10)
 <br />
-^sum[^</b></span></span><span><span><b><a href="opeval.htm">eval</a></b></span></span><span><span><b>($a+$b)]
+^sum[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opeval.htm">eval</a></b></span></span><span class="mono"><span class="monoblue"><b>($a+$b)]
 <br />
-</b></span></span><span><b>&lt;hr</b><b>&nbsp;/</b><b>&gt;
+</b></span></span><span class="mono"><b>&lt;hr</b><b>&nbsp;/</b><b>&gt;
 <br />
-</b><span><b>^sum($a+$b)
+</b><span class="monoblue"><b>^sum($a+$b)
 <br />
 
 <br />
 @sum[c]
 <br />
-^</b></span></span><span><span><b><a href="opfor.htm">for</a></b></span></span><span><span><b>[b](100;110){
+^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opfor.htm">for</a></b></span></span><span class="mono"><span class="monoblue"><b>[b](100;110){
 <br />
 &nbsp;&nbsp;&nbsp;$c
 <br />
-}[</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>]
+}[</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>]
 <br />
 </b></span></span><span>
 <br />
-����� ������ �����, ��� � ������ ������ ��� ��� �������� ���� ��� ����� ������� ������ </span><span><b>sum</b></span><span>, � ������ ��������� ��������� ���� - ����� 30. �� ������ ������ ���������� ���� ����������� ��� ������ ��������� � ���������, ������� ��������� ������� � ����������� �� �������� ��������.
+Здесь хорошо видно, что в первом случае код был вычислен один раз перед вызовом метода </span><span class="mono"><b>sum</b></span><span>, и методу передался результат кода - число 30. Во втором случае вычисление кода происходило при каждом обращении к параметру, поэтому результат менялся в зависимости от значения счетчика.
 <br />
 
 <br />
-���������� ����� ���� ����� ������ ����� ��� �� ���� ������. ���� � ���������� ������� ��������� ����������, �� ��� ����� ���������� ���� �� ����� ������ � �������. ��������� ����� ���������� ��������� ����� ����������.
+Параметров может быть сколь угодно много или не быть совсем. Если в однотипных скобках несколько параметров, то они могут отделяться друг от друга точкой с запятой. Допустимы любые комбинации различных типов параметров.
 <br />
 
 <br />
-���������
+Например…
 <br />
-</span><span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="opif.htm">if</a></b></span></span><span><span><b>(�������){�����&nbsp;��;�����&nbsp;���}
+</span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opif.htm">if</a></b></span></span><span class="mono"><span class="monoblue"><b>(условие){когда&nbsp;да;когда&nbsp;нет}
 <br />
-</b></span></span><span>�������������</span><span><span><b>
+</b></span></span><span>…эквивалентно…</span><span class="mono"><span class="monoblue"><b>
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;^if(�������){�����&nbsp;��}{�����&nbsp;���}</b></span></span><span>
+&nbsp;&nbsp;&nbsp;&nbsp;^if(условие){когда&nbsp;да}{когда&nbsp;нет}</b></span></span><span>
 <br />
 </span></span><br />
 

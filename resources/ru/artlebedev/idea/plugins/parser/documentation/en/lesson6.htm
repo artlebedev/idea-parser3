@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Lesson 6. Working with XML</title>
+    <title>Lesson 6. Working with XML</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,19 +11,256 @@
 <body>
 
 
-<span></span><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="12"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>how to load XML, create XSLT, and use it to transform XML and output objects of class </span><span><b>xdoc</b></span><span> as HTML.
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Lesson 6. Working with XML
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><span class="monoblue"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+<br />
+&lt;article&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;author&nbsp;id="</b></span><span class="mono"><b>1</b><span class="monoblue"><b>"&nbsp;/&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;</b></span></span><span class="mono"><b>Lesson&nbsp;6.&nbsp;Working&nbsp;with&nbsp;XML</b><span class="monoblue"><b>&lt;/title&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;</b></span></span><span class="mono"><b>Imagine,&nbsp;you&nbsp;are&nbsp;allowed&nbsp;to&nbsp;invent&nbsp;any&nbsp;tags
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;any&nbsp;attributes.&nbsp;That&nbsp;means,&nbsp;you&nbsp;can&nbsp;define
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;yourself&nbsp;what&nbsp;a&nbsp;tag&nbsp;or&nbsp;attribute&nbsp;that&nbsp;you
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invent&nbsp;means.</b><span class="monoblue"><b>&lt;/para&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;</b></span></span><span class="mono"><b>Such&nbsp;a&nbsp;code&nbsp;will&nbsp;contain&nbsp;data,&nbsp;&#133;</b><span class="monoblue"><b>&lt;/para&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;links&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;href="</b></span></span><span class="mono"><b>http://</b><b>www.</b><b>parser.ru/docs/lang/xdocclass.htm</b><span class="monoblue"><b>"&gt;</b></span></span><span class="mono"><b><a href="xdocclass.htm">Class xdoc</a></b><span class="monoblue"><b>&lt;/link&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;href="</b></span></span><span class="mono"><b>http://</b><b>www.</b><b>parser.ru/docs/lang/xnodeclass.htm</b><span class="monoblue"><b>"&gt;</b></span></span><span class="mono"><b><a href="xnodeclass.htm">Class xnode</a></b><span class="monoblue"><b>&lt;/link&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/links&gt;
+<br />
+&lt;/article&gt;
+<br />
+</b></span></span><span>
+<br />
+&#133;but not the formatting. One person can handle preparing data and another-formatting. What they need to do is just agree on the tags they are going to use and get down to work over the project... simultaneously.
+<br />
+
+<br />
+This idea is no news. There were many template-processing libraries, and many developers created yet more libraries of their own. Libraries were incompatible and totally dependent on scripting languages used, which caused dissociation among developers and made an outsider spend lots of time and efforts on learning yet another library.
+<br />
+
+<br />
+Life goes on though, and now we have standards <b>XML</b> and <b>XSLT,</b> which do not depend on scripting language chosen and allow us to fully implement the idea we have shaped in the beginning. We also have standards <b>DOM </b>and <b>XPath</b>, which reveal yet more opportunities. All these standards are fully supported in Parser.
+<br />
+
+<br />
+While working over this lesson, open a book describing XML and XSLT (the one you bought in the nearest bookstore yesterday) and use it as a reference.
+<br />
+
+<br />
+Let's see how we could transform the above XML-coded article to HTML. First, we place the above given code into file </span><span class="mono">article.xml</span><span> and then create file </span><span class="mono">article.xsl</span><span>, where we define the tags we have invented:</span><span class="h1">
+<br />
+</span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;&nbsp;
+<br />
+&lt;xsl:stylesheet&nbsp;xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&nbsp;version="1.0"&gt;
+<br />
+
+<br />
+&lt;xsl:template&nbsp;match="article"&gt;
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;html&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;&lt;title&gt;</b><span class="monoblue"><b>&lt;xsl:value-of&nbsp;select="title"&nbsp;/&gt;</b></span></span><span class="mono"><b>&lt;/title&gt;&lt;/head&gt;</b><span class="monoblue"><b>
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;</b><span class="monoblue"><b>&lt;xsl:apply-templates&nbsp;select="body&nbsp;|&nbsp;links"&nbsp;/&gt;</b></span></span><span class="mono"><b>&lt;/body&gt;</b><span class="monoblue"><b>
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/html&gt;
+<br />
+</b><span class="monoblue"><b>&lt;/xsl:template&gt;
+<br />
+
+<br />
+&lt;xsl:template&nbsp;match="body"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates&nbsp;select="para"&nbsp;/&gt;
+<br />
+&lt;/xsl:template&gt;
+<br />
+
+<br />
+&lt;xsl:template&nbsp;match="links"&gt;
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Related&nbsp;links:</b><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:for-each&nbsp;select="link"&gt;
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;</b><span class="monoblue"><b>&lt;xsl:apply-templates&nbsp;select="."&nbsp;/&gt;</b></span></span><span class="mono"><b>&lt;/li&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:for-each&gt;
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;
+<br />
+</b><span class="monoblue"><b>&lt;/xsl:template&gt;
+<br />
+
+<br />
+&lt;xsl:template&nbsp;match="para"&gt;
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</b><span class="monoblue"><b>&lt;xsl:value-of&nbsp;select="."&nbsp;/&gt;</b></span></span><span class="mono"><b>&lt;/p&gt;</b><span class="monoblue"><b>
+<br />
+&lt;/xsl:template&gt;
+<br />
+
+<br />
+&lt;xsl:template&nbsp;match="link"&gt;
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span class="monoblue"><b>{@href}</b></span></span><span class="mono"><b>"&gt;</b><span class="monoblue"><b>&lt;xsl:value-of&nbsp;select="."&nbsp;/&gt;</b></span></span><span class="mono"><b>&lt;/a&gt;</b><span class="monoblue"><b>
+<br />
+&lt;/xsl:template&gt;
+<br />
+
+<br />
+&lt;/xsl:stylesheet&gt;
+<br />
+</b></span></span><span>
+<br />
+The data and the transformation template are ready. Now we should create </span><span class="mono"><b>article.html</b></span><span>, in which we write:
+<br />
+</span><span class="mono"><b>
+<br />
+#&nbsp;</b><b>input&nbsp;xdoc&nbsp;document</b><b>
+<br />
+$sourceDoc[^</b><b><a href="xdocload.htm">xdoc::load</a></b><b>[article.xml]]
+<br />
+
+<br />
+#&nbsp;</b><b>transform&nbsp;xdoc&nbsp;document&nbsp;using&nbsp;template&nbsp;article.xsl
+<br />
+</b><b>$transformedDoc[^sourceDoc.</b><b><a href="xdoctransform.htm">transform</a></b><b>[article.xsl]]
+<br />
+
+<br />
+#&nbsp;</b><b>output&nbsp;the&nbsp;result&nbsp;as&nbsp;HTML</b><b>
+<br />
+^transformedDoc.</b><b><a href="xdocstring.htm">string</a></b><b>[
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b><a href="xdocoptions.htm">$.method[html]</a></b><b>
+<br />
+]
+<br />
+</b></span><span>
+<br />
+The code in the first line loads XML-file and gets its DOM-interpretation in </span><span class="mono"><b>sourceDoc</b></span><span>. The construction is like that loading a table-remember </span><span class="mono"><b>^table::load[...]</b></span><span>? Yet, this time we do load NOT a table (thus getting an object of class </span><span class="mono"><b><a href="tableclass.htm">table</a></b></span><span>) but XML-document (and get an object of class </span><span class="mono"><b><a href="xdocclass.htm">xdoc</a></b></span><span>).
+<br />
+
+<br />
+The code in the second line makes input document subject to transformation according to the template defined in </span><span class="mono"><b>article.xsl</b></span><span>.
+<br />
+
+<br />
+The code in the third line outputs the resulted document as HTML (parameter </span><span class="mono"><b>method</b></span><span> with value </span><span class="mono"><b>html</b></span><span>).
+<br />
+
+<br />
+<i>In this method, we can specify all parameters allowed for </i><i> </i></span><span class="mono"><span class="monoblue"><b><u><a href="http://www.w3.org/TR/xslt#output" target="_blank">&lt;xsl:output … /&gt;</a></u></b></span></span><span><i>.
+<br />
+</i><i>We also recommend that you specify "no indents" (parameter </i></span><span class="mono"><b>indent</b></span><span><i> with value </i></span><span class="mono"><b>no</b></span><span><i>: </i></span><span class="mono"><b>$.indent[no]</b></span><span><i>) to avoid widely-known problem with empty space in front of </i></span><span class="mono"><b>&lt;/td&gt;</b></span><span><i>.
+<br />
+</i>
+<br />
+Now, when accessing this page, a visitor will get the result of the transformation:
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>&lt;html&gt;
+<br />
+&lt;head&gt;&lt;title&gt;</b></span></span><span class="mono"><b>Lesson&nbsp;6.&nbsp;Working&nbsp;with&nbsp;XML</b><span class="monoblue"><b>&lt;/title&gt;&lt;/head&gt;
+<br />
+&lt;body&gt;
+<br />
+&lt;p&gt;</b></span></span><span class="mono"><b>Imagine,&nbsp;you&nbsp;are&nbsp;allowed&nbsp;to&nbsp;invent&nbsp;any&nbsp;tags
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;any&nbsp;attributes.&nbsp;That&nbsp;means,&nbsp;you&nbsp;can&nbsp;define
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;yourself&nbsp;what&nbsp;a&nbsp;tag&nbsp;or&nbsp;attribute&nbsp;that&nbsp;you
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invent&nbsp;means.</b><span class="monoblue"><b>&lt;/p&gt;
+<br />
+&lt;p&gt;</b></span></span><span class="mono"><b>Such&nbsp;a&nbsp;code&nbsp;will&nbsp;contain&nbsp;data,&nbsp;...</b><span class="monoblue"><b>&lt;/p&gt;
+<br />
+</b></span></span><span class="mono"><b>Related&nbsp;links:</b></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>&lt;ul&gt;
+<br />
+&lt;li&gt;&lt;a&nbsp;href="</b></span></span><span class="mono"><b>http://</b><b>www.</b><b>parser.ru/docs/xdocclass.htm</b><span class="monoblue"><b>"&gt;</b></span></span><span class="mono"><b>xdoc&nbsp;class</b><span class="monoblue"><b>&lt;/a&gt;&lt;/li&gt;
+<br />
+&lt;li&gt;&lt;a&nbsp;href="</b></span></span><span class="mono"><b>http://</b><b>www.</b><b>parser.ru/docs/xnodeclass.htm</b><span class="monoblue"><b>"&gt;</b></span></span><span class="mono"><b>xnode&nbsp;class</b><span class="monoblue"><b>&lt;/a&gt;&lt;/li&gt;
+<br />
+&lt;/ul&gt;
+<br />
+&lt;/body&gt;
+<br />
+&lt;/html&gt;</b></span></span><span>
+<br />
+
+<br />
+As you have probably noticed, tag</span><span class="mono"><span class="monoblue"><b>&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>&lt;author&nbsp;...&nbsp;/&gt;</b></span></span><span> was not defined, so the information on the author of the article is not present in resulting HTML. Later, when you decide where you will store and output the data on authors and how you will do it, you will just need to complete the template without changing articles' content.
+<br />
+
+<br />
+<i>Note: if you don't want Net surfers to view your </i></span><span class="mono"><b>.xml</b></span><span><i> and </i></span><span class="mono"><b>.xsl</b></span><span><i> files, you should either store these files beyond web-space (</i></span><span class="mono"><b>^xdoc::create[/../directory_outside_of_web_space/article.xml]</b></span><span><i>) or disallow access to these files by your web-server directives (an example of how to disallow access to </i></span><span class="mono"><b>.p</b></span><span><i> files can be found in </i><i>"</i><i><a href="install4apachecgi.htm">Appendix dedicated to installing Parser on Apache web-server</a></i><i>").</i>
+<br />
+
+<br />
+</span><span class="h1">Let's sum it up,
+<br />
+</span><span>
+<br />
+</span><span class="h1"><b>What have we done?
+<br />
+</b></span><span>We have created a "building block" to be further used for retrieving information stored in XML, applying XSLT-transformation, and outputting objects in HTML format.
+<br />
+
+<br />
+</span><span class="h1"><b>What have we learnt?
+<br />
+</b><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="12"><span class="h1"></span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>how to use class </span><span class="mono"><b><a href="xdocclass.htm">xdoc</a></b></span><span>;
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="12"><span></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span></span><span>how to load XML, create XSLT, and use it to transform XML and output objects of class </span><span class="mono"><b>xdoc</b></span><span> as HTML.
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span>
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span></span><span><b>What should we remember?
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span></span><span class="h1"><b>What should we remember?
 <br />
 </b></span><span>You should buy a book on XML and XSLT.
 <br />
 </span><span><b><i>
 <br />
-</i></b></span><span><b>What's next?
+</i></b></span><span class="h1"><b>What's next?
 <br />
-</b></span><span>You should read the book we've mentioned, experiment with examples it gives, and enjoy good standards. You should also read about method </span><span><b><a href="mainclass.htm">postprocess</a></b></span><span> and find a way to tune it up so that every access to XML-file would output it as HTML.
+</b></span><span>You should read the book we've mentioned, experiment with examples it gives, and enjoy good standards. You should also read about method </span><span class="mono"><b><a href="mainclass.htm">postprocess</a></b></span><span> and find a way to tune it up so that every access to XML-file would output it as HTML.
 <br />
 
 <br />

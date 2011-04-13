@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Options of file format</title>
+    <title>Options of file format</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,12 +15,12 @@
   <tr>
     <td>
       
-<span><b>Options of file format
+<span class="h1"><b>Options of file format
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
@@ -40,7 +40,7 @@
 <span><b><i>Description</i></b><b><i>
 <br />
 </i></b></span></td></tr><tr><td align="left" valign="top" width="175">
-<span><b>$.separator[</b><span>character</span><span><b>]</b></span><span>
+<span class="mono"><b>$.separator[</b><span>character</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="101">
 <span>tab
@@ -49,7 +49,7 @@
 <span>Specifies column separator character
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="175">
-<span><b>$.encloser[</b><span>character</span><span><b>]</b></span><span>
+<span class="mono"><b>$.encloser[</b><span>character</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="101">
 <span>none
@@ -67,22 +67,22 @@
 <br />
 
 <br />
-<span><b>Example of loading </b><b>.txt file created by Miscrosoft Excel
+<span class="h1"><b>Example of loading </b><b>.txt file created by Miscrosoft Excel
 <br />
 </b></span><span>Excel can store data into simple tab-delimited text file:
 <br />
-&nbsp;&nbsp;&nbsp;File|Save as&#133; Text (Tab delimited) (</span><span>.txt</span><span>).
+&nbsp;&nbsp;&nbsp;File|Save as&#133; Text (Tab delimited) (</span><span class="mono">.txt</span><span>).
 <br />
 The data is stored in this format:
 <br />
-</span><span><table border="1" cellpadding="1"><tr><td align="left" valign="top" width="253">
+</span><span class="mono"><table border="1" cellpadding="1"><tr><td align="left" valign="top" width="253">
 <span><b><i>name
 <br />
 </i></b></span></td><td align="left" valign="top" width="99">
-<span><b><i>description</i></b><span>
+<span><b><i>description</i></b><span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="253">
-<span>"New company ""Smith&amp;Co"""<span>
+<span>"New company ""Smith&amp;Co"""<span class="mono">
 <br />
 </span></span></td><td align="left" valign="top" width="99">
 <span>Text
@@ -95,7 +95,7 @@ The data is stored in this format:
 <br />
 To read such a file, one can specify this option:
 <br />
-</span><span><b>$companies[^table::load[companies.txt;
+</span><span class="mono"><b>$companies[^table::load[companies.txt;
 <br />
 &nbsp;&nbsp;&nbsp;$.encloser["]
 <br />
@@ -105,9 +105,9 @@ $companies.name
 <br />
 </b></span><span>
 <br />
-Parser can also work with </span><span>.csv</span><span> files, just set this option:
+Parser can also work with </span><span class="mono">.csv</span><span> files, just set this option:
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;$.separator[</b><b><a href="stringlit.htm">^;</a></b><b>]</b></span><span>
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;$.separator[</b><b><a href="stringlit.htm">^;</a></b><b>]</b></span><span>
 <br />
 </span></span><br />
 

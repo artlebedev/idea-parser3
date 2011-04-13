@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>select. ����� �������</title>
+    <title>select. Отбор записей</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,25 +11,54 @@
 <body>
 
 
-<span><b>������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>select. Отбор записей
 <br />
-</span><span><span><b>$men[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{name&nbsp;&nbsp;&nbsp;age
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</b></span></span><span><b>Serge&nbsp;&nbsp;&nbsp;26
+
+
+
+<span class="mono"><b>^таблица.select(критерий_отбора)
 <br />
-Alex&nbsp;&nbsp;&nbsp;20
+^таблица.select(критерий_отбора)</b><b>[</b><b><a href="tablecopylocateoptions.htm">опции</a></b><b>]</b><b>&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.4.1]</i></b></span><span class="mono"><b>
 <br />
-Mishka&nbsp;&nbsp;&nbsp;29</b><span><b>
+</b></span><span>
 <br />
-}]</b></span></span><span><span><b>
-<br />
-</b></span></span><span><span><b>
-<br />
-$thoseAbove20[^men.select($men.</b></span></span><span><span><b><a href="tablefields.htm">age</a></b></span></span><span><span><b>&gt;20)]</b></span></span><span>
+Метод последовательно перебирает все строки таблицы, применяя к ним выражение </span><span class="mono"><b>критерий_отбора</b></span><span>, те строки, которые подпали под заданный </span><span class="mono"><b>критерий</b></span><span> (логическое выражение было истинно), помещаются в результат, которым является таблица с такой же структурой, что и входная.
 <br />
 
 <br />
-� </span><span><b>$thoseAbove20</b></span><span> ������� ������ � </span><span><b>Serge</b></span><span> � </span><span><b>Mishka</b></span><span>.</span><span><b>
+Также можно задать ряд опций, контролирующих отбор, см. «<a href="tablecopylocateoptions.htm">Опции копирования и поиска</a>».
+<br />
+
+<br />
+</span><span class="h1"><b>Пример</b></span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>$men[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{name&nbsp;&nbsp;&nbsp;age
+<br />
+</b></span></span><span class="mono"><b>Serge&nbsp;&nbsp;&nbsp;26
+<br />
+Alex&nbsp;&nbsp;&nbsp;20
+<br />
+Mishka&nbsp;&nbsp;&nbsp;29</b><span class="monoblue"><b>
+<br />
+}]</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+</b></span></span><span class="mono"><span class="monoblue"><b>
+<br />
+$thoseAbove20[^men.select($men.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablefields.htm">age</a></b></span></span><span class="mono"><span class="monoblue"><b>&gt;20)]</b></span></span><span>
+<br />
+
+<br />
+В </span><span class="mono"><b>$thoseAbove20</b></span><span> попадут строки с </span><span class="mono"><b>Serge</b></span><span> и </span><span class="mono"><b>Mishka</b></span><span>.</span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

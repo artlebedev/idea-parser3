@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>measure. Creating an object based on existing graphics file</title>
+    <title>measure. Creating an object based on existing graphics file</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,41 +11,86 @@
 <body>
 
 
-<span><b>Example of creating tag IMG with width and height attributes</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>measure. Creating an object based on existing graphics file
 <br />
-</u></span><span><span><b>$photo[^image::measure[</b></span></span><span><b>myphoto.png</b><span><b>]]
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-^photo</b></span></span><span><span><b>.</b></span></span><span><span><b><a href="imagehtml.htm">html</a></b></span></span><span><span><b>[]</b></span></span><span><b>
+
+
+
+<span class="mono"><b>^image::measure[file]
 <br />
-</b><span><b>
+^image::measure[file_name]
 <br />
-</b></span></span><span>will create object </span><span><b>photo</b></span><span> of class </span><span><b>image</b></span><span>, based on existing graphics in PNG format. Tag </span><span>IMG</span><span> will be created with reference to the file and </span><span>width</span><span> and </span><span>height</span><span> specified.
+</b><span>
+<br />
+Creates an object of class </span><span class="mono"><b>image</b></span><span>, measuring dimensions of an existing graphics file or an object of class </span><span class="mono"><b>file</b></span><span> in supported format (Parser presently supports GIF, JPEG and PNG formats).
 <br />
 
 <br />
-</span><span><b>Example of working with EXIF information
+Constructor </span><span class="mono"><b>measure</b></span><span> also reads EXIF information stored in JPEG files (<span class="blue"><u><a href="http://www.exif.org/" target="_blank">http://www.exif.org</a></u></span></span><span>), if it is present. While creating JPEG file, most of today cameras also add information about the image, exposure parameters and other information in EXIF format.
 <br />
-</b></span><span><span><b>$image[^image::measure[</b></span></span><span><b>jpg/DSC00003.JPG</b><span><b>]]
+
+<br />
+The picture itself is not used-the constructor only keeps in memory the dimensions and the name of the file. Basic function of the constructor is to later call method </span><span class="mono"><b><a href="imagehtml.htm">html</a></b></span><span> for the created object.
+<br />
+
+<br />
+Parameters:
+<br />
+</span><span class="mono"><b>file</b></span><span>-object of class </span><span class="mono"><b>file</b></span><span>
+<br />
+</span><span class="mono"><b>filename</b></span><span>-filename with path
+<br />
+
+<br />
+<i>Note: supports EXIF 1.0 and reads tags IFD0 and SubIFD, if any.</i><i>
+<br />
+</i>
+<br />
+</span><span class="h1"><b>Example of creating tag IMG with width and height attributes</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$photo[^image::measure[</b></span></span><span class="mono"><b>myphoto.png</b><span class="monoblue"><b>]]
+<br />
+^photo</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagehtml.htm">html</a></b></span></span><span class="mono"><span class="monoblue"><b>[]</b></span></span><span class="mono"><b>
+<br />
+</b><span class="monoblue"><b>
+<br />
+</b></span></span><span>will create object </span><span class="mono"><b>photo</b></span><span> of class </span><span class="mono"><b>image</b></span><span>, based on existing graphics in PNG format. Tag </span><span class="mono">IMG</span><span> will be created with reference to the file and </span><span class="mono">width</span><span> and </span><span class="mono">height</span><span> specified.
+<br />
+
+<br />
+</span><span class="h1"><b>Example of working with EXIF information
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>$image[^image::measure[</b></span></span><span class="mono"><b>jpg/DSC00003.JPG</b><span class="monoblue"><b>]]
 <br />
 $exif[$image.exif]
 <br />
-^if</b></span></span><span><span><b>($exif){
+^if</b></span></span><span class="mono"><span class="monoblue"><b>($exif){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Camera&nbsp;manufacturer,&nbsp;model</b><b>:&nbsp;</b><span><b>$exif.</b></span></span><span><span><b><a href="imagefields.htm">Make</a></b></span></span><span><b>&nbsp;</b><span><b>$exif.Model</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Camera&nbsp;manufacturer,&nbsp;model</b><b>:&nbsp;</b><span class="monoblue"><b>$exif.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagefields.htm">Make</a></b></span></span><span class="mono"><b>&nbsp;</b><span class="monoblue"><b>$exif.Model</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Shooting&nbsp;time</b><b>:&nbsp;</b><span><b>^exif.DateTimeOriginal.</b></span></span><span><span><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span><span><b>[]</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Shooting&nbsp;time</b><b>:&nbsp;</b><span class="monoblue"><b>^exif.DateTimeOriginal.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datesqlstring.htm">sql-string</a></b></span></span><span class="mono"><span class="monoblue"><b>[]</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Exposure&nbsp;time</b><b>:&nbsp;</b><span><b>$exif.ExposureTime</b></span></span><span><b>&nbsp;seconds</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Exposure&nbsp;time</b><b>:&nbsp;</b><span class="monoblue"><b>$exif.ExposureTime</b></span></span><span class="mono"><b>&nbsp;seconds</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Aperture</b><b>:</b><b>&nbsp;F</b><span><b>$exif.FNumber</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Aperture</b><b>:</b><b>&nbsp;F</b><span class="monoblue"><b>$exif.FNumber</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Flash&nbsp;used</b><b>:&nbsp;</b><span><b>^if(def&nbsp;$exif.Flash){^if($exif.Flash){</b></span></span><span><b>yes</b><span><b>;</b></span></span><span><b>no</b><span><b>};</b></span></span><span><b>not&nbsp;known</b><span><b>}</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>Flash&nbsp;used</b><b>:&nbsp;</b><span class="monoblue"><b>^if(def&nbsp;$exif.Flash){^if($exif.Flash){</b></span></span><span class="mono"><b>yes</b><span class="monoblue"><b>;</b></span></span><span class="mono"><b>no</b><span class="monoblue"><b>};</b></span></span><span class="mono"><b>not&nbsp;known</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>
 <br />
 }{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>No&nbsp;EXIF&nbsp;information</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>No&nbsp;EXIF&nbsp;information</b><b>&lt;br</b><b>&nbsp;/</b><b>&gt;
 <br />
-</b><span><b>}</b></span></span><span>
+</b><span class="monoblue"><b>}</b></span></span><span>
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>polyline. ��������� ������� ����� �� ����������� �����</title>
+    <title>polyline. Рисование ломаных линий по координатам узлов</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,28 +15,28 @@
   <tr>
     <td>
       
-<span><b>polyline. ��������� ������� ����� �� ����������� �����
+<span class="h1"><b>polyline. Рисование ломаных линий по координатам узлов
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.polyline(����)[�������&nbsp;�&nbsp;������������&nbsp;�����]&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^картинка.polyline(цвет)[таблица&nbsp;с&nbsp;координатами&nbsp;точек]&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
 </b><span>
 <br />
-����� ������ ����� �� ����������� �����, ���������� � �������. �� ������������ ��� �������� ������� �����.
+Метод рисует линию по координатам узлов, задаваемым в таблице. Он используется для создания ломаных линий.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$coordinates[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{x&nbsp;&nbsp;&nbsp;y
+</b></span><span class="mono"><span class="monoblue"><b>$coordinates[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">table::create</a></b></span></span><span class="mono"><span class="monoblue"><b>{x&nbsp;&nbsp;&nbsp;y
 <br />
 10&nbsp;&nbsp;&nbsp;0
 <br />
@@ -64,11 +64,11 @@
 <br />
 }]
 <br />
-$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0xFFFFFF)]
+$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0xFFFFFF)]
 <br />
 
 <br />
-$square.</b></span></span><span><span><b><a href="imagefields.htm">line-style</a></b></span></span><span><span><b>[***&nbsp;&nbsp;&nbsp;]
+$square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagefields.htm">line-style</a></b></span></span><span class="mono"><span class="monoblue"><b>[***&nbsp;&nbsp;&nbsp;]
 <br />
 $square.line-width(2)
 <br />
@@ -78,19 +78,19 @@ $square.line-width(2)
 <br />
 
 <br />
-$file_withgif[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]
+$file_withgif[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
 <br />
-^file_withgif.</b></span></span><span><span><b><a href="filesave.htm">save</a></b></span></span><span><span><b>[binary;</b></span></span><span><b>letter_F.gif</b><span><b>]
+^file_withgif.</b></span></span><span class="mono"><span class="monoblue"><b><a href="filesave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[binary;</b></span></span><span class="mono"><b>letter_F.gif</b><span class="monoblue"><b>]
 <br />
 
 <br />
-$letter_F[^image::</b></span></span><span><span><b><a href="imageload.htm">load</a></b></span></span><span><span><b>[</b></span></span><span><b>letter_F.gif</b><span><b>]]
+$letter_F[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imageload.htm">load</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>letter_F.gif</b><span class="monoblue"><b>]]
 <br />
-^letter_F.</b></span></span><span><span><b><a href="imagehtml.htm">html</a></b></span></span><span><span><b>[]
+^letter_F.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagehtml.htm">html</a></b></span></span><span class="mono"><span class="monoblue"><b>[]
 <br />
 </b></span></span><span>
 <br />
-� �������� ����� �������� ����� F, ������������ ���������� ������ �� ����� ����. � ������� �������� ����� ������ ���� </span><span><b>letter.gif</b></span><span>. � ���� ������� ������������ ������� ������ </span><span><b>image</b></span><span> ���� ��������� �����. � ������� �������� ���������� ����� �������� �����. ����� �� ��������� � ������� ������������ </span><span><b><a href="imagecreate.htm">create</a></b></span><span> ���� �������� ����� �� ��������� ����������� �����. ��������� ������ ������ </span><span><b>image</b></span><span> ���������� � ������ GIF. ���������� � ���������� ����� ������ ������ </span><span><b><a href="fileclass.htm">file</a></b></span><span> ����������� �� ����. ����� ��������� ����� ������ ������ </span><span><b>image</b></span><span> �� ������ ������������ �����. ���� ������ ��������� �� ����� �������� ������� </span><span><b><a href="imagehtml.htm">html</a></b></span><span>.
+В браузере будет выведена буква F, нарисованная пунктирной линией на белом фоне. В рабочем каталоге будет создан файл </span><span class="mono"><b>letter.gif</b></span><span>. В этом примере используются объекты класса </span><span class="mono"><b>image</b></span><span> двух различных типов. В таблице задаются координаты точек ломанной линии. Затем на созданном с помощью конструктора </span><span class="mono"><b><a href="imagecreate.htm">create</a></b></span><span> фоне рисуется линия по указанным координатам узлов. Созданный объект класса </span><span class="mono"><b>image</b></span><span> кодируется в формат GIF. Полученный в результате этого объект класса </span><span class="mono"><b><a href="fileclass.htm">file</a></b></span><span> сохраняется на диск. Затем создается новый объект класса </span><span class="mono"><b>image</b></span><span> на основе сохраненного файла. Этот объект выводится на экран браузера методом </span><span class="mono"><b><a href="imagehtml.htm">html</a></b></span><span>.
 <br />
 </span></span><br />
 

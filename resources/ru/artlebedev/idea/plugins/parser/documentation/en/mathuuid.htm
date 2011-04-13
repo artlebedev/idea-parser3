@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>uuid. Universally unique identifier</title>
+    <title>uuid. Universally unique identifier</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>uuid. Universally unique identifier</b><b><i>
+<span class="h1"><b>uuid. Universally unique identifier</b><b><i>
 <br />
 </i></b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^math:uuid[]
+<span class="mono"><b>^math:uuid[]
 <br />
 </b><span>
 <br />
@@ -46,7 +46,7 @@ This method is useful in cases when it is hard or insensible to use through-numb
 <br />
 <i>UUID is also known as GUID.</i><i>
 <br />
-</i></span><span><b>
+</i></span><span class="h1"><b>
 <br />
 </b><b>Example</b></span><span><u>
 <br />
@@ -54,7 +54,7 @@ This method is useful in cases when it is hard or insensible to use through-numb
 <br />
 
 <br />
-</span><span><span><b>#&nbsp;different&nbsp;branches&nbsp;accumulate&nbsp;order's&nbsp;information&nbsp;in&nbsp;tables&nbsp;'orders'&nbsp;and&nbsp;'order_details'
+</span><span class="mono"><span class="monoblue"><b>#&nbsp;different&nbsp;branches&nbsp;accumulate&nbsp;order's&nbsp;information&nbsp;in&nbsp;tables&nbsp;'orders'&nbsp;and&nbsp;'order_details'
 <br />
 
 <br />
@@ -64,9 +64,9 @@ $order_uuid[^math:uuid[]]
 <br />
 
 <br />
-#&nbsp;add&nbsp;record&nbsp;about&nbsp;order</b></span></span><span><b>
+#&nbsp;add&nbsp;record&nbsp;about&nbsp;order</b></span></span><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>
 <br />
-</b></span><span><span><b>^void:</b></span></span><span><span><b><a href="voidsql.htm">sql</a></b></span></span><span><span><b>{</b></span></span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>^void:</b></span></span><span class="mono"><span class="monoblue"><b><a href="voidsql.htm">sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>
 <br />
 insert&nbsp;into&nbsp;orders
 <br />
@@ -74,35 +74,35 @@ insert&nbsp;into&nbsp;orders
 <br />
 values
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;('</b><span><b>$order_uuid</b></span></span><span><b>',&nbsp;'</b><span><b>$date_ordered</b></span></span><span><b>',&nbsp;</b><span><b>$total</b></span></span><span><b>)
+&nbsp;&nbsp;&nbsp;&nbsp;('</b><span class="monoblue"><b>$order_uuid</b></span></span><span class="mono"><b>',&nbsp;'</b><span class="monoblue"><b>$date_ordered</b></span></span><span class="mono"><b>',&nbsp;</b><span class="monoblue"><b>$total</b></span></span><span class="mono"><b>)
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
-</b></span></span><span><span><b>#&nbsp;cycle&nbsp;adding&nbsp;records&nbsp;on&nbsp;ordered&nbsp;goods&nbsp;should&nbsp;be&nbsp;here
+</b></span></span><span class="mono"><span class="monoblue"><b>#&nbsp;cycle&nbsp;adding&nbsp;records&nbsp;on&nbsp;ordered&nbsp;goods&nbsp;should&nbsp;be&nbsp;here
 <br />
-</b></span></span><span><span><b>^void:</b></span></span><span><span><b><a href="voidsql.htm">sql</a></b></span></span><span><span><b>{
+</b></span></span><span class="mono"><span class="monoblue"><b>^void:</b></span></span><span class="mono"><span class="monoblue"><b><a href="voidsql.htm">sql</a></b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
-</b></span></span><span><b>insert&nbsp;into&nbsp;order_details
+</b></span></span><span class="mono"><b>insert&nbsp;into&nbsp;order_details
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;(order_uuid,&nbsp;item_id,&nbsp;price)
 <br />
 values
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;('</b><span><b>$order_uuid</b></span></span><span><b>',&nbsp;</b><span><b>$item_id</b></span></span><span><b>,&nbsp;</b><span><b>$price</b></span></span><span><b>)
+&nbsp;&nbsp;&nbsp;&nbsp;('</b><span class="monoblue"><b>$order_uuid</b></span></span><span class="mono"><b>',&nbsp;</b><span class="monoblue"><b>$item_id</b></span></span><span class="mono"><b>,&nbsp;</b><span class="monoblue"><b>$price</b></span></span><span class="mono"><b>)
 <br />
-</b><span><b>}</b></span></span><span><b>
-<br />
-
+</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
 
 <br />
-</b><span><b>#&nbsp;parts&nbsp;of&nbsp;tables&nbsp;'orders'&nbsp;and&nbsp;'order_details'&nbsp;are&nbsp;periodically&nbsp;retrieved
+
 <br />
-#&nbsp;and&nbsp;sent&nbsp;(^mail</b></span></span><span><span><b>:</b></span></span><span><span><b><a href="mailsend.htm">send</a></b></span></span><span><span><b>[&#133;]</b></span></span><span><span><b>)</b></span></span><span><span><b>&nbsp;</b></span></span><span><span><b>to&nbsp;headquarters,
+</b><span class="monoblue"><b>#&nbsp;parts&nbsp;of&nbsp;tables&nbsp;'orders'&nbsp;and&nbsp;'order_details'&nbsp;are&nbsp;periodically&nbsp;retrieved
+<br />
+#&nbsp;and&nbsp;sent&nbsp;(^mail</b></span></span><span class="mono"><span class="monoblue"><b>:</b></span></span><span class="mono"><span class="monoblue"><b><a href="mailsend.htm">send</a></b></span></span><span class="mono"><span class="monoblue"><b>[&#133;]</b></span></span><span class="mono"><span class="monoblue"><b>)</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>to&nbsp;headquarters,
 <br />
 #&nbsp;where&nbsp;these&nbsp;parts&nbsp;of&nbsp;tables&nbsp;are&nbsp;added&nbsp;to&nbsp;common&nbsp;tables&nbsp;'orders'&nbsp;and&nbsp;'order_details'
 <br />
-#&nbsp;&#133;WITHOUT&nbsp;any&nbsp;problems&nbsp;with&nbsp;multiple&nbsp;instances&nbsp;of&nbsp;'order_id'</b></span></span><span><b>
+#&nbsp;&#133;WITHOUT&nbsp;any&nbsp;problems&nbsp;with&nbsp;multiple&nbsp;instances&nbsp;of&nbsp;'order_id'</b></span></span><span class="mono"><b>
 <br />
 </b><b>
 <br />
@@ -118,7 +118,7 @@ xxxxxxxx-xxxx-4xxx-{8,9,A,B}xxx-xxxxxxxxxxxx
 <br />
 
 <br />
-Detailed information on UUID is available at:</i><i> </i><span><i><u><a href="http://www.opengroup.org/onlinepubs/9629399/apdxa.htm" target="_blank">http://www.opengroup.org/onlinepubs/9629399/apdxa.htm</a></u></i></span></span><span><i>
+Detailed information on UUID is available at:</i><i> </i><span class="blue"><i><u><a href="http://www.opengroup.org/onlinepubs/9629399/apdxa.htm" target="_blank">http://www.opengroup.org/onlinepubs/9629399/apdxa.htm</a></u></i></span></span><span><i>
 <br />
 </i></span></span><br />
 

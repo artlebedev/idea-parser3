@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>append. Appending data to a table</title>
+    <title>append. Appending data to a table</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,23 +11,50 @@
 <body>
 
 
-<span><b>Example</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>append. Appending data to a table
 <br />
-</u></span><span><span><b>$stuff[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{name</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>pos</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^table.append{data}
+<br />
+^table.append[data]</b><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+The method appends data to the end of the table. The </span><span class="mono"><b>data</b></span><span> must be provided in <i>tab-delimited</i> format.
+<br />
+The table data must have the same structure as the table to which it is appended.
+<br />
+<u>
+<br />
+</u></span><span class="h1"><b>Example</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$stuff[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{name</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>pos</b></span></span><span class="mono"><b>
 <br />
 Alexander&nbsp;&nbsp;&nbsp;boss
 <br />
 Sergey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coder
 <br />
-</b><span><b>}]
+</b><span class="monoblue"><b>}]
 <br />
-^stuff.append{</b></span></span><span><b>Nikolay</b><b>&nbsp;&nbsp;&nbsp;</b><b>designer</b><span><b>}
+^stuff.append{</b></span></span><span class="mono"><b>Nikolay</b><b>&nbsp;&nbsp;&nbsp;</b><b>designer</b><span class="monoblue"><b>}
 <br />
-^stuff.</b></span></span><span><span><b><a href="tablesave.htm">save</a></b></span></span><span><span><b>[</b></span></span><span><b>stuff.txt</b><span><b>]</b></span></span><span><span><b>
+^stuff.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>stuff.txt</b><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-The example code will append a new row to the table </span><span><b>$stuff</b></span><span> and save the whole table to the disk. After it, you cannot retrieve the value stored in the third column of the appended row, but it may be retrieved from the saved file </span><span>stuff.txt</span><span>.
+The example code will append a new row to the table </span><span class="mono"><b>$stuff</b></span><span> and save the whole table to the disk. After it, you cannot retrieve the value stored in the third column of the appended row, but it may be retrieved from the saved file </span><span class="mono">stuff.txt</span><span>.
 <br />
 </span></span><br />
 

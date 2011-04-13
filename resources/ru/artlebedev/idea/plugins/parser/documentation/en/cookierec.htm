@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Storing</title>
+    <title>Storing</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,13 +11,34 @@
 <body>
 
 
-<span><b>Example</b></h1><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Storing
 <br />
-</b></span><span><span><b>$cookie:user[</b></span></span><span><b>Peter</b><span><b>]</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>$cookie:name[value]
+<br />
+</b><span>Saves cookie with specified </span><span class="mono"><b>name</b></span><span> and specified </span><span class="mono"><b>value</b></span><span> to be stored for 90 days.
+<br />
+
+<br />
+</span><span class="h1"><b>Example</b></span><span><b>
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>$cookie:user[</b></span></span><span class="mono"><b>Peter</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-&#133;will create cookie named </span><span><b>user</b></span><span> and assign value </span><span><b>Peter</b></span><span> to it. The cookie thus created will be stored on user's disk for 90 days.
+&#133;will create cookie named </span><span class="mono"><b>user</b></span><span> and assign value </span><span class="mono"><b>Peter</b></span><span> to it. The cookie thus created will be stored on user's disk for 90 days.
 <br />
 
 <br />
@@ -25,7 +46,7 @@
 <br />
 </i>
 <br />
-</span><span><b>$cookie:name[
+</span><span class="mono"><b>$cookie:name[
 <br />
 &nbsp;&nbsp;&nbsp;$.value[value]
 <br />
@@ -61,45 +82,45 @@ $cookie:name[
 <br />
 &nbsp;&nbsp;&nbsp;$.value[</b><b>value</b><b>]
 <br />
-</b><b>&nbsp;&nbsp;&nbsp;$.httponly(true)</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.2.2]</i></b></span><span><b>
+</b><b>&nbsp;&nbsp;&nbsp;$.httponly(true)</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.2.2]</i></b></span><span class="mono"><b>
 <br />
-</b><b>&nbsp;&nbsp;&nbsp;$.secure(true)</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.2.2]</i></b></span><span><b>
+</b><b>&nbsp;&nbsp;&nbsp;$.secure(true)</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.2.2]</i></b></span><span class="mono"><b>
 <br />
 ]</b></span><span>
 <br />
-&#133;assigns data to cookie with specified </span><span><b>name</b></span><span>.
+&#133;assigns data to cookie with specified </span><span class="mono"><b>name</b></span><span>.
 <br />
 
 <br />
 Optional modifiers:
 <br />
-</span><span><b>$.expires(number&nbsp;of&nbsp;days)</b></span><span>-specifies how many days a cookie may be accessible (number of days may be fractional, i.e. 1.5 will mean "one day and half").
+</span><span class="mono"><b>$.expires(number&nbsp;of&nbsp;days)</b></span><span>-specifies how many days a cookie may be accessible (number of days may be fractional, i.e. 1.5 will mean "one day and half").
 <br />
-</span><span><b>$.expires[session]</b></span><span>-creates session cookie (cookie will be deleted when visitor closes all browser windows); 
+</span><span class="mono"><b>$.expires[session]</b></span><span>-creates session cookie (cookie will be deleted when visitor closes all browser windows); 
 <br />
-</span><span><b>$.domain[doman&nbsp;name]</b></span><span>-specifies domain from which the cookie may be accessed;
+</span><span class="mono"><b>$.domain[doman&nbsp;name]</b></span><span>-specifies domain from which the cookie may be accessed;
 <br />
-</span><span><b>$.path[subsection]</b></span><span>-specifies subsection of the site from which the cookie may be accessed.
+</span><span class="mono"><b>$.path[subsection]</b></span><span>-specifies subsection of the site from which the cookie may be accessed.
 <br />
 </span><span><b>
 <br />
-</b></span><span>During storing </span><span><b>cookie</b></span><span> you can add any bool option. In this case the http header will contains this option without value. You can use it for set <span><u><a href="http://msdn.microsoft.com/workshop/author/dhtml/httponly_cookies.asp">httponly</a></u></span></span><span> option for example.</span><span><b>
+</b></span><span>During storing </span><span class="mono"><b>cookie</b></span><span> you can add any bool option. In this case the http header will contains this option without value. You can use it for set <span class="blue"><u><a href="http://msdn.microsoft.com/workshop/author/dhtml/httponly_cookies.asp">httponly</a></u></span></span><span> option for example.</span><span><b>
 <br />
 
 <br />
-</b></span><span><b>Example
+</b></span><span class="h1"><b>Example
 <br />
-</b></span><span><span><b>$cookie:login_name[
+</b></span><span class="mono"><span class="monoblue"><b>$cookie:login_name[
 <br />
 &nbsp;&nbsp;&nbsp;$.value[guest]
 <br />
 &nbsp;&nbsp;&nbsp;$.expires(14)
 <br />
-]</b></span></span><span><b>
+]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-&#133;will create a cookie named </span><span><b>login_name</b></span><span> with value </span><span><b>guest</b></span><span> and store it a fortnight.
+&#133;will create a cookie named </span><span class="mono"><b>login_name</b></span><span> with value </span><span class="mono"><b>guest</b></span><span> and store it a fortnight.
 <br />
 
 <br />

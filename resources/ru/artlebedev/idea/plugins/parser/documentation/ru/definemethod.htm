@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>������������ ������������� ������ � ���������</title>
+    <title>Определяемые пользователем методы и операторы</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,49 +11,76 @@
 <body>
 
 
-<span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span><b>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Определяемые пользователем методы и операторы
 <br />
-</b><b>����&nbsp;������&nbsp;������,&nbsp;�������&nbsp;�����&nbsp;����&nbsp;������&nbsp;������&nbsp;����������&nbsp;(</b><b><a href="defineclass.htm">�����������</a></b><b>)</b></span><span>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-</span><span><b>
+
+
+
+<span class="mono"><b>@имя[параметры]
 <br />
-@���[*���������]</b></span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span><b>
+</b><b>тело</b><span>
 <br />
-</b><b>����</b></span><span>
+</span><span class="mono"><b>
 <br />
-</span><span><b>
+@имя[параметры][локальные;переменные]</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-@���[��������1</b><b>;</b><b>��������2</b><b>;</b><b>*���������]</b></span><span><b>&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span><b>
+</span><span class="mono"><b>тело</b></span><span>
 <br />
-</b><b>����</b></span><span>
+</span><span class="mono"><b>
 <br />
-</span><span><b>
+@</b><b>static:</b><b>имя[параметры]</b></span><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span class="mono"><b>
 <br />
-</b></span><span>�����, ��� ���� ����, ������� ���, ����������� ���������, � ������������ ���������. ����� ���������� ������ ������������� ����� ����� � �������. ����� ����� ����� ����� ��������� ����������, ������� ���������� �������� � ��������� ������, ����� ���������� ����������, ����� ����������� ������ � �������.
+</b><b>тело&nbsp;метода&nbsp;класса,&nbsp;который&nbsp;может&nbsp;быть&nbsp;вызван&nbsp;только&nbsp;статически&nbsp;(</b><b><a href="defineclass.htm">подробности</a></b><b>)</b></span><span>
+<br />
+</span><span class="mono"><b>
+<br />
+@имя[*параметры]</b></span><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span class="mono"><b>
+<br />
+</b><b>тело</b></span><span>
+<br />
+</span><span class="mono"><b>
+<br />
+@имя[параметр1</b><b>;</b><b>параметр2</b><b>;</b><b>*параметры]</b></span><span class="h1"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>4</i></b><b><i>.</i></b><b><i>1</i></b><b><i>]</i></b></span><span class="mono"><b>
+<br />
+</b><b>тело</b></span><span>
+<br />
+</span><span class="mono"><b>
+<br />
+</b></span><span>Метод, это блок кода, имеющий имя, принимающий параметры, и возвращающий результат. Имена параметров метода перечисляются через точку с запятой. Метод также может иметь локальные переменные, которые необходимо объявить в заголовке метода, после объявления параметров, имена разделяются точкой с запятой.
 <br />
 
 <br />
-��������� ���������� ����� � �������� ��������� ��� ������, � ������� ���������� ��� ���������� � �������, ��. ���� </span><span><b>$caller</b></span><span>.
+Локальные переменные видны в пределах оператора или метода, и изнутри вызываемых ими операторов и методов, см. ниже </span><span class="mono"><b>$caller</b></span><span>.
 <br />
 
 <br />
-��� �������� ������ ����� ������������ �� ������ ����������� ��� ���������� �����������, � ����� ������ ������� �������, ��� ���� �� ������ �������� � ������ ������, ��� ������ �������, � ����������� �� ����, ��� ��� ������ ������������ ���� �����, <a href="stats.htm">����������</a>, ��� <a href="obj.htm">�����������</a>.
+При описании метода можно пользоваться не только параметрами или локальными переменными, а также любыми другими именами, при этом вы будете работать с полями класса, или полями объекта, в зависимости от того, как был вызван определенный вами метод, <a href="stats.htm">статически</a>, или <a href="obj.htm">динамически</a>.
 <br />
 
 <br />
-� Parser �� ������ <a href="opuserdefined.htm">���������</a> ������� ����� ����������, ����������� � Parser ��������� ������ ������ <a href="mainclass.htm">MAIN</a>.<i>
+В Parser вы можете <a href="opuserdefined.htm">расширить</a> базовый набор операторов, операторами в Parser считаются методы класса <a href="mainclass.htm">MAIN</a>.<i>
 <br />
-�����: ���������, ��� ������ ������ </i><i><a href="mainclass.htm">MAIN</a></i><i>, �� � ������� �� ������� ������ �������, �� ����� ������� �� ������ ������ ������ �� �����, �.�. ����� ������ </i></span><span><b>^include[�]</b></span><span><i>, ������ ����������� </i></span><span><b>^MAIN:include[�]</b></span><span><i>.
+Важно: операторы, это методы класса </i><i><a href="mainclass.htm">MAIN</a></i><i>, но в отличие от методов других классов, их можно вызвать из любого класса просто по имени, т.е. можно писать </i></span><span class="mono"><b>^include[…]</b></span><span><i>, вместо громоздкого </i></span><span class="mono"><b>^MAIN:include[…]</b></span><span><i>.
 <br />
 </i><i>
 <br />
-</i></span><span>� �������, ������� ����� ��������� ������������ ����� ���������� ��� ������� ��������� �������� � ���� ���� � ��������� �������.
+</i></span><span>В методах, которые могут принимать произвольное число параметров все «лишние параметры» доступны в виде хеша с числовыми ключами.
 <br />
 </span><span><b>
 <br />
-������:
+Пример:
 <br />
-</b></span><span><span><b>@main[]
+</b></span><span class="mono"><span class="monoblue"><b>@main[]
 <br />
 ^call[a;b;c]
 <br />
@@ -71,9 +98,9 @@ p=$p
 <br />
 </i><i>
 <br />
-</i>�������:
+</i>Выведет:
 <br />
-</span><span><b>p=a
+</span><span class="mono"><b>p=a
 <br />
 0=b
 <br />
@@ -83,47 +110,47 @@ p=$p
 <br />
 </i><i>
 <br />
-</i></span><span><b>��������� ����������: self
+</i></span><span class="h1"><b>Системная переменная: self
 <br />
-</b></span><span>��� ������ � ��������� ����� ��������� ���������� </span><span><b>self</b></span><span>, ��� ������ ������ �� ������� ������, � ����������� ������� ������  �� ��, ��� � </span><span><b>$CLASS</b></span><span>.
+</b></span><span>Все методы и операторы имеют локальную переменную </span><span class="mono"><b>self</b></span><span>, она хранит ссылку на текущий объект, в статических методах хранит  то же, что и </span><span class="mono"><b>$CLASS</b></span><span>.
 <br />
 
 <br />
-<b>������: </b></span><span>
+<b>Пример: </b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-</span><span><span><b>@main[]&nbsp;&nbsp;
+</span><span class="mono"><span class="monoblue"><b>@main[]&nbsp;&nbsp;
 <br />
-$a[</b></span></span><span><b>�����������&nbsp;����&nbsp;</b><span><b>^$a</b></span></span><span><b>&nbsp;������&nbsp;MAIN</b><span><b>]
+$a[</b></span></span><span class="mono"><b>Статическое&nbsp;поле&nbsp;</b><span class="monoblue"><b>^$a</b></span></span><span class="mono"><b>&nbsp;класса&nbsp;MAIN</b><span class="monoblue"><b>]
 <br />
-^test[</b></span></span><span><b>��������&nbsp;������</b><span><b>]
+^test[</b></span></span><span class="mono"><b>Параметр&nbsp;метода</b><span class="monoblue"><b>]
 <br />
 
 <br />
 @test[a]&nbsp;&nbsp;
 <br />
-^$a</b></span></span><span><b>&nbsp;-&nbsp;</b><span><b>$a</b></span></span><span><b>&nbsp;&nbsp;&lt;br&nbsp;/&gt;&nbsp;&nbsp;
+^$a</b></span></span><span class="mono"><b>&nbsp;-&nbsp;</b><span class="monoblue"><b>$a</b></span></span><span class="mono"><b>&nbsp;&nbsp;&lt;br&nbsp;/&gt;&nbsp;&nbsp;
 <br />
-</b><span><b>^$self.a</b></span></span><span><b>&nbsp;-&nbsp;</b><span><b>$self.a&nbsp;&nbsp;
+</b><span class="monoblue"><b>^$self.a</b></span></span><span class="mono"><b>&nbsp;-&nbsp;</b><span class="monoblue"><b>$self.a&nbsp;&nbsp;
 <br />
-</b></span></span><span>&nbsp;&nbsp;&nbsp;
+</b></span></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;
 <br />
-</span><span>�������:   
+</span><span>Выведет:   
 <br />
-</span><span><b>$a&nbsp;-&nbsp;��������&nbsp;������&nbsp;&nbsp;
+</span><span class="mono"><b>$a&nbsp;-&nbsp;Параметр&nbsp;метода&nbsp;&nbsp;
 <br />
-$self.a&nbsp;-&nbsp;�����������&nbsp;����&nbsp;$a&nbsp;������&nbsp;MAIN</b></span><span>  
-<br />
-
-<br />
-</span><span><b>��������� ����������: result
-<br />
-</b></span><span>��� ������ � ��������� ����� ��������� ���������� </span><span><b>result</b></span><span>. ���� �� ��������� �����-�� ��������, �� ������ ��� ����� ����������� ���������� ������. �������� ���������� </span><span><b>result</b></span><span> ����� ��������� � ������������ � �����������. 
+$self.a&nbsp;-&nbsp;Статическое&nbsp;поле&nbsp;$a&nbsp;класса&nbsp;MAIN</b></span><span>  
 <br />
 
 <br />
-<b>������:</b>
+</span><span class="h1"><b>Системная переменная: result
 <br />
-</span><span><span><b>@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+</b></span><span>Все методы и операторы имеют локальную переменную </span><span class="mono"><b>result</b></span><span>. Если ей присвоить какое-то значение, то именно оно будет результатом выполнения метода. Значение переменной </span><span class="mono"><b>result</b></span><span> можно считывать и использовать в вычислениях. 
+<br />
+
+<br />
+<b>Пример:</b>
+<br />
+</span><span class="mono"><span class="monoblue"><b>@</b></span></span><span class="mono"><span class="monoblue"><b><a href="mainclass.htm">main</a></b></span></span><span class="mono"><span class="monoblue"><b>[]
 <br />
 $a(2)
 <br />
@@ -139,61 +166,101 @@ $summa
 <br />
 ^eval($a+$b)
 <br />
-$result[</b></span></span><span><b>������&nbsp;��&nbsp;�����!</b><span><b>]
+$result[</b></span></span><span class="mono"><b>Ничего&nbsp;не&nbsp;скажу!</b><span class="monoblue"><b>]
 <br />
 </b></span></span><span>
 <br />
-����� ������� ����� ������ ������ </span><span><b>������&nbsp;��&nbsp;�����!</b></span><span>, � �� ��������� �������� ���� �����.
+Здесь клиенту будет выдана строка </span><span class="mono"><b>Ничего&nbsp;не&nbsp;скажу!</b></span><span>, а не результат сложения двух чисел.
 <br />
 
 <br />
-</span><span><b>��������� ����������: result</b><b>, </b><b>����� �����������&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.1.5]</i></b></span><span><b>
+</span><span class="h1"><b>Системная переменная: result</b><b>, </b><b>явное определение&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.5]</i></b></span><span class="h1"><b>
 <br />
-</b></span><span>���� � ������ ���� �������� ��������� ���������� </span><span><b>result</b></span><span>, ��� ������ Parser, ��� ����� ��������������� ��� ���������� ������� � ������� ���������� ����� �� ���������� �������, ���� �� ���� �� ����������� ���������� </span><span><b>result</b></span><span>.
+</b></span><span>Если в методе явно объявить локальную переменную </span><span class="mono"><b>result</b></span><span>, это укажет Parser, что нужно проигнорировать все пробельные символы и считать ошибочными любые не пробельные символы, если их явно не присваивают переменной </span><span class="mono"><b>result</b></span><span>.
 <br />
 
 <br />
-<b>������:</b>
+<b>Пример:</b>
 <br />
-</span><span><span><b>@lookup[table;findcol;resultcol;</b></span></span><span><span><b>findvalue;</b></span></span><span><span><b>notfound]</b></span></span><span><span><b>[result]</b></span></span><span><span><b>
+</span><span class="mono"><span class="monoblue"><b>@lookup[table;findcol;resultcol;</b></span></span><span class="mono"><span class="monoblue"><b>findvalue;</b></span></span><span class="mono"><span class="monoblue"><b>notfound]</b></span></span><span class="mono"><span class="monoblue"><b>[result]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-^if</b></span></span><span><span><b>(^</b></span></span><span><span><b><a href="tableclass.htm">table</a></b></span></span><span><span><b>.</b></span></span><span><span><b><a href="tablelocate.htm">locate</a></b></span></span><span><span><b>[$</b></span></span><span><span><b>findcol</b></span></span><span><span><b>;$findvalue]){
+^if</b></span></span><span class="mono"><span class="monoblue"><b>(^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tableclass.htm">table</a></b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablelocate.htm">locate</a></b></span></span><span class="mono"><span class="monoblue"><b>[$</b></span></span><span class="mono"><span class="monoblue"><b>findcol</b></span></span><span class="mono"><span class="monoblue"><b>;$findvalue]){
 <br />
-&nbsp;&nbsp;&nbsp;$table.$</b></span></span><span><span><b>resultcol</b></span></span><span><span><b>
+&nbsp;&nbsp;&nbsp;$table.$</b></span></span><span class="mono"><span class="monoblue"><b>resultcol</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 }{
 <br />
-&nbsp;&nbsp;&nbsp;$</b></span></span><span><span><b>notfound</b></span></span><span><span><b>
+&nbsp;&nbsp;&nbsp;$</b></span></span><span class="mono"><span class="monoblue"><b>notfound</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 }
 <br />
 </b></span></span><span>
 <br />
-����� ������� ����� ������ ���� �������� �� ������� </span><span><b>$resultcol</b></span><span>, ���� �������� </span><span><b>$notfound</b></span><span>.
+Здесь клиенту будет выдано либо значение из колонки </span><span class="mono"><b>$resultcol</b></span><span>, либо значение </span><span class="mono"><b>$notfound</b></span><span>.
 <br />
-�����: � ����������� ������� <b>�� �����</b> ������ �� ������ ������� �������� ������, ������� ��� ���������. 
+Важно: в приведенном примере <b>не будет</b> выдано ни одного символа перевода строки, пробела или табуляции. 
 <br />
-�����: ������� �������� $notfound �������, ���������� ����� � ���� ������, �������� � ������. ����� Parser �� ����������� ���������� � ���� ������ �� ���������� ������� ��� ������ �� ����� ���� ����������� ���������� result.
+Важно: попытка заменить $notfound текстом, написанным прямо в теле метода, приведен к ошибке. Чтобы Parser не воспринимал написанные в теле метода не пробельные символы как ошибку их нужно явно присваивать переменной result.
+<br />
+
+<br />
+
+<br />
+</span><span class="h1"><b>Системная переменная: caller
+<br />
+</b></span><span>Все методы и операторы имеют локальную переменную </span><span class="mono"><b>caller</b></span><span>, которая хранит «контекст вызова» метода или оператора.
+<br />
+
+<br />
+Через нее можно:
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>узнать, кто вызвал вызвавший описываемый метод или оператор, обратившись к </span><span class="mono"><b>$caller.self</b></span><span>;</span><span class="mono"><b>
+&nbsp;<br />
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b></span><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>считать - </span><span class="mono"><b>$caller.считать</b></span><span>, или записать - </span><span class="mono"><b>$caller.записать[значение]</b></span><span> переменную, как будто вы находитесь в том месте, откуда вызвали описываемый метод или оператор.
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+Например вам нужен оператор, похожий на системный </span><span class="mono"><b><a href="opfor.htm">for</a></b></span><span>, но чем-то отличающийся от него. Вы можете написать его сами, воспользовавшись возможностью менять локальную переменную с именем, переданным вам, в </span><span class="mono"><b>контексте&nbsp;вызова&nbsp;вашего&nbsp;оператора</b></span><span>.
+<br />
+</span><span class="mono"><span class="monoblue"><b>@steppedfor[name;from;to;step;code]
+<br />
+$caller.$name($from)
+<br />
+^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opwhile.htm">while</a></b></span></span><span class="mono"><span class="monoblue"><b>($caller.$name&lt;=$to){
+<br />
+&nbsp;&nbsp;&nbsp;$code
+<br />
+&nbsp;&nbsp;&nbsp;^caller.$name.</b></span></span><span class="mono"><span class="monoblue"><b><a href="intdoubleincetc.htm">inc</a></b></span></span><span class="mono"><span class="monoblue"><b>($step)
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+Теперь такой вызов…
+<br />
+</span><span class="mono"><span class="monoblue"><b>@somewhere[][i]
+<br />
+^steppedfor[i](1;10;2){$i&nbsp;}
+<br />
+</b></span></span><span>
+<br />
+…напечатает «</span><span class="mono"><b>1&nbsp;3&nbsp;5&nbsp;7&nbsp;9&nbsp;</b></span><span>», обратите внимание, что изменяется </span><span class="mono"><b>локальная&nbsp;переменная&nbsp;метода&nbsp;somewhere.</b></span><span>
+<br />
+</span><span class="mono"><b>
+<br />
+</b></span><span><i>Примечание: возможность узнать контекст вызова удобна для задания контекста компиляции кода (см. «</i><i><a href="opprocess.htm">process. Компиляция и исполнение строки</a></i><i>».
 <br />
 
 <br />
 
 <br />
-</span><span><b>��������� ����������: caller
+</i></span><span class="h1"><b>Системная переменная: locals</b><b>, </b><b>явное определение&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.3.0]
 <br />
-</b></span><span>��� ������ � ��������� ����� ��������� ���������� </span><span><b>caller</b></span><span>, ������� ������ ��������� ������ ������ ��� ���������.
+</i></b></span><span>Если в методе явно объявить локальную переменную </span><span class="mono"><b>locals</b></span><span>, </span><span>это будет равносильно объявлению всех переменных, используемых в нем локальными.
 <br />
-
+Для обращения к переменных класса или объекта в этом случае необходимо использовать </span><span class="mono"><b>self</b></span><span>.
 <br />
-����� ��� �����:
-<br />
-<span><b>��������� ����������: locals</b><b>, </b><b>����� �����������&nbsp;&nbsp;&nbsp;</b></h1><span><b><i>[3.3.0]
-<br />
-</i></b></span><span>���� � ������ ���� �������� ��������� ���������� </span><span><b>locals</b></span><span>, </span><span>��� ����� ����������� ���������� ���� ����������, ������������ � ��� ����������.
-<br />
-��� ��������� � ���������� ������ ��� ������� � ���� ������ ���������� ������������ </span><span><b>self</b></span><span>.
-<br />
-</span><span><b><i>
+</span><span class="mono"><b><i>
 <br />
 </i></b></span></span><br />
 

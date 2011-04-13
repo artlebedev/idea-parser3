@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>arc. ��������� ����</title>
+    <title>arc. Рисование дуги</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,34 +15,34 @@
   <tr>
     <td>
       
-<span><b>arc. ��������� ����
+<span class="h1"><b>arc. Рисование дуги
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.arc(center&nbsp;x;center&nbsp;y;width;height;start&nbsp;in&nbsp;degrees;end&nbsp;in&nbsp;degrees;color)</b><span>&nbsp;</span><span><b>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^картинка.arc(center&nbsp;x;center&nbsp;y;width;height;start&nbsp;in&nbsp;degrees;end&nbsp;in&nbsp;degrees;color)</b><span class="monoblue">&nbsp;</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;
 <br />
-</b></span><span>����� ������ ���� � ��������� �����������. ���� ������������ ����� ����� ������� (��� ������� ������ ����������) � �������� ������������ ������  X � Y, �������, �������, � ����� ��������� � �������� �����, ���������� � ��������. 
+</b></span><span>Метод рисует дугу с заданными параметрами. Дуга представляет собой часть эллипса (как частный случай окружности) и задается координатами центра  X и Y, шириной, высотой, а также начальным и конечным углом, задаваемым в градусах. 
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+</b></span><span class="mono"><span class="monoblue"><b>$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
 <br />
 ^square.arc(50;50;40;40;0;90;0xFFFFFF)
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-� �������� ����� �������  ������ ������� � ����� � �������� (�� 0 �� 90 ��������) ���������� �������� 40 ��������.
+В браузере будет выведен  черный квадрат с дугой в четверть (от 0 до 90 градусов) окружности радиусом 40 пикселов.
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>format. Outputting number in specified format</title>
+    <title>format. Outputting number in specified format</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,19 +11,56 @@
 <body>
 
 
-<span><b>Example</b><b>s</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>format. Outputting number in specified format
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^name.format[format&nbsp;string]
+<br />
+</b><span>
+<br />
+The method outputs variable's value in specified format (see <a href="app2.htm">Format Strings</a>).
+<br />
+
+<br />
+When you output number without </span><span class="mono"><b>format</b></span><span>, simply:
+<br />
+</span><span class="mono"><b>$name
+<br />
+</b></span><span>Parser for numbers with zero fraction part does this:
+<br />
+</span><span class="mono"><b>^name.format[%.0f]</b><b>&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.5]</i></b></span><span class="mono"><b>
+<br />
+</b></span><span>for others that:
+<br />
+</span><span class="mono"><b>^&#232;&#236;&#255;.format[%g]
+<br />
+</b></span><span>
+<br />
+</span><span class="h1"><b>Example</b><b>s</b></span><span><u>
 <br />
 </u>Code&#133;
 <br />
 
 <br />
-</span><span><span><b>$var(15.67678678)
+</span><span class="mono"><span class="monoblue"><b>$var(15.67678678)
 <br />
-^var.format[%.2f]</b></span></span><span><b>
+^var.format[%.2f]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-&#133;will return: </span><span><b>15.68</b></span><span>
+&#133;will return: </span><span class="mono"><b>15.68</b></span><span>
 <br />
 
 <br />
@@ -31,13 +68,13 @@ Code&#133;
 <br />
 
 <br />
-</span><span><span><b>$var(0x123)
+</span><span class="mono"><span class="monoblue"><b>$var(0x123)
 <br />
-^var.format[0x%04X]</b></span></span><span><b>
+^var.format[0x%04X]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-&#133;will return: </span><span><b>0x0123</b></span><span>
+&#133;will return: </span><span class="mono"><b>0x0123</b></span><span>
 <br />
 </span></span><br />
 

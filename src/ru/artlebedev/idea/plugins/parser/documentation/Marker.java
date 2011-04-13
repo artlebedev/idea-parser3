@@ -1,4 +1,4 @@
-package ru.artlebedev.parser.documentation;
+package ru.artlebedev.idea.plugins.parser.documentation;
 
 /**
  * idea-parser3: slightly useful plugin.

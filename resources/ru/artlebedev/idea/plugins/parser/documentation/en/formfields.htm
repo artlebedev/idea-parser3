@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>fields. All form fields</title>
+    <title>fields. All form fields</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>fields. All form fields
+<span class="h1"><b>fields. All form fields
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$form:fields
+<span class="mono"><b>$form:fields
 <br />
 </b><span>
 <br />
@@ -34,13 +34,13 @@ Such a construction returns <a href="hash.htm">hash</a> with all form fields. Ha
 <br />
 
 <br />
-</span><span><b>Example</b><b>
+</span><span class="h1"><b>Example</b><b>
 <br />
-</b></span><span><span><b>^form:fields.</b></span></span><span><span><b><a href="hashforeach.htm">foreach</a></b></span></span><span><span><b>[</b></span></span><span><span><b>field;value]{
+</b></span><span class="mono"><span class="monoblue"><b>^form:fields.</b></span></span><span class="mono"><span class="monoblue"><b><a href="hashforeach.htm">foreach</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b>field;value]{
 <br />
 &nbsp;&nbsp;&nbsp;$field&nbsp;-&nbsp;$value
 <br />
-}[</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>]
+}[</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>]
 <br />
 </b></span></span><span>
 <br />
@@ -48,7 +48,7 @@ Such a construction returns <a href="hash.htm">hash</a> with all form fields. Ha
 <br />
 Assume, requested URI is&#133;
 <br />
-</span><span><b>www.mysite.com/testing/index.html?name=worst&amp;grade=F
+</span><span class="mono"><b>www.mysite.com/testing/index.html?name=worst&amp;grade=F
 <br />
 </b></span><span>
 <br />
@@ -56,7 +56,7 @@ Then the example will output:
 <br />
 
 <br />
-</span><span><b>name&nbsp;-&nbsp;worst
+</span><span class="mono"><b>name&nbsp;-&nbsp;worst
 <br />
 grade&nbsp;-&nbsp;F</b></span><span>
 <br />

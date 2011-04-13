@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>foreach. ������� ������ ����</title>
+    <title>foreach. Перебор ключей хеша</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,30 +15,30 @@
   <tr>
     <td>
       
-<span><b>foreach. ������� ������ ����
+<span class="h1"><b>foreach. Перебор ключей хеша
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^hashfile.foreach[����;��������]{����}
+<span class="mono"><b>^hashfile.foreach[ключ;значение]{тело}
 <br />
-^hashfile.foreach[����;��������]{����}[�����������]
+^hashfile.foreach[ключ;значение]{тело}[разделитель]
 <br />
-^hashfile.foreach[����;��������]{����}{�����������}</b><span>
+^hashfile.foreach[ключ;значение]{тело}{разделитель}</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-���������� ��� ����� ���� � ��������������� �� �������� (������� �������� �� ���������).</span><span> </span><span>����� ���������� </span><span><b><a href="hashforeach.htm">foreach</a></b></span><span> ������ </span><span><b><a href="hashclass.htm">hash</a></b></span><span>.
+Перебирает все ключи хеша и соответствующие им значения (порядок перебора не определен).</span><span>Метод аналогичен </span><span class="mono"><b><a href="hashforeach.htm">foreach</a></b></span><span> класса </span><span class="mono"><b><a href="hashclass.htm">hash</a></b></span><span>.
 <br />
 
 <br />
-� ����� ������ ����� ������������� ����� �� ����� � ������� ��������� </span><span><span><b><a href="opbreak.htm">break</a></b></span></span><span>, ��� ������������� ��������� ������� �������� � ������� � ��������� � ������� ��������� </span><span><span><b><a href="opcontinue.htm">continue</a></b></span></span><span>.</span><span><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
+В любой момент можно принудительно выйти из цикла с помошью оператора </span><span class="mono"><span class="monoblue"><b><a href="opbreak.htm">break</a></b></span></span><span>, или принудительно закончить текущую итерацию и перейти к следующей с помощью оператора </span><span class="mono"><span class="monoblue"><b><a href="opcontinue.htm">continue</a></b></span></span><span>.</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b>
 <br />
 
 <br />

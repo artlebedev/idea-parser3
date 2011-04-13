@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>append. ���������� ������ � �������</title>
+    <title>append. Добавление данных в таблицу</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,25 +11,52 @@
 <body>
 
 
-<span><b>������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>append. Добавление данных в таблицу
 <br />
-</span><span><span><b>$stuff[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{name&nbsp;&nbsp;&nbsp;pos</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^таблица.append{табличные&nbsp;данные}&nbsp;&nbsp;&nbsp;
+<br />
+^таблица.append[табличные&nbsp;данные]</b><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.0]</i></b></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+Метод добавляет запись в конец таблицы. Формат представления </span><span class="mono"><b>данных</b></span><span> - tab-delimited.
+<br />
+Табличные данные должны иметь такую же структуру, как и таблица, в которую добавляются данные.
+<br />
+
+<br />
+</span><span class="h1"><b>Пример</b></span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>$stuff[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{name&nbsp;&nbsp;&nbsp;pos</b></span></span><span class="mono"><b>
 <br />
 Alexander&nbsp;&nbsp;&nbsp;boss
 <br />
 Sergey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coder
 <br />
-</b><span><b>}]</b></span></span><span><span><b>
+</b><span class="monoblue"><b>}]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-^stuff.append{</b></span></span><span><b>Nikolay&nbsp;&nbsp;&nbsp;designer</b><span><b>}
+^stuff.append{</b></span></span><span class="mono"><b>Nikolay&nbsp;&nbsp;&nbsp;designer</b><span class="monoblue"><b>}
 <br />
-^stuff.</b></span></span><span><span><b><a href="tablesave.htm">save</a></b></span></span><span><span><b>[</b></span></span><span><b>stuff.txt</b><span><b>]</b></span></span><span><span><b>
+^stuff.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><b>stuff.txt</b><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-������ ������� � ������� </span><span><b>$stuff</b></span><span> ����� ������ � �������� ������� � ���� </span><span><b>stuff.txt</b></span><span>.
+Пример добавит в таблицу </span><span class="mono"><b>$stuff</b></span><span> новую запись и сохранит таблицу в файл </span><span class="mono"><b>stuff.txt</b></span><span>.
 <br />
 </span></span><br />
 

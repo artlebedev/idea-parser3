@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>����� ������ � ����������� cURL</title>
+    <title>Опции работы с библиотекой cURL</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,78 +15,78 @@
   <tr>
     <td>
       
-<span><b>����� ������ � ����������� cURL
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>Опции работы с библиотекой cURL
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>� �������� ����� � ������� <span><b>^curl:options[]</b></span><span> � </span><span><b>^curl:load[]</b></span><span> ����� ��������� ����� �� �����, ��������� � ������������� �� ����� ������� ���������� libcurl (��. <span><u><a href="http://curl.haxx.se/libcurl/c/curl_easy_setopt.html" target="_blank">http://curl.haxx.se/libcurl/c/curl_easy_setopt.html</a></u></span></span><span>). ����� ����� ����� ������ � ������ �������� � ��� �������� CURLOPT_.
+<span>В качестве опций у методов <span class="mono"><b>^curl:options[]</b></span><span> и </span><span class="mono"><b>^curl:load[]</b></span><span> можно указывать любую из опций, доступную у установленной на вашей системе библиотеки libcurl (см. <span><u><a href="http://curl.haxx.se/libcurl/c/curl_easy_setopt.html" target="_blank">http://curl.haxx.se/libcurl/c/curl_easy_setopt.html</a></u></span></span><span>). Имена опций нужно писать в нижнем регистре и без префикса CURLOPT_.
 <br />
 
 <br />
-����� ����� �������������� ��������� ����� Parser:&nbsp;&nbsp;&nbsp;</span><span>
+Кроме этого поддерживаются следующие опции Parser:&nbsp;&nbsp;&nbsp;</span><span>
 <br />
-</span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="240">
-<span><b><i>�����</i></b><b>
+</span><span class="mono"><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="240">
+<span><b><i>Опция</i></b><b>
 <br />
 </b></span></td><td align="left" valign="top" width="209">
-<span><b><i>��-���������</i></b><b>
+<span><b><i>По-умолчанию</i></b><b>
 <br />
 </b></span></td><td align="left" valign="top" width="330">
-<span><b><i>��������</i></b><span>
+<span><b><i>Значение</i></b><span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="240">
-<span><b>$.library[</b><span>/����/�/</span><span>libcurl.so<b>]</b></span><span>
+<span class="mono"><b>$.library[</b><span>/путь/к/</span><span class="mono">libcurl.so<b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="209">
-<span>unix&nbsp;&nbsp;&nbsp;- <span>libcurl.so
+<span>unix&nbsp;&nbsp;&nbsp;- <span class="mono">libcurl.so
 <br />
-</span><span>win32&nbsp;&nbsp;&nbsp;- </span><span>libcurl.dll</span><span>
+</span><span>win32&nbsp;&nbsp;&nbsp;- </span><span class="mono">libcurl.dll</span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="330">
-<span>������ �������� ���� � ������������ ���������� libcurl � ����� �������.
+<span>Полный дисковый путь к динамической библиотеке libcurl в вашей системе.
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="240">
-<span><b>$.charset[</b><span>���������</span><span><b>]</b></span><span>
+<span class="mono"><b>$.charset[</b><span>кодировка</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="209">
-<span>������� �� ��������� HTTP-������
+<span>берется из заголовка HTTP-ответа
 <br />
 </span></td><td align="left" valign="top" width="330">
-<span>��������� ���������� �� ��������� �������. � ��� ��������� �������������� ������ �������, � �� ��-�� �������������� ����� �������.<span>
+<span>Кодировка документов на удаленном сервере. В эту кодировку перекодируется строка запроса, и из неё-же перекодируется ответ сервера.<span>
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="240">
-<span><b>$.name[</b><span>��� �����</span><span><b>]</b></span><span>
+<span class="mono"><b>$.name[</b><span>имя файла</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="209">
 <span>NONAME.DAT
 <br />
 </span></td><td align="left" valign="top" width="330">
-<span>��� ����� ������������ ������� ������ file.
+<span>Имя файла создаваемого объекта класса file.
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="240">
-<span><b>$.mode[</b><span>text|binary</span><span><b>]</b></span><span>
+<span class="mono"><b>$.mode[</b><span>text|binary</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="209">
 <span>text
 <br />
 </span></td><td align="left" valign="top" width="330">
-<span>��� ������������ ������� ������ file.
+<span>Тип создаваемого объекта класса file.
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="240">
-<span><b>$.content-type[</b><span>CONTENT-TYPE</span><span><b>]</b></span><span>
+<span class="mono"><b>$.content-type[</b><span>CONTENT-TYPE</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="209">
-<span>������� �� ��������� HTTP-������
+<span>берется из заголовка HTTP-ответа
 <br />
 </span></td><td align="left" valign="top" width="330">
-<span>���� content-type ������������ ������� ������ file.<span>
+<span>Поле content-type создаваемого объекта класса file.<span>
 <br />
 </span></span></td></tr></table>
 <br />

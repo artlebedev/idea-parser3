@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. �������� ������ ������� ���������</title>
+    <title>create. Создание нового пустого документа</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,36 +15,36 @@
   <tr>
     <td>
       
-<span><b>create. �������� ������ ������� ���������
+<span class="h1"><b>create. Создание нового пустого документа
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^xdoc::create[���_����]</b><span>
+<span class="mono"><b>^xdoc::create[имя_тега]</b><span>
 <br />
-</span><span><b>^xdoc::create[</b><b><a href="xdocuriparam.htm">�������_����</a></b><b>;���_����]</b></span><span>
+</span><span class="mono"><b>^xdoc::create[</b><b><a href="xdocuriparam.htm">базовый_путь</a></b><b>;имя_тега]</b></span><span>
 <br />
 
 <br />
-����������� ������� ������ ������ </span><span><b>xdoc</b></span><span>, ��������� �� ������������� ���� </span><span><b>���_����</b></span><span>. �������� ������� </span><span><b>��������&nbsp;����</b></span><span>.
+Конструктор создает объект класса </span><span class="mono"><b>xdoc</b></span><span>, состоящий из единственного тега </span><span class="mono"><b>имя_тега</b></span><span>. Возможно задание </span><span class="mono"><b>Базового&nbsp;пути</b></span><span>.
 <br />
-</span><span><b>
+</span><span class="mono"><b>
 <br />
-</b></span><span><b>������
+</b></span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$document[^xdoc::create[document]]</b></span></span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>$document[^xdoc::create[document]]</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>$paraNode[^document.</b></span></span><span><b><a href="xdocdommethods.htm">createElement</a></b><b>[para]</b><span><b>]</b></span></span><span><b>
+</b><span class="monoblue"><b>$paraNode[^document.</b></span></span><span class="mono"><b><a href="xdocdommethods.htm">createElement</a></b><b>[para]</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>$addedNode[^document.</b></span></span><span><b><a href="xdocdomfields.htm">documentElement</a></b><b>.</b><b><a href="xnodedommethods.htm">appendChild</a></b><span><b>[$paraNode]]</b></span></span><span><b>
+</b><span class="monoblue"><b>$addedNode[^document.</b></span></span><span class="mono"><b><a href="xdocdomfields.htm">documentElement</a></b><b>.</b><b><a href="xnodedommethods.htm">appendChild</a></b><span class="monoblue"><b>[$paraNode]]</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>$</b></span></span><span><b><a href="responseclass.htm">response</a></b><b>:</b><b><a href="responsebody.htm">body</a></b><span><b>[^document.</b></span></span><span><b><a href="xdocstring.htm">string</a></b><span><b>[]]</b></span></span><span>
+</b><span class="monoblue"><b>$</b></span></span><span class="mono"><b><a href="responseclass.htm">response</a></b><b>:</b><b><a href="responsebody.htm">body</a></b><span class="monoblue"><b>[^document.</b></span></span><span class="mono"><b><a href="xdocstring.htm">string</a></b><span class="monoblue"><b>[]]</b></span></span><span>
 <br />
 </span></span><br />
 

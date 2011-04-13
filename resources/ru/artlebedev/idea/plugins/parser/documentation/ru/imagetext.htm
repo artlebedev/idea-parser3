@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>text. ��������� �������� �� �����������</title>
+    <title>text. Нанесение надписей на изображение</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,40 +15,40 @@
   <tr>
     <td>
       
-<span><b>text. ��������� �������� �� �����������
+<span class="h1"><b>text. Нанесение надписей на изображение
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.text(x;y)[�����&nbsp;�������]&nbsp;&nbsp;&nbsp;&nbsp;</b><span>
+<span class="mono"><b>^картинка.text(x;y)[текст&nbsp;надписи]&nbsp;&nbsp;&nbsp;&nbsp;</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-����� ������� �������� ������� �� ��������� ����������� (X;Y), ��������� ���� ������, �������������� ����������� ������� </span><span><b>font</b></span><span>
+Метод выводит заданную надпись по указанным координатам (X;Y), используя файл шрифта, предварительно загруженный методом </span><span class="mono"><b>font</b></span><span>
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x00FF00)]
+</b></span><span class="mono"><span class="monoblue"><b>$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x00FF00)]
 <br />
-^square.</b></span></span><span><span><b><a href="imagefont.htm">font</a></b></span></span><span><span><b>[0123456789;</b></span></span><span><b>digits.gif</b><span><b>](0)
+^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagefont.htm">font</a></b></span></span><span class="mono"><span class="monoblue"><b>[0123456789;</b></span></span><span class="mono"><b>digits.gif</b><span class="monoblue"><b>](0)
 <br />
 
 <br />
 ^square.text(5;5)[128500]
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.</b></span></span><span><span><b><a href="imagegif.htm">gif</a></b></span></span><span><span><b>[]]</b></span></span><span><b>
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagegif.htm">gif</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-� �������� ����� �������  ������� ������� � �������� �128500� ����� ������� ����� ������� ��������� � ����� � ������������ (5;5).
+В браузере будет выведен  зеленый квадрат с надписью «128500» левая верхняя точка которой находится в точке с координатами (5;5).
 <br />
 </span></span><br />
 

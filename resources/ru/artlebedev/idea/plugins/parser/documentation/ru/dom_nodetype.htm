@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>DOM. nodeType</title>
+    <title>DOM. nodeType</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,24 +15,24 @@
   <tr>
     <td>
       
-<span><b>DOM. nodeType
+<span class="h1"><b>DOM. nodeType
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>DOM-�������� ������ ������ �����, ��� �������� �������� � <a href="intdoubleclasses.htm">integer</a> ���� <span><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-nodeType" target="_blank">nodeType</a></b></span><span>.</span><span><b>
+<span>DOM-элементы бывают разных типов, тип элемента хранится в <a href="intdoubleclasses.htm">integer</a> поле <span class="mono"><b><a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core.html#attribute-nodeType" target="_blank">nodeType</a></b></span><span>.</span><span class="mono"><b>
 <br />
-</b></span><span>� ������ </span><span><b>xdoc</b></span><span> ������� ��������� ���������, ������� ��� �������� �������� ����� ����:</span><span><b>
+</b></span><span>В классе </span><span class="mono"><b>xdoc</b></span><span> имеются следующие константы, удобные для проверки значения этого поля:</span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-</span><span><b>$xdoc:ELEMENT_NODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1
+</span><span class="mono"><b>$xdoc:ELEMENT_NODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1
 <br />
 $xdoc:ATTRIBUTE_NODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2
 <br />
@@ -60,13 +60,13 @@ $xdoc:NOTATION_NODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>^if($node.nodeType&nbsp;</b></span></span><span><span><b><a href="exprops.htm">==</a></b></span></span><span><span><b>&nbsp;$xnode:ELEMENT_NODE){
+</b></span><span class="mono"><span class="monoblue"><b>^if($node.nodeType&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><a href="exprops.htm">==</a></b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;$xnode:ELEMENT_NODE){
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;$node.tagName</b></span></span><span><span><b>&nbsp;/</b></span></span><span><span><b>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;$node.tagName</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;/</b></span></span><span class="mono"><span class="monoblue"><b>&gt;
 <br />
-}</b></span></span><span><b>
+}</b></span></span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

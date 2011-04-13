@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>�������� ������� �����, ������������ ���������</title>
+    <title>Описание формата файла, описывающего кодировку</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,44 +15,44 @@
   <tr>
     <td>
       
-<span><b>�������� ������� �����, ������������ ���������
+<span class="h1"><b>Описание формата файла, описывающего кодировку
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>������ � ������� tab-delimited �� ���������� ���������:
+<span>Данные в формате tab-delimited со следующими столбцами:
 <br />
 
 <br />
-<span><b>char</b></span><span> - ������, ��� ��� ���, �������� � ���������� ��� ����������������� �����
+<span class="mono"><b>char</b></span><span> - символ, или его код, заданный в десятичной или шестнадцатеричной форме
 <br />
-(0xHH) � ��� ���������, ������� ���������� ���� ����.
-<br />
-
-<br />
-</span><span><b>white-space</b></span><span>, </span><span><b>digit</b></span><span>, </span><span><b>hex-digit</b></span><span>, </span><span><b>letter</b></span><span>, </span><span><b>word</b></span><span> - ����� �������, �������� ����� ����� �������. ������ ���������� �������� ���������������� ������� � ����� ������, �������� [��������, 'x'] - ��������������. 
+(0xHH) в той кодировке, которую определяет этот файл.
 <br />
 
 <br />
-��������� � ���������� ������� ��. �������� ���������� ��������� � ����������.
+</span><span class="mono"><b>white-space</b></span><span>, </span><span class="mono"><b>digit</b></span><span>, </span><span class="mono"><b>hex-digit</b></span><span>, </span><span class="mono"><b>letter</b></span><span>, </span><span class="mono"><b>word</b></span><span> - набор флажков, задающих класс этого символа. Пустое содержимое означает непринадлежность символа к этому классу, непустое [например, 'x'] - принадлежность. 
 <br />
 
 <br />
-</span><span><b>lowercase</b></span><span> - ���� ������ ����� ���� � ������ ��������, �� ������ ��� ��� ������� �������. ������, � ����� 'W' ���� ������ 'w'. ������������ � ���������� ���������� ��� ������, �� ��������������� � �������� ��������, � ����� � ������� </span><span><b>lower</b></span><span> � </span><span><b>upper</b></span><span> ������ </span><span><b>string</b></span><span>.
+Подробнее о символьных классах см. описание регулярных выражений в литературе.
 <br />
 
 <br />
-</span><span><b>unicode1</b></span><span> - �������� Unicode ��� �������. ���� ��������� � ����� �������, �� ����� �� ���������. ������, � ����� 'W' �� ���������, � � ����� '�' - ���.
+</span><span class="mono"><b>lowercase</b></span><span> - если символ имеет пару в нижнем регистре, то символ или код парного символа. Скажем, у буквы 'W' есть парная 'w'. Используется в регулярных выражениях для поиска, не чувствительного к регистру символов, а также в методах </span><span class="mono"><b>lower</b></span><span> и </span><span class="mono"><b>upper</b></span><span> класса </span><span class="mono"><b>string</b></span><span>.
 <br />
 
 <br />
-</span><span><b>unicode2</b></span><span> - �������������� Unicode �������, ���� �������.
+</span><span class="mono"><b>unicode1</b></span><span> - основной Unicode код символа. Если совпадает с кодом символа, то можно не указывать. Скажем, у буквы 'W' он совпадает, а у буквы 'Я' - нет.
+<br />
+
+<br />
+</span><span class="mono"><b>unicode2</b></span><span> - дополнительный Unicode символа, если имеется.
 <br />
 </span></span><br />
 

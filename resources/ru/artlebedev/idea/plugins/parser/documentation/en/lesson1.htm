@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Lesson 1. Navigation menu</title>
+    <title>Lesson 1. Navigation menu</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,11 +11,370 @@
 <body>
 
 
-<span><i> </i></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Lesson 1. Navigation menu
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span>Let's begin at the beginning, as they say. Let's assume you want to build a site. The first thing you'll need to figure out is how the information on the site should be organized, how many categories, sections, etc. should be there. All these questions arise at the very first stage, which is "The site's organization".
 <br />
 
 <br />
-</span><span><b>What's next?
+And what should the navigation be like? A good navigation system must meet many demands. It must be simple, easily recognizable, uniform, usable, quickly loadable, and it must indicate precisely where the user is at the moment. Moreover, the site shouldn't give out "Error 404" message, that is, none of the links must be "dead". If you have previously made sites, you have probably faced the problem of proper navigation.
+<br />
+
+<br />
+Is there anyone who doesn't want to have a handy solution, which could automate the whole process-a solution, which would enable you to write a code once and for ever, leaving just one place to edit further on, and add as many sections as you wish?
+<br />
+
+<br />
+Creating a menu which can guide a user safely through the site is the task we want to begin this manual with. Why this? Simply because a great amount of tags like:
+<br />
+
+<br />
+<span class="mono"><b>&lt;a&nbsp;href="some_page.html"&gt;
+<br />
+</b></span><span>
+<br />
+is hard to control. What if you have to add one more section? You will have a tough time changing every page with your own hands. And, keeping in mind that "to err is human," can you be sure that after such an update your visitors won't get "Error 404" messages? Here is the problem which can be easily solved by Parser.
+<br />
+
+<br />
+The solution is simple: we create a function in Parser that will generate a necessary fragment of HTML. In Parser's terminology, functions are called methods. Wherever we need such a code, we will simply command to insert the navigation menu and the page containing the menu will be created. This needs just a few simple steurips:
+<br />
+
+<br />
+1. All information about our links will be stored in one file, which will further allow us to make necessary changes in just one place. In the root directory of our future site we'll thus create file sections.cfg with the following content:
+<br />
+
+<br />
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="70">
+<p align="center"><span><i>section_id
+<br />
+</i></span></p></td><td align="left" valign="top" width="159">
+<span><i>name</i>
+<br />
+</span></td><td align="left" valign="top" width="158">
+<span><i>uri</i>
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span>1
+<br />
+</span></p></td><td align="left" valign="top" width="159">
+<span>Mainpage
+<br />
+</span></td><td align="left" valign="top" width="158">
+<span class="mono">/<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span>2
+<br />
+</span></p></td><td align="left" valign="top" width="159">
+<span>News
+<br />
+</span></td><td align="left" valign="top" width="158">
+<span class="mono">/news/<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span>3
+<br />
+</span></p></td><td align="left" valign="top" width="159">
+<span>Contacts
+<br />
+</span></td><td align="left" valign="top" width="158">
+<span class="mono">/contacts/<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span>4
+<br />
+</span></p></td><td align="left" valign="top" width="159">
+<span>Prices
+<br />
+</span></td><td align="left" valign="top" width="158">
+<span class="mono">/price/<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="70">
+<p align="center"><span>5
+<br />
+</span></p></td><td align="left" valign="top" width="159">
+<span>Your opinion
+<br />
+</span></td><td align="left" valign="top" width="158">
+<span class="mono">/gbook/<span>
+<br />
+</span></span></td></tr></table>
+<br />
+
+<br />
+Here we use a so-called tab-delimited format, where table's columns are delimited with tab character and rows-with newline character. If you copy this table into a text editor, tab and new line characters will be just pasted by it automatically. However, if you are going to create and edit such tables manually, what you should keep in mind is that when dealing with tables, we ALWAYS use tab-delimited format.
+<br />
+
+<br />
+2. In the same directory (root directory) we create file auto.p, where we'll store all the parts, which Parser will use further on to construct the site. AUTO means that these parts will always be available to Parser at any time and extension ".p"-as you have probably guessed already-means... yeah, right-in the flesh!
+<br />
+
+<br />
+3. File auto.p will contain the following code:
+<br />
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span class="mono"><span class="monoblue"><b>@navigation[]
+<br />
+$sections[^table::load[sections.cfg]]
+<br />
+</b></span></span><span class="mono"><b>&lt;table&nbsp;width="100%"&nbsp;border="1"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br />
+</b></span><span><b>&nbsp;&nbsp;&nbsp;</b></span><span class="mono"><span class="monoblue"><b>^sections.menu{</b></span></span><span class="mono"><span class="monoblue">
+<br />
+</span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span class="monoblue"><b>$sections.</b></span></span><span class="mono"><b>uri"&gt;&lt;nobr&gt;</b><span class="monoblue"><b>$sections.</b></span></span><span class="mono"><b>name&lt;/nobr&gt;&lt;/a&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</b></span><span>
+<br />
+&nbsp;&nbsp;&nbsp;</span><span class="mono"><span class="monoblue"><b>}</b></span></span><span>
+<br />
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+</b></span><span>
+<br />
+Data stored in this file is what our navigation menu will be based on further.
+<br />
+
+<br />
+All preliminary work is now complete. Now we should create the file where it all will appear (e.g. index.html) and tell Parser to insert the navigation menu. In Parser we use the term "to call method" and write it like this:</span><span class="h1">
+<br />
+</span><span>
+<br />
+</span><span class="mono"><b>^navigation[]
+<br />
+</b></span><span>
+<br />
+Now we just open the HTML file in browser and see ready-to-serve navigation menu. From now on, we can put this magic </span><span class="mono"><b>^navigation[]</b></span><span> in any page and Parser will insert our menu there. The page will be generated "on-the-fly." Gotcha!
+<br />
+
+<br />
+If you can see it in your browser-congratulations! You have just entered the world of dynamic sites. Very soon you will be able to use databases to generate your pages and do many other things.
+<br />
+
+<br />
+Still, between the cup and the lip a morsel may slip, as they say. Let's now analyze what we've done to succeed. Look at the code in auto.p. Don't be scared if it still seems unclear. In just a few moments we'll clear up the matter. Look at the first line, which is</span><span class="h1">
+<br />
+</span><span>
+<br />
+</span><span class="mono"><b>@navigation[]
+<br />
+</b></span><span>
+<br />
+It looks almost exactly like ^navigation[], which we put into our page (index.html) to get the menu. The only difference is the first character (@ instead of ^), but it is this character that makes all difference-by using it, we define a method to be called later. Starting a line in Parser with character @ we imply that we now define some block to be used later. The word following character </span><span class="mono"><b>@</b><b>&nbsp;(</b><b>navigation</b><b>)</b></span><span> will be the name of the new method. It is up to us to pick up a name for a method. We may call this method </span><span class="mono"><b>let_us_place_the_menu_here</b></span><span>, but such a name will be harder to operate with. Still, if you wish, you may call it so.
+<br />
+
+<br />
+It is vitally important to give simple and clear names. They must indicate clearly what the object will store and do. Don't fray nerves and don't waste time of yours or those, who may have to analyze your code later. Your names may be in any language, but you should keep uniformity-don't mix languages naming one object in German and another one-in Swahili...
+<br />
+
+<br />
+Let's take the next line:</span><span class="h1">
+<br />
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span class="mono"><b>$sections[^</b><b><a href="tableload.htm">table::load</a></b><b>[sections.cfg]]
+<br />
+</b></span><span>
+<br />
+Here is the key line of our code. It is quite big, so let's examine it part by part. The line starts with </span><span class="mono"><b>$</b></span><span> (dollar sign) and word </span><span class="mono"><b>'</b><b>sections</b><b>'</b></span><span> after it. This is the way we indicate a variable in Parser. It's easy, yet worth remembering: if you see </span><span class="mono"><b>$var</b></span><span> in the text, that means you deal with a variable </span><span class="mono"><b>'var'</b></span><span>. A variable may contain any type of data: numbers, strings, tables, files, images, or even a piece of code. If we want to assign '<b>www.parser.ru</b>' to variable </span><span class="mono"><b>$parser_home_url</b></span><span> we should use structure like this: </span><span class="mono"><b>$parser_home_url[www.parser.ru]</b></span><span>. Later on, we can access the variable's value by referring to it, that is, writing </span><span class="mono"><b>$parser_home_url</b></span><span> wherever we need, and then the value, which is <b>www.parser.ru</b>, will be output.
+<br />
+
+<br />
+In short:</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span>
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="103">
+<span class="mono"><b>$var[&#133;]</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="167">
+<span>-assign variable
+<br />
+</span></td></tr><tr><td align="left" valign="top" width="103">
+<span class="mono"><b>$var</b><span>
+<br />
+</span></span></td><td align="left" valign="top" width="167">
+<span>-retrieve value
+<br />
+</span></td></tr></table>
+<br />
+
+<br />
+<i>A detailed explanation can be found in section </i><i> "</i><i><a href="vars.htm">Variables</a></i><i>".</i>
+<br />
+
+<br />
+In our case, variable </span><span class="mono"><b>$sections</b></span><span> will store the table taken from </span><span class="mono">sections.cfg</span><span>.
+<br />
+
+<br />
+Any table in Parser is regarded as an independent object, with which only certain actions can be performed. For example, if object is a table, we can add or delete rows in it. As long as a variable can store any data, we should indicate that the value we assign is nothing else but table.
+<br />
+
+<br />
+<i>A lyrical digression:
+<br />
+Let's take a real world example. All vehicles can be roughly divided into certain major classes such as cars, trucks, vans, caterpillars, motorcycles, etc. Any vehicle is inevitably an object of a class. You can tell vehicles of one class from those of another, because all the vehicles belonging to a class have common characteristics, such as vehicle weight, maximum load weight, etc. Any vehicle can perform some actions like move, stand still, or break. Any vehicle has its own distinctive properties. And, what is most important, every vehicle must be CREATED, it cannot just appear by itself. When someone invents a new vehicle model, one knows what class the vehicle will belong to, what properties it will have, and what it will be able to do. It's just the same in Parser: every object belongs to a certain class. Every object of a class can be created by the constructor of this class and will inherit properties (fields) and methods (actions) common to all such objects.</i></span><span class="h1"><i>
+<br />
+</i></span><span><i>
+<br />
+</i></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000"><i>
+<br />
+</i></span><span class="h1"><b>Let's sum it up
+<br />
+</b></span><span>Any <b>object</b> in Parser belongs to a certain <b>class</b> and has the <b>fields</b> and <b>methods</b> of this very class. To use this object, you must first create it with the class <b>constructor</b>. Learn this terminology by heart-it is what your work will be totally based on.
+<br />
+
+<br />
+Let's get back to our code. We assigned the following value to variable </span><span class="mono"><b>$sections</b></span><span>:
+<br />
+
+<br />
+</span><span class="mono"><b>^table::load[sections.cfg]
+<br />
+</b></span><span>
+<br />
+By this, we have created an object of class </span><span class="mono"><b>table</b></span><span> with constructor </span><span class="mono"><b>load</b></span><span>. Common rule we use to create an object looks like the following:
+<br />
+
+<br />
+</span><span class="mono"><b>^class::constructor[parameters]
+<br />
+</b></span><span>
+<br />
+<i>A detailed description may be found in section</i></span><span class="h1"><i> </i></span><span><i>"</i><i><a href="params.htm">Passing parameters</a></i><i>".</i>
+<br />
+
+<br />
+As a parameter here, we passed the path to our file with the table.
+<br />
+
+<br />
+Variable </span><span class="mono"><b>$sections</b></span><span> now contains the table with sections of our site. Parser regards it as an object of class </span><span class="mono"><b>table</b></span><span> and knows precisely what actions can be performed with it. So far, we need only one method of the class-</span><span class="mono"><b>menu</b></span><span>, which iterates through the table. We also need values from fields of the table itself. The syntax used to call a method of an object is:
+<br />
+
+<br />
+</span><span class="mono"><b>^object.class_method[parameters]
+<br />
+</b></span><span>
+<br />
+To retrieve a value from object fields (as we deal with a definite table with the fields defined by ourselves) we use a construction:
+<br />
+
+<br />
+</span><span class="mono"><b>$object.field
+<br />
+</b></span><span>
+<br />
+Now, that we know it all, we can easily see the meaning of the last part of our code:
+<br />
+
+<br />
+</span><span class="mono"><b>&lt;table&nbsp;width="100%"&nbsp;border="1"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br />
+&nbsp;&nbsp;&nbsp;</b><span class="monoblue"><b>^sections.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="</b><span class="monoblue"><b>$sections.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablefields.htm">uri</a></b></span></span><span class="mono"><b>"&gt;&lt;nobr&gt;</b><span class="monoblue"><b>$sections.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablefields.htm">name</a></b></span></span><span class="mono"><b>&lt;/nobr&gt;&lt;/a&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br />
+&nbsp;&nbsp;&nbsp;</b><span class="monoblue"><b>}
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br />
+&lt;/table&gt;
+<br />
+
+<br />
+</b></span><span>We generate an HTML table, where each column will contain values taken from the fields of our table </span><span class="mono"><b>$sections</b></span><span>: </span><span class="mono"><b>uri</b></span><span> (section's uri) and </span><span class="mono"><b>name</b></span><span> (section's name). We use method </span><span class="mono"><b>menu</b></span><span> to iterate through the table and retrieve data stored in it. Thus, it doesn't actually matter how many sections we have-none of them will be lost or skipped. We are free to add or remove sections, or even change their order. All changes will be made only to file </span><span class="mono">sections.cfg</span><span> and the logic of the work will remain intact-simple but nice!
+<br />
+
+<br />
+Let's summarize:
+<br />
+
+<br />
+</span><span class="h1"><b>What have we done? 
+<br />
+</b></span><span>We have written our first piece of code in Parser and learnt how to create a navigation menu for any page of our site using data stored in a separate file.
+<br />
+</span><span class="h1"><b>
+<br />
+</b><b>What have we learnt? 
+<br />
+</b></span><span>We got a glimpse of conceptual definitions of the language (class, object, property, and method) as well as certain basic constructions of Parser.
+<br />
+</span><span class="h1"><b>
+<br />
+</b><b>What should we remember?
+<br />
+</b></span><span>Parser is an object-oriented language. Every object belongs to a certain class, has its own properties and can use methods of the class it belongs to. To create an object one must use a constructor of the class.
+<br />
+
+<br />
+Syntax of working with objects:</span><span class="h1">
+<br />
+</span><span>
+<br />
+<table border="1" cellpadding="1"><tr><td align="left" valign="top" width="335">
+<span>
+<br />
+</span></span></td><td align="left" valign="top" width="274">
+<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span>
+<br />
+</span></span></td><td align="left" valign="top" width="274">
+<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span>
+<br />
+</span></span></td><td align="left" valign="top" width="274">
+<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span>
+<br />
+</span></span></td><td align="left" valign="top" width="274">
+<span>
+<br />
+</span></span></td></tr><tr><td align="left" valign="top" width="335">
+<span>
+<br />
+</span></span></td><td align="left" valign="top" width="274">
+<span>
+<br />
+</span></span></td></tr></table>
+<br />
+
+<br />
+</span><span class="h1"><b>What's next?
 <br />
 </b></span><span>We are going to improve our menu, because it has certain imperfections so far: it places a useless link (which leads to the page we see at the moment), has columns of different width. In our second lesson, we are going to solve these problems and add some useful extras.
 <br />

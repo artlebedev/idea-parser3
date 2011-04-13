@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>_keys. List of hash keys</title>
+    <title>_keys. List of hash keys</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,27 +11,54 @@
 <body>
 
 
-<span><b>Example</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>_keys. List of hash keys
 <br />
-</u></span><span><span><b>$man[
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
-&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span><b>Jack</b><span><b>]
+
+
+
+<span class="mono"><b>^hash._keys[]
 <br />
-&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span><b>22</b><span><b>]
+</b><b>^hash._keys[</b><b>column&nbsp;name</b><b>]</b><b>&nbsp;</b><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span class="mono"><b>
 <br />
-&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span><b>m</b><span><b>]
+</b></span><span>
+<br />
+The method returns table (object of class </span><span class="mono"><span class="monoblue"><b><u><a href="tableclass.htm">table</a></u></b></span></span><span>), containing single column with all hash keys listed (since version <b><i>3.4.0</i></b> the keys in the table are listed in order of putting the elements into the hash, before-the order is not defined).
+<br />
+The name of column-"</span><span class="mono"><b>key</b></span><span>" or the </span><span class="mono"><b>column&nbsp;name</b></span><span> passed as a parameter.
+<br />
+
+<br />
+</span><span class="h1"><b>Example</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$man[
+<br />
+&nbsp;&nbsp;&nbsp;$.name[</b></span></span><span class="mono"><b>Jack</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.age[</b></span></span><span class="mono"><b>22</b><span class="monoblue"><b>]
+<br />
+&nbsp;&nbsp;&nbsp;$.sex[</b></span></span><span class="mono"><b>m</b><span class="monoblue"><b>]
 <br />
 ]
 <br />
 $tab_keys[^man._keys[]]
 <br />
-^tab_keys.</b></span></span><span><span><b><a href="tablesave.htm">save</a></b></span></span><span><span><b>[keys.txt]
+^tab_keys.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablesave.htm">save</a></b></span></span><span class="mono"><span class="monoblue"><b>[keys.txt]
 <br />
 </b></span></span><span>
 <br />
-&#133;will create file </span><span><b>keys.txt</b></span><span> with such a table:
+&#133;will create file </span><span class="mono"><b>keys.txt</b></span><span> with such a table:
 <br />
-</span><span><b><i>key
+</span><span class="mono"><b><i>key
 <br />
 </i></b><b>sex
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>imap. ��������� ��������� ������� � ISMAP</title>
+    <title>imap. Получение координат нажатия в ISMAP</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,58 +15,58 @@
   <tr>
     <td>
       
-<span><b>imap. ��������� ��������� ������� � ISMAP</b><b>
+<span class="h1"><b>imap. Получение координат нажатия в ISMAP</b><b>
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$form:imap</b>
+<span class="mono"><b>$form:imap</b>
 <br />
 <span>
 <br />
-���� ������������ ����� �� �������� � ��������� </span><span><b>ISMAP</b></span><span>, ����� ����������� ���������� <a href="hash.htm">���</a> � ������ </span><span><b>x</b></span><span> � </span><span><b>y</b></span><span>, � ������� �������� ���������� �������.
+Если пользователь нажал на картинку с атрибутом </span><span class="mono"><b>ISMAP</b></span><span>, такая конструкция возвращает <a href="hash.htm">хеш</a> с полями </span><span class="mono"><b>x</b></span><span> и </span><span class="mono"><b>y</b></span><span>, в которых доступны координаты нажатия.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
-������
+Пример
 <br />
-</b></span><span>� ����� </span><span>/go.html</span><span> ��������:
+</b></span><span>В файле </span><span class="mono">/go.html</span><span> напишите:
 <br />
-</span><span><span><b>$clicked[$form:imap]
+</span><span class="mono"><span class="monoblue"><b>$clicked[$form:imap]
 <br />
 ^if(def&nbsp;$clicked){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;������������&nbsp;�����&nbsp;��&nbsp;ISMAP&nbsp;������:&lt;br&nbsp;/&gt;
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Пользователь&nbsp;нажал&nbsp;на&nbsp;ISMAP&nbsp;ссылке:&lt;br&nbsp;/&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;x=</b><span><b>$clicked.x</b></span></span><span><b>&lt;br&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;x=</b><span class="monoblue"><b>$clicked.x</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;y=</b><span><b>$clicked.y</b></span></span><span><b>&lt;br&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;y=</b><span class="monoblue"><b>$clicked.y</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;
 <br />
-</b><span><b>}</b></span></span><span>
+</b><span class="monoblue"><b>}</b></span></span><span>
 <br />
 
 <br />
-� ����� </span><span>/test.html</span><span> ��������:
+В файле </span><span class="mono">/test.html</span><span> напишите:
 <br />
-</span><span><b>&lt;a&nbsp;href="/go.html?a=b"&gt;&lt;img&nbsp;src="map.png"&nbsp;ismap</b><b>&nbsp;/</b><b>&gt;&lt;/a&gt;
+</span><span class="mono"><b>&lt;a&nbsp;href="/go.html?a=b"&gt;&lt;img&nbsp;src="map.png"&nbsp;ismap</b><b>&nbsp;/</b><b>&gt;&lt;/a&gt;
 <br />
 </b></span><span>
 <br />
-�������� � �������� </span><span>/test.html</span><span> � ������� ������ �� ��������, ��� �������� � �������� �� ������
+Откройте в браузере </span><span class="mono">/test.html</span><span> и нажмите мышкой на картинке, это приведет к переходу по адресу…
 <br />
-</span><span>/go.html?a=b?10,30
+</span><span class="mono">/go.html?a=b?10,30
 <br />
 </span><span>
 <br />
-�� �� �������
+…и вы увидите…
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;������������&nbsp;�����&nbsp;��&nbsp;ISMAP&nbsp;������:
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Пользователь&nbsp;нажал&nbsp;на&nbsp;ISMAP&nbsp;ссылке:
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;x=10
 <br />

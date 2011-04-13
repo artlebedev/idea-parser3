@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Installing Parser on Apache web-server, CGI script</title>
+    <title>Installing Parser on Apache web-server, CGI script</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,30 +15,30 @@
   <tr>
     <td>
       
-<span><b>Installing Parser on Apache web-server, CGI script
+<span class="h1"><b>Installing Parser on Apache web-server, CGI script
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>To install Parser, one should make changes to server's main configuration file. If you are not authorized to make such changes, you should be able to use <span>.htaccess</span><span> files.
+<span>To install Parser, one should make changes to server's main configuration file. If you are not authorized to make such changes, you should be able to use <span class="mono">.htaccess</span><span> files.
 <br />
 
 <br />
-By default, Apache has usage of </span><span>.htaccess</span><span> disabled.
+By default, Apache has usage of </span><span class="mono">.htaccess</span><span> disabled.
 <br />
-You will need to enable it (at least allow specifying </span><span><span><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">FileInfo</a></u></span></span><span>) by adding directives to server's configuration file (usually </span><span>httpd.conf</span><span>), inside </span><span>&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted to your site or outside it-for all sites:
+You will need to enable it (at least allow specifying </span><span class="mono"><span class="monoblue"><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">FileInfo</a></u></span></span><span>) by adding directives to server's configuration file (usually </span><span class="mono">httpd.conf</span><span>), inside </span><span class="mono">&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted to your site or outside it-for all sites:
 <br />
-</span><span><b>
+</span><span class="mono"><b>
 <br />
-</b><b>&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#directory" target="_blank">Directory</a></u></b></span></span><span><b>&nbsp;/</b><b>path/to/your/web/space</b><b>&gt;
+</b><b>&lt;</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/core.html#directory" target="_blank">Directory</a></u></b></span></span><span class="mono"><b>&nbsp;/</b><b>path/to/your/web/space</b><b>&gt;
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">AllowOverride</a></u></b></span></span><span><b>&nbsp;FileInfo
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">AllowOverride</a></u></b></span></span><span class="mono"><b>&nbsp;FileInfo
 <br />
 &lt;/Directory&gt;</b></span><span><i>
 <br />
@@ -54,25 +54,25 @@ If you use version with XML support, unpack XML libraries into the same director
 <br />
 
 <br />
-Add these blocks to your </span><span>.htaccess</span><span> file (or </span><span>httpd.conf</span><span>-inside </span><span>&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted for your site or outside it-for all sites):
+Add these blocks to your </span><span class="mono">.htaccess</span><span> file (or </span><span class="mono">httpd.conf</span><span>-inside </span><span class="mono">&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted for your site or outside it-for all sites):
 <br />
 
 <br />
-</span><span><b>#&nbsp;</b><b>declare&nbsp;Parser&nbsp;as&nbsp;.html&nbsp;files&nbsp;handler</b><b>
+</span><span class="mono"><b>#&nbsp;</b><b>declare&nbsp;Parser&nbsp;as&nbsp;.html&nbsp;files&nbsp;handler</b><b>
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_mime.html#addhandler" target="_blank">AddHandler</a></u></b></span></span><span> </span><span><b>parser3-handler</b></span><span> </span><span><b>html
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_mime.html#addhandler" target="_blank">AddHandler</a></u></b></span></span><span> </span><span class="mono"><b>parser3-handler</b></span><span> </span><span class="mono"><b>html
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_actions.html#action" target="_blank">Action</a></u></b></span></span><span> </span><span><b>parser3-handler</b></span><span> </span><span><b>/cgi-bin/parser3
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_actions.html#action" target="_blank">Action</a></u></b></span></span><span> </span><span class="mono"><b>parser3-handler</b></span><span> </span><span class="mono"><b>/cgi-bin/parser3
 <br />
 
 <br />
 #&nbsp;</b><b>deny&nbsp;access&nbsp;to&nbsp;.p&nbsp;files,&nbsp;mainly:&nbsp;auto.p
 <br />
-</b><b>&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#files" target="_blank">Files</a></u></b></span></span><span> </span><span><b>~</b></span><span> </span><span><b>"\.p$"&gt;
+</b><b>&lt;</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/core.html#files" target="_blank">Files</a></u></b></span></span><span> </span><span class="mono"><b>~</b></span><span> </span><span class="mono"><b>"\.p$"&gt;
 <br />
-</b></span><span>    </span><span><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#order" target="_blank">Order</a></u></b></span></span><span> </span><span><b>allow,deny
+</b></span><span>    </span><span class="mono"><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#order" target="_blank">Order</a></u></b></span></span><span> </span><span class="mono"><b>allow,deny
 <br />
-</b></span><span>    </span><span><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#deny" target="_blank">Deny</a></u></b></span></span><span> </span><span><b>from</b></span><span> </span><span><b>all
+</b></span><span>    </span><span class="mono"><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#deny" target="_blank">Deny</a></u></b></span></span><span> </span><span class="mono"><b>from</b></span><span> </span><span class="mono"><b>all
 <br />
 &lt;/Files&gt;
 <br />
@@ -80,29 +80,29 @@ Add these blocks to your </span><span>.htaccess</span><span> file (or </span><sp
 <br />
 </b></span><span>If you would rather change implicit configuration file (see "<a href="install.htm">Installing and configuring Parser</a>") location, you can explicitly specify it :
 <br />
-</span><span><b>
+</span><span class="mono"><b>
 <br />
 </b><b>#&nbsp;assign&nbsp;environment&nbsp;variable&nbsp;containing&nbsp;path&nbsp;to&nbsp;auto.p
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_env.html#setenv" target="_blank">SetEnv</a></u></b></span></span><span> </span><span><b>CGI_PARSER_CONFIG</b></span><span> </span><span><b>/path/to/file/auto.p</b><b>
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_env.html#setenv" target="_blank">SetEnv</a></u></b></span></span><span> </span><span class="mono"><b>CGI_PARSER_CONFIG</b></span><span> </span><span class="mono"><b>/path/to/file/auto.p</b><b>
 <br />
 </b></span><span>
 <br />
-<i>Note: </i><i>In this case, you will need Apache module</i><i> </i></span><span><span><i><u><a href="http://httpd.apache.org/docs/mod/mod_env.html" target="_blank">mod_env</a></u></i></span></span><span><i>, </i><i>which is, however, installed by default</i><i>.</i></span><span><b><i>
+<i>Note: </i><i>In this case, you will need Apache module</i><i> </i></span><span class="mono"><span class="monoblue"><i><u><a href="http://httpd.apache.org/docs/mod/mod_env.html" target="_blank">mod_env</a></u></i></span></span><span><i>, </i><i>which is, however, installed by default</i><i>.</i></span><span class="mono"><b><i>
 <br />
 </i></b></span><span>
 <br />
-Parser makes records about errors to error log file </span><span>parser3.log</span><span>, which is implicitly located in the same directory where parser3 CGI script is. If Parser is not allowed to write to that file, errors  are reported to standard error stream and are recorded in web-server error log file. If you would rather change implicit location of </span><span>parser3.log</span><span>, you can explicitly specify it.
+Parser makes records about errors to error log file </span><span class="mono">parser3.log</span><span>, which is implicitly located in the same directory where parser3 CGI script is. If Parser is not allowed to write to that file, errors  are reported to standard error stream and are recorded in web-server error log file. If you would rather change implicit location of </span><span class="mono">parser3.log</span><span>, you can explicitly specify it.
 <br />
 <i>
 <br />
-</i></span><span><b>#&nbsp;assign&nbsp;environment&nbsp;variable&nbsp;containing&nbsp;path&nbsp;to&nbsp;</b><b>parser3.l</b><b>og</b><b>
+</i></span><span class="mono"><b>#&nbsp;assign&nbsp;environment&nbsp;variable&nbsp;containing&nbsp;path&nbsp;to&nbsp;</b><b>parser3.l</b><b>og</b><b>
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_env.html#setenv" target="_blank">SetEnv</a></u></b></span></span><span> </span><span><b>CGI_PARSER_LOG</b></span><span> </span><span><b>/path/to/file/parser3.</b><b>log</b><b>
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_env.html#setenv" target="_blank">SetEnv</a></u></b></span></span><span> </span><span class="mono"><b>CGI_PARSER_LOG</b></span><span> </span><span class="mono"><b>/path/to/file/parser3.</b><b>log</b><b>
 <br />
 
 <br />
-</b></span><span><i>Note: </i><i>In this case, you will need Apache module</i><i> </i></span><span><span><i><u><a href="http://httpd.apache.org/docs/mod/mod_env.html" target="_blank">mod_env</a></u></i></span></span><span><i>, </i><i>which is, however, installed by default</i><i>.</i>
+</b></span><span><i>Note: </i><i>In this case, you will need Apache module</i><i> </i></span><span class="mono"><span class="monoblue"><i><u><a href="http://httpd.apache.org/docs/mod/mod_env.html" target="_blank">mod_env</a></u></i></span></span><span><i>, </i><i>which is, however, installed by default</i><i>.</i>
 <br />
 </span></span><br />
 

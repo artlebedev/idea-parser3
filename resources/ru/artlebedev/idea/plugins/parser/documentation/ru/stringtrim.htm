@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>trim. ��������� ���� � ������ ������</title>
+    <title>trim. Отсечение букв с концов строки</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,60 +11,70 @@
 <body>
 
 
-<span><b>trim. ��������� ���� � ������ ������&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>trim. Отсечение букв с концов строки&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>^������.trim[]
+<span class="mono"><b>^строка.trim[]
 <br />
-^������.trim[������]
+^строка.trim[откуда]
 <br />
-^������.trim[������;�����]
+^строка.trim[откуда;набор]
 <br />
 </b><span>
 <br />
-����� �������� ����� ����� �� ���������� </span><span><b>������</b></span><span> � ������ ������. �� ��������� ���������� white spaces � ������ � ����� ������.
+Метод отсекает любые буквы из указанного </span><span class="mono"><b>набора</b></span><span> с концов строки. По умолчанию отсекаются white spaces с начала и конца строки.
 <br />
-����� �������, </span><span><b>������</b></span><span> ������ �������� �����, ����� ���� �� ��������:
+Можно указать, </span><span class="mono"><b>откуда</b></span><span> именно отсекать буквы, задав одно из значений:
 <br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span></span><span><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>both</b></span><span> - �������� � � ������ � � �����;</span><span><b>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span></span><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>both</b></span><span> - отсекать и с начала и с конца;</span><span class="mono"><b>
 &nbsp;<br />
-</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>left</b></span><span> ��� </span><span><b>start</b></span><span> - �������� � ������;</span><span><b>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>left</b></span><span> или </span><span class="mono"><b>start</b></span><span> - отсекать с начала;</span><span class="mono"><b>
 &nbsp;<br />
-</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><b></b><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>right</b></span><span> ��� </span><span><b>end</b></span><span> - �������� � �����.</span><span><b>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span class="mono"><b></b><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>right</b></span><span> или </span><span class="mono"><b>end</b></span><span> - отсекать с конца.</span><span class="mono"><b>
 &nbsp;<br />
-</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span><b></b></span></td><td></td></tr></table><span><b>
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span class="mono"><b></b></span></td><td></td></tr></table><span class="mono"><b>
 <br />
-</b></span><span><b>������ ��������� white space
+</b></span><span class="h1"><b>Пример отсечения white space
 <br />
-</b></span><span><span><b>$name[</b></span></span><span><b>&nbsp;����&nbsp;</b><span><b>]
+</b></span><span class="mono"><span class="monoblue"><b>$name[</b></span></span><span class="mono"><b>&nbsp;Вася&nbsp;</b><span class="monoblue"><b>]
 <br />
-</b></span></span><span><b>"</b><span><b>$name</b></span></span><span><b>"</b><span><b>
+</b></span></span><span class="mono"><b>"</b><span class="monoblue"><b>$name</b></span></span><span class="mono"><b>"</b><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>"</b><span><b>^name.trim[]</b></span></span><span><b>"</b><span><b>
+</b></span></span><span class="mono"><b>"</b><span class="monoblue"><b>^name.trim[]</b></span></span><span class="mono"><b>"</b><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-�������
+Выведет…
 <br />
-</span><span><b>"&nbsp;����&nbsp;"
+</span><span class="mono"><b>"&nbsp;Вася&nbsp;"
 <br />
-"����"
+"Вася"
 <br />
 </b></span><span>
 <br />
-</span><span><b>������ ��������� ��������� ����
+</span><span class="h1"><b>Пример отсечения указанных букв
 <br />
-</b></span><span><span><b>$path[</b></span></span><span><b>/section/subsection/</b><span><b>]
+</b></span><span class="mono"><span class="monoblue"><b>$path[</b></span></span><span class="mono"><b>/section/subsection/</b><span class="monoblue"><b>]
 <br />
-^path.trim[</b></span></span><span><span><b>right</b></span></span><span><span><b>;/]
+^path.trim[</b></span></span><span class="mono"><span class="monoblue"><b>right</b></span></span><span class="mono"><span class="monoblue"><b>;/]
 <br />
 </b></span></span><span>
 <br />
-�������
+Выведет…
 <br />
-</span><span><b>/section/subsection</b></span><span>
+</span><span class="mono"><b>/section/subsection</b></span><span>
 <br />
 </span></span><br />
 

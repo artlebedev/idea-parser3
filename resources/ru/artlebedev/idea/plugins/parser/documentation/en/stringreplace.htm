@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>replace. Replacing substrings in the string</title>
+    <title>replace. Replacing substrings in the string</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,26 +15,26 @@
   <tr>
     <td>
       
-<span><b>replace. Replacing substrings in the string
+<span class="h1"><b>replace. Replacing substrings in the string
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^string.replace[table_with_substitution_settings]
+<span class="mono"><b>^string.replace[table_with_substitution_settings]
 <br />
 </b><span>
 <br />
-Replaces substrings in the </span><span><b>string</b></span><span> using </span><span><b>substitution&nbsp;settings</b></span><span>.
+Replaces substrings in the </span><span class="mono"><b>string</b></span><span> using </span><span class="mono"><b>substitution&nbsp;settings</b></span><span>.
 <br />
 
 <br />
-</span><span><b>Table_with_substitution_settings</b></span><span> is an object of class </span><span><b><a href="tableclass.htm">table</a></b></span><span>, containing two columns: 
+</span><span class="mono"><b>Table_with_substitution_settings</b></span><span> is an object of class </span><span class="mono"><b><a href="tableclass.htm">table</a></b></span><span>, containing two columns: 
 <br />
 
 <br />
@@ -44,23 +44,23 @@ The second contains the substring to replace the first one.
 <br />
 
 <br />
-It is not necessary to specify column names - you may call it 'from' and 'to' or simply skip naming by using </span><span><b><a href="tablecreate.htm">nameless</a></b></span><span> table.
+It is not necessary to specify column names - you may call it 'from' and 'to' or simply skip naming by using </span><span class="mono"><b><a href="tablecreate.htm">nameless</a></b></span><span> table.
 <br />
 
 <br />
-</span><span><b>Example</b><u>
+</span><span class="h1"><b>Example</b><u>
 <br />
-</u></span><span><span><b>$s[</b></span></span><span><b>A</b><b>n&nbsp;ugly</b><b>&nbsp;moment&nbsp;I'll&nbsp;remember!</b><span><b>]
+</u></span><span class="mono"><span class="monoblue"><b>$s[</b></span></span><span class="mono"><b>A</b><b>n&nbsp;ugly</b><b>&nbsp;moment&nbsp;I'll&nbsp;remember!</b><span class="monoblue"><b>]
 <br />
-</b></span></span><span><b>Original:&nbsp;</b><span><b>$s</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+</b></span></span><span class="mono"><b>Original:&nbsp;</b><span class="monoblue"><b>$s</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-$rep[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{from&nbsp;&nbsp;&nbsp;to
+$rep[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">table::create</a></b></span></span><span class="mono"><span class="monoblue"><b>{from&nbsp;&nbsp;&nbsp;to
 <br />
-A</b></span></span><span><span><b>n</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;A
+A</b></span></span><span class="mono"><span class="monoblue"><b>n</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;A
 <br />
 ugly&nbsp;&nbsp;&nbsp;magic}]
 <br />
-</b></span></span><span><b>A</b><b>fter&nbsp;replace</b><b>:&nbsp;</b><span><b>^s.replace[$rep]
+</b></span></span><span class="mono"><b>A</b><b>fter&nbsp;replace</b><b>:&nbsp;</b><span class="monoblue"><b>^s.replace[$rep]
 <br />
 </b></span></span><span>
 <br />
@@ -68,7 +68,7 @@ The code will output:
 <br />
 
 <br />
-</span><span><b>Original:&nbsp;An&nbsp;ugly&nbsp;moment&nbsp;I'll&nbsp;remember!
+</span><span class="mono"><b>Original:&nbsp;An&nbsp;ugly&nbsp;moment&nbsp;I'll&nbsp;remember!
 <br />
 A</b><b>fter&nbsp;replace</b><b>:&nbsp;A&nbsp;magic&nbsp;moment&nbsp;I'll&nbsp;remember!</b></span><span>
 <br />

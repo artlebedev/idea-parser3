@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Installing Parser on Apache web-server, server module</title>
+    <title>Installing Parser on Apache web-server, server module</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,88 +15,88 @@
   <tr>
     <td>
       
-<span><b>Installing Parser on Apache web-server, server module
+<span class="h1"><b>Installing Parser on Apache web-server, server module
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>To install Parser, one should make changes to server's main configuration file. If you are not authorized to make such changes, you should be able to use <span>.htaccess</span><span> files.
+<span>To install Parser, one should make changes to server's main configuration file. If you are not authorized to make such changes, you should be able to use <span class="mono">.htaccess</span><span> files.
 <br />
 
 <br />
-By default, Apache has usage of </span><span>.htaccess</span><span> disabled.
+By default, Apache has usage of </span><span class="mono">.htaccess</span><span> disabled.
 <br />
-You will need to enable it (at least allow specifying </span><span><span><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">FileInfo</a></u></span></span><span>) by adding directives to server's configuration file (usually </span><span>httpd.conf</span><span>), inside </span><span>&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted for your site or outside it-for all sites:
+You will need to enable it (at least allow specifying </span><span class="mono"><span class="monoblue"><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">FileInfo</a></u></span></span><span>) by adding directives to server's configuration file (usually </span><span class="mono">httpd.conf</span><span>), inside </span><span class="mono">&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted for your site or outside it-for all sites:
 <br />
 
 <br />
-</span><span><b>&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#directory" target="_blank">Directory</a></u></b></span></span><span><b>&nbsp;/</b><b>path/to/your/web/space</b><b>&gt;
+</span><span class="mono"><b>&lt;</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/core.html#directory" target="_blank">Directory</a></u></b></span></span><span class="mono"><b>&nbsp;/</b><b>path/to/your/web/space</b><b>&gt;
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">AllowOverride</a></u></b></span></span><span><b>&nbsp;</b><b>FileInfo</b><b>
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/core.html#allowoverride" target="_blank">AllowOverride</a></u></b></span></span><span class="mono"><b>&nbsp;</b><b>FileInfo</b><b>
 <br />
 &lt;/Directory&gt;</b></span><span><i>
 <br />
 </i>
 <br />
-Parser3 performs necessary <a href="charsets.htm">transcoding</a>,by itself, so, if you use non-English Apache version, you should add this line to server's main configuration file (usually </span><span>httpd.conf</span><span>):
+Parser3 performs necessary <a href="charsets.htm">transcoding</a>,by itself, so, if you use non-English Apache version, you should add this line to server's main configuration file (usually </span><span class="mono">httpd.conf</span><span>):
 <br />
 
 <br />
-</span><span><span><b><u><a href="http://apache.lexa.ru/configure.html#charsetturnoff" target="_blank">CharsetDisable</a></u></b></span></span><span><b>&nbsp;On
+</span><span class="mono"><span class="monoblue"><b><u><a href="http://apache.lexa.ru/configure.html#charsetturnoff" target="_blank">CharsetDisable</a></u></b></span></span><span class="mono"><b>&nbsp;On
 <br />
 </b></span><span>
 <br />
-&#133;which will prohibit Apache from transcoding. If you are not authorized to make changes in server's main configuration file, add this line to </span><span>.htaccess</span><span> file.
+&#133;which will prohibit Apache from transcoding. If you are not authorized to make changes in server's main configuration file, add this line to </span><span class="mono">.htaccess</span><span> file.
 <br />
 
 <br />
 Under UNIX:
 <br />
-You will need to compile Parser from source codes by running script </span><span>configure</span><span> with key </span><span>--with-apache13</span><span>, then running </span><span>make</span><span> and following the instructions that will be output.
+You will need to compile Parser from source codes by running script </span><span class="mono">configure</span><span> with key </span><span class="mono">--with-apache13</span><span>, then running </span><span class="mono">make</span><span> and following the instructions that will be output.
 <br />
-<i>Note: under some systems, standard </i></span><span>make</span><span> <i>does not work with Parser3 </i><i>make-</i><i>files. In this case you will need to use GNU variant-</i></span><span>gmake</span><span><i>.
+<i>Note: under some systems, standard </i></span><span class="mono">make</span><span> <i>does not work with Parser3 </i><i>make-</i><i>files. In this case you will need to use GNU variant-</i></span><span class="mono">gmake</span><span><i>.
 <br />
 </i>
 <br />
 Under Win32:
 <br />
-Place Parser's executable files (in current version, </span><span>ApacheModuleParser3.dll</span><span>) into an arbitrary directory.
+Place Parser's executable files (in current version, </span><span class="mono">ApacheModuleParser3.dll</span><span>) into an arbitrary directory.
 <br />
 If you use version with XML support, unpack XML libraries into directory specified in environment variable PATH (for example, C:\WinNT).
 <br />
-Add these lines to </span><span>httpd.conf</span><span>, after existing </span><span>LoadModule</span><span> directives:
+Add these lines to </span><span class="mono">httpd.conf</span><span>, after existing </span><span class="mono">LoadModule</span><span> directives:
 <br />
-</span><span>
+</span><span class="mono">
 <br />
 <b>#&nbsp;</b><b>load&nbsp;module&nbsp;dynamically
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_so.html#loadmodule" target="_blank">LoadModule</a></u></b></span></span><span><b>&nbsp;parser3_module&nbsp;x:\path\to\ApacheModuleParser3.dll
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_so.html#loadmodule" target="_blank">LoadModule</a></u></b></span></span><span class="mono"><b>&nbsp;parser3_module&nbsp;x:\path\to\ApacheModuleParser3.dll
 <br />
-</b></span><span>Note: If necessary, place accompanying </span><span>.dll</span><span> files into the same directory<i>.</i></span><span><b>
+</b></span><span>Note: If necessary, place accompanying </span><span class="mono">.dll</span><span> files into the same directory<i>.</i></span><span class="mono"><b>
 <br />
 
 <br />
-</b></span><span>And add these lines after existing </span><span>AddModule</span><span> directives (if no directives exist already, do not add):
+</b></span><span>And add these lines after existing </span><span class="mono">AddModule</span><span> directives (if no directives exist already, do not add):
 <br />
-</span><span><b>#&nbsp;</b><b>adding&nbsp;module&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;active&nbsp;modules</b><b>
+</span><span class="mono"><b>#&nbsp;</b><b>adding&nbsp;module&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;active&nbsp;modules</b><b>
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#addmodule" target="_blank">AddModule</a></u></b></span></span><span><b>&nbsp;mod_parser3.c
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/core.html#addmodule" target="_blank">AddModule</a></u></b></span></span><span class="mono"><b>&nbsp;mod_parser3.c
 <br />
 </b></span><span>
 <br />
-Add these blocks to your </span><span>.htaccess</span><span> file (or </span><span>httpd.conf</span><span>-inside </span><span>&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted for your site or outside it-for all sites):
+Add these blocks to your </span><span class="mono">.htaccess</span><span> file (or </span><span class="mono">httpd.conf</span><span>-inside </span><span class="mono">&lt;virtualhost&nbsp;&#133;&gt;</span><span> section allotted for your site or outside it-for all sites):
 <br />
-</span><span><b>
+</span><span class="mono"><b>
 <br />
 </b><b>#&nbsp;</b><b>declare&nbsp;Parser&nbsp;as&nbsp;.html&nbsp;files&nbsp;handler</b><b>
 <br />
-</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_mime.html#addhandler" target="_blank">AddHandler</a></u></b></span></span><span><b>&nbsp;parser3-handler&nbsp;html
+</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_mime.html#addhandler" target="_blank">AddHandler</a></u></b></span></span><span class="mono"><b>&nbsp;parser3-handler&nbsp;html
 <br />
 
 <br />
@@ -108,11 +108,11 @@ ParserConfig&nbsp;x:\path\to\parser3\config\auto.p
 <br />
 #&nbsp;</b><b>deny&nbsp;access&nbsp;to&nbsp;.p&nbsp;files,&nbsp;mainly:&nbsp;auto.p</b><b>
 <br />
-&lt;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/core.html#files" target="_blank">Files</a></u></b></span></span><span><b>&nbsp;~&nbsp;"\.p$"&gt;
+&lt;</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/core.html#files" target="_blank">Files</a></u></b></span></span><span class="mono"><b>&nbsp;~&nbsp;"\.p$"&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#order" target="_blank">Order</a></u></b></span></span><span><b>&nbsp;allow,deny
+&nbsp;&nbsp;&nbsp;&nbsp;</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#order" target="_blank">Order</a></u></b></span></span><span class="mono"><b>&nbsp;allow,deny
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;</b><span><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#deny" target="_blank">Deny</a></u></b></span></span><span><b>&nbsp;from&nbsp;all
+&nbsp;&nbsp;&nbsp;&nbsp;</b><span class="monoblue"><b><u><a href="http://httpd.apache.org/docs/mod/mod_access.html#deny" target="_blank">Deny</a></u></b></span></span><span class="mono"><b>&nbsp;from&nbsp;all
 <br />
 &lt;/Files&gt;</b></span><span>
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>roll. ����� ����</title>
+    <title>roll. Сдвиг даты</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,76 +15,76 @@
   <tr>
     <td>
       
-<span><b>roll. ����� ����
+<span class="h1"><b>roll. Сдвиг даты
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^date.roll[year](��������)
+<span class="mono"><b>^date.roll[year](смещение)
 <br />
-^date.roll[month](��������)
+^date.roll[month](смещение)
 <br />
-^date.roll[day](��������)</b><span>
+^date.roll[day](смещение)</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-</span><span><b>^date.roll[TZ][�����&nbsp;�������&nbsp;����</b><b>]&nbsp;&nbsp;&nbsp;&nbsp;</b><b><i>[3.1.1]</i></b><b>
+</span><span class="mono"><b>^date.roll[TZ][новый&nbsp;часовой&nbsp;пояс</b><b>]&nbsp;&nbsp;&nbsp;&nbsp;</b><b><i>[3.1.1]</i></b><b>
 <br />
 </b></span><span>
 <br />
-� ������� ����� ������ ����� �����������/��������� �������� ����� </span><span><b>year</b></span><span>, </span><span><b>month</b></span><span>, </span><span><b>day</b></span><span> �������� ������ </span><span><b>date</b></span><span>. 
+С помощью этого метода можно увеличивать/уменьшать значения полей </span><span class="mono"><b>year</b></span><span> объектов класса </span><span class="mono"><b>date</b></span><span>. 
 <br />
 
 <br />
-����� ����� ������ ����/�����, ���������������  ���������� � ������� ������ </span><span><b>date</b></span><span> � ������ ������� �����, ����� ��������� ��� ������ �������� �����. ������ ���� ��. � ������������ �� ���� ������������ �������, �������� �����: ����������� ��������� </span><span>TZ</span><span>�.
+Также можно узнать дату/время, соответствующие  хранящимся в объекте класса </span><span class="mono"><b>date</b></span><span> в другом часовой поясе, задав системное имя нового часового пояса. Список имен см. в документации на вашу операционную систему, ключевые слова: «Переменная окружения </span><span class="mono">TZ</span><span>».
 <br />
 
 <br />
-</span><span><b>������ ������ ������
+</span><span class="h1"><b>Пример сдвига месяца
 <br />
-</b></span><span><span><b>$today[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+</b></span><span class="mono"><span class="monoblue"><b>$today[^date::</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">now</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
 <br />
 ^today.roll[month](-1)
 <br />
-$today.</b></span></span><span><span><b><a href="datefields.htm">month</a></b></span></span><span><b>
+$today.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datefields.htm">month</a></b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-� ������ ������� �� ����������� ���������� </span><span><b>$today</b></span><span> �������� ������� ���� � ����� ��������� ����� �������� ������ �� �������. � ���������� �� �������� ����� ����������� ������. 
+В данном примере мы присваиваем переменной </span><span class="mono"><b>$today</b></span><span> значение текущей даты и затем уменьшаем номер текущего месяца на единицу. В результате мы получаем номер предыдущего месяца. 
 <br />
 
 <br />
-</span><span><b>������ ������ �������� �����
+</span><span class="h1"><b>Пример сдвига часового пояса
 <br />
-</b></span><span><span><b>@main[]
+</b></span><span class="mono"><span class="monoblue"><b>@main[]
 <br />
-$now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>[]]
+$now[^date::</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">now</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
 <br />
 ^show[]
 <br />
-^show[</b></span></span><span><b>������</b><span><b>;MSK-3MSD]
+^show[</b></span></span><span class="mono"><b>Москва</b><span class="monoblue"><b>;MSK-3MSD]
 <br />
-^show[</b></span></span><span><b>���������</b><span><b>;MET-1DST]
+^show[</b></span></span><span class="mono"><b>Амстердам</b><span class="monoblue"><b>;MET-1DST]
 <br />
-^show[</b></span></span><span><b>������</b><span><b>;GMT0BST]
+^show[</b></span></span><span class="mono"><b>Лондон</b><span class="monoblue"><b>;GMT0BST]
 <br />
-^show[</b></span></span><span><b>���-����</b><span><b>;EST5EDT]
+^show[</b></span></span><span class="mono"><b>Нью-Йорк</b><span class="monoblue"><b>;EST5EDT]
 <br />
-^show[</b></span></span><span><b>������</b><span><b>;CST6CDT]
+^show[</b></span></span><span class="mono"><b>Чикаго</b><span class="monoblue"><b>;CST6CDT]
 <br />
-^show[</b></span></span><span><b>������</b><span><b>;MST7MDT]
+^show[</b></span></span><span class="mono"><b>Денвер</b><span class="monoblue"><b>;MST7MDT]
 <br />
-^show[</b></span></span><span><b>���-�������</b><span><b>;PST8PDT]
+^show[</b></span></span><span class="mono"><b>Лос-Анжелес</b><span class="monoblue"><b>;PST8PDT]
 <br />
 
 <br />
 @show[town;TZ]
 <br />
-^if(</b></span></span><span><span><b><a href="opdef.htm">def</a></b></span></span><span><span><b>&nbsp;$town){
+^if(</b></span></span><span class="mono"><span class="monoblue"><b><a href="opdef.htm">def</a></b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;$town){
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;$town
 <br />
@@ -92,13 +92,13 @@ $now[^date::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></
 <br />
 }{
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>���������&nbsp;�����&nbsp;�������</b><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>Локальное&nbsp;время&nbsp;сервера</b><span class="monoblue"><b>
 <br />
 }
 <br />
-</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-$now.year/$now.month/$now.day,&nbsp;$now.hour&nbsp;�.&nbsp;$now.minute&nbsp;���.</b></span></span><span><b>&lt;hr&nbsp;/&gt;</b><span><b>
+$now.year/$now.month/$now.day,&nbsp;$now.hour&nbsp;ч.&nbsp;$now.minute&nbsp;мин.</b></span></span><span class="mono"><b>&lt;hr&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
 </b></span></span></span><br />
 

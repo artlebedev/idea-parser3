@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>select. Selecting entries</title>
+    <title>select. Selecting entries</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,9 +11,38 @@
 <body>
 
 
-<span><b>Example</b></h1><span><u>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>select. Selecting entries
 <br />
-</u></span><span><span><b>$men[^table::</b></span></span><span><span><b><a href="tablecreate.htm">create</a></b></span></span><span><span><b>{name</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;</b></span></span><span><span><b>age</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^table.select(selection_criterion)
+<br />
+^table.select(selection_criterion)[</b><b><a href="tablecopylocateoptions.htm">options</a></b><b>]</b><span><b><i>&nbsp;&nbsp;&nbsp;[3.4.1]</i></b></span><span class="mono"><b>
+<br />
+</b></span><span>
+<br />
+The method looks through the table row by row, examining each row in respect to the specified </span><span class="mono"><b>criterion</b></span><span> (a mathematical expression). The rows which satisfy the criterion (returned Boolean value is "true") are collected into the table with the same structure as that of the original table.
+<br />
+<u>
+<br />
+</u>One can also specify a number of options, see "<a href="tablecopylocateoptions.htm">Copying and search options</a>".
+<br />
+<u>
+<br />
+</u></span><span class="h1"><b>Example</b></span><span><u>
+<br />
+</u></span><span class="mono"><span class="monoblue"><b>$men[^table::</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{name</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>age</b></span></span><span class="mono"><b>
 <br />
 </b><b>Stephen&nbsp;&nbsp;&nbsp;26
 <br />
@@ -21,13 +50,13 @@ Alex&nbsp;&nbsp;&nbsp;20
 <br />
 Michael&nbsp;&nbsp;&nbsp;29
 <br />
-</b><span><b>}]
+</b><span class="monoblue"><b>}]
 <br />
-$thoseAbove20[^men.select($men.</b></span></span><span><span><b><a href="tablefields.htm">age</a></b></span></span><span><span><b>&nbsp;</b></span></span><span><span><b>&gt;</b></span></span><span><span><b>&nbsp;</b></span></span><span><span><b>20)]</b></span></span><span>
+$thoseAbove20[^men.select($men.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablefields.htm">age</a></b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>&gt;</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>20)]</b></span></span><span>
 <br />
 
 <br />
-Variable </span><span><b>$thoseAbove20</b></span><span> will contain table made up of rows with </span><span><b>Stephen</b></span><span> and </span><span><b>Michael</b></span><span>.</span><span><b>
+Variable </span><span class="mono"><b>$thoseAbove20</b></span><span> will contain table made up of rows with </span><span class="mono"><b>Stephen</b></span><span> and </span><span class="mono"><b>Michael</b></span><span>.</span><span class="mono"><b>
 <br />
 </b></span></span><br />
 

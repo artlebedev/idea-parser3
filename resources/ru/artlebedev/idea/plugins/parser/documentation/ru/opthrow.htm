@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>throw. ��������� �� ������</title>
+    <title>throw. Сообщение об ошибке</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,64 +15,64 @@
   <tr>
     <td>
       
-<span><b>throw. ��������� �� ������
+<span class="h1"><b>throw. Сообщение об ошибке
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^throw[type]&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.3.0]</i></b></span><span><b>
+<span class="mono"><b>^throw[type]&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.3.0]</i></b></span><span class="mono"><b>
 <br />
 ^throw[type;source]
 <br />
 ^throw[type;source;comment]
 <br />
-^throw[���]
+^throw[хеш]
 <br />
 
 <br />
-</b></span><span>�������� </span><span><b>throw</b></span><span> �������� �� ������ ���� </span><span><b>type</b></span><span>, ������������ �� ���� </span><span><b>source</b></span><span>, � ������������ </span><span><b>comment</b></span><span>.
+</b></span><span>Оператор </span><span class="mono"><b>throw</b></span><span> сообщает об ошибке типа </span><span class="mono"><b>type</b></span><span>, произошедшей по вине </span><span class="mono"><b>source</b></span><span>, с комментарием </span><span class="mono"><b>comment</b></span><span>.
 <br />
 
 <br />
-��� ������ ����� ���� ����������� � ���������� ��� ������ ��������� </span><span><b><a href="optry.htm">try</a></b></span><span>.
+Эта ошибка может быть перехвачена и обработана при помощи оператора </span><span class="mono"><b><a href="optry.htm">try</a></b></span><span>.
 <br />
 
 <br />
-�� �������������� ������ <b>������ </b>��� �� ��������� ������, ����� ���� ��������������� �������� ����� </span><span><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span>, ���������� Parser ���� �� ������ ����������� ������ ��� � �� ����� �������. ����� �������, ���������� ������ � ������ ������ ���-�������, ������� ����� ��������� ������������� �� ������� ������� ����� �������.
+Не перехватывайте ошибки <b>только </b>для их красивого вывода, пусть этим централизованно займется метод </span><span class="mono"><b><a href="exceptionunhandled.htm">unhandled_exception</a></b></span><span>, вызываемый Parser если ни одного обработчика ошибки так и не будет найдено. Кроме прочего, произойдет запись в журнал ошибок веб-сервера, который можно регулярно просматривать на предмет имевших место проблем.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>@method[command]
+</b></span><span class="mono"><span class="monoblue"><b>@method[command]
 <br />
-^</b></span></span><span><span><b><a href="opswitch.htm">switch</a></b></span></span><span><span><b>[$command]{
+^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opswitch.htm">switch</a></b></span></span><span class="mono"><span class="monoblue"><b>[$command]{
 <br />
-&nbsp;&nbsp;&nbsp;^</b></span></span><span><span><b><a href="opswitch.htm">case</a></b></span></span><span><span><b>[add]{
+&nbsp;&nbsp;&nbsp;^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opswitch.htm">case</a></b></span></span><span class="mono"><span class="monoblue"><b>[add]{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���������
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;добавляем…
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;}
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;}
 <br />
 &nbsp;&nbsp;&nbsp;^case[delete]{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�������
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;удаляем…
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;}
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;}
 <br />
-&nbsp;&nbsp;&nbsp;^case[</b></span></span><span><span><b><a href="opswitch.htm">DEFAULT</a></b></span></span><span><span><b>]{
+&nbsp;&nbsp;&nbsp;^case[</b></span></span><span class="mono"><span class="monoblue"><b><a href="opswitch.htm">DEFAULT</a></b></span></span><span class="mono"><span class="monoblue"><b>]{
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[bad.command;$command;</b></span></span><span><b>Wrong&nbsp;command&nbsp;</b><span><b>$command</b></span></span><span><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[bad.command;$command;</b></span></span><span class="mono"><b>Wrong&nbsp;command&nbsp;</b><span class="monoblue"><b>$command</b></span></span><span class="mono"><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span class="monoblue"><b>]
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^rem{
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��������&nbsp;�����&nbsp;���������&nbsp;������&nbsp;������&nbsp;���������&nbsp;</b></span></span><span><span><b>throw</b></span></span><span><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;допустим&nbsp;также&nbsp;следующий&nbsp;формат&nbsp;вызова&nbsp;оператора&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>throw</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^throw[
 <br />
@@ -80,7 +80,7 @@
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.source[$command]
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.comment[</b></span></span><span><b>Wrong&nbsp;command&nbsp;</b><span><b>$command</b></span></span><span><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span><b>]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.comment[</b></span></span><span class="mono"><b>Wrong&nbsp;command&nbsp;</b><span class="monoblue"><b>$command</b></span></span><span class="mono"><b>,&nbsp;good&nbsp;are&nbsp;add&amp;delete</b><span class="monoblue"><b>]
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
 <br />
@@ -92,23 +92,23 @@
 <br />
 
 <br />
-@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+@</b></span></span><span class="mono"><span class="monoblue"><b><a href="mainclass.htm">main</a></b></span></span><span class="mono"><span class="monoblue"><b>[]
 <br />
 $action[format&nbsp;c:]
 <br />
-^</b></span></span><span><span><b><a href="optry.htm">try</a></b></span></span><span><span><b>{
+^</b></span></span><span class="mono"><span class="monoblue"><b><a href="optry.htm">try</a></b></span></span><span class="mono"><span class="monoblue"><b>{
 <br />
 &nbsp;&nbsp;&nbsp;^method[$action]
 <br />
 }{
 <br />
-&nbsp;&nbsp;&nbsp;^if($</b></span></span><span><span><b><a href="optry.htm">exception</a></b></span></span><span><span><b>.type&nbsp;</b></span></span><span><span><b><a href="exprops.htm">eq</a></b></span></span><span><span><b>&nbsp;bad.command){
+&nbsp;&nbsp;&nbsp;^if($</b></span></span><span class="mono"><span class="monoblue"><b><a href="optry.htm">exception</a></b></span></span><span class="mono"><span class="monoblue"><b>.type&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><a href="exprops.htm">eq</a></b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;bad.command){
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span><span><b><a href="boollit.htm">true</a></b></span></span><span><span><b>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$exception.handled(</b></span></span><span class="mono"><span class="monoblue"><b><a href="boollit.htm">true</a></b></span></span><span class="mono"><span class="monoblue"><b>)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span><b>������������&nbsp;�������&nbsp;'</b><span><b>$exception.source</b></span></span><span><b>',&nbsp;������
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>Неправильная&nbsp;команда&nbsp;'</b><span class="monoblue"><b>$exception.source</b></span></span><span class="mono"><b>',&nbsp;задана
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;�&nbsp;�����&nbsp;</b><span><b>$exception.file</b></span></span><span><b>,&nbsp;�&nbsp;</b><span><b>$exception.lineno</b></span></span><span><b>&nbsp;������.</b><span><b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;в&nbsp;файле&nbsp;</b><span class="monoblue"><b>$exception.file</b></span></span><span class="mono"><b>,&nbsp;в&nbsp;</b><span class="monoblue"><b>$exception.lineno</b></span></span><span class="mono"><b>&nbsp;строке.</b><span class="monoblue"><b>
 <br />
 &nbsp;&nbsp;&nbsp;}
 <br />
@@ -116,17 +116,17 @@ $action[format&nbsp;c:]
 <br />
 
 <br />
-����������� ������ ������� �����
+Результатом работы примера будет
 <br />
-</span><span><b>������������&nbsp;�������&nbsp;'format&nbsp;c:',&nbsp;������&nbsp;
+</span><span class="mono"><b>Неправильная&nbsp;команда&nbsp;'format&nbsp;c:',&nbsp;задана&nbsp;
 <br />
-�&nbsp;�����&nbsp;c:/parser3tests/www/htdocs/throw.html,&nbsp;�&nbsp;15&nbsp;������.
+в&nbsp;файле&nbsp;c:/parser3tests/www/htdocs/throw.html,&nbsp;в&nbsp;15&nbsp;строке.
 <br />
 
 <br />
-</b></span><span><i>�������� ���� �������� �� ��, ��� ������������ ������ ����� �� ������ ������� ����������� ����������� � ���������� �� �������, ��� ����� ���������� ���� � ������, ��� ��������� � ���������.
+</b></span><span><i>Обращаем ваше внимание на то, что пользователи вашего сайта не должны увидеть технические подробности в сообщениях об ошибках, тем более содержащие пути к файлам, это некрасиво и ненадежно.
 <br />
-����� </i><b><i>$exception.file</i></b><i> ��� � �������� ������� � ������������ �� ������������� � ������������� �� ������������ �������� - ������ ��� �������.</i></span><span><span><i>
+Вывод </i><b><i>$exception.file</i></b><i> дан в качестве примера и настоятельно не рекомендуется к использованию на промышленных серверах - только для отладки.</i></span><span class="mono"><span class="monoblue"><i>
 <br />
 </i></span></span></span><br />
 

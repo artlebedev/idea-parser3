@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>sql-string. Saving file to SQL-server</title>
+    <title>sql-string. Saving file to SQL-server</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,18 +15,18 @@
   <tr>
     <td>
       
-<span><b>sql-string. Saving file to SQL-server
+<span class="h1"><b>sql-string. Saving file to SQL-server
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^file.sql-string[]</b><span>
+<span class="mono"><b>^file.sql-string[]</b><span>
 <br />
 
 <br />
@@ -38,15 +38,15 @@ Returns the string, which can be used in SQL-query. Allows saving file in databa
 <br />
 
 <br />
-</i></span><span><b>Example</b><b>
+</i></span><span class="h1"><b>Example</b><b>
 <br />
-</b></span><span><span><b>$name[image.gif]
+</b></span><span class="mono"><span class="monoblue"><b>$name[image.gif]
 <br />
-$file[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[$name]]
+$file[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="fileload.htm">file::load</a></b></span></span><span class="mono"><span class="monoblue"><b>[$name]]
 <br />
-^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">connect string</a></b></span></span><span><span><b>]{
+^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opconnect.htm">connect</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b><a href="app3.htm">connect string</a></b></span></span><span class="mono"><span class="monoblue"><b>]{
 <br />
-&nbsp;&nbsp;&nbsp;^void:sql{</b></span></span><span><b>insert&nbsp;into&nbsp;images&nbsp;(name,&nbsp;bytes)&nbsp;values&nbsp;('</b><span><b>$name</b></span></span><span><b>',&nbsp;'</b><span><b>^file.sql-string[]</b></span></span><span><b>')</b><span><b>}
+&nbsp;&nbsp;&nbsp;^void:sql{</b></span></span><span class="mono"><b>insert&nbsp;into&nbsp;images&nbsp;(name,&nbsp;bytes)&nbsp;values&nbsp;('</b><span class="monoblue"><b>$name</b></span></span><span class="mono"><b>',&nbsp;'</b><span class="monoblue"><b>^file.sql-string[]</b></span></span><span class="mono"><b>')</b><span class="monoblue"><b>}
 <br />
 }
 <br />

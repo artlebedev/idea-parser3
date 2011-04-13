@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>base64. Decoding from Base64</title>
+    <title>base64. Decoding from Base64</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,14 +11,24 @@
 <body>
 
 
-<span><b>base64. Decoding from Base64&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.</i></b><b><i>5</i></b><b><i>]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>base64. Decoding from Base64&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.</i></b><b><i>5</i></b><b><i>]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>^file</b><b>::</b><b>base64[e</b><b>ncoded</b><b>]
+<span class="mono"><b>^file</b><b>::</b><b>base64[e</b><b>ncoded</b><b>]
 <br />
-</b><b>^file::base64[text|binary;flename;</b><b>e</b><b>ncoded</b><b>[;$.content-type[...]]]</b><span><b><i> [3.4.1] </i></b></span><span>
+</b><b>^file::base64[text|binary;flename;</b><b>e</b><b>ncoded</b><b>[;$.content-type[...]]]</b><span><b><i> [3.4.1] </i></b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
@@ -26,19 +36,19 @@
 <br />
 Decodes a file from Base64 representation. To encode a file use
 <br />
-</span><span><b>^file.</b><b><a href="filebase64m.htm">base64</a></b><b>[]
+</span><span class="mono"><b>^file.</b><b><a href="filebase64m.htm">base64</a></b><b>[]
 <br />
 
 <br />
-</b></span><span><i>Detailed information on Base64 is available here</i><i> </i><span><i><u><a href="http://www.ietf.org/rfc/rfc2045.txt" target="_blank">http://www.ietf.org/rfc/rfc2045.txt</a></u></i></span></span><span><i> </i><i>and here </i><span><i><u><a href="http://en.wikipedia.org/wiki/Base64" target="_blank">http://en.wikipedia.org/wiki/Base64</a></u></i></span></span><span><i>.</i><i>
+</b></span><span><i>Detailed information on Base64 is available here</i><i> </i><span class="blue"><i><u><a href="http://www.ietf.org/rfc/rfc2045.txt" target="_blank">http://www.ietf.org/rfc/rfc2045.txt</a></u></i></span></span><span><i> </i><i>and here </i><span class="blue"><i><u><a href="http://en.wikipedia.org/wiki/Base64" target="_blank">http://en.wikipedia.org/wiki/Base64</a></u></i></span></span><span><i>.</i><i>
 <br />
 </i>
 <br />
-</span><span><b>E</b><b>xample</b></h1><span>
+</span><span class="h1"><b>E</b><b>xample</b></span><span>
 <br />
-</span><span><span><b>$encoded[
+</span><span class="mono"><span class="monoblue"><b>$encoded[
 <br />
-</b></span></span><span><b>R0lGODdhyAAyANUAAP////j88fLz8O/v7+v21uns4uTyyd/f397vu9vf1NfsrtDpoM/Pz8rmk8Tj
+</b></span></span><span class="mono"><b>R0lGODdhyAAyANUAAP////j88fLz8O/v7+v21uns4uTyyd/f397vu9vf1NfsrtDpoM/Pz8rmk8Tj
 <br />
 hr+/v73geK+vr6nWUJ+fn52jkJzQNZXNJ4+Pj39/f3BwcGBgYFBQUEBAQDAwMCAgIBAQEAAAAAAA
 <br />
@@ -86,7 +96,7 @@ B1+4oVZ9wJ8V+gqvPAAHhP7IBxl8XUXyyyuPUjuBbDCB9FY0Xv33Dqa0gXF5Hwv++einr/767Lfv
 <br />
 /vvwxy///PTXj0YQADs=
 <br />
-</b><span><b>]
+</b><span class="monoblue"><b>]
 <br />
 $original[^file::base64[$encoded]]
 <br />
@@ -94,7 +104,7 @@ $filespec[/parser3logo.gif]
 <br />
 ^original.save[binary;$filespec]
 <br />
-</b></span></span><span><b>&lt;img&nbsp;src=</b><b>"</b><span><b>$filespec</b></span></span><span><b>"&nbsp;/</b><b>&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&lt;img&nbsp;src=</b><b>"</b><span class="monoblue"><b>$filespec</b></span></span><span class="mono"><b>"&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />

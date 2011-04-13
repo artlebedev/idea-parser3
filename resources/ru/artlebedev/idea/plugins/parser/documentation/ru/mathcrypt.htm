@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>crypt. ����������� �������</title>
+    <title>crypt. Хеширование паролей</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,126 +15,126 @@
   <tr>
     <td>
       
-<span><b>crypt. ����������� �������
+<span class="h1"><b>crypt. Хеширование паролей
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^math:crypt[password;salt]
+<span class="mono"><b>^math:crypt[password;salt]
 <br />
 </b><span>
 <br />
-�������� </span><span><b>password</b></span><span> � ������ </span><span><b>salt</b></span><span>.
+Хеширует </span><span class="mono"><b>password</b></span><span> с учетом </span><span class="mono"><b>salt</b></span><span>.
 <br />
 
 <br />
-���������:
+Параметры:
 <br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span></span><span><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>password</b></span><span> - �������� ������;
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span></span><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>password</b></span><span> - исходная строка;
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span><span><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span><b>salt</b></span><span> - ������, ������������ �������� ����������� � �������� ������� ����������� � ��������� �����������, ������� �� ������ � ����. ������ ���������� �������� �����������, ���� ������ ������� �����������. ���� ���� �� ����� �������, Parser ���������� ���������.
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span></span><span class="mono"><b></b><font face="Symbol" size="2" color="#000000">&#183;</font><b></b></span></td><td><span class="mono"><b>salt</b></span><span> - строка, определяющая алгоритм хеширования и вносящая элемент случайности в результат хеширования, состоит из начала и тела. Начало определяет алгоритм хеширования, тело вносит элемент случайности. Если тело не будет указано, Parser сформирует случайное.
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
 <br />
-��������� ������� ������ �������������, ������ ��������� �� �� ���� ��� � ���� ������ - ���� ���� ������������, ��� ������������� ������� ���� ��� ������� � ��������, �� ����� ������ ��� ���������������. ������� ������� ������� �� ������, � �� <b>���� </b>- ��������� ��������� ������������ ������������ �������������� ������ ������. ��� �������� ���������� ������ � ���� ��������� �� �� ��������������, ��������� � �������� </span><span><b>salt</b></span><span> ����������� ���, � ��������� ������� � �����������.
+Неразумно хранить пароли пользователей, просто записывая их на диск или в базу данных - ведь если предположить, что злоумышленник украдет файл или таблицу с паролями, он легко сможет ими воспользоваться. Поэтому принято хранить не пароли, а их <b>хеши </b>- результат надежного однозначного необратимого преобразования строки пароля. Для проверки введенного пароля к нему применяют то же преобразование, передавая в качестве </span><span class="mono"><b>salt</b></span><span> сохраненный хеш, а результат сверяют с сохраненным.
 <br />
 
 <br />
-������� ������� ����������� ����������, ��������� ����� ������������� ������������� ����� ������� ������������ ������� ����� ������ ����� ������������ �������. ������ �������: ������� ����������� �������� �� ��������� ����� ��������� �����������, ��� ����������� ��������� ������ ������ ���� ��� ������������� ����������� ���������� �����������.
+Вносить элемент случайности необходимо, поскольку иначе потенциальный злоумышленник может заранее сформировать таблицу хешей многих часто используемых паролей. Вторая причина: элемент случайности вносится на начальном этапе алгоритма хеширования, что существенно осложняет подбор пароля даже при использовании специальных аппаратных ускорителей.
 <br />
 
 <br />
-��������: ����������� ��������� ��������� ���� </span><span><b>salt</b></span><span>, ��� ��������� Parser ������� ��� �� ���, �������� �� �������� ���� </span><span><b>salt</b></span><span>, �������� ������ </span><span><b>������&nbsp;salt</b></span><span>.
+Внимание: обязательно задавайте случайное тело </span><span class="mono"><b>salt</b></span><span>, или позвольте Parser сделать это за вас, попросту не указывая тело </span><span class="mono"><b>salt</b></span><span>, указывая только </span><span class="mono"><b>начало&nbsp;salt</b></span><span>.
 <br />
 
 <br />
-������� ��������� ����������:
+Таблица доступных алгоритмов:
 <br />
 <table border="0" cellpadding="1"><tr><td align="left" valign="top" width="78">
-<span><i>��������
+<span><i>Алгоритм
 <br />
 </i></span></td><td align="left" valign="top" width="199">
-<span><i>��������
+<span><i>Описание
 <br />
 </i></span></td><td align="left" valign="top" width="161">
-<span><i>������ salt
+<span><i>Начало salt
 <br />
 </i></span></td><td align="left" valign="top" width="160">
-<span><i>���� "salt"
+<span><i>Тело "salt"
 <br />
 </i></span></td></tr><tr><td align="left" valign="top" width="78">
 <span>MD5
 <br />
 </span></td><td align="left" valign="top" width="199">
-<span>������� � Parser, �������� �� ���� ����������
+<span>встроен в Parser, доступен на всех платформах
 <br />
 </span></td><td align="left" valign="top" width="161">
-<span><b>$apr1$</b><span>
+<span class="mono"><b>$apr1$</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="160">
-<span>�� 8 ��������� ���� (� ����� ��������) ��� ����
+<span>до 8 случайных букв (в любом регистре) или цифр
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="78">
 <span>MD5
 <br />
 </span></td><td align="left" valign="top" width="199">
-<span>���� �������������� ������������ �������� (UNIX)
+<span>если поддерживается операционной системой (UNIX)
 <br />
 </span></td><td align="left" valign="top" width="161">
-<span><b>$1$</b><span>
+<span class="mono"><b>$1$</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="160">
-<span>�� 8 ��������� ���� (� ����� ��������) ��� ����
+<span>до 8 случайных букв (в любом регистре) или цифр
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="78">
 <span>DES
 <br />
 </span></td><td align="left" valign="top" width="199">
-<span>���� �������������� ������������ �������� (UNIX)
+<span>если поддерживается операционной системой (UNIX)
 <br />
 </span></td><td align="left" valign="top" width="161">
-<span>(���)
+<span>(нет)
 <br />
 </span></td><td align="left" valign="top" width="160">
-<span>2 ��������� ����� (� ����� ��������) ��� �����
+<span>2 случайных буквы (в любом регистре) или цифры
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="78">
-<span>������
+<span>другие
 <br />
 </span></td><td align="left" valign="top" width="199">
-<span>����� �������������� ������������ �������� (UNIX)
+<span>какие поддерживаются операционной системой (UNIX)
 <br />
 </span></td><td align="left" valign="top" width="161">
-<span>������� ������������ �� ���� ������������ �������, ������� <span>crypt</span><span>
+<span>читайте документацию на вашу операционную систему, функция <span class="mono">crypt</span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="160">
-<span>������� ������������ �� ���� ������������ �������, ������� <span>crypt</span><span>
+<span>читайте документацию на вашу операционную систему, функция <span class="mono">crypt</span><span>
 <br />
 </span></span></td></tr></table>
 <br />
-<i>��������: � Parser ��� ������������� � ������ ������� '$' ��� ���������� ���������� �������� '^'.</i>
+<i>Внимание: в Parser для использования в тексте символа '$' его необходимо предварить символом '^'.</i>
 <br />
 
 <br />
-<i>����������: ���-������ Apache ��������� � ������ � �������� (</i></span><span><i>.htpasswd</i></span><span><i>) ������������ ����, �������������� �� ������ �� ����������, �������������� � �������, ������� ��������, ���������� � Parser.
+<i>Примечание: Веб-сервер Apache допускает в файлах с паролями (</i></span><span class="mono"><i>.htpasswd</i></span><span><i>) использовать хеши, сформированные по любому из алгоритмов, представленных в таблице, включая алгоритм, встроенный в Parser.
 <br />
 </i>
 <br />
-</span><span><b>������ �������� .htpasswd �����
+</span><span class="h1"><b>Пример создания .htpasswd файла
 <br />
-</b></span><span><span><b>@</b></span></span><span><span><b><a href="mainclass.htm">main</a></b></span></span><span><span><b>[]
+</b></span><span class="mono"><span class="monoblue"><b>@</b></span></span><span class="mono"><span class="monoblue"><b><a href="mainclass.htm">main</a></b></span></span><span class="mono"><span class="monoblue"><b>[]
 <br />
-$users[^</b></span></span><span><span><b><a href="tablecreate.htm">table::create</a></b></span></span><span><span><b>{name&nbsp;&nbsp;&nbsp;password
+$users[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablecreate.htm">table::create</a></b></span></span><span class="mono"><span class="monoblue"><b>{name&nbsp;&nbsp;&nbsp;password
 <br />
-</b></span></span><span><b>alice&nbsp;&nbsp;&nbsp;xxxxxx
+</b></span></span><span class="mono"><b>alice&nbsp;&nbsp;&nbsp;xxxxxx
 <br />
-bob&nbsp;&nbsp;&nbsp;yyyyyy</b><span><b>
+bob&nbsp;&nbsp;&nbsp;yyyyyy</b><span class="monoblue"><b>
 <br />
 }]
 <br />
@@ -154,31 +154,31 @@ $htpasswd[^table::create[nameless]{}]
 <br />
 </b></span></span><span>
 <br />
-</span><span><b>������ �������� ������
+</span><span class="h1"><b>Пример проверки пароля
 <br />
-</b></span><span><span><b>$right[</b></span></span><span><b>123</b><span><b>]
+</b></span><span class="mono"><span class="monoblue"><b>$right[</b></span></span><span class="mono"><b>123</b><span class="monoblue"><b>]
 <br />
-$from_user[</b></span></span><span><b>123</b><span><b>]
+$from_user[</b></span></span><span class="mono"><b>123</b><span class="monoblue"><b>]
 <br />
 $crypted[^math:crypt[$right;^$apr1^$]]
 <br />
-#��������&nbsp;��������&nbsp;��&nbsp;��,&nbsp;���&nbsp;$crypted&nbsp;���&nbsp;������&nbsp;���������&nbsp;������
+#обратите&nbsp;внимание&nbsp;на&nbsp;то,&nbsp;что&nbsp;$crypted&nbsp;при&nbsp;каждом&nbsp;обращении&nbsp;разный
 <br />
-$crypted</b></span></span><span><b>&lt;br&nbsp;/&gt;</b><span><b>
+$crypted</b></span></span><span class="mono"><b>&lt;br&nbsp;/&gt;</b><span class="monoblue"><b>
 <br />
-^if(^math:crypt[$from_user;$crypted]&nbsp;</b></span></span><span><span><b><a href="exprops.htm">eq</a></b></span></span><span><span><b>&nbsp;$crypted){
+^if(^math:crypt[$from_user;$crypted]&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b><a href="exprops.htm">eq</a></b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;$crypted){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;�������&nbsp;������,&nbsp;����������
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Казнить&nbsp;нельзя,&nbsp;помиловать
 <br />
-</b><span><b>}{
+</b><span class="monoblue"><b>}{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;�������,&nbsp;������&nbsp;����������
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;Казнить,&nbsp;нельзя&nbsp;помиловать
 <br />
-</b><span><b>}</b></span></span><span><b>
+</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
 
 <br />
-</b></span><span><i>��������� ����������  � MD5 �������� �����: </i><span><i><u><a href="http://www.ietf.org/rfc/rfc1321.txt" target="_blank">http://www.ietf.org/rfc/rfc1321.txt</a></u></i></span></span><span><i>
+</b></span><span><i>Подробная информация  о MD5 доступна здесь: </i><span class="blue"><i><u><a href="http://www.ietf.org/rfc/rfc1321.txt" target="_blank">http://www.ietf.org/rfc/rfc1321.txt</a></u></i></span></span><span><i>
 <br />
 </i></span></span><br />
 

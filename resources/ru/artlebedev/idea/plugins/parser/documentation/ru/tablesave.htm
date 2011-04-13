@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>save. ���������� ������� � ����</title>
+    <title>save. Сохранение таблицы в файл</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,13 +11,52 @@
 <body>
 
 
-<span><b>������</b></h1><span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>save. Сохранение таблицы в файл
 <br />
-</span><span><span><b>^conf.save[</b></span></span><span><b>/conf/old_conf.txt</b><span><b>]</b></span></span><span><b>
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span class="mono"><b>^таблица.save[путь]</b>
+<br />
+<b>^таблица.save[путь;</b><b><a href="tableoptionsfmt.htm">опции</a></b><b>]&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.2]</i></b></span><span class="mono">
+<br />
+<b>^таблица.save[nameless;путь]&nbsp;&nbsp;&nbsp;
+<br />
+^таблица.save[nameless;путь;</b><b><a href="tableoptionsfmt.htm">опции</a></b><b>]&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.1.2]</i></b></span><span class="mono">
+<br />
+<b>^таблица.save[append;путь]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.3.0]</i></b></span><span class="mono">
+<br />
+<b>^таблица.save[append;путь;</b><b><a href="tableoptionsfmt.htm">опции</a></b><b>]&nbsp;&nbsp;&nbsp;</b></span><span><b><i>[3.3.0]</i></b></span><span class="mono">
+<br />
+</span><span>
+<br />
+Сохраняет таблицу в текстовый файл в формате tab-delimited.
+<br />
+Использование опции </span><span class="mono"><b>nameless</b></span><span> сохраняет таблицу без имен столбцов.
+<br />
+При использование опции </span><span class="mono"><b>append</b></span><span> таблица сохраняется с именами столбцов только в том случае, если файла ещё не существует.
+<br />
+Также доступны опции записи, см. «<a href="tableoptionsfmt.htm">Опции формата файла</a>», позволяющие, например, сохранить файл в </span><span class="mono">.csv</span><span> формате, для последующей загрузки данных в программы, которые понимают такой формат (Miscrosoft Excel).
+<br />
+
+<br />
+</span><span class="h1"><b>Пример</b></span><span>
+<br />
+</span><span class="mono"><span class="monoblue"><b>^conf.save[</b></span></span><span class="mono"><b>/conf/old_conf.txt</b><span class="monoblue"><b>]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-������� </span><span><b>$conf</b></span><span> ����� ��������� � ��������� ����� </span><span><b>old_conf.txt</b></span><span> � �������� </span><span><b>/conf/</b></span><span>.
+Таблица </span><span class="mono"><b>$conf</b></span><span> будет сохранена в текстовом файле </span><span class="mono"><b>old_conf.txt</b></span><span> в каталоге </span><span class="mono"><b>/conf/</b></span><span>.
 <br />
 </span></span><br />
 

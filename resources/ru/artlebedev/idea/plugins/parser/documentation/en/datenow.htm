@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>now. Current date</title>
+    <title>now. Current date</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,40 +15,40 @@
   <tr>
     <td>
       
-<span><b>now. Current date
+<span class="h1"><b>now. Current date
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^date::now[]
+<span class="mono"><b>^date::now[]
 <br />
 ^date::now(shift&nbsp;in&nbsp;days)
 <br />
 </b><span>
 <br />
-Constructor creates object of class </span><span><b>date</b></span><span>, containing value of the current date accurate to a second, using server's system time. If </span><span><b>shift&nbsp;in&nbsp;days</b></span><span> is specified, the date will be shifted a specified number of days.
+Constructor creates object of class </span><span class="mono"><b>date</b></span><span>, containing value of the current date accurate to a second, using server's system time. If </span><span class="mono"><b>shift&nbsp;in&nbsp;days</b></span><span> is specified, the date will be shifted a specified number of days.
 <br />
 
 <br />
-The constructor uses local time of the server where Parser works. To find the time in another time zone, use </span><span><b>^date</b><b>.</b><b><a href="dateroll.htm">roll</a></b><b>[TZ;&#133;]</b></span><span>.
+The constructor uses local time of the server where Parser works. To find the time in another time zone, use </span><span class="mono"><b>^date</b><b>.</b><b><a href="dateroll.htm">roll</a></b><b>[TZ;&#133;]</b></span><span>.
 <br />
 
 <br />
-</span><span><b>Example
+</span><span class="h1"><b>Example
 <br />
-</b></span><span><span><b>$date_now[^date::now[]]
+</b></span><span class="mono"><span class="monoblue"><b>$date_now[^date::now[]]
 <br />
-$date_now</b></span></span><span><span><b>.</b></span></span><span><span><b><a href="datefields.htm">month</a></b></span></span><span><b>
+$date_now</b></span></span><span class="mono"><span class="monoblue"><b>.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datefields.htm">month</a></b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-As a result, the code will create an object of class </span><span><b>date</b></span><span> containing current date's value and output the number of current month.
+As a result, the code will create an object of class </span><span class="mono"><b>date</b></span><span> containing current date's value and output the number of current month.
 <br />
 </span></span><br />
 

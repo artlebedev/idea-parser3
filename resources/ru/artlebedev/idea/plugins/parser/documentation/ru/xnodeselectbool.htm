@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>selectBool. ���������� ����������� XPath �������</title>
+    <title>selectBool. Вычисление логического XPath запроса</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,50 +15,50 @@
   <tr>
     <td>
       
-<span><b>selectBool. ���������� ����������� XPath �������
+<span class="h1"><b>selectBool. Вычисление логического XPath запроса
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^����.selectBool[XPath-������]</b><span>
+<span class="mono"><b>^узел.selectBool[XPath-запрос]</b><span>
 <br />
 
 <br />
-������ ��������� ���������� </span><span><b>XPath-�������</b></span><span> � ��������� </span><span><b>����</b></span><span>, ���� ��� ���������� ��������. ���� �� ���������� ��������, �������� <a href="exceptions.htm">������</a> ���� </span><span><b>parser.runtime</b></span><span>.
+Выдает результат выполнения </span><span class="mono"><b>XPath-запроса</b></span><span> в контексте </span><span class="mono"><b>узла</b></span><span>, если это логическое значение. Если не логическое значение, выдается <a href="exceptions.htm">ошибка</a> типа </span><span class="mono"><b>parser.runtime</b></span><span>.
 <br />
-</span><span><span><b>
+</span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span>��� ������������� � </span><span><b>�������</b></span><span> ��������� ����������� ���� ���������� �� ������� ����������, ��. </span><span><b><a href="xdocsearchns.htm">$xdoc.search-namespaces</a></b></span><span>.
+</b></span></span><span>Для использования в </span><span class="mono"><b>запросе</b></span><span> префиксов пространств имен необходимо их заранее определить, см. </span><span class="mono"><b><a href="xdocsearchns.htm">$xdoc.search-namespaces</a></b></span><span>.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$d[^xdoc::</b></span></span><span><span><b><a href="xdoccreatexml.htm">create</a></b></span></span><span><span><b>{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
+</b></span><span class="mono"><span class="monoblue"><b>$d[^xdoc::</b></span></span><span class="mono"><span class="monoblue"><b><a href="xdoccreatexml.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>{</b></span></span><span class="mono"><b>&lt;?xml&nbsp;version="1.0"&nbsp;encoding="windows-1251"&nbsp;?&gt;
 <br />
-&lt;t&nbsp;attr="������"&nbsp;n="123"/&gt;</b><span><b>}]
+&lt;t&nbsp;attr="привет"&nbsp;n="123"/&gt;</b><span class="monoblue"><b>}]
 <br />
-</b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><span><b>^if(^d.selectBool[/t/@n&nbsp;&gt;&nbsp;10]){
+</b></span></span><span class="mono"><span class="monoblue"><b>^if(^d.selectBool[/t/@n&nbsp;&gt;&nbsp;10]){
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;/t/@n&nbsp;������&nbsp;10
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;/t/@n&nbsp;больше&nbsp;10
 <br />
-</b><span><b>}{
+</b><span class="monoblue"><b>}{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&nbsp;��&nbsp;������
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;не&nbsp;больше
 <br />
-</b><span><b>}
+</b><span class="monoblue"><b>}
 <br />
 </b></span></span><span>
 <br />
-��������� ������������ XPath �������� �����: <span><u><a href="http://www.w3.org/TR/xpath" target="_blank">http://www.w3.org/TR/xpath</a></u></span></span><span>
+Подробная спецификация XPath доступна здесь: <span class="blue"><u><a href="http://www.w3.org/TR/xpath" target="_blank">http://www.w3.org/TR/xpath</a></u></span></span><span>
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>������</title>
+    <title>Запись</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,56 +15,56 @@
   <tr>
     <td>
       
-<span><b>������
+<span class="h1"><b>Запись
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$hashfile.����[������]
+<span class="mono"><b>$hashfile.ключ[строка]
 <br />
 </b><span>
 <br />
-��������� �� ���� ���������� ����� </span><span><b>������</b></span><span> � </span><span><b>�������</b></span><span>.
+Сохраняет на диск ассоциацию между </span><span class="mono"><b>ключом</b></span><span> и </span><span class="mono"><b>строкой</b></span><span>.
 <br />
 
 <br />
-</span><span><span><b>$hashfile.����[
+</span><span class="mono"><span class="monoblue"><b>$hashfile.ключ[
 <br />
-&nbsp;&nbsp;&nbsp;$.value[������]
+&nbsp;&nbsp;&nbsp;$.value[строка]
 <br />
-&nbsp;&nbsp;&nbsp;$.expires(�����&nbsp;����)
+&nbsp;&nbsp;&nbsp;$.expires(число&nbsp;дней)
 <br />
 ]
 <br />
-$hashfile.����[
+$hashfile.ключ[
 <br />
-&nbsp;&nbsp;&nbsp;$.value[������]
+&nbsp;&nbsp;&nbsp;$.value[строка]
 <br />
-&nbsp;&nbsp;&nbsp;$.expires[</b></span></span><span><span><b><a href="dateclass.htm">����</a></b></span></span><span><span><b>]
+&nbsp;&nbsp;&nbsp;$.expires[</b></span></span><span class="mono"><span class="monoblue"><b><a href="dateclass.htm">дата</a></b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
-]</b></span></span><span><b>
+]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-����� ������ ��������� ������� ���� ����������� ����������. ����� ������� </span><span><b>�����&nbsp;����</b></span><span> ��� ���������� </span><span><b>����</b></span><span>.
+Такая запись позволяет указать дату устаревания ассоциации. Можно указать </span><span class="mono"><b>число&nbsp;дней</b></span><span> или конкретную </span><span class="mono"><b>дату</b></span><span>.
 <br />
 
 <br />
-�������������� ������������:
+Необязательные модификаторы:
 <br />
-</span><span><b>$.expires(�����&nbsp;����)</b></span><span> - ������ ����� ���� (����� ���� �������, 1.5=������� ���), �� ������� ����������� ���� </span><span><b>����</b></span><span>/</span><span><b>������</b></span><span>, 0 ����=��������;</span><span>
+</span><span class="mono"><b>$.expires(число&nbsp;дней)</b></span><span> - задает число дней (может быть дробным, 1.5=полтора дня), на которое сохраняется пара </span><span class="mono"><b>ключ</b></span><span>/</span><span class="mono"><b>строка</b></span><span>, 0 дней=навсегда;</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-</span><span><b>$.expires[</b><b><a href="dateclass.htm">$date</a></b><b>]</b></span><span> - ������ ���� � �����, �� ������� ����� ��������� ����������, ����� </span><span><b>$date</b></span><span> - ���������� ���� </span><span><b><a href="dateclass.htm">date</a></b></span><span>.
+</span><span class="mono"><b>$.expires[</b><b><a href="dateclass.htm">$date</a></b><b>]</b></span><span> - задает дату и время, до которой будет храниться ассоциация, здесь </span><span class="mono"><b>$date</b></span><span> - переменная типа </span><span class="mono"><b><a href="dateclass.htm">date</a></b></span><span>.
 <br />
 
 <br />
-<i>���������: ���������� ����������� �� ����� ����� ����� � ��������, � ����� ��� �� ������ ��������� 8000 ����.</i>
+<i>Замечание: существует ограничение на длину строк ключа и значения, в сумме они не должны превышать 8000 байт.</i>
 <br />
 </span></span><br />
 

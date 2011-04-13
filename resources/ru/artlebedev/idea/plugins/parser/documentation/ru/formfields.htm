@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>fields. ��� ���� �����</title>
+    <title>fields. Все поля формы</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,44 +15,44 @@
   <tr>
     <td>
       
-<span><b>fields. ��� ���� �����
+<span class="h1"><b>fields. Все поля формы
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$form:fields</b>&nbsp;&nbsp;&nbsp;<span>
+<span class="mono"><b>$form:fields</b>&nbsp;&nbsp;&nbsp;<span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-����� ����������� ���������� <a href="hash.htm">���</a> �� ����� ������ ����� ��� �����������, ����������� ����� URL. ����� ������ ���� �� ��, ��� � � ����� �����, ���������� ������ �������� �������� ����� �����.
+Такая конструкция возвращает <a href="hash.htm">хеш</a> со всеми полями формы или параметрами, переданными через URL. Имена ключей хеша те же, что и у полей формы, значениями ключей являются значения полей формы.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>^form:fields.</b></span></span><span><span><b><a href="hashforeach.htm">foreach</a></b></span></span><span><span><b>[field;value]{
+</b></span><span class="mono"><span class="monoblue"><b>^form:fields.</b></span></span><span class="mono"><span class="monoblue"><b><a href="hashforeach.htm">foreach</a></b></span></span><span class="mono"><span class="monoblue"><b>[field;value]{
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;</b><span><b>$field</b></span></span><span><b>&nbsp;-&nbsp;</b><span><b>$value</b></span></span><span><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;</b><span class="monoblue"><b>$field</b></span></span><span class="mono"><b>&nbsp;-&nbsp;</b><span class="monoblue"><b>$value</b></span></span><span class="mono"><b>
 <br />
-</b><span><b>}[</b></span></span><span><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span><b>]
+</b><span class="monoblue"><b>}[</b></span></span><span class="mono"><b>&lt;br</b><b>&nbsp;/</b><b>&gt;</b><span class="monoblue"><b>]
 <br />
 </b></span></span><span>
 <br />
-������ ������� �� ����� ��� ���� ����� � ��������������� ��������.
+Пример выведет на экран все поля формы и соответствующие значения.
 <br />
-�����������, ��� URI �������� </span><span><b>www.mysite.ru/testing/index.html?name=dvoechnik&amp;mark=2</b></span><span>. ����� ������ ������ ���������:
+Предположим, что URI страницы </span><span class="mono"><b>www.mysite.ru/testing/index.html?name=dvoechnik&amp;mark=2</b></span><span>. Тогда пример выдаст следующее:
 <br />
 
 <br />
-</span><span><b>name&nbsp;-&nbsp;dvoechnik</b></span><span><b>
+</span><span class="mono"><b>name&nbsp;-&nbsp;dvoechnik</b></span><span><b>
 <br />
-</b></span><span><b>mark&nbsp;-&nbsp;2</b></span><span>
+</b></span><span class="mono"><b>mark&nbsp;-&nbsp;2</b></span><span>
 <br />
 </span></span><br />
 

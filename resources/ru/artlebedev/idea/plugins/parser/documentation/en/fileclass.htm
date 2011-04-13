@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>File class</title>
+    <title>File class</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,32 +15,32 @@
   <tr>
     <td>
       
-<span><b>File class
+<span class="h1"><b>File class
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>Class <span><b>file</b></span><span> is designed for working with files. Objects of this class can be created by different means:
+<span>Class <span class="mono"><b>file</b></span><span> is designed for working with files. Objects of this class can be created by different means:
 <br />
 <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span>
 &nbsp;<br />
 </span></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span>1.&nbsp;&nbsp;&nbsp;by means of method POST through form field
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span></span><span><b>&nbsp;&nbsp;&nbsp;&lt;form&nbsp;method="post"&nbsp;enctype="multipart/form-data"&gt;&#133;
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;form&nbsp;method="post"&nbsp;enctype="multipart/form-data"&gt;&#133;
 &nbsp;<br />
-</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span><b>&nbsp;&nbsp;&nbsp;&lt;input&nbsp;name="photo"&nbsp;type="file"&gt;</b></span><span>.
+</b></span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;input&nbsp;name="photo"&nbsp;type="file"&gt;</b></span><span>.
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span>2.&nbsp;&nbsp;&nbsp;by one of constructors of class </span><span><b>file</b></span><span>.
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span>2.&nbsp;&nbsp;&nbsp;by one of constructors of class </span><span class="mono"><b>file</b></span><span>.
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="25"></td><td><span></span></td></tr></table><span>
 <br />
-While sending files to client (for example, by method </span><span><span><b><u><a href="mailclass.htm">mail:send</a></u></b></span></span><span> or through field </span><span><b><a href="responseclass.htm">response:body</a></b></span><span>) one should define HTTP-header </span><span>content-type</span><span>. Parser determines file type by its extension with the help of table </span><span><b>MIME-TYPES</b></span><span>, defined in  <a href="parserconfmethod.htm">Configuration method</a> (see also Chapter <a href="install.htm">Installing and configuring Parser</a>). Parser uses it to automatically determine, by file extension, the type of content to be sent in header </span><span>content-type</span><span>. If type of content cannot be determined, </span><span>content-type</span><span> will be </span><span>application/octet-stream</span><span>.
+While sending files to client (for example, by method </span><span class="mono"><span class="monoblue"><b><u><a href="mailclass.htm">mail:send</a></u></b></span></span><span> or through field </span><span class="mono"><b><a href="responseclass.htm">response:body</a></b></span><span>) one should define HTTP-header </span><span class="mono">content-type</span><span>. Parser determines file type by its extension with the help of table </span><span class="mono"><b>MIME-TYPES</b></span><span>, defined in  <a href="parserconfmethod.htm">Configuration method</a> (see also Chapter <a href="install.htm">Installing and configuring Parser</a>). Parser uses it to automatically determine, by file extension, the type of content to be sent in header </span><span class="mono">content-type</span><span>. If type of content cannot be determined, </span><span class="mono">content-type</span><span> will be </span><span class="mono">application/octet-stream</span><span>.
 <br />
 </span></span><br />
 

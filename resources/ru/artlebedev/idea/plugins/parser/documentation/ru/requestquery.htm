@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>query. ��������� ������ �������</title>
+    <title>query. Получение строки запроса</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,42 +15,42 @@
   <tr>
     <td>
       
-<span><b>query. ��������� ������ �������
+<span class="h1"><b>query. Получение строки запроса
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$request:query</b><span><b>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>$request:query</b><span style="font-family:Monospace; font-size:12pt; color:#000000"><b>&nbsp;&nbsp;&nbsp;
 <br />
 </b></span><span>
 <br />
-���������� ������ ����� </span><span><b>?</b></span><span> � URI (�������� ���������� ��������� QUERY_STRING).
+Возвращает строку после </span><span class="mono"><b>?</b></span><span> в URI (значение переменной окружения QUERY_STRING).
 <br />
-��� ������ � ������ ���� (</span><span><span><b>&lt;FORM&gt;</b></span></span><span>) � ������� ����� ������� </span><span><b>?&nbsp;</b></span><span>(</span><span>/?a=b?thisText</span><span>) ����������� ����� </span><span><b><a href="formclass.htm">form</a></b></span><span>.
+Для работы с полями форм (</span><span class="mono"><span class="monoblue"><b>&lt;FORM&gt;</b></span></span><span>) и строкой после второго </span><span class="mono"><b>?&nbsp;</b></span><span>(</span><span class="mono">/?a=b?thisText</span><span>) используйте класс </span><span class="mono"><b><a href="formclass.htm">form</a></b></span><span>.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span>�����������, ������������ �������� ����� ��������: </span><span>http://www.mysite.ru/news/articles.html?year=2000&amp;month=05&amp;day=27
+</b></span><span>Предположим, пользователь запросил такую страницу: </span><span class="mono">http://www.mysite.ru/news/articles.html?year=2000&amp;month=05&amp;day=27
 <br />
 </span><span>
 <br />
-�����:
+Тогда:
 <br />
-</span><span><span><b>$request:query</b></span></span><span><b>
+</span><span class="mono"><span class="monoblue"><b>$request:query</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-������:
+вернет:
 <br />
-</span><span><b>year=2000&amp;month=05&amp;day=27</b></span><span>
+</span><span class="mono"><b>year=2000&amp;month=05&amp;day=27</b></span><span>
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>create. �������� ������� � ����������� ����</title>
+    <title>create. Создание пустого и копирование хеша</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,32 +15,32 @@
   <tr>
     <td>
       
-<span><b>create. �������� ������� � ����������� ����
+<span class="h1"><b>create. Создание пустого и копирование хеша
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^hash::create[]&nbsp;&nbsp;
+<span class="mono"><b>^hash::create[]&nbsp;&nbsp;
 <br />
-^hash::create[������������&nbsp;���&nbsp;���&nbsp;</b><b><a href="hashfileclass.htm">�������</a></b><b>]
+^hash::create[существующий&nbsp;хеш&nbsp;или&nbsp;</b><b><a href="hashfileclass.htm">хешфайл</a></b><b>]
 <br />
 </b><span>
 <br />
-���� �������� �� �����, ����� ������ ������ ���.
+Если параметр не задан, будет создан пустой хеш.
 <br />
-���� ������ </span><span><b>������������&nbsp;���</b></span><span> ��� </span><span><b>�������</b></span><span>, ����������� ������� ��� �����.
+Если указан </span><span class="mono"><b>существующий&nbsp;хеш</b></span><span> или </span><span class="mono"><b>хешфайл</b></span><span>, конструктор создает его копию.
 <br />
 
 <br />
-������ ���, ����������� ������������� ��� ����������, ����� � ��������, ����� ���������� ����������� ��������� ��� �������, ��������:
+Пустой хеш, создаваемый конструктором без параметров, нужен в ситуации, когда необходимо динамически наполнить хеш данными, например:
 <br />
-</span><span><span><b>$dyn[^hash::create[]]
+</span><span class="mono"><span class="monoblue"><b>$dyn[^hash::create[]]
 <br />
 ^for[i](1;10){
 <br />
@@ -48,27 +48,27 @@
 <br />
 }
 <br />
-</b></span></span><span>����� ����������� </span><span><b>for</b></span><span> �� ����������, ��� ������ ���������</span><span>.</span><span>
+</b></span></span><span>Перед выполнением </span><span class="mono"><b>for</b></span><span> мы определили, что именно наполняем</span><span>
 <br />
 
 <br />
-���� �������������� ����������� ������ �� ��������� ����������� ����, �� ���������� ���������, ������, �������� �� ���������, ��������:
+Если предполагается интенсивная работа по изменению содержимого хеша, но необходимо сохранить, скажем, значения по умолчанию, например:
 <br />
-</span><span><span><b>$pets[
+</span><span class="mono"><span class="monoblue"><b>$pets[
 <br />
-&nbsp;&nbsp;&nbsp;$.pet[</b></span></span><span><b>������</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.pet[</b></span></span><span class="mono"><b>Собака</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span><b>��������</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.food[</b></span></span><span class="mono"><b>Косточка</b><span class="monoblue"><b>]
 <br />
-&nbsp;&nbsp;&nbsp;$.good[</b></span></span><span><b>�������</b><span><b>]
+&nbsp;&nbsp;&nbsp;$.good[</b></span></span><span class="mono"><b>Ошейник</b><span class="monoblue"><b>]
 <br />
 ]
 <br />
-$pets_copy[^hash::create[$pets]]</b></span></span><span><span><b>
+$pets_copy[^hash::create[$pets]]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-<i>���������: ���� </i></span><span><b>_default</b></span><span><i> </i><i>����������</i><i>.</i><b><i>  [3.1.4]
+<i>Замечание: поле </i></span><span class="mono"><b>_default</b></span><span><i> </i><i>копируется</i><i>.</i><b><i>  [3.1.4]
 <br />
 </i></b></span></span><br />
 

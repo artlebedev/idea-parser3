@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>files. ��������� ��������� ������</title>
+    <title>files. Получение множества файлов</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,38 +11,48 @@
 <body>
 
 
-<span><b>files. ��������� ��������� ������&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>files. Получение множества файлов&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.</i></b><b><i>2</i></b><b><i>.</i></b><b><i>2</i></b><b><i>]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>$form:files</b><span>
+<span class="mono"><b>$form:files</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-����� ����������� ���������� <a href="hash.htm">���</a> �� ����� ������� �����. ����� ������ ���� �� ��, ��� � � ����� �����, ���������� �� �������� ����, ��. ����.
+Такая конструкция возвращает <a href="hash.htm">хеш</a> со всеми файлами формы. Имена ключей хеша те же, что и у полей формы, значениями же являются хеши, см. ниже.
 <br />
 
 <br />
-</span><span><b>$form:</b><b>files</b><b>.����_�����</b></span><span>&nbsp;&nbsp;&nbsp;
+</span><span class="mono"><b>$form:</b><b>files</b><b>.поле_формы</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">&nbsp;&nbsp;&nbsp;
 <br />
 </span><span>
 <br />
-���� ���� ����� ����� ���� �� ���� �������� ���� ����, ����� ����������� ���������� ��� (������ ������ </span><span><span><b><u><a href="hashclass.htm">hash</a></u></b></span></span><span>) � ������� 0, 1, 2... (�� ���������� ���������� ������), ���������� ��� ����� � ��������� ������. ������������ ��� ��������� ��������� ������ � ���������� ������ �����.
+Если поле формы имеет хотя бы одно значение типа файл, такая конструкция возвращает хеш (объект класса </span><span class="mono"><span class="monoblue"><b><u><a href="hashclass.htm">hash</a></u></b></span></span><span>) с ключами 0, 1, 2... (по количеству переданных файлов), содержащий все файлы с указанным именем. Используется для получения множества файлов с одинаковым именем формы.
 <br />
 <i>
 <br />
-</i><i>��������: �� �������� ��������� ������� ���� ����� ���, ��� ������ �� �����������.</i>
+</i><i>Внимание: не забудьте проверить наличие хеша перед тем, как начать им оперировать.</i>
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>^if(def&nbsp;$form:picture){</b></span></span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>^if(def&nbsp;$form:picture){</b></span></span><span class="mono"><b>
 <br />
-&nbsp;&nbsp;&nbsp;</b><b>&lt;p&gt;</b><b>���������&nbsp;�����������</b><b>&nbsp;(</b><span><b>^form:files.picture._count[]</b></span></span><span><b>):</b><b>
+&nbsp;&nbsp;&nbsp;</b><b>&lt;p&gt;</b><b>Загружены&nbsp;изображения</b><b>&nbsp;(</b><span class="monoblue"><b>^form:files.picture._count[]</b></span></span><span class="mono"><b>):</b><b>
 <br />
-</b><span><b>&nbsp;&nbsp;&nbsp;^form:files.picture.foreach[sNum;fValue]{
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;^form:files.picture.foreach[sNum;fValue]{
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$fValue.name
 <br />
@@ -50,13 +60,13 @@
 <br />
 &nbsp;&nbsp;&nbsp;}[,&nbsp;]
 <br />
-</b></span></span><span><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;</b><b>
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;/p&gt;</b><b>
 <br />
-</b><span><b>}</b></span></span><span><b>
+</b><span class="monoblue"><b>}</b></span></span><span class="mono"><b>
 <br />
 &lt;form&nbsp;method="</b><b>post</b><b>"</b><b>&nbsp;enctype="multipart/form-data"</b><b>&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&lt;p&gt;��������&nbsp;���������&nbsp;�����������&nbsp;���&nbsp;��������</b><b>:&lt;br&nbsp;/&gt;</b><b>
+&nbsp;&nbsp;&nbsp;&lt;p&gt;Выберите&nbsp;несколько&nbsp;изображений&nbsp;для&nbsp;загрузки</b><b>:&lt;br&nbsp;/&gt;</b><b>
 <br />
 &nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="file"&nbsp;name="picture"</b><b>&nbsp;/</b><b>&gt;&lt;br&nbsp;/&gt;
 <br />
@@ -64,7 +74,7 @@
 <br />
 &nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="file"&nbsp;name="picture"</b><b>&nbsp;/</b><b>&gt;&lt;br&nbsp;/&gt;
 <br />
-&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=</b><b>"</b><b>submit</b><b>"</b><b>&nbsp;value="���������"</b><b>&nbsp;/</b><b>&gt;
+&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=</b><b>"</b><b>submit</b><b>"</b><b>&nbsp;value="Загрузить"</b><b>&nbsp;/</b><b>&gt;
 <br />
 &nbsp;&nbsp;&nbsp;&lt;/p&gt;
 <br />
@@ -72,7 +82,7 @@
 <br />
 </b></span><span>
 <br />
-<i>��������: ����������� ����������� ��������� � ������������ �������.
+<i>Внимание: загруженные изображения выводятся в произвольном порядке.
 <br />
 </i>
 <br />

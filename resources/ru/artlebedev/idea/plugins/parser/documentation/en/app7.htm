@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Appendix 7. SQL queries with bound variables</title>
+    <title>Appendix 7. SQL queries with bound variables</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,26 +11,36 @@
 <body>
 
 
-<span><b>Appendix 7. SQL queries with bound variables</b><span><b><i> </i></b><b><i>[3.1.4]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Appendix 7. SQL queries with bound variables</b><span><b><i> </i></b><b><i>[3.1.4]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span>Parser's Oracle SQL driver can work with bound variables. <span>IN</span><span>, </span><span>OUT</span><span> and </span><span>IN/OUT</span><span> variables are supported, they are bound to <a href="hash.htm">hash</a> you pass to query.
+<span>Parser's Oracle SQL driver can work with bound variables. <span class="mono">IN</span><span>, </span><span class="mono">OUT</span><span> and </span><span class="mono">IN/OUT</span><span> variables are supported, they are bound to <a href="hash.htm">hash</a> you pass to query.
 <br />
 
 <br />
-There are known problems with </span><span>CALL</span><span> and </span><span>EXECUTE</span><span> constructs in Oracle versions, we recommend using PL/SQL wrapper (</span><span>begin&nbsp;&#133;;&nbsp;end;</span><span>), do not forget to <a href="stringlit.htm">escape</a> &#171;;&#187; character.
+There are known problems with </span><span class="mono">CALL</span><span> and </span><span class="mono">EXECUTE</span><span> constructs in Oracle versions, we recommend using PL/SQL wrapper (</span><span class="mono">begin&nbsp;&#133;;&nbsp;end;</span><span>), do not forget to <a href="stringlit.htm">escape</a> &#171;;&#187; character.
 <br />
 
 <br />
-<i>Note: values of </i></span><span><b><a href="voidclass.htm">void</a></b></span><span><i> type correspond to NULL. In second example below </i></span><span><b>days</b></span><span><i> is initially </i></span><span>NULL</span><span><i>.</i><i>
+<i>Note: values of </i></span><span class="mono"><b><a href="voidclass.htm">void</a></b></span><span><i> type correspond to NULL. In second example below </i></span><span class="mono"><b>days</b></span><span><i> is initially </i></span><span class="mono">NULL</span><span><i>.</i><i>
 <br />
 </i>
 <br />
-</span><span><b>Example of using IN variables</b><b>
+</span><span class="h1"><b>Example of using IN variables</b><b>
 <br />
-</b></span><span><b>
+</b></span><span class="mono"><b>
 <br />
 #procedure&nbsp;</b><b>ban_user</b><b>(</b><b>user_id</b><b>&nbsp;in&nbsp;number,&nbsp;</b><b>days</b><b>&nbsp;</b><b>in&nbsp;number</b><b>)
 <br />
@@ -50,9 +60,9 @@ There are known problems with </span><span>CALL</span><span> and </span><span>EX
 <br />
 
 <br />
-</b></span><span><b>Example of using IN and OUT variables</b><b>
+</b></span><span class="h1"><b>Example of using IN and OUT variables</b><b>
 <br />
-</b></span><span><b>
+</b></span><span class="mono"><b>
 <br />
 #procedure&nbsp;</b><b>read_user_ban_days</b><b>(</b><b>user_id</b><b>&nbsp;in&nbsp;number,&nbsp;</b><b>days</b><b>&nbsp;</b><b>out&nbsp;number</b><b>)
 <br />
@@ -78,7 +88,7 @@ $</b><b>variables[
 <br />
 
 <br />
-</b><span><b>User&nbsp;is&nbsp;banned&nbsp;for&nbsp;</b></span></span><span><b>$variables.days</b><span><b>&nbsp;days</b></span></span><span><span><b>!</b></span></span><span><span><b>
+</b><span class="monoblue"><b>User&nbsp;is&nbsp;banned&nbsp;for&nbsp;</b></span></span><span class="mono"><b>$variables.days</b><span class="monoblue"><b>&nbsp;days</b></span></span><span class="mono"><span class="monoblue"><b>!</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 </b></span></span></span><br />
 

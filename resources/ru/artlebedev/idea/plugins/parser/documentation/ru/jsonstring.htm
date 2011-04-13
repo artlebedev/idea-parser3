@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>string. �������������� ������� Parser � JSON-������</title>
+    <title>string. Преобразование объекта Parser в JSON-строку</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,111 +15,111 @@
   <tr>
     <td>
       
-<span><b>string. �������������� ������� Parser � JSON-������
+<span style="font-family:Arial; font-size:12pt; color:#000000"><b>string. Преобразование объекта Parser в JSON-строку
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^json:string[������;�����&nbsp;��������������]
+<span class="mono"><b>^json:string[объект;опции&nbsp;преобразования]
 <br />
 </b><b>
 <br />
-</b><span>����� ����������� ��������� ��� ���������������� ������ � JSON-������.</span><span><b>
+</b><span>Метод преобразует системный или пользовательский объект в JSON-строку.</span><span class="mono"><b>
 <br />
 
 <br />
-�����</b></span><span> </span><span><b>��������������&nbsp;</b></span><span>- ���, � ������� ����� �������:</span><span><b>
+Опции</b></span><span> </span><span class="mono"><b>преобразования&nbsp;</b></span><span>- хеш, в котором можно указать:</span><span class="mono"><b>
 <br />
 </b></span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="288">
-<span>
+<span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
 <br />
 </span></td><td align="left" valign="top" width="103">
-<span><b>��-���������</b>
+<span><b>По-умолчанию</b>
 <br />
 </span></td><td align="left" valign="top" width="467">
-<span><b>��������</b>
+<span><b>Описание</b>
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="288">
-<span><b>$.skip-unknown(</b><span><a href="boolclass.htm">true|false</a></span><span><b>)</b></span><span>
+<span class="mono"><b>$.skip-unknown(</b><span><a href="boolclass.htm">true|false</a></span><span class="mono"><b>)</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="103">
 <span>false
 <br />
 </span></td><td align="left" valign="top" width="467">
-<span>��� �������� �������� <span><b>true</b></span><span> ������ exception � �������������� JSON-������ ����� ���������� �������� 'null' ��� ������������ �������� � ������, ��������� �� <a href="voidclass.htm">void</a>, <a href="boolclass.htm">bool</a>, <a href="stringclass.htm">string</a>, <a href="intdoubleclasses.htm">int</a>, <a href="intdoubleclasses.htm">double</a>, <a href="dateclass.htm">date</a>, <a href="tableclass.htm">table</a>, <a href="hashclass.htm">hash</a> � <a href="fileclass.htm">file</a>.
+<span>При указании значения <span class="mono"><b>true</b></span><span> вместо exception в результирующую JSON-строку будут выдаваться значения 'null' при сериализации объектов с типами, отличными от <a href="voidclass.htm">void</a>, <a href="boolclass.htm">bool</a>, <a href="stringclass.htm">string</a>, <a href="intdoubleclasses.htm">int</a>, <a href="intdoubleclasses.htm">double</a>, <a href="dateclass.htm">date</a>, <a href="tableclass.htm">table</a>, <a href="hashclass.htm">hash</a> и <a href="fileclass.htm">file</a>.
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="288">
-<span><b>$.indent(</b><span><a href="boolclass.htm">true|false</a></span><span><b>)</b></span><span>
+<span class="mono"><b>$.indent(</b><span><a href="boolclass.htm">true|false</a></span><span class="mono"><b>)</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="103">
 <span>false
 <br />
 </span></td><td align="left" valign="top" width="467">
-<span>��� �������� �������� <span><b>true</b></span><span> ����� �������� �������������� �������������� JSON-������ ��������� ��������� �� ������� �����������.
+<span>При указании значения <span class="mono"><b>true</b></span><span> будет включено форматирование результирующей JSON-строки символами табуляции по глубине вложенности.
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="288">
-<span><b>$.date[</b><span>sql-string|gmt-string|unix-timestamp</span><span><b>]</b>
+<span class="mono"><b>$.date[</b><span>sql-string|gmt-string|unix-timestamp</span><span class="mono"><b>]</b>
 <br />
 </span></span></td><td align="left" valign="top" width="103">
-<span>sql-string<span>
+<span>sql-string<span class="mono">
 <br />
 </span></span></td><td align="left" valign="top" width="467">
-<span>����� ���������� ���, � ������� �������� �������� ������ <a href="dateclass.htm">date</a> ����� �������� � �������������� JSON-������ (��. ���������� ������ ������� ������ date).<span>
+<span>Опция определяет вид, в котором значения объектов класса <a href="dateclass.htm">date</a> будут попадать в результирующую JSON-строку (см. одноимённые методы объекта класса date).<span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="288">
-<span><b>$.table[</b><span>object|array|compact</span><span><b>]</b>
+<span class="mono"><b>$.table[</b><span>object|array|compact</span><span class="mono"><b>]</b>
 <br />
 </span></span></td><td align="left" valign="top" width="103">
-<span>object<span>
+<span>object<span class="mono">
 <br />
 </span></span></td><td align="left" valign="top" width="467">
-<span>����� ���������� ���, � ������� �������� �������� ������ <a href="tableclass.htm">table</a> ����� �������� � �������������� JSON-������.
+<span>Опция определяет вид, в котором значения объектов класса <a href="tableclass.htm">table</a> будут попадать в результирующую JSON-строку.
 <br />
-<span><b>object:</b></span><span>
+<span class="mono"><b>object:</b></span><span>
 <br />
     [{"col1":"val11","col2":"val12",...},{"col1":"val21","col2":"val22",...},...]
 <br />
-</span><span><b>array:
+</span><span class="mono"><b>array:
 <br />
-</b></span><span>    [["col1","col2",...] || null (��� nameless ������),["val11","val12",...],...]
+</b></span><span>    [["col1","col2",...] || null (для nameless таблиц),["val11","val12",...],...]
 <br />
-</span><span><b>compact:
+</span><span class="mono"><b>compact:
 <br />
-</b></span><span>     ["value11" || ["val11","val12",...],...]</span><span>
+</b></span><span>     ["value11" || ["val11","val12",...],...]</span><span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="288">
-<span><b>$.file[</b><span>text|base64</span><span><b>]</b></span><span>
+<span class="mono"><b>$.file[</b><span>text|base64</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="103">
-<span>�� ��������
+<span>не определён
 <br />
 </span></td><td align="left" valign="top" width="467">
-<span>����� ���������� ���, � ������� �������� �������� ���� <a href="fileclass.htm">file</a> ����� �������� � �������������� JSON-������.
+<span>Опция определяет вид, в котором значения объектов типа <a href="fileclass.htm">file</a> будут попадать в результирующую JSON-строку.
 <br />
-�� ��������� (���� ������ ����� �� ����������) � �������������� JSON-������ �������� ���������� �� �������� ������ file (��� �����, ������, content-type, mode), �� �� ���������� �� ��������.
+По умолчанию (если данная опция не определена) в результирующую JSON-строку попадает информация об объектах класса file (имя файла, размер, content-type, mode), но их содержимое не попадает.
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="288">
-<span><b>$.�����[</b><span><a href="junctionclass.htm">������ �� �����</a></span><span><b>]</b></span><span>
+<span class="mono"><b>$.класс[</b><span><a href="junctionclass.htm">ссылка на метод</a></span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="103">
-<span>�� ��������
+<span>не определён
 <br />
 </span></td><td align="left" valign="top" width="467">
-<span>����� ����� (������� �������������� date, table � file) ����� ������� ��������� ���������������� �����, ������� ������ ��������� 3 ���������: ����, ������ � ����� ������ ^json:string[] (��������� ����� ��� ������������ ������ ���������������� ��������).
+<span>Любой класс (включая вышеупомянутые date, table и file) можно вывести используя пользовательский метод, который должен принимать 3 параметра: ключ, объект и опции вызова ^json:string[] (последнее нужно для рекурсивного вывода пользовательских объектов).
 <br />
 </span></td></tr></table>
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>@main[]
+</b></span><span class="mono"><span class="monoblue"><b>@main[]
 <br />
 $h[
 <br />
@@ -129,7 +129,7 @@ $h[
 <br />
 &nbsp;&nbsp;&nbsp;$.double(1/2)
 <br />
-&nbsp;&nbsp;&nbsp;$.string[�������&nbsp;�����]
+&nbsp;&nbsp;&nbsp;$.string[русские&nbsp;буквы]
 <br />
 &nbsp;&nbsp;&nbsp;$.hash[
 <br />
@@ -163,13 +163,13 @@ $h[
 <br />
 @image_handler[key;value]
 <br />
-"custom&nbsp;value&nbsp;of&nbsp;image&nbsp;$key"</b></span></span><span><span><b>
+"custom&nbsp;value&nbsp;of&nbsp;image&nbsp;$key"</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
 
 <br />
-</b></span></span><span>� ���������� ���������� ����� ��������:</span><span><span><b>
+</b></span></span><span>В результате выполнения будет выведено:</span><span class="mono"><span class="monoblue"><b>
 <br />
-</b></span></span><span><b>{
+</b></span></span><span class="mono"><b>{
 <br />
 &nbsp;&nbsp;&nbsp;"void":"",
 <br />
@@ -177,7 +177,7 @@ $h[
 <br />
 &nbsp;&nbsp;&nbsp;"double":0.5,
 <br />
-&nbsp;&nbsp;&nbsp;"string":"�������&nbsp;�����",
+&nbsp;&nbsp;&nbsp;"string":"русские&nbsp;буквы",
 <br />
 &nbsp;&nbsp;&nbsp;"hash":{
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>rectangle. ��������� ������������� ���������������</title>
+    <title>rectangle. Рисование незакрашенный прямоугольников</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,36 +15,36 @@
   <tr>
     <td>
       
-<span><b>rectangle. ��������� ������������� ���������������
+<span class="h1"><b>rectangle. Рисование незакрашенный прямоугольников
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^��������.rectangle(x0;y0;x1;y1;����&nbsp;�����)</b>&nbsp;<b>&nbsp;&nbsp;&nbsp;
+<span class="mono"><b>^картинка.rectangle(x0;y0;x1;y1;цвет&nbsp;линии)</b>&nbsp;<b>&nbsp;&nbsp;&nbsp;
 <br />
 </b><span>
 <br />
-����� ������ �� ����������� ������������� ������������� �� �������� ����������� � �������� ������ �����.
+Метод рисует на изображении незакрашенный прямоугольник по заданным координатам с заданным цветом линии.
 <br />
 
 <br />
-</span><span><b>������
+</span><span class="h1"><b>Пример
 <br />
-</b></span><span><span><b>$square[^image::</b></span></span><span><span><b><a href="imagecreate.htm">create</a></b></span></span><span><span><b>(100;100;0x000000)]
+</b></span><span class="mono"><span class="monoblue"><b>$square[^image::</b></span></span><span class="mono"><span class="monoblue"><b><a href="imagecreate.htm">create</a></b></span></span><span class="mono"><span class="monoblue"><b>(100;100;0x000000)]
 <br />
 ^square.rectangle(5;40;95;60;0xFFFFFF)
 <br />
-$</b></span></span><span><span><b><a href="responsebody.htm">response:body</a></b></span></span><span><span><b>[^square.gif[]]
+$</b></span></span><span class="mono"><span class="monoblue"><b><a href="responsebody.htm">response:body</a></b></span></span><span class="mono"><span class="monoblue"><b>[^square.gif[]]
 <br />
 </b></span></span><span>
 <br />
-� �������� ����� ������� ������ ������� �������� 100 �� 100 ��������, ������ �������� ��������� ������������� 90 x 20 ��������, ������������ ������ ������ ����� �� �������� �����������.
+В браузере будет выведен черный квадрат размером 100 на 100 пикселов, внутри которого находится прямоугольник 90 x 20 пикселов, нарисованный линией белого цвета по заданным координатам.
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>��������� HTTP-������</title>
+    <title>Заголовки HTTP-ответа</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,46 +15,46 @@
   <tr>
     <td>
       
-<span><b>��������� HTTP-������
+<span class="h1"><b>Заголовки HTTP-ответа
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$response:����[��������]</b><span>
+<span class="mono"><b>$response:поле[значение]</b><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-</span><span><b>$response:����</b></span><span>
+</span><span class="mono"><b>$response:поле</b></span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
 </span><span>
 <br />
-���� ������������� ��������� HTTP-������, ����������� Parser. ��� ����� ��� ��������, ��� � ���������. ��������� ����� ���� <a href="dateclass.htm">����</a>, <a href="stringclass.htm">������</a> ��� <a href="hashclass.htm">���</a> � ������������ ������ </span><span><b>value</b></span><span>. ���� ����� �������������� � � �������� �������� ���� � � �������� �������� �������� ����, ��� ���� ��� ����� ���������� ���������������.
+Поле соответствует заголовку HTTP-ответа, выдаваемого Parser. Его можно как задавать, так и считывать. Значением может быть <a href="dateclass.htm">дата</a>, <a href="stringclass.htm">строка</a> или <a href="hashclass.htm">хеш</a> с обязательным ключом </span><span class="mono"><b>value</b></span><span>. Дата может использоваться и в качестве значения поля и в качестве значения атрибута поля, при этом она будет стандартно отформатирована.
 <br />
 
 <br />
-<i>����������: ��� ������� �������� ��� ���� ������������� � ������� ��������, � ��� ���������� ������ � ������ ��������.</i><i>
+<i>Примечание: при задании значения имя поля преобразуется к нижнему регистру, а при считывании ищется в нижнем регистре.</i><i>
 <br />
-</i><i>����������</i><i>: </i><i>��� ������</i><i> ��������</i><i> ��� </i><i>HTTP</i><i>-���������</i><i> ���������������� (�������� </i><b><i>content-type</i></b><i> </i><i>����� ������������ � </i><b><i>Content-Type</i></b><i>)</i><i>.&nbsp;&nbsp;&nbsp;</i></span><span><b><i>[3.4.0]</i></b></span><span>
-<br />
-
-<br />
-</span><span><b>������ ��������������� �������� �� ��������� ��������
-<br />
-</b></span><span><span><b>#��������&nbsp;����&nbsp;�������������&nbsp;���-�������&nbsp;���������&nbsp;��������&nbsp;��������&nbsp;���������&nbsp;SERVER_NAME
-<br />
-#������&nbsp;���������&nbsp;���&nbsp;���������
-<br />
-$response:location[http://$env:SERVER_NAME/]</b></span></span><span><b>
+</i><i>Примечание</i><i>: </i><i>при выдаче</i><i> браузеру</i><i> имя </i><i>HTTP</i><i>-заголовка</i><i> капитализируется (например </i><b><i>content-type</i></b><i> </i><i>будет преобразован в </i><b><i>Content-Type</i></b><i>)</i><i>.&nbsp;&nbsp;&nbsp;</i></span><span><b><i>[3.4.0]</i></b></span><span>
 <br />
 
 <br />
-</b></span><span><b>������ ������ ��������������� �������� �� ��������� ��������
+</span><span class="h1"><b>Пример перенаправления браузера на стартовую страницу
 <br />
-</b></span><span><span><b>#��������&nbsp;���&nbsp;�����������&nbsp;��&nbsp;������������&nbsp;SERVER_NAME
+</b></span><span class="mono"><span class="monoblue"><b>#работает&nbsp;если&nbsp;администратор&nbsp;веб-сервера&nbsp;правильно&nbsp;настроил&nbsp;передачу&nbsp;параметра&nbsp;SERVER_NAME
+<br />
+#обычно&nbsp;настроено&nbsp;все&nbsp;правильно
+<br />
+$response:location[http://$env:SERVER_NAME/]</b></span></span><span class="mono"><b>
+<br />
+
+<br />
+</b></span><span class="h1"><b>Другой пример перенаправления браузера на стартовую страницу
+<br />
+</b></span><span class="mono"><span class="monoblue"><b>#работает&nbsp;вне&nbsp;зависимости&nbsp;от&nbsp;правильности&nbsp;SERVER_NAME
 <br />
 $response:refresh[
 <br />
@@ -66,9 +66,9 @@ $response:refresh[
 <br />
 </b></span></span><span>
 <br />
-</span><span><b>������ ������� ��������� expires � �������� �������
+</span><span class="h1"><b>Пример задания заголовка expires в значение «завтра»
 <br />
-</b></span><span><span><b>$response:expires[^</b></span></span><span><span><b><a href="dateclass.htm">date</a></b></span></span><span><span><b>::</b></span></span><span><span><b><a href="datenow.htm">now</a></b></span></span><span><span><b>(+1)]</b></span></span><span>
+</b></span><span class="mono"><span class="monoblue"><b>$response:expires[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="dateclass.htm">date</a></b></span></span><span class="mono"><span class="monoblue"><b>::</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">now</a></b></span></span><span class="mono"><span class="monoblue"><b>(+1)]</b></span></span><span>
 <br />
 
 <br />

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>search-namespaces. Name spaces hash to search in</title>
+    <title>search-namespaces. Name spaces hash to search in</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,22 +15,22 @@
   <tr>
     <td>
       
-<span><b>search-namespaces. Name spaces hash to search in
+<span class="h1"><b>search-namespaces. Name spaces hash to search in
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$document.search-namespaces</b><span>
+<span class="mono"><b>$document.search-namespaces</b><span>
 <br />
 
 <br />
-In order to use prefixes of <span><u><a href=""http://www.w3.org/TR/2004/REC-xml-names11-20040204/#concepts" target="_blank">name spaces</a></u></span></span><span>  in </span><span><b><a href=xnodeselect.htm">xnode.select*</a></b></span><span> methods one must define these prefixes in this hash.
+In order to use prefixes of <span class="blue"><u><a href=""http://www.w3.org/TR/2004/REC-xml-names11-20040204/#concepts" target="_blank">name spaces</a></u></span></span><span>  in </span><span class="mono"><b><a href=xnodeselect.htm">xnode.select*</a></b></span><span> methods one must define these prefixes in this hash.
 <br />
 
 <br />
@@ -42,9 +42,9 @@ Here
 &nbsp;<br />
 </span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
 <br />
-</span><span><b>A</b><b>dding several prefixes</b><b>
+</span><span class="h1"><b>A</b><b>dding several prefixes</b><b>
 <br />
-</b></span><span><span><b>$xdoc[^xdoc::create{</b></span></span><span><b>&lt;?xml&nbsp;version="1.0"?&gt;
+</b></span><span class="mono"><span class="monoblue"><b>$xdoc[^xdoc::create{</b></span></span><span class="mono"><b>&lt;?xml&nbsp;version="1.0"?&gt;
 <br />
 &lt;document&nbsp;xmlns:s="urn:special"&gt;
 <br />
@@ -52,23 +52,23 @@ Here
 <br />
 &lt;/document&gt;
 <br />
-</b><span><b>}]
+</b><span class="monoblue"><b>}]
 <br />
-</b></span></span><span><span><b>^</b></span></span><span><span><b>xdoc.search-namespaces.</b></span></span><span><span><b><a href="hashadd.htm">add</a></b></span></span><span><span><b>[
+</b></span></span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b>xdoc.search-namespaces.</b></span></span><span class="mono"><span class="monoblue"><b><a href="hashadd.htm">add</a></b></span></span><span class="mono"><span class="monoblue"><b>[
 <br />
-&nbsp;&nbsp;&nbsp;$.</b></span></span><span><span><b>s[urn:special]
+&nbsp;&nbsp;&nbsp;$.</b></span></span><span class="mono"><span class="monoblue"><b>s[urn:special]
 <br />
-</b></span></span><span><span><b>&nbsp;&nbsp;&nbsp;$.</b></span></span><span><span><b>o[urn:</b></span></span><span><span><b>other</b></span></span><span><span><b>]
+</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;$.</b></span></span><span class="mono"><span class="monoblue"><b>o[urn:</b></span></span><span class="mono"><span class="monoblue"><b>other</b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
-</b></span></span><span><span><b>]</b></span></span><span><span><b>
+</b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span class="mono"><span class="monoblue"><b>
 <br />
-^xdoc.</b></span></span><span><span><b><a href="xnodeselectstring.htm">selectString</a></b></span></span><span><span><b>[string(//s:code</b></span></span><span><span><b>[@o:attr=123]</b></span></span><span><span><b>)]
+^xdoc.</b></span></span><span class="mono"><span class="monoblue"><b><a href="xnodeselectstring.htm">selectString</a></b></span></span><span class="mono"><span class="monoblue"><b>[string(//s:code</b></span></span><span class="mono"><span class="monoblue"><b>[@o:attr=123]</b></span></span><span class="mono"><span class="monoblue"><b>)]
 <br />
-</b></span></span><span><b>
+</b></span></span><span class="h1"><b>
 <br />
 </b><b>Adding one prefix
 <br />
-</b></span><span><span><b>$xdoc.search-namespaces.s[</b></span></span><span><span><b>urn:special</b></span></span><span><span><b>]
+</b></span><span class="mono"><span class="monoblue"><b>$xdoc.search-namespaces.s[</b></span></span><span class="mono"><span class="monoblue"><b>urn:special</b></span></span><span class="mono"><span class="monoblue"><b>]
 <br />
 </b></span></span></span><br />
 

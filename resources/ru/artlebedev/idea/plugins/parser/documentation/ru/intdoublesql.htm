@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>sql. ��������� ����� �� ���� ������</title>
+    <title>sql. Получение числа из базы данных</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,60 +15,60 @@
   <tr>
     <td>
       
-<span><b>sql. ��������� ����� �� ���� ������
+<span class="h1"><b>sql. Получение числа из базы данных
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>^int:sql{������}&nbsp;&nbsp;
+<span class="mono"><b>^int:sql{запрос}&nbsp;&nbsp;
 <br />
-^int:sql{������}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(���������)]&nbsp;&nbsp;
+^int:sql{запрос}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(выражение)]&nbsp;&nbsp;
 <br />
-^double:sql{������}&nbsp;&nbsp;
+^double:sql{запрос}&nbsp;&nbsp;
 <br />
-^double:sql{������}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(���������)]&nbsp;&nbsp;&nbsp;
+^double:sql{запрос}[$.limit(1)&nbsp;$.offset(o)&nbsp;$.default(выражение)]&nbsp;&nbsp;&nbsp;
 <br />
 </b><span>
 <br />
-���������� �����, ���������� � ���������� SQL-������� � ������� ��� ������. ������ ������ ���������� �������� �� ������ ������� ����� ������.
+Возвращает число, полученное в результате SQL-запроса к серверу баз данных. Запрос должен возвращать значение из одного столбца одной строки.
 <br />
 
 <br />
-</span><span><b>������</b></span><span> - ������ � ���� ������, ���������� �� ����� SQL
+</span><span class="mono"><b>Запрос</b></span><span> - запрос к базе данных, написанный на языке SQL
 <br />
-</span><span><b>$.offset(o)</b></span><span> - ��������� ������ o ������� �������
-<br />
-
-<br />
-���� ����� SQL-������� ��� ���� (0 �������), �� �����
-<br />
-</span><span><b>$.default{���}</b></span><span> ��������� ��������� </span><span><b>���</b></span><span>, � �����, ������� �� ���������, ����� ����������� ������;
-<br />
-</span><span><b>$.default(���������)</b></span><span> ���������� ��������� </span><span><b>���������</b></span><span>, � ��� ����� ����������� ������.
+</span><span class="mono"><b>$.offset(o)</b></span><span> - отбросить первые o записей выборки
 <br />
 
 <br />
-��� ������ ����� ������ ���������� ������������� ���������� � �������� ���� ������ (��. �������� </span><span><b><a href="opconnect.htm">connect</a></b></span><span>).
+если ответ SQL-сервера был пуст (0 записей), то будет…
+<br />
+</span><span class="mono"><b>$.default{код}</b></span><span> …выполнен указанный </span><span class="mono"><b>код</b></span><span>, и число, которое он возвратит, будет результатом метода;
+<br />
+</span><span class="mono"><b>$.default(выражение)</b></span><span> …вычислено указанное </span><span class="mono"><b>выражение</b></span><span>, и оно будет результатом метода.
 <br />
 
 <br />
-</span><span><b>������
+Для работы этого метода необходимо установленное соединение с сервером базы данных (см. оператор </span><span class="mono"><b><a href="opconnect.htm">connect</a></b></span><span>).
 <br />
-</b></span><span><span><b>^</b></span></span><span><span><b><a href="opconnect.htm">connect</a></b></span></span><span><span><b>[</b></span></span><span><span><b><a href="app3.htm">������ �����������</a></b></span></span><span><span><b>]{
+
 <br />
-&nbsp;&nbsp;&nbsp;^int:sql{</b></span></span><span><b>select&nbsp;count(*)&nbsp;from&nbsp;news</b><span><b>}
+</span><span class="h1"><b>Пример
 <br />
-}</b></span></span><span><b>
+</b></span><span class="mono"><span class="monoblue"><b>^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opconnect.htm">connect</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b><a href="app3.htm">строка подключения</a></b></span></span><span class="mono"><span class="monoblue"><b>]{
+<br />
+&nbsp;&nbsp;&nbsp;^int:sql{</b></span></span><span class="mono"><b>select&nbsp;count(*)&nbsp;from&nbsp;news</b><span class="monoblue"><b>}
+<br />
+}</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-������ ���������� ������� � ������� </span><span><b>news</b></span><span>.</span><span>
+Вернет количество записей в таблице </span><span class="mono"><b>news</b></span><span>
 <br />
 </span></span><br />
 

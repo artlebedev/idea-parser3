@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Variables</title>
+    <title>Variables</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,12 +15,12 @@
   <tr>
     <td>
       
-<span><b>Variables
+<span class="h1"><b>Variables
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
@@ -55,19 +55,19 @@ Different types of data demand different brackets to be used while a variable is
 
 <br />
 <table border="0" cellpadding="1"><tr><td align="left" valign="top" width="224">
-<span><b>$variable_name[string]</b><span> </span><span>
+<span class="mono"><b>$variable_name[string]</b><span> </span><span style="font-family:MS Sans Serif; font-size:8pt; color:#000000">
 <br />
 </span></span></td><td align="left" valign="top" width="415">
-<span>assigns a string (an object of class <span><b>string</b></span><span>) or an object of some class;
+<span>assigns a string (an object of class <span class="mono"><b>string</b></span><span>) or an object of some class;
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="224">
-<span><b>$variable_name(expression)</b><span>
+<span class="mono"><b>$variable_name(expression)</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="415">
-<span>assigns a number or result of some mathematical expression<span>
+<span class="h1">assigns a number or result of some mathematical expression<span>
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="224">
-<span><b>$variable_name{code}</b><span>
+<span class="mono"><b>$variable_name{code}</b><span>
 <br />
 </span></span></td><td align="left" valign="top" width="415">
 <span>assigns some code to be executed when the variable is referred to
@@ -80,11 +80,11 @@ To retrieve value stored in a variable, you should refer to the variable by name
 <br />
 
 <br />
-</span><span><b>$variable_name</b></span><span>-retrieves value stored in variable
+</span><span class="mono"><b>$variable_name</b></span><span>-retrieves value stored in variable
 <br />
 
 <br />
-</span><span><b>Examples
+</span><span class="h1"><b>Examples
 <br />
 </b></span><span><table border="0" cellpadding="1"><tr><td align="left" valign="top" width="386">
 <span>Code
@@ -93,29 +93,29 @@ To retrieve value stored in a variable, you should refer to the variable by name
 <span>Result
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="386">
-<span><span><b>$string[2+2]
+<span class="mono"><span class="monoblue"><b>$string[2+2]
 <br />
-</b></span><span><span><b>$string</b></span></span><span><span><b>&nbsp;</b></span></span><span>
+</b></span><span class="mono"><span class="monoblue"><b>$string</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;</b></span></span><span>
 <br />
 
 <br />
 </span></span></td><td align="left" valign="top" width="254">
-<span><b>2+2</b><span>
+<span class="mono"><b>2+2</b><span>
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="386">
-<span><span><b>$number(2*2)</b></span><span><span><b>
+<span class="mono"><span class="monoblue"><b>$number(2*2)</b></span><span class="mono"><span class="monoblue"><b>
 <br />
-$number</b></span></span><span><b>
+$number</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="254">
-<span><b>4</b><span><b>
+<span class="mono"><b>4</b><span class="monoblue"><b>
 <br />
 </b></span><span>
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="386">
-<span><span><b>$i(0)
+<span class="mono"><span class="monoblue"><b>$i(0)
 <br />
 $code{$i}
 <br />
@@ -126,45 +126,45 @@ $code
 </b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="254">
-<span><b>1</b><span>
+<span class="mono"><b>1</b><span>
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="386">
-<span><span><b>$i(0)
+<span class="mono"><span class="monoblue"><b>$i(0)
 <br />
 $string[$i]
 <br />
 $i(1)
 <br />
-$string</b></span><span>
+$string</b></span><span class="mono">
 <br />
 </span></span></td><td align="left" valign="top" width="254">
-<span><b>0</b>
+<span class="mono"><b>0</b>
 <br />
 </span></td></tr></table>
 <br />
 <i>
 <br />
-</i>As a part of variable's name you may use:</span><span>
+</i>As a part of variable's name you may use:</span><span class="h1">
 <br />
 </span><span>
 <br />
 ...value stored in another variable:
 <br />
-</span><span><span><b>$superman[</b></span></span><span><b>value&nbsp;of&nbsp;superman&nbsp;variable</b><span><b>]</b></span></span><span>
+</span><span class="mono"><span class="monoblue"><b>$superman[</b></span></span><span class="mono"><b>value&nbsp;of&nbsp;superman&nbsp;variable</b><span class="monoblue"><b>]</b></span></span><span>
 <br />
-</span><span><span><b>$part[man]
+</span><span class="mono"><span class="monoblue"><b>$part[man]
 <br />
 $super$part
 <br />
-</b></span></span><span>will return: </span><span><b>value&nbsp;of&nbsp;superman&nbsp;variable</b></span><span>
+</b></span></span><span>will return: </span><span class="mono"><b>value&nbsp;of&nbsp;superman&nbsp;variable</b></span><span>
 <br />
 
 <br />
-</span><span><span><b>$name[</b></span></span><span><b>picture</b><span><b>]</b></span></span><span>
+</span><span class="mono"><span class="monoblue"><b>$name[</b></span></span><span class="mono"><b>picture</b><span class="monoblue"><b>]</b></span></span><span>
 <br />
-</span><span><span><b>${name}.gif
+</span><span class="mono"><span class="monoblue"><b>${name}.gif
 <br />
-</b></span></span><span>will return string </span><span><b>picture.gif</b></span><span> (but NOT field </span><span><b>gif</b></span><span> of object </span><span><b>picture</b></span><span>)
+</b></span></span><span>will return string </span><span class="mono"><b>picture.gif</b></span><span> (but NOT field </span><span class="mono"><b>gif</b></span><span> of object </span><span class="mono"><b>picture</b></span><span>)
 <br />
 
 <br />
@@ -172,9 +172,9 @@ $super$part
 <br />
 
 <br />
-</span><span><span><b>$field.[b^eval(2+3)]
+</span><span class="mono"><span class="monoblue"><b>$field.[b^eval(2+3)]
 <br />
-</b></span></span><span>will return field </span><span><b>b5</b></span><span> of object </span><span><b>field</b></span><span>.</span><span>
+</b></span></span><span>will return field </span><span class="mono"><b>b5</b></span><span> of object </span><span class="mono"><b>field</b></span><span>
 <br />
 </span></span><br />
 

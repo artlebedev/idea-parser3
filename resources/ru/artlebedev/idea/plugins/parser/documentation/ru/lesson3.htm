@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>���� 3. ������ ��� � ������ ��������</title>
+    <title>Урок 3. Первый шаг — раздел новостей</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,19 +11,620 @@
 <body>
 
 
-<span><b>��� �� �������:</b></h1><span> ������� �������, ����������� ��������� �� ������� �����.
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Урок 3. Первый шаг - раздел новостей
+<br />
+</b></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
+<br />
+
+
+
+<span>На двух предыдущих уроках мы описали общую структуру нашего сайта. Сейчас это всего лишь каркас. Пора приступать к его информационному наполнению. Практически на каждом сайте присутствует раздел новостей, и наш не должен стать исключением. Также как и с разделами сайта, мы предлагаем начать работу над разделом новостей с создания меню к этому разделу. В качестве средства доступа к новостям будем использовать привычный глазу календарь на текущий месяц.
 <br />
 
 <br />
-</span><span><b>��� ������: </b></h1><span>
+Создать календарь средствами одного HTML - задача достаточно нетривиальная, к тому же код получится очень громоздким. Сейчас Вы увидите, как легко это сделать на Parser.  Приступаем.
 <br />
 
 <br />
-<span><b>��� ���� ���������: </b></h1><span>
+Все файлы, относящиеся к разделу новостей, будем размещать в разделе <span class="mono">/news/</span><span>, что было указано нами в файле </span><span class="mono">sections.cfg</span><span>. Для начала создадим там (!) файл </span><span class="mono">auto.p.&nbsp;</span><span>Удивлены? Да, файлы </span><span class="mono">auto.p</span><span> можно создавать в любом каталоге сайта. Однако при этом надо иметь в виду, что функции, описанные в </span><span class="mono">auto.p</span><span> разделов, будут явно доступны только внутри этих разделов. Согласитесь, ни к чему загромождать корневой </span><span class="mono">auto.p</span><span> функциями, которые нужны для одного раздела. Логичнее вынести их в отдельный файл, относящийся именно к этому разделу. 
 <br />
 
 <br />
-<span><b>��� ����� ������ ������:</b></h1><span> �� ��������� ����� �� ������ ��������� ���� ��������� ������� ������ �� ����� ������. � ����� �������, �� �������� � ������ � ������� � ������ ������ ��� �������� ������������ ���������� �������.
+Еще одно замечание: если в </span><span class="mono">auto.p</span><span> раздела переопределить функцию, ранее описанную в корневом </span><span class="mono">auto.p</span><span>, то будет исполняться именно эта, переопределенная функция. Сработает механизм виртуальных функций, описанный в предыдущем уроке.
+<br />
+
+<br />
+Итак, в </span><span class="mono">auto.p</span><span> раздела news пишем такой код:
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>@calendar[]
+<br />
+$calendar_locale[
+<br />
+&nbsp;&nbsp;&nbsp;$.month_names[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.1[Январь]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.2[Февраль]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.3[Март]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.4[Апрель]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.5[Май]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.6[Июнь]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.7[Июль]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.8[Август]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.9[Сентябрь]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.10[Октябрь]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.11[Ноябрь]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.12[Декабрь]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;$.day_names[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.0[пн]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.1[вт]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.2[ср]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.3[чт]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.4[пт]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.5[сб]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.6[вс]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+&nbsp;&nbsp;&nbsp;$.day_colors[
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.0[#000000]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.1[#000000]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.2[#000000]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.3[#000000]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.4[#000000]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.5[#800000]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.6[#800000]
+<br />
+&nbsp;&nbsp;&nbsp;]
+<br />
+]
+<br />
+$now[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="datenow.htm">date::now</a></b></span></span><span class="mono"><span class="monoblue"><b>[]]
+<br />
+$days[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="datecalendarmonth.htm">date:calendar</a></b></span></span><span class="mono"><span class="monoblue"><b>[rus]($now.year;$now.month)]
+<br />
+</b></span></span><span class="mono"><b>&lt;center&gt;
+<br />
+&lt;table&nbsp;bgcolor="#000000"&nbsp;cellspacing="1"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;bgcolor="#FFFFFF"&nbsp;colspan="7"&nbsp;align="center"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;</b><span class="monoblue"><b>$calendar_locale.month_names.[$now.</b></span></span><span class="mono"><span class="monoblue"><b><a href="datefields.htm">month</a></b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span class="mono"><b>&lt;/b&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;tr&gt;</b><b>
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opfor.htm">for</a></b></span></span><span class="mono"><span class="monoblue"><b>[week_day](0;6){
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;width="14%"&nbsp;align="center"&nbsp;bgcolor="#A2D0F2"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font&nbsp;color="</b><span class="monoblue"><b>$calendar_locale.day_colors.$week_day</b></span></span><span class="mono"><b>"&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$calendar_locale.day_names.$week_day
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/font&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br />
+</b><span class="monoblue"><b>^days.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opfor.htm">for</a></b></span></span><span class="mono"><span class="monoblue"><b>[week_day](0;6){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^if($days.$week_day){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^if($days.$week_day</b></span></span><span class="mono"><span class="monoblue"><b><a href="exprops.htm">==</a></b></span></span><span class="mono"><span class="monoblue"><b>$now.day){
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&nbsp;bgcolor="#FFFF00"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font&nbsp;color="</b><span class="monoblue"><b>$calendar_locale.day_colors.$week_day</b></span></span><span class="mono"><b>"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;</b><span class="monoblue"><b>$days.$week_day</b></span></span><span class="mono"><b>&lt;/b&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/font&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;</b><b>
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;align="center"&nbsp;bgcolor="#FFFFFF"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font&nbsp;color="</b><span class="monoblue"><b>$calendar_locale.day_colors.$week_day</b></span></span><span class="mono"><b>"&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$days.$week_day
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/font&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}{
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;bgcolor="#DFDFDF"&gt;&amp;nbsp&lt;/td&gt;&nbsp;&nbsp;&nbsp;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br />
+</b><span class="monoblue"><b>}
+<br />
+</b></span></span><span class="mono"><b>&lt;/table&gt;
+<br />
+&lt;/center&gt;
+<br />
+</b></span><span>
+<br />
+Мы определили функцию </span><span class="mono"><b>calendar</b></span><span>, которая создает HTML-код календаря. Получился довольно громоздкий код, но ведь и задачи, которые мы ставим перед собой, тоже усложнились. Не волнуйтесь, сейчас во всем разберемся. 
+<br />
+
+<br />
+Самая объемная часть кода, начинающаяся с определения </span><span class="mono"><b>$calendar_locale</b></span><span>, оказалась незнакомой. Посмотрите на эту структуру. Похоже, в ней мы определяем какие-то данные для календаря, напоминающие таблицу. То, что определено как </span><span class="mono"><b>$calendar_locale</b></span><span>, в терминологии Parser называется «хеш», или ассоциативный массив. Зачем он нужен можно сказать, просто бегло просмотрев код примера: здесь мы сопоставляем русское написание месяца его номеру в году (3 - март), название дня недели его номеру, а также связываем шестнадцатиричное значение цвета с некоторым числом. Теперь идея хешей должна проясниться: они нужны для сопоставления (ассоциативной связи) имени с объектом. В нашем случае мы ассоциируем порядковые номера месяцев и дней с их названиями (строками). Parser использует объектную модель, поэтому строка тоже является объектом. Нам несложно получить порядковый номер текущего месяца, но намного нагляднее будет вывести в календаре «Ноябрь» вместо «11» или «пн» вместо «1». Для этого мы и создаем ассоциативный массив.
+<br />
+
+<br />
+В общем виде порядок объявления переменных-хешей такой:
+<br />
+</span><span class="mono"><b>
+<br />
+$имя[
+<br />
+&nbsp;&nbsp;&nbsp;$.ключ[значение]
+<br />
+]
+<br />
+</b></span><span>
+<br />
+Эта конструкция позволяет обратиться к переменной по имени с ключом </span><span class="mono"><b>$имя.ключ</b></span><span> и получить сопоставленное значение. Обратите внимание, что в нашем случае мы имеем хеш, полями которого являются три других хеша.
+<br />
+
+<br />
+После определения хеша мы видим уже знакомую переменную </span><span class="mono"><b>now</b></span><span> (текущая дата), а вот дальше идет незнакомая конструкция:
+<br />
+
+<br />
+</span><span class="mono"><b>$days[^</b><b><a href="datecalendarmonth.htm">date:calendar</a></b><b>[rus]($date.</b><b><a href="datefields.htm">year</a></b><b>;$date.</b><b><a href="datefields.htm">month</a></b><b>)]
+<br />
+</b></span><span>
+<br />
+По логике работы она напоминает конструктор, поскольку в переменную </span><span class="mono"><b>days</b></span><span> помещается таблица с календарем на текущий месяц текущего года. Тем не менее, привычного </span><span class="mono"><b>::</b></span><span> здесь не наблюдается. Это один из статических методов класса </span><span class="mono"><b>date</b></span><span>. Статические методы наряду с уже знакомыми конструкторами могут возвращать объекты, поэтому в данном случае необходимо присвоить созданный объект переменной. Про статические переменные и методы уже было немного сказано в конце предыдущего урока. Своим появлением они обязаны тому факту, что некоторые объекты или их свойства (поля) существуют в единственном экземпляре, как, например, календарь на заданный месяц или URI страницы. Поэтому подобные объекты и поля выделены в отдельную группу, и к ним можно обращаться напрямую, без использования конструкторов. В случае если мы обращаемся к статическому полю, мы получаем значение поля самого класса. В качестве примера можно привести класс </span><span class="mono"><b><a href="mathclass.htm">math</a></b></span><span>, предназначенный для работы с математическими функциями. Поскольку существует только одно число</span><span>, то для того, чтобы получить его значение, используется статическое поле </span><span class="mono"><b><a href="mathstats.htm">$math:PI</a></b></span><span> - это значение поля самого класса </span><span class="mono"><b>math</b></span><span>. 
+<br />
+
+<br />
+В результате исполнения этого кода в переменной </span><span class="mono"><b>days</b></span><span> будет содержаться такая таблица: 
+<br />
+Таб.1 (для ноября 2001 года)
+<br />
+
+<br />
+<table border="0" cellpadding="1"><tr><td align="left" valign="top" width="62">
+<p align="center"><span class="mono"><b><i>0</i></b><u>
+<br />
+</u></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b><i>1</i></b><span><u>
+<br />
+</u></span></span></p></td><td align="left" valign="top" width="71">
+<p align="center"><span class="mono"><b><i>2</i></b><span><u>
+<br />
+</u></span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span class="mono"><b><i>3</i></b><span><u>
+<br />
+</u></span></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b><i>4</i></b><span><i>
+<br />
+</i></span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span class="mono"><b><i>5</i></b><span><u>
+<br />
+</u></span></span></p></td><td align="left" valign="top" width="68">
+<p align="center"><span class="mono"><b><i>6</i></b><span><u>
+<br />
+</u></span></span></p></td></tr><tr><td align="left" valign="top" width="62">
+<p align="center"><span class="mono">&nbsp;
+<br />
+</span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b> </b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="71">
+<span> 
+<br />
+</span></td><td align="left" valign="top" width="65">
+<p align="center"><span class="mono"><b>01</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>02</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span class="mono"><b>03</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="68">
+<p align="center"><span class="mono"><b>04</b><span>
+<br />
+</span></span></p></td></tr><tr><td align="left" valign="top" width="62">
+<p align="center"><span class="mono"><b>05</b>
+<br />
+</span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>06</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="71">
+<p align="center"><span class="mono"><b>07</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span class="mono"><b>08</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>09</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span class="mono"><b>10</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="68">
+<p align="center"><span class="mono"><b>11</b><span>
+<br />
+</span></span></p></td></tr><tr><td align="left" valign="top" width="62">
+<p align="center"><span class="mono"><b>12</b>
+<br />
+</span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>13</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="71">
+<p align="center"><span class="mono"><b>14</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span class="mono"><b>15</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>16</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span class="mono"><b>17</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="68">
+<p align="center"><span class="mono"><b>18</b><span>
+<br />
+</span></span></p></td></tr><tr><td align="left" valign="top" width="62">
+<p align="center"><span class="mono"><b>19
+<br />
+</b></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>20</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="71">
+<p align="center"><span class="mono"><b>21</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span class="mono"><b>22</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>23</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="66">
+<p align="center"><span class="mono"><b>24</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="68">
+<p align="center"><span class="mono"><b>25</b><span>
+<br />
+</span></span></p></td></tr><tr><td align="left" valign="top" width="62">
+<p align="center"><span class="mono"><b>26</b>
+<br />
+</span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>27</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="71">
+<p align="center"><span class="mono"><b>28</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="65">
+<p align="center"><span class="mono"><b>29
+<br />
+</b></span></p></td><td align="left" valign="top" width="70">
+<p align="center"><span class="mono"><b>30</b><span>
+<br />
+</span></span></p></td><td align="left" valign="top" width="66">
+<span> 
+<br />
+</span></td><td align="left" valign="top" width="68">
+<span> 
+<br />
+</span></td></tr></table>
+<br />
+
+<br />
+Это таблица, содержащая порядковый номер дней недели и календарь на 11.2001. 
+<br />
+
+<br />
+С ней мы и  будем дальше работать. Нельзя сразу же выводить содержимое переменной </span><span class="mono"><b>$days</b></span><span>, просто обратившись к ней по имени. Если мы обратимся к таблице просто как к переменной, будет непонятно, что мы хотим получить - строку, всю таблицу целиком или значение только из одного столбца. Также явно требуется доработка содержимого полученной таблицы. Но ведь не зря же мы создавали наш хеш с названиями дней недели и месяцев. Поэтому далее по коду средствами HTML создается таблица, в первой строке которой мы выводим название текущего месяца, пользуясь данными из хеша, связанными с номером месяца в году:
+<br />
+
+<br />
+</span><span class="mono"><b>$calendar_locale.month_names.[$now.month]
+<br />
+</b></span><span>
+<br />
+Что здесь что? Мы выводим значение поля </span><span class="mono"><b>month_names</b></span><span> хеша </span><span class="mono"><b>calendar_locale</b></span><span> с порядковым номером текущего месяца, полученным как </span><span class="mono"><b>$now.month</b></span><span>. Результатом выполнения этой конструкции будет название месяца на русском (или любом другом) языке, которое было определено в хеше.
+<br />
+
+<br />
+В следующей строке календаря выведем названия дней недели, пользуясь данными хеша. Давайте чуть подробнее определимся с задачей. Нам надо последовательно перебрать номера дней недели (от 0 до 6) и поставить в соответствие номеру дня его название из поля </span><span class="mono"><b>day_names</b></span><span> хеша </span><span class="mono"><b>calendar_locale</b></span><span>. Для этой цели удобнее всего воспользоваться циклом: последовательностью действий, выполняющейся заданное количество раз. В данном случае мы используем  цикл </span><span class="mono"><b><a href="opfor.htm">for</a></b></span><span>. Его синтаксис такой:
+<br />
+
+<br />
+</span><span class="mono"><b>^for[счетчик](диапазон&nbsp;значений,&nbsp;например&nbsp;0;6){последовательность&nbsp;действий}
+<br />
+</b></span><span>
+<br />
+Одно из достоинств циклов - возможность использования значения счетчика внутри цикла, обращаясь к нему как к переменной. Этим мы и воспользуемся:
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>^for[week_day](0;6){
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;td&nbsp;width="14%"&nbsp;align="center"&nbsp;bgcolor="#A2D0F2"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font&nbsp;color="</b><span class="monoblue"><b>$calendar_locale.day_colors.$week_day</b></span></span><span class="mono"><b>"&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$calendar_locale.day_names.$week_day
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/font&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br />
+</b><span class="monoblue"><b>}
+<br />
+</b></span></span><span>
+<br />
+Все просто и понятно, если знать, что такое цикл: последовательно меняя значение </span><span class="mono"><b>week_day</b></span><span> от 0 до 6 (здесь </span><span class="mono"><b>week_day</b></span><span> является счетчиком цикла), мы получаем семь значений:
+<br />
+
+<br />
+</span><span class="mono"><b>$calendar_locale.day_colors.$week_day&nbsp;&nbsp;&nbsp;</b></span><span>- для цвета шрифта 
+<br />
+</span><span class="mono"><b>$calendar_locale.day_names.$week_day&nbsp;&nbsp;&nbsp;-&nbsp;</b></span><span>для названия дня недели. 
+<br />
+
+<br />
+Идея получения данных та же, что и для получения названия месяца, только используются другие ключи хеша.
+<br />
+
+<br />
+Возможно, возник вопрос: зачем в хеше ключ </span><span class="mono"><b>day_colors</b></span><span>? Ответ прост - все должно быть красиво! Если есть возможность максимально приблизить наш календарь к реальному, то так и сделаем - перекрасим выходные дни в красный цвет.
+<br />
+
+<br />
+Далее по тексту следует большой красивый блок. Чтобы в нем разобраться, определимся с задачами. Итак, нам нужно: 
+<br />
+</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
+<br />
+</span><span>1. Последовательно перебрать строки таблицы </span><span class="mono"><b>days</b></span><span> (Таб.1). 
+<br />
+2. В каждой строке таблицы </span><span class="mono"><b>days</b></span><span> последовательно перебрать и вывести значения столбцов (числа месяца).
+<br />
+3. Корректно вывести пустые столбцы (то есть проверить первую и последнюю недели месяца на полноту).
+<br />
+4. Как-то выделить текущее число, например другим цветом и жирным шрифтом.
+<br />
+&nbsp;&nbsp;&nbsp;
+<br />
+Приступаем. Первый пункт решается с помощью знакомого метода menu класса </span><span class="mono"><b>table</b></span><span>:
+<br />
+
+<br />
+</span><span class="mono"><b>^days.menu{…}
+<br />
+</b></span><span>
+<br />
+Перебор столбцов логичнее всего сделать циклом </span><span class="mono"><b>for</b></span><span>, с которым мы только что познакомились:
+<br />
+
+<br />
+</span><span class="mono"><b>^for[week_day](0;6){…}
+<br />
+</b></span><span>
+<br />
+Для проверки столбцов на пустоту для вывода столбцов без чисел используем оператор </span><span class="mono"><b><a href="opif.htm">if</a></b></span><span>. Вообще, любые проверки условий всегда можно реализовать с помощью </span><span class="mono"><b>if</b></span><span>:
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>^if($days.$week_day){
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;…
+<br />
+</b><span class="monoblue"><b>}{
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>&lt;td&nbsp;bgcolor="#DFDFDF"&gt;&amp;nbsp&lt;/td&gt;
+<br />
+</b><span class="monoblue"><b>}
+<br />
+</b></span></span><span>
+<br />
+Обратите внимание, что в условии if мы ни с чем не сравниваем </span><span class="mono"><b>$days.$week_day</b></span><span>. Так осуществляется проверка на неравенство нулю. 
+<br />
+
+<br />
+Parser это условие понимает так:
+<br />
+
+<br />
+«Если существует </span><span class="mono"><b>$days.$week_day</b></span><span>, то </span><span class="mono"><b>{…}</b></span><span>, если нет, то вывести пустую ячейку таблицы серого цвета»
+<br />
+
+<br />
+Основная часть работы выполнена. Осталось только выделить текущее число. Решается это использованием еще одного </span><span class="mono"><b>if</b></span><span>, где условием задается сравнение текущего значения таблицы </span><span class="mono"><b>days</b></span><span> с текущим числом (</span><span class="mono"><b>$days.$week_day</b><b><a href="exprops.htm">==</a></b><b>$now.day</b></span><span>):
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>^if($days.$week_day</b></span></span><span class="mono"><span class="monoblue"><b><a href="exprops.htm">==</a></b></span></span><span class="mono"><span class="monoblue"><b>$now.day){
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>&lt;td&nbsp;align="center"&nbsp;bgcolor="#FFFF00"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font&nbsp;color="</b><span class="monoblue"><b>$calendar_locale.day_colors.$week_day</b></span></span><span class="mono"><b>"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;</b><span class="monoblue"><b>$days.$week_day</b></span></span><span class="mono"><b>&lt;/b&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/font&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br />
+</b></span><span><span><b>}{&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>&lt;td&nbsp;align="center"&nbsp;bgcolor="#FFFFFF"&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;font&nbsp;color="</b><span class="monoblue"><b>$calendar_locale.day_colors.$week_day</b></span></span><span class="mono"><b>"&gt;
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$days.$week_day
+<br />
+&nbsp;&nbsp;&nbsp;</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&lt;/font&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br />
+</b></span><span><span><b>}
+<br />
+</b></span></span><span>
+<br />
+Обратите внимание на то, что здесь мы проверяем на равенство два числа, поэтому используем оператор </span><span class="mono"><b><a href="exprops.htm">==</a></b></span><span>вместо </span><span class="mono"><b><a href="exprops.htm">eq</a></b></span><span>, используемый для проверки равенства строк.
+<br />
+
+<br />
+Еще раз посмотрим на общую структуру формирования календаря:
+<br />
+
+<br />
+</span><span class="mono"><span class="monoblue"><b>#перебираем&nbsp;строки&nbsp;таблицы&nbsp;с&nbsp;календарем
+<br />
+^days.</b></span></span><span class="mono"><span class="monoblue"><b><a href="tablemenu.htm">menu</a></b></span></span><span class="mono"><span class="monoblue"><b>{
+<br />
+
+<br />
+#перебираем&nbsp;столбцы&nbsp;таблицы&nbsp;с&nbsp;календарем&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;^</b></span></span><span class="mono"><span class="monoblue"><b><a href="opfor.htm">for</a></b></span></span><span class="mono"><span class="monoblue"><b>[week_day](0;6){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^if($days.week_day){
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^if($month.$week_day==$date.day){
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;число&nbsp;на&nbsp;другом&nbsp;фоне&nbsp;жирным&nbsp;шрифтом
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}{
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;число
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}{
+<br />
+</b></span></span><span class="mono"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;пустой&nbsp;серый&nbsp;столбец
+<br />
+</b><span class="monoblue"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+}
+<br />
+</b></span></span><span>
+<br />
+
+<br />
+Эту конструкцию простой не назовешь. Здесь используются вложенные друг в друга конструкции. Однако она позволяет понять возможность комбинирования различных средств Parser для решения конкретной задачи. Есть более элегантное решение - вынести проверку текущей даты и ее раскрашивание нужным цветом в отдельную функцию, которую и вызывать внутри цикла. Похожее решение мы использовали во втором уроке. Это позволит разгрузить блок и сделать его более читабельным. Но поскольку в данном примере мы хотели показать вам возможность комбинирования нескольких логических структур, то оставляем эту возможность вам в качестве задания.
+<br />
+
+<br />
+Если хотите  убедиться в работоспособности этого модуля, создайте в разделе </span><span class="mono">/news/</span><span> файл </span><span class="mono">test.html</span><span> и в нем наберите одну единственную строчку </span><span class="mono"><b>^calendar[]</b></span><span>. Теперь откройте этот файл из браузера и полюбуйтесь результатом своих трудов.
+<br />
+
+<br />
+Подведем итоги третьего урока. 
+<br />
+
+<br />
+</span><span class="h1"><b>Что мы сделали:</b></span><span> описали функцию, формирующую календарь на текущий месяц.
+<br />
+
+<br />
+</span><span class="h1"><b>Что узнали: </b></span><span>
+<br />
+
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>файл </span><span class="mono">auto.p</span><span> может содержаться не только в корневом каталоге сайта, но и в любом другом, при этом функции, в нем определенные, явно доступны только внутри этого каталога
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>переменная-хеш - это массив, нужный для построения ассоциативной связи одних объектов с другими. В нашем случае объектами выступали строки
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>статический метод </span><span class="mono"><b><a href="datecalendarmonth.htm">calendar</a></b></span><span> создает таблицу с календарем на текущий месяц
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>цикл </span><span class="mono"><b><a href="opfor.htm">for</a></b></span><span> позволяет последовательно выполнить определенные действия заданное количество раз
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+</span><span class="h1"><b>Что надо запомнить: </b></span><span>
+<br />
+
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>наряду с методами объектов, создаваемых с помощью конструкторов класса, существуют статические методы. Вы можете непосредственно обращаться к этим методам без предварительного использования конструктора для создания объекта 
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>в циклах </span><span class="mono"><b>for</b></span><span> можно обращаться к счетчику как к переменной по имени и получать его текущее значение
+&nbsp;<br />
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>
+<br />
+Поскольку код становится все объемнее, неплохо бы начать снабжать его комментариями, чтобы потом было легче разбираться. В Parser комментариями считается любая строка, начинающаяся со знака </span><span class="mono"><b>#</b></span><span>. До сих пор мы не пользовались этим, но в дальнейшем нам пригодится комментирование  кода. Следующая строка - пример комментария:
+<br />
+
+<br />
+</span><span class="mono"><b>#&nbsp;весь&nbsp;этот&nbsp;текст&nbsp;Parser&nbsp;проигнорирует&nbsp;-&nbsp;это&nbsp;комментарий&nbsp;!!!!
+<br />
+</b><span class="monoblue"><b>
+<br />
+</b></span></span><span>Обязательно комментируйте свой код! В идеале он должен быть самодокументирующимся, а человек, читающий его, должен сразу же понимать о чем идет речь, что из чего следует и т.д. Если этого не сделать, то спустя какое-то время вспомнить что делает та или иная функция станет очень сложно даже вам самим, не говоря уже про остальных. Помните об этом!
+<br />
+
+<br />
+</span><span class="h1"><b>Что будем делать дальше:</b></span><span> на следующем уроке мы научим созданный нами календарь ставить ссылки на числа месяца. А самое главное, мы перейдем к работе с формами и базами данных для создания полноценного новостного раздела.
 <br />
 </span></span><br />
 

@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>post-charset. ��������� ��������� ���������� POST �������</title>
+    <title>post-charset. Получение кодировки пришедшего POST запроса</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,22 +11,32 @@
 <body>
 
 
-<span><b>&nbsp;&nbsp;&nbsp;</b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span><b><i>[3.</i></b><b><i>3</i></b><b><i>.</i></b><b><i>0</i></b><b><i>]</i></b></span><span style="font-family:Arial; font-size:12pt; color:#000000"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>$request:post-charset
+<span class="mono"><b>$request:post-charset
 <br />
 
 <br />
-</b><span>���� � HTTP ��������� content-type ���������� POST ������� ���������� ���������� � ���������, �� � �������� �������� � ���� ����.
+</b><span>Если в HTTP заголовке content-type пришедшего POST запроса содержится информация о кодировке, то её название доступно в этом поле.
 <br />
-��� ������� ����� ����� ��������� POST ������� ������ �������������� �� ��������� � ���� ��������� ���������, � �� �� ����, ��� ������ � <a href="responsecharset.htm">$response:charset</a>.
+При разборе полей формы подобного POST запроса данные перекодируются из указанной в этом заголовке кодировки, а не из того, что задано в <a href="responsecharset.htm">$response:charset</a>.
 <br />
 
 <br />
-<i>��������</i><i>: ���� ���������, ��������� � </i><i>���������� </i><i>HTTP</i><i> ��������� �� ���� ���������� (�������� � ���������������� ������), �� ����� ������ ��������� �� ������.
+<i>Внимание</i><i>: если кодировка, указанная в </i><i>упомянутом </i><i>HTTP</i><i> заголовке не была подключена (например в конфигурационном методе), то будет выдано сообщение об ошибке.
 <br />
 </i>
 <br />

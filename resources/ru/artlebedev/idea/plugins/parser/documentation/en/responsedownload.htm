@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>download. Specifying a new response body</title>
+    <title>download. Specifying a new response body</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,42 +15,42 @@
   <tr>
     <td>
       
-<span><b>download. Specifying a new response body
+<span class="h1"><b>download. Specifying a new response body
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$response:download[DATA]</b>&nbsp;&nbsp;&nbsp;<span>
+<span class="mono"><b>$response:download[DATA]</b>&nbsp;&nbsp;&nbsp;<span>
 <br />
 </span><span>
 <br />
-This field is identical to </span><span><b>$response:</b><b><a href="responsebody.htm">body</a></b></span><span>, but it sets flag that browser interprets as "Suggest that visitor save file to disk."
+This field is identical to </span><span class="mono"><b>$response:</b><b><a href="responsebody.htm">body</a></b></span><span>, but it sets flag that browser interprets as "Suggest that visitor save file to disk."
 <br />
 
 <br />
-Browsers are able to display certain file types right within their windows (for example: </span><span>.doc</span><span>, </span><span>.pdf</span><span> files).
+Browsers are able to display certain file types right within their windows (for example: </span><span class="mono">.doc</span><span>, </span><span class="mono">.pdf</span><span> files).
 <br />
 Still, sometimes we should enable a visitor to download the file by simply clicking a relevant link.
 <br />
-</span><span><b>
+</span><span class="h1"><b>
 <br />
 </b><b>Example: outputting a PDF file</b></span><span><b>
 <br />
 </b>A visitor is at page with such HTML:
 <br />
-</span><span><b>&lt;a&nbsp;href="/download_documentation.html"&gt;Download&nbsp;documentation&lt;/a&gt;
+</span><span class="mono"><b>&lt;a&nbsp;href="/download_documentation.html"&gt;Download&nbsp;documentation&lt;/a&gt;
 <br />
 </b></span><span>
 <br />
-</span><span>download_documentation.html</span><span>:
+</span><span class="mono">download_documentation.html</span><span>:
 <br />
-</span><span><span><b>$response:download</b></span></span><span><span><b>[^</b></span></span><span><span><b><a href="fileload.htm">file::load</a></b></span></span><span><span><b>[</b></span></span><span><span><b>binary;documentation.pdf]]</b></span></span><span><b>
+</span><span class="mono"><span class="monoblue"><b>$response:download</b></span></span><span class="mono"><span class="monoblue"><b>[^</b></span></span><span class="mono"><span class="monoblue"><b><a href="fileload.htm">file::load</a></b></span></span><span class="mono"><span class="monoblue"><b>[</b></span></span><span class="mono"><span class="monoblue"><b>binary;documentation.pdf]]</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />

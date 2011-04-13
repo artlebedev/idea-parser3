@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>����� ������� �����</title>
+    <title>Опции формата файла</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,91 +11,101 @@
 <body>
 
 
-<span><b>����� ������� �����</b><b><i>&nbsp;&nbsp;&nbsp;</i></b><span><b><i>[3.1.2]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>Опции формата файла</b><b><i>&nbsp;&nbsp;&nbsp;</i></b><span><b><i>[3.1.2]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span>��� �������� � ������ ����� ����� ������ �������-����������� �������� � �������, ����������� �������� ��������.
+<span>При загрузке и записи файла можно задать символы-разделители столбцов и символы, обрамляющие значения столбцов.
 <br />
 
 <br />
 <table border="0" cellpadding="1"><tr><td align="left" valign="top" width="181">
-<span><b><i>�����</i></b>
+<span><b><i>Опция</i></b>
 <br />
 </span></td><td align="left" valign="top" width="124">
-<span><b><i>��-���������</i></b>
+<span><b><i>По-умолчанию</i></b>
 <br />
 </span></td><td align="left" valign="top" width="190">
-<span><b><i>��������</i></b>
+<span><b><i>Описание</i></b>
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="181">
-<span><b>$.separator[</b><span>������</span><span><b>]</b></span><span>
+<span class="mono"><b>$.separator[</b><span>символ</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="124">
-<span>���������
+<span>табуляция
 <br />
 </span></td><td align="left" valign="top" width="190">
-<span>������ ������, ����������� ��������
+<span>Задает символ, разделитель столбцов
 <br />
 </span></td></tr><tr><td align="left" valign="top" width="181">
-<span><b>$.encloser[</b><span>������</span><span><b>]</b></span><span>
+<span class="mono"><b>$.encloser[</b><span>символ</span><span class="mono"><b>]</b></span><span>
 <br />
 </span></span></td><td align="left" valign="top" width="124">
-<span>���
+<span>нет
 <br />
 </span></td><td align="left" valign="top" width="190">
-<span>������ ������, ����������� �������� �������.
+<span>Задает символ, обрамляющий значение столбца.
 <br />
 </span></td></tr></table>
 <br />
 
 <br />
-<i>����������: ���� ��������� ����� �� ������������� ����� �������� ������ </i><span><b><i>#</i></b></span><span><i>, </i><i>�� ����������� �������� �� ������������ ����� �����, ������������ � ����� �������.</i>
+<i>Примечание: если значением любой из вышеуказанных опций является символ </i><span class="mono"><b><i>#</i></b></span><span><i>, </i><i>то отключается удаление из загружаемого файла строк, начинающихся с этого символа.</i>
 <br />
 
 <br />
-</span><span><b>������ �������� .txt �����, ���������� Miscrosoft Excel
+</span><span class="h1"><b>Пример загрузки .txt файла, созданного Miscrosoft Excel
 <br />
-</b></span><span>Excel ����� ��������� ������ � ������� ��������� ����, ����������� �����������:
+</b></span><span>Excel умеет сохранять данные в простой текстовый файл, разделенный табуляциями:
 <br />
-&nbsp;&nbsp;&nbsp;����|��������� ��� ����� (����������� �����������) (</span><span>.txt</span><span>).
+&nbsp;&nbsp;&nbsp;Файл|Сохранить как… Текст (Разделенный табуляциями) (</span><span class="mono">.txt</span><span>).
 <br />
-������ ����������� � ��������� �������:
+Данные сохраняются в следующем формате:
 <br />
-</span><span><table border="1" cellpadding="1"><tr><td align="left" valign="top" width="253">
+</span><span class="mono"><table border="1" cellpadding="1"><tr><td align="left" valign="top" width="253">
 <span><b><i>name
 <br />
 </i></b></span></td><td align="left" valign="top" width="99">
-<span><b><i>description</i></b><span>
+<span><b><i>description</i></b><span class="mono">
 <br />
 </span></span></td></tr><tr><td align="left" valign="top" width="253">
-<span>"��� ""������ � ��������"""<span>
+<span>"ООО ""Петров и партнеры"""<span class="mono">
 <br />
 </span></span></td><td align="left" valign="top" width="99">
-<span>�����<span>
+<span>Текст<span class="mono">
 <br />
 </span></span></td></tr></table>
 <br />
-</span><span>(�������� ���� �������� ����������� ���������, ������� ������ ������ �������� �����������)
+</span><span>(Значения ряда столбцов обрамляется кавычками, которые внутри самого значения удваиваются)
 <br />
 
 <br />
-����� ������� ����� ����, ���������� ������� ��������������� ����� ��������:
+Чтобы считать такой файл, необходимо указать соответствующую опцию загрузки:
 <br />
-</span><span><span><b>$companies[^table::load[</b></span></span><span><b>companies.txt</b><span><b>;
+</span><span class="mono"><span class="monoblue"><b>$companies[^table::load[</b></span></span><span class="mono"><b>companies.txt</b><span class="monoblue"><b>;
 <br />
 &nbsp;&nbsp;&nbsp;$.encloser["]
 <br />
 ]]
 <br />
-$companies.name</b></span></span><span><b>
+$companies.name</b></span></span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-Parser ����� ����� �������� � � </span><span>.csv</span><span> �������, ���������� ������� �����:
+Parser также может работать и с </span><span class="mono">.csv</span><span> файлами, достаточно указать опцию:
 <br />
-</span><span><b>&nbsp;&nbsp;&nbsp;</b><span><b>$.separator[</b></span></span><span><span><b><a href="stringlit.htm">^;</a></b></span></span><span><span><b>]</b></span></span><span>
+</span><span class="mono"><b>&nbsp;&nbsp;&nbsp;</b><span class="monoblue"><b>$.separator[</b></span></span><span class="mono"><span class="monoblue"><b><a href="stringlit.htm">^;</a></b></span></span><span class="mono"><span class="monoblue"><b>]</b></span></span><span>
 <br />
 </span></span><br />
 

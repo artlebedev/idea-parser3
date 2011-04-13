@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>base64. ����������� � Base64</title>
+    <title>base64. Кодирование в Base64</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -11,38 +11,48 @@
 <body>
 
 
-<span><b>base64. ����������� � Base64&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.</i></b><b><i>5</i></b><b><i>]</i></b></span>
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      
+<span class="h1"><b>base64. Кодирование в Base64&nbsp;&nbsp;&nbsp;</b><span><b><i>[3.1.</i></b><b><i>5</i></b><b><i>]</i></b></span><span class="h1"><b>
+<br />
+</b></span></span>
+    </td>
+  </tr>
+  <tr><td><div class="greenline"></div></td></tr>
+</table>
 <br />
 
 
 
-<span><b>^file.base64[]
+<span class="mono"><b>^file.base64[]
 <br />
 </b><span>
 <br />
-����� ��������� ������������� ���� � Base64 �����. 
+Метод позволяет преобразовать файл в Base64 форму. 
 <br />
-����� ������������� ���� �� Base64 � ��������� ����, ��������������
+Чтобы преобразовать файл из Base64 к исходному виду, воспользуйтесь
 <br />
-</span><span><b>^file::</b><b><a href="filebase64c.htm">base64</a></b><b>[��������������]
+</span><span class="mono"><b>^file::</b><b><a href="filebase64c.htm">base64</a></b><b>[закодированное]
 <br />
 </b></span><span>
 <br />
-<i>��������� ����������  � Base64 �������� �����: </i><span><i><u><a href="http://www.ietf.org/rfc/rfc2045.txt" target="_blank">http://www.ietf.org/rfc/rfc2045.txt</a></u></i></span></span><span><i> � ����� </i><span><i><u><a href="http://en.wikipedia.org/wiki/Base64" target="_blank">http://en.wikipedia.org/wiki/Base64</a></u></i></span></span><span><i>
+<i>Подробная информация  о Base64 доступна здесь: </i><span class="blue"><i><u><a href="http://www.ietf.org/rfc/rfc2045.txt" target="_blank">http://www.ietf.org/rfc/rfc2045.txt</a></u></i></span></span><span><i> и здесь </i><span class="blue"><i><u><a href="http://en.wikipedia.org/wiki/Base64" target="_blank">http://en.wikipedia.org/wiki/Base64</a></u></i></span></span><span><i>
 <br />
 </i>
 <br />
-</span><span><b>������</b></h1><span>
+</span><span class="h1"><b>Пример</b></span><span>
 <br />
-</span><span><span><b>$original[^file::load[binary;</b></span></span><span><b>http://www.parser.ru/i/artlebedev.gif</b><span><b>]]
+</span><span class="mono"><span class="monoblue"><b>$original[^file::load[binary;</b></span></span><span class="mono"><b>http://www.parser.ru/i/artlebedev.gif</b><span class="monoblue"><b>]]
 <br />
-</b></span></span><span><b>&lt;pre&gt;</b><span><b>^original.base64[]</b></span></span><span><b>&lt;/pre&gt;</b><span><b>
+</b></span></span><span class="mono"><b>&lt;pre&gt;</b><span class="monoblue"><b>^original.base64[]</b></span></span><span class="mono"><b>&lt;/pre&gt;</b><span class="monoblue"><b>
 <br />
 </b></span></span><span>
 <br />
-�������
+Выведет…
 <br />
-</span><span><b>R0lGODlhWgAlAMQAAP///4CAgOX0yb/jeKXXQtnurvn88uz318Xmhszok/L55KzaUJ/VNbnga9Lr
+</span><span class="mono"><b>R0lGODlhWgAlAMQAAP///4CAgOX0yb/jeKXXQtnurvn88uz318Xmhszok/L55KzaUJ/VNbnga9Lr
 <br />
 od/xvM/qmeXzx+PzxaXXQbLdXdHrndzvtbzhccvokaPWPMHje+Hyv8PlgcTlgpnSKAAAACH5BAEA
 <br />

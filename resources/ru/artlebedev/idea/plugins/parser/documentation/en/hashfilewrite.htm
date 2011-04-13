@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>Writing</title>
+    <title>Writing</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,26 +15,26 @@
   <tr>
     <td>
       
-<span><b>Writing
+<span class="h1"><b>Writing
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span><b>$hashfile.key[string]
+<span class="mono"><b>$hashfile.key[string]
 <br />
 </b><span>
 <br />
-Stores to disk the association between </span><span><b>key</b></span><span> and </span><span><b>string</b></span><span>.
+Stores to disk the association between </span><span class="mono"><b>key</b></span><span> and </span><span class="mono"><b>string</b></span><span>.
 <br />
 
 <br />
-</span><span><b>$hashfile.key[
+</span><span class="mono"><b>$hashfile.key[
 <br />
 &nbsp;&nbsp;&nbsp;$.value[s</b><b>tring</b><b>]
 <br />
@@ -52,15 +52,15 @@ $hashfile.k</b><b>ey</b><b>[
 <br />
 </b></span><span>
 <br />
-Such a construction allows to specify the date for association to expire. There can be specified </span><span><b>number&nbsp;of&nbsp;days</b></span><span> or some specific </span><span><b>date</b></span><span>.
+Such a construction allows to specify the date for association to expire. There can be specified </span><span class="mono"><b>number&nbsp;of&nbsp;days</b></span><span> or some specific </span><span class="mono"><b>date</b></span><span>.
 <br />
 
 <br />
 Optional modifiers:
 <br />
-</span><span><b>$.expires(n</b><b>umber&nbsp;of&nbsp;days</b><b>)</b></span><span> - specifies number of days (can have fractional part, 1.5=day and a half), during which to keep </span><span><b>key</b></span><span>/</span><span><b>string</b></span><span> pair, 0 days=forever;</span><span>
+</span><span class="mono"><b>$.expires(n</b><b>umber&nbsp;of&nbsp;days</b><b>)</b></span><span> - specifies number of days (can have fractional part, 1.5=day and a half), during which to keep </span><span class="mono"><b>key</b></span><span>/</span><span class="mono"><b>string</b></span><span> pair, 0 days=forever;</span><span style="font-family:Times New Roman; font-size:12pt; color:#000000">
 <br />
-</span><span><b>$.expires[</b><b><a href="dateclass.htm">$date</a></b><b>]</b></span><span> - specifies date and time until which the association will be kept, here </span><span><b>$date</b></span><span>-the variable of </span><span><b><a href="dateclass.htm">date</a></b></span><span> type.
+</span><span class="mono"><b>$.expires[</b><b><a href="dateclass.htm">$date</a></b><b>]</b></span><span> - specifies date and time until which the association will be kept, here </span><span class="mono"><b>$date</b></span><span>-the variable of </span><span class="mono"><b><a href="dateclass.htm">date</a></b></span><span> type.
 <br />
 
 <br />

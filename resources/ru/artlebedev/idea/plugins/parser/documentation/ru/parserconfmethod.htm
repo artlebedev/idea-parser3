@@ -2,7 +2,7 @@
 <head>
     
     
-    <title>���������������� �����</title>
+    <title>Конфигурационный метод</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
     
 
@@ -15,60 +15,60 @@
   <tr>
     <td>
       
-<span><b>���������������� �����
+<span class="h1"><b>Конфигурационный метод
 <br />
 </b></span>
     </td>
   </tr>
-  <tr><td bgcolor="#99D228" height="3"></td></tr>
+  <tr><td><div class="greenline"></div></td></tr>
 </table>
 <br />
 
 
 
-<span>���� � ����� ��������� ����� <span><b>conf,</b></span><span>�� ����������� ������, �� </span><span><b><a href="mainclass.htm">auto</a></b></span><span>, � ������ ������ ��������� ���������: 
+<span>Если в файле определен метод <span class="mono"><b>conf,</b></span><span>он выполняется первым, до </span><span class="mono"><b><a href="mainclass.htm">auto</a></b></span><span>, и задает важные системные параметры: 
 <br />
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>�����, ����������� ��������� ��������, 
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></span></td><td><span>файлы, описывающие кодировки символов, 
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>����������� �� ������ HTTP POST-�������,
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>ограничение на размер HTTP POST-запроса,
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������/��������� �������� �����, 
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>сервер/программу отправки почты, 
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>SQL-�������� � �� ���������,
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>SQL-драйвера и их параметры,
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>������� ������������ ���������� ����� ����� � ��� mime-����.
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td width="14"><span><font face="Symbol" size="2" color="#000000">&#183;</font></span></td><td><span>таблицу соответствия расширения имени файла и его mime-типа.
 &nbsp;<br />
-</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>������������� ��������� ���� ����� � <a href="parserconfig.htm">���������������� ����</a>.
+</span></td></tr></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr valign="top"><td><span></span></td><td></td></tr></table><span>Рекомендуется поместить этот метод в <a href="parserconfig.htm">Конфигурационный файл</a>.
 <br />
 
 <br />
-����������� ������:
+Определение метода:
 <br />
-</span><span><b>@conf[filespec]
+</span><span class="mono"><b>@conf[filespec]
 <br />
-filespec</b></span><span> - ������ ��� �����, ����������� �����.</span><span><b>
+filespec</b></span><span> - полное имя файла, содержащего метод.</span><span class="mono"><b>
 <br />
 </b></span><span>
 <br />
-������ �������� � �� ��������� � �������� ����� ��������� </span><span><b>UTF-8</b></span><span>, ���������� ��� Parser<b> </b>���������� �� ���������.
+Всегда доступна и не нуждается в загрузке файла кодировка </span><span class="mono"><b>UTF-8</b></span><span>, являющаяся для Parser<b> </b>кодировкой по умолчанию.
 <br />
-����� ������� ���������� ��� ������������� Parser ������ ���������, ���������� ������� ����� �� �����������, �������� ��� ���:
+Чтобы сделать доступными для использования Parser другие кодировки, необходимо указать файлы их описывающие, делается это так:
 <br />
-</span><span><b>$CHARSETS[
+</span><span class="mono"><b>$CHARSETS[
 <br />
-&nbsp;&nbsp;&nbsp;$.windows-1251[/������/����/�/windows-1251.cfg]
+&nbsp;&nbsp;&nbsp;$.windows-1251[/полный/путь/к/windows-1251.cfg]
 <br />
-&nbsp;&nbsp;&nbsp;�
+&nbsp;&nbsp;&nbsp;…
 <br />
 ]
 <br />
-</b></span><span>��. <a href="installcharset.htm">�������� ������� �����, ������������ ���������</a>.
+</b></span><span>См. <a href="installcharset.htm">Описание формата файла, описывающего кодировку</a>.
 <br />
 
 <br />
-������������ ������ POST ������:
+Максимальный размер POST данных:
 <br />
-</span><span><b>$LIMITS[
+</span><span class="mono"><b>$LIMITS[
 <br />
 &nbsp;&nbsp;&nbsp;$.post_max_size(10*0x400*0x400)
 <br />
@@ -76,13 +76,13 @@ filespec</b></span><span> - ������ ��� �����, ��
 <br />
 </b></span><span>
 <br />
-�������� �������� ����� (��. </span><span><b><a href="mailsend.htm">^mail:send[�]</a></b></span><span>)�
+Параметр отправки писем (см. </span><span class="mono"><b><a href="mailsend.htm">^mail:send[…]</a></b></span><span>)…
 <br />
 
 <br />
-���� Windows � UNIX (��� UNIX <b><i>[3.1.2]</i></b>) ����� SMTP-�������
+…под Windows и UNIX (под UNIX <b><i>[3.1.2]</i></b>) адрес SMTP-сервера
 <br />
-</span><span><b>$MAIL[
+</span><span class="mono"><b>$MAIL[
 <br />
 &nbsp;&nbsp;&nbsp;$.SMTP[mail.office.design.ru]
 <br />
@@ -90,35 +90,35 @@ filespec</b></span><span> - ������ ��� �����, ��
 <br />
 </b></span><span>
 <br />
-���� UNIX � safe-mode �������, ��������� ��������� �������� ����� ������ ��� <a href="compilesrc.htm">������ Parser �� �������� �����</a>, � �������� �������, ���������������� � ����� </span><span><a href="http://parser.ru/" target="_blank">parser.ru</a></span><span>, ������ �������
+…под UNIX в safe-mode версиях, настроить программу отправки можно только при <a href="compilesrc.htm">сборке Parser из исходных кодов</a>, в бинарных версиях, распространяемых с сайта </span><span class="mono"><a href="http://parser.ru/" target="_blank">parser.ru</a></span><span>, задана команда
 <br />
-</span><span>&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-i&nbsp;-t&nbsp;-f&nbsp;postmaster
+</span><span class="mono">&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-i&nbsp;-t&nbsp;-f&nbsp;postmaster
 <br />
-</span><span>������ � unsafe-mode ������� ����� ������ ��������� �������� ����� ������:
+</span><span>Только в unsafe-mode версиях можно задать программу отправки почты самому:
 <br />
-</span><span><b>$MAIL[
+</span><span class="mono"><b>$MAIL[
 <br />
 &nbsp;&nbsp;&nbsp;$.sendmail[/custom/mail/sending/program&nbsp;params]
 <br />
 ]
 <br />
-</b></span><span>�, �� ���������, ������������  ����
+</b></span><span>и, по умолчанию, используется  эта…
 <br />
-</span><span>&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-t&nbsp;-i&nbsp;-f&nbsp;postmaster
+</span><span class="mono">&nbsp;&nbsp;&nbsp;/usr/sbin/sendmail&nbsp;-t&nbsp;-i&nbsp;-f&nbsp;postmaster
 <br />
-</span><span>���� ����</span><span>
+</span><span>…или эта…</span><span class="mono">
 <br />
 &nbsp;&nbsp;&nbsp;/usr/lib/sendmail&nbsp;-t&nbsp;-i&nbsp;-f&nbsp;postmaster
 <br />
-</span><span>��������, � ����������� �� ����� �������.
+</span><span>…команда, в зависимости от вашей системы.
 <br />
-��� �������� ������ ������ �</span><span>postmaster</span><span>� ����� ���������� ����� ����������� �� ������ �� ������������� ���� ��������� �</span><span>from</span><span>�.
+При отправке письма вместо «</span><span class="mono">postmaster</span><span>» будет подставлен адрес отправителя из письма из обязательного поля заголовка «</span><span class="mono">from</span><span>».
 <br />
 
 <br />
-����� ����� ������ ������� SQL-���������:
+Также можно задать таблицу SQL-драйверов:
 <br />
-</span><span><b>$SQL[
+</span><span class="mono"><b>$SQL[
 <br />
 $.drivers[^</b><b><a href="tablecreate.htm">table::create</a></b><b>{protocol&nbsp;&nbsp;&nbsp;driver&nbsp;&nbsp;&nbsp;client
 <br />
@@ -136,21 +136,21 @@ oracle&nbsp;&nbsp;&nbsp;/path/to/parser3oracle.dll&nbsp;&nbsp;&nbsp;C:\Oracle\Or
 <br />
 ]
 <br />
-</b></span><span>� ������� </span><span><b>client</b></span><span> ������� </span><span><b>drivers</b></span><span> ��������� ��������� ���������� ����������, ���������� ������ </span><span><b>?</b></span><span> �� ����� ����� ����������, � ����� ����:
+</b></span><span>В колонке </span><span class="mono"><b>client</b></span><span> таблицы </span><span class="mono"><b>drivers</b></span><span> допустимы параметры клиентской библиотеке, отделяемые знаком </span><span class="mono"><b>?</b></span><span> от имени файла библиотеки, в таком виде:
 <br />
-</span><span><b>���1=��������1&amp;���2=��������2&amp;�
+</span><span class="mono"><b>имя1=значение1&amp;имя2=значение2&amp;…
 <br />
-</b></span><span>� ����� </span><span><b>���+=��������</b></span><span>.
+</b></span><span>а также </span><span class="mono"><b>имя+=значение</b></span><span>.
 <br />
-��� ���������� ����� ��������(</span><span><b>=</b></span><span>) ��� ��������� � ���������� ��������(</span><span><b>+=</b></span><span>) � ����������� ��������� (environment) ����� �������������� ����������. � ���������, ������ �������� ���� � </span><span>O</span><span>racle ����������� �����, ���� ����� �� ���� ������� � ��������� ����������� ��������� (system environment).
+Эти переменные будут занесены(</span><span class="mono"><b>=</b></span><span>) или добавлены к имеющемуся значению(</span><span class="mono"><b>+=</b></span><span>) в программное окружение (environment) перед инициализацией библиотеки. В частности, удобно добавить путь к </span><span class="mono">O</span><span>racle библиотекам здесь, если этого не было сделано в системном программном окружении (system environment).
 <br />
 
 <br />
-������� ����� ������:
+Таблица типов файлов:
 <br />
-</span><span><b>#����,&nbsp;�����������&nbsp;</b><b><a href="fileload.htm">^file::load[�]</a></b><b>,
+</span><span class="mono"><b>#файл,&nbsp;создаваемый&nbsp;</b><b><a href="fileload.htm">^file::load[…]</a></b><b>,
 <br />
-#���&nbsp;������&nbsp;�&nbsp;</b><b><a href="responsebody.htm">$response:body</a></b><b>&nbsp;������&nbsp;����&nbsp;</b><b><a href="responsefields.htm">$response:content-type</a></b><b>
+#при&nbsp;выдаче&nbsp;в&nbsp;</b><b><a href="responsebody.htm">$response:body</a></b><b>&nbsp;задаст&nbsp;этот&nbsp;</b><b><a href="responsefields.htm">$response:content-type</a></b><b>
 <br />
 $MIME-TYPES[^</b><b><a href="tablecreate.htm">table::create</a></b><b>{ext&nbsp;mime-type
 <br />
@@ -212,7 +212,7 @@ swf&nbsp;application/x-shockwave-flash
 <br />
 
 <br />
-</b></span><span>���������� ���� ������ � ������� ������ ���� �������� � ������ ��������. ����� �� ������� �������������� � ��������, �.�. ���� </span><span>FACE.GIF</span><span> ������� mime-��� </span><span>image/gif</span><span>.
+</b></span><span>Расширения имен файлов в таблице должны быть написаны в нижнем регистре. Поиск по таблице нечувствителен к регистру, т.е. файл </span><span class="mono">FACE.GIF</span><span> получит mime-тип </span><span class="mono">image/gif</span><span>.
 <br />
 </span></span><br />
 
