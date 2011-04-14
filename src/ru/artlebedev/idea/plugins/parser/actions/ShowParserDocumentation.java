@@ -38,33 +38,66 @@ public class ShowParserDocumentation extends AnAction {
   final private static List<String> standardClasses = new ArrayList<String>();
 
   static {
+    /*
+     * Probably we should have a loader for this stuff
+     * and stuff located at ParserStandardClasses.java?
+     * -- dwr
+     */
+
     standardClasses.add("bool");
+
     standardClasses.add("console");
+
     standardClasses.add("cookie");
+
     standardClasses.add("curl");
+
     standardClasses.add("date");
+
     standardClasses.add("env");
+
     standardClasses.add("file");
+
     standardClasses.add("form");
+
     standardClasses.add("hash");
+
     standardClasses.add("hashfile");
+
     standardClasses.add("image");
+
     standardClasses.add("inet");
+
     standardClasses.add("int");
+
     standardClasses.add("json");
+
     standardClasses.add("junction");
+
     standardClasses.add("mail");
+
     standardClasses.add("math");
+
     standardClasses.add("memory");
+
     standardClasses.add("reflection");
+
     standardClasses.add("regex");
+
     standardClasses.add("request");
+
     standardClasses.add("response");
+
     standardClasses.add("status");
+
     standardClasses.add("string");
+
     standardClasses.add("table");
+
     standardClasses.add("void");
+
     standardClasses.add("xdoc");
+
     standardClasses.add("xnode");
   }
 
