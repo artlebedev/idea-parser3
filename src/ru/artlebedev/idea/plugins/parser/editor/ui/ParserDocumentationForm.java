@@ -42,8 +42,16 @@ public class ParserDocumentationForm extends javax.swing.JFrame {
 
       }
 
-      setSize(800, 600);
+      setSize(500, 300);
     }
+
+  public void setPage(String pageName) {
+    try {
+      jEditorPane1.setPage(Marker.class.getResource("ru/" + pageName + ".htm"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -53,6 +61,7 @@ public class ParserDocumentationForm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
+    setLocationRelativeTo(null);
 
     jScrollPane1 = new javax.swing.JScrollPane();
     jEditorPane1 = new javax.swing.JEditorPane();
