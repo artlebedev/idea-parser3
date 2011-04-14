@@ -41,7 +41,6 @@ public class DocumentationProvider {
     private static final List<DocumentationSource> sourceList = Lists.newArrayList();
 
     static {
-        sourceList.add(new ParserParserRuDocumentationSource());
         sourceList.add(new ParserParserDocDocumentationSource());
     }
 
