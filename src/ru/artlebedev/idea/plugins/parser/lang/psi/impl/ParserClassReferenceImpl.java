@@ -116,6 +116,7 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
     for (PsiElement element : psiElements) {
       ParserClass parserClass = (ParserClass) element;
       getProject().getComponent(ParserFileIndex.class).contributeClass(parserClass);
+
       if (parserClass.getName().equals(className)) {
         return parserClass;
       }
@@ -124,15 +125,25 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
     return null;
   }
 
+  @NotNull
   public String getCanonicalText() {
-    return null;
+    PsiElement parserClass = resolve();
+
+    if(parserClass instanceof ParserClass) {
+      String className = ((ParserClass) parserClass).getName();
+      if(className != null) {
+        return className;
+      }
+    }
+
+    return "";
   }
 
   public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
     return setName(newElementName);
   }
 
-  public PsiElement bindToElement(PsiElement element) throws IncorrectOperationException {
+  public PsiElement bindToElement(@NotNull PsiElement element) throws IncorrectOperationException {
     return null;
   }
 
@@ -140,6 +151,7 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
     return element == resolve();
   }
 
+  @NotNull
   public Object[] getVariants() {
     return new Object[0];
   }
