@@ -98,8 +98,10 @@ public class ParserDocParameterInfoImpl extends ParserElementImpl implements Par
     return null;
   }
 
+  @NotNull
   public String getCanonicalText() {
-    return null;
+    String name = getName();
+    return name != null ? name : "";
   }
 
   public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
@@ -114,6 +116,7 @@ public class ParserDocParameterInfoImpl extends ParserElementImpl implements Par
     return element instanceof ParserParameterImpl && element == resolve();
   }
 
+  @NotNull
   public Object[] getVariants() {
     ParserMethod method = PsiTreeUtil.getNextSiblingOfType(this.getParent(), ParserMethod.class);
     if (method != null) {

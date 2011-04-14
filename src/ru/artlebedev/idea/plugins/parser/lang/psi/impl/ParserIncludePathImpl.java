@@ -84,8 +84,10 @@ public class ParserIncludePathImpl extends ParserElementImpl implements ParserIn
     return PsiManager.getInstance(project).findFile(include);
   }
 
+  @NotNull
   public String getCanonicalText() {
-    return null;
+    String name = getName();
+    return name != null ? name : "";
   }
 
   public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
@@ -93,7 +95,7 @@ public class ParserIncludePathImpl extends ParserElementImpl implements ParserIn
     return null;
   }
 
-  public PsiElement bindToElement(PsiElement element) throws IncorrectOperationException {
+  public PsiElement bindToElement(@NotNull PsiElement element) throws IncorrectOperationException {
     return null;
   }
 
@@ -102,6 +104,7 @@ public class ParserIncludePathImpl extends ParserElementImpl implements ParserIn
     return (reference == element);
   }
 
+  @NotNull
   public Object[] getVariants() {
     return ParserFilesUtil.findVariants(getProject());
   }

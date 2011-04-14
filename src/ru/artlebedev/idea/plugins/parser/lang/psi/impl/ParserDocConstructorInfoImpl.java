@@ -110,15 +110,17 @@ public class ParserDocConstructorInfoImpl extends ParserElementImpl implements P
     return null;
   }
 
+  @NotNull
   public String getCanonicalText() {
-    return null;
+    String name = getName();
+    return name != null ? name : "";
   }
 
   public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
     return setName(newElementName);
   }
 
-  public PsiElement bindToElement(PsiElement element) throws IncorrectOperationException {
+  public PsiElement bindToElement(@NotNull PsiElement element) throws IncorrectOperationException {
     return null;
   }
 
@@ -126,6 +128,7 @@ public class ParserDocConstructorInfoImpl extends ParserElementImpl implements P
     return element instanceof ParserClassImpl && element == resolve();
   }
 
+  @NotNull
   public Object[] getVariants() {
     List<PsiElement> result = new ArrayList<PsiElement>();
     Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
