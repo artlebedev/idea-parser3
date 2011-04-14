@@ -129,12 +129,13 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
   public String getCanonicalText() {
     PsiElement parserClass = resolve();
 
-    if(parserClass instanceof ParserClass) {
-      String className = ((ParserClass) parserClass).getName();
-      if(className != null) {
-        return className;
+    if(parserClass != null)
+      if(parserClass instanceof ParserClass) {
+        String className = ((ParserClass) parserClass).getName();
+        if(className != null) {
+          return className;
+        }
       }
-    }
 
     return "";
   }
