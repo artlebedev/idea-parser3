@@ -76,8 +76,9 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
     return null;
   }
 
+  @NotNull
   public String getCanonicalText() {
-    return null;
+    return "";
   }
 
   public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {

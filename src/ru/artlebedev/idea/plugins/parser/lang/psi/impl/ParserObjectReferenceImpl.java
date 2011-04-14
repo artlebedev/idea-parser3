@@ -282,15 +282,17 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     }
   }
 
+  @NotNull
   public String getCanonicalText() {
-    return null;
+    String name = getName();
+    return name != null ? name : "";
   }
 
   public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
     return setName(newElementName);
   }
 
-  public PsiElement bindToElement(PsiElement element) throws IncorrectOperationException {
+  public PsiElement bindToElement(@NotNull PsiElement element) throws IncorrectOperationException {
     return null;
   }
 
@@ -301,6 +303,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     return element == resolve();
   }
 
+  @NotNull
   public Object[] getVariants() {
     LogUtil.log("ParserObjectReferenceImpl#getVariants()");
 

@@ -73,8 +73,9 @@ public class ParserUniversalReferenceImpl extends ParserElementImpl implements P
     return null;
   }
 
+  @NotNull
   public String getCanonicalText() {
-    return null;
+    return "";
   }
 
   public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
@@ -89,6 +90,7 @@ public class ParserUniversalReferenceImpl extends ParserElementImpl implements P
     return false;
   }
 
+  @NotNull
   public Object[] getVariants() {
     LogUtil.log("ParserUniversalRefrenceImpl#getVariants()");
     List<PsiElement> result = new ArrayList<PsiElement>();
