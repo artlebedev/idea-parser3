@@ -9,6 +9,7 @@ import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.containers.hash.HashSet;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
@@ -55,6 +56,32 @@ public class ParserFoldingBuilder implements FoldingBuilder {
 
       if(methods != null) {
         for(ParserMethod method : methods) {
+          if(method.getNextSibling() != null) {
+            if(ParserTokenTypes.NEW_LINE.equals(method.getNextSibling().getNode().getElementType())) {
+              if(ParserTokenTypes.SHARP_COMMENT.equals(method.getNextSibling().getNextSibling().getNode().getElementType())) {
+                String textToAnalyze = method.getNextSibling().getNextSibling().getText().replaceAll("\\s{1,}", " ").toLowerCase();
+
+                if(textToAnalyze.startsWith("##") ||
+                   textToAnalyze.startsWith("#-") ||
+                   textToAnalyze.startsWith("# end")) {
+                  descriptors.add(new FoldingDescriptor(method, method.getTextRange().union(method.getNextSibling().getTextRange())
+                          .union(method.getNextSibling().getNextSibling().getTextRange())){
+                    @Override
+                    public String getPlaceholderText() {
+                      if(getElement().getText().length() > 50) {
+                        return getElement().getText().substring(0, 50) + "...";
+                      } else {
+                        return getElement().getText() + "...";
+                      }
+                    }
+                  });
+
+                  break;
+                }
+              }
+            }
+          }
+
           descriptors.add(new FoldingDescriptor(method, method.getTextRange()){
             @Override
             public String getPlaceholderText() {
@@ -65,6 +92,9 @@ public class ParserFoldingBuilder implements FoldingBuilder {
               }
             }
           });
+
+          System.out.println(method.getNextSibling());
+          System.out.println(method.getNextSibling().getNextSibling());
         }
       }
     }

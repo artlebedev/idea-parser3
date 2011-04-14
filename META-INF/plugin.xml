@@ -108,7 +108,7 @@
 	  <action id="ShowParserDocumentation"
 			  class="ru.artlebedev.idea.plugins.parser.actions.ShowParserDocumentation"
 			  text="Show Parser Documentation...">
-		  <add-to-group group-id="ViewMenu" anchor="first"/>
+		  <add-to-group group-id="ViewMenu" anchor="last"/>
 	  </action>
   </actions>
 </idea-plugin>
