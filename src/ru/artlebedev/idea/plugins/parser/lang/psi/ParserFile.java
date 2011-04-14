@@ -49,10 +49,10 @@ public class ParserFile extends PsiFileBase implements ParserElement, HasMethods
     return "ParserFile:" + getName();
   }
 
-  public boolean processDeclarations(PsiScopeProcessor processor,
-                                     ResolveState substitutor,
+  public boolean processDeclarations(@NotNull PsiScopeProcessor processor,
+                                     @NotNull ResolveState substitutor,
                                      PsiElement lastParent,
-                                     PsiElement place) {
+                                     @NotNull PsiElement place) {
     final PsiElement[] children = getChildren();
     for (PsiElement child : children) {
       if (child == lastParent) break;
@@ -61,7 +61,7 @@ public class ParserFile extends PsiFileBase implements ParserElement, HasMethods
     return true;
   }
 
-  public void accept(PsiElementVisitor visitor) {
+  public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof ParserElementVisitor) {
       visitor.visitElement(this);
     } else {

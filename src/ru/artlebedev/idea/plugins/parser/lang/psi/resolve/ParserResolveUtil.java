@@ -96,15 +96,18 @@ public class ParserResolveUtil {
     PsiElement currentElement = element;
 
     while (!(currentElement instanceof ParserFile)) {
-      do {
-        if (currentElement instanceof ParserObject) {
-          result.add(currentElement);
-        }
-        if (currentElement.getPrevSibling() != null) {
-          currentElement = currentElement.getPrevSibling();
-        }
-      } while (currentElement.getPrevSibling() != null);
-      currentElement = currentElement.getParent();
+      if (currentElement != null) {
+        do {
+          if (currentElement instanceof ParserObject) {
+            result.add(currentElement);
+          }
+          if (currentElement.getPrevSibling() != null) {
+            currentElement = currentElement.getPrevSibling();
+          }
+        } while (currentElement.getPrevSibling() != null);
+
+        currentElement = currentElement.getParent();
+      }
     }
 
     return result;
