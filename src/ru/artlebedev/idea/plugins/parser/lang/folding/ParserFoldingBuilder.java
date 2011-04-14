@@ -92,9 +92,6 @@ public class ParserFoldingBuilder implements FoldingBuilder {
               }
             }
           });
-
-          System.out.println(method.getNextSibling());
-          System.out.println(method.getNextSibling().getNextSibling());
         }
       }
     }
