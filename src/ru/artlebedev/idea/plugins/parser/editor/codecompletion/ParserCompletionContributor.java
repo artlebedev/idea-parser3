@@ -1,7 +1,17 @@
 package ru.artlebedev.idea.plugins.parser.editor.codecompletion;
 
 import com.intellij.codeInsight.completion.CompletionContributor;
+import com.intellij.codeInsight.completion.CompletionParameters;
+import com.intellij.codeInsight.completion.CompletionProvider;
+import com.intellij.codeInsight.completion.CompletionResultSet;
+import com.intellij.codeInsight.completion.CompletionType;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.patterns.ElementPattern;
+import com.intellij.psi.PsiElement;
+import com.intellij.util.ProcessingContext;
+import org.jetbrains.annotations.NotNull;
+
+import static com.intellij.patterns.PlatformPatterns.psiElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -25,8 +35,20 @@ import com.intellij.openapi.diagnostic.Logger;
 
 public class ParserCompletionContributor extends CompletionContributor {
   private static final Logger log = Logger.getInstance("ParserCompletionContributor");
+  private static final ElementPattern<PsiElement> AFTER_BIRD = psiElement().afterLeaf("^");
 
   public ParserCompletionContributor() {
     log.info("Created parser completion contributor");
+
+    extend(CompletionType.BASIC, AFTER_BIRD, new CompletionProvider<CompletionParameters>() {
+      @Override
+      protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+        result.addElement(new ParserKeywordLookupElement("try"));
+        result.addElement(new ParserKeywordLookupElement("if"));
+        result.addElement(new ParserKeywordLookupElement("taint"));
+        result.addElement(new ParserKeywordLookupElement("untaint"));
+        result.addElement(new ParserKeywordLookupElement("rem"));
+      }
+    });
   }
 }

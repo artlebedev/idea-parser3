@@ -65,6 +65,9 @@ public interface ParserTokenTypes {
   IElementType CLASS_KEYWORD = new ParserElementType("CLASS_KEYWORD");
   IElementType USE_KEYWORD = new ParserElementType("USE_KEYWORD");
   IElementType DEF_KEYWORD = new ParserElementType("DEF_KEYWORD");
+  IElementType TAINT_KEYWORD = new ParserElementType("TAINT_KEYWORD");
+  IElementType UNTAINT_KEYWORD = new ParserElementType("UNTAINT_KEYWORD");
+  IElementType REM_KEYWORD = new ParserElementType("REM_KEYWORD");
 
   /*
    * Supported in Parser 3.3.0
@@ -93,7 +96,9 @@ public interface ParserTokenTypes {
           IS_KEYWORD, USE_KEYWORD,
           CALLER_KEYWORD, OPTIONS_KEYWORD,
           LOCALS_KEYWORD, PARTIAL_KEYWORD,
-          DYNAMIC_KEYWORD, STATIC_KEYWORD);
+          DYNAMIC_KEYWORD, STATIC_KEYWORD,
+          TAINT_KEYWORD, UNTAINT_KEYWORD,
+          REM_KEYWORD);
 
   // Literals
   IElementType NUMERIC_LITERAL = new ParserElementType("NUMERIC_LITERAL");

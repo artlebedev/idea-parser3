@@ -1,5 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.editor.settings;
 
+import com.intellij.codeInsight.completion.CompletionUtil;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.options.Configurable;
@@ -13,6 +14,8 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserCompletionData;
+import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -99,7 +102,7 @@ public class ParserProjectConfiguration implements ProjectComponent, Configurabl
   public void projectOpened() {
     ApplicationManager.getApplication().runWriteAction(new Runnable() {
       public void run() {
-        //CompletionUtil.registerCompletionData(ParserFileType.PARSER_FILE_TYPE, new ParserCompletionData());
+        CompletionUtil.registerCompletionData(ParserFileType.PARSER_FILE_TYPE, new ParserCompletionData());
         /*ShowParameterInfoHandler.register(ParserFileType.PARSER_FILE_TYPE.getLanguage(), new MethodParameterInfoHandler() {
           @NotNull
           public ParameterInfoHandler[] getHandlers() {

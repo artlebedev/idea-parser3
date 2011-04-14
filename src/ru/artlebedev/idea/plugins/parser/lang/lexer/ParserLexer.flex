@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.lexer;
+package ru.artlebedev.idea.plugins.parser.lang.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
@@ -181,6 +181,9 @@ CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XM
 	"CLASS"			{ yybegin(YYINITIAL); return ParserTokenTypes.CLASS_STATIC_KEYWORD; }
 	"throw"			{ yybegin(YYINITIAL); return ParserTokenTypes.THROW_KEYWORD; }
 	"try"			{ yybegin(YYINITIAL); return ParserTokenTypes.TRY_KEYWORD; }
+	"untaint"			{ yybegin(YYINITIAL); return ParserTokenTypes.UNTAINT_KEYWORD; }
+	"taint"			{ yybegin(YYINITIAL); return ParserTokenTypes.TAINT_KEYWORD; }
+	"rem"			{ yybegin(YYINITIAL); return ParserTokenTypes.REM_KEYWORD; }
 	"while"			{ yybegin(YYINITIAL); return ParserTokenTypes.WHILE_KEYWORD; }
 	"def"			{ yybegin(YYINITIAL); return ParserTokenTypes.DEF_KEYWORD; }
 	"caller"		{ yybegin(YYINITIAL); return ParserTokenTypes.CALLER_KEYWORD; }
