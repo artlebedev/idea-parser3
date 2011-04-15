@@ -40,14 +40,22 @@ public class ParserInsertHandler extends DefaultInsertHandler {
       if (element instanceof ParserMethod) {
         CaretModel caretModel = context.getEditor().getCaretModel();
         try {
-          String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
-          if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
-            context.getEditor().getDocument().insertString(caretModel.getOffset(), "[]");
-            caretModel.moveToOffset(caretModel.getOffset() + 2);
-            ParserMethod method = (ParserMethod) element;
-            if (method.getParameterList().getChildren().length > 0) {
-              caretModel.moveToOffset(caretModel.getOffset() - 1);
-              AutoPopupController.getInstance(context.getProject()).autoPopupParameterInfo(context.getEditor(), method);
+          String trichar = context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 3, caretModel.getOffset());
+          System.out.println(trichar);
+
+          if(trichar.trim().equals("sql")) {
+            context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
+            caretModel.moveToOffset(caretModel.getOffset() + 1);
+          } else {
+            String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+            if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
+              context.getEditor().getDocument().insertString(caretModel.getOffset(), "[]");
+              caretModel.moveToOffset(caretModel.getOffset() + 2);
+              ParserMethod method = (ParserMethod) element;
+              if (method.getParameterList().getChildren().length > 0) {
+                caretModel.moveToOffset(caretModel.getOffset() - 1);
+                AutoPopupController.getInstance(context.getProject()).autoPopupParameterInfo(context.getEditor(), method);
+              }
             }
           }
         } catch(Exception ignored){

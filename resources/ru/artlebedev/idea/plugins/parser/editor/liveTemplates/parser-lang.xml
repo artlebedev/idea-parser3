@@ -160,7 +160,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="sql" value="^MAIN:pSQL.table{$VAR0$}" description="^MAIN:pSQL.table{}" toReformat="false" toShortenFQNames="true">
+  <template name="psql" value="^MAIN:pSQL.table{$VAR0$}" description="^MAIN:pSQL.table{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR0" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
