@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templateSet group="parser-lang">
-  <template name="for" value="^for[$VAR1$:$VAR2$]($VAR3$;$VAR4$){$END$}" description="^for[i](;){}" toReformat="false" toShortenFQNames="true">
-    <variable name="VAR1" expression="" defaultValue="1" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR3" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="for" value="^for[$VAR1$]($VAR3$;$VAR4$){&#10;  $END$&#10;}" description="^for[i](;){}" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR3" expression="" defaultValue="1" alwaysStopAt="true" />
     <variable name="VAR4" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
@@ -56,7 +55,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ftm" value="^form:tables.$VAR1$.menu{$END$}" description="^form:tables.name.menu{}" toReformat="false" toShortenFQNames="true">
+  <template name="ftm" value="^form:tables.$VAR1$.menu{&#10;  $END$&#10;}" description="^form:tables.name.menu{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="name" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
@@ -82,7 +81,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="-if" value="^if($VAR1$){$END$}" description="^if(){}" toReformat="false" toShortenFQNames="true">
+  <template name="-if" value="^if($VAR1$){&#10;  $END$&#10;}" description="^if(){}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
@@ -108,7 +107,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="-ife" value="^if($VAR1$){$END$}{}" description="^if(){}{}" toReformat="false" toShortenFQNames="true">
+  <template name="-ife" value="^if($VAR1$){&#10;  $END$&#10;}{&#10;  &#10;}" description="^if(){}{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
@@ -212,7 +211,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="tm" value="^$VAR1$.menu{$END$}" description="^table.menu{}" toReformat="false" toShortenFQNames="true">
+  <template name="tm" value="^$VAR1$.menu{&#10;  $END$&#10;}" description="^table.menu{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="table" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
@@ -341,7 +340,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="cc" value="$cookie:$VAR1$[&#10;&#9;$.value[$VAR2$]&#10;&#9;$.expires[$VAR3$]&#10;&#9;$.path[/]&#10;]" description="$cookie:name[]" toReformat="false" toShortenFQNames="true">
+  <template name="cc" value="$cookie:$VAR1$[&#10;  $.value[$VAR2$]&#10;  $.expires[$VAR3$]&#10;  $.path[/]&#10;]" description="$cookie:name[]" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="name" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR3" expression="" defaultValue="session" alwaysStopAt="true" />
@@ -447,7 +446,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ifd" value="^if(def $VAR1$){$END$}" description="if def" toReformat="false" toShortenFQNames="true">
+  <template name="ifd" value="^if(def $VAR1$){&#10;  $END$&#10;}" description="if def" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
@@ -473,34 +472,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="if" value="^if($VAR1$){$END$}" description="if" toReformat="false" toShortenFQNames="true">
-    <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="JAVA_CODE" value="false" />
-      <option name="JAVA_COMMENT" value="false" />
-      <option name="JAVA_STRING" value="false" />
-      <option name="COMPLETION" value="false" />
-      <option name="HTML_TEXT" value="false" />
-      <option name="HTML" value="false" />
-      <option name="XSL_TEXT" value="false" />
-      <option name="XML" value="false" />
-      <option name="PARSER" value="true" />
-      <option name="CSS" value="false" />
-      <option name="JSP" value="false" />
-      <option name="JAVA_SCRIPT" value="false" />
-      <option name="SQL" value="false" />
-      <option name="ColdFusion" value="false" />
-      <option name="PHP" value="false" />
-      <option name="GROOVY" value="false" />
-      <option name="MAVEN" value="false" />
-      <option name="ASPECTJ" value="false" />
-      <option name="ACTION_SCRIPT" value="false" />
-      <option name="GSP" value="false" />
-      <option name="OTHER" value="false" />
-    </context>
-  </template>
-  <template name="ifed" value="^if(def $VAR1$){$END$}{}" description="ife def" toReformat="false" toShortenFQNames="true">
+  <template name="if" value="^if($VAR1$){&#10;  $END$&#10;}" description="if" toReformat="true" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
@@ -526,7 +498,33 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ife" value="^if($VAR1$){$END$}{}" description="ife" toReformat="false" toShortenFQNames="true">
+  <template name="ifed" value="^if(def $VAR1$){&#10;  $END$&#10;}{&#10;  &#10;}" description="ife def" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="PARSER" value="true" />
+      <option name="CSS" value="false" />
+      <option name="JSP" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="SQL" value="false" />
+      <option name="ColdFusion" value="false" />
+      <option name="PHP" value="false" />
+      <option name="GROOVY" value="false" />
+      <option name="MAVEN" value="false" />
+      <option name="ASPECTJ" value="false" />
+      <option name="ACTION_SCRIPT" value="false" />
+      <option name="GSP" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="ife" value="^if($VAR1$){&#10;  $END$&#10;}{&#10;  &#10;}" description="ife" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />

@@ -55,7 +55,6 @@ public class ParserCompletionContributor extends CompletionContributor {
       @Override
       protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
         result.addElement(new ParserKeywordLookupElement("try"));
-        result.addElement(new ParserKeywordLookupElement("if"));
         result.addElement(new ParserKeywordLookupElement("taint"));
         result.addElement(new ParserKeywordLookupElement("untaint"));
         result.addElement(new ParserKeywordLookupElement("rem"));
