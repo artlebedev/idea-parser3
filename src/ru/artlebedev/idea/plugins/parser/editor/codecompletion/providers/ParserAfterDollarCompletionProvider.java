@@ -5,7 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.ParserMethodLookupElements;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserKeywordLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -29,15 +29,7 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.Parse
 public class ParserAfterDollarCompletionProvider extends CompletionProvider<CompletionParameters> {
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(ParserMethodLookupElements.REM);
-    result.addElement(ParserMethodLookupElements.TAINT);
-    result.addElement(ParserMethodLookupElements.UNTAINT);
-    result.addElement(ParserMethodLookupElements.IF);
-    result.addElement(ParserMethodLookupElements.BREAK);
-    result.addElement(ParserMethodLookupElements.CONTINUE);
-    result.addElement(ParserMethodLookupElements.CONNECT);
-    result.addElement(ParserMethodLookupElements.USE);
-    result.addElement(ParserMethodLookupElements.CACHE);
-    result.addElement(ParserMethodLookupElements.EVAL);
+    result.addElement(new ParserKeywordLookupElement("result"));
+    result.addElement(new ParserKeywordLookupElement("caller"));
   }
 }

@@ -5,7 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.ParserKeywordLookupElements;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserKeywordLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -29,18 +29,18 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.Parse
 public class ParserDefaultCompletionProvider extends CompletionProvider<CompletionParameters> {
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(ParserKeywordLookupElements.TRUE);
-    result.addElement(ParserKeywordLookupElements.FALSE);
-    result.addElement(ParserKeywordLookupElements.DEF);
-    result.addElement(ParserKeywordLookupElements.IN);
-    result.addElement(ParserKeywordLookupElements.SLASH_F);
-    result.addElement(ParserKeywordLookupElements.SLASH_D);
-    result.addElement(ParserKeywordLookupElements.IS);
-    result.addElement(ParserKeywordLookupElements.EQ);
-    result.addElement(ParserKeywordLookupElements.NE);
-    result.addElement(ParserKeywordLookupElements.LT);
-    result.addElement(ParserKeywordLookupElements.GT);
-    result.addElement(ParserKeywordLookupElements.LE);
-    result.addElement(ParserKeywordLookupElements.GE);
+    result.addElement(new ParserKeywordLookupElement("true"));
+    result.addElement(new ParserKeywordLookupElement("false"));
+    result.addElement(new ParserKeywordLookupElement("def"));
+    result.addElement(new ParserKeywordLookupElement("in"));
+    result.addElement(new ParserKeywordLookupElement("-f"));
+    result.addElement(new ParserKeywordLookupElement("-d"));
+    result.addElement(new ParserKeywordLookupElement("is"));
+    result.addElement(new ParserKeywordLookupElement("eq"));
+    result.addElement(new ParserKeywordLookupElement("ne"));
+    result.addElement(new ParserKeywordLookupElement("lt"));
+    result.addElement(new ParserKeywordLookupElement("gt"));
+    result.addElement(new ParserKeywordLookupElement("le"));
+    result.addElement(new ParserKeywordLookupElement("ge"));
   }
 }

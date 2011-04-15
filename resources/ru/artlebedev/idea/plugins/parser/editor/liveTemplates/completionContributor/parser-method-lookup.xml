@@ -203,7 +203,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="^sleep" value="^sleep($END)" description="sleep" toReformat="true" toShortenFQNames="true">
+  <template name="^sleep" value="^sleep($END$)" description="sleep" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -228,7 +228,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="^cache" value="^cache[$VAR1$]($VAR2$){&#10;  $END&#10;}" description="cache" toReformat="true" toShortenFQNames="true">
+  <template name="^cache" value="^cache[$VAR1$]($VAR2$){&#10;  $END$&#10;}" description="cache" toReformat="true" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -255,7 +255,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="^eval" value="^eval($END)" description="eval" toReformat="true" toShortenFQNames="true">
+  <template name="^eval" value="^eval($END$)" description="eval" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />

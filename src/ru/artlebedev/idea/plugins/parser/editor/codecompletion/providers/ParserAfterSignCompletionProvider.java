@@ -5,7 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.ParserKeywordLookupElements;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserKeywordLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -29,6 +29,6 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.Parse
 public class ParserAfterSignCompletionProvider extends CompletionProvider<CompletionParameters> {
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(ParserKeywordLookupElements.UNHANDLED_EXCEPTION);
+    result.addElement(new ParserKeywordLookupElement("unhandled_exception"));
   }
 }

@@ -35,7 +35,7 @@ import static com.intellij.patterns.PlatformPatterns.psiElement;
 public class ParserCompletionContributor extends CompletionContributor {
   private static final Logger log = Logger.getInstance("ParserCompletionContributor");
 
-  private static final ElementPattern<PsiElement> DEFAULT = StandardPatterns.instanceOf(PsiElement.class);
+  private static final ElementPattern<PsiElement> DEFAULT = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
   private static final ElementPattern<PsiElement> AFTER_BIRD = psiElement().afterLeaf("^");
   private static final ElementPattern<PsiElement> AFTER_DOLLAR = psiElement().afterLeaf("$");
   private static final ElementPattern<PsiElement> AFTER_SIGN = psiElement().afterLeaf("@");
