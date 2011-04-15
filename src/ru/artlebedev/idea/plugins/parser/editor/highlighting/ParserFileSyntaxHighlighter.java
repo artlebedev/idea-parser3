@@ -134,7 +134,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     attributes = new HashMap<IElementType, TextAttributesKey>();
 
     fillMap(attributes, ParserTokenTypes.KEYWORDS, PARSER_KEYWORD);
-    fillMap(attributes, ParserTokenTypes.OPERATIONS, PARSER_OPERATION_SIGN);
+    //fillMap(attributes, ParserTokenTypes.OPERATIONS, PARSER_OPERATION_SIGN);
     fillMap(attributes, resultKeywordSet, PARSER_RESULT);
     fillMap(attributes, numericLiteralSet, PARSER_NUMBER);
     fillMap(attributes, stringLiteralSet, PARSER_STRING);
