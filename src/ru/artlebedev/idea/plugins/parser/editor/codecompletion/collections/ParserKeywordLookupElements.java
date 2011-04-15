@@ -36,4 +36,6 @@ public interface ParserKeywordLookupElements {
 
   public final static ParserKeywordLookupElement CALLER = new ParserKeywordLookupElement("caller");
   public final static ParserKeywordLookupElement RESULT = new ParserKeywordLookupElement("result");
+
+  public final static ParserKeywordLookupElement UNHANDLED_EXCEPTION = new ParserMethodLookupElement("unhandled_exception");
 }

@@ -20,14 +20,14 @@ package ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections;
  */
 
 public interface ParserMethodLookupElements {
-  public static ParserMethodLookupElement REM = new ParserMethodLookupElement("rem");
-  public static ParserMethodLookupElement TAINT = new ParserMethodLookupElement("taint");
-  public static ParserMethodLookupElement UNTAINT = new ParserMethodLookupElement("untaint");
-  public static ParserMethodLookupElement IF = new ParserMethodLookupElement("if");
-  public static ParserMethodLookupElement BREAK = new ParserMethodLookupElement("break");
-  public static ParserMethodLookupElement CONTINUE = new ParserMethodLookupElement("continue");
-  public static ParserMethodLookupElement CONNECT = new ParserMethodLookupElement("connect");
-  public static ParserMethodLookupElement USE = new ParserMethodLookupElement("use");
-  public static ParserMethodLookupElement CACHE = new ParserMethodLookupElement("cache");
-  public static ParserMethodLookupElement EVAL = new ParserMethodLookupElement("eval");
+  public final static ParserMethodLookupElement REM = new ParserMethodLookupElement("rem");
+  public final static ParserMethodLookupElement TAINT = new ParserMethodLookupElement("taint");
+  public final static ParserMethodLookupElement UNTAINT = new ParserMethodLookupElement("untaint");
+  public final static ParserMethodLookupElement IF = new ParserMethodLookupElement("if");
+  public final static ParserMethodLookupElement BREAK = new ParserMethodLookupElement("break");
+  public final static ParserMethodLookupElement CONTINUE = new ParserMethodLookupElement("continue");
+  public final static ParserMethodLookupElement CONNECT = new ParserMethodLookupElement("connect");
+  public final static ParserMethodLookupElement USE = new ParserMethodLookupElement("use");
+  public final static ParserMethodLookupElement CACHE = new ParserMethodLookupElement("cache");
+  public final static ParserMethodLookupElement EVAL = new ParserMethodLookupElement("eval");
 }
