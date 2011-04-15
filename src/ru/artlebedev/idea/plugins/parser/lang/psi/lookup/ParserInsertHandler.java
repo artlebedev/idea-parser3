@@ -41,7 +41,6 @@ public class ParserInsertHandler extends DefaultInsertHandler {
         CaretModel caretModel = context.getEditor().getCaretModel();
         try {
           String trichar = context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 3, caretModel.getOffset());
-          System.out.println(trichar);
 
           if(trichar.trim().equals("sql")) {
             context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
