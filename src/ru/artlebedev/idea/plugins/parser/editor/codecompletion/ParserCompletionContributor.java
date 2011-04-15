@@ -7,6 +7,7 @@ import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.codeInsight.completion.CompletionType;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.patterns.ElementPattern;
+import com.intellij.patterns.StandardPatterns;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
@@ -35,10 +36,21 @@ import static com.intellij.patterns.PlatformPatterns.psiElement;
 
 public class ParserCompletionContributor extends CompletionContributor {
   private static final Logger log = Logger.getInstance("ParserCompletionContributor");
+
+  private static final ElementPattern<PsiElement> DEFAULT = StandardPatterns.instanceOf(PsiElement.class);
   private static final ElementPattern<PsiElement> AFTER_BIRD = psiElement().afterLeaf("^");
+  private static final ElementPattern<PsiElement> AFTER_DOLLAR = psiElement().afterLeaf("$");
 
   public ParserCompletionContributor() {
     log.info("Created parser completion contributor");
+
+    extend(CompletionType.BASIC, DEFAULT, new CompletionProvider<CompletionParameters>() {
+      @Override
+      protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+        result.addElement(new ParserKeywordLookupElement("true"));
+        result.addElement(new ParserKeywordLookupElement("false"));
+      }
+    });
 
     extend(CompletionType.BASIC, AFTER_BIRD, new CompletionProvider<CompletionParameters>() {
       @Override
@@ -48,6 +60,14 @@ public class ParserCompletionContributor extends CompletionContributor {
         result.addElement(new ParserKeywordLookupElement("taint"));
         result.addElement(new ParserKeywordLookupElement("untaint"));
         result.addElement(new ParserKeywordLookupElement("rem"));
+      }
+    });
+
+    extend(CompletionType.BASIC, AFTER_DOLLAR, new CompletionProvider<CompletionParameters>() {
+      @Override
+      protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+        result.addElement(new ParserKeywordLookupElement("caller"));
+        result.addElement(new ParserKeywordLookupElement("result"));
       }
     });
   }
