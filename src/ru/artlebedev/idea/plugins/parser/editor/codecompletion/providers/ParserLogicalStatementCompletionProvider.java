@@ -6,7 +6,6 @@ import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserKeywordLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserMethodLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -27,11 +26,21 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserMethodLooku
  * limitations under the License.
  */
 
-public class ParserAfterDollarCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserLogicalStatementCompletionProvider extends CompletionProvider<CompletionParameters> {
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserKeywordLookupElement("result"));
-    result.addElement(new ParserKeywordLookupElement("caller"));
-    result.addElement(new ParserMethodLookupElement("exception.handled"));
+    result.addElement(new ParserKeywordLookupElement("true"));
+    result.addElement(new ParserKeywordLookupElement("false"));
+    result.addElement(new ParserKeywordLookupElement("def"));
+    result.addElement(new ParserKeywordLookupElement("in"));
+    result.addElement(new ParserKeywordLookupElement("-f"));
+    result.addElement(new ParserKeywordLookupElement("-d"));
+    result.addElement(new ParserKeywordLookupElement("is"));
+    result.addElement(new ParserKeywordLookupElement("eq"));
+    result.addElement(new ParserKeywordLookupElement("ne"));
+    result.addElement(new ParserKeywordLookupElement("lt"));
+    result.addElement(new ParserKeywordLookupElement("gt"));
+    result.addElement(new ParserKeywordLookupElement("le"));
+    result.addElement(new ParserKeywordLookupElement("ge"));
   }
 }

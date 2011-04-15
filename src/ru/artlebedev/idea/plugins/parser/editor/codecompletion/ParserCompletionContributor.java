@@ -10,6 +10,7 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserA
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterDollarCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterSignCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserDefaultCompletionProvider;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserLogicalStatementCompletionProvider;
 
 import static com.intellij.patterns.PlatformPatterns.psiElement;
 
@@ -36,6 +37,14 @@ public class ParserCompletionContributor extends CompletionContributor {
   private static final Logger log = Logger.getInstance("ParserCompletionContributor");
 
   private static final ElementPattern<PsiElement> DEFAULT = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
+  private static final ElementPattern<PsiElement> LOGICAL_STATEMENT_AFTER_SPACE = StandardPatterns.instanceOf(PsiElement.class)
+                                                                        .and(psiElement().afterLeaf(" "))
+                                                                        .andNot(psiElement().afterLeaf("["))
+                                                                        .andNot(psiElement().afterLeaf("{"));
+  private static final ElementPattern<PsiElement> LOGICAL_STATEMENT_AFTER_BRACE = StandardPatterns.instanceOf(PsiElement.class)
+                                                                        .and(psiElement().afterLeaf("("))
+                                                                        .andNot(psiElement().afterLeaf("["))
+                                                                        .andNot(psiElement().afterLeaf("{"));
   private static final ElementPattern<PsiElement> AFTER_BIRD = psiElement().afterLeaf("^");
   private static final ElementPattern<PsiElement> AFTER_DOLLAR = psiElement().afterLeaf("$");
   private static final ElementPattern<PsiElement> AFTER_SIGN = psiElement().afterLeaf("@");
@@ -43,9 +52,11 @@ public class ParserCompletionContributor extends CompletionContributor {
   public ParserCompletionContributor() {
     log.info("Created parser completion contributor");
 
-    extend(CompletionType.BASIC, DEFAULT, new ParserDefaultCompletionProvider());
-    extend(CompletionType.BASIC, AFTER_BIRD, new ParserAfterBirdCompletionProvider());
-    extend(CompletionType.BASIC, AFTER_DOLLAR, new ParserAfterDollarCompletionProvider());
-    extend(CompletionType.BASIC, AFTER_SIGN, new ParserAfterSignCompletionProvider());
+    extend(CompletionType.BASIC, DEFAULT,                       new ParserDefaultCompletionProvider());
+    extend(CompletionType.BASIC, LOGICAL_STATEMENT_AFTER_SPACE, new ParserLogicalStatementCompletionProvider());
+    extend(CompletionType.BASIC, LOGICAL_STATEMENT_AFTER_BRACE, new ParserLogicalStatementCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_BIRD,                    new ParserAfterBirdCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_DOLLAR,                  new ParserAfterDollarCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_SIGN,                    new ParserAfterSignCompletionProvider());
   }
 }

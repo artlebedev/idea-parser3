@@ -72,6 +72,8 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final String PARSER_BAD_CHARACTER_ID = "Parser bad character";
   @NonNls
   public static final String PARSER_SELF_ID = "Parser self";
+  @NonNls
+  public static final String PARSER_OPERATORS_ID = "Parser operators";
 
   static {
     TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
@@ -93,6 +95,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     TextAttributesKey.createTextAttributesKey(PARSER_SEMICOLON_ID, SyntaxHighlighterColors.JAVA_SEMICOLON.getDefaultAttributes());
     TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID, HighlighterColors.BAD_CHARACTER.getDefaultAttributes());
     TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID, new TextAttributes(Color.YELLOW.darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_OPERATORS_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
   }
 
   public static final TextAttributesKey PARSER_KEYWORD = TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID);
@@ -109,6 +112,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TextAttributesKey PARSER_SEMICOLON = TextAttributesKey.createTextAttributesKey(PARSER_SEMICOLON_ID);
   public static final TextAttributesKey PARSER_BAD_CHARACTER = TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID);
   public static final TextAttributesKey PARSER_SELF = TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID);
+  public static final TextAttributesKey PARSER_OPERATORS = TextAttributesKey.createTextAttributesKey(PARSER_OPERATORS_ID);
 
   private static final Map<IElementType, TextAttributesKey> attributes;
 
@@ -143,6 +147,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     fillMap(attributes, parserDocSet, PARSER_PARSERDOC_COMMENT);
     fillMap(attributes, badCharacterSet, PARSER_BAD_CHARACTER);
     fillMap(attributes, selfSet, PARSER_SELF);
+    fillMap(attributes, ParserTokenTypes.OPERATIONS, PARSER_OPERATORS);
   }
 
   @NotNull
