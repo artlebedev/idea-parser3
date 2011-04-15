@@ -25,6 +25,7 @@ public class ParserDefaultLiveTemplatesProvider implements DefaultLiveTemplatesP
   public String[] getDefaultLiveTemplateFiles() {
     return new String[] {
             "/ru/artlebedev/idea/plugins/parser/editor/liveTemplates/parser-lang",
+            "/ru/artlebedev/idea/plugins/parser/editor/liveTemplates/completionContributor/parser-method-lookup",
             "/ru/artlebedev/idea/plugins/parser/editor/liveTemplates/parser-html",
             "/ru/artlebedev/idea/plugins/parser/editor/liveTemplates/parser-zen-html"
     };
