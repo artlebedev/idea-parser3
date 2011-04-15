@@ -11,6 +11,10 @@ import com.intellij.patterns.StandardPatterns;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.ParserKeywordLookupElements;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterBirdCompletionProvider;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterDollarCompletionProvider;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserDefaultCompletionProvider;
 
 import static com.intellij.patterns.PlatformPatterns.psiElement;
 
@@ -43,35 +47,8 @@ public class ParserCompletionContributor extends CompletionContributor {
   public ParserCompletionContributor() {
     log.info("Created parser completion contributor");
 
-    extend(CompletionType.BASIC, DEFAULT, new CompletionProvider<CompletionParameters>() {
-      @Override
-      protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-        result.addElement(new ParserKeywordLookupElement("true"));
-        result.addElement(new ParserKeywordLookupElement("false"));
-      }
-    });
-
-    extend(CompletionType.BASIC, AFTER_BIRD, new CompletionProvider<CompletionParameters>() {
-      @Override
-      protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-        result.addElement(new ParserMethodLookupElement("rem"));
-        result.addElement(new ParserMethodLookupElement("taint"));
-        result.addElement(new ParserMethodLookupElement("untaint"));
-        result.addElement(new ParserMethodLookupElement("if"));
-        result.addElement(new ParserMethodLookupElement("break"));
-        result.addElement(new ParserMethodLookupElement("continue"));
-        result.addElement(new ParserMethodLookupElement("connect"));
-        result.addElement(new ParserMethodLookupElement("use"));
-        result.addElement(new ParserMethodLookupElement("cache"));
-      }
-    });
-
-    extend(CompletionType.BASIC, AFTER_DOLLAR, new CompletionProvider<CompletionParameters>() {
-      @Override
-      protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-        result.addElement(new ParserKeywordLookupElement("caller"));
-        result.addElement(new ParserKeywordLookupElement("result"));
-      }
-    });
+    extend(CompletionType.BASIC, DEFAULT, new ParserDefaultCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_BIRD, new ParserAfterBirdCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_DOLLAR, new ParserAfterDollarCompletionProvider());
   }
 }

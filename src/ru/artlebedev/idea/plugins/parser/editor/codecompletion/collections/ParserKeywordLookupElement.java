@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections;
 
 import com.intellij.codeInsight.lookup.LookupElement;
 import org.jetbrains.annotations.NotNull;

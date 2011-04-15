@@ -1,7 +1,8 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections;
 
 import com.intellij.codeInsight.lookup.LookupElementPresentation;
 import com.intellij.util.Icons;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.collections.ParserKeywordLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
