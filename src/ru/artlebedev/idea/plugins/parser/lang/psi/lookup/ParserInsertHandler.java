@@ -30,6 +30,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
  * limitations under the License.
  */
 
+@SuppressWarnings("deprecation")
 public class ParserInsertHandler extends DefaultInsertHandler {
   public void handleInsert(final InsertionContext context, LookupElement item) {
     super.handleInsert(context, item);
