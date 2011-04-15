@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templateSet group="parser-lang">
-  <template name="for" value="^for[$VAR1$:$VAR2$]($VAR3$;$VAR4$){ $VAR5$ }" description="^for[i](;){}" toReformat="false" toShortenFQNames="true">
+  <template name="for" value="^for[$VAR1$:$VAR2$]($VAR3$;$VAR4$){$END$}" description="^for[i](;){}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="1" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR3" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR4" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR5" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -57,9 +56,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ftm" value="^form:tables.$VAR1$.menu{$VAR2$}" description="^form:tables.name.menu{}" toReformat="false" toShortenFQNames="true">
+  <template name="ftm" value="^form:tables.$VAR1$.menu{$END$}" description="^form:tables.name.menu{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="name" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -84,9 +82,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="-if" value="^if($VAR1$){$VAR2$}" description="^if(){}" toReformat="false" toShortenFQNames="true">
+  <template name="-if" value="^if($VAR1$){$END$}" description="^if(){}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -111,10 +108,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="-ife" value="^if($VAR1$){$VAR2$}{$VAR3$}" description="^if(){}{}" toReformat="false" toShortenFQNames="true">
+  <template name="-ife" value="^if($VAR1$){$END$}{}" description="^if(){}{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR3" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -139,7 +134,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="is" value="^int:sql{ SELECT $VAR1$ FROM $VAR2$ }" description="^int:sql{}" toReformat="false" toShortenFQNames="true">
+  <template name="is" value="^int:sql{SELECT $VAR1$ FROM $VAR2$}" description="^int:sql{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -217,9 +212,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="tm" value="^$VAR1$.menu{$VAR2$}" description="^table.menu{}" toReformat="false" toShortenFQNames="true">
+  <template name="tm" value="^$VAR1$.menu{$END$}" description="^table.menu{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="table" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -244,8 +238,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="table" value="^table::create{$VAR0$}" description="^table::create{}" toReformat="false" toShortenFQNames="true">
-    <variable name="VAR0" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="table" value="^table::create{$END$}" description="^table::create{}" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -270,7 +263,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ts" value="^table::sql{ SELECT $VAR1$ FROM $VAR2$ }" description="^table::sql{}" toReformat="false" toShortenFQNames="true">
+  <template name="ts" value="^table::sql{SELECT $VAR1$ FROM $VAR2$}" description="^table::sql{}" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -297,8 +290,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="vs" value="^void:sql{ $VAR1$ }" description="^void:sql{}" toReformat="false" toShortenFQNames="true">
-    <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="vs" value="^void:sql{$END$}" description="^void:sql{}" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -455,9 +447,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ifd" value="^if(def $VAR1$){$VAR0$}" description="if def" toReformat="false" toShortenFQNames="true">
+  <template name="ifd" value="^if(def $VAR1$){$END$}" description="if def" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR0" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -482,7 +473,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="if" value="^if( $VAR1$ ){$VAR2$}" description="if" toReformat="false" toShortenFQNames="true">
+  <template name="if" value="^if($VAR1$){$END$}" description="if" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -509,10 +500,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ifed" value="^if(def $VAR1$){$VAR2$}{$VAR3$}" description="ife def" toReformat="false" toShortenFQNames="true">
+  <template name="ifed" value="^if(def $VAR1$){$END$}{}" description="ife def" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR3" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
@@ -537,10 +526,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="ife" value="^if( $VAR1$ ){$VAR2$}{$VAR3$}" description="ife" toReformat="false" toShortenFQNames="true">
+  <template name="ife" value="^if($VAR1$){$END$}{}" description="ife" toReformat="false" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="VAR3" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
       <option name="JAVA_COMMENT" value="false" />
