@@ -54,10 +54,15 @@ public class ParserCompletionContributor extends CompletionContributor {
     extend(CompletionType.BASIC, AFTER_BIRD, new CompletionProvider<CompletionParameters>() {
       @Override
       protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-        result.addElement(new ParserKeywordLookupElement("try"));
+        result.addElement(new ParserKeywordLookupElement("rem"));
         result.addElement(new ParserKeywordLookupElement("taint"));
         result.addElement(new ParserKeywordLookupElement("untaint"));
-        result.addElement(new ParserKeywordLookupElement("rem"));
+        result.addElement(new ParserKeywordLookupElement("if"));
+        result.addElement(new ParserKeywordLookupElement("break"));
+        result.addElement(new ParserKeywordLookupElement("continue"));
+        result.addElement(new ParserKeywordLookupElement("connect"));
+        result.addElement(new ParserKeywordLookupElement("use"));
+        result.addElement(new ParserKeywordLookupElement("cache"));
       }
     });
 
