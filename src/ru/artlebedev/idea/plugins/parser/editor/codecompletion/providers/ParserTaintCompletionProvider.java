@@ -5,7 +5,6 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserOperatorLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserTaintLookupElement;
 
 /**
@@ -30,6 +29,7 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserTaintLookup
 public class ParserTaintCompletionProvider extends CompletionProvider<CompletionParameters> {
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+    result.addElement(new ParserTaintLookupElement("parser-code"));
     result.addElement(new ParserTaintLookupElement("as-is"));
     result.addElement(new ParserTaintLookupElement("file-spec"));
     result.addElement(new ParserTaintLookupElement("http-header"));
