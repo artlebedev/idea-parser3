@@ -58,6 +58,7 @@ public class ParserElementFactory {
     parsers.put(ParserElementTypes.PARSERDOC_TYPE_INFO, ParserDocTypeInfoImpl.class);
     parsers.put(ParserElementTypes.PARSERDOC_CONSTRUCTOR_INFO, ParserDocConstructorInfoImpl.class);
     parsers.put(ParserElementTypes.PARSERDOC_RESULT_INFO, ParserDocResultInfoImpl.class);
+    parsers.put(ParserElementTypes.PARSERDOC_DYNAMIC_INFO, ParserDocDynamicInfoImpl.class);
   }
 
 

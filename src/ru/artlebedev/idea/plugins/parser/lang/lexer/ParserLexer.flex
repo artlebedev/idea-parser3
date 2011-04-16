@@ -83,6 +83,7 @@ CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XM
 	"type"			{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_TYPE_KEYWORD; }
 	"optional"		{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_OPTIONAL_KEYWORD; }
 	"constructor"		{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD; }
+	"dynamic"		{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_DYNAMIC_KEYWORD; }
 	{Name}			{ yybegin(PARSERDOC); return ParserTokenTypes.IDENTIFIER; }
 	","			{ yybegin(PARSERDOC); return ParserTokenTypes.COMMA; }
 	{NewLine}		{ yybegin(YYINITIAL); return ParserTokenTypes.NEW_LINE; }

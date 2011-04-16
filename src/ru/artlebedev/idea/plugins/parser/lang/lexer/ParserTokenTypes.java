@@ -46,6 +46,7 @@ public interface ParserTokenTypes {
   IElementType PARSERDOC_RESULT_KEYWORD = new ParserElementType("PARSERDOC_RESULT_KEYWORD");
   IElementType PARSERDOC_OPTIONAL_KEYWORD = new ParserElementType("PARSERDOC_OPTIONAL_KEYWORD");
   IElementType PARSERDOC_CONSTRUCTOR_KEYWORD = new ParserElementType("PARSERDOC_CONSTRUCTOR_KEYWORD");
+  IElementType PARSERDOC_DYNAMIC_KEYWORD = new ParserElementType("PARSERDOC_DYNAMIC_KEYWORD");
   IElementType PARSERDOC_START = new ParserElementType("PARSERDOC_START");
 
   // Keywords:

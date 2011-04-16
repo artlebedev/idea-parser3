@@ -68,6 +68,7 @@ public interface ParserElementTypes {
    */
   IElementType PARSERDOC = new ParserElementType("PARSERDOC");
   IElementType PARSERDOC_CONSTRUCTOR_INFO = new ParserElementType("PARSERDOC_CONSTRUCTOR_INFO");
+  IElementType PARSERDOC_DYNAMIC_INFO = new ParserElementType("PARSERDOC_DYNAMIC_INFO");
   IElementType PARSERDOC_PARAM_INFO = new ParserElementType("PARSERDOC_PARAM_INFO");
   IElementType PARSERDOC_RESULT_INFO = new ParserElementType("PARSERDOC_RESULT_INFO");
   IElementType PARSERDOC_TYPE_INFO = new ParserElementType("PARSERDOC_TYPE_INFO");
