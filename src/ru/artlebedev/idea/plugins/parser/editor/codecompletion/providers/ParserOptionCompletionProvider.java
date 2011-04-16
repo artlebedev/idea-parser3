@@ -5,7 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOptionLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -37,7 +37,7 @@ public class ParserOptionCompletionProvider extends CompletionProvider<Completio
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
     for(String optionLookupElement : optionLookupElements) {
-      result.addElement(new ParserLookupElement(optionLookupElement));
+      result.addElement(new ParserOptionLookupElement(optionLookupElement));
     }
   }
 }
