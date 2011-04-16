@@ -30,5 +30,7 @@ public class ParserAfterSignCompletionProvider extends CompletionProvider<Comple
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
     result.addElement(new ParserKeywordLookupElement("unhandled_exception"));
+    result.addElement(new ParserKeywordLookupElement("main"));
+    result.addElement(new ParserKeywordLookupElement("auto"));
   }
 }
