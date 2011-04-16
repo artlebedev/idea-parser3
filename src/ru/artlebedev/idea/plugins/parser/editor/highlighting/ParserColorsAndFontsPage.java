@@ -99,7 +99,8 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
             "###\n\n" +
             "@method2[]\n" +
             "^self.method1[]\n" +
-            "###";
+            "###\n" +
+            "";
 
   }
 
