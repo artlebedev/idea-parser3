@@ -6,6 +6,7 @@ import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserOperatorLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserTaintLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -26,21 +27,21 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserOperatorLoo
  * limitations under the License.
  */
 
-public class ParserLogicalStatementCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserTaintCompletionProvider extends CompletionProvider<CompletionParameters> {
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserOperatorLookupElement("true"));
-    result.addElement(new ParserOperatorLookupElement("false"));
-    result.addElement(new ParserOperatorLookupElement("def"));
-    result.addElement(new ParserOperatorLookupElement("in"));
-    result.addElement(new ParserOperatorLookupElement("-f"));
-    result.addElement(new ParserOperatorLookupElement("-d"));
-    result.addElement(new ParserOperatorLookupElement("is"));
-    result.addElement(new ParserOperatorLookupElement("eq"));
-    result.addElement(new ParserOperatorLookupElement("ne"));
-    result.addElement(new ParserOperatorLookupElement("lt"));
-    result.addElement(new ParserOperatorLookupElement("gt"));
-    result.addElement(new ParserOperatorLookupElement("le"));
-    result.addElement(new ParserOperatorLookupElement("ge"));
+    result.addElement(new ParserTaintLookupElement("as-is"));
+    result.addElement(new ParserTaintLookupElement("file-spec"));
+    result.addElement(new ParserTaintLookupElement("http-header"));
+    result.addElement(new ParserTaintLookupElement("mail-header"));
+    result.addElement(new ParserTaintLookupElement("uri"));
+    result.addElement(new ParserTaintLookupElement("sql"));
+    result.addElement(new ParserTaintLookupElement("js"));
+    result.addElement(new ParserTaintLookupElement("regex"));
+    result.addElement(new ParserTaintLookupElement("xml"));
+    result.addElement(new ParserTaintLookupElement("html"));
+    result.addElement(new ParserTaintLookupElement("optimized-as-is"));
+    result.addElement(new ParserTaintLookupElement("optimized-xml"));
+    result.addElement(new ParserTaintLookupElement("optimized-html"));
   }
 }
