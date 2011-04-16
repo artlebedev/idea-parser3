@@ -28,10 +28,23 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  */
 
 public class ParserAfterDollarCompletionProvider extends CompletionProvider<CompletionParameters> {
+  public final String[] lookupElements = new String[]{
+          "result",
+          "caller"
+  };
+
+  public final String[] methodLookupElements = new String[]{
+          "exception.handled"
+  };
+
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserLookupElement("result"));
-    result.addElement(new ParserLookupElement("caller"));
-    result.addElement(new ParserMethodLookupElement("exception.handled"));
+    for(String lookupElement : lookupElements) {
+      result.addElement(new ParserLookupElement(lookupElement));
+    }
+
+    for(String methodLookupElement : methodLookupElements) {
+      result.addElement(new ParserMethodLookupElement(methodLookupElement));
+    }
   }
 }

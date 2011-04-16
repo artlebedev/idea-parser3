@@ -27,21 +27,27 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserTa
  */
 
 public class ParserTaintCompletionProvider extends CompletionProvider<CompletionParameters> {
+  public static String[] taintLookupElements = new String[]{
+          "parser-code",
+          "as-is",
+          "file-spec",
+          "http-header",
+          "mail-header",
+          "uri",
+          "sql",
+          "js",
+          "regex",
+          "xml",
+          "html",
+          "optimized-as-is",
+          "optimized-xml",
+          "optimized-html"
+  };
+
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserTaintLookupElement("parser-code"));
-    result.addElement(new ParserTaintLookupElement("as-is"));
-    result.addElement(new ParserTaintLookupElement("file-spec"));
-    result.addElement(new ParserTaintLookupElement("http-header"));
-    result.addElement(new ParserTaintLookupElement("mail-header"));
-    result.addElement(new ParserTaintLookupElement("uri"));
-    result.addElement(new ParserTaintLookupElement("sql"));
-    result.addElement(new ParserTaintLookupElement("js"));
-    result.addElement(new ParserTaintLookupElement("regex"));
-    result.addElement(new ParserTaintLookupElement("xml"));
-    result.addElement(new ParserTaintLookupElement("html"));
-    result.addElement(new ParserTaintLookupElement("optimized-as-is"));
-    result.addElement(new ParserTaintLookupElement("optimized-xml"));
-    result.addElement(new ParserTaintLookupElement("optimized-html"));
+    for(String taintLookupElement : taintLookupElements) {
+      result.addElement(new ParserTaintLookupElement(taintLookupElement));
+    }
   }
 }

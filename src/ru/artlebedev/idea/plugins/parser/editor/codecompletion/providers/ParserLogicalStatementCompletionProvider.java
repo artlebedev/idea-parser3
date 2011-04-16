@@ -27,20 +27,26 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOp
  */
 
 public class ParserLogicalStatementCompletionProvider extends CompletionProvider<CompletionParameters> {
+  public static String[] operatorLookupElements = new String[]{
+          "true",
+          "false",
+          "def",
+          "in",
+          "-f",
+          "-d",
+          "is",
+          "eq",
+          "ne",
+          "lt",
+          "gt",
+          "le",
+          "ge"
+  };
+
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserOperatorLookupElement("true"));
-    result.addElement(new ParserOperatorLookupElement("false"));
-    result.addElement(new ParserOperatorLookupElement("def"));
-    result.addElement(new ParserOperatorLookupElement("in"));
-    result.addElement(new ParserOperatorLookupElement("-f"));
-    result.addElement(new ParserOperatorLookupElement("-d"));
-    result.addElement(new ParserOperatorLookupElement("is"));
-    result.addElement(new ParserOperatorLookupElement("eq"));
-    result.addElement(new ParserOperatorLookupElement("ne"));
-    result.addElement(new ParserOperatorLookupElement("lt"));
-    result.addElement(new ParserOperatorLookupElement("gt"));
-    result.addElement(new ParserOperatorLookupElement("le"));
-    result.addElement(new ParserOperatorLookupElement("ge"));
+    for(String operatorLookupElement : operatorLookupElements) {
+      result.addElement(new ParserOperatorLookupElement(operatorLookupElement));
+    }
   }
 }

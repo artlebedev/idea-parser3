@@ -27,10 +27,16 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLo
  */
 
 public class ParserAfterSignCompletionProvider extends CompletionProvider<CompletionParameters> {
+  public static String[] lookupElements = new String[]{
+          "unhandled_exception",
+          "main",
+          "auto"
+  };
+
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserLookupElement("unhandled_exception"));
-    result.addElement(new ParserLookupElement("main"));
-    result.addElement(new ParserLookupElement("auto"));
+    for(String lookupElement : lookupElements) {
+      result.addElement(new ParserLookupElement(lookupElement));
+    }
   }
 }
