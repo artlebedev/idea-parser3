@@ -9,3 +9,5 @@ Change compiler options and add .p files to resources.
 
 Also, if you want debug - start IntelliJ IDEA VM with increased PermSize (configurable
 via "Edit Configurations" menu).
+
+Please not that in case you are developing GUI forms - use NetBeans IDE instead of IntelliJ IDEA.
