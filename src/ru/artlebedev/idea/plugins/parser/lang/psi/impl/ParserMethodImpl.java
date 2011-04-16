@@ -15,6 +15,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDoc;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocConstructorInfo;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocDynamicInfo;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocParameterInfo;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocResultInfo;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
@@ -60,7 +61,6 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
     super(astNode);
   }
 
-  // XXX should follow ParserDoc etc
   public boolean isConstructor() {
     if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
       return true;
@@ -68,6 +68,25 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
       ParserDoc doc = PsiTreeUtil.getPrevSiblingOfType(this, ParserDoc.class);
       while (doc != null) {
         ParserDocConstructorInfo info = PsiTreeUtil.getChildOfType(doc, ParserDocConstructorInfo.class);
+        if (info != null) {
+          ParserMethod method = PsiTreeUtil.getNextSiblingOfType(doc, ParserMethod.class);
+
+          return method.getName().equals(getName());
+        }
+        doc = PsiTreeUtil.getPrevSiblingOfType(doc, ParserDoc.class);
+      }
+    }
+
+    return false;
+  }
+
+  public boolean isDynamic() {
+    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+      return true;
+    } else {
+      ParserDoc doc = PsiTreeUtil.getPrevSiblingOfType(this, ParserDoc.class);
+      while (doc != null) {
+        ParserDocDynamicInfo info = PsiTreeUtil.getChildOfType(doc, ParserDocDynamicInfo.class);
         if (info != null) {
           ParserMethod method = PsiTreeUtil.getNextSiblingOfType(doc, ParserMethod.class);
 
