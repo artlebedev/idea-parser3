@@ -1,10 +1,7 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
 
-import com.intellij.codeInsight.completion.CompletionParameters;
-import com.intellij.codeInsight.completion.CompletionProvider;
-import com.intellij.codeInsight.completion.CompletionResultSet;
-import com.intellij.util.ProcessingContext;
-import org.jetbrains.annotations.NotNull;
+import com.intellij.codeInsight.lookup.LookupElementPresentation;
+import com.intellij.util.Icons;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -25,8 +22,14 @@ import org.jetbrains.annotations.NotNull;
  * limitations under the License.
  */
 
-public class ParserDefaultCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserExceptionTypeLookupElement extends ParserLookupElement {
+  public ParserExceptionTypeLookupElement(String keyword) {
+    super(keyword);
+  }
+
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  public void renderElement(LookupElementPresentation presentation) {
+      presentation.setIcon(Icons.EXCEPTION_CLASS_ICON);
+      super.renderElement(presentation);
   }
 }
