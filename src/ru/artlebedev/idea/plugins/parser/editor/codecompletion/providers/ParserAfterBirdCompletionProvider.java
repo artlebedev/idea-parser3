@@ -42,7 +42,12 @@ public class ParserAfterBirdCompletionProvider extends CompletionProvider<Comple
           "eval",
           "process",
           "self.",
-          "caller."
+          "caller.",
+          "throw",
+          "try",
+          "for",
+          "while",
+          "switch"
   };
 
   public final static String[] classLookupElements = new String[]{
