@@ -32,7 +32,11 @@ public class ParserAfterSignCompletionProvider extends CompletionProvider<Comple
   public static String[] lookupElements = new String[]{
           "unhandled_exception",
           "main",
-          "static:"
+          "static:",
+          "GET_DEFAULT",
+          "SET_DEFAULT",
+          "GET_",
+          "SET_"
   };
 
   public static String[] methodLookupElements = new String[]{
