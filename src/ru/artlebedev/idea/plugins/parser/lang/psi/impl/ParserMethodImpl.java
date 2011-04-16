@@ -178,7 +178,7 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
         Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
         for(ParserClass parserClass : parserClasses) {
           if(parserClass != null) {
-            if(parserClass.getName().equals(info.getName())) {
+            if(info.getName().equals(parserClass.getName())) {
               return parserClass;
             }
           }
