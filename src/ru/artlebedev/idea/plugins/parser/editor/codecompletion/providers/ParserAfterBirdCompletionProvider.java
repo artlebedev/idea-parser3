@@ -5,14 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
-import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
-import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
-import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
-import ru.artlebedev.idea.plugins.parser.lang.psi.resolve.ParserResolveUtil;
-
-import java.util.Collection;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -58,12 +51,12 @@ public class ParserAfterBirdCompletionProvider extends CompletionProvider<Comple
       result.addElement(new ParserMethodLookupElement(methodLookupElement));
     }
 
-    Collection<ParserFile> parserFiles = parameters.getPosition().getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
-    Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
-    for(ParserClass parserClass : parserClasses) {
-      if(ParserResolveUtil.collectStaticObjectDeclarations(parserClass).size() > 0) {
-        result.addElement(new ParserLookupElement(parserClass.getName() + ":"));
-      }
-    }
+//    Collection<ParserFile> parserFiles = parameters.getPosition().getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+//    Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
+//    for(ParserClass parserClass : parserClasses) {
+//      if(ParserResolveUtil.collectStaticObjectDeclarations(parserClass).size() > 0) {
+//        result.addElement(new ParserLookupElement(parserClass.getName() + ":"));
+//      }
+//    }
   }
 }
