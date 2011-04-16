@@ -1,7 +1,7 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
 
 import com.intellij.codeInsight.lookup.LookupElementPresentation;
-import com.intellij.openapi.util.IconLoader;
+import com.intellij.util.Icons;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -28,14 +28,15 @@ import com.intellij.openapi.util.IconLoader;
  * and could be expanded with tab.
  * -- dwr
  */
-public class ParserTaintLookupElement extends ParserKeywordLookupElement {
-  public ParserTaintLookupElement(String keyword) {
+public class ParserMethodLookupElement extends ParserKeywordLookupElement {
+  public ParserMethodLookupElement(String keyword) {
     super(keyword);
   }
 
   @Override
   public void renderElement(LookupElementPresentation presentation) {
-      presentation.setIcon(IconLoader.getIcon("/nodes/deploy.png"));
+      presentation.setIcon(Icons.ADVICE_ICON);
       super.renderElement(presentation);
   }
 }
+

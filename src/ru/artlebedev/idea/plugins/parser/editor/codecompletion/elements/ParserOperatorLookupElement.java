@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
 
 import com.intellij.codeInsight.lookup.LookupElementPresentation;
 import com.intellij.openapi.util.IconLoader;

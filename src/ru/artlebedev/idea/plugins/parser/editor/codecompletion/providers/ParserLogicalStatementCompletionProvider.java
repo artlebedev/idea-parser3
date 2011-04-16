@@ -5,7 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserOperatorLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOperatorLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.

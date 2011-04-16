@@ -1,7 +1,7 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
 
-import com.intellij.codeInsight.lookup.LookupElementPresentation;
-import com.intellij.util.Icons;
+import com.intellij.codeInsight.lookup.LookupElement;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -22,21 +22,18 @@ import com.intellij.util.Icons;
  * limitations under the License.
  */
 
-/*
- * Adds an icon in the form of < > (might be changed),
- * it means that this lookup belongs to live template
- * and could be expanded with tab.
- * -- dwr
- */
-public class ParserMethodLookupElement extends ParserKeywordLookupElement {
-  public ParserMethodLookupElement(String keyword) {
-    super(keyword);
+public class ParserKeywordLookupElement extends LookupElement {
+  String keyword;
+
+  public ParserKeywordLookupElement(String keyword) {
+    super();
+
+    this.keyword = keyword;
   }
 
+  @NotNull
   @Override
-  public void renderElement(LookupElementPresentation presentation) {
-      presentation.setIcon(Icons.ADVICE_ICON);
-      super.renderElement(presentation);
+  public String getLookupString() {
+    return keyword;
   }
 }
-
