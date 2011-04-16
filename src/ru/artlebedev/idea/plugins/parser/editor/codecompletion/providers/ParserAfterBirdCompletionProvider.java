@@ -27,17 +27,24 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  */
 
 public class ParserAfterBirdCompletionProvider extends CompletionProvider<CompletionParameters> {
+  public final static String[] methodLookupElements = new String[]{
+          "rem",
+          "taint",
+          "untaint",
+          "if",
+          "break",
+          "continue",
+          "connect",
+          "use",
+          "cache",
+          "eval",
+          "process"
+  };
+
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserMethodLookupElement("rem"));
-    result.addElement(new ParserMethodLookupElement("taint"));
-    result.addElement(new ParserMethodLookupElement("untaint"));
-    result.addElement(new ParserMethodLookupElement("if"));
-    result.addElement(new ParserMethodLookupElement("break"));
-    result.addElement(new ParserMethodLookupElement("continue"));
-    result.addElement(new ParserMethodLookupElement("connect"));
-    result.addElement(new ParserMethodLookupElement("use"));
-    result.addElement(new ParserMethodLookupElement("cache"));
-    result.addElement(new ParserMethodLookupElement("eval"));
+    for (String methodLookupElement : methodLookupElements) {
+      result.addElement(new ParserMethodLookupElement(methodLookupElement));
+    }
   }
 }
