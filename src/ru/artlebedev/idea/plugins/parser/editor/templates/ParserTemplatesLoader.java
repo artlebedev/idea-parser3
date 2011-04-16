@@ -3,7 +3,6 @@ package ru.artlebedev.idea.plugins.parser.editor.templates;
 import com.intellij.codeInsight.template.impl.TemplateSettings;
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
-import com.intellij.ide.fileTemplates.impl.FileTemplateImpl;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.diagnostic.Logger;
 import org.jdom.Document;
@@ -69,8 +68,7 @@ public class ParserTemplatesLoader implements ApplicationComponent {
       return;
     }
 
-    pattern = templateManager.addPattern(name, ParserFileType.DEFAULT_EXTENSION);
-    ((FileTemplateImpl) pattern).setInternal(true);
+    pattern = templateManager.addTemplate(name, ParserFileType.DEFAULT_EXTENSION);
     pattern.setText(text);
   }
 
@@ -81,7 +79,6 @@ public class ParserTemplatesLoader implements ApplicationComponent {
     }
 
     pattern = templateManager.addTemplate(name, ParserFileType.DEFAULT_EXTENSION);
-    ((FileTemplateImpl) pattern).setInternal(true);
     pattern.setText(text);
   }
 
