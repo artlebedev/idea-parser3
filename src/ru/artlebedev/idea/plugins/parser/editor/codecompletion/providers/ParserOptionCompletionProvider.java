@@ -6,8 +6,6 @@ import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVariableLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -28,40 +26,18 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVa
  * limitations under the License.
  */
 
-public class ParserAfterDollarCompletionProvider extends CompletionProvider<CompletionParameters> {
-  public final String[] lookupElements = new String[]{
-          "caller.",
-          "result",
+public class ParserOptionCompletionProvider extends CompletionProvider<CompletionParameters> {
+  public final static String[] optionLookupElements = new String[]{
           "locals",
-          "self."
-  };
-
-  public final String[] variableLookupElements = new String[]{
-          "exception.type",
-          "exception.source",
-          "exception.file",
-          "exception.lineno",
-          "exception.colno",
-          "exception.comment",
-          "caller.self"
-  };
-
-  public final String[] methodLookupElements = new String[]{
-          "exception.handled"
+          "partial",
+          "static",
+          "dynamic"
   };
 
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    for(String lookupElement : lookupElements) {
-      result.addElement(new ParserLookupElement(lookupElement));
-    }
-
-    for(String variableLookupElement : variableLookupElements) {
-      result.addElement(new ParserVariableLookupElement(variableLookupElement));
-    }
-
-    for(String methodLookupElement : methodLookupElements) {
-      result.addElement(new ParserMethodLookupElement(methodLookupElement));
+    for(String optionLookupElement : optionLookupElements) {
+      result.addElement(new ParserLookupElement(optionLookupElement));
     }
   }
 }

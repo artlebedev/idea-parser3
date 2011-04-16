@@ -5,6 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -26,7 +27,13 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class ParserDefaultCompletionProvider extends CompletionProvider<CompletionParameters> {
+  public final static String[] lookupElements = new String[]{
+  };
+
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+    for(String lookupElement : lookupElements) {
+      result.addElement(new ParserLookupElement(lookupElement));
+    }
   }
 }

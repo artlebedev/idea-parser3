@@ -5,7 +5,9 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserClassAttributeLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -30,13 +32,32 @@ public class ParserAfterSignCompletionProvider extends CompletionProvider<Comple
   public static String[] lookupElements = new String[]{
           "unhandled_exception",
           "main",
+          "static:"
+  };
+
+  public static String[] methodLookupElements = new String[]{
           "auto"
+  };
+
+  public static String[] classAttributeLookupElements = new String[]{
+          "CLASS",
+          "USE",
+          "BASE",
+          "OPTIONS"
   };
 
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
     for(String lookupElement : lookupElements) {
       result.addElement(new ParserLookupElement(lookupElement));
+    }
+
+    for(String methodLookupElement : methodLookupElements) {
+      result.addElement(new ParserMethodLookupElement(methodLookupElement));
+    }
+
+    for(String classAttributeLookupElement : classAttributeLookupElements) {
+      result.addElement(new ParserClassAttributeLookupElement(classAttributeLookupElement));
     }
   }
 }

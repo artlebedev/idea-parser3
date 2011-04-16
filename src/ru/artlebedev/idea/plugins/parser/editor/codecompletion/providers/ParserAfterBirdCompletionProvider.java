@@ -30,6 +30,7 @@ public class ParserAfterBirdCompletionProvider extends CompletionProvider<Comple
   public final static String[] methodLookupElements = new String[]{
           "rem",
           "taint",
+          "apply-taint",
           "untaint",
           "if",
           "break",
@@ -38,7 +39,9 @@ public class ParserAfterBirdCompletionProvider extends CompletionProvider<Comple
           "use",
           "cache",
           "eval",
-          "process"
+          "process",
+          "self.",
+          "caller."
   };
 
   @Override

@@ -39,6 +39,7 @@ public class ParserLookupUtil {
           result.add(new ParserSmartLookupItem((PsiNamedElement) element));
       }
     }
+
     return result.toArray(new ParserSmartLookupItem[0]);
   }
 }
