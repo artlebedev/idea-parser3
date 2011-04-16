@@ -14,6 +14,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserStaticMethod;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -87,11 +88,7 @@ public class ParserStructureViewElement implements StructureViewTreeElement {
         if (suitableClass.isInstance(psiElement)) {
           if(psiElement instanceof ParserMethod) {
             if((psiElement instanceof ParserStaticMethod) || ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserMethod) psiElement).getName())) {
-              StructureViewTreeElement[] staticVariables = new ParserStructureViewElement(psiElement).getChildren();
-
-              for(int i = 0; i < staticVariables.length; i++) {
-                elements.add(staticVariables[i]);
-              }
+              Collections.addAll(elements, new ParserStructureViewElement(psiElement).getChildren());
 
               continue;
             }
