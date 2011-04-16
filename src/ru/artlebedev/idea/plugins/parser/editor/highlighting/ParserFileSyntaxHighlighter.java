@@ -116,7 +116,13 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
 
   private static final Map<IElementType, TextAttributesKey> attributes;
 
-  public static final TokenSet parserDocSet = TokenSet.create(ParserTokenTypes.PARSERDOC_TYPE_KEYWORD, ParserTokenTypes.PARSERDOC_PARAM_KEYWORD, ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD, ParserTokenTypes.PARSERDOC_OPTIONAL_KEYWORD);
+  public static final TokenSet parserDocSet = TokenSet.create(
+          ParserTokenTypes.PARSERDOC_TYPE_KEYWORD,
+          ParserTokenTypes.PARSERDOC_RESULT_KEYWORD,
+          ParserTokenTypes.PARSERDOC_PARAM_KEYWORD,
+          ParserTokenTypes.PARSERDOC_CONSTRUCTOR_KEYWORD,
+          ParserTokenTypes.PARSERDOC_OPTIONAL_KEYWORD
+  );
   public static final TokenSet parsSet = TokenSet.create(ParserTokenTypes.LPAR, ParserTokenTypes.RPAR);
   public static final TokenSet bracesSet = TokenSet.create(ParserTokenTypes.LBRACE, ParserTokenTypes.RBRACE);
   public static final TokenSet bracketsSet = TokenSet.create(ParserTokenTypes.LBRACKET, ParserTokenTypes.RBRACKET);

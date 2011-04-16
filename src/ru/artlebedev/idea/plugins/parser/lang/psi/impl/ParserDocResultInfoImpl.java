@@ -4,6 +4,7 @@ import com.intellij.lang.ASTNode;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiReference;
+import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -86,6 +87,24 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
 
   @Nullable
   public PsiElement resolve() {
+    Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+
+    for (ParserFile parserFile : parserFiles) {
+      ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
+      if (parserClass != null && parserClass.getName().equals(getName())) {
+        return parserClass;
+      }
+    }
+
+    List<PsiElement> psiElements = ParserResolveUtil.collectClassIncludes(getContainingFile());
+    for (PsiElement element : psiElements) {
+      ParserClass parserClass = (ParserClass) element;
+      getProject().getComponent(ParserFileIndex.class).contributeClass(parserClass);
+      if (parserClass.getName().equals(getName())) {
+        return parserClass;
+      }
+    }
+
     return null;
   }
 
@@ -104,7 +123,7 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
   }
 
   public boolean isReferenceTo(PsiElement element) {
-    return element instanceof ParserParameterImpl && element == resolve();
+    return element instanceof ParserClassImpl && element == resolve();
   }
 
   @NotNull
