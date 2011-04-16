@@ -34,8 +34,7 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
           "caller.",
           "result",
           "locals",
-          "self.",
-          "MAIN:"
+          "self."
   };
 
   public final String[] variableLookupElements = new String[]{
