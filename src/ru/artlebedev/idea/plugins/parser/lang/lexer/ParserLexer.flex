@@ -77,6 +77,7 @@ CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XM
 
 <PARSERDOC> {
 	[ \t]			{ yybegin(PARSERDOC); return ParserTokenTypes.NEW_LINE_INDENT; }
+	"parameter"		{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_PARAM_KEYWORD; }
 	"param"		{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_PARAM_KEYWORD; }
 	"type"			{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_TYPE_KEYWORD; }
 	"optional"		{ yybegin(PARSERDOC); return ParserTokenTypes.PARSERDOC_OPTIONAL_KEYWORD; }
