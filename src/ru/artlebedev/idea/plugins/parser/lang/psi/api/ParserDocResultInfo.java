@@ -21,9 +21,5 @@ package ru.artlebedev.idea.plugins.parser.lang.psi.api;
  */
 
 public interface ParserDocResultInfo extends ParserElement {
-
   public String getName();
-
-  public ParserClass[] getType();
-
 }

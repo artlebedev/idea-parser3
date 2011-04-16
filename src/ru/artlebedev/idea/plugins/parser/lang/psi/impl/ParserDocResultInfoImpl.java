@@ -25,7 +25,8 @@ import java.util.List;
  * idea-parser3: slightly useful plugin.
  * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2006 Jay Bird <a4blank@yahoo.com>
+ * Copyright 2006-2011 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +44,14 @@ import java.util.List;
 public class ParserDocResultInfoImpl extends ParserElementImpl implements ParserDocResultInfo, PsiReference {
   public ParserDocResultInfoImpl(ASTNode astNode) {
     super(astNode);
+  }
+
+  public PsiReference getReference() {
+    return this;
+  }
+
+  public PsiElement getElement() {
+    return this;
   }
 
   public String getName() {
@@ -70,18 +79,12 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
     return getNode().findChildByType(ParserTokenTypes.IDENTIFIER);
   }
 
-  public PsiElement getElement() {
-    return this;
-  }
-
-  public PsiReference getReference() {
-    return this;
-  }
-
   public TextRange getRangeInElement() {
-    final PsiElement firstChild = getFirstChild();
-    final int startOffsetInParent = firstChild.getStartOffsetInParent();
-    return new TextRange(startOffsetInParent, startOffsetInParent + getNode().getTextLength());
+    final ASTNode firstChild = findNameNode();
+    if (firstChild.getTextRange() != null) {
+      return firstChild.getTextRange().shiftRight(-1 * getNode().getStartOffset());
+    }
+    return null;
   }
 
   @Nullable
@@ -140,8 +143,5 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
   public String toString() {
     return "ParserDocResultInfo";
   }
-
-  public ParserClass[] getType() {
-    return new ParserClass[0];
-  }
 }
+
