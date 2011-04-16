@@ -6,6 +6,7 @@ import com.intellij.lang.annotation.Annotator;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.psi.PsiElement;
+import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserElementVisitor;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClassReference;
@@ -39,7 +40,7 @@ import java.util.List;
 public class ParserAnnotator extends ParserElementVisitor implements Annotator {
   private AnnotationHolder myHolder;
 
-  public void annotate(PsiElement psiElement, AnnotationHolder holder) {
+  public void annotate(@NotNull PsiElement psiElement, @NotNull AnnotationHolder holder) {
     myHolder = holder;
     psiElement.accept(this);
   }
@@ -68,20 +69,25 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
             new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD)
     );
 
+    final TextAttributesKey PARSER_UNHANDLED_EXCEPTION_NAME = TextAttributesKey.createTextAttributesKey(
+            "PARSER.UNHANDLED_EXCEPTION",
+            new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD)
+    );
+
     Annotation annotation = myHolder.createInfoAnnotation(method.findNameNode(), null);
 
-    if(method.getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
+    if(ParserLanguageConstants.UNHANDLED_EXCEPTION_METHOD_NAME.equals(method.getName())) {
+      annotation.setTextAttributes(PARSER_UNHANDLED_EXCEPTION_NAME);
+    } else if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(method.getName())) {
       annotation.setTextAttributes(PARSER_AUTO_NAME);
-    } else if(method.getName().startsWith(ParserLanguageConstants.GETTER_METHOD_PREFIX)) {
+    } else if((method.getName() != null) && method.getName().startsWith(ParserLanguageConstants.GETTER_METHOD_PREFIX)) {
       annotation.setTextAttributes(PARSER_GETTER_NAME);
     } else {
       annotation.setTextAttributes(PARSER_METHOD_NAME);
     }
   }
 
-  public final List<String> skipClassReferenceNames = Arrays.asList(new String[]{
-          ParserLanguageConstants.CLASS_KEYWORD, ParserLanguageConstants.SELF_CLASS_NAME
-  });
+  public final List<String> skipClassReferenceNames = Arrays.asList(ParserLanguageConstants.CLASS_KEYWORD, ParserLanguageConstants.SELF_CLASS_NAME);
 
   public void visitParserClassReference(ParserClassReference parserClassReference) {
     final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(
