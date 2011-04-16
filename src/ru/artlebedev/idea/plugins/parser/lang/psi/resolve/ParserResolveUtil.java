@@ -69,6 +69,34 @@ public class ParserResolveUtil {
     return ParserPsiUtil.collectElementsAsList(parent, ParserObject.class);
   }
 
+  public static List<PsiElement> collectStaticObjectDeclarations(PsiElement element) {
+    List<PsiElement> result = new ArrayList<PsiElement>();
+    PsiElement currentElement = element;
+
+    while (!(currentElement instanceof ParserFile)) {
+      if (currentElement != null) {
+        do {
+          if (currentElement instanceof ParserObject) {
+            ParserMethod parserMethod = PsiTreeUtil.getParentOfType(currentElement, ParserMethod.class);
+            if(parserMethod != null) {
+              if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
+                result.add(currentElement);
+              }
+            }
+          }
+          if (currentElement.getPrevSibling() != null) {
+            currentElement = currentElement.getPrevSibling();
+          }
+        } while (currentElement.getPrevSibling() != null);
+
+        currentElement = currentElement.getParent();
+      }
+    }
+
+    return result;
+
+  }
+
   public static List<PsiElement> collectGlobalObjectDeclarations(PsiElement element) {
     List<PsiElement> result = new ArrayList<PsiElement>();
     PsiElement currentElement = element;
