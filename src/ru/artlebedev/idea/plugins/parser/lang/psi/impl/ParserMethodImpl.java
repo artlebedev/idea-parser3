@@ -7,24 +7,28 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
+import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLoader;
-import ru.artlebedev.idea.plugins.parser.lang.stdlib.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserElementVisitor;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDoc;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocConstructorInfo;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocParameterInfo;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocResultInfo;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserParameterList;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserPassedParameter;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserStaticClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.resolve.ParserResolveUtil;
+import ru.artlebedev.idea.plugins.parser.lang.stdlib.ParserStandardClasses;
 import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -166,6 +170,23 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   public ParserClass getReturnValueType() {
+    ParserDoc doc = PsiTreeUtil.getPrevSiblingOfType(this, ParserDoc.class);
+    while (doc != null) {
+      ParserDocResultInfo info = PsiTreeUtil.getChildOfType(doc, ParserDocResultInfo.class);
+      if (info != null) {
+        Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+        Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
+        for(ParserClass parserClass : parserClasses) {
+          if((parserClass != null) && (info != null)) {
+            if(parserClass.getName().equals(info.getName())) {
+              return parserClass;
+            }
+          }
+        }
+      }
+      doc = PsiTreeUtil.getPrevSiblingOfType(doc, ParserDoc.class);
+    }
+
     ParserObject resultObject = getResultObject();
 
     /*

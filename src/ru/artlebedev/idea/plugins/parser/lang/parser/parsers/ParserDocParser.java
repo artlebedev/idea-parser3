@@ -34,6 +34,16 @@ public class ParserDocParser extends BaseTokenParser {
         PsiBuilder.Marker parserDocConstructorInfo = builder.mark();
         parserDocConstructorInfo.done(ParserElementTypes.PARSERDOC_CONSTRUCTOR_INFO);
       }
+      if (builder.getTokenType() == ParserTokenTypes.PARSERDOC_RESULT_KEYWORD) {
+        PsiBuilder.Marker parserDocResultInfo = builder.mark();
+        builder.advanceLexer();
+        if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
+          builder.advanceLexer();
+        } else {
+          builder.error(ParserBundle.message("parser.parse.expected.result"));
+        }
+        parserDocResultInfo.done(ParserElementTypes.PARSERDOC_RESULT_INFO);
+      }
       if (builder.getTokenType() == ParserTokenTypes.PARSERDOC_PARAM_KEYWORD) {
         PsiBuilder.Marker parserDocParamInfo = builder.mark();
         builder.advanceLexer();
