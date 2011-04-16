@@ -7,10 +7,18 @@ import com.intellij.psi.PsiReference;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserDocResultInfo;
+import ru.artlebedev.idea.plugins.parser.lang.psi.lookup.ParserLookupUtil;
+import ru.artlebedev.idea.plugins.parser.lang.psi.resolve.ParserResolveUtil;
 import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * idea-parser3: slightly useful plugin.
@@ -101,7 +109,10 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
 
   @NotNull
   public Object[] getVariants() {
-    return new Object[0];
+    List<PsiElement> result = new ArrayList<PsiElement>();
+    Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+    result.addAll(ParserResolveUtil.getClassesFromFiles(parserFiles));
+    return ParserLookupUtil.createSmartLookupItems(result);
   }
 
   public boolean isSoft() {
