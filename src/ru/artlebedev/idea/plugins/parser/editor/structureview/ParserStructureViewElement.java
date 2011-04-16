@@ -86,7 +86,7 @@ public class ParserStructureViewElement implements StructureViewTreeElement {
       for (Class suitableClass : ParserStructureViewModel.suitableClasses) {
         if (suitableClass.isInstance(psiElement)) {
           if(psiElement instanceof ParserStaticMethod) {
-            if(((ParserMethod) psiElement).getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
+            if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserMethod) psiElement).getName())) {
               StructureViewTreeElement[] staticVariables = new ParserStructureViewElement(psiElement).getChildren();
 
               for(int i = 0; i < staticVariables.length; i++) {
