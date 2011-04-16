@@ -5,6 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserClassLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVariableLookupElement;
@@ -51,6 +52,10 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
           "exception.handled"
   };
 
+  public final static String[] classLookupElements = new String[]{
+          "MAIN"
+  };
+
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
     for(String lookupElement : lookupElements) {
@@ -63,6 +68,10 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
 
     for(String methodLookupElement : methodLookupElements) {
       result.addElement(new ParserMethodLookupElement(methodLookupElement));
+    }
+
+    for (String classLookupElement: classLookupElements) {
+      result.addElement(new ParserClassLookupElement(classLookupElement));
     }
 
 //    Collection<ParserFile> parserFiles = parameters.getPosition().getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();

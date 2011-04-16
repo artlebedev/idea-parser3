@@ -37,8 +37,9 @@ public class ParserInsertHandler extends DefaultInsertHandler {
     Object o = item.getObject();
     if (o instanceof LookupValueWithPsiElement) {
       PsiElement element = ((LookupValueWithPsiElement) o).getElement();
+      CaretModel caretModel = context.getEditor().getCaretModel();
+
       if (element instanceof ParserMethod) {
-        CaretModel caretModel = context.getEditor().getCaretModel();
         try {
           String trichar = context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 3, caretModel.getOffset());
 
@@ -62,8 +63,6 @@ public class ParserInsertHandler extends DefaultInsertHandler {
         }
       }
       if (element instanceof ParserClass) {
-        CaretModel caretModel = context.getEditor().getCaretModel();
-
         try {
           String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
           if (!s.equals(":")) {

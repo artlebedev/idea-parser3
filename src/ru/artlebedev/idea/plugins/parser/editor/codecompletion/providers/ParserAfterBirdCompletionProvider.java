@@ -5,6 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserClassLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
 
 /**
@@ -41,14 +42,21 @@ public class ParserAfterBirdCompletionProvider extends CompletionProvider<Comple
           "eval",
           "process",
           "self.",
-          "caller.",
-          "MAIN:"
+          "caller."
+  };
+
+  public final static String[] classLookupElements = new String[]{
+          "MAIN"
   };
 
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
     for (String methodLookupElement : methodLookupElements) {
       result.addElement(new ParserMethodLookupElement(methodLookupElement));
+    }
+
+    for (String classLookupElement: classLookupElements) {
+      result.addElement(new ParserClassLookupElement(classLookupElement));
     }
 
 //    Collection<ParserFile> parserFiles = parameters.getPosition().getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
