@@ -22,10 +22,10 @@ import org.jetbrains.annotations.NotNull;
  * limitations under the License.
  */
 
-public class ParserKeywordLookupElement extends LookupElement {
+public class ParserLookupElement extends LookupElement {
   String keyword;
 
-  public ParserKeywordLookupElement(String keyword) {
+  public ParserLookupElement(String keyword) {
     super();
 
     this.keyword = keyword;

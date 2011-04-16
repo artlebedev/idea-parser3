@@ -28,7 +28,7 @@ import com.intellij.util.Icons;
  * and could be expanded with tab.
  * -- dwr
  */
-public class ParserMethodLookupElement extends ParserKeywordLookupElement {
+public class ParserMethodLookupElement extends ParserLookupElement {
   public ParserMethodLookupElement(String keyword) {
     super(keyword);
   }

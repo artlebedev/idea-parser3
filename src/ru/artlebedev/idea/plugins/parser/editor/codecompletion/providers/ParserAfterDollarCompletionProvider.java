@@ -5,7 +5,7 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserKeywordLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
 
 /**
@@ -30,8 +30,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
 public class ParserAfterDollarCompletionProvider extends CompletionProvider<CompletionParameters> {
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
-    result.addElement(new ParserKeywordLookupElement("result"));
-    result.addElement(new ParserKeywordLookupElement("caller"));
+    result.addElement(new ParserLookupElement("result"));
+    result.addElement(new ParserLookupElement("caller"));
     result.addElement(new ParserMethodLookupElement("exception.handled"));
   }
 }

@@ -28,7 +28,7 @@ import com.intellij.openapi.util.IconLoader;
  * and could be expanded with tab.
  * -- dwr
  */
-public class ParserTaintLookupElement extends ParserKeywordLookupElement {
+public class ParserTaintLookupElement extends ParserLookupElement {
   public ParserTaintLookupElement(String keyword) {
     super(keyword);
   }
