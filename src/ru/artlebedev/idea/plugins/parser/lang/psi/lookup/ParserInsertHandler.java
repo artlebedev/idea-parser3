@@ -7,6 +7,7 @@ import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.codeInsight.lookup.LookupValueWithPsiElement;
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.util.PsiTreeUtil;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 
@@ -64,10 +65,27 @@ public class ParserInsertHandler extends DefaultInsertHandler {
       }
       if (element instanceof ParserClass) {
         try {
-          String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
-          if (!s.equals(":")) {
-            context.getEditor().getDocument().insertString(caretModel.getOffset(), ":");
-            caretModel.moveToOffset(caretModel.getOffset() + 1);
+          ParserMethod[] parserMethods = PsiTreeUtil.getChildrenOfType(element, ParserMethod.class);
+
+          boolean allMethodsDynamic = true;
+          for(ParserMethod parserMethod : parserMethods) {
+            if(!parserMethod.isDynamic() && !parserMethod.isConstructor()) {
+              allMethodsDynamic = false;
+            }
+          }
+
+          if(!allMethodsDynamic) {
+            String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+            if (!s.equals(":")) {
+              context.getEditor().getDocument().insertString(caretModel.getOffset(), ":");
+              caretModel.moveToOffset(caretModel.getOffset() + 1);
+            }
+          } else {
+            String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+            if (!s.equals(":")) {
+              context.getEditor().getDocument().insertString(caretModel.getOffset(), "::");
+              caretModel.moveToOffset(caretModel.getOffset() + 2);
+            }
           }
 //      AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor);
         } catch(Exception ignored) {

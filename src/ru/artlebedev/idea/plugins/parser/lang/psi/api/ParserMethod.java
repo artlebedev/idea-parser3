@@ -27,6 +27,7 @@ public interface ParserMethod extends ParserElement, ParserNamedElement {
   public static int MANY_RESULTS = 2;
 
   public boolean isConstructor();
+  public boolean isDynamic();
 
   public ParserParameterList getParameterList();
 
