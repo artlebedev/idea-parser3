@@ -27,7 +27,7 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  * limitations under the License.
  */
 
-public class ParserAfterBirdCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserAfterHatCompletionProvider extends CompletionProvider<CompletionParameters> {
   public final static String[] methodLookupElements = new String[]{
           "rem",
           "taint",

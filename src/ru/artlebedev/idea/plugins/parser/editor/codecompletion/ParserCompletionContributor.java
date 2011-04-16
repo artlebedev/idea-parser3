@@ -6,8 +6,8 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.patterns.ElementPattern;
 import com.intellij.patterns.StandardPatterns;
 import com.intellij.psi.PsiElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterBirdCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterDollarCompletionProvider;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterHatCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterSignCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserDefaultCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserExceptionTypeCompletionProvider;
@@ -44,7 +44,7 @@ public class ParserCompletionContributor extends CompletionContributor {
   private static final ElementPattern<PsiElement> TAINT = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
   private static final ElementPattern<PsiElement> EXCEPTION_TYPE = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
   private static final ElementPattern<PsiElement> LOGICAL_STATEMENT = StandardPatterns.instanceOf(PsiElement.class);
-  private static final ElementPattern<PsiElement> AFTER_BIRD = psiElement().afterLeaf("^");
+  private static final ElementPattern<PsiElement> AFTER_HAT = psiElement().afterLeaf("^");
   private static final ElementPattern<PsiElement> AFTER_DOLLAR = psiElement().afterLeaf("$");
   private static final ElementPattern<PsiElement> AFTER_SIGN = psiElement().afterLeaf("@");
 
@@ -56,7 +56,7 @@ public class ParserCompletionContributor extends CompletionContributor {
     extend(CompletionType.BASIC, TAINT,             new ParserTaintCompletionProvider());
     extend(CompletionType.BASIC, EXCEPTION_TYPE,    new ParserExceptionTypeCompletionProvider());
     extend(CompletionType.BASIC, LOGICAL_STATEMENT, new ParserLogicalStatementCompletionProvider());
-    extend(CompletionType.BASIC, AFTER_BIRD,        new ParserAfterBirdCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_HAT,         new ParserAfterHatCompletionProvider());
     extend(CompletionType.BASIC, AFTER_DOLLAR,      new ParserAfterDollarCompletionProvider());
     extend(CompletionType.BASIC, AFTER_SIGN,        new ParserAfterSignCompletionProvider());
   }
