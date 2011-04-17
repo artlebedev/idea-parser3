@@ -40,7 +40,8 @@ public class ParserAfterSignCompletionProvider extends CompletionProvider<Comple
   };
 
   public static String[] methodLookupElements = new String[]{
-          "auto"
+          "auto",
+          "conf"
   };
 
   public static String[] classAttributeLookupElements = new String[]{
