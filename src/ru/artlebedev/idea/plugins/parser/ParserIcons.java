@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NonNls;
 import javax.swing.*;
 
 /**
- * idea-parser3: slightly useful plugin.
+ * idea-parser3: the most advanced parser3 ide.
  * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
  * Copyright 2006 Jay Bird <a4blank@yahoo.com>

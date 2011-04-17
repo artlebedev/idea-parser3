@@ -3,7 +3,7 @@ package ru.artlebedev.idea.plugins.parser.lang.psi.api;
 import com.intellij.psi.PsiElement;
 
 /**
- * idea-parser3: slightly useful plugin.
+ * idea-parser3: the most advanced parser3 ide.
  * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
  * Copyright 2006 Jay Bird <a4blank@yahoo.com>

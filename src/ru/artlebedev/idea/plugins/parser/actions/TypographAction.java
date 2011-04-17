@@ -3,7 +3,7 @@ package ru.artlebedev.idea.plugins.parser.actions;
 import ru.artlebedev.jreformator.typograf.Typograph;
 
 /**
- * idea-parser3: slightly useful plugin.
+ * idea-parser3: the most advanced parser3 ide.
  * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
  * Copyright 2011 ArtLebedev Studio

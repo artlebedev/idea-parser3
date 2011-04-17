@@ -12,7 +12,7 @@ import com.intellij.openapi.vfs.ReadonlyStatusHandler;
 import com.intellij.openapi.vfs.VirtualFile;
 
 /**
- * idea-parser3: slightly useful plugin.
+ * idea-parser3: the most advanced parser3 ide.
  * <p/>
  * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
  * Copyright 2011 ArtLebedev Studio
