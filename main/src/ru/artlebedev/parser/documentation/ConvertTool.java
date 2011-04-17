@@ -38,8 +38,8 @@ public class ConvertTool {
   }
 
   private static void convertPackFromDir(String lang) {
-    final String outputDir = "/Users/dwr/Projects/idea-parser3/resources/ru/artlebedev/idea/plugins/parser/documentation/" + lang;
-    final File file = new File("/Users/dwr/Projects/idea-parser3/resources/ru/artlebedev/parser/documentation/" + lang);
+    final String outputDir = "/Users/dwr/Projects/idea-parser3/main/resources/ru/artlebedev/idea/plugins/parser/documentation/" + lang;
+    final File file = new File("/Users/dwr/Projects/idea-parser3/main/resources/ru/artlebedev/parser/documentation/" + lang);
 
     File[] files = file.listFiles();
 
