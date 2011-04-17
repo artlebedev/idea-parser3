@@ -327,19 +327,22 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       ParserClassReferenceImpl classReference = (ParserClassReferenceImpl) reference.getReferenceClass();
       PsiElement parserClassElement = classReference.resolve();
       if (parserClassElement != null) {
+        List<PsiElement> list = new ArrayList<PsiElement>();
+
         ParserClass parserClass = (ParserClass) parserClassElement;
         ParserMethod[] parserMethods = parserClass.getMethods();
         for (ParserMethod parserMethod : parserMethods) {
-          //if (ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
-            List<PsiElement> list = new ArrayList<PsiElement>();
+          if (ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName()) ||
+              ParserLanguageConstants.CONF_METHOD_NAME.equals(parserMethod.getName()) ||
+              (parserMethod instanceof ParserStaticMethodImpl)) {
             List<ParserObject> objects = ParserResolveUtil.collectObjectDeclarationsInElement(parserMethod);
             for (ParserObject object : objects) {
               list.add(object);
             }
-
-            return ParserLookupUtil.createSmartLookupItems(list);
-          //}
+          }
         }
+
+        return ParserLookupUtil.createSmartLookupItems(list);
       }
       return new Object[0];
     }
@@ -392,7 +395,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
             while(iterator.hasNext()) {
               PsiElement element = iterator.next();
               if(element instanceof PsiNamedElement) {
-                if(((PsiNamedElement) element).getName().equals("result"))
+                if("result".equals(((PsiNamedElement) element).getName()))
                   iterator.remove();
               }
             }
@@ -436,7 +439,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           while(iterator.hasNext()) {
             PsiElement element = iterator.next();
             if(element instanceof PsiNamedElement) {
-              if(((PsiNamedElement) element).getName().equals("result")) {
+              if("result".equals(((PsiNamedElement) element).getName())) {
                 if(!currentMethod.equals(PsiTreeUtil.getParentOfType(element, ParserMethod.class))) {
                   iterator.remove();
                 }
@@ -455,6 +458,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 //		return result.toArray(new PsiElement[0]);
     List<PsiElement> resultList = new ArrayList<PsiElement>();
     resultList.addAll(result);
+
     return ParserLookupUtil.createSmartLookupItems(resultList);
   }
 

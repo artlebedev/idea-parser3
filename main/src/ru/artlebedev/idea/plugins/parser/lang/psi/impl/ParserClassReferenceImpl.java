@@ -87,7 +87,7 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
   @Nullable
   public PsiElement resolve() {
 
-    if (getName().equals(ParserLanguageConstants.BASE_CLASS_NAME)) {
+    if (ParserLanguageConstants.BASE_CLASS_NAME.equals(getName())) {
       ParserClass parentClass = PsiTreeUtil.getParentOfType(this, ParserClass.class, true);
       if (parentClass != null) {
         return parentClass.getParentClass();
@@ -96,27 +96,29 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
 
     String className = getName();
 
-    if(className.equals(ParserLanguageConstants.CLASS_KEYWORD)) {
-      ParserClass parentClass = PsiTreeUtil.getParentOfType(this, ParserClass.class);
-      className = parentClass.getName();
-    }
-
-    Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
-
-    for (ParserFile parserFile : parserFiles) {
-      ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
-      if (parserClass != null && parserClass.getName().equals(className)) {
-        return parserClass;
+    if (className != null) {
+      if(className.equals(ParserLanguageConstants.CLASS_KEYWORD)) {
+        ParserClass parentClass = PsiTreeUtil.getParentOfType(this, ParserClass.class);
+        className = parentClass.getName();
       }
-    }
 
-    List<PsiElement> psiElements = ParserResolveUtil.collectClassIncludes(getContainingFile());
-    for (PsiElement element : psiElements) {
-      ParserClass parserClass = (ParserClass) element;
-      getProject().getComponent(ParserFileIndex.class).contributeClass(parserClass);
+      Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
 
-      if (parserClass.getName().equals(className)) {
-        return parserClass;
+      for (ParserFile parserFile : parserFiles) {
+        ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
+        if (parserClass != null && parserClass.getName().equals(className)) {
+          return parserClass;
+        }
+      }
+
+      List<PsiElement> psiElements = ParserResolveUtil.collectClassIncludes(getContainingFile());
+      for (PsiElement element : psiElements) {
+        ParserClass parserClass = (ParserClass) element;
+        getProject().getComponent(ParserFileIndex.class).contributeClass(parserClass);
+
+        if (parserClass.getName().equals(className)) {
+          return parserClass;
+        }
       }
     }
 

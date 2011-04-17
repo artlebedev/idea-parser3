@@ -85,7 +85,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
     return null;
   }
 
-  public PsiElement bindToElement(PsiElement element) throws IncorrectOperationException {
+  public PsiElement bindToElement(@NotNull PsiElement element) throws IncorrectOperationException {
     return null;
   }
 
@@ -105,6 +105,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
    *
    * @return variants for autocomplete (and resolution)
    */
+  @NotNull
   public Object[] getVariants() {
     boolean isInAuto = ParserPsiUtil.isInAutoMethod(this);
 
@@ -144,7 +145,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
           while(iterator.hasNext()) {
             PsiElement element = iterator.next();
             if(element instanceof PsiNamedElement) {
-              if(((PsiNamedElement) element).getName().equals("result"))
+              if("result".equals(((PsiNamedElement) element).getName()))
                 iterator.remove();
             }
           }
@@ -203,7 +204,7 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
         while(iterator.hasNext()) {
           PsiElement element = iterator.next();
           if(element instanceof PsiNamedElement) {
-            if(((PsiNamedElement) element).getName().equals("result"))
+            if("result".equals(((PsiNamedElement) element).getName()))
               iterator.remove();
           }
         }
