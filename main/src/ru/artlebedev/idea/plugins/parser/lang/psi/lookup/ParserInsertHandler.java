@@ -43,8 +43,12 @@ public class ParserInsertHandler extends DefaultInsertHandler {
       if (element instanceof ParserMethod) {
         try {
           String trichar = context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 3, caretModel.getOffset());
+          String sevenchar = context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 7, caretModel.getOffset());
 
-          if(trichar.trim().equals("sql")) {
+          if(sevenchar.trim().equals("connect")) {
+            context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
+            caretModel.moveToOffset(caretModel.getOffset() + 1);
+          } else if(trichar.trim().equals("sql")) {
             context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
             caretModel.moveToOffset(caretModel.getOffset() + 1);
           } else {

@@ -177,7 +177,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="^connect" value="^connect[$VAR1$]{&#10;  $END&#10;}" description="connect" toReformat="true" toShortenFQNames="true">
+  <template name="^connect" value="^connect[$VAR1$]{&#10;  $END$&#10;}" description="connect" toReformat="true" toShortenFQNames="true">
     <variable name="VAR1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="false" />
