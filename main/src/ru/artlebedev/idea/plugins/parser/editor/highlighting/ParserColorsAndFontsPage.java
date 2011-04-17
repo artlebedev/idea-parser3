@@ -64,7 +64,8 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE_ID, ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE),
-                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC)
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_CONF_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_CONF)
           };
 
   @NotNull

@@ -95,7 +95,12 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     PsiElement element = getParent();
 
     if((element != null) && (element instanceof ParserMethod)
-            && ((ParserMethod) element).getName().equals(ParserLanguageConstants.AUTO_METHOD_NAME)) {
+            && ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserMethod) element).getName())) {
+      return true;
+    }
+
+    if((element != null) && (element instanceof ParserMethod)
+            && ParserLanguageConstants.CONF_METHOD_NAME.equals(((ParserMethod) element).getName())) {
       return true;
     }
 
@@ -193,6 +198,10 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
     }
 
     if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
+      return true;
+    }
+
+    if(ParserLanguageConstants.CONF_METHOD_NAME.equals(parserMethod.getName())) {
       return true;
     }
 

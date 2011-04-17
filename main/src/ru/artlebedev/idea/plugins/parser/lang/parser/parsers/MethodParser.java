@@ -52,7 +52,10 @@ public class MethodParser extends BaseTokenParser {
        * @auto is always static
        * -- dwr
        */
-      if((builder.getTokenText() != null) && builder.getTokenText().equals(ParserLanguageConstants.AUTO_METHOD_NAME))
+      if((builder.getTokenText() != null) && ParserLanguageConstants.AUTO_METHOD_NAME.equals(builder.getTokenText()))
+        staticMethod = true;
+
+      if((builder.getTokenText() != null) && ParserLanguageConstants.CONF_METHOD_NAME.equals(builder.getTokenText()))
         staticMethod = true;
 
 //			PsiBuilder.Marker methodName = builder.mark();

@@ -59,6 +59,8 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
       annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION);
     } else if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(method.getName())) {
       annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO);
+    } else if(ParserLanguageConstants.CONF_METHOD_NAME.equals(method.getName())) {
+      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_CONF);
     } else if(method.getName() != null) {
       if(method.getName().startsWith(ParserLanguageConstants.GETTER_METHOD_PREFIX)) {
         annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_GETTER);

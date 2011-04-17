@@ -37,7 +37,8 @@ public final class ParserPsiUtil {
     ParserMethod parserMethod = PsiTreeUtil.getParentOfType(element, ParserMethod.class);
 
     if(parserMethod != null) {
-      if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
+      if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName()) ||
+           ParserLanguageConstants.CONF_METHOD_NAME.equals(parserMethod.getName())) {
         return true;
       }
     }

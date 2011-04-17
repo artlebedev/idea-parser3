@@ -88,7 +88,8 @@ public class ParserStructureViewElement implements StructureViewTreeElement {
         if (suitableClass.isInstance(psiElement)) {
           if(psiElement instanceof ParserMethod) {
             if((psiElement instanceof ParserStaticMethod) ||
-                  ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserMethod) psiElement).getName())) {
+                  ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserMethod) psiElement).getName()) ||
+                  ParserLanguageConstants.CONF_METHOD_NAME.equals(((ParserMethod) psiElement).getName())) {
               Collections.addAll(elements, new ParserStructureViewElement(psiElement).getChildren());
 
               continue;

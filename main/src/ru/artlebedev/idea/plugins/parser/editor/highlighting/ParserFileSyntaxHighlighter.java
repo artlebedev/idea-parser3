@@ -85,6 +85,8 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   @NonNls
   public static final String PARSER_METHOD_AUTO_ID = "[Annotator] Parser auto methods";
   @NonNls
+  public static final String PARSER_METHOD_CONF_ID = "[Annotator] Parser conf methods";
+  @NonNls
   public static final String PARSER_METHOD_UNHANDLED_EXCEPTION_ID = "[Annotator] Parser unhandled exception methods";
   @NonNls
   public static final String PARSER_CLASS_REFERENCE_ID = "[Annotator] Parser class reference";
@@ -115,6 +117,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_GETTER_ID, new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_SETTER_ID, new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_AUTO_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID, new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD));
   }
@@ -140,6 +143,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TextAttributesKey PARSER_METHOD_GETTER = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_GETTER_ID);
   public static final TextAttributesKey PARSER_METHOD_SETTER = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_SETTER_ID);
   public static final TextAttributesKey PARSER_METHOD_AUTO = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_AUTO_ID);
+  public static final TextAttributesKey PARSER_METHOD_CONF = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID);
   public static final TextAttributesKey PARSER_METHOD_UNHANDLED_EXCEPTION = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID);
 
   public static final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID);

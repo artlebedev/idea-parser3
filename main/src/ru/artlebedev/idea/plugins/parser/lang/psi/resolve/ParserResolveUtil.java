@@ -82,6 +82,9 @@ public class ParserResolveUtil {
               if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName())) {
                 result.add(currentElement);
               }
+              if(ParserLanguageConstants.CONF_METHOD_NAME.equals(parserMethod.getName())) {
+                result.add(currentElement);
+              }
             }
           }
           if (currentElement.getPrevSibling() != null) {

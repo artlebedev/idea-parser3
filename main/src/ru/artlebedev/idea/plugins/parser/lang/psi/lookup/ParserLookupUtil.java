@@ -35,7 +35,8 @@ public class ParserLookupUtil {
       if (element instanceof ParserNamedElement) {
         if ((((ParserNamedElement) element).getName() != null) &&
             !ParserLanguageConstants.HAS_NO_CONSTRUCTOR.equals(((ParserNamedElement) element).getName()) &&
-            !ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserNamedElement) element).getName()))
+            !ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserNamedElement) element).getName()) &&
+            !ParserLanguageConstants.CONF_METHOD_NAME.equals(((ParserNamedElement) element).getName()))
           result.add(new ParserSmartLookupItem((PsiNamedElement) element));
       }
     }
