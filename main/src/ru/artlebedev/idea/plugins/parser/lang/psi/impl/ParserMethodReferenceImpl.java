@@ -158,8 +158,6 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
 
   @NotNull
   public Object[] getVariants() {
-    System.out.println("here2.");
-
     HasMethods methodContainer = getMethodContainer();
     if (methodContainer == null)
       return new Object[0];
