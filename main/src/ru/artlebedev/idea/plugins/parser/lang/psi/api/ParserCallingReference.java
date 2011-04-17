@@ -40,4 +40,9 @@ public interface ParserCallingReference extends ParserElement {
    * @return true if a constructor was invoked and so we have a new instance of some class
    */
   public boolean isConstructorInvoked();
+
+  /**
+   * @return true if a static variables completion was invoked
+   */
+  public boolean isStaticListInvoked();
 }

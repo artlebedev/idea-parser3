@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.HasMethods;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.IsTyped;
@@ -18,8 +19,10 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethodReference;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserObject;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserObjectReference;
 import ru.artlebedev.idea.plugins.parser.lang.psi.lookup.ParserLookupUtil;
+import ru.artlebedev.idea.plugins.parser.lang.psi.resolve.ParserResolveUtil;
 import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
 
 import java.util.ArrayList;
@@ -155,12 +158,15 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
 
   @NotNull
   public Object[] getVariants() {
+    System.out.println("here2.");
+
     HasMethods methodContainer = getMethodContainer();
     if (methodContainer == null)
       return new Object[0];
 
     ParserMethod[] methods = methodContainer.getMethods();
     PsiElement parent = getParent();
+    List<PsiElement> list = new ArrayList<PsiElement>();
     if (parent instanceof ParserCallingReference) {
       ParserCallingReference callingReference = (ParserCallingReference) parent;
       if (callingReference.isConstructorInvoked()) {
@@ -171,9 +177,20 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
           }
         }
         return ParserLookupUtil.createSmartLookupItems(possibleConstructors);
+      } else if(callingReference.isStaticListInvoked()) {
+        for (ParserMethod parserMethod : methods) {
+          if (ParserLanguageConstants.AUTO_METHOD_NAME.equals(parserMethod.getName()) ||
+              ParserLanguageConstants.CONF_METHOD_NAME.equals(parserMethod.getName()) ||
+              (parserMethod instanceof ParserStaticMethodImpl)) {
+            List<ParserObject> objects = ParserResolveUtil.collectObjectDeclarationsInElement(parserMethod);
+            for (ParserObject object : objects) {
+              list.add(object);
+            }
+          }
+        }
+        //return ParserLookupUtil.createSmartLookupItems(list);
       }
     }
-    List<PsiElement> list = new ArrayList<PsiElement>();
 
     for(ParserMethod method : methods) {
       if(!method.isConstructor()) {

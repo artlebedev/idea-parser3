@@ -208,7 +208,6 @@ public class ParserObjectAndMethodReferenceImpl extends ParserElementImpl implem
               iterator.remove();
           }
         }
-
         list.addAll(hs);
         return ParserLookupUtil.createSmartLookupItems(list);
       }

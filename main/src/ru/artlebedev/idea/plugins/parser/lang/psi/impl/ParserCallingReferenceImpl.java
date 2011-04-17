@@ -129,6 +129,11 @@ public class ParserCallingReferenceImpl extends ParserElementImpl implements Par
     return null;
   }
 
+  public boolean isStaticListInvoked() {
+    ASTNode[] colons = getNode().getChildren(TokenSet.create(ParserTokenTypes.COLON));
+    return colons.length == 1;
+  }
+
   public boolean isConstructorInvoked() {
     ASTNode[] colons = getNode().getChildren(TokenSet.create(ParserTokenTypes.COLON));
     return colons.length == 2;
