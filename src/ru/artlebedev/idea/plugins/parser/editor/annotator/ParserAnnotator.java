@@ -9,6 +9,7 @@ import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHig
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserElementVisitor;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClassReference;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserStaticMethod;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserIncludePathImpl;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserMethodImpl;
 
@@ -64,7 +65,11 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
       } else if(method.getName().startsWith(ParserLanguageConstants.SETTER_METHOD_PREFIX)) {
         annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER);
       } else {
-        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD);
+        if(method instanceof ParserStaticMethod) {
+          annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC);
+        } else {
+          annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD);
+        }
       }
     }
   }

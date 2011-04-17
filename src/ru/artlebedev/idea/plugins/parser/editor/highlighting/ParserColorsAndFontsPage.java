@@ -63,7 +63,8 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION),
-                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE_ID, ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE)
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE_ID, ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC)
           };
 
   @NotNull
@@ -103,6 +104,8 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
             "@create[param1]\n" +
             "###\n\n" +
             "@method1[]\n" +
+            "###\n\n" +
+            "@static:staticmethod1[]\n" +
             "###\n\n" +
             "@method2[]\n" +
             "^self.method1[]\n" +
