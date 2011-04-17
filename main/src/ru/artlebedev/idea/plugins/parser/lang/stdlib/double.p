@@ -1,5 +1,5 @@
 @CLASS
-int
+double
 
 @sql[default]
 ###

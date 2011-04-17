@@ -118,6 +118,7 @@ public class ParserFileIndex implements ProjectComponent {
     contributeClass(ParserStandardClasses.BOOL);
     contributeClass(ParserStandardClasses.VOID);
     contributeClass(ParserStandardClasses.INT);
+    contributeClass(ParserStandardClasses.DOUBLE);
 
     contributeClass(ParserStandardClasses.STRING);
     contributeClass(ParserStandardClasses.TABLE);

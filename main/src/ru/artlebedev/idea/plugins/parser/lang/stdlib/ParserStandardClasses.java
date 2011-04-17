@@ -27,6 +27,7 @@ public interface ParserStandardClasses {
   ParserClass VOID = ParserStandardClassesHelper.loadStandardClass("void.p");
   ParserClass STRING = ParserStandardClassesHelper.loadStandardClass("string.p");
   ParserClass INT = ParserStandardClassesHelper.loadStandardClass("int.p");
+  ParserClass DOUBLE = ParserStandardClassesHelper.loadStandardClass("double.p");
   ParserClass CONSOLE = ParserStandardClassesHelper.loadStandardClass("console.p");
   ParserClass ENV = ParserStandardClassesHelper.loadStandardClass("env.p");
   ParserClass HASH = ParserStandardClassesHelper.loadStandardClass("hash.p");
