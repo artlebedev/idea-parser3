@@ -33,7 +33,7 @@ import java.util.List;
 public class ParserLoader implements ApplicationComponent {
   public final List<String> constructorNames = Arrays.asList(
           "new", "init", "create", "load",
-          "now", "unix-timestamp", "sql", "stat",
+          "now", "unix-timestamp", "stat",
           "cgi", "exec", "base64", "open",
           "measure", "_has_no_constructor_");
 

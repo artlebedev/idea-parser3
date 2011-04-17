@@ -23,9 +23,11 @@ $content-type[]
 @load[format;filename;newname;download_options]
 ###
 
+#:constructor
 @sql[query]
 ###
 
+#:constructor
 @sql[query;options]
 ###
 

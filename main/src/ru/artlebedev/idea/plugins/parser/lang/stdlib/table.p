@@ -22,9 +22,11 @@ table
 @load[nameless;filename;options]
 ###
 
+#:constructor
 @sql[query]
 ###
 
+#:constructor
 @sql[query;limit;offset;bind]
 ###
 

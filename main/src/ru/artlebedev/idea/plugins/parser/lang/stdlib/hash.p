@@ -4,6 +4,7 @@ hash
 @create[]
 ###
 
+#:constructor
 @sql[]
 ###
 
