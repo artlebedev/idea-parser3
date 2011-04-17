@@ -7,7 +7,6 @@ import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
-import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 
 import javax.swing.*;
 import java.util.Map;
@@ -59,6 +58,12 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_NUMBER_ID, ParserFileSyntaxHighlighter.PARSER_NUMBER),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_SEMICOLON_ID, ParserFileSyntaxHighlighter.PARSER_SEMICOLON),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_BAD_CHARACTER_ID, ParserFileSyntaxHighlighter.PARSER_BAD_CHARACTER),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_ID, ParserFileSyntaxHighlighter.PARSER_METHOD),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_GETTER_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_GETTER),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE_ID, ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE)
           };
 
   @NotNull
@@ -76,7 +81,8 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
   @NotNull
   @Override
   public SyntaxHighlighter getHighlighter() {
-    return SyntaxHighlighter.PROVIDER.create(ParserFileType.PARSER_FILE_TYPE, null, null);
+    //return SyntaxHighlighter.PROVIDER.create(ParserFileType.PARSER_FILE_TYPE, null, null);
+    return new ParserFileSyntaxHighlighter();
   }
 
   @NotNull
@@ -88,6 +94,7 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
             "test2\n\n" +
             "@OPTIONS\n" +
             "locals\n\n" +
+            "# Everything marked as [Annotator] is not shown here.\n\n" +
             "@auto[]\n" +
             "$result[test]\n" +
             "###\n\n" +

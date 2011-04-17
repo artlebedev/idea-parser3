@@ -24,6 +24,7 @@ public interface ParserLanguageConstants {
   public static final String AUTO_METHOD_NAME = "auto";
   public static final String UNHANDLED_EXCEPTION_METHOD_NAME = "unhandled_exception";
   public static final String GETTER_METHOD_PREFIX = "GET_";
+  public static final String SETTER_METHOD_PREFIX = "SET_";
   public static final String SELF_CLASS_NAME = "self";
   public static final String AUTO_FILE = "auto.p";
   public static final String CONFIG_METHOD_NAME = "config";

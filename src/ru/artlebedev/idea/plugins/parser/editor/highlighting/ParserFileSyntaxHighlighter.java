@@ -74,6 +74,18 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final String PARSER_SELF_ID = "Parser self";
   @NonNls
   public static final String PARSER_OPERATORS_ID = "Parser operators";
+  @NonNls
+  public static final String PARSER_METHOD_ID = "[Annotator] Parser methods";
+  @NonNls
+  public static final String PARSER_METHOD_GETTER_ID = "[Annotator] Parser getter methods";
+  @NonNls
+  public static final String PARSER_METHOD_SETTER_ID = "[Annotator] Parser setter methods";
+  @NonNls
+  public static final String PARSER_METHOD_AUTO_ID = "[Annotator] Parser auto methods";
+  @NonNls
+  public static final String PARSER_METHOD_UNHANDLED_EXCEPTION_ID = "[Annotator] Parser unhandled exception methods";
+  @NonNls
+  public static final String PARSER_CLASS_REFERENCE_ID = "[Annotator] Parser class reference";
 
   static {
     TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
@@ -96,6 +108,12 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID, HighlighterColors.BAD_CHARACTER.getDefaultAttributes());
     TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID, new TextAttributes(Color.YELLOW.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_OPERATORS_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
+    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_ID, new TextAttributes(Color.GREEN.darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_GETTER_ID, new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_SETTER_ID, new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_AUTO_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID, new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD));
   }
 
   public static final TextAttributesKey PARSER_KEYWORD = TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID);
@@ -113,6 +131,14 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TextAttributesKey PARSER_BAD_CHARACTER = TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID);
   public static final TextAttributesKey PARSER_SELF = TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID);
   public static final TextAttributesKey PARSER_OPERATORS = TextAttributesKey.createTextAttributesKey(PARSER_OPERATORS_ID);
+
+  public static final TextAttributesKey PARSER_METHOD = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_ID);
+  public static final TextAttributesKey PARSER_METHOD_GETTER = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_GETTER_ID);
+  public static final TextAttributesKey PARSER_METHOD_SETTER = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_SETTER_ID);
+  public static final TextAttributesKey PARSER_METHOD_AUTO = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_AUTO_ID);
+  public static final TextAttributesKey PARSER_METHOD_UNHANDLED_EXCEPTION = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID);
+
+  public static final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID);
 
   private static final Map<IElementType, TextAttributesKey> attributes;
 

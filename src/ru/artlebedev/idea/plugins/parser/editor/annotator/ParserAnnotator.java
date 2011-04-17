@@ -3,18 +3,16 @@ package ru.artlebedev.idea.plugins.parser.editor.annotator;
 import com.intellij.lang.annotation.Annotation;
 import com.intellij.lang.annotation.AnnotationHolder;
 import com.intellij.lang.annotation.Annotator;
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
+import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHighlighter;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserElementVisitor;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserIncludePathImpl;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserMethodImpl;
 
-import java.awt.*;
-import java.util.*;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -54,50 +52,26 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
 
   // XXX move colors out to fonts and colors dialog!
   public void visitParserMethod(ParserMethodImpl method) {
-    final TextAttributesKey PARSER_METHOD_NAME = TextAttributesKey.createTextAttributesKey(
-            "PARSER.METHOD",
-            new TextAttributes(Color.GREEN.darker().darker(), null, null, null, Font.BOLD)
-    );
-
-    final TextAttributesKey PARSER_GETTER_NAME = TextAttributesKey.createTextAttributesKey(
-            "PARSER.GETTER",
-            new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD)
-    );
-
-    final TextAttributesKey PARSER_AUTO_NAME = TextAttributesKey.createTextAttributesKey(
-            "PARSER.AUTO",
-            new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD)
-    );
-
-    final TextAttributesKey PARSER_UNHANDLED_EXCEPTION_NAME = TextAttributesKey.createTextAttributesKey(
-            "PARSER.UNHANDLED_EXCEPTION",
-            new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD)
-    );
-
     Annotation annotation = myHolder.createInfoAnnotation(method.findNameNode(), null);
 
     if(ParserLanguageConstants.UNHANDLED_EXCEPTION_METHOD_NAME.equals(method.getName())) {
-      annotation.setTextAttributes(PARSER_UNHANDLED_EXCEPTION_NAME);
+      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION);
     } else if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(method.getName())) {
-      annotation.setTextAttributes(PARSER_AUTO_NAME);
+      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO);
     } else if(method.getName() != null) {
       if(method.getName().startsWith(ParserLanguageConstants.GETTER_METHOD_PREFIX)) {
-        annotation.setTextAttributes(PARSER_GETTER_NAME);
+        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_GETTER);
+      } else if(method.getName().startsWith(ParserLanguageConstants.SETTER_METHOD_PREFIX)) {
+        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER);
+      } else {
+        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD);
       }
-    } else {
-      annotation.setTextAttributes(PARSER_METHOD_NAME);
     }
   }
 
   public final List<String> skipClassReferenceNames = Arrays.asList(ParserLanguageConstants.CLASS_KEYWORD, ParserLanguageConstants.SELF_CLASS_NAME);
 
   public void visitParserClassReference(ParserClassReference parserClassReference) {
-    final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(
-            "PARSER.CLASS_REFERENCE",
-            new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD)
-
-    );
-
     /*if (((ParserClassReferenceImpl) parserClassReference).resolve() != null) {
         Annotation annotation = myHolder.createWarningAnnotation(parserClassReference, "Class in not imported explicitely");
         annotation.setTextAttributes(PARSER_CLASS_REFERENCE);
@@ -131,7 +105,7 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
       } else {*/
     if(!skipClassReferenceNames.contains(parserClassReference.getName())) {
       Annotation annotation = myHolder.createInfoAnnotation(parserClassReference, null);
-      annotation.setTextAttributes(PARSER_CLASS_REFERENCE);
+      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE);
     }
     //}
   }
