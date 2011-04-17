@@ -71,8 +71,10 @@ public class ParserStandardClassesHelper {
         );
         return ParserFilesUtil.containsClass(parserFile);
       } catch (Exception e) {
-        PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, file);
-        return ParserFilesUtil.containsClass(psiFile);
+        if (file != null) {
+          PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, file);
+          return ParserFilesUtil.containsClass(psiFile);
+        }
       }
     }
 

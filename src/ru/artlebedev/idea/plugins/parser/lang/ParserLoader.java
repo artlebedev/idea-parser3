@@ -31,11 +31,11 @@ import java.util.List;
  */
 
 public class ParserLoader implements ApplicationComponent {
-  public final List<String> constructorNames = Arrays.asList(new String[]{
+  public final List<String> constructorNames = Arrays.asList(
           "new", "init", "create", "load",
           "now", "unix-timestamp", "sql", "stat",
           "cgi", "exec", "base64", "open",
-          "measure", "_has_no_constructor_"});
+          "measure", "_has_no_constructor_");
 
   /**
    * You can get constructor names which user has defined. (since every method in a class could be a constructor it's useful to have a filter)
