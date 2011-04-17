@@ -2,9 +2,10 @@
   <name>Parser for IDEA</name>
   <description><![CDATA[<html><body>
     <p>Support for parser server-side scripting language. More about the language on
-    http://www.parser.ru/</p>
+    <a href="http://www.parser.ru/">http://www.parser.ru/</a></p>
     <p>This module also includes custom plugins such as Typograph and Base64.</p>
     <p>Develop with joy!</p>
+    <p>Bugtracker: <a href="https://github.com/codingbox/idea-parser3/issues">https://github.com/codingbox/idea-parser3/issues</a></p>
     </body></html>]]>
   </description>
   <version>1.0-alpha20</version>
