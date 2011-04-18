@@ -195,13 +195,17 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
       if (info != null) {
         ParserMethod method = PsiTreeUtil.getNextSiblingOfType(doc, ParserMethod.class);
 
-        if(method.getName().equals(getName())) {
-          Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
-          Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
-          for(ParserClass parserClass : parserClasses) {
-            if(parserClass != null) {
-              if(info.getName().equals(parserClass.getName())) {
-                return parserClass;
+        if(method != null) {
+          if(method.getName() != null) {
+            if(method.getName().equals(getName())) {
+              Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+              Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
+              for(ParserClass parserClass : parserClasses) {
+                if(parserClass != null) {
+                  if(info.getName().equals(parserClass.getName())) {
+                    return parserClass;
+                  }
+                }
               }
             }
           }

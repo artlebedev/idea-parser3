@@ -22,6 +22,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserStrictClass;
 import ru.artlebedev.idea.plugins.parser.util.ParserChangeUtil;
 
 import javax.swing.*;
+import java.util.HashMap;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -44,6 +45,8 @@ import javax.swing.*;
  */
 
 public class ParserObjectImpl extends ParserElementImpl implements ParserObject {
+  protected static HashMap<ParserObject, String> lastResolvedMethods = new HashMap<ParserObject, String>();
+
   public ParserObjectImpl(ASTNode astNode) {
     super(astNode);
   }
@@ -145,7 +148,23 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
           PsiElement element = methodReference.getReference().resolve();
           if (element != null) {
             ParserMethod method = (ParserMethod) element;
+
+            /*
+             * This should fix internal looping while resolving recursive call in result
+             * -- dwr
+             */
+            if(method.getName() != null) {
+              if(lastResolvedMethods.get(this) != null) {
+                if(lastResolvedMethods.get(this).equals(method.getName())) {
+                  return null;
+                }
+              }
+
+              lastResolvedMethods.put(this, ((ParserMethod) element).getName());
+            }
+
             ParserClass returnValueType = method.getReturnValueType();
+
             if (returnValueType != null) {
               return returnValueType;
             }
