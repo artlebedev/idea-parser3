@@ -33,6 +33,14 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 
 @SuppressWarnings("deprecation")
 public class ParserInsertHandler extends DefaultInsertHandler {
+  public static final String[] bracesExpands = new String[]{
+          "connect",
+          "server",
+          "sql",
+          "^table::create",
+          "^xdoc::create"
+  };
+
   public void handleInsert(final InsertionContext context, LookupElement item) {
     super.handleInsert(context, item);
     Object o = item.getObject();
@@ -42,16 +50,19 @@ public class ParserInsertHandler extends DefaultInsertHandler {
 
       if (element instanceof ParserMethod) {
         try {
-          if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 7, caretModel.getOffset()).trim().equals("connect")) {
-            context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
-            caretModel.moveToOffset(caretModel.getOffset() + 1);
-          } else if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 6, caretModel.getOffset()).trim().equals("server")) {
-            context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
-            caretModel.moveToOffset(caretModel.getOffset() + 1);
-          } else if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - 3, caretModel.getOffset()).trim().equals("sql")) {
-            context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
-            caretModel.moveToOffset(caretModel.getOffset() + 1);
-          } else {
+          boolean match = false;
+          for(String bracesExpand : bracesExpands) {
+            if(caretModel.getOffset() - bracesExpand.length() > 0) {
+              if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - bracesExpand.length(), caretModel.getOffset()).trim().equals(bracesExpand)) {
+                context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
+                caretModel.moveToOffset(caretModel.getOffset() + 1);
+                match = true;
+                break;
+              }
+            }
+          }
+
+          if(!match) {
             String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
             if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
               context.getEditor().getDocument().insertString(caretModel.getOffset(), "[]");
