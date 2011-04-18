@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserClassLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserStaticVariableLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVariableLookupElement;
 
 /**
@@ -47,6 +48,10 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
           "caller.self"
   };
 
+  public final String[] staticVariableLookupElements = new String[]{
+          "MAIN:SQL.connect-string"
+  };
+
   public final String[] methodLookupElements = new String[]{
           "exception.handled"
   };
@@ -63,6 +68,10 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
 
     for(String variableLookupElement : variableLookupElements) {
       result.addElement(new ParserVariableLookupElement(variableLookupElement));
+    }
+
+    for(String staticVariableLookupElement : staticVariableLookupElements) {
+      result.addElement(new ParserStaticVariableLookupElement(staticVariableLookupElement));
     }
 
     for(String methodLookupElement : methodLookupElements) {
