@@ -34,11 +34,42 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 @SuppressWarnings("deprecation")
 public class ParserInsertHandler extends DefaultInsertHandler {
   public static final String[] bracesExpands = new String[]{
-          "connect",
-          "server",
-          "sql",
+          "^connect",
+          ":connect",
+          "^server",
+          ":server",
+          ":sql",
+          ".sql",
           "^table::create",
-          "^xdoc::create"
+          "^xdoc::create",
+          "^process",
+          "^curl:session",
+          "^junction"
+  };
+
+  public static final String[] roundBracesExpands = new String[]{
+          "^inet:ntoa",
+          "^math:abs",
+          "^math:sign",
+          "^math:round",
+          "^math:floor",
+          "^math:ceiling",
+          "^math:trunc",
+          "^math:frac",
+          "^math:degrees",
+          "^math:radians",
+          "^math:sin",
+          "^math:asin",
+          "^math:cos",
+          "^math:acos",
+          "^math:tan",
+          "^math:atan",
+          "^math:exp",
+          "^math:log",
+          "^math:log10",
+          "^math:pow",
+          "^math:sqrt",
+          "^math:random"
   };
 
   public void handleInsert(final InsertionContext context, LookupElement item) {
@@ -58,6 +89,19 @@ public class ParserInsertHandler extends DefaultInsertHandler {
                 caretModel.moveToOffset(caretModel.getOffset() + 1);
                 match = true;
                 break;
+              }
+            }
+          }
+
+          if(!match) {
+            for(String bracesExpand : roundBracesExpands) {
+              if(caretModel.getOffset() - bracesExpand.length() > 0) {
+                if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - bracesExpand.length(), caretModel.getOffset()).trim().equals(bracesExpand)) {
+                  context.getEditor().getDocument().insertString(caretModel.getOffset(), "()");
+                  caretModel.moveToOffset(caretModel.getOffset() + 1);
+                  match = true;
+                  break;
+                }
               }
             }
           }
