@@ -45,7 +45,7 @@ import java.util.HashMap;
  */
 
 public class ParserObjectImpl extends ParserElementImpl implements ParserObject {
-  protected static HashMap<ParserObject, String> lastResolvedMethods = new HashMap<ParserObject, String>();
+  protected static HashMap<ParserMethod, Integer> lastResolvedMethods = new HashMap<ParserMethod, Integer>();
 
   public ParserObjectImpl(ASTNode astNode) {
     super(astNode);
@@ -154,13 +154,18 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
              * -- dwr
              */
             if(method.getName() != null) {
-              if(lastResolvedMethods.get(this) != null) {
-                if(lastResolvedMethods.get(this).equals(method.getName())) {
+              if(lastResolvedMethods.get(method) != null) {
+                Integer count = lastResolvedMethods.get(method);
+                count++;
+                lastResolvedMethods.put(method, count);
+
+                if(count > 40) {
+                  lastResolvedMethods.remove(method);
                   return null;
                 }
+              } else {
+                lastResolvedMethods.put(method, 1);
               }
-
-              lastResolvedMethods.put(this, ((ParserMethod) element).getName());
             }
 
             ParserClass returnValueType = method.getReturnValueType();

@@ -36,8 +36,11 @@ public class ParserInsertHandler extends DefaultInsertHandler {
   public static final String[] bracesExpands = new String[]{
           "^connect",
           ":connect",
+          ".connect",
           "^server",
           ":server",
+          ".server",
+          "^sql",
           ":sql",
           ".sql",
           "^table::create",
