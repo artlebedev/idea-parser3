@@ -45,7 +45,8 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
           "exception.lineno",
           "exception.colno",
           "exception.comment",
-          "caller.self"
+          "caller.self",
+          "ignored"
   };
 
   public final String[] staticVariableLookupElements = new String[]{
