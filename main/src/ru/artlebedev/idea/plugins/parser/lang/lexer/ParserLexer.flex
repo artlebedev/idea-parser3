@@ -31,6 +31,12 @@ WhiteSpace=[ \t\f]
 NameStart=[a-zA-Z0-9_]
 Name={NameStart}(({NameStart}|-)*{NameStart})?
 
+EntityStart="&"
+EntityChar=[a-zA-Z0-9_#\^]*
+EntityEnd=";"
+
+Entity={EntityStart}{EntityChar}{EntityEnd}
+
 SharpComment="#"[^\r\n]*
 
 Number={Integer}|{Hex}|{Float}
@@ -93,6 +99,9 @@ CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XM
 <LINE_COMMENT> {
 	.*			{ yybegin(YYINITIAL); return ParserTokenTypes.SHARP_COMMENT; }
 }
+
+<YYINITIAL> {Entity} { return ParserTokenTypes.HTML_ENTITY; }
+
 
 <YYINITIAL> {DOCTYPE} { yybegin(DOC_TYPE); return ParserTokenTypes.TEMPLATE_HTML_TEXT; }
 <DOC_TYPE> {WhiteSpace} { return ParserTokenTypes.TEMPLATE_HTML_TEXT; }

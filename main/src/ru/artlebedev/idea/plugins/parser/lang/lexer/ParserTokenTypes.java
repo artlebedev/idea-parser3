@@ -29,6 +29,8 @@ public interface ParserTokenTypes {
   IElementType TEMPLATE_HTML_TEXT = new ParserElementType("PARSER_TEMPLATE_HTML_TEXT");
   IElementType OUTER_ELEMENT_TYPE = new ParserElementType("PARSER_FRAGMENT");
 
+  IElementType HTML_ENTITY = new ParserElementType("HTML_ENTITY");
+
   IElementType IDENTIFIER = new ParserElementType("IDENTIFIER");
   IElementType NEW_LINE_INDENT = TokenType.NEW_LINE_INDENT;
   IElementType WHITE_SPACE = TokenType.WHITE_SPACE;
