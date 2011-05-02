@@ -26,9 +26,9 @@
  limitations under the License.
 -->
 <project name="Parser 3 for IntelliJ IDEA 10" default="jflex">
-  <property name="lexer.file" value="src/ru/artlebedev/idea/plugins/parser/lang/lexer/_ParserLexer.java"/>
+  <property name="lexer.file" value="main/src/ru/artlebedev/idea/plugins/parser/lang/lexer/_ParserLexer.java"/>
   <property name="lexer.log" value="jflex.log"/>
-  <property name="lexer.source" value="src/ru/artlebedev/idea/plugins/parser/lang/lexer/ParserLexer.flex"/>
+  <property name="lexer.source" value="main/src/ru/artlebedev/idea/plugins/parser/lang/lexer/ParserLexer.flex"/>
   <property name="lexer.skeleton" value="ant/jflex/idea-flex.skeleton"/>
   <property name="jflex.jar" value="ant/lib/JFlex.jar"/>
 
