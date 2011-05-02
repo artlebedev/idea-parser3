@@ -66,7 +66,8 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE_ID, ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC),
-                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_CONF_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_CONF)
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_METHOD_CONF_ID, ParserFileSyntaxHighlighter.PARSER_METHOD_CONF),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.HTML_ENTITIES_ID, ParserFileSyntaxHighlighter.HTML_ENTITIES)
           };
 
   @NotNull
@@ -111,6 +112,9 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
             "###\n\n" +
             "@method2[]\n" +
             "^self.method1[]\n" +
+            "###\n" +
+            "@htmlmethod[]\n" +
+            "Just a sample html text with entity &nbsp^;\n" +
             "###\n" +
             "";
 

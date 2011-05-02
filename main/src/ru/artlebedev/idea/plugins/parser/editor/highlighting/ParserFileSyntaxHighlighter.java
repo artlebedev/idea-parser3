@@ -75,6 +75,8 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   @NonNls
   public static final String PARSER_OPERATORS_ID = "Parser operators";
   @NonNls
+  public static final String HTML_ENTITIES_ID = "Html entities";
+  @NonNls
   public static final String PARSER_METHOD_ID = "[Annotator] Parser methods";
   @NonNls
   public static final String PARSER_METHOD_STATIC_ID = "[Annotator] Parser static methods";
@@ -120,6 +122,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID, new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(HTML_ENTITIES_ID, new TextAttributes(Color.GRAY, null, null, null, Font.PLAIN));
   }
 
   public static final TextAttributesKey PARSER_KEYWORD = TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID);
@@ -148,6 +151,8 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
 
   public static final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID);
 
+  public static final TextAttributesKey HTML_ENTITIES = TextAttributesKey.createTextAttributesKey(HTML_ENTITIES_ID);
+
   private static final Map<IElementType, TextAttributesKey> attributes;
 
   public static final TokenSet parserDocSet = TokenSet.create(
@@ -168,6 +173,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TokenSet semicolonSet = TokenSet.create(ParserTokenTypes.SEMICOLON);
   public static final TokenSet badCharacterSet = TokenSet.create(ParserTokenTypes.BAD_CHARACTER);
   public static final TokenSet selfSet = TokenSet.create(ParserTokenTypes.SELF_KEYWORD, ParserTokenTypes.CLASS_STATIC_KEYWORD);
+  public static final TokenSet htmlEntitySet = TokenSet.create(ParserTokenTypes.HTML_ENTITY);
 
 
   static {
@@ -187,6 +193,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     fillMap(attributes, parserDocSet, PARSER_PARSERDOC_COMMENT);
     fillMap(attributes, badCharacterSet, PARSER_BAD_CHARACTER);
     fillMap(attributes, selfSet, PARSER_SELF);
+    fillMap(attributes, htmlEntitySet, HTML_ENTITIES);
     fillMap(attributes, ParserTokenTypes.OPERATIONS, PARSER_OPERATORS);
   }
 
