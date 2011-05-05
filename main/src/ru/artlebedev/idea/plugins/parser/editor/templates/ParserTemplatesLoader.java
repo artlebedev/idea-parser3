@@ -73,8 +73,8 @@ public class ParserTemplatesLoader implements ApplicationComponent {
   }
 
   private void registerTemplate(final String name, final String text) {
-    FileTemplate pattern = templateManager.getPattern(name);
-    //FileTemplate pattern = templateManager.getTemplate(name);
+    //FileTemplate pattern = templateManager.getPattern(name);
+    FileTemplate pattern = templateManager.getTemplate(name);
     if (pattern != null) {
       return;
     }
