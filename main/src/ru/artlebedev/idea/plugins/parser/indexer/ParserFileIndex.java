@@ -178,9 +178,13 @@ public class ParserFileIndex implements ProjectComponent {
       public void fileCreated(VirtualFileEvent event) {
         VirtualFile file = event.getFile();
         if (file.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
-          PsiFile loadedFile = PsiManager.getInstance(myProject).findFile(file);
-          if(loadedFile != null) {
-            processFileAdded(loadedFile);
+          try {
+            PsiFile loadedFile = PsiManager.getInstance(myProject).findFile(file);
+            if(loadedFile != null) {
+              processFileAdded(loadedFile);
+            }
+          } catch(Exception ignored) {
+
           }
         }
       }
