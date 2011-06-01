@@ -53,6 +53,9 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
 
   // XXX move colors out to fonts and colors dialog!
   public void visitParserMethod(ParserMethodImpl method) {
+    if(method == null)
+      return;
+
     Annotation annotation = myHolder.createInfoAnnotation(method.findNameNode(), null);
 
     if(ParserLanguageConstants.UNHANDLED_EXCEPTION_METHOD_NAME.equals(method.getName())) {
