@@ -1,0 +1,8 @@
+#parse("Parser file header.p")
+@CLASS
+${NAME}
+
+@OPTIONS
+locals
+
+@auto[]
