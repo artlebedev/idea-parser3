@@ -92,6 +92,8 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final String PARSER_METHOD_UNHANDLED_EXCEPTION_ID = "[Annotator] Parser unhandled exception methods";
   @NonNls
   public static final String PARSER_CLASS_REFERENCE_ID = "[Annotator] Parser class reference";
+  @NonNls
+  public static final String PARSER_SYSTEM_CLASS_REFERENCE_ID = "[Annotator] Parser system class reference";
 
   static {
     TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
@@ -122,6 +124,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID, new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD));
+    TextAttributesKey.createTextAttributesKey(PARSER_SYSTEM_CLASS_REFERENCE_ID, new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD));
     TextAttributesKey.createTextAttributesKey(HTML_ENTITIES_ID, new TextAttributes(Color.GRAY, null, null, null, Font.PLAIN));
   }
 
@@ -149,6 +152,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TextAttributesKey PARSER_METHOD_CONF = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID);
   public static final TextAttributesKey PARSER_METHOD_UNHANDLED_EXCEPTION = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID);
 
+  public static final TextAttributesKey PARSER_SYSTEM_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(PARSER_SYSTEM_CLASS_REFERENCE_ID);
   public static final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID);
 
   public static final TextAttributesKey HTML_ENTITIES = TextAttributesKey.createTextAttributesKey(HTML_ENTITIES_ID);

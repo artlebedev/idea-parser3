@@ -7,14 +7,16 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileFactory;
 import com.intellij.psi.PsiManager;
 import com.intellij.util.LocalTimeCounter;
-import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -38,10 +40,15 @@ import java.lang.reflect.Method;
 
 public class ParserStandardClassesHelper {
   private static Project project;
+  public static Set<String> loadedStandardClasses = new HashSet<String>();
 
   public static ParserClass loadStandardClass(String fileName) {
     if (project == null) {
       project = ParserProjectConfiguration._project;
+    }
+
+    if(fileName.contains(".p")) {
+      loadedStandardClasses.add(fileName.split(".p")[0]);
     }
 
     InputStream asStream = Marker.class.getResourceAsStream(fileName);

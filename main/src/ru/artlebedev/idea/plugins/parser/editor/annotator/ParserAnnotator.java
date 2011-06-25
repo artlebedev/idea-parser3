@@ -12,6 +12,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClassReference;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserStaticMethod;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserIncludePathImpl;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserMethodImpl;
+import ru.artlebedev.idea.plugins.parser.lang.stdlib.ParserStandardClassesHelper;
 
 import java.util.Arrays;
 import java.util.List;
@@ -113,9 +114,15 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
           }
         });
       } else {*/
-    if(!skipClassReferenceNames.contains(parserClassReference.getName())) {
+    String className = parserClassReference.getName();
+    if(!skipClassReferenceNames.contains(className)) {
       Annotation annotation = myHolder.createInfoAnnotation(parserClassReference, null);
-      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE);
+
+      if(ParserStandardClassesHelper.loadedStandardClasses.contains(className)) {
+        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_SYSTEM_CLASS_REFERENCE);
+      } else {
+        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE);
+      }
     }
     //}
   }
