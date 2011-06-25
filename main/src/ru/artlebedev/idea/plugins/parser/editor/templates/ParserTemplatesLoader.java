@@ -59,22 +59,11 @@ public class ParserTemplatesLoader implements ApplicationComponent {
     return "ParserSupport.ParserTemplatesLoader";
   }
 
-  private static final String TYPE_PATTERN = "pattern";
   private static final String TYPE_TEMPLATE = "template";
 
-  private void registerPattern(final String name, final String text) {
-    FileTemplate pattern = templateManager.getPattern(name);
-    if (pattern != null) {
-      return;
-    }
-
-    pattern = templateManager.addTemplate(name, ParserFileType.DEFAULT_EXTENSION);
-    pattern.setText(text);
-  }
-
   private void registerTemplate(final String name, final String text) {
-    //FileTemplate pattern = templateManager.getPattern(name);
     FileTemplate pattern = templateManager.getTemplate(name);
+
     if (pattern != null) {
       return;
     }
@@ -96,9 +85,6 @@ public class ParserTemplatesLoader implements ApplicationComponent {
             final String name = e.getAttributeValue("name");
             final String type = e.getAttributeValue("type");
             final String text = e.getText();
-            if (type.equals(TYPE_PATTERN)) {
-              registerPattern(name, text);
-            }
             if (type.equals(TYPE_TEMPLATE)) {
               registerTemplate(name, text);
             }
