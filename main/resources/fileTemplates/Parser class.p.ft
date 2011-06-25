@@ -1,10 +1,10 @@
 #parse("Parser file header.p")
-#set($classfile = '@CLASS
-${NAME}
-
-@OPTIONS
+#set($classfile = '@OPTIONS
 locals
 
 @auto[]
 ###')
+@CLASS
+${NAME}
+
 $classfile
