@@ -61,7 +61,7 @@ import java.util.Map;
  */
 
 public class ParserFileIndex implements ProjectComponent {
-  private Project myProject;
+  public static Project myProject;
   private VirtualFileAdapter myFileListener;
   public Map<String, ParserFile> loadedClasses = new HashMap<String, ParserFile>();
   private PsiTreeChangeListener myTreeChangeListener;
@@ -114,7 +114,7 @@ public class ParserFileIndex implements ProjectComponent {
     }
   }
 
-  public void projectOpened() {
+  public void initializeBaseClasses() {
     contributeClass(ParserStandardClasses.BOOL);
     contributeClass(ParserStandardClasses.VOID);
     contributeClass(ParserStandardClasses.INT);
@@ -152,7 +152,9 @@ public class ParserFileIndex implements ProjectComponent {
 
     contributeClass(ParserStandardClasses.XNODE);
     contributeClass(ParserStandardClasses.XDOC);
+  }
 
+  public void projectOpened() {
     myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);
 
@@ -210,9 +212,13 @@ public class ParserFileIndex implements ProjectComponent {
         reindexProject();
       }
     });
+
+    initializeBaseClasses();
   }
 
   private void reindexProject() {
+    initializeBaseClasses();
+
     ProjectRootManager.getInstance(myProject).getFileIndex().iterateContent(new ContentIterator() {
       @Override
       public boolean processFile(VirtualFile fileOrDir) {

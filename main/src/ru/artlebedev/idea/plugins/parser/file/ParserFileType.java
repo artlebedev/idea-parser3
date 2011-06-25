@@ -51,7 +51,6 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
   public static final String DEFAULT_EXTENSION = "p";
   public static final String IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION = "bp";
   public static final String IMPRIMATUR_PAGE_PROCESSOR_EXTENSION = "pp";
-  public static final String PARSERED_HTML_EXTENSION = "html";
   public static final String PARSERED_XML_EXTENSION = "pxml";
 
   /**
@@ -61,7 +60,6 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
           DEFAULT_EXTENSION,
           IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION,
           IMPRIMATUR_PAGE_PROCESSOR_EXTENSION,
-          PARSERED_HTML_EXTENSION,
           PARSERED_XML_EXTENSION
   };
   public static final List<String> extensionList = Arrays.asList(extensions);

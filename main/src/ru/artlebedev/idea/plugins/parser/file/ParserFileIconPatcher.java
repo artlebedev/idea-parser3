@@ -33,11 +33,6 @@ import java.util.List;
  */
 
 public class ParserFileIconPatcher implements FileIconPatcher {
-  public static final String[] parseredHtmlExtensions = {
-          "html"
-  };
-  public static final List<String> parseredHtmlExtensionList = Arrays.asList(parseredHtmlExtensions);
-
   public Icon patchIcon(final Icon baseIcon, final VirtualFile file, final int flags, final Project project) {
     if (project == null) {
       return baseIcon;
@@ -49,10 +44,6 @@ public class ParserFileIconPatcher implements FileIconPatcher {
   private static Icon replaceIcon(VirtualFile file, int flags, Project project, Icon baseIcon) {
     final PsiFile parserFile = PsiManager.getInstance(project).findFile(file);
     final ParserClass klass = ParserFilesUtil.containsClass(parserFile);
-
-    if(parseredHtmlExtensionList.contains(file.getExtension())) {
-      return ParserIcons.PARSER_HTML_FILE_ICON;
-    }
 
     if (klass != null) {
       return ParserIcons.PARSER_CLASS_FILE_ICON;
