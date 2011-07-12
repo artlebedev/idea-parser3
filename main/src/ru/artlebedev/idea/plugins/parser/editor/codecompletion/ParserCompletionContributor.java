@@ -14,6 +14,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserE
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserLogicalStatementCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserOptionCompletionProvider;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserTaintCompletionProvider;
+import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 
 import static com.intellij.patterns.PlatformPatterns.psiElement;
 
@@ -44,6 +46,8 @@ import static com.intellij.patterns.PlatformPatterns.psiElement;
  * @version 1.0
  */
 public class ParserCompletionContributor extends CompletionContributor {
+  public static String newline = System.getProperty("line.separator");
+
   /**
    * Logger
    */
@@ -63,7 +67,12 @@ public class ParserCompletionContributor extends CompletionContributor {
    */
   private static final ElementPattern<PsiElement> OPTION =
           StandardPatterns.instanceOf(PsiElement.class)
-                  .andNot(psiElement().afterLeaf("@"));
+                  .and(psiElement().afterLeaf(
+                    psiElement().withElementType(
+                            ParserTokenTypes.NEW_LINE)
+                     .and(psiElement().afterLeaf(
+                       psiElement().withElementType(
+                               ParserTokenTypes.OPTIONS_KEYWORD)))));
 
   /**
    * ^taint params
