@@ -22,6 +22,12 @@ import com.intellij.util.Icons;
  * limitations under the License.
  */
 
+/**
+ * Completion type @OPTIONS options
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserOptionLookupElement extends ParserLookupElement {
   public ParserOptionLookupElement(String keyword) {
     super(keyword);

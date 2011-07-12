@@ -26,6 +26,10 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserTa
  * limitations under the License.
  */
 
+/**
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserTaintCompletionProvider
         extends CompletionProvider<CompletionParameters> {
   public static String[] taintLookupElements = new String[]{

@@ -22,6 +22,12 @@ import ru.artlebedev.idea.plugins.parser.ParserIcons;
  * limitations under the License.
  */
 
+/**
+ * Completion type for internal variables
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserVariableLookupElement extends ParserLookupElement {
   public ParserVariableLookupElement(String keyword) {
     super(keyword);

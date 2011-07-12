@@ -22,6 +22,12 @@ import ru.artlebedev.idea.plugins.parser.ParserIcons;
  * limitations under the License.
  */
 
+/**
+ * Completion type for super global classes (as MAIN)
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserClassLookupElement extends ParserLookupElement {
   public ParserClassLookupElement(String keyword) {
     super(keyword);

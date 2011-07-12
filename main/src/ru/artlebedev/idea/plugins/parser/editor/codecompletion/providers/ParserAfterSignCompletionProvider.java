@@ -28,6 +28,10 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  * limitations under the License.
  */
 
+/**
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserAfterSignCompletionProvider
         extends CompletionProvider<CompletionParameters> {
   public static String[] lookupElements = new String[]{

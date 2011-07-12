@@ -26,6 +26,10 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOp
  * limitations under the License.
  */
 
+/**
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserOptionCompletionProvider
         extends CompletionProvider<CompletionParameters> {
   public final static String[] optionLookupElements = new String[]{

@@ -22,11 +22,11 @@ import com.intellij.util.Icons;
  * limitations under the License.
  */
 
-/*
- * Adds an icon in the form of < > (might be changed),
- * it means that this lookup belongs to live template
- * and could be expanded with tab.
- * -- dwr
+/**
+ * Completion type for @auto and @conf methods etc
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
  */
 public class ParserMethodLookupElement extends ParserLookupElement {
   public ParserMethodLookupElement(String keyword) {

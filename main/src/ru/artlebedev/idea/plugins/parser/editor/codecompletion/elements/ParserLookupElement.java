@@ -22,6 +22,13 @@ import org.jetbrains.annotations.NotNull;
  * limitations under the License.
  */
 
+/**
+ * Base class for all completion classes in this package.
+ * Also used for basic autocompletion keywords such as 'caller.' etc
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserLookupElement extends LookupElement {
   String keyword;
 

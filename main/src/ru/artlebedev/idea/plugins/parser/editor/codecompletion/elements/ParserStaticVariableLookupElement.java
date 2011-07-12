@@ -22,6 +22,14 @@ import ru.artlebedev.idea.plugins.parser.ParserIcons;
  * limitations under the License.
  */
 
+/**
+ * Completion type for superglobals like MAIN:SQL.connect-string
+ *
+ * TODO: there might be more than one sql string, should fix this
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserStaticVariableLookupElement extends ParserLookupElement {
   public ParserStaticVariableLookupElement(String keyword) {
     super(keyword);

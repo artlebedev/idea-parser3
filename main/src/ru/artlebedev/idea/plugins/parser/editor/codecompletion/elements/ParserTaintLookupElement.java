@@ -22,11 +22,11 @@ import com.intellij.openapi.util.IconLoader;
  * limitations under the License.
  */
 
-/*
- * Adds an icon in the form of < > (might be changed),
- * it means that this lookup belongs to live template
- * and could be expanded with tab.
- * -- dwr
+/**
+ * Completion type for ^taint[PARAM]
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
  */
 public class ParserTaintLookupElement extends ParserLookupElement {
   public ParserTaintLookupElement(String keyword) {
