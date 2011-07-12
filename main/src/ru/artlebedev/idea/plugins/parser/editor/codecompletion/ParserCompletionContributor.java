@@ -36,52 +36,100 @@ import static com.intellij.patterns.PlatformPatterns.psiElement;
  * limitations under the License.
  */
 
+/**
+ * This class handles additional variants for completion which are not match
+ * any of getVariants of Psi-elements.
+ *
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * @version 1.0
+ */
 public class ParserCompletionContributor extends CompletionContributor {
+  /**
+   * Logger
+   */
   private static final Logger log =
           Logger.getInstance("ParserCompletionContributor");
 
+
+  /**
+   * For all cases
+   */
   private static final ElementPattern<PsiElement> DEFAULT =
           StandardPatterns.instanceOf(PsiElement.class)
                   .andNot(psiElement().afterLeaf("@"));
 
+  /**
+   * After @OPTIONS
+   */
   private static final ElementPattern<PsiElement> OPTION =
           StandardPatterns.instanceOf(PsiElement.class)
                   .andNot(psiElement().afterLeaf("@"));
 
+  /**
+   * ^taint params
+   */
   private static final ElementPattern<PsiElement> TAINT =
           StandardPatterns.instanceOf(PsiElement.class)
                   .andNot(psiElement().afterLeaf("@"));
 
+  /**
+   * exception types
+   */
   private static final ElementPattern<PsiElement> EXCEPTION_TYPE =
           StandardPatterns.instanceOf(PsiElement.class)
                   .andNot(psiElement().afterLeaf("@"));
 
+  /**
+   * Logical statements (inside braces)
+   */
   private static final ElementPattern<PsiElement> LOGICAL_STATEMENT =
           StandardPatterns.instanceOf(PsiElement.class);
 
+  /**
+   * After ^ matches (including ZenParser)
+   */
   private static final ElementPattern<PsiElement> AFTER_HAT =
           psiElement().afterLeaf("^");
 
+  /**
+   * After $ matches (including ZenParser)
+   */
   private static final ElementPattern<PsiElement> AFTER_DOLLAR =
           psiElement().afterLeaf("$");
 
+  /**
+   * After @ matches (including ZenParser)
+   */
   private static final ElementPattern<PsiElement> AFTER_SIGN =
           psiElement().afterLeaf("@");
 
+  /**
+   * Initializer
+   */
   public ParserCompletionContributor() {
     log.info("Created parser completion contributor");
 
-    extend(CompletionType.BASIC, DEFAULT, new ParserDefaultCompletionProvider());
-    extend(CompletionType.BASIC, OPTION, new ParserOptionCompletionProvider());
-    extend(CompletionType.BASIC, TAINT, new ParserTaintCompletionProvider());
+    extend(CompletionType.BASIC, DEFAULT,
+            new ParserDefaultCompletionProvider());
+
+    extend(CompletionType.BASIC, OPTION,
+            new ParserOptionCompletionProvider());
+
+    extend(CompletionType.BASIC, TAINT,
+            new ParserTaintCompletionProvider());
+
     extend(CompletionType.BASIC, EXCEPTION_TYPE,
             new ParserExceptionTypeCompletionProvider());
+
     extend(CompletionType.BASIC, LOGICAL_STATEMENT,
             new ParserLogicalStatementCompletionProvider());
+
     extend(CompletionType.BASIC, AFTER_HAT,
             new ParserAfterHatCompletionProvider());
+
     extend(CompletionType.BASIC, AFTER_DOLLAR,
             new ParserAfterDollarCompletionProvider());
+
     extend(CompletionType.BASIC, AFTER_SIGN,
             new ParserAfterSignCompletionProvider());
   }

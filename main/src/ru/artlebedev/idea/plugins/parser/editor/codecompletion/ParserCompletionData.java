@@ -33,7 +33,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.lookup.ParserInsertHandler;
  * This class handles normally when we should call our completion stuff
  * like ParserCompletionContributor or classes getVariants
  *
- * @author dwr
+ * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * @version 1.0
  *
  * @see ParserCompletionContributor
