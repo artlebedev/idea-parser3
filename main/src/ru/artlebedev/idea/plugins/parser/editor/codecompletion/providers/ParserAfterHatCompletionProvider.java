@@ -32,31 +32,31 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  * @version 1.0
  */
 public class ParserAfterHatCompletionProvider
-        extends CompletionProvider<CompletionParameters> {
+  extends CompletionProvider<CompletionParameters> {
   public final static String[] methodLookupElements = new String[]{
-          "rem",
-          "taint",
-          "apply-taint",
-          "untaint",
-          "if",
-          "break",
-          "continue",
-          "connect",
-          "use",
-          "cache",
-          "eval",
-          "process",
-          "self.",
-          "caller.",
-          "throw",
-          "try",
-          "for",
-          "while",
-          "switch"
+    "rem",
+    "taint",
+    "apply-taint",
+    "untaint",
+    "if",
+    "break",
+    "continue",
+    "connect",
+    "use",
+    "cache",
+    "eval",
+    "process",
+    "self.",
+    "caller.",
+    "throw",
+    "try",
+    "for",
+    "while",
+    "switch"
   };
 
   public final static String[] classLookupElements = new String[]{
-          "MAIN"
+    "MAIN"
   };
 
   @Override
@@ -67,7 +67,7 @@ public class ParserAfterHatCompletionProvider
       result.addElement(new ParserMethodLookupElement(methodLookupElement));
     }
 
-    for (String classLookupElement: classLookupElements) {
+    for (String classLookupElement : classLookupElements) {
       result.addElement(new ParserClassLookupElement(classLookupElement));
     }
   }

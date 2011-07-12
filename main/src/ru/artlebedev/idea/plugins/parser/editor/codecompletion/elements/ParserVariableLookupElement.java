@@ -35,7 +35,7 @@ public class ParserVariableLookupElement extends ParserLookupElement {
 
   @Override
   public void renderElement(LookupElementPresentation presentation) {
-      presentation.setIcon(ParserIcons.PARSER_VARIABLE_ICON);
-      super.renderElement(presentation);
+    presentation.setIcon(ParserIcons.PARSER_VARIABLE_ICON);
+    super.renderElement(presentation);
   }
 }

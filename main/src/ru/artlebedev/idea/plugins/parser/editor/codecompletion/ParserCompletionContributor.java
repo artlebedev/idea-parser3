@@ -44,48 +44,48 @@ public class ParserCompletionContributor extends CompletionContributor {
    * Logger
    */
   private static final Logger log =
-      Logger.getInstance("ParserCompletionContributor");
+    Logger.getInstance("ParserCompletionContributor");
 
   /**
    * After @OPTIONS
    */
   private static final ElementPattern<PsiElement> OPTION =
-      StandardPatterns.instanceOf(PsiElement.class)
+    StandardPatterns.instanceOf(PsiElement.class)
+      .and(psiElement().afterLeaf(
+        psiElement().withElementType(
+          ParserTokenTypes.NEW_LINE)
           .and(psiElement().afterLeaf(
-              psiElement().withElementType(
-                  ParserTokenTypes.NEW_LINE)
-                  .and(psiElement().afterLeaf(
-                      psiElement().withElementType(
-                          ParserTokenTypes.OPTIONS_KEYWORD)))));
+            psiElement().withElementType(
+              ParserTokenTypes.OPTIONS_KEYWORD)))));
 
   /**
    * ^taint params
    */
   private static final ElementPattern<PsiElement> TAINT =
-      StandardPatterns.instanceOf(PsiElement.class)
+    StandardPatterns.instanceOf(PsiElement.class)
+      .and(psiElement().afterLeaf(
+        psiElement().withElementType(
+          ParserTokenTypes.LBRACKET)
           .and(psiElement().afterLeaf(
-              psiElement().withElementType(
-                  ParserTokenTypes.LBRACKET)
-                  .and(psiElement().afterLeaf(
-                      psiElement().withElementType(
-                          ParserTokenTypes.TAINT_KEYWORD)))));
+            psiElement().withElementType(
+              ParserTokenTypes.TAINT_KEYWORD)))));
   /**
    * After ^ matches (including ZenParser)
    */
   private static final ElementPattern<PsiElement> AFTER_HAT =
-      psiElement().afterLeaf("^");
+    psiElement().afterLeaf("^");
 
   /**
    * After $ matches (including ZenParser)
    */
   private static final ElementPattern<PsiElement> AFTER_DOLLAR =
-      psiElement().afterLeaf("$");
+    psiElement().afterLeaf("$");
 
   /**
    * After @ matches (including ZenParser)
    */
   private static final ElementPattern<PsiElement> AFTER_SIGN =
-      psiElement().afterLeaf("@");
+    psiElement().afterLeaf("@");
 
   /**
    * Initializer
@@ -94,18 +94,18 @@ public class ParserCompletionContributor extends CompletionContributor {
     log.info("Created parser completion contributor");
 
     extend(CompletionType.BASIC, OPTION,
-        new ParserOptionCompletionProvider());
+      new ParserOptionCompletionProvider());
 
     extend(CompletionType.BASIC, TAINT,
-        new ParserTaintCompletionProvider());
+      new ParserTaintCompletionProvider());
 
     extend(CompletionType.BASIC, AFTER_HAT,
-        new ParserAfterHatCompletionProvider());
+      new ParserAfterHatCompletionProvider());
 
     extend(CompletionType.BASIC, AFTER_DOLLAR,
-        new ParserAfterDollarCompletionProvider());
+      new ParserAfterDollarCompletionProvider());
 
     extend(CompletionType.BASIC, AFTER_SIGN,
-        new ParserAfterSignCompletionProvider());
+      new ParserAfterSignCompletionProvider());
   }
 }

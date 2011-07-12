@@ -31,29 +31,29 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserTa
  * @version 1.0
  */
 public class ParserTaintCompletionProvider
-        extends CompletionProvider<CompletionParameters> {
+  extends CompletionProvider<CompletionParameters> {
   public static String[] taintLookupElements = new String[]{
-          "parser-code",
-          "as-is",
-          "file-spec",
-          "http-header",
-          "mail-header",
-          "uri",
-          "sql",
-          "js",
-          "regex",
-          "xml",
-          "html",
-          "optimized-as-is",
-          "optimized-xml",
-          "optimized-html"
+    "parser-code",
+    "as-is",
+    "file-spec",
+    "http-header",
+    "mail-header",
+    "uri",
+    "sql",
+    "js",
+    "regex",
+    "xml",
+    "html",
+    "optimized-as-is",
+    "optimized-xml",
+    "optimized-html"
   };
 
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters,
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
-    for(String taintLookupElement : taintLookupElements) {
+    for (String taintLookupElement : taintLookupElements) {
       result.addElement(new ParserTaintLookupElement(taintLookupElement));
     }
   }

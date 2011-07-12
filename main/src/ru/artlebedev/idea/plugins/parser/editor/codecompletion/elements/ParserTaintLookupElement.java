@@ -35,7 +35,7 @@ public class ParserTaintLookupElement extends ParserLookupElement {
 
   @Override
   public void renderElement(LookupElementPresentation presentation) {
-      presentation.setIcon(IconLoader.getIcon("/nodes/deploy.png"));
-      super.renderElement(presentation);
+    presentation.setIcon(IconLoader.getIcon("/nodes/deploy.png"));
+    super.renderElement(presentation);
   }
 }

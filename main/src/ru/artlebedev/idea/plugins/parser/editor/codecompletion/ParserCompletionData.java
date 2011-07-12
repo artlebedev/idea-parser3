@@ -35,7 +35,6 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.lookup.ParserInsertHandler;
  *
  * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * @version 1.0
- *
  * @see ParserCompletionContributor
  */
 public class ParserCompletionData extends CompletionData {

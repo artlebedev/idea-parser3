@@ -24,7 +24,7 @@ import ru.artlebedev.idea.plugins.parser.ParserIcons;
 
 /**
  * Completion type for superglobals like MAIN:SQL.connect-string
- *
+ * <p/>
  * TODO: there might be more than one sql string, should fix this
  *
  * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
@@ -37,7 +37,7 @@ public class ParserStaticVariableLookupElement extends ParserLookupElement {
 
   @Override
   public void renderElement(LookupElementPresentation presentation) {
-      presentation.setIcon(ParserIcons.PARSER_PROPERTY_ICON);
-      super.renderElement(presentation);
+    presentation.setIcon(ParserIcons.PARSER_PROPERTY_ICON);
+    super.renderElement(presentation);
   }
 }

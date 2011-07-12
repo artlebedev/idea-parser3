@@ -31,19 +31,19 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOp
  * @version 1.0
  */
 public class ParserOptionCompletionProvider
-        extends CompletionProvider<CompletionParameters> {
+  extends CompletionProvider<CompletionParameters> {
   public final static String[] optionLookupElements = new String[]{
-          "locals",
-          "partial",
-          "static",
-          "dynamic"
+    "locals",
+    "partial",
+    "static",
+    "dynamic"
   };
 
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters,
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
-    for(String optionLookupElement : optionLookupElements) {
+    for (String optionLookupElement : optionLookupElements) {
       result.addElement(new ParserOptionLookupElement(optionLookupElement));
     }
   }

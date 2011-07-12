@@ -35,7 +35,7 @@ public class ParserClassAttributeLookupElement extends ParserLookupElement {
 
   @Override
   public void renderElement(LookupElementPresentation presentation) {
-      presentation.setIcon(Icons.ABSTRACT_CLASS_ICON);
-      super.renderElement(presentation);
+    presentation.setIcon(Icons.ABSTRACT_CLASS_ICON);
+    super.renderElement(presentation);
   }
 }

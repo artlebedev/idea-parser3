@@ -33,44 +33,44 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  * @version 1.0
  */
 public class ParserAfterSignCompletionProvider
-        extends CompletionProvider<CompletionParameters> {
+  extends CompletionProvider<CompletionParameters> {
   public static String[] lookupElements = new String[]{
-          "unhandled_exception",
-          "main",
-          "static:",
-          "GET_DEFAULT",
-          "SET_DEFAULT",
-          "GET_",
-          "SET_"
+    "unhandled_exception",
+    "main",
+    "static:",
+    "GET_DEFAULT",
+    "SET_DEFAULT",
+    "GET_",
+    "SET_"
   };
 
   public static String[] methodLookupElements = new String[]{
-          "auto",
-          "conf"
+    "auto",
+    "conf"
   };
 
   public static String[] classAttributeLookupElements = new String[]{
-          "CLASS",
-          "USE",
-          "BASE",
-          "OPTIONS"
+    "CLASS",
+    "USE",
+    "BASE",
+    "OPTIONS"
   };
 
   @Override
   protected void addCompletions(@NotNull CompletionParameters parameters,
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
-    for(String lookupElement : lookupElements) {
+    for (String lookupElement : lookupElements) {
       result.addElement(new ParserLookupElement(lookupElement));
     }
 
-    for(String methodLookupElement : methodLookupElements) {
+    for (String methodLookupElement : methodLookupElements) {
       result.addElement(new ParserMethodLookupElement(methodLookupElement));
     }
 
-    for(String classAttributeLookupElement : classAttributeLookupElements) {
+    for (String classAttributeLookupElement : classAttributeLookupElements) {
       result.addElement(
-              new ParserClassAttributeLookupElement(classAttributeLookupElement));
+        new ParserClassAttributeLookupElement(classAttributeLookupElement));
     }
   }
 }
