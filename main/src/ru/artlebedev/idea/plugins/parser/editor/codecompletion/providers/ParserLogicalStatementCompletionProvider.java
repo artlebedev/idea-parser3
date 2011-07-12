@@ -26,7 +26,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOp
  * limitations under the License.
  */
 
-public class ParserLogicalStatementCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserLogicalStatementCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   public static String[] operatorLookupElements = new String[]{
           "true",
           "false",
@@ -44,7 +45,9 @@ public class ParserLogicalStatementCompletionProvider extends CompletionProvider
   };
 
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
     for(String operatorLookupElement : operatorLookupElements) {
       result.addElement(new ParserOperatorLookupElement(operatorLookupElement));
     }

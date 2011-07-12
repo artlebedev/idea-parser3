@@ -37,27 +37,52 @@ import static com.intellij.patterns.PlatformPatterns.psiElement;
  */
 
 public class ParserCompletionContributor extends CompletionContributor {
-  private static final Logger log = Logger.getInstance("ParserCompletionContributor");
+  private static final Logger log =
+          Logger.getInstance("ParserCompletionContributor");
 
-  private static final ElementPattern<PsiElement> DEFAULT = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
-  private static final ElementPattern<PsiElement> OPTION = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
-  private static final ElementPattern<PsiElement> TAINT = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
-  private static final ElementPattern<PsiElement> EXCEPTION_TYPE = StandardPatterns.instanceOf(PsiElement.class).andNot(psiElement().afterLeaf("@"));
-  private static final ElementPattern<PsiElement> LOGICAL_STATEMENT = StandardPatterns.instanceOf(PsiElement.class);
-  private static final ElementPattern<PsiElement> AFTER_HAT = psiElement().afterLeaf("^");
-  private static final ElementPattern<PsiElement> AFTER_DOLLAR = psiElement().afterLeaf("$");
-  private static final ElementPattern<PsiElement> AFTER_SIGN = psiElement().afterLeaf("@");
+  private static final ElementPattern<PsiElement> DEFAULT =
+          StandardPatterns.instanceOf(PsiElement.class)
+                  .andNot(psiElement().afterLeaf("@"));
+
+  private static final ElementPattern<PsiElement> OPTION =
+          StandardPatterns.instanceOf(PsiElement.class)
+                  .andNot(psiElement().afterLeaf("@"));
+
+  private static final ElementPattern<PsiElement> TAINT =
+          StandardPatterns.instanceOf(PsiElement.class)
+                  .andNot(psiElement().afterLeaf("@"));
+
+  private static final ElementPattern<PsiElement> EXCEPTION_TYPE =
+          StandardPatterns.instanceOf(PsiElement.class)
+                  .andNot(psiElement().afterLeaf("@"));
+
+  private static final ElementPattern<PsiElement> LOGICAL_STATEMENT =
+          StandardPatterns.instanceOf(PsiElement.class);
+
+  private static final ElementPattern<PsiElement> AFTER_HAT =
+          psiElement().afterLeaf("^");
+
+  private static final ElementPattern<PsiElement> AFTER_DOLLAR =
+          psiElement().afterLeaf("$");
+
+  private static final ElementPattern<PsiElement> AFTER_SIGN =
+          psiElement().afterLeaf("@");
 
   public ParserCompletionContributor() {
     log.info("Created parser completion contributor");
 
-    extend(CompletionType.BASIC, DEFAULT,           new ParserDefaultCompletionProvider());
-    extend(CompletionType.BASIC, OPTION,            new ParserOptionCompletionProvider());
-    extend(CompletionType.BASIC, TAINT,             new ParserTaintCompletionProvider());
-    extend(CompletionType.BASIC, EXCEPTION_TYPE,    new ParserExceptionTypeCompletionProvider());
-    extend(CompletionType.BASIC, LOGICAL_STATEMENT, new ParserLogicalStatementCompletionProvider());
-    extend(CompletionType.BASIC, AFTER_HAT,         new ParserAfterHatCompletionProvider());
-    extend(CompletionType.BASIC, AFTER_DOLLAR,      new ParserAfterDollarCompletionProvider());
-    extend(CompletionType.BASIC, AFTER_SIGN,        new ParserAfterSignCompletionProvider());
+    extend(CompletionType.BASIC, DEFAULT, new ParserDefaultCompletionProvider());
+    extend(CompletionType.BASIC, OPTION, new ParserOptionCompletionProvider());
+    extend(CompletionType.BASIC, TAINT, new ParserTaintCompletionProvider());
+    extend(CompletionType.BASIC, EXCEPTION_TYPE,
+            new ParserExceptionTypeCompletionProvider());
+    extend(CompletionType.BASIC, LOGICAL_STATEMENT,
+            new ParserLogicalStatementCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_HAT,
+            new ParserAfterHatCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_DOLLAR,
+            new ParserAfterDollarCompletionProvider());
+    extend(CompletionType.BASIC, AFTER_SIGN,
+            new ParserAfterSignCompletionProvider());
   }
 }

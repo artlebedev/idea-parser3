@@ -30,7 +30,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVa
  * limitations under the License.
  */
 
-public class ParserAfterDollarCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserAfterDollarCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   public final String[] lookupElements = new String[]{
           "caller.",
           "result",
@@ -62,7 +63,9 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
   };
 
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
     for(String lookupElement : lookupElements) {
       result.addElement(new ParserLookupElement(lookupElement));
     }
@@ -72,7 +75,8 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
     }
 
     for(String staticVariableLookupElement : staticVariableLookupElements) {
-      result.addElement(new ParserStaticVariableLookupElement(staticVariableLookupElement));
+      result.addElement(
+              new ParserStaticVariableLookupElement(staticVariableLookupElement));
     }
 
     for(String methodLookupElement : methodLookupElements) {
@@ -82,13 +86,5 @@ public class ParserAfterDollarCompletionProvider extends CompletionProvider<Comp
     for (String classLookupElement: classLookupElements) {
       result.addElement(new ParserClassLookupElement(classLookupElement));
     }
-
-//    Collection<ParserFile> parserFiles = parameters.getPosition().getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
-//    Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
-//    for(ParserClass parserClass : parserClasses) {
-//      if(ParserResolveUtil.collectStaticObjectDeclarations(parserClass).size() > 0) {
-//        result.addElement(new ParserLookupElement(parserClass.getName() + ":"));
-//      }
-//    }
   }
 }

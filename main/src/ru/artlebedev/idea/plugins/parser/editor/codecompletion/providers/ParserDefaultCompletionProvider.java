@@ -25,8 +25,11 @@ import org.jetbrains.annotations.NotNull;
  * limitations under the License.
  */
 
-public class ParserDefaultCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserDefaultCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
   }
 }

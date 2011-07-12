@@ -28,7 +28,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  * limitations under the License.
  */
 
-public class ParserAfterSignCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserAfterSignCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   public static String[] lookupElements = new String[]{
           "unhandled_exception",
           "main",
@@ -52,7 +53,9 @@ public class ParserAfterSignCompletionProvider extends CompletionProvider<Comple
   };
 
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
     for(String lookupElement : lookupElements) {
       result.addElement(new ParserLookupElement(lookupElement));
     }
@@ -62,7 +65,8 @@ public class ParserAfterSignCompletionProvider extends CompletionProvider<Comple
     }
 
     for(String classAttributeLookupElement : classAttributeLookupElements) {
-      result.addElement(new ParserClassAttributeLookupElement(classAttributeLookupElement));
+      result.addElement(
+              new ParserClassAttributeLookupElement(classAttributeLookupElement));
     }
   }
 }

@@ -27,7 +27,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  * limitations under the License.
  */
 
-public class ParserAfterHatCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserAfterHatCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   public final static String[] methodLookupElements = new String[]{
           "rem",
           "taint",
@@ -55,7 +56,9 @@ public class ParserAfterHatCompletionProvider extends CompletionProvider<Complet
   };
 
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
     for (String methodLookupElement : methodLookupElements) {
       result.addElement(new ParserMethodLookupElement(methodLookupElement));
     }
@@ -63,13 +66,5 @@ public class ParserAfterHatCompletionProvider extends CompletionProvider<Complet
     for (String classLookupElement: classLookupElements) {
       result.addElement(new ParserClassLookupElement(classLookupElement));
     }
-
-//    Collection<ParserFile> parserFiles = parameters.getPosition().getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
-//    Collection<ParserClass> parserClasses = ParserResolveUtil.getClassesFromFiles(parserFiles);
-//    for(ParserClass parserClass : parserClasses) {
-//      if(ParserResolveUtil.collectStaticObjectDeclarations(parserClass).size() > 0) {
-//        result.addElement(new ParserLookupElement(parserClass.getName() + ":"));
-//      }
-//    }
   }
 }

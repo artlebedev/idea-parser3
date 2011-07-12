@@ -26,7 +26,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserEx
  * limitations under the License.
  */
 
-public class ParserExceptionTypeCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserExceptionTypeCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   public final static String[] exceptionTypeLookupElements = new String[]{
           "parser.compile",
           "parser.runtime",
@@ -61,9 +62,12 @@ public class ParserExceptionTypeCompletionProvider extends CompletionProvider<Co
   };
 
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
     for(String exceptionTypeLookupElement : exceptionTypeLookupElements) {
-      result.addElement(new ParserExceptionTypeLookupElement(exceptionTypeLookupElement));
+      result.addElement(
+              new ParserExceptionTypeLookupElement(exceptionTypeLookupElement));
     }
   }
 }

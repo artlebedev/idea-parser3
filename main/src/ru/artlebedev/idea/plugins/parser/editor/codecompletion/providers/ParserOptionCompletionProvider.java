@@ -26,7 +26,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOp
  * limitations under the License.
  */
 
-public class ParserOptionCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserOptionCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   public final static String[] optionLookupElements = new String[]{
           "locals",
           "partial",
@@ -35,7 +36,9 @@ public class ParserOptionCompletionProvider extends CompletionProvider<Completio
   };
 
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
     for(String optionLookupElement : optionLookupElements) {
       result.addElement(new ParserOptionLookupElement(optionLookupElement));
     }

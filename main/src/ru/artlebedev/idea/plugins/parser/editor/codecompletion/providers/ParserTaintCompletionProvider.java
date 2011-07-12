@@ -26,7 +26,8 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserTa
  * limitations under the License.
  */
 
-public class ParserTaintCompletionProvider extends CompletionProvider<CompletionParameters> {
+public class ParserTaintCompletionProvider
+        extends CompletionProvider<CompletionParameters> {
   public static String[] taintLookupElements = new String[]{
           "parser-code",
           "as-is",
@@ -45,7 +46,9 @@ public class ParserTaintCompletionProvider extends CompletionProvider<Completion
   };
 
   @Override
-  protected void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result) {
+  protected void addCompletions(@NotNull CompletionParameters parameters,
+                                ProcessingContext context,
+                                @NotNull CompletionResultSet result) {
     for(String taintLookupElement : taintLookupElements) {
       result.addElement(new ParserTaintLookupElement(taintLookupElement));
     }
