@@ -29,7 +29,19 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.lookup.ParserInsertHandler;
  * limitations under the License.
  */
 
+/**
+ * This class handles normally when we should call our completion stuff
+ * like ParserCompletionContributor or classes getVariants
+ *
+ * @author dwr
+ * @version 1.0
+ *
+ * @see ParserCompletionContributor
+ */
 public class ParserCompletionData extends CompletionData {
+  /**
+   * Initializer
+   */
   public ParserCompletionData() {
     InsertHandler handler = new ParserInsertHandler();
     LeftNeighbour afterDotFilter = new LeftNeighbour(new TextFilter("."));
