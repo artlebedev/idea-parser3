@@ -79,7 +79,12 @@ public class ParserCompletionContributor extends CompletionContributor {
    */
   private static final ElementPattern<PsiElement> TAINT =
           StandardPatterns.instanceOf(PsiElement.class)
-                  .andNot(psiElement().afterLeaf("@"));
+                  .and(psiElement().afterLeaf(
+                    psiElement().withElementType(
+                            ParserTokenTypes.LBRACKET)
+                     .and(psiElement().afterLeaf(
+                       psiElement().withElementType(
+                               ParserTokenTypes.TAINT_KEYWORD)))));
 
   /**
    * exception types
