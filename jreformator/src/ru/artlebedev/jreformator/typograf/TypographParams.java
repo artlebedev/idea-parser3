@@ -3,7 +3,7 @@ package ru.artlebedev.jreformator.typograf;
 /**
  * jreformator
  * <p/>
- * Based on code originally written by Vladimir Tokmakov <vlalek@design.ru>
+ * Based on code originally written by <a href="mailto:vlalek@design.ru">Vladimir Tokmakov</a>
  * <p/>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011 ArtLebedev Studio
