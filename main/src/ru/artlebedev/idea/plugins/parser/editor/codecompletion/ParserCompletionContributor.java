@@ -6,16 +6,8 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.patterns.ElementPattern;
 import com.intellij.patterns.StandardPatterns;
 import com.intellij.psi.PsiElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterDollarCompletionProvider;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterHatCompletionProvider;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserAfterSignCompletionProvider;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserDefaultCompletionProvider;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserExceptionTypeCompletionProvider;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserLogicalStatementCompletionProvider;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserOptionCompletionProvider;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.ParserTaintCompletionProvider;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.providers.*;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
-import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 
 import static com.intellij.patterns.PlatformPatterns.psiElement;
 
@@ -52,70 +44,70 @@ public class ParserCompletionContributor extends CompletionContributor {
    * Logger
    */
   private static final Logger log =
-          Logger.getInstance("ParserCompletionContributor");
+      Logger.getInstance("ParserCompletionContributor");
 
 
   /**
    * For all cases
    */
   private static final ElementPattern<PsiElement> DEFAULT =
-          StandardPatterns.instanceOf(PsiElement.class)
-                  .andNot(psiElement().afterLeaf("@"));
+      StandardPatterns.instanceOf(PsiElement.class)
+          .andNot(psiElement().afterLeaf("@"));
 
   /**
    * After @OPTIONS
    */
   private static final ElementPattern<PsiElement> OPTION =
-          StandardPatterns.instanceOf(PsiElement.class)
+      StandardPatterns.instanceOf(PsiElement.class)
+          .and(psiElement().afterLeaf(
+              psiElement().withElementType(
+                  ParserTokenTypes.NEW_LINE)
                   .and(psiElement().afterLeaf(
-                    psiElement().withElementType(
-                            ParserTokenTypes.NEW_LINE)
-                     .and(psiElement().afterLeaf(
-                       psiElement().withElementType(
-                               ParserTokenTypes.OPTIONS_KEYWORD)))));
+                      psiElement().withElementType(
+                          ParserTokenTypes.OPTIONS_KEYWORD)))));
 
   /**
    * ^taint params
    */
   private static final ElementPattern<PsiElement> TAINT =
-          StandardPatterns.instanceOf(PsiElement.class)
+      StandardPatterns.instanceOf(PsiElement.class)
+          .and(psiElement().afterLeaf(
+              psiElement().withElementType(
+                  ParserTokenTypes.LBRACKET)
                   .and(psiElement().afterLeaf(
-                    psiElement().withElementType(
-                            ParserTokenTypes.LBRACKET)
-                     .and(psiElement().afterLeaf(
-                       psiElement().withElementType(
-                               ParserTokenTypes.TAINT_KEYWORD)))));
+                      psiElement().withElementType(
+                          ParserTokenTypes.TAINT_KEYWORD)))));
 
   /**
    * exception types
    */
   private static final ElementPattern<PsiElement> EXCEPTION_TYPE =
-          StandardPatterns.instanceOf(PsiElement.class)
-                  .andNot(psiElement().afterLeaf("@"));
+      StandardPatterns.instanceOf(PsiElement.class)
+          .andNot(psiElement().afterLeaf("@"));
 
   /**
    * Logical statements (inside braces)
    */
   private static final ElementPattern<PsiElement> LOGICAL_STATEMENT =
-          StandardPatterns.instanceOf(PsiElement.class);
+      StandardPatterns.instanceOf(PsiElement.class);
 
   /**
    * After ^ matches (including ZenParser)
    */
   private static final ElementPattern<PsiElement> AFTER_HAT =
-          psiElement().afterLeaf("^");
+      psiElement().afterLeaf("^");
 
   /**
    * After $ matches (including ZenParser)
    */
   private static final ElementPattern<PsiElement> AFTER_DOLLAR =
-          psiElement().afterLeaf("$");
+      psiElement().afterLeaf("$");
 
   /**
    * After @ matches (including ZenParser)
    */
   private static final ElementPattern<PsiElement> AFTER_SIGN =
-          psiElement().afterLeaf("@");
+      psiElement().afterLeaf("@");
 
   /**
    * Initializer
@@ -124,27 +116,27 @@ public class ParserCompletionContributor extends CompletionContributor {
     log.info("Created parser completion contributor");
 
     extend(CompletionType.BASIC, DEFAULT,
-            new ParserDefaultCompletionProvider());
+        new ParserDefaultCompletionProvider());
 
     extend(CompletionType.BASIC, OPTION,
-            new ParserOptionCompletionProvider());
+        new ParserOptionCompletionProvider());
 
     extend(CompletionType.BASIC, TAINT,
-            new ParserTaintCompletionProvider());
+        new ParserTaintCompletionProvider());
 
     extend(CompletionType.BASIC, EXCEPTION_TYPE,
-            new ParserExceptionTypeCompletionProvider());
+        new ParserExceptionTypeCompletionProvider());
 
     extend(CompletionType.BASIC, LOGICAL_STATEMENT,
-            new ParserLogicalStatementCompletionProvider());
+        new ParserLogicalStatementCompletionProvider());
 
     extend(CompletionType.BASIC, AFTER_HAT,
-            new ParserAfterHatCompletionProvider());
+        new ParserAfterHatCompletionProvider());
 
     extend(CompletionType.BASIC, AFTER_DOLLAR,
-            new ParserAfterDollarCompletionProvider());
+        new ParserAfterDollarCompletionProvider());
 
     extend(CompletionType.BASIC, AFTER_SIGN,
-            new ParserAfterSignCompletionProvider());
+        new ParserAfterSignCompletionProvider());
   }
 }
