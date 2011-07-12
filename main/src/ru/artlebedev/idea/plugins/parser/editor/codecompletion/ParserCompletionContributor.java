@@ -46,14 +46,6 @@ public class ParserCompletionContributor extends CompletionContributor {
   private static final Logger log =
       Logger.getInstance("ParserCompletionContributor");
 
-
-  /**
-   * For all cases
-   */
-  private static final ElementPattern<PsiElement> DEFAULT =
-      StandardPatterns.instanceOf(PsiElement.class)
-          .andNot(psiElement().afterLeaf("@"));
-
   /**
    * After @OPTIONS
    */
@@ -114,9 +106,6 @@ public class ParserCompletionContributor extends CompletionContributor {
    */
   public ParserCompletionContributor() {
     log.info("Created parser completion contributor");
-
-    extend(CompletionType.BASIC, DEFAULT,
-        new ParserDefaultCompletionProvider());
 
     extend(CompletionType.BASIC, OPTION,
         new ParserOptionCompletionProvider());
