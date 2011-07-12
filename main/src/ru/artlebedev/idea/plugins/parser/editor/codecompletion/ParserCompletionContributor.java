@@ -71,13 +71,6 @@ public class ParserCompletionContributor extends CompletionContributor {
                           ParserTokenTypes.TAINT_KEYWORD)))));
 
   /**
-   * exception types
-   */
-  private static final ElementPattern<PsiElement> EXCEPTION_TYPE =
-      StandardPatterns.instanceOf(PsiElement.class)
-          .andNot(psiElement().afterLeaf("@"));
-
-  /**
    * Logical statements (inside braces)
    */
   private static final ElementPattern<PsiElement> LOGICAL_STATEMENT =
@@ -112,9 +105,6 @@ public class ParserCompletionContributor extends CompletionContributor {
 
     extend(CompletionType.BASIC, TAINT,
         new ParserTaintCompletionProvider());
-
-    extend(CompletionType.BASIC, EXCEPTION_TYPE,
-        new ParserExceptionTypeCompletionProvider());
 
     extend(CompletionType.BASIC, LOGICAL_STATEMENT,
         new ParserLogicalStatementCompletionProvider());
