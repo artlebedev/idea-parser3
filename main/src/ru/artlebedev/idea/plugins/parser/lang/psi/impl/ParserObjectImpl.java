@@ -97,17 +97,15 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
   public boolean isStatic() {
     PsiElement element = getParent();
 
-    if((element != null) && (element instanceof ParserMethod)
-            && ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserMethod) element).getName())) {
-      return true;
-    }
+    return ((element != null) &&
+            (element instanceof ParserMethod) &&
+            ParserLanguageConstants.AUTO_METHOD_NAME.equals(
+                    ((ParserMethod) element).getName())) ||
+           ((element != null) &&
+            (element instanceof ParserMethod) &&
+            ParserLanguageConstants.CONF_METHOD_NAME.equals(
+                    ((ParserMethod) element).getName()));
 
-    if((element != null) && (element instanceof ParserMethod)
-            && ParserLanguageConstants.CONF_METHOD_NAME.equals(((ParserMethod) element).getName())) {
-      return true;
-    }
-
-    return false;
   }
 
   public Icon getIcon(int flags) {
