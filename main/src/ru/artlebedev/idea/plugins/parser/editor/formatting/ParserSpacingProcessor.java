@@ -9,8 +9,8 @@ import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
- * Copyright 2006 Jay Bird <a4blank@yahoo.com>
+ * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
+ * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
  * Copyright 2006-2011 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");

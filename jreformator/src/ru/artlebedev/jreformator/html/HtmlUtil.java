@@ -8,7 +8,7 @@ import ru.artlebedev.jreformator.html.entity.HtmlEntity;
  * <p/>
  * Based on code originally written by Vladimir Tokmakov <vlalek@design.ru>
  * <p/>
- * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
+ * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");

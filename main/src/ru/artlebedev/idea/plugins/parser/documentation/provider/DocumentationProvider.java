@@ -3,7 +3,7 @@ package ru.artlebedev.idea.plugins.parser.documentation.provider;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
+ * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011 ArtLebedev Studio
  * Copyright 2010 Joachim Ansorg <mail@ansorg-it.com>
  * <p/>

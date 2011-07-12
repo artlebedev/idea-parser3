@@ -3,7 +3,7 @@ package org.codingbox.util;
 import java.lang.reflect.Array;
 
 /**
- * Copyright 2011 Valeriy Yatsko <dwr@design.ru>
+ * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
