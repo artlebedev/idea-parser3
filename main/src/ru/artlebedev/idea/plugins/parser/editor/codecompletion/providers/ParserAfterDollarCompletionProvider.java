@@ -36,12 +36,6 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVa
  */
 public class ParserAfterDollarCompletionProvider
   extends CompletionProvider<CompletionParameters> {
-  public final String[] lookupElements = new String[]{
-    "caller.",
-    "result",
-    "locals",
-    "self."
-  };
 
   public final String[] variableLookupElements = new String[]{
     "exception.type",
@@ -50,8 +44,11 @@ public class ParserAfterDollarCompletionProvider
     "exception.lineno",
     "exception.colno",
     "exception.comment",
-    "caller.self",
-    "ignored"
+    "ignored",
+    "caller",
+    "result",
+    "locals",
+    "self"
   };
 
   public final String[] staticVariableLookupElements = new String[]{
@@ -70,10 +67,6 @@ public class ParserAfterDollarCompletionProvider
   protected void addCompletions(@NotNull CompletionParameters parameters,
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
-    for (String lookupElement : lookupElements) {
-      result.addElement(new ParserLookupElement(lookupElement));
-    }
-
     for (String variableLookupElement : variableLookupElements) {
       result.addElement(new ParserVariableLookupElement(variableLookupElement));
     }
