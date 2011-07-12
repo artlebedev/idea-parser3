@@ -69,13 +69,6 @@ public class ParserCompletionContributor extends CompletionContributor {
                   .and(psiElement().afterLeaf(
                       psiElement().withElementType(
                           ParserTokenTypes.TAINT_KEYWORD)))));
-
-  /**
-   * Logical statements (inside braces)
-   */
-  private static final ElementPattern<PsiElement> LOGICAL_STATEMENT =
-      StandardPatterns.instanceOf(PsiElement.class);
-
   /**
    * After ^ matches (including ZenParser)
    */
@@ -105,9 +98,6 @@ public class ParserCompletionContributor extends CompletionContributor {
 
     extend(CompletionType.BASIC, TAINT,
         new ParserTaintCompletionProvider());
-
-    extend(CompletionType.BASIC, LOGICAL_STATEMENT,
-        new ParserLogicalStatementCompletionProvider());
 
     extend(CompletionType.BASIC, AFTER_HAT,
         new ParserAfterHatCompletionProvider());
