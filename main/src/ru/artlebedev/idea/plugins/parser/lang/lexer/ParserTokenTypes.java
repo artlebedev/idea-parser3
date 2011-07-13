@@ -72,6 +72,7 @@ public interface ParserTokenTypes {
   IElementType TAINT_KEYWORD = new ParserElementType("TAINT_KEYWORD");
   IElementType UNTAINT_KEYWORD = new ParserElementType("UNTAINT_KEYWORD");
   IElementType REM_KEYWORD = new ParserElementType("REM_KEYWORD");
+  IElementType SLEEP_KEYWORD = new ParserElementType("SLEEP_KEYWORD");
 
   /*
    * Supported in Parser 3.3.0
@@ -102,7 +103,7 @@ public interface ParserTokenTypes {
           LOCALS_KEYWORD, PARTIAL_KEYWORD,
           DYNAMIC_KEYWORD, STATIC_KEYWORD,
           TAINT_KEYWORD, UNTAINT_KEYWORD,
-          REM_KEYWORD);
+          REM_KEYWORD, SLEEP_KEYWORD);
 
   // Literals
   IElementType NUMERIC_LITERAL = new ParserElementType("NUMERIC_LITERAL");

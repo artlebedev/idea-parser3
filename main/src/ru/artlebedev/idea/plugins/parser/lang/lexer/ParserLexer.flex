@@ -199,6 +199,7 @@ CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XM
 	"while"			{ yybegin(YYINITIAL); return ParserTokenTypes.WHILE_KEYWORD; }
 	"def"			{ yybegin(YYINITIAL); return ParserTokenTypes.DEF_KEYWORD; }
 	"caller"		{ yybegin(YYINITIAL); return ParserTokenTypes.CALLER_KEYWORD; }
+	"sleep"			{ yybegin(YYINITIAL); return ParserTokenTypes.SLEEP_KEYWORD; }
 	"<"			{ yybegin(YYINITIAL); return ParserTokenTypes.LT; }
 	">"			{ yybegin(YYINITIAL); return ParserTokenTypes.GT; }
 	"<="			{ yybegin(YYINITIAL); return ParserTokenTypes.LE; }
