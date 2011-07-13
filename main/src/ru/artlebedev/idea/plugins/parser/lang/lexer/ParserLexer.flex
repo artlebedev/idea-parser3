@@ -195,6 +195,7 @@ CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XM
 	"try"			{ yybegin(YYINITIAL); return ParserTokenTypes.TRY_KEYWORD; }
 	"untaint"			{ yybegin(YYINITIAL); return ParserTokenTypes.UNTAINT_KEYWORD; }
 	"taint"			{ yybegin(YYINITIAL); return ParserTokenTypes.TAINT_KEYWORD; }
+	"apply-taint"			{ yybegin(YYINITIAL); return ParserTokenTypes.APPLY_TAINT_KEYWORD; }
 	"rem"			{ yybegin(YYINITIAL); return ParserTokenTypes.REM_KEYWORD; }
 	"while"			{ yybegin(YYINITIAL); return ParserTokenTypes.WHILE_KEYWORD; }
 	"def"			{ yybegin(YYINITIAL); return ParserTokenTypes.DEF_KEYWORD; }
