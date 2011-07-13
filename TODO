@@ -1,0 +1,2 @@
+- Add asterisk support in method arguments, see @method[arg;*args]
+- Add getter/setter variable emulation support (in possible cases)
