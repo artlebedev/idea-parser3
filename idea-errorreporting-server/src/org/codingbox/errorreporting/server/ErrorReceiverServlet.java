@@ -16,6 +16,7 @@ package org.codingbox.errorreporting.server;
  * limitations under the License.
  */
 
+import com.google.inject.Singleton;
 import org.apache.log4j.Logger;
 
 import javax.mail.MessagingException;
@@ -44,6 +45,7 @@ import java.util.zip.InflaterInputStream;
  * @noinspection HardCodedStringLiteral
  * @see SmtpUtil
  */
+@Singleton
 public class ErrorReceiverServlet extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(ErrorReceiverServlet.class);
 

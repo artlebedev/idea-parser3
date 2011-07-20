@@ -62,10 +62,14 @@
     <copy file="${webxml.dir}/web.xml" tofile="${temp.dir.web-inf}/web.xml"
           overwrite="true"/>
 
+    <copy file="${resources.dir}/log4j.properties" tofile="${temp.dir.classes}"
+          overwrite="true"/>
+    <copy file="${resources.dir}/smtp.properties" tofile="${temp.dir.classes}"
+          overwrite="true"/>
+
     <!-- the ant war task. with all resources in place, create the war file -->
     <war destfile="${package.file}" webxml="${temp.dir.web-inf}/web.xml"
          basedir="${temp.dir}">
-      <fileset dir="${resources.dir}"/>
       <lib dir="${lib.dir}"/>
       <classes dir="${temp.dir.classes}"/>
     </war>
