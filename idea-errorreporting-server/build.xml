@@ -1,0 +1,79 @@
+<project name="ErrorReportingServer" basedir="." default="package">
+  <!-- project-specific variables -->
+  <property name="package.name" value="errorreporting-server.war"/>
+
+  <property name="build.dir" value="build"/>
+
+  <property name="lib.dir" value="web/WEB-INF/lib"/>
+  <property name="webxml.dir" value="web/WEB-INF"/>
+  <property name="src.dir" value="src"/>
+  <property name="resources.dir" value="resources"/>
+  <property name="dest.dir" value="target"/>
+
+  <!-- put everything in a temp folder with the right structure during the build -->
+  <property name="temp.dir" value="temp"/>
+  <property name="temp.dir.web-inf" value="${temp.dir}/WEB-INF"/>
+  <property name="temp.dir.lib" value="${temp.dir.web-inf}/lib"/>
+  <property name="temp.dir.classes" value="${temp.dir.web-inf}/classes"/>
+  <property name="temp.dir.meta-inf" value="${temp.dir}/META-INF"/>
+
+  <property name="package.file" value="${dest.dir}/${package.name}"/>
+
+  <path id="build.class.path">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="clean">
+    <delete>
+      <fileset dir="${dest.dir}" includes="**/*" erroronmissingdir="false"/>
+    </delete>
+    <delete dir="${temp.dir}"/>
+    <delete dir="${temp.dir.classes}"/>
+    <delete dir="${temp.dir.meta-inf}"/>
+    <delete dir="${temp.dir.web-inf}"/>
+  </target>
+
+  <target name="prepare" depends="clean">
+    <mkdir dir="${dest.dir}"/>
+    <mkdir dir="${temp.dir}"/>
+    <mkdir dir="${temp.dir.lib}"/>
+    <mkdir dir="${temp.dir.meta-inf}"/>
+    <mkdir dir="${temp.dir.web-inf}"/>
+    <mkdir dir="${temp.dir.classes}"/>
+  </target>
+
+  <!-- COMPILE -->
+  <target name="compile" depends="prepare">
+    <echo>=== COMPILE ===</echo>
+    <echo>Compiling ${src.dir} files ...</echo>
+    <javac debug="on" srcdir="${src.dir}" destdir="${temp.dir.classes}"
+           includes="**/*">
+      <classpath refid="build.class.path"/>
+    </javac>
+  </target>
+
+  <!-- PACKAGE -->
+  <target name="package" depends="compile">
+    <echo>=== PACKAGE ===</echo>
+
+    <!-- copy the config files -->
+    <copy file="${webxml.dir}/web.xml" tofile="${temp.dir.web-inf}/web.xml"
+          overwrite="true"/>
+
+    <copy todir="${temp.dir.classes}">
+      <fileset dir="${src.dir}">
+        <include name="**/*.xml"/>
+        <include name="**/*.xsl"/>
+      </fileset>
+    </copy>
+
+    <!-- the ant war task. with all resources in place, create the war file -->
+    <war destfile="${package.file}" webxml="${temp.dir.web-inf}/web.xml"
+         basedir="${temp.dir}">
+      <lib dir="${lib.dir}"/>
+      <classes dir="${temp.dir.classes}"/>
+    </war>
+  </target>
+</project>
