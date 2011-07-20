@@ -62,12 +62,6 @@
     <copy file="${webxml.dir}/web.xml" tofile="${temp.dir.web-inf}/web.xml"
           overwrite="true"/>
 
-    <!--<copy todir="${temp.dir.classes}">-->
-      <!--<fileset dir="${resources.dir}">-->
-        <!--<include name="**/*.properties"/>-->
-      <!--</fileset>-->
-    <!--</copy>-->
-
     <!-- the ant war task. with all resources in place, create the war file -->
     <war destfile="${package.file}" webxml="${temp.dir.web-inf}/web.xml"
          basedir="${temp.dir}">
