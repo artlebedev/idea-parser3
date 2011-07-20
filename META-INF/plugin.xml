@@ -88,15 +88,18 @@
   </extensions>
 
   <actions>
-    <action id="Typograph" class="ru.artlebedev.idea.plugins.parser.actions.TypographAction"
+    <action id="Typograph"
+            class="ru.artlebedev.idea.plugins.parser.actions.TypographAction"
             text="Typograph Selected Text">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
-    <action id="Base64Encode" class="ru.artlebedev.idea.plugins.parser.actions.Base64EncodeAction"
+    <action id="Base64Encode"
+            class="ru.artlebedev.idea.plugins.parser.actions.Base64EncodeAction"
             text="Base64 Encode Selected Text">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
-    <action id="Base64Decode" class="ru.artlebedev.idea.plugins.parser.actions.Base64DecodeAction"
+    <action id="Base64Decode"
+            class="ru.artlebedev.idea.plugins.parser.actions.Base64DecodeAction"
             text="Base64 Decode Selected Text">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
