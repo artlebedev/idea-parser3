@@ -1,3 +1,5 @@
 - Add asterisk support in method arguments, see @method[arg;*args]
 - Add getter/setter variable emulation support (in possible cases)
 - Add Imprimatur processors support
+- Probably connect this to ParserDB project for importing project templates
+  with .htaccess, auto.p conf stuff?
