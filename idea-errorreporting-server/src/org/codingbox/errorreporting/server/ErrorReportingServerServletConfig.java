@@ -26,7 +26,7 @@ public class ErrorReportingServerServletConfig extends GuiceServletContextListen
     return Guice.createInjector(new ServletModule(){
       @Override
       protected void configureServlets() {
-       serve("/errorReceiver/").with(ErrorReceiverServlet.class);
+       serve("/errorReceiver/*").with(ErrorReceiverServlet.class);
       }
     });
   }
