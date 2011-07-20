@@ -15,6 +15,6 @@
   </filter-mapping>
 
   <listener>
-    <listener-class>com.example.MyGuiceServletConfig</listener-class>
+    <listener-class>org.codingbox.errorreporting.server.ErrorReportingServerServletConfig</listener-class>
   </listener>
 </web-app>
