@@ -53,6 +53,7 @@ public class ErrorReceiverServlet extends HttpServlet {
 
     private Properties mailServerConfig;
 
+    @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
 
@@ -63,12 +64,14 @@ public class ErrorReceiverServlet extends HttpServlet {
         }
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // we have to accept GET requests in order for the client side to first make a
         // connection check, i.e. proxy settings check (HttpConfigurable.prepareURL)
         response.setStatus(HttpServletResponse.SC_OK);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pluginId;
         String pluginName;
@@ -181,27 +184,25 @@ public class ErrorReceiverServlet extends HttpServlet {
     }
 
     private InternetAddress[] createInetAddresses(String emailsString) {
-        String[] emails = emailsString.trim().length() > 0 ? emailsString.trim().split(":") : new String[0];
+      String[] emails = emailsString.trim().length() > 0 ? emailsString.trim().split(":") : new String[0];
 
-        List addressList = new ArrayList();
-        for (int i = 0; i < emails.length; i++) {
-            String email = emails[i];
-            try {
-                InternetAddress address = new InternetAddress(email, true);
-                addressList.add(address);
-            } catch (AddressException ae) {
-                LOGGER.warn("Illegal email address: " + email, ae);
-                // skip invalid email addresses
-            }
+      List addressList = new ArrayList();
+      for (String email : emails) {
+        try {
+          InternetAddress address = new InternetAddress(email, true);
+          addressList.add(address);
+        } catch (AddressException ae) {
+          LOGGER.warn("Illegal email address: " + email, ae);
+          // skip invalid email addresses
         }
+      }
 
-        InternetAddress[] addresses = (InternetAddress[]) addressList.toArray(new InternetAddress[addressList.size()]);
-        return addresses;
+      return (InternetAddress[]) addressList.toArray(new InternetAddress[addressList.size()]);
     }
 
     private String createMailContent(String pluginId, String pluginName, String pluginVersion, String ideaBuild, String user, String description,
                                      List messages, List throwables) {
-        StringBuffer sb = new StringBuffer();
+      StringBuilder sb = new StringBuilder();
 
         sb.append("Plugin Id: ").append((pluginId.trim().length() > 0) ? pluginId.trim() : "Unknown").append("\n");
         sb.append("Plugin Name: ").append((pluginName.trim().length() > 0) ? pluginName.trim() : "Unknown").append("\n");
@@ -222,8 +223,7 @@ public class ErrorReceiverServlet extends HttpServlet {
             sb.append(message).append("\n\n").append(throwable);
         }
 
-        String mailContent = sb.toString();
-        return mailContent;
+      return sb.toString();
     }
 
     private void sendEmail(String subject, String content, InternetAddress[] to, InternetAddress[] cc) throws MessagingException {
