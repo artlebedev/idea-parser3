@@ -63,9 +63,9 @@ public class PluginErrorReportSubmitter extends ErrorReportSubmitter {
     private static final Logger LOGGER = Logger.getInstance(LoggingEventSubmitter.class.getName());
 
     @NonNls
-    private static final String SERVER_LOOKUP_URL = "http://www.ansorg-it.com/errorReceiverRedirect.txt";
+    private static final String SERVER_LOOKUP_URL = "http://www.idea-parser.net/errorReceiverRedirect.txt";
     @NonNls
-    private static final String FALLBACK_SERVER_URL = "http://errors.ansorg-it.com:8080/errorReceiver/";
+    private static final String FALLBACK_SERVER_URL = "http://errors.idea-parser.net:8080/errorReceiver/";
     @NonNls
     private static final String ERROR_SUBMITTER_PROPERTIES_PATH = "errorReporter.properties";
 
