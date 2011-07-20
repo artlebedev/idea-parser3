@@ -33,13 +33,6 @@
     </component>
   </project-components>
 
-  <!--<extensionPoints>-->
-    <!--<extensionPoint name="xml.zenCodingGenerator"-->
-                    <!--interface="com.intellij.codeInsight.template.zencoding.generators.ZenCodingGenerator"/>-->
-    <!--<extensionPoint name="xml.zenCodingFilter"-->
-                    <!--interface="com.intellij.codeInsight.template.zencoding.filters.ZenCodingFilter"/>-->
-  <!--</extensionPoints>-->
-
   <extensions defaultExtensionNs="com.intellij">
     <!-- extensions decisions -->
     <fileTypeFactory implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader"/>
@@ -47,8 +40,6 @@
     <!-- live Templates -->
     <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserTemplateContextType"/>
     <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
-    <!--<xml.zenCodingGenerator implementation="ru.artlebedev.idea.plugins.parser.zencoding.ParserZenCodingGeneratorImpl"/>-->
-    <!--<customLiveTemplate implementation="ru.artlebedev.idea.plugins.parser.zencoding.ZenCodingTemplate"/>-->
 
     <!-- syntax highlighting -->
     <syntaxHighlighter key="Parser"
