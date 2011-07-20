@@ -82,6 +82,9 @@
 
     <!-- file icon patcher -->
     <fileIconPatcher implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileIconPatcher"/>
+
+    <!-- Error reporter -->
+    <errorHandler implementation="nu.studer.idea.errorreporting.PluginErrorReportSubmitter"/>
   </extensions>
 
   <actions>
