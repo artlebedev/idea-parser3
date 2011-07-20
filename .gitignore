@@ -1,5 +1,8 @@
 .idea/
 *.iml
+*.ipr
+*.iws
+idea-parser3.jar
 idea-parser3.zip
 jflex.log
 out/
