@@ -1,14 +1,13 @@
-<idea-plugin version="2" url="https://github.com/codingbox/idea-parser3">
+<idea-plugin version="2" url="https://www.ohloh.net/p/idea-parser3">
   <name>Parser for IDEA</name>
   <description><![CDATA[<html><body>
     <p>Support for parser server-side scripting language. More about the language on
     <a href="http://www.parser.ru/">http://www.parser.ru/</a></p>
     <p>This module also includes custom plugins such as Typograph and Base64.</p>
     <p>Develop with joy!</p>
-    <p>Bugtracker: <a href="https://github.com/codingbox/idea-parser3/issues">https://github.com/codingbox/idea-parser3/issues</a></p>
     </body></html>]]>
   </description>
-  <version>1.0-prebeta1</version>
+  <version>1.0-prebeta1b</version>
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="107.105"/>
 
