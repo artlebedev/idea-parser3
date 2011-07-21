@@ -1,3 +1,4 @@
+.DS_Store
 .idea/
 *.iml
 *.ipr
@@ -6,3 +7,5 @@ idea-parser3.jar
 idea-parser3.zip
 jflex.log
 out/
+idea-errorreporting-server/target/
+idea-errorreporting-server/temp/
