@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.helpBuilder;
+package ru.artlebedev.idea.plugins.parser.documentation;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -36,8 +36,16 @@ import java.util.ArrayList;
  */
 public class ParserDocumentationFileIndexer {
   private IndexWriter _writer;
-  private ArrayList<File> _queue = new ArrayList<File>();
+  private ArrayList<File> _queue
+    = new ArrayList<File>();
 
+  /**
+   * Left from original TextFileIndexer,
+   * shouldn't be used in idea-parser3 bundle
+   *
+   * @param args
+   * @throws IOException
+   */
   public static void main(String[] args) throws IOException {
     System.out.println("Enter the path where the index will be created: ");
 
@@ -53,9 +61,9 @@ public class ParserDocumentationFileIndexer {
       System.exit(-1);
     }
 
-    //===================================================
-    //read input from user until he enters q for quit
-    //===================================================
+    // ===================================================
+    // read input from user until he enters q for quit
+    // ===================================================
     while (!s.equalsIgnoreCase("q")) {
       try {
         System.out.println("Enter the file or folder name to add into the index (q=quit):");
@@ -72,10 +80,10 @@ public class ParserDocumentationFileIndexer {
       }
     }
 
-    //===================================================
-    //after adding, we always have to call the
-    //closeIndex, otherwise the index is not created
-    //===================================================
+    // ===================================================
+    // after adding, we always have to call the
+    // closeIndex, otherwise the index is not created
+    // ===================================================
     indexer.closeIndex();
   }
 
@@ -97,11 +105,11 @@ public class ParserDocumentationFileIndexer {
    * @throws java.io.IOException
    */
   public void indexFileOrDirectory(String fileName) throws IOException {
-    //===================================================
-    //gets the list of files in a folder (if user has submitted
-    //the name of a folder) or gets a single file name (is user
-    //has submitted only the file name)
-    //===================================================
+    // ===================================================
+    // gets the list of files in a folder (if user has submitted
+    // the name of a folder) or gets a single file name (is user
+    // has submitted only the file name)
+    // ===================================================
     listFiles(new File(fileName));
 
     int originalNumDocs = _writer.numDocs();
@@ -110,15 +118,15 @@ public class ParserDocumentationFileIndexer {
       try {
         Document doc = new Document();
 
-        //===================================================
+        // ===================================================
         // add contents of file
-        //===================================================
+        // ===================================================
         fr = new FileReader(f);
         doc.add(new Field("contents", fr));
 
-        //===================================================
-        //adding second field which contains the path of the file
-        //===================================================
+        // ===================================================
+        // adding second field which contains the path of the file
+        // ===================================================
         doc.add(new Field("path", fileName,
                 Field.Store.YES,
                 Field.Index.NOT_ANALYZED));
@@ -151,9 +159,9 @@ public class ParserDocumentationFileIndexer {
       }
     } else {
       String filename = file.getName().toLowerCase();
-      //===================================================
+      // ===================================================
       // Only index text files
-      //===================================================
+      // ===================================================
       if (filename.endsWith(".htm") || filename.endsWith(".html") ||
               filename.endsWith(".xml") || filename.endsWith(".txt")) {
         _queue.add(file);
