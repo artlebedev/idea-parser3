@@ -107,5 +107,10 @@
             text="Show Parser Documentation...">
       <add-to-group group-id="ViewMenu" anchor="last"/>
     </action>
+    <action id="nu.studer.idea.errortesting.TriggerExceptionAction"
+            class="nu.studer.idea.errortesting.TriggerExceptionAction"
+            text="Test Exception Report" description="Test Exception Report">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
   </actions>
 </idea-plugin>
