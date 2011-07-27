@@ -7,7 +7,7 @@
     <p>Develop with joy!</p>
     </body></html>]]>
   </description>
-  <version>1.0-prebeta1b</version>
+  <version>1.0-prebeta3</version>
   <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="107.105"/>
 
@@ -87,11 +87,6 @@
   </extensions>
 
   <actions>
-    <action id="Typograph"
-            class="ru.artlebedev.idea.plugins.parser.actions.TypographAction"
-            text="Typograph Selected Text">
-      <add-to-group group-id="RefactoringMenu" anchor="last"/>
-    </action>
     <action id="Base64Encode"
             class="ru.artlebedev.idea.plugins.parser.actions.Base64EncodeAction"
             text="Base64 Encode Selected Text">
@@ -100,6 +95,16 @@
     <action id="Base64Decode"
             class="ru.artlebedev.idea.plugins.parser.actions.Base64DecodeAction"
             text="Base64 Decode Selected Text">
+      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+    </action>
+    <action id="TypographJReformator"
+            class="ru.artlebedev.idea.plugins.parser.actions.TypographJReformatorAction"
+            text="Typograph Selected Text (JReformator)">
+      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+    </action>
+    <action id="TypographWebService"
+            class="ru.artlebedev.idea.plugins.parser.actions.TypographWebServiceAction"
+            text="Typograph Selected Text (Web Service)">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
     <action id="ShowParserDocumentation"

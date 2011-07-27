@@ -21,7 +21,7 @@ import ru.artlebedev.jreformator.typograf.Typograph;
  * limitations under the License.
  */
 
-public class TypographAction extends AbstractTextReplaceAction {
+public class TypographJReformatorAction extends AbstractTextReplaceAction {
   @Override
   public String transform(String selectedText) {
     return Typograph.getInstance().process(selectedText);

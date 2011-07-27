@@ -157,7 +157,7 @@ public class ParserObjectImpl extends ParserElementImpl implements ParserObject 
                 count++;
                 lastResolvedMethods.put(method, count);
 
-                if(count > 40) {
+                if(count > 10) {
                   lastResolvedMethods.remove(method);
                   return null;
                 }
