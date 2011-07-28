@@ -255,7 +255,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @Nullable
   public PsiElement resolve() {
-    LogUtil.log("ParserObjectRefrenceImpl#resolve()");
+    LogUtil.log("ParserObjectReferenceImpl#resolve()");
     PsiElement resolveResult = resolveBasic();
     if((resolveResult == null)) {
       if(ParserLanguageConstants.SELF_CLASS_NAME.equals(getName())) {
