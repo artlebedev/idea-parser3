@@ -27,7 +27,7 @@ public class Typograph {
   private int useBr = 1;
   private int useP = 1;
   private int maxNobr = 3;
-  private String encoding = "CP1251";
+  private String encoding = "windows-1251";
 
   private static volatile Typograph instance;
 
@@ -117,10 +117,10 @@ public class Typograph {
     try {
       Socket typographSocket = new Socket(host, 80);
 
-      typographSocket.getOutputStream().write(SOAPRequest.toString().getBytes("UTF-8"));
+      typographSocket.getOutputStream().write(SOAPRequest.toString().getBytes("CP1251"));
 
       BufferedReader in = new BufferedReader(
-        new InputStreamReader(typographSocket.getInputStream()));
+        new InputStreamReader(typographSocket.getInputStream(), "CP1251"));
 
       text = "";
       String inputLine;
