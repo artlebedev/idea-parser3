@@ -1,9 +1,6 @@
 package ru.artlebedev.webservice;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -30,7 +27,7 @@ public class Typograph {
   private int useBr = 1;
   private int useP = 1;
   private int maxNobr = 3;
-  private String encoding = "UTF-8";
+  private String encoding = "CP1251";
 
   private static volatile Typograph instance;
 
@@ -120,14 +117,24 @@ public class Typograph {
     try {
       Socket typographSocket = new Socket(host, 80);
 
-      PrintWriter out
-        = new PrintWriter(typographSocket.getOutputStream(), true);
-      BufferedReader in
-        = new BufferedReader(new InputStreamReader(typographSocket.getInputStream()));
+      typographSocket.getOutputStream().write(SOAPRequest.toString().getBytes("UTF-8"));
 
-      out.println(SOAPBody);
+      BufferedReader in = new BufferedReader(
+        new InputStreamReader(typographSocket.getInputStream()));
 
-    } catch (IOException ignored) {}
+      text = "";
+      String inputLine;
+      while((inputLine = in.readLine()) != null) {
+        text += inputLine;
+      }
+
+      text = text.split("<ProcessTextResult>")[1];
+      text = text.split("</ProcessTextResult>")[0];
+
+      typographSocket.close();
+    } catch (IOException ignored) {
+
+    }
 
     text = text.replaceAll("&amp;", "&");
     text = text.replaceAll("&lt;",  "<");
