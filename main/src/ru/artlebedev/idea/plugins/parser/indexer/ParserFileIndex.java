@@ -62,9 +62,7 @@ import java.util.Map;
 
 public class ParserFileIndex implements ProjectComponent {
   public static Project myProject;
-  private VirtualFileAdapter myFileListener;
   public Map<String, ParserFile> loadedClasses = new HashMap<String, ParserFile>();
-  private PsiTreeChangeListener myTreeChangeListener;
 
   private boolean hadFullReindex = false;
 
@@ -79,9 +77,7 @@ public class ParserFileIndex implements ProjectComponent {
     Map<String, ParserFile> toReturn = new java.util.HashMap<String, ParserFile>();
     Collection<ParserFile> parserClasses = loadedClasses.values();
     for (ParserFile parserClass : parserClasses) {
-      if (parserClass.getProject() != null) {
-        toReturn.put(parserClass.getName(), parserClass);
-      }
+      toReturn.put(parserClass.getName(), parserClass);
     }
     return toReturn;
   }
@@ -155,7 +151,7 @@ public class ParserFileIndex implements ProjectComponent {
   }
 
   public void projectOpened() {
-    myTreeChangeListener = new ParserTreeChangeListener();
+    PsiTreeChangeListener myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);
 
     FileEditorManager.getInstance(myProject).addFileEditorManagerListener(new FileEditorManagerListener() {
@@ -176,16 +172,16 @@ public class ParserFileIndex implements ProjectComponent {
       }
     });
 
-    myFileListener = new VirtualFileAdapter() {
+    VirtualFileAdapter myFileListener = new VirtualFileAdapter() {
       public void fileCreated(VirtualFileEvent event) {
         VirtualFile file = event.getFile();
         if (file.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
           try {
             PsiFile loadedFile = PsiManager.getInstance(myProject).findFile(file);
-            if(loadedFile != null) {
+            if (loadedFile != null) {
               processFileAdded(loadedFile);
             }
-          } catch(Exception ignored) {
+          } catch (Exception ignored) {
 
           }
         }
