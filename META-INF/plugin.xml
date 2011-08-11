@@ -107,11 +107,6 @@
             text="Typograph Selected Text (Web Service)">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
-    <action id="ShowParserDocumentation"
-            class="ru.artlebedev.idea.plugins.parser.actions.ShowParserDocumentation"
-            text="Show Parser Documentation...">
-      <add-to-group group-id="ViewMenu" anchor="last"/>
-    </action>
     <action id="nu.studer.idea.errortesting.TriggerExceptionAction"
             class="nu.studer.idea.errortesting.TriggerExceptionAction"
             text="Test Exception Report" description="Test Exception Report">
