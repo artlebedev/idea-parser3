@@ -27,9 +27,8 @@ import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
  */
 
 public class IncludeParser extends BaseTokenParser {
-  //todo parse as directories and filenames
+  // todo parse as directories and filenames
   private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.IncludeParser");
-  private boolean newLineDropped = false;
 
   /**
    * @param builder builder before the @USE keyword
@@ -51,7 +50,7 @@ public class IncludeParser extends BaseTokenParser {
     }
 
     PsiBuilder.Marker newLineMarker = null;
-    newLineDropped = false;
+    boolean newLineDropped = false;
     while (builder.getTokenType() == ParserTokenTypes.IDENTIFIER || ParserTokenTypes.PATH_CHARACTERS.contains(builder.getTokenType())) {
       if (newLineMarker != null && !newLineDropped) {
         newLineMarker.drop();
