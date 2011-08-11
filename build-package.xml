@@ -40,11 +40,11 @@
 
   <target name="compile" depends="clean,init" description="compile the source ">
     <javac2 destdir="${build}" includeantruntime="false">
-      <src path="${main-src}"></src>
-      <src path="${jreformator-src}"></src>
-      <src path="${idea-support-src}"></src>
-      <src path="${idea-errorreporting-client-src}"></src>
-      <src path="${als-java-toolkit-src}"></src>
+      <src path="${main-src}"/>
+      <src path="${jreformator-src}"/>
+      <src path="${idea-support-src}"/>
+      <src path="${idea-errorreporting-client-src}"/>
+      <src path="${als-java-toolkit-src}"/>
 
       <classpath>
         <fileset dir="${idea.community.build}" includes="**/*.jar"/>
