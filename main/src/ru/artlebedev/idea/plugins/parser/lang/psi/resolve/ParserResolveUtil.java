@@ -16,10 +16,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserParameterList;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserIncludePathImpl;
 import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserMethodReferenceImpl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -100,6 +97,19 @@ public class ParserResolveUtil {
 
   }
 
+  /**
+   * These methods should work in the way they ignore duplication functions
+   * inside the whole method (uniques).
+   *
+   * FIXING MULTI-OBJECT BUG
+   * Idea is to collect each object methods/place related to the
+   *
+   * BTW HOW DOES THIS FUNCTION GET THAT WE NEED THE OBJECT FROM THE CURRENT METHOD??
+   *
+   * @param element
+   * @return
+   */
+
   public static List<PsiElement> collectGlobalObjectDeclarations(PsiElement element) {
     List<PsiElement> result = new ArrayList<PsiElement>();
     PsiElement currentElement = element;
@@ -119,7 +129,6 @@ public class ParserResolveUtil {
     }
 
     return result;
-
   }
 
   public static List<PsiElement> collectObjectDeclarations(PsiElement element) {
@@ -141,8 +150,13 @@ public class ParserResolveUtil {
       }
     }
 
-    return result;
+//    Iterator<PsiElement> it = result.iterator();
+//    while(it.hasNext()) {
+//      PsiElement el = it.next();
+//      System.out.print(((ParserObject)el).getName());
+//    }
 
+    return result;
   }
 
   public static List<PsiElement> collectClassIncludes(PsiElement element) {

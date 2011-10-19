@@ -1,18 +1,15 @@
 package ru.artlebedev.idea.plugins.parser.refactoring;
 
 import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.command.CommandProcessor;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.refactoring.RefactoringActionHandler;
-import ru.artlebedev.idea.plugins.parser.actions.WriteActionRunner;
-import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserCallingReference;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -58,12 +55,12 @@ public class ParserIntroduceVariableHandler implements RefactoringActionHandler 
     if (varName.equals(""))
       return true;
 
-    PsiManager.getInstance(project).performActionWithFormatterDisabled(new Runnable() {
-      public void run() {
-        WriteActionRunner war = new WriteActionRunner(new VariableIntroducer(reference, project, varName));
-        CommandProcessor.getInstance().executeCommand(project, war, "Introduce variable", null);
-      }
-    });
+//    PsiManager.getInstance(project).performActionWithFormatterDisabled(new Runnable() {
+//      public void run() {
+//        WriteActionRunner war = new WriteActionRunner(new VariableIntroducer(reference, project, varName));
+//        CommandProcessor.getInstance().executeCommand(project, war, "Introduce variable", null);
+//      }
+//    });
 
     return true;
   }

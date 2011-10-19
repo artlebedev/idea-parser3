@@ -4,6 +4,9 @@ import com.intellij.lang.Language;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.highlighter.EditorHighlighter;
+import com.intellij.openapi.fileTypes.EditorHighlighterProvider;
+import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import com.intellij.openapi.fileTypes.ex.FileTypeIdentifiableByVirtualFile;
 import com.intellij.openapi.project.Project;
@@ -13,8 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.Parser;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
-import ru.artlebedev.idea.plugins.parser.lang.ParserLanguage;
 import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserSyntaxHighlighter;
+import ru.artlebedev.idea.plugins.parser.lang.ParserLanguage;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -66,6 +69,14 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
 
   public ParserFileType() {
     super(new ParserLanguage());
+    FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this, new EditorHighlighterProvider() {
+      @Override
+      public EditorHighlighter getEditorHighlighter(@Nullable Project project,
+                                                    @NotNull FileType fileType, @Nullable VirtualFile virtualFile,
+                                                    @NotNull EditorColorsScheme colors) {
+        return new ParserSyntaxHighlighter(project, virtualFile, colors);
+      }
+    });
   }
 
   @NotNull
@@ -132,7 +143,6 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
     return false;
   }
 
-  @Override
   public EditorHighlighter getEditorHighlighter(@Nullable final Project project, @Nullable final VirtualFile virtualFile, @NotNull EditorColorsScheme colors) {
     return new ParserSyntaxHighlighter(project, virtualFile, colors);
   }
