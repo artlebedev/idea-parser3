@@ -6,6 +6,10 @@ About:
 
   This plugin supports Parser scripting language.
 
+Git Access:
+-----------
+  The primary github repository is located at https://github.com/codingbox/idea-parser3, all other repositories are mirrors. Please post issues to codingbox's one.
+
 License:
 --------
   This work is licensed under the terms of the Apache 2.0 license.
