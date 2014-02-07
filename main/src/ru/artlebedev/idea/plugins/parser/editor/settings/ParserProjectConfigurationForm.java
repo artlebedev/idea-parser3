@@ -110,7 +110,7 @@ public class ParserProjectConfigurationForm implements ActionListener, ListSelec
         FileChooserDescriptor descriptor = FileChooserDescriptorFactory.createSingleFolderDescriptor();
         descriptor.setTitle("Parser class path");
         descriptor.setDescription("Pick up a directory to add it to parser class path");
-        VirtualFile[] files = FileChooser.chooseFiles(project, descriptor);
+        VirtualFile[] files = FileChooser.chooseFiles(descriptor, project, null);
         if (files.length != 0) {
           model.addElement(files[0].getPath());
         }

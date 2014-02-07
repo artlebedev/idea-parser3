@@ -197,6 +197,7 @@ public class ParserFileIndex implements ProjectComponent {
 
     VirtualFileManager.getInstance().addVirtualFileListener(myFileListener);
 
+    /*
     ProjectRootManager.getInstance(myProject).addModuleRootListener(new ModuleRootListener() {
       @Override
       public void beforeRootsChange(ModuleRootEvent event) {
@@ -208,6 +209,7 @@ public class ParserFileIndex implements ProjectComponent {
         reindexProject();
       }
     });
+    */
 
     initializeBaseClasses();
   }
