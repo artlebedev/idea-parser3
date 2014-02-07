@@ -43,7 +43,7 @@ import java.util.List;
  * limitations under the License.
  */
 
-public class ParserFileType extends LanguageFileType implements FileTypeIdentifiableByVirtualFile {
+public class ParserFileType extends LanguageFileType {
   private static final Logger LOG = Logger.getInstance("#ParserFileType");
   public static final ParserFileType PARSER_FILE_TYPE = new ParserFileType();
   public static final Language PARSER_LANGUAGE = PARSER_FILE_TYPE.getLanguage();
@@ -111,35 +111,6 @@ public class ParserFileType extends LanguageFileType implements FileTypeIdentifi
 
   @Override
   public boolean isJVMDebuggingSupported() {
-    return false;
-  }
-
-  /**
-   * Here we check if a given file belongs to our plugin.
-   * We take this road because we need the actual file and not a filename to check files without extension.
-   * <p/>
-   * A file is checked according to the rules defined in the facet settings.
-   * A file can be set to ignored, accepted or auto. Auto means that the content is checked.
-   *
-   * @param file The file to check
-   * @return True if Parser Plugin wants to take that file
-   */
-  @Override
-  public boolean isMyFileType(VirtualFile file) {
-    if (file == null) {
-      return false;
-    }
-
-    if (file.isDirectory()) {
-      return false;
-    }
-
-    if (extensionList.contains(file.getExtension())) {
-      return true;
-    } else if (!file.isInLocalFileSystem()) {
-      return false;
-    }
-
     return false;
   }
 
