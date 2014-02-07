@@ -8,7 +8,6 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
-import org.codingbox.idea.dev.util.LogUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
@@ -92,7 +91,6 @@ public class ParserUniversalReferenceImpl extends ParserElementImpl implements P
 
   @NotNull
   public Object[] getVariants() {
-    LogUtil.log("ParserUniversalRefrenceImpl#getVariants()");
     List<PsiElement> result = new ArrayList<PsiElement>();
 
     Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();

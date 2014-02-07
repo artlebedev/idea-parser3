@@ -60,8 +60,6 @@
                                   implementationClass="ru.artlebedev.idea.plugins.parser.editor.structureview.ParserStructureViewFactory"/>
     <lang.refactoringSupport language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.refactoring.ParserRefactoringSupport"/>
-    <lang.documentationProvider language="Parser"
-                                implementationClass="ru.artlebedev.idea.plugins.parser.editor.documentationProvider.ParserDocumentationProvider"/>
     <lang.findUsagesProvider language="Parser"
                              implementationClass="ru.artlebedev.idea.plugins.parser.editor.usages.ParserFindUsagesProvider"/>
     <lang.formatter language="Parser"
@@ -95,16 +93,6 @@
     <action id="Base64Decode"
             class="ru.artlebedev.idea.plugins.parser.actions.Base64DecodeAction"
             text="Base64 Decode Selected Text">
-      <add-to-group group-id="RefactoringMenu" anchor="last"/>
-    </action>
-    <action id="TypographJReformator"
-            class="ru.artlebedev.idea.plugins.parser.actions.TypographJReformatorAction"
-            text="Typograph Selected Text (JReformator)">
-      <add-to-group group-id="RefactoringMenu" anchor="last"/>
-    </action>
-    <action id="TypographWebService"
-            class="ru.artlebedev.idea.plugins.parser.actions.TypographWebServiceAction"
-            text="Typograph Selected Text (Web Service)">
       <add-to-group group-id="RefactoringMenu" anchor="last"/>
     </action>
     <action id="nu.studer.idea.errortesting.TriggerExceptionAction"

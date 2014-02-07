@@ -8,7 +8,6 @@ import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.PsiReference;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
-import org.codingbox.idea.dev.util.LogUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
@@ -122,8 +121,6 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           ParserClass parserClass = ((ParserObject) psiElement).getType();
 
           if(parserClass != null) {
-            LogUtil.log(parserClass.getName());
-
             HashSet<PsiElement> hs = new HashSet<PsiElement>();
 
             if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
@@ -255,7 +252,6 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @Nullable
   public PsiElement resolve() {
-    LogUtil.log("ParserObjectReferenceImpl#resolve()");
     PsiElement resolveResult = resolveBasic();
     if((resolveResult == null)) {
       if(ParserLanguageConstants.SELF_CLASS_NAME.equals(getName())) {
@@ -305,8 +301,6 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
 
   @NotNull
   public Object[] getVariants() {
-    LogUtil.log("ParserObjectReferenceImpl#getVariants()");
-
     boolean isInAuto = ParserPsiUtil.isInAutoMethod(this);
 
     final PsiElement parent = getParent();
@@ -372,7 +366,6 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
           ParserClass parserClass = ((ParserObject) resolved).getType();
 
           if(parserClass != null) {
-            LogUtil.log(parserClass.getName());
             if((parserClass instanceof ParserStrictClass) || (parserClass instanceof ParserStrictDynamicClass)) {
               for(PsiElement method : parserClass.getChildren()) {
                 if(method instanceof ParserMethod) {
