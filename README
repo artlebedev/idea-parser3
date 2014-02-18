@@ -1,6 +1,6 @@
 About:
 ------
-  This is a custom language plugin for IntelliJ IDEA version 10.x. It is compatible with
+  This is a custom language plugin for IntelliJ IDEA version 13.x. It is compatible with
   the Community and the Ultimate editions of IntelliJ.
   It is supposed to work with the other available editions (PyCharm, RubyMine, WebStorm, PHPStorm).
 

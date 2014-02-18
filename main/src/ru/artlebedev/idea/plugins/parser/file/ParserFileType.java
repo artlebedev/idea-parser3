@@ -65,6 +65,7 @@ public class ParserFileType extends LanguageFileType {
           IMPRIMATUR_PAGE_PROCESSOR_EXTENSION,
           PARSERED_XML_EXTENSION
   };
+
   public static final List<String> extensionList = Arrays.asList(extensions);
 
   public ParserFileType() {
