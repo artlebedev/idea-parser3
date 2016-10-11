@@ -29,7 +29,7 @@ NewLine=\r|\n|\r\n
 WhiteSpace=[ \t\f]
 
 NameStart=[a-zA-Z0-9_]
-Name={NameStart}(({NameStart}|-)*{NameStart})?
+Name={NameStart}(({NameStart}|-|\/)*{NameStart})?
 
 EntityStart="&"
 EntityChar=[a-zA-Z0-9_#\^]*
