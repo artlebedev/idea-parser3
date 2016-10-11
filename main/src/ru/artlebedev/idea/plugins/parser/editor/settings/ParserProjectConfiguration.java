@@ -102,7 +102,7 @@ public class ParserProjectConfiguration implements ProjectComponent, Configurabl
   public void projectOpened() {
     ApplicationManager.getApplication().runWriteAction(new Runnable() {
       public void run() {
-        CompletionUtil.registerCompletionData(ParserFileType.PARSER_FILE_TYPE, new ParserCompletionData());
+        //CompletionUtil.registerCompletionData(ParserFileType.PARSER_FILE_TYPE, new ParserCompletionData());
         /*ShowParameterInfoHandler.register(ParserFileType.PARSER_FILE_TYPE.getLanguage(), new MethodParameterInfoHandler() {
           @NotNull
           public ParameterInfoHandler[] getHandlers() {

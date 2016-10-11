@@ -4,7 +4,7 @@ import com.intellij.codeInsight.lookup.DeferredUserLookupValue;
 import com.intellij.codeInsight.lookup.LookupItem;
 import com.intellij.codeInsight.lookup.LookupValueWithPriority;
 import com.intellij.codeInsight.lookup.LookupValueWithPsiElement;
-import com.intellij.codeInsight.lookup.LookupValueWithTail;
+//import com.intellij.codeInsight.lookup.LookupValueWithTail;
 import com.intellij.codeInsight.lookup.LookupValueWithUIHint;
 import com.intellij.codeInsight.lookup.PresentableLookupValue;
 import com.intellij.openapi.project.Project;
@@ -40,9 +40,8 @@ import java.awt.*;
  * limitations under the License.
  */
 
-public class ParserSmartLookupItem implements PresentableLookupValue, LookupValueWithPriority,
-        DeferredUserLookupValue, LookupValueWithUIHint, LookupValueWithPsiElement,
-        LookupValueWithTail, Iconable {
+  public class ParserSmartLookupItem implements PresentableLookupValue, LookupValueWithPriority,
+          DeferredUserLookupValue, LookupValueWithUIHint, LookupValueWithPsiElement, Iconable {
   private PsiNamedElement element;
   private Icon icon;
 
@@ -107,7 +106,7 @@ public class ParserSmartLookupItem implements PresentableLookupValue, LookupValu
     return icon;
   }
 
-  @Override
+  /*@Override
   public String getTailText() {
     if(element instanceof ParserMethod) {
       String params = ((ParserMethod) element).getParameterList().getText();
@@ -116,6 +115,6 @@ public class ParserSmartLookupItem implements PresentableLookupValue, LookupValu
     }
 
     return "";
-  }
+  }*/
 }
 

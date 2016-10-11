@@ -8,8 +8,8 @@
     </body></html>]]>
   </description>
   <version>1.0-prebeta6</version>
-  <vendor url="http://www.artlebedev.ru/" email="dwr@design.ru">ArtLebedev Studio</vendor>
-  <idea-version since-build="133.696"/>
+  <vendor url="http://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
+  <idea-version since-build="145.970"/>
 
   <application-components>
     <component>
