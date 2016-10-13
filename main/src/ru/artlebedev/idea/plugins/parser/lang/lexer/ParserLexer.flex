@@ -44,7 +44,7 @@ Integer=({Digit})*
 Hex="0x"({HexDigit})*
 Float=({Digit})*"."({Digit})+([Ee][+\-]?({Digit})*)?
 
-Escape="^"([\$\^\[\](){};]|#[0-9A-Z]{2})
+Escape="^"([\"\$\^\[\](){};:@#]|#[0-9A-Z]{2})
 
 String={DoubleString}|{SingleString}
 DoubleString=\"[^\"\n\r]*\"
