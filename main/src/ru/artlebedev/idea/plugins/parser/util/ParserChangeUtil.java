@@ -39,7 +39,7 @@ public class ParserChangeUtil {
   private static final String DUMMY = "dummy.";
 
   public static ASTNode createNameIdentifier(Project project, String name) throws IncorrectOperationException {
-    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.PARSER_FILE_TYPE.getDefaultExtension(), name);
+    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.PARSER_FILE_TYPE.getDefaultExtension(), ParserFileType.PARSER_FILE_TYPE, name);
     final PsiElement expressionStatement = dummyFile.getFirstChild();
     assert expressionStatement != null;
     return expressionStatement.getNode();
@@ -53,7 +53,7 @@ public class ParserChangeUtil {
     StringBuilder builder = new StringBuilder("@main[]\n");
     builder.append(text).append("\n");
 
-    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.PARSER_FILE_TYPE.getDefaultExtension(), builder.toString());
+    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.PARSER_FILE_TYPE.getDefaultExtension(), ParserFileType.PARSER_FILE_TYPE, builder.toString());
 
     ParserMethod method = PsiTreeUtil.getChildOfType(dummyFile, ParserMethod.class);
     PsiElement[] children = method.getChildren();

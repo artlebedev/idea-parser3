@@ -1,21 +1,16 @@
 package ru.artlebedev.idea.plugins.parser.editor.settings;
 
-import com.intellij.codeInsight.completion.CompletionUtil;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.InvalidDataException;
-import com.intellij.openapi.util.JDOMExternalizable;
-import com.intellij.openapi.util.WriteExternalException;
-import org.jdom.Element;
+import com.intellij.openapi.components.PersistentStateComponent;
+import com.intellij.openapi.components.State;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserCompletionData;
-import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -41,7 +36,10 @@ import java.util.List;
  * limitations under the License.
  */
 
-public class ParserProjectConfiguration implements ProjectComponent, Configurable, JDOMExternalizable {
+
+@State(name = "ParserProjectState")
+
+public class ParserProjectConfiguration implements ProjectComponent, Configurable, PersistentStateComponent<ParserProjectConfiguration.State> {
   public List<String> classPaths = new ArrayList<String>();
   public static Project _project;
   private ParserProjectConfigurationForm configuration;
@@ -102,19 +100,11 @@ public class ParserProjectConfiguration implements ProjectComponent, Configurabl
   public void projectOpened() {
     ApplicationManager.getApplication().runWriteAction(new Runnable() {
       public void run() {
-        //CompletionUtil.registerCompletionData(ParserFileType.PARSER_FILE_TYPE, new ParserCompletionData());
-        /*ShowParameterInfoHandler.register(ParserFileType.PARSER_FILE_TYPE.getLanguage(), new MethodParameterInfoHandler() {
-          @NotNull
-          public ParameterInfoHandler[] getHandlers() {
-            return new ParameterInfoHandler[]{new ParserParameterInfoHandler()};
-          }
-        });*/
       }
     });
   }
 
   public void projectClosed() {
-
   }
 
   @NotNull
@@ -127,26 +117,19 @@ public class ParserProjectConfiguration implements ProjectComponent, Configurabl
   }
 
   public void disposeComponent() {
-
   }
 
-  public void readExternal(Element element) throws InvalidDataException {
-    Element classPathContainer = element.getChild("class-path");
-    if (classPathContainer == null) return;
-    List paths = classPathContainer.getChildren("path");
-    for (Object path : paths) {
-      Element o = (Element) path;
-      classPaths.add(o.getAttributeValue("value"));
-    }
+  class State {
+    public String value;
   }
 
-  public void writeExternal(Element element) throws WriteExternalException {
-    Element classPathContainer = new Element("class-path");
-    element.addContent(classPathContainer);
-    for (String path : classPaths) {
-      Element pathElement = new Element("path");
-      pathElement.setAttribute("value", path);
-      classPathContainer.addContent(pathElement);
-    }
+  State myState;
+
+  public State getState() {
+    return myState;
+  }
+
+  public void loadState(State state) {
+    myState = state;
   }
 }
