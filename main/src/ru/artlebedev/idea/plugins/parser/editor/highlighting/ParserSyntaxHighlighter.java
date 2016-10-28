@@ -4,7 +4,7 @@ import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.ex.util.LayerDescriptor;
 import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
 import com.intellij.openapi.fileTypes.StdFileTypes;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
+import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
@@ -35,8 +35,8 @@ public class ParserSyntaxHighlighter extends LayeredLexerEditorHighlighter {
                         @Nullable final VirtualFile virtualFile,
                         @NotNull final EditorColorsScheme colors) {
     super(new ParserFileSyntaxHighlighter(), colors);
-    registerLayer(ParserTokenTypes.TEMPLATE_HTML_TEXT, new LayerDescriptor(SyntaxHighlighter.PROVIDER.create(StdFileTypes.HTML, project, virtualFile), ""));
+    registerLayer(ParserTokenTypes.TEMPLATE_HTML_TEXT,
+            new LayerDescriptor(SyntaxHighlighterFactory.getSyntaxHighlighter(StdFileTypes.HTML, project, virtualFile), ""));
   }
 
 }
-

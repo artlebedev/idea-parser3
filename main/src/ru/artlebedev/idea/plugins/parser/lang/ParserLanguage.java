@@ -23,17 +23,9 @@ import com.intellij.lang.xml.XMLLanguage;
  */
 
 public class ParserLanguage extends XMLLanguage {
-  public ParserLanguage() {
+  public static final ParserLanguage INSTANCE = new ParserLanguage();
 
-    super("Parser");
-    //XmlLanguage("Parser");
-    //SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new ParserHighlighterFactory());
+  private ParserLanguage() {
+    super(XMLLanguage.INSTANCE, "Parser", "text/xml");
   }
-
-  /*private static class ParserHighlighterFactory extends SingleLazyInstanceSyntaxHighlighterFactory {
-      @NotNull
-      protected SyntaxHighlighter createHighlighter() {
-          return new ParserSyntaxHighlighter();
-      }
-  }*/
 }

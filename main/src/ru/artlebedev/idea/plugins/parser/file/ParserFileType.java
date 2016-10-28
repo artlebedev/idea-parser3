@@ -1,14 +1,12 @@
 package ru.artlebedev.idea.plugins.parser.file;
 
 import com.intellij.lang.Language;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.highlighter.EditorHighlighter;
 import com.intellij.openapi.fileTypes.EditorHighlighterProvider;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.fileTypes.ex.FileTypeIdentifiableByVirtualFile;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NonNls;
@@ -44,7 +42,6 @@ import java.util.List;
  */
 
 public class ParserFileType extends LanguageFileType {
-  private static final Logger LOG = Logger.getInstance("#ParserFileType");
   public static final ParserFileType PARSER_FILE_TYPE = new ParserFileType();
   public static final Language PARSER_LANGUAGE = PARSER_FILE_TYPE.getLanguage();
 
@@ -69,7 +66,7 @@ public class ParserFileType extends LanguageFileType {
   public static final List<String> extensionList = Arrays.asList(extensions);
 
   public ParserFileType() {
-    super(new ParserLanguage());
+    super(ParserLanguage.INSTANCE);
     FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this, new EditorHighlighterProvider() {
       @Override
       public EditorHighlighter getEditorHighlighter(@Nullable Project project,
@@ -82,7 +79,7 @@ public class ParserFileType extends LanguageFileType {
 
   @NotNull
   public String getName() {
-    return Parser.lanuageName;
+    return Parser.languageName;
   }
 
   @NotNull
@@ -108,14 +105,5 @@ public class ParserFileType extends LanguageFileType {
    */
   public Icon getIcon() {
     return ParserIcons.PARSER_FILE_ICON;
-  }
-
-  @Override
-  public boolean isJVMDebuggingSupported() {
-    return false;
-  }
-
-  public EditorHighlighter getEditorHighlighter(@Nullable final Project project, @Nullable final VirtualFile virtualFile, @NotNull EditorColorsScheme colors) {
-    return new ParserSyntaxHighlighter(project, virtualFile, colors);
   }
 }

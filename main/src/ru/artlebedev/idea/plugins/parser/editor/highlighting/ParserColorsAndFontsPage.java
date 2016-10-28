@@ -52,7 +52,7 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_LINE_COMMENT_ID, ParserFileSyntaxHighlighter.PARSER_LINE_COMMENT),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_PARSERDOC_COMMENT_ID, ParserFileSyntaxHighlighter.PARSER_PARSERDOC_COMMENT),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_OPERATION_SIGN_ID, ParserFileSyntaxHighlighter.PARSER_OPERATION_SIGN),
-                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_PARENTHS_ID, ParserFileSyntaxHighlighter.PARSER_PARENTHS),
+                  new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_PARENTHS_ID, ParserFileSyntaxHighlighter.PARSER_PARENTHESES),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_BRACKETS_ID, ParserFileSyntaxHighlighter.PARSER_BRACKETS),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_BRACES_ID, ParserFileSyntaxHighlighter.PARSER_BRACES),
                   new AttributesDescriptor(ParserFileSyntaxHighlighter.PARSER_NUMBER_ID, ParserFileSyntaxHighlighter.PARSER_NUMBER),
@@ -86,7 +86,6 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
   @NotNull
   @Override
   public SyntaxHighlighter getHighlighter() {
-    //return SyntaxHighlighter.PROVIDER.create(ParserFileType.PARSER_FILE_TYPE, null, null);
     return new ParserFileSyntaxHighlighter();
   }
 

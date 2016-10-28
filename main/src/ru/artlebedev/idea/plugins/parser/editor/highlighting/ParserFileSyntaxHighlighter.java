@@ -2,10 +2,8 @@ package ru.artlebedev.idea.plugins.parser.editor.highlighting;
 
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.HighlighterColors;
-import com.intellij.openapi.editor.SyntaxHighlighterColors;
+import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.editor.markup.EffectType;
-import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.TokenSet;
@@ -95,67 +93,57 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   @NonNls
   public static final String PARSER_SYSTEM_CLASS_REFERENCE_ID = "[Annotator] Parser system class reference";
 
-  static {
-    TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_RESULT_ID, new TextAttributes(Color.CYAN.darker().darker(), null, Color.CYAN.darker().darker(), EffectType.LINE_UNDERSCORE, Font.PLAIN));
-    TextAttributesKey.createTextAttributesKey(PARSER_KEY_AT_SIGN_ID, new TextAttributes(Color.GREEN.darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_STRING_ID, SyntaxHighlighterColors.STRING.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_LINE_COMMENT_ID, SyntaxHighlighterColors.LINE_COMMENT.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_PARSERDOC_COMMENT_ID, new TextAttributes(
-                  SyntaxHighlighterColors.LINE_COMMENT.getDefaultAttributes().getForegroundColor().darker().darker(),
-                  null,
-                  SyntaxHighlighterColors.LINE_COMMENT.getDefaultAttributes().getForegroundColor().darker().darker(),
-                  EffectType.LINE_UNDERSCORE,
-                  Font.PLAIN));
-    TextAttributesKey.createTextAttributesKey(PARSER_OPERATION_SIGN_ID, SyntaxHighlighterColors.OPERATION_SIGN.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_PARENTHS_ID, SyntaxHighlighterColors.PARENTHS.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_BRACKETS_ID, SyntaxHighlighterColors.BRACKETS.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_BRACES_ID, SyntaxHighlighterColors.BRACES.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_NUMBER_ID, SyntaxHighlighterColors.NUMBER.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_SEMICOLON_ID, SyntaxHighlighterColors.JAVA_SEMICOLON.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID, HighlighterColors.BAD_CHARACTER.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID, new TextAttributes(Color.YELLOW.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_OPERATORS_ID, SyntaxHighlighterColors.KEYWORD.getDefaultAttributes());
-    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_ID, new TextAttributes(Color.GREEN.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_STATIC_ID, new TextAttributes(Color.ORANGE.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_GETTER_ID, new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_SETTER_ID, new TextAttributes(Color.PINK.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_AUTO_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID, new TextAttributes(Color.RED.darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID, new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(PARSER_SYSTEM_CLASS_REFERENCE_ID, new TextAttributes(Color.MAGENTA.darker().darker().darker(), null, null, null, Font.BOLD));
-    TextAttributesKey.createTextAttributesKey(HTML_ENTITIES_ID, new TextAttributes(Color.GRAY, null, null, null, Font.PLAIN));
-  }
 
-  public static final TextAttributesKey PARSER_KEYWORD = TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID);
-  public static final TextAttributesKey PARSER_RESULT = TextAttributesKey.createTextAttributesKey(PARSER_RESULT_ID);
-  public static final TextAttributesKey PARSER_KEY_AT_SIGN = TextAttributesKey.createTextAttributesKey(PARSER_KEY_AT_SIGN_ID);
-  public static final TextAttributesKey PARSER_STRING = TextAttributesKey.createTextAttributesKey(PARSER_STRING_ID);
-  public static final TextAttributesKey PARSER_LINE_COMMENT = TextAttributesKey.createTextAttributesKey(PARSER_LINE_COMMENT_ID);
-  public static final TextAttributesKey PARSER_PARSERDOC_COMMENT = TextAttributesKey.createTextAttributesKey(PARSER_PARSERDOC_COMMENT_ID);
-  public static final TextAttributesKey PARSER_OPERATION_SIGN = TextAttributesKey.createTextAttributesKey(PARSER_OPERATION_SIGN_ID);
-  public static final TextAttributesKey PARSER_PARENTHS = TextAttributesKey.createTextAttributesKey(PARSER_PARENTHS_ID);
-  public static final TextAttributesKey PARSER_BRACKETS = TextAttributesKey.createTextAttributesKey(PARSER_BRACKETS_ID);
-  public static final TextAttributesKey PARSER_BRACES = TextAttributesKey.createTextAttributesKey(PARSER_BRACES_ID);
-  public static final TextAttributesKey PARSER_NUMBER = TextAttributesKey.createTextAttributesKey(PARSER_NUMBER_ID);
-  public static final TextAttributesKey PARSER_SEMICOLON = TextAttributesKey.createTextAttributesKey(PARSER_SEMICOLON_ID);
-  public static final TextAttributesKey PARSER_BAD_CHARACTER = TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID);
-  public static final TextAttributesKey PARSER_SELF = TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID);
-  public static final TextAttributesKey PARSER_OPERATORS = TextAttributesKey.createTextAttributesKey(PARSER_OPERATORS_ID);
-
-  public static final TextAttributesKey PARSER_METHOD = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_ID);
-  public static final TextAttributesKey PARSER_METHOD_STATIC = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_STATIC_ID);
-  public static final TextAttributesKey PARSER_METHOD_GETTER = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_GETTER_ID);
-  public static final TextAttributesKey PARSER_METHOD_SETTER = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_SETTER_ID);
-  public static final TextAttributesKey PARSER_METHOD_AUTO = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_AUTO_ID);
-  public static final TextAttributesKey PARSER_METHOD_CONF = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID);
-  public static final TextAttributesKey PARSER_METHOD_UNHANDLED_EXCEPTION = TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID);
-
-  public static final TextAttributesKey PARSER_SYSTEM_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(PARSER_SYSTEM_CLASS_REFERENCE_ID);
-  public static final TextAttributesKey PARSER_CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID);
-
-  public static final TextAttributesKey HTML_ENTITIES = TextAttributesKey.createTextAttributesKey(HTML_ENTITIES_ID);
+  public static final TextAttributesKey PARSER_KEYWORD =
+          TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID, DefaultLanguageHighlighterColors.KEYWORD);
+  public static final TextAttributesKey PARSER_RESULT =
+          TextAttributesKey.createTextAttributesKey(PARSER_RESULT_ID, DefaultLanguageHighlighterColors.KEYWORD);;
+  public static final TextAttributesKey PARSER_KEY_AT_SIGN =
+          TextAttributesKey.createTextAttributesKey(PARSER_KEY_AT_SIGN_ID, DefaultLanguageHighlighterColors.KEYWORD);;
+  public static final TextAttributesKey PARSER_STRING =
+          TextAttributesKey.createTextAttributesKey(PARSER_STRING_ID, DefaultLanguageHighlighterColors.STRING);;
+  public static final TextAttributesKey PARSER_LINE_COMMENT =
+          TextAttributesKey.createTextAttributesKey(PARSER_LINE_COMMENT_ID, DefaultLanguageHighlighterColors.LINE_COMMENT);
+  public static final TextAttributesKey PARSER_PARSERDOC_COMMENT =
+          TextAttributesKey.createTextAttributesKey(PARSER_PARSERDOC_COMMENT_ID, DefaultLanguageHighlighterColors.BLOCK_COMMENT);
+  public static final TextAttributesKey PARSER_OPERATION_SIGN =
+          TextAttributesKey.createTextAttributesKey(PARSER_OPERATION_SIGN_ID, DefaultLanguageHighlighterColors.OPERATION_SIGN);
+  public static final TextAttributesKey PARSER_PARENTHESES =
+          TextAttributesKey.createTextAttributesKey(PARSER_PARENTHS_ID, DefaultLanguageHighlighterColors.PARENTHESES);
+  public static final TextAttributesKey PARSER_BRACKETS =
+          TextAttributesKey.createTextAttributesKey( PARSER_BRACKETS_ID, DefaultLanguageHighlighterColors.BRACKETS);
+  public static final TextAttributesKey PARSER_BRACES =
+          TextAttributesKey.createTextAttributesKey(PARSER_BRACES_ID, DefaultLanguageHighlighterColors.BRACES);
+  public static final TextAttributesKey PARSER_NUMBER =
+          TextAttributesKey.createTextAttributesKey(PARSER_NUMBER_ID, DefaultLanguageHighlighterColors.NUMBER);
+  public static final TextAttributesKey PARSER_SEMICOLON =
+          TextAttributesKey.createTextAttributesKey(PARSER_SEMICOLON_ID, DefaultLanguageHighlighterColors.SEMICOLON);
+  public static final TextAttributesKey PARSER_BAD_CHARACTER =
+          TextAttributesKey.createTextAttributesKey(PARSER_BAD_CHARACTER_ID, HighlighterColors.BAD_CHARACTER);
+  public static final TextAttributesKey PARSER_SELF =
+          TextAttributesKey.createTextAttributesKey(PARSER_SELF_ID, DefaultLanguageHighlighterColors.CLASS_NAME);
+  public static final TextAttributesKey PARSER_OPERATORS =
+          TextAttributesKey.createTextAttributesKey(PARSER_OPERATORS_ID, DefaultLanguageHighlighterColors.FUNCTION_DECLARATION);
+  public static final TextAttributesKey PARSER_METHOD =
+          TextAttributesKey.createTextAttributesKey(PARSER_METHOD_ID, DefaultLanguageHighlighterColors.INSTANCE_METHOD);
+  public static final TextAttributesKey PARSER_METHOD_STATIC =
+          TextAttributesKey.createTextAttributesKey(PARSER_METHOD_STATIC_ID, DefaultLanguageHighlighterColors.STATIC_METHOD);
+  public static final TextAttributesKey PARSER_METHOD_GETTER =
+          TextAttributesKey.createTextAttributesKey(PARSER_METHOD_GETTER_ID, DefaultLanguageHighlighterColors.INSTANCE_FIELD);
+  public static final TextAttributesKey PARSER_METHOD_SETTER =
+          TextAttributesKey.createTextAttributesKey(PARSER_METHOD_SETTER_ID, DefaultLanguageHighlighterColors.STATIC_FIELD);
+  public static final TextAttributesKey PARSER_METHOD_AUTO =
+          TextAttributesKey.createTextAttributesKey(PARSER_METHOD_AUTO_ID, DefaultLanguageHighlighterColors.GLOBAL_VARIABLE);
+  public static final TextAttributesKey PARSER_METHOD_CONF =
+          TextAttributesKey.createTextAttributesKey(PARSER_METHOD_CONF_ID, DefaultLanguageHighlighterColors.GLOBAL_VARIABLE);
+  public static final TextAttributesKey PARSER_METHOD_UNHANDLED_EXCEPTION =
+          TextAttributesKey.createTextAttributesKey(PARSER_METHOD_UNHANDLED_EXCEPTION_ID, DefaultLanguageHighlighterColors.STRING);
+  public static final TextAttributesKey PARSER_CLASS_REFERENCE =
+          TextAttributesKey.createTextAttributesKey(PARSER_CLASS_REFERENCE_ID, DefaultLanguageHighlighterColors.CLASS_REFERENCE);
+  public static final TextAttributesKey PARSER_SYSTEM_CLASS_REFERENCE =
+          TextAttributesKey.createTextAttributesKey(PARSER_SYSTEM_CLASS_REFERENCE_ID, DefaultLanguageHighlighterColors.CLASS_REFERENCE);
+  public static final TextAttributesKey HTML_ENTITIES =
+          TextAttributesKey.createTextAttributesKey(HTML_ENTITIES_ID, DefaultLanguageHighlighterColors.MARKUP_ENTITY);
 
   private static final Map<IElementType, TextAttributesKey> attributes;
 
@@ -184,11 +172,11 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
     attributes = new HashMap<IElementType, TextAttributesKey>();
 
     fillMap(attributes, ParserTokenTypes.KEYWORDS, PARSER_KEYWORD);
-    //fillMap(attributes, ParserTokenTypes.OPERATIONS, PARSER_OPERATION_SIGN);
+    fillMap(attributes, ParserTokenTypes.OPERATIONS, PARSER_OPERATION_SIGN);
     fillMap(attributes, resultKeywordSet, PARSER_RESULT);
     fillMap(attributes, numericLiteralSet, PARSER_NUMBER);
     fillMap(attributes, stringLiteralSet, PARSER_STRING);
-    fillMap(attributes, parsSet, PARSER_PARENTHS);
+    fillMap(attributes, parsSet, PARSER_PARENTHESES);
     fillMap(attributes, bracesSet, PARSER_BRACES);
     fillMap(attributes, bracketsSet, PARSER_BRACKETS);
     fillMap(attributes, atSignSet, PARSER_KEY_AT_SIGN);

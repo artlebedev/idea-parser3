@@ -21,6 +21,6 @@ package ru.artlebedev.idea.plugins.parser;
  */
 
 public class Parser {
-  public static final String lanuageName = "Parser 3";
+  public static final String languageName = "Parser 3";
   public static final String languageDescription = "Parser 3 scripting language";
 }

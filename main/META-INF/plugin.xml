@@ -7,9 +7,9 @@
     <p>Develop with joy!</p>
     </body></html>]]>
   </description>
-  <version>1.0-prebeta9</version>
+  <version>1.0-prebeta-10</version>
   <vendor url="http://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
-  <idea-version since-build="145.970"/>
+  <idea-version since-build="163.651"/>
 
   <application-components>
     <component>
@@ -24,9 +24,9 @@
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration</implementation-class>
     </component>
-    <component>
+    <!--component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader</implementation-class>
-    </component>
+    </component-->
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex</implementation-class>
     </component>
@@ -41,8 +41,7 @@
     <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
 
     <!-- syntax highlighting -->
-    <syntaxHighlighter key="Parser"
-                       implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHighlighter"/>
+    <syntaxHighlighter key="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHighlighter"/>
 
     <colorSettingsPage implementation="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserColorsAndFontsPage"/>
 
