@@ -15,7 +15,6 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserElement;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethodReference;
-import ru.artlebedev.idea.plugins.parser.lang.psi.lookup.ParserSmartLookupItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,8 +73,6 @@ public class ParserParameterInfoHandler implements ParameterInfoHandler<ParserEl
         Object[] variants = methodReference.getReference().getVariants();
         List<PsiElement> list = new ArrayList<PsiElement>();
         for (Object variant : variants) {
-          if (variant instanceof ParserSmartLookupItem)
-            variant = ((ParserSmartLookupItem) variant).getElement();
           if (variant instanceof ParserMethod && ((ParserMethod) variant).getName().equals(name)) {
             list.add((PsiElement) variant);
           }

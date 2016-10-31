@@ -4,6 +4,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserNamedElement;
+import com.intellij.codeInsight.lookup.LookupElement;
+import com.intellij.codeInsight.lookup.LookupElementBuilder;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,18 +32,35 @@ import java.util.List;
  */
 
 public class ParserLookupUtil {
-  public static ParserSmartLookupItem[] createSmartLookupItems(List<PsiElement> elements) {
-    List<ParserSmartLookupItem> result = new ArrayList<ParserSmartLookupItem>();
+  public static Object[] createSmartLookupItems(List<PsiElement> elements) {
+    ArrayList<LookupElement> result =  new ArrayList<LookupElement>();
     for (PsiElement element : elements) {
       if (element instanceof ParserNamedElement) {
         if ((((ParserNamedElement) element).getName() != null) &&
             !ParserLanguageConstants.HAS_NO_CONSTRUCTOR.equals(((ParserNamedElement) element).getName()) &&
             !ParserLanguageConstants.AUTO_METHOD_NAME.equals(((ParserNamedElement) element).getName()) &&
             !ParserLanguageConstants.CONF_METHOD_NAME.equals(((ParserNamedElement) element).getName()))
-          result.add(new ParserSmartLookupItem((PsiNamedElement) element));
+          result.add(createSmartLookupItem(element));
       }
     }
 
-    return result.toArray(new ParserSmartLookupItem[0]);
+    return result.toArray();
+  }
+
+
+  private static LookupElementBuilder createSmartLookupItem(PsiElement element) {
+    LookupElementBuilder builder =
+            LookupElementBuilder
+                    .create((PsiNamedElement) element)
+                    .withInsertHandler(ParserInsertHandler.getInstance())
+                    .withIcon(element.getIcon(0));
+
+    if(element instanceof ParserMethod) {
+        String params = ((ParserMethod) element).getParameterList().getText();
+        builder.withTailText("[" + params.substring(1, params.length() - 1) + "]");
+        return builder;
+    }
+
+    return builder;
   }
 }

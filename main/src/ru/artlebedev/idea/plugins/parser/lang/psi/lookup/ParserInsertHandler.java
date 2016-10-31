@@ -1,10 +1,9 @@
 package ru.artlebedev.idea.plugins.parser.lang.psi.lookup;
 
 import com.intellij.codeInsight.AutoPopupController;
-import com.intellij.codeInsight.completion.DefaultInsertHandler;
+import com.intellij.codeInsight.completion.InsertHandler;
 import com.intellij.codeInsight.completion.InsertionContext;
 import com.intellij.codeInsight.lookup.LookupElement;
-import com.intellij.codeInsight.lookup.LookupValueWithPsiElement;
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
@@ -31,129 +30,135 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
  * limitations under the License.
  */
 
-@SuppressWarnings("deprecation")
-public class ParserInsertHandler extends DefaultInsertHandler {
-  public static final String[] bracesExpands = new String[]{
-          "^connect",
-          ":connect",
-          ".connect",
-          "^server",
-          ":server",
-          ".server",
-          "^sql",
-          ":sql",
-          ".sql",
-          "^table::create",
-          "^xdoc::create",
-          "^process",
-          "^curl:session",
-          "^junction"
-  };
+public class ParserInsertHandler implements InsertHandler {
+    public static final String[] bracesExpands = new String[]{
+            "^connect",
+            ":connect",
+            ".connect",
+            "^server",
+            ":server",
+            ".server",
+            "^sql",
+            ":sql",
+            ".sql",
+            "^table::create",
+            "^xdoc::create",
+            "^process",
+            "^curl:session",
+            "^junction"
+    };
 
-  public static final String[] roundBracesExpands = new String[]{
-          "^inet:ntoa",
-          "^math:abs",
-          "^math:sign",
-          "^math:round",
-          "^math:floor",
-          "^math:ceiling",
-          "^math:trunc",
-          "^math:frac",
-          "^math:degrees",
-          "^math:radians",
-          "^math:sin",
-          "^math:asin",
-          "^math:cos",
-          "^math:acos",
-          "^math:tan",
-          "^math:atan",
-          "^math:exp",
-          "^math:log",
-          "^math:log10",
-          "^math:pow",
-          "^math:sqrt",
-          "^math:random"
-  };
+    public static final String[] roundBracesExpands = new String[]{
+            "^inet:ntoa",
+            "^math:abs",
+            "^math:sign",
+            "^math:round",
+            "^math:floor",
+            "^math:ceiling",
+            "^math:trunc",
+            "^math:frac",
+            "^math:degrees",
+            "^math:radians",
+            "^math:sin",
+            "^math:asin",
+            "^math:cos",
+            "^math:acos",
+            "^math:tan",
+            "^math:atan",
+            "^math:exp",
+            "^math:log",
+            "^math:log10",
+            "^math:pow",
+            "^math:sqrt",
+            "^math:random"
+    };
 
-  public void handleInsert(final InsertionContext context, LookupElement item) {
-    super.handleInsert(context, item);
-    Object o = item.getObject();
-    if (o instanceof LookupValueWithPsiElement) {
-      PsiElement element = ((LookupValueWithPsiElement) o).getElement();
-      CaretModel caretModel = context.getEditor().getCaretModel();
+    private static final ParserInsertHandler INSTANCE = new ParserInsertHandler();
 
-      if (element instanceof ParserMethod) {
-        try {
-          boolean match = false;
-          for(String bracesExpand : bracesExpands) {
-            if(caretModel.getOffset() - bracesExpand.length() > 0) {
-              if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - bracesExpand.length(), caretModel.getOffset()).trim().equals(bracesExpand)) {
-                context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
-                caretModel.moveToOffset(caretModel.getOffset() + 1);
-                match = true;
-                break;
-              }
-            }
-          }
-
-          if(!match) {
-            for(String bracesExpand : roundBracesExpands) {
-              if(caretModel.getOffset() - bracesExpand.length() > 0) {
-                if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - bracesExpand.length(), caretModel.getOffset()).trim().equals(bracesExpand)) {
-                  context.getEditor().getDocument().insertString(caretModel.getOffset(), "()");
-                  caretModel.moveToOffset(caretModel.getOffset() + 1);
-                  match = true;
-                  break;
-                }
-              }
-            }
-          }
-
-          if(!match) {
-            String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
-            if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
-              context.getEditor().getDocument().insertString(caretModel.getOffset(), "[]");
-              caretModel.moveToOffset(caretModel.getOffset() + 2);
-              ParserMethod method = (ParserMethod) element;
-              if (method.getParameterList().getChildren().length > 0) {
-                caretModel.moveToOffset(caretModel.getOffset() - 1);
-                AutoPopupController.getInstance(context.getProject()).autoPopupParameterInfo(context.getEditor(), method);
-              }
-            }
-          }
-        } catch(Exception ignored){
-
-        }
-      }
-      if (element instanceof ParserClass) {
-        try {
-          ParserMethod[] parserMethods = PsiTreeUtil.getChildrenOfType(element, ParserMethod.class);
-
-          boolean allMethodsDynamic = true;
-          for(ParserMethod parserMethod : parserMethods) {
-            if(!parserMethod.isDynamic() && !parserMethod.isConstructor()) {
-              allMethodsDynamic = false;
-            }
-          }
-
-          if(!allMethodsDynamic) {
-            String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
-            if (!s.equals(":")) {
-              context.getEditor().getDocument().insertString(caretModel.getOffset(), ":");
-              caretModel.moveToOffset(caretModel.getOffset() + 1);
-            }
-          } else {
-            String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
-            if (!s.equals(":")) {
-              context.getEditor().getDocument().insertString(caretModel.getOffset(), "::");
-              caretModel.moveToOffset(caretModel.getOffset() + 2);
-            }
-          }
-//      AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor);
-        } catch(Exception ignored) {
-
-        }
-      }
+    private ParserInsertHandler() {
     }
-  }
+
+    public static ParserInsertHandler getInstance() {
+        return INSTANCE;
+    }
+
+    public void handleInsert(final InsertionContext context, LookupElement item) {
+        Object o = item.getObject();
+        CaretModel caretModel = context.getEditor().getCaretModel();
+
+        if (o instanceof ParserMethod) {
+            try {
+                boolean match = false;
+                for(String bracesExpand : bracesExpands) {
+                    if(caretModel.getOffset() - bracesExpand.length() > 0) {
+                        if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - bracesExpand.length(), caretModel.getOffset()).trim().equals(bracesExpand)) {
+                            context.getEditor().getDocument().insertString(caretModel.getOffset(), "{}");
+                            caretModel.moveToOffset(caretModel.getOffset() + 1);
+                            match = true;
+                            break;
+                        }
+                    }
+                }
+
+                if(!match) {
+                    for(String bracesExpand : roundBracesExpands) {
+                        if(caretModel.getOffset() - bracesExpand.length() > 0) {
+                            if(context.getEditor().getDocument().getText().substring(caretModel.getOffset() - bracesExpand.length(), caretModel.getOffset()).trim().equals(bracesExpand)) {
+                                context.getEditor().getDocument().insertString(caretModel.getOffset(), "()");
+                                caretModel.moveToOffset(caretModel.getOffset() + 1);
+                                match = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if(!match) {
+                    String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+                    if (!s.equals("[") && !s.equals("{") && !s.equals("(")) {
+                        context.getEditor().getDocument().insertString(caretModel.getOffset(), "[]");
+                        caretModel.moveToOffset(caretModel.getOffset() + 2);
+                        ParserMethod method = (ParserMethod) o;
+                        if (method.getParameterList().getChildren().length > 0) {
+                            caretModel.moveToOffset(caretModel.getOffset() - 1);
+                            AutoPopupController.getInstance(context.getProject()).autoPopupParameterInfo(context.getEditor(), method);
+                        }
+                    }
+                }
+            } catch(Exception ignored){
+
+            }
+        }
+
+        if (o instanceof ParserClass) {
+            try {
+                ParserMethod[] parserMethods = PsiTreeUtil.getChildrenOfType((PsiElement) o, ParserMethod.class);
+
+                boolean allMethodsDynamic = true;
+                for(ParserMethod parserMethod : parserMethods) {
+                    if(!parserMethod.isDynamic() && !parserMethod.isConstructor()) {
+                        allMethodsDynamic = false;
+                    }
+                }
+
+                if(!allMethodsDynamic) {
+                    String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+                    if (!s.equals(":")) {
+                        context.getEditor().getDocument().insertString(caretModel.getOffset(), ":");
+                        caretModel.moveToOffset(caretModel.getOffset() + 1);
+                    }
+                } else {
+                    String s = context.getEditor().getDocument().getText().substring(caretModel.getOffset(), caretModel.getOffset() + 1);
+                    if (!s.equals(":")) {
+                        context.getEditor().getDocument().insertString(caretModel.getOffset(), "::");
+                        caretModel.moveToOffset(caretModel.getOffset() + 2);
+                    }
+                }
+//      AutoPopupController.getInstance(context.project).autoPopupMemberLookup(context.editor);
+            } catch(Exception ignored) {
+
+            }
+        }
+
+    }
 }
