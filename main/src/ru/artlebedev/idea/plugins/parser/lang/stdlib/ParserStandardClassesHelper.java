@@ -56,7 +56,7 @@ public class ParserStandardClassesHelper {
       String file = null;
       final PsiManager psiManager = PsiManager.getInstance(project);
       try {
-        file = StreamUtil.readText(asStream);
+        file = StreamUtil.readText(asStream, "UTF-8");
         // This method does not expand tree
         final Method method = psiManager.getClass().getMethod(
                 "createFileFromText",
@@ -79,7 +79,7 @@ public class ParserStandardClassesHelper {
         return ParserFilesUtil.containsClass(parserFile);
       } catch (Exception e) {
         if (file != null) {
-          PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, file);
+          PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, ParserFileType.PARSER_FILE_TYPE, file);
           return ParserFilesUtil.containsClass(psiFile);
         }
       }
