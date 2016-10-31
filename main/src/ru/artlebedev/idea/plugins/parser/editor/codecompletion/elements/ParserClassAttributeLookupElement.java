@@ -1,7 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
 
 import com.intellij.codeInsight.lookup.LookupElementPresentation;
-import com.intellij.util.Icons;
+import com.intellij.util.PlatformIcons;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -35,7 +35,7 @@ public class ParserClassAttributeLookupElement extends ParserLookupElement {
 
   @Override
   public void renderElement(LookupElementPresentation presentation) {
-    presentation.setIcon(Icons.ABSTRACT_CLASS_ICON);
+    presentation.setIcon(PlatformIcons.ABSTRACT_CLASS_ICON);
     super.renderElement(presentation);
   }
 }
