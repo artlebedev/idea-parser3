@@ -9,15 +9,21 @@ import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.containers.hash.HashSet;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserPassedParameter;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -74,6 +80,42 @@ public class ParserFoldingBuilder implements FoldingBuilder {
             } catch(Exception ignored) {
 
             }
+            appendDescriptorsToCallingReference(PsiTreeUtil.getChildrenOfType(method, ParserCallingReference.class), descriptors);
+          }
+        }
+      }
+    }
+  }
+
+  private static void appendDescriptorsToCallingReference(@Nullable ParserCallingReference[] references, List<FoldingDescriptor> descriptors) {
+    if(references != null) {
+      for(ParserCallingReference reference : references) {
+        ParserPassedParameter[] parameters = PsiTreeUtil.getChildrenOfType(reference, ParserPassedParameter.class);
+        if (parameters != null) {
+          for(ParserPassedParameter parameter : parameters) {
+            appendDescriptorsToCallingReference(PsiTreeUtil.getChildrenOfType(parameter, ParserCallingReference.class), descriptors);
+          }
+        }
+
+        if(reference.getTextRange() != null) {
+          try {
+            appendDescriptorsToCallingReference(PsiTreeUtil.getChildrenOfType(reference, ParserCallingReference.class), descriptors);
+            String text = reference.getText();
+            Pattern p = Pattern.compile("^([^{]+)(\\{)[\\w\\W]+(})$");
+            Matcher m = p.matcher(text);
+
+            if (m.matches()) {
+              descriptors.add(new FoldingDescriptor(reference, reference.getTextRange()){
+                @Override
+                public String getPlaceholderText() {
+                  return m.group(1) + m.group(2) + "..." + m.group(3);
+                }
+              });
+            } else {
+              descriptors.add(new FoldingDescriptor(reference, reference.getTextRange()));
+            }
+          } catch(Exception ignored) {
+
           }
         }
       }
