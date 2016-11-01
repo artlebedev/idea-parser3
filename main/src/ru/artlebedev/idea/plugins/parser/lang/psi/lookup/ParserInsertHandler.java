@@ -130,7 +130,7 @@ public class ParserInsertHandler implements InsertHandler {
             }
         }
 
-        if (o instanceof ParserClass) {
+        /*if (o instanceof ParserClass) {
             try {
                 ParserMethod[] parserMethods = PsiTreeUtil.getChildrenOfType((PsiElement) o, ParserMethod.class);
 
@@ -158,7 +158,7 @@ public class ParserInsertHandler implements InsertHandler {
             } catch(Exception ignored) {
 
             }
-        }
+        }*/
 
     }
 }
