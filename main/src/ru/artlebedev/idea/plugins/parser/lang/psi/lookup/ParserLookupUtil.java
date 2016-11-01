@@ -7,6 +7,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserNamedElement;
 import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
+import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserParameterList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,9 +57,11 @@ public class ParserLookupUtil {
                     .withIcon(element.getIcon(0));
 
     if(element instanceof ParserMethod) {
-        String params = ((ParserMethod) element).getParameterList().getText();
-        builder.withTailText("[" + params.substring(1, params.length() - 1) + "]");
-        return builder;
+        ParserParameterList params = ((ParserMethod) element).getParameterList();
+        if (params != null) {
+            String tailText = params.getText();
+            builder.withTailText("[" + tailText.substring(1, tailText.length() - 1) + "]");
+        }
     }
 
     return builder;

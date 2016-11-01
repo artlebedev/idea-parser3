@@ -9,7 +9,7 @@
   </description>
   <version>1.0-prebeta-10</version>
   <vendor url="http://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
-  <idea-version since-build="163.651"/>
+  <idea-version since-build="145.970"/>
 
   <application-components>
     <component>
@@ -65,8 +65,8 @@
                     implementationClass="ru.artlebedev.idea.plugins.parser.editor.formatting.ParserFormattingModelBuilder"/>
     <lang.fileViewProviderFactory language="Parser"
                                   implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileViewProviderFactory"/>
-    <!--lang.foldingBuilder language="Parser"
-                         implementationClass="ru.artlebedev.idea.plugins.parser.lang.folding.ParserFoldingBuilder"/-->
+    <lang.foldingBuilder language="Parser"
+                         implementationClass="ru.artlebedev.idea.plugins.parser.lang.folding.ParserFoldingBuilder"/>
 
     <!-- CodeInsight (inc. autocomplete) -->
     <codeInsight.parameterInfo language="Parser"
