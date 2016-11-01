@@ -111,9 +111,8 @@ public class ParserFoldingBuilder implements FoldingBuilder {
                   return m.group(1) + m.group(2) + "..." + m.group(3);
                 }
               });
-            } else {
-              descriptors.add(new FoldingDescriptor(reference, reference.getTextRange()));
             }
+
           } catch(Exception ignored) {
 
           }
