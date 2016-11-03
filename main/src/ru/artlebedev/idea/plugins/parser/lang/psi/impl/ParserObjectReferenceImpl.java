@@ -218,10 +218,13 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       while(iterator.hasNext()) {
         PsiElement element = iterator.next();
         if(element instanceof PsiNamedElement) {
-          if(((PsiNamedElement) element).getName().equals("result")) {
-            if(!currentMethod.equals(PsiTreeUtil.getParentOfType(element, ParserMethod.class))) {
-              iterator.remove();
+          try {
+            if (((PsiNamedElement) element).getName().equals("result")) {
+              if (!currentMethod.equals(PsiTreeUtil.getParentOfType(element, ParserMethod.class))) {
+                iterator.remove();
+              }
             }
+          } catch (Exception ignored) {
           }
         }
       }
