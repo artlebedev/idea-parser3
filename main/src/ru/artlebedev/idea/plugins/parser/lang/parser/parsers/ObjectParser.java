@@ -29,6 +29,7 @@ import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 
 public class ObjectParser extends BaseTokenParser {
   private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.ObjectParser");
+  private boolean lookReference;
   private boolean identifierMet;
   private boolean noIdentifierAfterPunctuation;
 
@@ -38,6 +39,7 @@ public class ObjectParser extends BaseTokenParser {
   public void parseToken(PsiBuilder builder) {
     LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.DOLLAR);
 
+    lookReference = (builder.getTokenType() == ParserTokenTypes.DOLLAR);
     PsiBuilder.Marker expr = builder.mark();
     builder.advanceLexer();
     if (builder.getTokenType() == ParserTokenTypes.DOT) {
@@ -67,6 +69,13 @@ public class ObjectParser extends BaseTokenParser {
           }
           expr.done(ParserElementTypes.CALLING_REFERENCE);
         } else {
+          if (lookReference) {
+            lookReference = false;
+            if (builder.getTokenType() == ParserTokenTypes.LBRACE) {
+              builder.advanceLexer();
+              continue;
+            }
+          }
           parseParameter(builder);
           expr.done(ParserElementTypes.OBJECT);
         }

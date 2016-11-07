@@ -155,6 +155,7 @@ public interface ParserTokenTypes {
   IElementType LITGE = new ParserElementType("LITGE");
   IElementType LITLT = new ParserElementType("LITLT");
   IElementType LITGT = new ParserElementType("LITGT");
+  IElementType QUOT = new ParserElementType("QUOT");
 
   TokenSet OPERATIONS = TokenSet.create(
           LT, GT, LE, GE, EQEQ, NE, PLUS, MINUS, MULT, PERC, LTLT, GTGT, AND, OR,
