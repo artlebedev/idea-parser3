@@ -116,60 +116,6 @@ public class ObjectParser extends BaseTokenParser {
   }
 
   /**
-   * Parses parameters inside brackets
-   * Asks {@link TokenParserFactory}
-   *
-   * @param builder builder in the position before one of the opening braces
-   */
-  //todo: make it parser ";" as a delimiter between parameters
-  private void parseParameter(PsiBuilder builder) {
-    String openedBrace = "";
-
-    if (builder.getTokenType() == ParserTokenTypes.LPAR) {
-      openedBrace = "(";
-    }
-    if (builder.getTokenType() == ParserTokenTypes.LBRACE) {
-      openedBrace = "{";
-    }
-    if (builder.getTokenType() == ParserTokenTypes.LBRACKET) {
-      openedBrace = "[";
-    }
-    builder.advanceLexer();
-    PsiBuilder.Marker marker = builder.mark();
-    while (true) {
-      if (builder.getTokenType() == ParserTokenTypes.KEY_AT_SIGN || builder.eof()) {
-        marker.drop();
-        builder.error(ParserBundle.message("parser.parse.expected.closingBracket"));
-        return;
-      }
-
-      /* if(builder.getTokenType() == ParserTokenTypes.SEMICOLON) {
-        marker.done(ParserElementTypes.PASSED_PARAMETER);
-      } else */
-
-      //System.out.println("=== " + builder.getTokenText());
-
-      if (openedBrace.equals("(") && builder.getTokenType() == ParserTokenTypes.RPAR) {
-        marker.done(ParserElementTypes.PASSED_PARAMETER);
-        break;
-      } else if (openedBrace.equals("{") && builder.getTokenType() == ParserTokenTypes.RBRACE) {
-        marker.done(ParserElementTypes.PASSED_PARAMETER);
-        break;
-      } else if (openedBrace.equals("[") && builder.getTokenType() == ParserTokenTypes.RBRACKET) {
-        marker.done(ParserElementTypes.PASSED_PARAMETER);
-        break;
-      }
-      BaseTokenParser parser = TokenParserFactory.getParser(builder);
-      if (parser instanceof IndifferentParser) {
-        builder.advanceLexer();
-      } else {
-        parser.parseToken(builder);
-      }
-    }
-    builder.advanceLexer();
-  }
-
-  /**
    * Parses identifier as a class reference if it is followed by COLON
    * parses identifier as an object reference if it is followed by DOT
    * parser identifier as an object name if it is followed by one of the opening braces

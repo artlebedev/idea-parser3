@@ -1,6 +1,10 @@
 package ru.artlebedev.idea.plugins.parser.lang.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
+import com.intellij.psi.tree.IElementType;
+import ru.artlebedev.idea.plugins.parser.ParserBundle;
+import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -24,4 +28,43 @@ import com.intellij.lang.PsiBuilder;
 
 public abstract class BaseTokenParser {
   public abstract void parseToken(PsiBuilder builder);
+
+  /**
+   * Parses parameters inside brackets
+   * Asks {@link TokenParserFactory}
+   *
+   * @param builder builder in the position before one of the opening braces
+   */
+  //todo: make it parser ";" as a delimiter between parameters
+  protected void parseParameter(PsiBuilder builder) {
+    IElementType openedElementType = builder.getTokenType();
+
+    builder.advanceLexer();
+    PsiBuilder.Marker marker = builder.mark();
+    while (true) {
+      if (builder.getTokenType() == ParserTokenTypes.KEY_AT_SIGN || builder.eof()) {
+        marker.drop();
+        builder.error(ParserBundle.message("parser.parse.expected.closingBracket"));
+        return;
+      }
+
+      if (
+        (openedElementType == ParserTokenTypes.LPAR && builder.getTokenType() == ParserTokenTypes.RPAR) ||
+        (openedElementType == ParserTokenTypes.LBRACE && builder.getTokenType() == ParserTokenTypes.RBRACE) ||
+        (openedElementType == ParserTokenTypes.LBRACKET && builder.getTokenType() == ParserTokenTypes.RBRACKET)
+      ) {
+        marker.done(ParserElementTypes.PASSED_PARAMETER);
+        break;
+      }
+
+      BaseTokenParser parser = TokenParserFactory.getParser(builder);
+      if (parser instanceof IndifferentParser) {
+        builder.advanceLexer();
+      } else {
+        parser.parseToken(builder);
+      }
+    }
+
+    builder.advanceLexer();
+  }
 }

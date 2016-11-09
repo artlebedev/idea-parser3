@@ -78,52 +78,6 @@ public class MethodReferenceParser extends BaseTokenParser {
   }
 
   /**
-   * parses one parameter
-   * Asks {@link TokenParserFactory} for other parsers
-   *
-   * @param builder before the opening brace of a parameter
-   */
-  private void parseParameter(PsiBuilder builder) {
-    String openedBrace = "";
-
-    if (builder.getTokenType() == ParserTokenTypes.LPAR) {
-      openedBrace = "(";
-    }
-    if (builder.getTokenType() == ParserTokenTypes.LBRACE) {
-      openedBrace = "{";
-    }
-    if (builder.getTokenType() == ParserTokenTypes.LBRACKET) {
-      openedBrace = "[";
-    }
-    builder.advanceLexer();
-    PsiBuilder.Marker marker = builder.mark();
-    while (true) {
-      if (builder.getTokenType() == ParserTokenTypes.KEY_AT_SIGN || builder.eof()) {
-        marker.drop();
-        builder.error(ParserBundle.message("parser.parse.expected.closingBracket"));
-        return;
-      }
-      if (openedBrace.equals("(") && builder.getTokenType() == ParserTokenTypes.RPAR) {
-        marker.done(ParserElementTypes.PASSED_PARAMETER);
-        break;
-      } else if (openedBrace.equals("{") && builder.getTokenType() == ParserTokenTypes.RBRACE) {
-        marker.done(ParserElementTypes.PASSED_PARAMETER);
-        break;
-      } else if (openedBrace.equals("[") && builder.getTokenType() == ParserTokenTypes.RBRACKET) {
-        marker.done(ParserElementTypes.PASSED_PARAMETER);
-        break;
-      }
-      BaseTokenParser parser = TokenParserFactory.getParser(builder);
-      if (parser instanceof IndifferentParser) {
-        builder.advanceLexer();
-      } else {
-        parser.parseToken(builder);
-      }
-    }
-    builder.advanceLexer();
-  }
-
-  /**
    * @param builder before the identifier
    */
   private void parseReference(PsiBuilder builder) {
