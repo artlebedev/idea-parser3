@@ -1,5 +1,10 @@
-<idea-plugin version="2" url="https://www.ohloh.net/p/idea-parser3">
+<idea-plugin>
+  <id>com.artlebedev.parser3.plugin</id>
   <name>Parser for IDEA</name>
+  <version>1.0-prebeta10</version>
+
+  <vendor email="allex@artlebedev.ru" url="http://www.artlebedev.ru/">ArtLebedev Studio</vendor>
+
   <description><![CDATA[<html><body>
     <p>Support for parser server-side scripting language. More about the language on
     <a href="http://www.parser.ru/">http://www.parser.ru/</a></p>
@@ -7,9 +12,17 @@
     <p>Develop with joy!</p>
     </body></html>]]>
   </description>
-  <version>1.0-prebeta-10</version>
-  <vendor url="http://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
-  <idea-version since-build="145.970"/>
+
+  <change-notes><![CDATA[]]></change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="171"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+	 on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
 
   <application-components>
     <component>
