@@ -154,7 +154,7 @@ public class ParserFileIndex implements ProjectComponent {
     PsiTreeChangeListener myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);
 
-    FileEditorManager.getInstance(myProject).addFileEditorManagerListener(new FileEditorManagerListener() {
+    myProject.getMessageBus().connect(myProject).subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
       public void fileOpened(FileEditorManager source, VirtualFile file) {
         if(!hadFullReindex) {
           reindexProject();
