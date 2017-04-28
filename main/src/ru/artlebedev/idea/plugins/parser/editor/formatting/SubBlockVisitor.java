@@ -49,7 +49,6 @@ public class SubBlockVisitor {
     while (child != null) {
       if (child.getElementType() != ParserTokenTypes.NEW_LINE_INDENT &&
               child.getElementType() != ParserTokenTypes.WHITE_SPACE &&
-              child.getElementType() != ParserTokenTypes.NEW_LINE &&
               child.getTextRange().getLength() > 0) {
         Indent childIndent = getIndent(node, child);
         Wrap wrap = getWrap(node, child);

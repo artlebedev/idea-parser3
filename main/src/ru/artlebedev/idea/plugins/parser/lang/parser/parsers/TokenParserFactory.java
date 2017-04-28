@@ -36,7 +36,7 @@ public class TokenParserFactory {
     parsers = new HashMap<BaseTokenParser, TokenSet>();
     parsers.put(new IncludeParser(), TokenSet.create(ParserTokenTypes.USE_KEYWORD));
     parsers.put(new ClassParser(), TokenSet.create(ParserTokenTypes.CLASS_KEYWORD));
-//		parsers.put(new WhiteSpaceParser(), TokenSet.create(ParserTokenTypes.NEW_LINE, ParserTokenTypes.WHITE_SPACE));
+//		parsers.put(new WhiteSpaceParser(), TokenSet.create(ParserTokenTypes.WHITE_SPACE));
     parsers.put(new MethodParser(), TokenSet.create(ParserTokenTypes.KEY_AT_SIGN));
     parsers.put(new MethodReferenceParser(), TokenSet.create(ParserTokenTypes.HAT_SIGN));
     parsers.put(new ObjectParser(), TokenSet.create(ParserTokenTypes.DOLLAR));

@@ -69,9 +69,9 @@ public final class ParserPsiUtil {
   public static IElementType getNextTokenIgnoringNLandParserDoc(PsiBuilder builder) {
     PsiBuilder.Marker marker = builder.mark();
     IElementType iElementType = builder.getTokenType();
-    while (iElementType == ParserTokenTypes.NEW_LINE || iElementType == ParserTokenTypes.PARSERDOC_START) {
+    while (iElementType == ParserTokenTypes.WHITE_SPACE || iElementType == ParserTokenTypes.PARSERDOC_START) {
       if (builder.getTokenType() == ParserTokenTypes.PARSERDOC_START) {
-        while (builder.getTokenType() != ParserTokenTypes.NEW_LINE && !builder.eof()) {
+        while (builder.getTokenType() != ParserTokenTypes.WHITE_SPACE && !builder.eof()) {
           builder.advanceLexer();
         }
       }

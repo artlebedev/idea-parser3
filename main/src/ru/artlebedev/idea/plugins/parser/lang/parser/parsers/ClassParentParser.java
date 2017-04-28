@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.lang.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
+import com.intellij.openapi.diagnostic.Logger;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
@@ -26,10 +27,14 @@ import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
  */
 
 public class ClassParentParser extends BaseTokenParser {
+  private static final Logger LOG = Logger.getInstance("#als.parser.parsers.ClassParentParser");
+
   public void parseToken(PsiBuilder builder) {
+    LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.BASE_KEYWORD);
+
     PsiBuilder.Marker classParent = builder.mark();
     builder.advanceLexer();
-    if ((builder.getTokenType() == ParserTokenTypes.NEW_LINE) || builder.eof()) {
+    if ((builder.getTokenType() == ParserTokenTypes.WHITE_SPACE) || builder.eof()) {
       builder.advanceLexer();
       if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
         PsiBuilder.Marker parentClass = builder.mark();

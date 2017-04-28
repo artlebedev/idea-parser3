@@ -104,7 +104,7 @@ public class MethodParser extends BaseTokenParser {
         builder.advanceLexer();
       } else if (builder.getTokenType() == ParserTokenTypes.SEMICOLON) {
         builder.advanceLexer();
-      } else if (builder.getTokenType() == ParserTokenTypes.RBRACKET || builder.eof() || builder.getTokenType() == ParserTokenTypes.NEW_LINE) {
+      } else if (builder.getTokenType() == ParserTokenTypes.RBRACKET || builder.eof() || builder.getTokenType() == ParserTokenTypes.WHITE_SPACE) {
         break;
       } else {
         builder.error(ParserBundle.message("parser.parse.expected.parameter"));

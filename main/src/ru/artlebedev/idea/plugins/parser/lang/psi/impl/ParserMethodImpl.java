@@ -248,7 +248,7 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
 
   public String getParserDoc() {
     ASTNode treePrev = getNode().getTreePrev();
-    if (treePrev != null && treePrev.getElementType() == ParserTokenTypes.NEW_LINE) {
+    if (treePrev != null && treePrev.getElementType() == ParserTokenTypes.WHITE_SPACE) {
       treePrev = treePrev.getTreePrev();
     }
     if (treePrev == null)
@@ -259,7 +259,7 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
       while (treePrev != null && treePrev.getElementType() == ParserTokenTypes.SHARP_COMMENT) {
         buf.add(treePrev.getText().replaceFirst("^#+", "") + "<br>");
         treePrev = treePrev.getTreePrev();
-        if (treePrev != null && treePrev.getElementType() == ParserTokenTypes.NEW_LINE) {
+        if (treePrev != null && treePrev.getElementType() == ParserTokenTypes.WHITE_SPACE) {
           treePrev = treePrev.getTreePrev();
         }
       }

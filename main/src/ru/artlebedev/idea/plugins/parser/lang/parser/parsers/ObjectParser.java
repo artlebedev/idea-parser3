@@ -57,7 +57,7 @@ public class ObjectParser extends BaseTokenParser {
       if (ParserParserUtil.isIdentifierToken(builder.getTokenType())) {
         identifierMet = true;
         parseReference(builder);
-      } else if (builder.getTokenType() == ParserTokenTypes.WHITE_SPACE || builder.getTokenType() == ParserTokenTypes.NEW_LINE || builder.eof()) {
+      } else if (builder.getTokenType() == ParserTokenTypes.WHITE_SPACE || builder.eof()) {
         expr.done(ParserElementTypes.CALLING_REFERENCE);
         break;
       } else if (ParserTokenTypes.OPENING_BRACES.contains(builder.getTokenType())) {

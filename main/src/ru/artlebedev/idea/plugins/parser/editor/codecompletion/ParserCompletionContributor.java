@@ -53,7 +53,7 @@ public class ParserCompletionContributor extends CompletionContributor {
     StandardPatterns.instanceOf(PsiElement.class)
       .and(psiElement().afterLeaf(
         psiElement().withElementType(
-          ParserTokenTypes.NEW_LINE)
+          ParserTokenTypes.WHITE_SPACE)
           .and(psiElement().afterLeaf(
             psiElement().withElementType(
               ParserTokenTypes.OPTIONS_KEYWORD)))));
