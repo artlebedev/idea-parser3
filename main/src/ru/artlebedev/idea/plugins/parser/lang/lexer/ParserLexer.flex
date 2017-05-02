@@ -28,7 +28,7 @@ HEX_DIGIT=[0-9A-Fa-f]
 
 WHITE_SPACE_CHAR=[\ \n\r\t\f]
 
-START_CHAR=[a-zA-Z0-9_\*]
+START_CHAR=[a-zA-Z0-9_]
 NAME_CHAR=[a-zA-Z0-9_\/-]
 
 IDENTIFIER={START_CHAR}({NAME_CHAR})*

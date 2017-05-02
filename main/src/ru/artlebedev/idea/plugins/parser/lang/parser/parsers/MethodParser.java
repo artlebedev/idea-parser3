@@ -98,7 +98,7 @@ public class MethodParser extends BaseTokenParser {
         parameter = builder.mark();
         parameterDone = false;
         builder.advanceLexer();
-      } else if (builder.getTokenType() == ParserTokenTypes.SEMICOLON) {
+      } else if (builder.getTokenType() == ParserTokenTypes.SEMICOLON || builder.getTokenType() == ParserTokenTypes.MULT) {
         builder.advanceLexer();
       } else if (builder.getTokenType() == ParserTokenTypes.RBRACKET || builder.eof() || builder.getTokenType() == ParserTokenTypes.WHITE_SPACE) {
         break;
