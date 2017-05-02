@@ -5,7 +5,6 @@ package ru.artlebedev.idea.plugins.parser.lang.parser.parsers;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.openapi.diagnostic.Logger;
-import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
