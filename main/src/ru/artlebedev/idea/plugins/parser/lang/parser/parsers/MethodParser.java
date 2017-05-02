@@ -7,6 +7,7 @@ import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserPsiUtil;
+import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -74,12 +75,7 @@ public class MethodParser extends BaseTokenParser {
     }
 
     while (!ParserTokenTypes.METHOD_DELIMITERS.contains(ParserPsiUtil.getNextTokenIgnoringNLandParserDoc(builder))) {
-      BaseTokenParser parser = TokenParserFactory.getParser(builder);
-      if (!(parser instanceof IndifferentParser)) {
-        parser.parseToken(builder);
-      } else {
-        builder.advanceLexer();
-      }
+      ParserParserUtil.innerParse(builder);
     }
 
     methodToken.done(staticMethod ? ParserElementTypes.STATIC_METHOD : ParserElementTypes.METHOD);

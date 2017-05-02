@@ -1,7 +1,11 @@
 package ru.artlebedev.idea.plugins.parser.util;
 
+import com.intellij.lang.PsiBuilder;
 import com.intellij.psi.tree.IElementType;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
+import ru.artlebedev.idea.plugins.parser.lang.parser.parsers.BaseTokenParser;
+import ru.artlebedev.idea.plugins.parser.lang.parser.parsers.IndifferentParser;
+import ru.artlebedev.idea.plugins.parser.lang.parser.parsers.TokenParserFactory;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -47,6 +51,15 @@ public class ParserParserUtil {
       return true;
     } else {
       return false;
+    }
+  }
+
+  public static void innerParse(PsiBuilder builder) {
+    BaseTokenParser parser = TokenParserFactory.getParser(builder);
+    if (!(parser instanceof IndifferentParser)) {
+      parser.parseToken(builder);
+    } else {
+      builder.advanceLexer();
     }
   }
 }

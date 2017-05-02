@@ -42,6 +42,7 @@ public class TokenParserFactory {
     parsers.put(new ObjectParser(), TokenSet.create(ParserTokenTypes.DOLLAR));
     parsers.put(new ClassParentParser(), TokenSet.create(ParserTokenTypes.BASE_KEYWORD));
     parsers.put(new ParserDocParser(), TokenSet.create(ParserTokenTypes.PARSERDOC_START));
+    parsers.put(new StringParser(), TokenSet.create(ParserTokenTypes.SQUOT, ParserTokenTypes.QUOT));
   }
 
   /**

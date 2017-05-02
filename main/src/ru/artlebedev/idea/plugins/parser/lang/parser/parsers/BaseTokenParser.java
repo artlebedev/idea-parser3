@@ -5,6 +5,7 @@ import com.intellij.psi.tree.IElementType;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
+import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -57,14 +58,13 @@ public abstract class BaseTokenParser {
         break;
       }
 
-      BaseTokenParser parser = TokenParserFactory.getParser(builder);
-      if (parser instanceof IndifferentParser) {
-        builder.advanceLexer();
-      } else {
-        parser.parseToken(builder);
-      }
+      ParserParserUtil.innerParse(builder);
     }
 
     builder.advanceLexer();
+  }
+
+  protected boolean isWhiteSpaceOrEof(PsiBuilder builder) {
+    return (builder.getTokenType() == ParserTokenTypes.WHITE_SPACE) || builder.eof();
   }
 }

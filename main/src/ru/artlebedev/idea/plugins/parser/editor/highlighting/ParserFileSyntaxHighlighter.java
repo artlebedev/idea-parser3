@@ -97,11 +97,11 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TextAttributesKey PARSER_KEYWORD =
           TextAttributesKey.createTextAttributesKey(PARSER_KEYWORD_ID, DefaultLanguageHighlighterColors.KEYWORD);
   public static final TextAttributesKey PARSER_RESULT =
-          TextAttributesKey.createTextAttributesKey(PARSER_RESULT_ID, DefaultLanguageHighlighterColors.KEYWORD);;
+          TextAttributesKey.createTextAttributesKey(PARSER_RESULT_ID, DefaultLanguageHighlighterColors.KEYWORD);
   public static final TextAttributesKey PARSER_KEY_AT_SIGN =
-          TextAttributesKey.createTextAttributesKey(PARSER_KEY_AT_SIGN_ID, DefaultLanguageHighlighterColors.KEYWORD);;
+          TextAttributesKey.createTextAttributesKey(PARSER_KEY_AT_SIGN_ID, DefaultLanguageHighlighterColors.KEYWORD);
   public static final TextAttributesKey PARSER_STRING =
-          TextAttributesKey.createTextAttributesKey(PARSER_STRING_ID, DefaultLanguageHighlighterColors.STRING);;
+          TextAttributesKey.createTextAttributesKey(PARSER_STRING_ID, DefaultLanguageHighlighterColors.STRING);
   public static final TextAttributesKey PARSER_LINE_COMMENT =
           TextAttributesKey.createTextAttributesKey(PARSER_LINE_COMMENT_ID, DefaultLanguageHighlighterColors.LINE_COMMENT);
   public static final TextAttributesKey PARSER_PARSERDOC_COMMENT =
@@ -161,7 +161,7 @@ public class ParserFileSyntaxHighlighter extends SyntaxHighlighterBase implement
   public static final TokenSet lineCommentSet = TokenSet.create(ParserTokenTypes.SHARP_COMMENT, ParserTokenTypes.PARSERDOC_START);
   public static final TokenSet resultKeywordSet = TokenSet.create(ParserTokenTypes.RESULT_KEYWORD);
   public static final TokenSet numericLiteralSet = TokenSet.create(ParserTokenTypes.NUMERIC_LITERAL);
-  public static final TokenSet stringLiteralSet = TokenSet.create(ParserTokenTypes.STRING_LITERAL);
+  public static final TokenSet stringLiteralSet = TokenSet.create(ParserTokenTypes.STRING_LITERAL, ParserTokenTypes.QUOT, ParserTokenTypes.SQUOT);
   public static final TokenSet semicolonSet = TokenSet.create(ParserTokenTypes.SEMICOLON);
   public static final TokenSet badCharacterSet = TokenSet.create(ParserTokenTypes.BAD_CHARACTER);
   public static final TokenSet selfSet = TokenSet.create(ParserTokenTypes.SELF_KEYWORD, ParserTokenTypes.CLASS_STATIC_KEYWORD);

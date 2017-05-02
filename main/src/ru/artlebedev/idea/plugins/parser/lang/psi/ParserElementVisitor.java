@@ -4,19 +4,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiReferenceExpression;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClassReference;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserCallingReferenceImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserClassImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserClassParentImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserHashKeyImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserIncludeImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserIncludePathImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserMethodImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserMethodReferenceImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserObjectImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserObjectReferenceImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserParameterImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserParameterListImpl;
-import ru.artlebedev.idea.plugins.parser.lang.psi.impl.ParserPassedParameterImpl;
+import ru.artlebedev.idea.plugins.parser.lang.psi.impl.*;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -101,5 +89,9 @@ public class ParserElementVisitor extends PsiElementVisitor {
 
   public void visitParserClassReference(ParserClassReference parserClassReference) {
     visitElement(parserClassReference);
+  }
+
+  public void visitParserString(ParserStringImpl parserString) {
+    visitElement(parserString);
   }
 }

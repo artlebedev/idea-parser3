@@ -58,6 +58,8 @@ public interface ParserElementTypes {
   IElementType CLASS_PARENT = new ParserElementType("CLASS_PARENT");
   IElementType HASH_KEY = new ParserElementType("HASH_KEY");
 
+  IElementType STRING = new ParserElementType("STRING");
+
   /*
    * Well, here I am introducing ParserDoc v2 parsering.
    * This is a proprietary format of myself based on the work of Jay Bird.

@@ -1,10 +1,14 @@
 package ru.artlebedev.idea.plugins.parser.lang.parser.parsers;
 
+
+
 import com.intellij.lang.PsiBuilder;
+import com.intellij.psi.tree.IElementType;
 import com.intellij.openapi.diagnostic.Logger;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
+import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -26,28 +30,25 @@ import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
  * limitations under the License.
  */
 
-public class ClassParentParser extends BaseTokenParser {
-  private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.ClassParentParser");
+public class StringParser extends BaseTokenParser {
+    private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.StringParser");
 
-  public void parseToken(PsiBuilder builder) {
-    LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.BASE_KEYWORD);
+    public void parseToken(PsiBuilder builder) {
+        IElementType type = builder.getTokenType();
 
-    PsiBuilder.Marker classParent = builder.mark();
-    builder.advanceLexer();
-    if (isWhiteSpaceOrEof(builder)) {
-      builder.advanceLexer();
-      if (builder.getTokenType() == ParserTokenTypes.IDENTIFIER) {
-        PsiBuilder.Marker parentClass = builder.mark();
+        LOG.assertTrue(type == ParserTokenTypes.SQUOT || type == ParserTokenTypes.QUOT);
+
+        PsiBuilder.Marker string = builder.mark();
         builder.advanceLexer();
-        parentClass.done(ParserElementTypes.CLASS_REFERENCE);
-        classParent.done(ParserElementTypes.CLASS_PARENT);
-      } else {
-        builder.error("parser.parse.expected.className");
-        classParent.done(ParserElementTypes.CLASS_PARENT);
-      }
-    } else {
-      classParent.drop();
-      builder.error(ParserBundle.message("parser.parse.expected.baseTokenEnd"));
+
+        while (!builder.eof()) {
+            if (!(builder.getTokenType() == type)) {
+                ParserParserUtil.innerParse(builder);
+            } else {
+                builder.advanceLexer();
+                string.done(ParserElementTypes.STRING);
+                break;
+            }
+        }
     }
-  }
 }

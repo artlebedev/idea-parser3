@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Contract;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 import ru.artlebedev.idea.plugins.parser.lang.parser.ParserElementTypes;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
+import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -29,7 +30,7 @@ import ru.artlebedev.idea.plugins.parser.ParserBundle;
  */
 
 public class ClassParser extends BaseTokenParser {
-  private static final Logger LOG = Logger.getInstance("#als.parser.parsers.ClassParser");
+  private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.ClassParser");
 
   /**
    * @param builder builder before the @CLASS keyword
@@ -78,12 +79,7 @@ public class ClassParser extends BaseTokenParser {
             break;
         }
 
-        BaseTokenParser parser = TokenParserFactory.getParser(builder);
-        if (!(parser instanceof IndifferentParser)) {
-          parser.parseToken(builder);
-        } else {
-          builder.advanceLexer();
-        }
+        ParserParserUtil.innerParse(builder);
       }
 
       if(staticClassDecl) {

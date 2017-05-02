@@ -74,6 +74,9 @@ public interface ParserTokenTypes {
   IElementType REM_KEYWORD = new ParserElementType("REM_KEYWORD");
   IElementType SLEEP_KEYWORD = new ParserElementType("SLEEP_KEYWORD");
   IElementType APPLY_TAINT_KEYWORD = new ParserElementType("APPLY_TAINT_KEYWORD");
+  IElementType IN_KEYWORD = new ParserElementType("IN_KEYWORD");
+  IElementType MINUSF_KEYWORD = new ParserElementType("MINUSF_KEYWORD");
+  IElementType MINUSD_KEYWORD = new ParserElementType("MINUSD_KEYWORD");
 
   /*
    * Supported in Parser 3.3.0
@@ -155,6 +158,7 @@ public interface ParserTokenTypes {
   IElementType LITGE = new ParserElementType("LITGE");
   IElementType LITLT = new ParserElementType("LITLT");
   IElementType LITGT = new ParserElementType("LITGT");
+  IElementType SQUOT = new ParserElementType("SQUOT");
   IElementType QUOT = new ParserElementType("QUOT");
 
   TokenSet OPERATIONS = TokenSet.create(

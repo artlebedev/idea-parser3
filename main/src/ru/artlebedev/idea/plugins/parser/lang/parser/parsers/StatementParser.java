@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.lang.parser.parsers;
 
 import com.intellij.lang.PsiBuilder;
+import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
@@ -29,11 +30,6 @@ public class StatementParser {
    * @param builder psi builder of the file
    */
   public static void parseSourceElement(PsiBuilder builder) {
-    BaseTokenParser parser = TokenParserFactory.getParser(builder);
-    if (!(parser instanceof IndifferentParser)) {
-      parser.parseToken(builder);
-    } else {
-      builder.advanceLexer();
-    }
+    ParserParserUtil.innerParse(builder);
   }
 }
