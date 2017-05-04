@@ -42,7 +42,12 @@ public class StringParser extends BaseTokenParser {
 
         while (!builder.eof()) {
             if (!(builder.getTokenType() == type)) {
-                ParserParserUtil.innerParse(builder);
+                if (!(builder.getTokenType() == ParserTokenTypes.RBRACKET || builder.getTokenType() == ParserTokenTypes.RPAR)) {
+                    ParserParserUtil.innerParse(builder);
+                } else {
+                    string.done(ParserElementTypes.STRING);
+                    break;
+                }
             } else {
                 builder.advanceLexer();
                 string.done(ParserElementTypes.STRING);
