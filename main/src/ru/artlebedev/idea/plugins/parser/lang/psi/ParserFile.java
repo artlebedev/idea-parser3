@@ -18,9 +18,10 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,12 +38,12 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 
 public class ParserFile extends PsiFileBase implements ParserElement, HasMethods {
   public ParserFile(FileViewProvider fileViewProvider) {
-    super(fileViewProvider, ParserFileType.PARSER_LANGUAGE);
+    super(fileViewProvider, ParserFileType.INSTANCE.getLanguage());
   }
 
   @NotNull
   public FileType getFileType() {
-    return ParserFileType.PARSER_FILE_TYPE;
+    return ParserFileType.INSTANCE;
   }
 
   public String toString() {
@@ -82,4 +83,3 @@ public class ParserFile extends PsiFileBase implements ParserElement, HasMethods
     return result;
   }
 }
-

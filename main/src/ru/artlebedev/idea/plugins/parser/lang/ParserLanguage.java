@@ -5,9 +5,10 @@ import com.intellij.lang.xml.XMLLanguage;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,17 +24,9 @@ import com.intellij.lang.xml.XMLLanguage;
  */
 
 public class ParserLanguage extends XMLLanguage {
-  public ParserLanguage() {
+  public static final ParserLanguage INSTANCE = new ParserLanguage();
 
-    super("Parser");
-    //XmlLanguage("Parser");
-    //SyntaxHighlighterFactory.LANGUAGE_FACTORY.addExplicitExtension(this, new ParserHighlighterFactory());
+  private ParserLanguage() {
+    super(XMLLanguage.INSTANCE, "Parser", new String[]{"application/xml", "text/xml"});
   }
-
-  /*private static class ParserHighlighterFactory extends SingleLazyInstanceSyntaxHighlighterFactory {
-      @NotNull
-      protected SyntaxHighlighter createHighlighter() {
-          return new ParserSyntaxHighlighter();
-      }
-  }*/
 }

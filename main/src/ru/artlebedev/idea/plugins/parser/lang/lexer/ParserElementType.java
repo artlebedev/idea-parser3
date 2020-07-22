@@ -6,9 +6,10 @@ import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +28,7 @@ public class ParserElementType extends IElementType {
   private String debugName = null;
 
   public ParserElementType(String debugName) {
-    super(debugName, ParserFileType.PARSER_LANGUAGE);
+    super(debugName, ParserFileType.INSTANCE.getLanguage());
     this.debugName = debugName;
   }
 

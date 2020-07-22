@@ -1,7 +1,7 @@
 package ru.artlebedev.idea.plugins.parser;
 
 import com.intellij.openapi.util.IconLoader;
-import com.intellij.util.Icons;
+import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NonNls;
 
 import javax.swing.*;
@@ -9,9 +9,10 @@ import javax.swing.*;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,17 +36,17 @@ public interface ParserIcons {
   Icon PARSER_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_file.png");
 
   Icon PARSER_CLASS_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_class.png");
-  Icon PARSER_HTML_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_html.png");
+//  Icon PARSER_HTML_FILE_ICON = IconLoader.findIcon(DATA_PATH + "parser_html.png");
 
   Icon EMPTY = IconLoader.findIcon(DATA_PATH + "empty.gif");
   Icon CONFIGURATION = IconLoader.findIcon(DATA_PATH + "settings.png");
 
-  Icon PARSER_CLASS_ICON = Icons.CLASS_ICON;
-  Icon PARSER_VARIABLE_ICON = Icons.VARIABLE_ICON;
-  Icon PARSER_CLASS_INITIALIZER_ICON = Icons.CLASS_INITIALIZER;
-  Icon PARSER_METHOD_ICON = Icons.METHOD_ICON;
+  Icon PARSER_CLASS_ICON = PlatformIcons.CLASS_ICON;
+  Icon PARSER_VARIABLE_ICON = PlatformIcons.VARIABLE_ICON;
+  Icon PARSER_CLASS_INITIALIZER_ICON = PlatformIcons.CLASS_INITIALIZER;
+  Icon PARSER_METHOD_ICON = PlatformIcons.METHOD_ICON;
   Icon PARSER_STATIC_METHOD_ICON = IconLoader.getIcon("/nodes/static.png");
-  Icon PARSER_PROPERTY_ICON = Icons.PROPERTY_ICON;
-  Icon PARSER_PARAMETER_ICON = Icons.PARAMETER_ICON;
-  Icon PARSER_BASE_CLASS_ICON = Icons.ABSTRACT_CLASS_ICON;
+  Icon PARSER_PROPERTY_ICON = PlatformIcons.PROPERTY_ICON;
+  Icon PARSER_PARAMETER_ICON = PlatformIcons.PARAMETER_ICON;
+  Icon PARSER_BASE_CLASS_ICON = PlatformIcons.ABSTRACT_CLASS_ICON;
 }

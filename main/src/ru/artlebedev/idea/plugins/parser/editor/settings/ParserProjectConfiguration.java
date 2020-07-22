@@ -24,9 +24,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,8 +103,8 @@ public class ParserProjectConfiguration implements ProjectComponent, Configurabl
   public void projectOpened() {
     ApplicationManager.getApplication().runWriteAction(new Runnable() {
       public void run() {
-        //CompletionUtil.registerCompletionData(ParserFileType.PARSER_FILE_TYPE, new ParserCompletionData());
-        /*ShowParameterInfoHandler.register(ParserFileType.PARSER_FILE_TYPE.getLanguage(), new MethodParameterInfoHandler() {
+        //CompletionUtil.registerCompletionData(ParserFileType.INSTANCE, new ParserCompletionData());
+        /*ShowParameterInfoHandler.register(ParserFileType.INSTANCE.getLanguage(), new MethodParameterInfoHandler() {
           @NotNull
           public ParameterInfoHandler[] getHandlers() {
             return new ParameterInfoHandler[]{new ParserParameterInfoHandler()};

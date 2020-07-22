@@ -1,34 +1,21 @@
 package ru.artlebedev.idea.plugins.parser.file;
 
-import com.intellij.lang.Language;
-import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.openapi.editor.colors.EditorColorsScheme;
-import com.intellij.openapi.editor.highlighter.EditorHighlighter;
-import com.intellij.openapi.fileTypes.EditorHighlighterProvider;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.fileTypes.FileTypeEditorHighlighterProviders;
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.fileTypes.ex.FileTypeIdentifiableByVirtualFile;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.Parser;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
-import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserSyntaxHighlighter;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguage;
 
 import javax.swing.*;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,54 +31,38 @@ import java.util.List;
  */
 
 public class ParserFileType extends LanguageFileType {
-  private static final Logger LOG = Logger.getInstance("#ParserFileType");
-  public static final ParserFileType PARSER_FILE_TYPE = new ParserFileType();
-  public static final Language PARSER_LANGUAGE = PARSER_FILE_TYPE.getLanguage();
+  public static final ParserFileType INSTANCE = new ParserFileType();
 
-  /**
-   * The default file extension of parser scripts.
-   */
-  public static final String DEFAULT_EXTENSION = "p";
-  public static final String IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION = "bp";
-  public static final String IMPRIMATUR_PAGE_PROCESSOR_EXTENSION = "pp";
-  public static final String PARSERED_XML_EXTENSION = "pxml";
+  private static final String DEFAULT_EXTENSION = "p";
+  private static final String IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION = "bp";
+  private static final String IMPRIMATUR_PAGE_PROCESSOR_EXTENSION = "pp";
+  private static final String PARSERED_XML_EXTENSION = "pxml";
 
-  /**
-   * All extensions which are associated with this plugin.
-   */
-  public static final String[] extensions = {
+  private static final String[] extensions = {
           DEFAULT_EXTENSION,
           IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION,
           IMPRIMATUR_PAGE_PROCESSOR_EXTENSION,
           PARSERED_XML_EXTENSION
   };
 
-  public static final List<String> extensionList = Arrays.asList(extensions);
-
-  public ParserFileType() {
-    super(new ParserLanguage());
-    FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this, new EditorHighlighterProvider() {
-      @Override
-      public EditorHighlighter getEditorHighlighter(@Nullable Project project,
-                                                    @NotNull FileType fileType, @Nullable VirtualFile virtualFile,
-                                                    @NotNull EditorColorsScheme colors) {
-        return new ParserSyntaxHighlighter(project, virtualFile, colors);
-      }
-    });
+  protected ParserFileType() {
+    super(ParserLanguage.INSTANCE);
   }
 
   @NotNull
+  @Override
   public String getName() {
-    return Parser.lanuageName;
+    return Parser.languageName;
   }
 
   @NotNull
+  @Override
   public String getDescription() {
     return Parser.languageDescription;
   }
 
   @NotNull
-  @NonNls
+  @Override
   public String getDefaultExtension() {
     return extensions[0];
   }
@@ -106,16 +77,9 @@ public class ParserFileType extends LanguageFileType {
    * file icons actually, should we put them here?
    * -- dwr
    */
+  @Nullable
+  @Override
   public Icon getIcon() {
     return ParserIcons.PARSER_FILE_ICON;
-  }
-
-  @Override
-  public boolean isJVMDebuggingSupported() {
-    return false;
-  }
-
-  public EditorHighlighter getEditorHighlighter(@Nullable final Project project, @Nullable final VirtualFile virtualFile, @NotNull EditorColorsScheme colors) {
-    return new ParserSyntaxHighlighter(project, virtualFile, colors);
   }
 }

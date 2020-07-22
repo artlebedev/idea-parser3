@@ -18,9 +18,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +40,7 @@ public class ParserChangeUtil {
   private static final String DUMMY = "dummy.";
 
   public static ASTNode createNameIdentifier(Project project, String name) throws IncorrectOperationException {
-    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.PARSER_FILE_TYPE.getDefaultExtension(), name);
+    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.INSTANCE.getDefaultExtension(), name);
     final PsiElement expressionStatement = dummyFile.getFirstChild();
     assert expressionStatement != null;
     return expressionStatement.getNode();
@@ -47,13 +48,13 @@ public class ParserChangeUtil {
 
   public static List<PsiElement> createExpressionFromText(Project project, @NonNls String text) throws IncorrectOperationException {
     // XXX why we need this?
-    //ParserDefinition def = ParserFileType.PARSER_FILE_TYPE.getLanguage().getParserDefinition();
+    //ParserDefinition def = ParserFileType.INSTANCE.getLanguage().getParserDefinition();
     //assert def != null;
 
     StringBuilder builder = new StringBuilder("@main[]\n");
     builder.append(text).append("\n");
 
-    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.PARSER_FILE_TYPE.getDefaultExtension(), builder.toString());
+    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.INSTANCE.getDefaultExtension(), builder.toString());
 
     ParserMethod method = PsiTreeUtil.getChildOfType(dummyFile, ParserMethod.class);
     PsiElement[] children = method.getChildren();

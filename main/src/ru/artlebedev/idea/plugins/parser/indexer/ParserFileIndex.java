@@ -43,9 +43,10 @@ import java.util.Map;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -160,7 +161,7 @@ public class ParserFileIndex implements ProjectComponent {
           reindexProject();
           hadFullReindex = true;
         }
-        if (file.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
+        if (file.getFileType() == ParserFileType.INSTANCE) {
           contributeToClasses(file);
         }
       }
@@ -175,7 +176,7 @@ public class ParserFileIndex implements ProjectComponent {
     VirtualFileAdapter myFileListener = new VirtualFileAdapter() {
       public void fileCreated(VirtualFileEvent event) {
         VirtualFile file = event.getFile();
-        if (file.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
+        if (file.getFileType() == ParserFileType.INSTANCE) {
           try {
             PsiFile loadedFile = PsiManager.getInstance(myProject).findFile(file);
             if (loadedFile != null) {
@@ -189,7 +190,7 @@ public class ParserFileIndex implements ProjectComponent {
 
       public void beforeFileDeleted(VirtualFileEvent event) {
         final VirtualFile fileOrDir = event.getFile();
-        if (fileOrDir.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
+        if (fileOrDir.getFileType() == ParserFileType.INSTANCE) {
           processFileRemoved((ParserFile) PsiManager.getInstance(myProject).findFile(fileOrDir));
         }
       }
@@ -220,7 +221,7 @@ public class ParserFileIndex implements ProjectComponent {
     ProjectRootManager.getInstance(myProject).getFileIndex().iterateContent(new ContentIterator() {
       @Override
       public boolean processFile(VirtualFile fileOrDir) {
-        if(fileOrDir.getFileType() == ParserFileType.PARSER_FILE_TYPE) {
+        if(fileOrDir.getFileType() == ParserFileType.INSTANCE) {
           contributeToClasses(fileOrDir);
         }
 

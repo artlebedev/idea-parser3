@@ -1,4 +1,4 @@
-<idea-plugin version="2" url="https://www.ohloh.net/p/idea-parser3">
+<idea-plugin url="">
   <name>Parser for IDEA</name>
   <description><![CDATA[<html><body>
     <p>Support for parser server-side scripting language. More about the language on
@@ -7,9 +7,9 @@
     <p>Develop with joy!</p>
     </body></html>]]>
   </description>
-  <version>1.0-prebeta9</version>
+  <version>1.0-prebeta10</version>
   <vendor url="http://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
-  <idea-version since-build="145.970"/>
+  <idea-version since-build="202.6250"/>
 
   <application-components>
     <component>
@@ -25,20 +25,16 @@
       <implementation-class>ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration</implementation-class>
     </component>
     <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader</implementation-class>
-    </component>
-    <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex</implementation-class>
     </component>
   </project-components>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- extensions decisions -->
-    <fileTypeFactory implementation="ru.artlebedev.idea.plugins.parser.file.ParserFileTypeLoader"/>
+    <fileType name="Parser 3" implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileType" fieldName="INSTANCE" language="Parser" extensions="p;bp;pp;pxml"/>
 
     <!-- live Templates -->
     <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserTemplateContextType"/>
-    <defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserDefaultLiveTemplatesProvider"/>
+    <!--<defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserDefaultLiveTemplatesProvider"/>-->
 
     <!-- syntax highlighting -->
     <syntaxHighlighter key="Parser"
