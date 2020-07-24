@@ -1,6 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.lang.lexer;
 
-import com.intellij.lang.StdLanguages;
+import com.intellij.lang.html.HTMLLanguage;
 import com.intellij.lexer.FlexAdapter;
 import com.intellij.lexer.LayeredLexer;
 import com.intellij.lexer.Lexer;
@@ -9,9 +9,10 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +34,6 @@ public class ParserLexer extends LayeredLexer {
   }
 
   private static Lexer getHtmlHighlightingLexer() {
-      return SyntaxHighlighterFactory.getSyntaxHighlighter(StdLanguages.HTML, null, null).getHighlightingLexer();
+      return SyntaxHighlighterFactory.getSyntaxHighlighter(HTMLLanguage.INSTANCE, null, null).getHighlightingLexer();
   }
 }

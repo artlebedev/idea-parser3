@@ -2,7 +2,7 @@ package ru.artlebedev.idea.plugins.parser.file;
 
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageParserDefinitions;
-import com.intellij.lang.StdLanguages;
+import com.intellij.lang.html.HTMLLanguage;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.MultiplePsiFilesPerDocumentFileViewProvider;
 import com.intellij.psi.PsiFile;
@@ -22,8 +22,9 @@ import java.util.Set;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +43,7 @@ public class ParserFileViewProvider extends MultiplePsiFilesPerDocumentFileViewP
 
   private static final Language PARSER_LANGUAGE = Language.findInstance(ParserLanguage.class);
   private static final Set<Language> ourRelevantLanguages = new THashSet<Language>(
-          Arrays.asList(StdLanguages.HTML, PARSER_LANGUAGE)
+          Arrays.asList(HTMLLanguage.INSTANCE, PARSER_LANGUAGE)
   );
 
   public ParserFileViewProvider(PsiManager manager, VirtualFile file, boolean physical) {
@@ -62,7 +63,7 @@ public class ParserFileViewProvider extends MultiplePsiFilesPerDocumentFileViewP
 
   @NotNull
   public Language getTemplateDataLanguage() {
-    return StdLanguages.HTML;
+    return HTMLLanguage.INSTANCE;
   }
 
   private static TemplateDataElementType ourTemplateDataType = new TemplateDataElementType(

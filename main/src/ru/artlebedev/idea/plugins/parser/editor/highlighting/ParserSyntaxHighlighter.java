@@ -3,10 +3,10 @@ package ru.artlebedev.idea.plugins.parser.editor.highlighting;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.ex.util.LayerDescriptor;
 import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
-import com.intellij.openapi.fileTypes.StdFileTypes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.ide.highlighter.HtmlFileType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
@@ -14,8 +14,9 @@ import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +36,7 @@ public class ParserSyntaxHighlighter extends LayeredLexerEditorHighlighter {
                         @Nullable final VirtualFile virtualFile,
                         @NotNull final EditorColorsScheme colors) {
     super(new ParserFileSyntaxHighlighter(), colors);
-    registerLayer(ParserTokenTypes.TEMPLATE_HTML_TEXT, new LayerDescriptor(SyntaxHighlighter.PROVIDER.create(StdFileTypes.HTML, project, virtualFile), ""));
+    registerLayer(ParserTokenTypes.TEMPLATE_HTML_TEXT, new LayerDescriptor(SyntaxHighlighter.PROVIDER.create(HtmlFileType.INSTANCE, project, virtualFile), ""));
   }
 
 }
