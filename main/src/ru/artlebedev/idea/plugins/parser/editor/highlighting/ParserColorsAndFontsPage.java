@@ -87,7 +87,6 @@ public class ParserColorsAndFontsPage implements ColorSettingsPage {
   @NotNull
   @Override
   public SyntaxHighlighter getHighlighter() {
-    //return SyntaxHighlighter.PROVIDER.create(ParserFileType.INSTANCE, null, null);
     return new ParserFileSyntaxHighlighter();
   }
 

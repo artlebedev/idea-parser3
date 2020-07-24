@@ -1,0 +1,88 @@
+<?xml version='1.0'?>
+<list>
+	<option name="Parser result">
+		<value>
+			<option name="FOREGROUND" value="007C7C" />
+			<option name="EFFECT_COLOR" value="007C7C"/>
+			<option name="EFFECT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="Parser key at sign">
+		<value>
+			<option name="FOREGROUND" value="00B200" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="Parser parserdoc comment">
+		<value>
+			<option name="FOREGROUND" value="3E3E3E" />
+			<option name="EFFECT_COLOR" value="3E3E3E"/>
+			<option name="EFFECT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="Parser self">
+		<value>
+			<option name="FOREGROUND" value="7C7C00" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser methods">
+		<value>
+			<option name="FOREGROUND" value="007C00" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser static methods">
+		<value>
+			<option name="FOREGROUND" value="7C6200" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser getter methods">
+		<value>
+			<option name="FOREGROUND" value="7C5555" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser setter methods">
+		<value>
+			<option name="FOREGROUND" value="7C5555" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser auto methods">
+		<value>
+			<option name="FOREGROUND" value="7C0000" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser conf methods">
+		<value>
+			<option name="FOREGROUND" value="7C0000" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser unhandled exception methods">
+		<value>
+			<option name="FOREGROUND" value="7C0000" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser class reference">
+		<value>
+			<option name="FOREGROUND" value="560056" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="[Annotator] Parser system class reference">
+		<value>
+			<option name="FOREGROUND" value="560056" />
+			<option name="FONT_TYPE" value="1" />
+		</value>
+	</option>
+	<option name="Html entities">
+		<value>
+			<option name="FOREGROUND" value="808080" />
+		</value>
+	</option>
+</list>

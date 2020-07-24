@@ -37,10 +37,10 @@
     <!--<defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserDefaultLiveTemplatesProvider"/>-->
 
     <!-- syntax highlighting -->
-    <syntaxHighlighter key="Parser"
-                       implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHighlighter"/>
-
+    <lang.syntaxHighlighterFactory language="Parser"
+                                   implementationClass="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserColorsAndFontsPage"/>
+    <additionalTextAttributes scheme="Default" file="colorSchemes/ParserLangDefault.xml"/>
 
     <!-- completion -->
     <completion.contributor language="Parser" implementationClass="ru.artlebedev.idea.plugins.parser.editor.codecompletion.ParserCompletionContributor"/>
