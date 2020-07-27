@@ -1,9 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.editor.annotator;
 
 import com.intellij.lang.annotation.*;
-import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiReference;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHighlighter;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
