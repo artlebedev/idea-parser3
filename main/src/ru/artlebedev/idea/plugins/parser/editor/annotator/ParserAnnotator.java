@@ -1,9 +1,9 @@
 package ru.artlebedev.idea.plugins.parser.editor.annotator;
 
-import com.intellij.lang.annotation.Annotation;
-import com.intellij.lang.annotation.AnnotationHolder;
-import com.intellij.lang.annotation.Annotator;
+import com.intellij.lang.annotation.*;
+import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiReference;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.editor.highlighting.ParserFileSyntaxHighlighter;
 import ru.artlebedev.idea.plugins.parser.lang.ParserLanguageConstants;
@@ -20,9 +20,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,36 +49,43 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
   public void visitParserIncludePath(ParserIncludePathImpl parserIncludePath) {
     PsiElement reference = parserIncludePath.resolve();
     if (reference == null) {
-      myHolder.createWarningAnnotation(parserIncludePath, "Cannot resolve file");
+      AnnotationBuilder annotationBuilder =  myHolder.newAnnotation(HighlightSeverity.WARNING, "Cannot resolve file");
+      annotationBuilder.create();
     }
   }
 
-  // XXX move colors out to fonts and colors dialog!
   public void visitParserMethod(ParserMethodImpl method) {
     if(method == null)
       return;
 
-    Annotation annotation = myHolder.createInfoAnnotation(method.findNameNode(), null);
+    String methodName = method.getName();
 
-    if(ParserLanguageConstants.UNHANDLED_EXCEPTION_METHOD_NAME.equals(method.getName())) {
-      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION);
-    } else if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(method.getName())) {
-      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO);
-    } else if(ParserLanguageConstants.CONF_METHOD_NAME.equals(method.getName())) {
-      annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_CONF);
-    } else if(method.getName() != null) {
-      if(method.getName().startsWith(ParserLanguageConstants.GETTER_METHOD_PREFIX)) {
-        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_GETTER);
-      } else if(method.getName().startsWith(ParserLanguageConstants.SETTER_METHOD_PREFIX)) {
-        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER);
+    if(methodName == null)
+      return;
+
+    AnnotationBuilder annotationBuilder =  myHolder.newSilentAnnotation(HighlightSeverity.WEAK_WARNING);
+
+    annotationBuilder.range(method.findNameNode().getTextRange());
+    if(ParserLanguageConstants.UNHANDLED_EXCEPTION_METHOD_NAME.equals(methodName)) {
+      annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_UNHANDLED_EXCEPTION);
+    } else if(ParserLanguageConstants.AUTO_METHOD_NAME.equals(methodName)) {
+      annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_AUTO);
+    } else if(ParserLanguageConstants.CONF_METHOD_NAME.equals(methodName)) {
+      annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_CONF);
+    } else {
+      if(methodName.startsWith(ParserLanguageConstants.GETTER_METHOD_PREFIX)) {
+        annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_GETTER);
+      } else if(methodName.startsWith(ParserLanguageConstants.SETTER_METHOD_PREFIX)) {
+        annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_SETTER);
       } else {
         if(method instanceof ParserStaticMethod) {
-          annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC);
+          annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD_STATIC);
         } else {
-          annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD);
+          annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_METHOD);
         }
       }
     }
+    annotationBuilder.create();
   }
 
   public final List<String> skipClassReferenceNames = Arrays.asList(ParserLanguageConstants.CLASS_KEYWORD, ParserLanguageConstants.SELF_CLASS_NAME);
@@ -116,13 +124,14 @@ public class ParserAnnotator extends ParserElementVisitor implements Annotator {
       } else {*/
     String className = parserClassReference.getName();
     if(!skipClassReferenceNames.contains(className)) {
-      Annotation annotation = myHolder.createInfoAnnotation(parserClassReference, null);
-
+      AnnotationBuilder annotationBuilder =  myHolder.newSilentAnnotation(HighlightSeverity.INFORMATION);
+      annotationBuilder.range(parserClassReference.getTextRange());
       if(ParserStandardClassesHelper.loadedStandardClasses.contains(className)) {
-        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_SYSTEM_CLASS_REFERENCE);
+        annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_SYSTEM_CLASS_REFERENCE);
       } else {
-        annotation.setTextAttributes(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE);
+        annotationBuilder.textAttributes(ParserFileSyntaxHighlighter.PARSER_CLASS_REFERENCE);
       }
+      annotationBuilder.create();
     }
     //}
   }
