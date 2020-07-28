@@ -11,15 +11,6 @@
   <vendor url="http://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
   <idea-version since-build="202.6250"/>
 
-  <application-components>
-    <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.lang.ParserLoader</implementation-class>
-    </component>
-    <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.editor.module.ParserModuleType</implementation-class>
-    </component>
-  </application-components>
-
   <project-components>
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration</implementation-class>
@@ -30,7 +21,17 @@
   </project-components>
 
   <extensions defaultExtensionNs="com.intellij">
-    <fileType name="Parser 3" implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileType" fieldName="INSTANCE" language="Parser" extensions="p;bp;pp;pxml"/>
+    <moduleBuilder builderClass="ru.artlebedev.idea.plugins.parser.editor.module.ParserModuleBuilder"
+                   id="PARSER_MODULE_BUILDER"
+                   order="first"/>
+
+    <!-- Declare the application level service -->
+    <applicationService serviceImplementation="ru.artlebedev.idea.plugins.parser.editor.module.ParserModuleType" />
+    <applicationService serviceImplementation="ru.artlebedev.idea.plugins.parser.lang.ParserLoader" />
+
+    <!-- Registering a File Type -->
+    <fileType name="Parser 3" implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileType"
+              fieldName="INSTANCE" language="Parser" extensions="p;bp;pp;pxml"/>
 
     <!-- live Templates -->
     <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserTemplateContextType"/>

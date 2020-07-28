@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.lang.psi.impl;
 
 import com.intellij.lang.ASTNode;
+import com.intellij.openapi.components.ServiceManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
@@ -35,9 +36,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,14 +57,16 @@ import java.util.List;
 public class ParserMethodImpl extends ParserElementImpl implements ParserMethod {
   private ParserObject resultObject;
   private int hasResult;
+  private ParserLoader parserLoader;
 
 
   public ParserMethodImpl(ASTNode astNode) {
     super(astNode);
+    parserLoader = ServiceManager.getService(ParserLoader.class);
   }
 
   public boolean isConstructor() {
-    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+    if(parserLoader.getConstructorNames().contains(getName())) {
       return true;
     } else {
       ParserDoc doc = PsiTreeUtil.getPrevSiblingOfType(this, ParserDoc.class);
@@ -81,7 +85,7 @@ public class ParserMethodImpl extends ParserElementImpl implements ParserMethod 
   }
 
   public boolean isDynamic() {
-    if(ParserLoader.getInstance().getConstructorNames().contains(getName())) {
+    if(parserLoader.getConstructorNames().contains(getName())) {
       return true;
     } else {
       ParserDoc doc = PsiTreeUtil.getPrevSiblingOfType(this, ParserDoc.class);

@@ -3,13 +3,9 @@ package ru.artlebedev.idea.plugins.parser.editor.module;
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.intellij.ide.util.projectWizard.ProjectWizardStepFactory;
 import com.intellij.ide.util.projectWizard.WizardContext;
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.components.Service;
 import com.intellij.openapi.module.ModuleType;
-import com.intellij.openapi.module.ModuleTypeManager;
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider;
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.ParserBundle;
 import ru.artlebedev.idea.plugins.parser.ParserIcons;
 
@@ -18,9 +14,10 @@ import javax.swing.*;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,9 +32,10 @@ import javax.swing.*;
  * limitations under the License.
  */
 
-public class ParserModuleType extends ModuleType<ParserModuleBuilder> implements ApplicationComponent {
+@Service
+public class ParserModuleType extends ModuleType<ParserModuleBuilder> {
   public ParserModuleType() {
-    super("Parser");
+    super("Parser 3");
   }
 
   public ParserModuleBuilder createModuleBuilder() {
@@ -66,22 +64,5 @@ public class ParserModuleType extends ModuleType<ParserModuleBuilder> implements
     return new ModuleWizardStep[]{
             chooseSourceFolder
     };
-  }
-
-  @NonNls
-  @NotNull
-  public String getComponentName() {
-    return "ParserSupport.ModuleType";
-  }
-
-  public void initComponent() {
-    ModuleTypeManager.getInstance().registerModuleType(this);
-  }
-
-  public void disposeComponent() {
-  }
-
-  public static ModuleType getInstance() {
-    return ApplicationManager.getApplication().getComponent(ParserModuleType.class);
   }
 }

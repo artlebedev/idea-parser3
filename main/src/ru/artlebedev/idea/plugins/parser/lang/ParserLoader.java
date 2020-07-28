@@ -1,11 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.lang;
 
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.ApplicationComponent;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.project.ProjectManager;
-import com.intellij.openapi.project.ProjectManagerAdapter;
-import org.jetbrains.annotations.NotNull;
+import com.intellij.openapi.components.Service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,9 +8,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +26,8 @@ import java.util.List;
  * limitations under the License.
  */
 
-public class ParserLoader implements ApplicationComponent {
+@Service
+public final class ParserLoader {
   public final List<String> constructorNames = Arrays.asList(
           "new", "init", "create", "load",
           "now", "unix-timestamp", "stat",
@@ -44,27 +41,5 @@ public class ParserLoader implements ApplicationComponent {
    */
   public List<String> getConstructorNames() {
     return constructorNames;
-  }
-
-  public static ParserLoader getInstance() {
-    return ApplicationManager.getApplication().getComponent(ParserLoader.class);
-  }
-
-  public ParserLoader() {
-  }
-
-  public void initComponent() {
-    ProjectManager.getInstance().addProjectManagerListener(new ProjectManagerAdapter() {
-      public void projectOpened(final Project project) {
-      }
-    });
-  }
-
-  public void disposeComponent() {
-  }
-
-  @NotNull
-  public String getComponentName() {
-    return "parser.support.loader";
   }
 }

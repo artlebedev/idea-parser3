@@ -2,6 +2,7 @@ package ru.artlebedev.idea.plugins.parser.editor.module;
 
 import com.intellij.ide.util.projectWizard.ModuleBuilder;
 import com.intellij.ide.util.projectWizard.SourcePathsBuilder;
+import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.module.ModuleType;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.roots.ContentEntry;
@@ -18,9 +19,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,7 +62,7 @@ public class ParserModuleBuilder extends ModuleBuilder implements SourcePathsBui
   }
 
   public ModuleType getModuleType() {
-    return ParserModuleType.getInstance();
+    return ServiceManager.getService(ParserModuleType.class);
   }
 
   @Nullable
