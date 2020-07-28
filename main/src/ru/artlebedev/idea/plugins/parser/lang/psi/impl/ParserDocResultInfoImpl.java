@@ -89,7 +89,7 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
 
   @Nullable
   public PsiElement resolve() {
-    Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+    Collection<ParserFile> parserFiles = getProject().getService(ParserFileIndex.class).getLoadedClasses().values();
 
     for (ParserFile parserFile : parserFiles) {
       ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
@@ -101,7 +101,7 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
     List<PsiElement> psiElements = ParserResolveUtil.collectClassIncludes(getContainingFile());
     for (PsiElement element : psiElements) {
       ParserClass parserClass = (ParserClass) element;
-      getProject().getComponent(ParserFileIndex.class).contributeClass(parserClass);
+      getProject().getService(ParserFileIndex.class).contributeClass(parserClass);
       if (parserClass.getName().equals(getName())) {
         return parserClass;
       }
@@ -131,7 +131,7 @@ public class ParserDocResultInfoImpl extends ParserElementImpl implements Parser
   @NotNull
   public Object[] getVariants() {
     List<PsiElement> result = new ArrayList<PsiElement>();
-    Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+    Collection<ParserFile> parserFiles = getProject().getService(ParserFileIndex.class).getLoadedClasses().values();
     result.addAll(ParserResolveUtil.getClassesFromFiles(parserFiles));
     return ParserLookupUtil.createSmartLookupItems(result);
   }

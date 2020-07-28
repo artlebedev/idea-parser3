@@ -93,7 +93,7 @@ public class ParserUniversalReferenceImpl extends ParserElementImpl implements P
   public Object[] getVariants() {
     List<PsiElement> result = new ArrayList<PsiElement>();
 
-    Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+    Collection<ParserFile> parserFiles = getProject().getService(ParserFileIndex.class).getLoadedClasses().values();
 
     result.addAll(ParserResolveUtil.collectParameters(this));
     result.addAll(ParserResolveUtil.collectObjectDeclarations(this));

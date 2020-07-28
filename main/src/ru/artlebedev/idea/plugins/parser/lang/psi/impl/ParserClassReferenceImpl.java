@@ -102,7 +102,7 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
         className = parentClass.getName();
       }
 
-      Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+      Collection<ParserFile> parserFiles = getProject().getService(ParserFileIndex.class).getLoadedClasses().values();
 
       for (ParserFile parserFile : parserFiles) {
         ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
@@ -114,7 +114,7 @@ public class ParserClassReferenceImpl extends ParserElementImpl implements Parse
       List<PsiElement> psiElements = ParserResolveUtil.collectClassIncludes(getContainingFile());
       for (PsiElement element : psiElements) {
         ParserClass parserClass = (ParserClass) element;
-        getProject().getComponent(ParserFileIndex.class).contributeClass(parserClass);
+        getProject().getService(ParserFileIndex.class).contributeClass(parserClass);
 
         if (parserClass.getName().equals(className)) {
           return parserClass;

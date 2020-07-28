@@ -1,6 +1,6 @@
 package ru.artlebedev.idea.plugins.parser.indexer;
 
-import com.intellij.openapi.components.ProjectComponent;
+import com.intellij.openapi.components.Service;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
 import com.intellij.openapi.fileEditor.FileEditorManagerListener;
@@ -23,7 +23,6 @@ import com.intellij.psi.PsiTreeChangeEvent;
 import com.intellij.psi.PsiTreeChangeListener;
 import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.util.containers.HashMap;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 import ru.artlebedev.idea.plugins.parser.lang.stdlib.ParserStandardClasses;
@@ -37,6 +36,7 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.resolve.ParserResolveUtil;
 import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -61,9 +61,10 @@ import java.util.Map;
  * limitations under the License.
  */
 
-public class ParserFileIndex implements ProjectComponent {
-  public static Project myProject;
-  public Map<String, ParserFile> loadedClasses = new HashMap<String, ParserFile>();
+@Service
+public final class ParserFileIndex {
+  private static Project myProject;
+  private Map<String, ParserFile> loadedClasses = new HashMap<String, ParserFile>();
 
   private boolean hadFullReindex = false;
 
@@ -81,21 +82,6 @@ public class ParserFileIndex implements ProjectComponent {
       toReturn.put(parserClass.getName(), parserClass);
     }
     return toReturn;
-  }
-
-  public ParserFileIndex(Project project) {
-    myProject = project;
-  }
-
-  public void initComponent() {
-  }
-
-  public void disposeComponent() {
-  }
-
-  @NotNull
-  public String getComponentName() {
-    return "ParserFileIndex";
   }
 
   /**
@@ -151,7 +137,8 @@ public class ParserFileIndex implements ProjectComponent {
     contributeClass(ParserStandardClasses.XDOC);
   }
 
-  public void projectOpened() {
+  public void projectOpened(@NotNull Project project) {
+    myProject = project;
     PsiTreeChangeListener myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);
 
@@ -274,9 +261,9 @@ public class ParserFileIndex implements ProjectComponent {
     }
   }
 
-
   public void projectClosed() {
     loadedClasses = null;
+    myProject = null;
   }
 
   /**

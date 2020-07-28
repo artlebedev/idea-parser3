@@ -312,7 +312,7 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
     //List<PsiElement> result = new ArrayList<PsiElement>();
     HashSet<PsiElement> result = new HashSet<PsiElement>();
     if (reference.getReferenceClass() == null && reference.getReferenceObjects().length == 1) {
-      Collection<ParserFile> parserFiles = getProject().getComponent(ParserFileIndex.class).getLoadedClasses().values();
+      Collection<ParserFile> parserFiles = getProject().getService(ParserFileIndex.class).getLoadedClasses().values();
       result.addAll(ParserResolveUtil.getClassesFromFiles(parserFiles));
       //todo add auto method variables
     }

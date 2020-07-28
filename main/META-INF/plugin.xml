@@ -15,10 +15,11 @@
     <component>
       <implementation-class>ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration</implementation-class>
     </component>
-    <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex</implementation-class>
-    </component>
   </project-components>
+
+  <applicationListeners>
+    <listener class="ru.artlebedev.idea.plugins.parser.listeners.ParserProjectOpenCloseListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">
     <moduleBuilder builderClass="ru.artlebedev.idea.plugins.parser.editor.module.ParserModuleBuilder"
@@ -28,6 +29,10 @@
     <!-- Declare the application level service -->
     <applicationService serviceImplementation="ru.artlebedev.idea.plugins.parser.editor.module.ParserModuleType" />
     <applicationService serviceImplementation="ru.artlebedev.idea.plugins.parser.lang.ParserLoader" />
+
+    <!-- Declare the project level service -->
+    <!--<projectService serviceImplementation="ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration" />-->
+    <projectService serviceImplementation="ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex" />
 
     <!-- Registering a File Type -->
     <fileType name="Parser 3" implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileType"

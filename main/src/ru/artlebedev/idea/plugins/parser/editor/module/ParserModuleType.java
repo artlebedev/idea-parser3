@@ -33,9 +33,9 @@ import javax.swing.*;
  */
 
 @Service
-public class ParserModuleType extends ModuleType<ParserModuleBuilder> {
+public final class ParserModuleType extends ModuleType<ParserModuleBuilder> {
   public ParserModuleType() {
-    super("Parser 3");
+    super("Parser");
   }
 
   public ParserModuleBuilder createModuleBuilder() {
