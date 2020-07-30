@@ -8,13 +8,10 @@ import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ContentIterator;
-import com.intellij.openapi.roots.ModuleRootEvent;
-import com.intellij.openapi.roots.ModuleRootListener;
+//import com.intellij.openapi.roots.ModuleRootEvent;
+//import com.intellij.openapi.roots.ModuleRootListener;
 import com.intellij.openapi.roots.ProjectRootManager;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileAdapter;
-import com.intellij.openapi.vfs.VirtualFileEvent;
-import com.intellij.openapi.vfs.VirtualFileManager;
+import com.intellij.openapi.vfs.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
@@ -23,6 +20,7 @@ import com.intellij.psi.PsiTreeChangeEvent;
 import com.intellij.psi.PsiTreeChangeListener;
 import com.intellij.psi.util.PsiElementFilter;
 import com.intellij.psi.util.PsiTreeUtil;
+import com.intellij.util.messages.MessageBusConnection;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 import ru.artlebedev.idea.plugins.parser.lang.stdlib.ParserStandardClasses;
@@ -140,9 +138,10 @@ public final class ParserFileIndex {
   public void projectOpened(@NotNull Project project) {
     myProject = project;
     PsiTreeChangeListener myTreeChangeListener = new ParserTreeChangeListener();
-    PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener);
+    PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener, project);
 
-    FileEditorManager.getInstance(myProject).addFileEditorManagerListener(new FileEditorManagerListener() {
+    MessageBusConnection messageBusConnection = project.getMessageBus().connect();
+    messageBusConnection.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
       public void fileOpened(FileEditorManager source, VirtualFile file) {
         if(!hadFullReindex) {
           reindexProject();
@@ -160,31 +159,6 @@ public final class ParserFileIndex {
       }
     });
 
-    VirtualFileAdapter myFileListener = new VirtualFileAdapter() {
-      public void fileCreated(VirtualFileEvent event) {
-        VirtualFile file = event.getFile();
-        if (file.getFileType() == ParserFileType.INSTANCE) {
-          try {
-            PsiFile loadedFile = PsiManager.getInstance(myProject).findFile(file);
-            if (loadedFile != null) {
-              processFileAdded(loadedFile);
-            }
-          } catch (Exception ignored) {
-
-          }
-        }
-      }
-
-      public void beforeFileDeleted(VirtualFileEvent event) {
-        final VirtualFile fileOrDir = event.getFile();
-        if (fileOrDir.getFileType() == ParserFileType.INSTANCE) {
-          processFileRemoved((ParserFile) PsiManager.getInstance(myProject).findFile(fileOrDir));
-        }
-      }
-    };
-
-    VirtualFileManager.getInstance().addVirtualFileListener(myFileListener);
-
     /*
     ProjectRootManager.getInstance(myProject).addModuleRootListener(new ModuleRootListener() {
       @Override
@@ -200,6 +174,32 @@ public final class ParserFileIndex {
     */
 
     initializeBaseClasses();
+  }
+
+  public void fileCreated(Project project, VirtualFile file) {
+    if (project.getName() != myProject.getName()) {
+      return;
+    }
+
+    if (file.getFileType() == ParserFileType.INSTANCE) {
+      try {
+        PsiFile loadedFile = PsiManager.getInstance(myProject).findFile(file);
+        if (loadedFile != null) {
+          processFileAdded(loadedFile);
+        }
+      } catch (Exception ignored) {
+      }
+    }
+  }
+
+  public void beforeFileDeletion(Project project, VirtualFile file) {
+    if (project.getName() != myProject.getName()) {
+      return;
+    }
+
+    if (file.getFileType() == ParserFileType.INSTANCE) {
+      processFileRemoved((ParserFile) PsiManager.getInstance(myProject).findFile(file));
+    }
   }
 
   private void reindexProject() {

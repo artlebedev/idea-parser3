@@ -19,6 +19,7 @@
 
   <applicationListeners>
     <listener class="ru.artlebedev.idea.plugins.parser.listeners.ParserProjectOpenCloseListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    <listener class="ru.artlebedev.idea.plugins.parser.listeners.ParserBulkFileListener" topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
   </applicationListeners>
 
   <extensions defaultExtensionNs="com.intellij">
