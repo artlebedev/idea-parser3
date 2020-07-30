@@ -37,7 +37,7 @@ public class ParserBulkFileListener implements BulkFileListener {
         VFileEvent event = events.get(0);
         if (event instanceof VFileDeleteEvent) {
             VirtualFile file = event.getFile();
-            Project project = guessProjectForFile(file);
+            Project project = ProjectLocator.getInstance().guessProjectForFile(file);
             project.getService(ParserFileIndex.class).beforeFileDeletion(project, file);
         }
     }
@@ -46,12 +46,8 @@ public class ParserBulkFileListener implements BulkFileListener {
         VFileEvent event = events.get(0);
         if (event instanceof VFileCreateEvent) {
             VirtualFile file = event.getFile();
-            Project project = guessProjectForFile(file);
+            Project project = ProjectLocator.getInstance().guessProjectForFile(file);
             project.getService(ParserFileIndex.class).fileCreated(project, file);
         }
-    }
-
-    private Project guessProjectForFile(@Nullable VirtualFile file) {
-        return ProjectLocator.getInstance().guessProjectForFile(file);
     }
 }
