@@ -93,7 +93,7 @@ public class ParserMethodReferenceImpl extends ParserElementImpl implements Pars
     PsiElement[] methods = element.getMethods();
 
     for (PsiElement method : methods) {
-      if(method == null)
+      if (method == null)
         continue;
       if (((ParserMethod) method).getName().equals(getName())) {
         return method;
