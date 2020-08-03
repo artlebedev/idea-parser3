@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.lang.stdlib;
 
 import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.fileTypes.FileTypeRegistry;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.io.StreamUtil;
 import com.intellij.psi.PsiFile;
@@ -15,6 +16,7 @@ import ru.artlebedev.idea.plugins.parser.util.ParserFilesUtil;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -54,10 +56,10 @@ public class ParserStandardClassesHelper {
 
     InputStream asStream = Marker.class.getResourceAsStream(fileName);
     if (asStream != null) {
-      String file = null;
+      String fileText = null;
       final PsiManager psiManager = PsiManager.getInstance(project);
       try {
-        file = StreamUtil.readText(asStream);
+        fileText = StreamUtil.readText(asStream, StandardCharsets.UTF_8);
         // This method does not expand tree
         final Method method = psiManager.getClass().getMethod(
                 "createFileFromText",
@@ -72,15 +74,16 @@ public class ParserStandardClassesHelper {
                 psiManager,
                 fileName,
                 ParserFileType.INSTANCE,
-                file,
+                fileText,
                 LocalTimeCounter.currentTime(),
                 false,
                 false
         );
         return ParserFilesUtil.containsClass(parserFile);
       } catch (Exception e) {
-        if (file != null) {
-          PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, file);
+        if (fileText != null) {
+          FileType fileType = FileTypeRegistry.getInstance().getFileTypeByFileName(fileName);
+          PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, fileType, fileText);
           return ParserFilesUtil.containsClass(psiFile);
         }
       }

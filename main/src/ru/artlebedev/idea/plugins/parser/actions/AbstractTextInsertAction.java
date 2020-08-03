@@ -11,11 +11,14 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.ReadonlyStatusHandler;
 import com.intellij.openapi.vfs.VirtualFile;
 
+import java.util.Arrays;
+
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +52,7 @@ public abstract class AbstractTextInsertAction extends AnAction {
       public void run() {
         CommandProcessor.getInstance().executeCommand(project, new Runnable() {
           public void run() {
-            if (!ReadonlyStatusHandler.getInstance(project).ensureFilesWritable(virtualFile).hasReadonlyFiles())
+            if (!ReadonlyStatusHandler.getInstance(project).ensureFilesWritable(Arrays.asList(virtualFile)).hasReadonlyFiles())
               EditorModificationUtil.insertStringAtCaret(editor, insert(), true, true);
           }
         }
