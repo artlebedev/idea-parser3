@@ -40,8 +40,11 @@
               fieldName="INSTANCE" language="Parser" extensions="p;bp;pp;pxml"/>
 
     <!-- live Templates -->
+    <defaultLiveTemplates file="liveTemplates/ParserLang.xml"/>
+    <defaultLiveTemplates file="liveTemplates/ParserHtml.xml"/>
+    <defaultLiveTemplates file="liveTemplates/ParserZenHtml.xml"/>
+    <defaultLiveTemplates file="liveTemplates/completionContributor/ParserMethodLookup.xml"/>
     <liveTemplateContext implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserTemplateContextType"/>
-    <!--<defaultLiveTemplatesProvider implementation="ru.artlebedev.idea.plugins.parser.editor.liveTemplates.ParserDefaultLiveTemplatesProvider"/>-->
 
     <!-- syntax highlighting -->
     <lang.syntaxHighlighterFactory language="Parser"
