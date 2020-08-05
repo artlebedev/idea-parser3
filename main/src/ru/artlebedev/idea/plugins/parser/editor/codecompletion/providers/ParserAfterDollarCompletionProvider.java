@@ -6,7 +6,6 @@ import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserClassLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserStaticVariableLookupElement;
 import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVariableLookupElement;
@@ -14,8 +13,9 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVa
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVa
 public class ParserAfterDollarCompletionProvider
   extends CompletionProvider<CompletionParameters> {
 
-  public final String[] variableLookupElements = new String[]{
+  private final static String[] variableLookupElements = new String[]{
     "exception.type",
     "exception.source",
     "exception.file",
@@ -51,15 +51,15 @@ public class ParserAfterDollarCompletionProvider
     "self"
   };
 
-  public final String[] staticVariableLookupElements = new String[]{
+  private final static String[] staticVariableLookupElements = new String[]{
     "MAIN:SQL.connect-string"
   };
 
-  public final String[] methodLookupElements = new String[]{
+  private final static String[] methodLookupElements = new String[]{
     "exception.handled"
   };
 
-  public final static String[] classLookupElements = new String[]{
+  private final static String[] classLookupElements = new String[]{
     "MAIN"
   };
 
@@ -68,20 +68,19 @@ public class ParserAfterDollarCompletionProvider
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
     for (String variableLookupElement : variableLookupElements) {
-      result.addElement(new ParserVariableLookupElement(variableLookupElement));
+      result.addElement(ParserVariableLookupElement.create(variableLookupElement));
     }
 
     for (String staticVariableLookupElement : staticVariableLookupElements) {
-      result.addElement(
-        new ParserStaticVariableLookupElement(staticVariableLookupElement));
+      result.addElement(ParserStaticVariableLookupElement.create(staticVariableLookupElement));
     }
 
     for (String methodLookupElement : methodLookupElements) {
-      result.addElement(new ParserMethodLookupElement(methodLookupElement));
+      result.addElement(ParserMethodLookupElement.create(methodLookupElement));
     }
 
     for (String classLookupElement : classLookupElements) {
-      result.addElement(new ParserClassLookupElement(classLookupElement));
+      result.addElement(ParserClassLookupElement.create(classLookupElement));
     }
   }
 }

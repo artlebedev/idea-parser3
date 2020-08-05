@@ -11,8 +11,9 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +34,7 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMe
  */
 public class ParserAfterHatCompletionProvider
   extends CompletionProvider<CompletionParameters> {
-  public final static String[] methodLookupElements = new String[]{
+  private final static String[] methodLookupElements = new String[]{
     "rem",
     "taint",
     "apply-taint",
@@ -55,7 +56,7 @@ public class ParserAfterHatCompletionProvider
     "switch"
   };
 
-  public final static String[] classLookupElements = new String[]{
+  private final static String[] classLookupElements = new String[]{
     "MAIN"
   };
 
@@ -64,11 +65,11 @@ public class ParserAfterHatCompletionProvider
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
     for (String methodLookupElement : methodLookupElements) {
-      result.addElement(new ParserMethodLookupElement(methodLookupElement));
+      result.addElement(ParserMethodLookupElement.create(methodLookupElement));
     }
 
     for (String classLookupElement : classLookupElements) {
-      result.addElement(new ParserClassLookupElement(classLookupElement));
+      result.addElement(ParserClassLookupElement.create(classLookupElement));
     }
   }
 }

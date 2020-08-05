@@ -1,13 +1,15 @@
 package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
 
-import com.intellij.codeInsight.lookup.LookupElementPresentation;
+import com.intellij.codeInsight.lookup.LookupElement;
+import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.openapi.util.IconLoader;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,14 +30,8 @@ import com.intellij.openapi.util.IconLoader;
  * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * @version 1.0
  */
-public class ParserTaintLookupElement extends ParserLookupElement {
-  public ParserTaintLookupElement(String keyword) {
-    super(keyword);
-  }
-
-  @Override
-  public void renderElement(LookupElementPresentation presentation) {
-    presentation.setIcon(IconLoader.getIcon("/nodes/deploy.png"));
-    super.renderElement(presentation);
+public class ParserTaintLookupElement {
+  public static LookupElement create(String lookupString) {
+    return LookupElementBuilder.create(lookupString).withIcon(IconLoader.getIcon("/nodes/deploy.svg"));
   }
 }

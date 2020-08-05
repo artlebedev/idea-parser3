@@ -10,8 +10,9 @@ import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserOp
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +45,7 @@ public class ParserOptionCompletionProvider
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
     for (String optionLookupElement : optionLookupElements) {
-      result.addElement(new ParserOptionLookupElement(optionLookupElement));
+      result.addElement(ParserOptionLookupElement.create(optionLookupElement));
     }
   }
 }

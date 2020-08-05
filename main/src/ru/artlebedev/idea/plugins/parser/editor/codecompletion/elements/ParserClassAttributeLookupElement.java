@@ -1,6 +1,7 @@
 package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
 
-import com.intellij.codeInsight.lookup.LookupElementPresentation;
+import com.intellij.codeInsight.lookup.LookupElement;
+import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.util.PlatformIcons;
 
 /**
@@ -29,14 +30,8 @@ import com.intellij.util.PlatformIcons;
  * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * @version 1.0
  */
-public class ParserClassAttributeLookupElement extends ParserLookupElement {
-  public ParserClassAttributeLookupElement(String keyword) {
-    super(keyword);
-  }
-
-  @Override
-  public void renderElement(LookupElementPresentation presentation) {
-    presentation.setIcon(PlatformIcons.ABSTRACT_CLASS_ICON);
-    super.renderElement(presentation);
+public class ParserClassAttributeLookupElement {
+  public static LookupElement create(String lookupString) {
+    return LookupElementBuilder.create(lookupString).withIcon(PlatformIcons.ABSTRACT_CLASS_ICON);
   }
 }
