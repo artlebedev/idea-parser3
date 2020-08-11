@@ -1,4 +1,4 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders;
 
 import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
@@ -7,7 +7,7 @@ import ru.artlebedev.idea.plugins.parser.ParserIcons;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
@@ -25,15 +25,13 @@ import ru.artlebedev.idea.plugins.parser.ParserIcons;
  */
 
 /**
- * Completion type for superglobals like MAIN:SQL.connect-string
- * <p/>
- * TODO: there might be more than one sql string, should fix this
+ * Completion type for super global classes (as MAIN)
  *
  * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * @version 1.0
  */
-public class ParserStaticVariableLookupElement {
+public class ParserClassLookupElementBuilder {
   public static LookupElement create(String lookupString) {
-    return LookupElementBuilder.create(lookupString).withIcon(ParserIcons.PARSER_PROPERTY_ICON);
+    return LookupElementBuilder.create(lookupString).withIcon(ParserIcons.PARSER_CLASS_ICON);
   }
 }

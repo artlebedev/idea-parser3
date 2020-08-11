@@ -1,13 +1,13 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders;
 
 import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
-import com.intellij.icons.AllIcons;
+import ru.artlebedev.idea.plugins.parser.ParserIcons;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
@@ -25,13 +25,13 @@ import com.intellij.icons.AllIcons;
  */
 
 /**
- * Completion type for @auto and @conf methods etc
+ * Completion type for internal variables
  *
  * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * @version 1.0
  */
-public class ParserMethodLookupElement {
+public class ParserVariableLookupElementBuilder {
   public static LookupElement create(String lookupString) {
-    return LookupElementBuilder.create(lookupString).withIcon(AllIcons.Nodes.Method);
+    return LookupElementBuilder.create(lookupString).withIcon(ParserIcons.PARSER_VARIABLE_ICON);
   }
 }

@@ -5,15 +5,15 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserClassLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserStaticVariableLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserVariableLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserClassLookupElementBuilder;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserMethodLookupElementBuilder;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserStaticVariableLookupElementBuilder;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserVariableLookupElementBuilder;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
@@ -68,19 +68,19 @@ public class ParserAfterDollarCompletionProvider
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
     for (String variableLookupElement : variableLookupElements) {
-      result.addElement(ParserVariableLookupElement.create(variableLookupElement));
+      result.addElement(ParserVariableLookupElementBuilder.create(variableLookupElement));
     }
 
     for (String staticVariableLookupElement : staticVariableLookupElements) {
-      result.addElement(ParserStaticVariableLookupElement.create(staticVariableLookupElement));
+      result.addElement(ParserStaticVariableLookupElementBuilder.create(staticVariableLookupElement));
     }
 
     for (String methodLookupElement : methodLookupElements) {
-      result.addElement(ParserMethodLookupElement.create(methodLookupElement));
+      result.addElement(ParserMethodLookupElementBuilder.create(methodLookupElement));
     }
 
     for (String classLookupElement : classLookupElements) {
-      result.addElement(ParserClassLookupElement.create(classLookupElement));
+      result.addElement(ParserClassLookupElementBuilder.create(classLookupElement));
     }
   }
 }

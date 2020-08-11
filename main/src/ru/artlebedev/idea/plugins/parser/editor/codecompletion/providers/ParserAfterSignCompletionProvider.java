@@ -5,14 +5,14 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserClassAttributeLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserLookupElement;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserMethodLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserClassAttributeLookupElementBuilder;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserLookupElementBuilder;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserMethodLookupElementBuilder;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
@@ -62,15 +62,15 @@ public class ParserAfterSignCompletionProvider
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
     for (String lookupElement : lookupElements) {
-      result.addElement(ParserLookupElement.create(lookupElement));
+      result.addElement(ParserLookupElementBuilder.create(lookupElement));
     }
 
     for (String methodLookupElement : methodLookupElements) {
-      result.addElement(ParserMethodLookupElement.create(methodLookupElement));
+      result.addElement(ParserMethodLookupElementBuilder.create(methodLookupElement));
     }
 
     for (String classAttributeLookupElement : classAttributeLookupElements) {
-      result.addElement(ParserClassAttributeLookupElement.create(classAttributeLookupElement));
+      result.addElement(ParserClassAttributeLookupElementBuilder.create(classAttributeLookupElement));
     }
   }
 }

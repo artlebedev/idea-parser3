@@ -1,12 +1,13 @@
-package ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements;
+package ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders;
 
 import com.intellij.codeInsight.lookup.LookupElement;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
+import com.intellij.openapi.util.IconLoader;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
@@ -24,14 +25,13 @@ import com.intellij.codeInsight.lookup.LookupElementBuilder;
  */
 
 /**
- * Base class for all completion classes in this package.
- * Also used for basic autocompletion keywords such as 'caller.' etc
+ * Completion type for ^taint[PARAM]
  *
  * @author <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * @version 1.0
  */
-public class ParserLookupElement {
+public class ParserTaintLookupElementBuilder {
   public static LookupElement create(String lookupString) {
-    return LookupElementBuilder.create(lookupString);
+    return LookupElementBuilder.create(lookupString).withIcon(IconLoader.getIcon("/nodes/deploy.svg"));
   }
 }

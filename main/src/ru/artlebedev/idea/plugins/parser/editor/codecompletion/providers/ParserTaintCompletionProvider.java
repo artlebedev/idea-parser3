@@ -5,12 +5,12 @@ import com.intellij.codeInsight.completion.CompletionProvider;
 import com.intellij.codeInsight.completion.CompletionResultSet;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.codecompletion.elements.ParserTaintLookupElement;
+import ru.artlebedev.idea.plugins.parser.editor.codecompletion.builders.ParserTaintLookupElementBuilder;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
@@ -55,7 +55,7 @@ public class ParserTaintCompletionProvider
                                 ProcessingContext context,
                                 @NotNull CompletionResultSet result) {
     for (String taintLookupElement : taintLookupElements) {
-      result.addElement(ParserTaintLookupElement.create(taintLookupElement));
+      result.addElement(ParserTaintLookupElementBuilder.create(taintLookupElement));
     }
   }
 }
