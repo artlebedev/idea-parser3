@@ -51,7 +51,13 @@ public class ParserLookupUtil {
     LookupElementBuilder lookupElement;
     if(element instanceof ParserMethod) {
       String params = ((ParserMethod) element).getParameterList().getText();
-      String tailText = "[" + params.substring(1, params.length() - 1) + "]";
+      params = params.substring(1, params.length() - 1);
+      String tailText;
+      if (!params.equals("number")) {
+        tailText = "[" + params + "]";
+      } else {
+        tailText = "(" + params + ")";
+      }
       lookupElement = LookupElementBuilder.createWithIcon(element)
               .withTailText(tailText)
               .withInsertHandler(ParserInsertHandler.getInstance());
