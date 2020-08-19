@@ -41,7 +41,7 @@ import java.util.Map;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
  * Copyright 2006-2020 ArtLebedev Studio
@@ -140,7 +140,7 @@ public final class ParserFileIndex {
     PsiTreeChangeListener myTreeChangeListener = new ParserTreeChangeListener();
     PsiManager.getInstance(myProject).addPsiTreeChangeListener(myTreeChangeListener, project);
 
-    MessageBusConnection messageBusConnection = project.getMessageBus().connect();
+    MessageBusConnection messageBusConnection = myProject.getMessageBus().connect(myProject);
     messageBusConnection.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, new FileEditorManagerListener() {
       public void fileOpened(FileEditorManager source, VirtualFile file) {
         if(!hadFullReindex) {

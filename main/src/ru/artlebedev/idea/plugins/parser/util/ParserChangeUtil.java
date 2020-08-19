@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
  * Copyright 2006-2020 ArtLebedev Studio
@@ -40,7 +40,7 @@ public class ParserChangeUtil {
   private static final String DUMMY = "dummy.";
 
   public static ASTNode createNameIdentifier(Project project, String name) throws IncorrectOperationException {
-    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.INSTANCE.getDefaultExtension(), name);
+    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.INSTANCE.getDefaultExtension(), ParserFileType.INSTANCE, name);
     final PsiElement expressionStatement = dummyFile.getFirstChild();
     assert expressionStatement != null;
     return expressionStatement.getNode();
@@ -54,7 +54,7 @@ public class ParserChangeUtil {
     StringBuilder builder = new StringBuilder("@main[]\n");
     builder.append(text).append("\n");
 
-    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.INSTANCE.getDefaultExtension(), builder.toString());
+    final PsiFile dummyFile = PsiFileFactory.getInstance(project).createFileFromText(DUMMY + ParserFileType.INSTANCE.getDefaultExtension(), ParserFileType.INSTANCE, builder.toString());
 
     ParserMethod method = PsiTreeUtil.getChildOfType(dummyFile, ParserMethod.class);
     PsiElement[] children = method.getChildren();

@@ -6,8 +6,9 @@ import ru.artlebedev.idea.plugins.parser.lang.lexer.ParserTokenTypes;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
- * Copyright 2011 ArtLebedev Studio
+ * Copyright 2011-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,14 +40,10 @@ public class ParserParserUtil {
    * @return true if token could be identifier
    */
   public static boolean isIdentifierToken(IElementType tokenType) {
-    if(tokenType == ParserTokenTypes.IDENTIFIER ||
-       tokenType == ParserTokenTypes.RESULT_KEYWORD ||
-       tokenType == ParserTokenTypes.SELF_KEYWORD ||
-       tokenType == ParserTokenTypes.CALLER_KEYWORD ||
-       tokenType == ParserTokenTypes.CLASS_STATIC_KEYWORD) {
-      return true;
-    } else {
-      return false;
-    }
+    return tokenType == ParserTokenTypes.IDENTIFIER ||
+            tokenType == ParserTokenTypes.RESULT_KEYWORD ||
+            tokenType == ParserTokenTypes.SELF_KEYWORD ||
+            tokenType == ParserTokenTypes.CALLER_KEYWORD ||
+            tokenType == ParserTokenTypes.CLASS_STATIC_KEYWORD;
   }
 }
