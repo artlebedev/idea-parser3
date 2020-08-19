@@ -1,22 +1,24 @@
 package ru.artlebedev.idea.plugins.parser.lang.psi.lookup;
 
 import com.intellij.codeInsight.AutoPopupController;
-import com.intellij.codeInsight.completion.DefaultInsertHandler;
+import com.intellij.codeInsight.completion.InsertHandler;
 import com.intellij.codeInsight.completion.InsertionContext;
 import com.intellij.codeInsight.lookup.LookupElement;
-import com.intellij.codeInsight.lookup.LookupValueWithPsiElement;
+import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
+import org.jetbrains.annotations.NotNull;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,8 +33,18 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
  * limitations under the License.
  */
 
-@SuppressWarnings("deprecation")
-public class ParserInsertHandler extends DefaultInsertHandler {
+public class ParserInsertHandler implements InsertHandler<LookupElement> {
+
+  private static final ParserInsertHandler INSTANCE = new ParserInsertHandler();
+
+  private ParserInsertHandler() {
+    super();
+  }
+
+  public static ParserInsertHandler getInstance() {
+    return INSTANCE;
+  }
+
   public static final String[] bracesExpands = new String[]{
           "^connect",
           ":connect",
@@ -75,12 +87,14 @@ public class ParserInsertHandler extends DefaultInsertHandler {
           "^math:random"
   };
 
-  public void handleInsert(final InsertionContext context, LookupElement item) {
-    super.handleInsert(context, item);
-    Object o = item.getObject();
-    if (o instanceof LookupValueWithPsiElement) {
-      PsiElement element = ((LookupValueWithPsiElement) o).getElement();
-      CaretModel caretModel = context.getEditor().getCaretModel();
+  public void handleInsert(final InsertionContext context,@NotNull LookupElement lookupElement) {
+    final Editor editor = context.getEditor();
+
+    if (context.getCompletionChar() != '.') {
+      final CaretModel caretModel = editor.getCaretModel();
+      caretModel.moveToOffset(context.getSelectionEndOffset());
+      editor.getSelectionModel().removeSelection();
+      PsiElement element = lookupElement.getPsiElement();
 
       if (element instanceof ParserMethod) {
         try {
@@ -154,6 +168,8 @@ public class ParserInsertHandler extends DefaultInsertHandler {
 
         }
       }
+    } else {
+      AutoPopupController.getInstance(context.getProject()).autoPopupMemberLookup(editor, null);
     }
   }
 }

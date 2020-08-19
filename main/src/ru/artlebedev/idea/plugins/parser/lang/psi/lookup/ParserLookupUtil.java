@@ -52,9 +52,12 @@ public class ParserLookupUtil {
     if(element instanceof ParserMethod) {
       String params = ((ParserMethod) element).getParameterList().getText();
       String tailText = "[" + params.substring(1, params.length() - 1) + "]";
-      lookupElement = LookupElementBuilder.createWithIcon(element).withTailText(tailText);
+      lookupElement = LookupElementBuilder.createWithIcon(element)
+              .withTailText(tailText)
+              .withInsertHandler(ParserInsertHandler.getInstance());
     } else {
-      lookupElement = LookupElementBuilder.createWithIcon(element);
+      lookupElement = LookupElementBuilder.createWithIcon(element)
+              .withInsertHandler(ParserInsertHandler.getInstance());
     }
 
     return lookupElement;
