@@ -15,7 +15,6 @@ import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserCallingReference;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserElement;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethod;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserMethodReference;
-import ru.artlebedev.idea.plugins.parser.lang.psi.lookup.ParserSmartLookupItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +22,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,14 +50,6 @@ public class ParserParameterInfoHandler implements ParameterInfoHandler<ParserEl
     return new Object[0];  //To change body of implemented methods use File | Settings | File Templates.
   }
 
-  public Object[] getParametersForDocumentation(Object o, ParameterInfoContext parameterInfoContext) {
-//		System.out.println("------------------");
-//		System.out.println("getParametersForDocumentation");
-//		System.out.println("args :: " + o + " | " + parameterInfoContext);
-//		System.out.println("------------------");
-    return new Object[0];
-  }
-
   public ParserElement findElementForParameterInfo(CreateParameterInfoContext context) {
 //		System.out.println("------------------");
 //		System.out.println("findElementForParameterInfo");
@@ -71,13 +63,12 @@ public class ParserParameterInfoHandler implements ParameterInfoHandler<ParserEl
         if (psiElement == null)
           return null;
         String name = ((PsiNamedElement) psiElement).getName();
-        Object[] variants = methodReference.getReference().getVariants();
+        LookupElement[] variants = (LookupElement[]) methodReference.getReference().getVariants();
         List<PsiElement> list = new ArrayList<PsiElement>();
-        for (Object variant : variants) {
-          if (variant instanceof ParserSmartLookupItem)
-            variant = ((ParserSmartLookupItem) variant).getElement();
-          if (variant instanceof ParserMethod && ((ParserMethod) variant).getName().equals(name)) {
-            list.add((PsiElement) variant);
+        for (LookupElement variant : variants) {
+          Object o = variant.getObject();
+          if (o instanceof ParserMethod && ((ParserMethod) o).getName().equals(name)) {
+            list.add((PsiElement) o);
           }
         }
         //System.out.println(Arrays.deepToString(list.toArray(new Object[0])));
@@ -90,7 +81,7 @@ public class ParserParameterInfoHandler implements ParameterInfoHandler<ParserEl
   public void showParameterInfo(@NotNull ParserElement element, CreateParameterInfoContext context) {
 //		System.out.println("------------------");
 //		System.out.println("showParameterInfo");
-//		System.out.println("args :: " + o + " | " + context);
+//		System.out.println("args :: " + element + " | " + context);
 //		System.out.println("------------------");
     showParameterInfo((ParserCallingReference) element, context);
   }
@@ -107,26 +98,17 @@ public class ParserParameterInfoHandler implements ParameterInfoHandler<ParserEl
     return ParameterInfoUtils.findParentOfType(context.getFile(), context.getOffset(), ParserCallingReference.class);
   }
 
-  public void updateParameterInfo(@NotNull ParserElement o, UpdateParameterInfoContext context) {
+  public void updateParameterInfo(@NotNull ParserElement element, UpdateParameterInfoContext context) {
 //		System.out.println("------------------");
 //		System.out.println("updateParameterInfo");
-//		System.out.println("args :: " + o + " | " + context);
+//		System.out.println("args :: " + element + " | " + context);
 //		System.out.println("------------------");
     context.setCurrentParameter(1);
     context.setUIComponentEnabled(0, true);
   }
 
-  public String getParameterCloseChars() {
-    return ";";
-  }
-
-  public boolean tracksParameterIndex() {
-    return true;
-  }
-
   public void updateUI(Object o, ParameterInfoUIContext parameterInfoUIContext) {
     updateUI((ParserMethod) o, parameterInfoUIContext);
-
   }
 
   public void updateUI(ParserMethod method, ParameterInfoUIContext context) {
