@@ -25,9 +25,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,6 +98,7 @@ public class ParserUniversalReferenceImpl extends ParserElementImpl implements P
 
     result.addAll(ParserResolveUtil.collectParameters(this));
     result.addAll(ParserResolveUtil.collectObjectDeclarations(this));
+    result.addAll(ParserResolveUtil.getParserClassesFromFiles(parserFiles));
     result.addAll(ParserResolveUtil.getClassesFromFiles(parserFiles));
     PsiFile file = getContainingFile();
     ParserClass parserClass = PsiTreeUtil.getChildOfType(file, ParserClass.class);

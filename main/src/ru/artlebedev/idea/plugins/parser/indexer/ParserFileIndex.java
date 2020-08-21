@@ -74,7 +74,7 @@ public final class ParserFileIndex {
    */
 
   public Map<String, ParserFile> getLoadedClasses() {
-    Map<String, ParserFile> toReturn = new java.util.HashMap<String, ParserFile>();
+    Map<String, ParserFile> toReturn = new HashMap<String, ParserFile>();
     Collection<ParserFile> parserClasses = loadedClasses.values();
     for (ParserFile parserClass : parserClasses) {
       toReturn.put(parserClass.getName(), parserClass);

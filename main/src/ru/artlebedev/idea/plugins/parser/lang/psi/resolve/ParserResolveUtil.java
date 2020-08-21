@@ -21,9 +21,10 @@ import java.util.*;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -212,5 +213,18 @@ public class ParserResolveUtil {
     }
     return indexedClasses;
   }
-}
 
+  public static Collection<ParserClass> getParserClassesFromFiles(Collection<ParserFile> parserFiles) {
+    Collection<ParserClass> indexedClasses = new ArrayList<ParserClass>();
+
+    for (ParserFile parserFile : parserFiles) {
+      if(!(parserFile instanceof VirtualFileWithId)) {
+        ParserClass parserClass = PsiTreeUtil.getChildOfType(parserFile, ParserClass.class);
+        if (parserClass != null) {
+          indexedClasses.add(parserClass);
+        }
+      }
+    }
+    return indexedClasses;
+  }
+}

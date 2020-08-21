@@ -8,7 +8,6 @@ import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
 import com.intellij.openapi.vfs.newvfs.events.VFileCreateEvent;
 import com.intellij.openapi.vfs.newvfs.events.VFileDeleteEvent;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,7 +37,10 @@ public class ParserBulkFileListener implements BulkFileListener {
         if (event instanceof VFileDeleteEvent) {
             VirtualFile file = event.getFile();
             Project project = ProjectLocator.getInstance().guessProjectForFile(file);
-            project.getService(ParserFileIndex.class).beforeFileDeletion(project, file);
+            try {
+                project.getService(ParserFileIndex.class).beforeFileDeletion(project, file);
+            } catch(Exception ignored) {
+            }
         }
     }
 
@@ -47,7 +49,10 @@ public class ParserBulkFileListener implements BulkFileListener {
         if (event instanceof VFileCreateEvent) {
             VirtualFile file = event.getFile();
             Project project = ProjectLocator.getInstance().guessProjectForFile(file);
-            project.getService(ParserFileIndex.class).fileCreated(project, file);
+            try {
+                project.getService(ParserFileIndex.class).fileCreated(project, file);
+            } catch(Exception ignored) {
+            }
         }
     }
 }
