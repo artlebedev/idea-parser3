@@ -1,10 +1,9 @@
 package ru.artlebedev.idea.plugins.parser.listeners;
 
-import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManagerListener;
 import org.jetbrains.annotations.NotNull;
-import ru.artlebedev.idea.plugins.parser.editor.module.ParserModuleType;
+import ru.artlebedev.idea.plugins.parser.editor.settings.ParserConfigurationProvider;
 import ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex;
 
 /**
@@ -37,6 +36,7 @@ public class ParserProjectOpenCloseListener implements ProjectManagerListener {
      */
     @Override
     public void projectOpened(@NotNull Project project) {
+        ParserConfigurationProvider configurationProvider = ParserConfigurationProvider.getInstance(project);
         ParserFileIndex parserFileIndex = project.getService(ParserFileIndex.class);
         parserFileIndex.projectOpened(project);
         //System.out.println("project opened");

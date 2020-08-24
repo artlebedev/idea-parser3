@@ -8,14 +8,8 @@
     </body></html>]]>
   </description>
   <version>1.0-prebeta10</version>
-  <vendor url="http://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
-  <idea-version since-build="202.6250"/>
-
-  <project-components>
-    <component>
-      <implementation-class>ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration</implementation-class>
-    </component>
-  </project-components>
+  <vendor url="https://www.artlebedev.ru/" email="allex@artlebedev.ru">ArtLebedev Studio</vendor>
+  <idea-version since-build="202"/>
 
   <applicationListeners>
     <listener class="ru.artlebedev.idea.plugins.parser.listeners.ParserProjectOpenCloseListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>
@@ -32,7 +26,8 @@
     <applicationService serviceImplementation="ru.artlebedev.idea.plugins.parser.lang.ParserLoader" />
 
     <!-- Declare the project level service -->
-    <!--<projectService serviceImplementation="ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration" />-->
+    <projectService serviceImplementation="ru.artlebedev.idea.plugins.parser.editor.settings.ParserConfigurationProvider"/>
+    <projectConfigurable id="PARSER_PROJECT_CONFIGURATION" groupId="language" instance="ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration"/>
     <projectService serviceImplementation="ru.artlebedev.idea.plugins.parser.indexer.ParserFileIndex" />
 
     <!-- Registering a File Type -->

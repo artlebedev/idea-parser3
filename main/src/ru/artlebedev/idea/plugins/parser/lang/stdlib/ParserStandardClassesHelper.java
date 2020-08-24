@@ -8,7 +8,7 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileFactory;
 import com.intellij.psi.PsiManager;
 import com.intellij.util.LocalTimeCounter;
-import ru.artlebedev.idea.plugins.parser.editor.settings.ParserProjectConfiguration;
+import ru.artlebedev.idea.plugins.parser.editor.settings.ParserConfigurationProvider;
 import ru.artlebedev.idea.plugins.parser.file.ParserFileType;
 import ru.artlebedev.idea.plugins.parser.lang.psi.ParserFile;
 import ru.artlebedev.idea.plugins.parser.lang.psi.api.ParserClass;
@@ -23,7 +23,7 @@ import java.util.Set;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
- * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexander Pozdeev</a>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
  * Copyright 2006-2020 ArtLebedev Studio
@@ -47,7 +47,7 @@ public class ParserStandardClassesHelper {
 
   public static ParserClass loadStandardClass(String fileName) {
     if (project == null) {
-      project = ParserProjectConfiguration._project;
+      project = ParserConfigurationProvider.myProject;
     }
 
     if(fileName.contains(".p")) {
@@ -83,7 +83,8 @@ public class ParserStandardClassesHelper {
       } catch (Exception e) {
         if (fileText != null) {
           FileType fileType = FileTypeRegistry.getInstance().getFileTypeByFileName(fileName);
-          PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, fileType, fileText);
+          //PsiFile psiFile = PsiFileFactory.getInstance(ParserProjectConfiguration._project).createFileFromText(fileName, fileType, fileText);
+          PsiFile psiFile = PsiFileFactory.getInstance(project).createFileFromText(fileName, fileType, fileText);
           return ParserFilesUtil.containsClass(psiFile);
         }
       }
