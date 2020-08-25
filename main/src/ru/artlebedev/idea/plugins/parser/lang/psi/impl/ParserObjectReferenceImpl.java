@@ -40,9 +40,10 @@ import java.util.List;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -218,10 +219,13 @@ public class ParserObjectReferenceImpl extends ParserElementImpl implements Pars
       while(iterator.hasNext()) {
         PsiElement element = iterator.next();
         if(element instanceof PsiNamedElement) {
-          if(((PsiNamedElement) element).getName().equals("result")) {
-            if(!currentMethod.equals(PsiTreeUtil.getParentOfType(element, ParserMethod.class))) {
-              iterator.remove();
+          try {
+            if (((PsiNamedElement) element).getName().equals("result")) {
+              if (!currentMethod.equals(PsiTreeUtil.getParentOfType(element, ParserMethod.class))) {
+                iterator.remove();
+              }
             }
+          } catch (Exception ignored) {
           }
         }
       }
