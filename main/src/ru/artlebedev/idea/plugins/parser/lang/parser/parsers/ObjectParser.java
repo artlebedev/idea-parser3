@@ -10,9 +10,10 @@ import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 /**
  * idea-parser3: the most advanced parser3 ide.
  * <p/>
+ * Copyright 2020 <a href="mailto:allex@artlebedev.ru">Alexandr Pozdeev</a>
  * Copyright 2011 <a href="mailto:dwr@design.ru">Valeriy Yatsko</a>
  * Copyright 2006 <a href="mailto:a4blank@yahoo.com">Jay Bird</a>
- * Copyright 2006-2011 ArtLebedev Studio
+ * Copyright 2006-2020 ArtLebedev Studio
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +30,7 @@ import ru.artlebedev.idea.plugins.parser.util.ParserParserUtil;
 
 public class ObjectParser extends BaseTokenParser {
   private static final Logger LOG = Logger.getInstance("#ru.artlebedev.idea.plugins.parser.parsers.ObjectParser");
+  private boolean lookReference;
   private boolean identifierMet;
   private boolean noIdentifierAfterPunctuation;
 
@@ -38,6 +40,7 @@ public class ObjectParser extends BaseTokenParser {
   public void parseToken(PsiBuilder builder) {
     LOG.assertTrue(builder.getTokenType() == ParserTokenTypes.DOLLAR);
 
+    lookReference = (builder.getTokenType() == ParserTokenTypes.DOLLAR);
     PsiBuilder.Marker expr = builder.mark();
     builder.advanceLexer();
     if (builder.getTokenType() == ParserTokenTypes.DOT) {
@@ -67,6 +70,13 @@ public class ObjectParser extends BaseTokenParser {
           }
           expr.done(ParserElementTypes.CALLING_REFERENCE);
         } else {
+          if (lookReference) {
+            lookReference = false;
+            if (builder.getTokenType() == ParserTokenTypes.LBRACE) {
+              builder.advanceLexer();
+              continue;
+            }
+          }
           parseParameter(builder);
           expr.done(ParserElementTypes.OBJECT);
         }

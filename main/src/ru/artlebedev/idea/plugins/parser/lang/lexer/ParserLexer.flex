@@ -46,9 +46,11 @@ Float=({Digit})*"."({Digit})+([Ee][+\-]?({Digit})*)?
 
 Escape="^"([\"\$\^\[\](){};:@#]|#[0-9A-Z]{2})
 
-String={DoubleString}|{SingleString}
-DoubleString=\"[^\"\n\r]*\"
-SingleString='[^'\n\r]*'
+String={DoubleEmptyString}|{SingleEmptyString}|{DoubleString}|{SingleString}
+DoubleEmptyString=\"\"
+SingleEmptyString=''
+DoubleString=\"[^\^$\"\n\r]+\"
+SingleString='[^\^$'\n\r]+'
 
 XMLALPHA=[:letter:]
 XMLDIGIT=[0-9]
@@ -179,7 +181,8 @@ CONDITIONAL_COMMENT_CONDITION=({XMLALPHA})({XMLALPHA}|{XMLWHITE_SPACE_CHARS}|{XM
 	"}"			{ yybegin(YYINITIAL); return ParserTokenTypes.RBRACE; }
 	"."			{ yybegin(YYINITIAL); return ParserTokenTypes.DOT; }
 	":"			{ yybegin(YYINITIAL); return ParserTokenTypes.COLON; }
-	[,=#\"'?]		{ yybegin(YYINITIAL); return ParserTokenTypes.USELESS_CHAR; }
+	[\"']		{ yybegin(YYINITIAL); return ParserTokenTypes.QUOT; }
+	[,=#?]		{ yybegin(YYINITIAL); return ParserTokenTypes.USELESS_CHAR; }
 	{RussianLetters}	{ yybegin(YYINITIAL); return ParserTokenTypes.USELESS_CHAR; }
 	{String}		{ yybegin(YYINITIAL); return ParserTokenTypes.STRING_LITERAL; }
 	"switch"		{ yybegin(YYINITIAL); return ParserTokenTypes.SWITCH_KEYWORD; }
