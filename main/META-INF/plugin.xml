@@ -32,7 +32,7 @@
 
     <!-- Registering a File Type -->
     <fileType name="Parser 3" implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileType"
-              fieldName="INSTANCE" language="Parser" extensions="p;bp;pp;pxml"/>
+              fieldName="INSTANCE" language="Parser" extensions="p;bp;pp;pxml;parser"/>
 
     <!-- live Templates -->
     <defaultLiveTemplates file="liveTemplates/ParserLang.xml"/>
@@ -67,8 +67,8 @@
                     implementationClass="ru.artlebedev.idea.plugins.parser.editor.formatting.ParserFormattingModelBuilder"/>
     <lang.fileViewProviderFactory language="Parser"
                                   implementationClass="ru.artlebedev.idea.plugins.parser.file.ParserFileViewProviderFactory"/>
-    <!--lang.foldingBuilder language="Parser"
-                         implementationClass="ru.artlebedev.idea.plugins.parser.lang.folding.ParserFoldingBuilder"/-->
+    <lang.foldingBuilder language="Parser"
+                         implementationClass="ru.artlebedev.idea.plugins.parser.lang.folding.ParserFoldingBuilder"/>
 
     <!-- CodeInsight (inc. autocomplete) -->
     <codeInsight.parameterInfo language="Parser"

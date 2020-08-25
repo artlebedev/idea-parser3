@@ -37,12 +37,14 @@ public class ParserFileType extends LanguageFileType {
   private static final String IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION = "bp";
   private static final String IMPRIMATUR_PAGE_PROCESSOR_EXTENSION = "pp";
   private static final String PARSERED_XML_EXTENSION = "pxml";
+  private static final String PARSER_BASH_EXTENSION = "parser";
 
   private static final String[] extensions = {
           DEFAULT_EXTENSION,
           IMPRIMATUR_BLOCK_PROCESSOR_EXTENSION,
           IMPRIMATUR_PAGE_PROCESSOR_EXTENSION,
-          PARSERED_XML_EXTENSION
+          PARSERED_XML_EXTENSION,
+          PARSER_BASH_EXTENSION
   };
 
   protected ParserFileType() {
