@@ -56,8 +56,12 @@ public class ParserFoldingBuilder implements FoldingBuilder {
   private static void appendDescriptors(PsiElement element, List<FoldingDescriptor> descriptors, Set<PsiElement> usedComments) {
     if(element instanceof ParserFile) {
       ParserClass klass = ParserFilesUtil.containsClass((ParserFile) element);
-
-      ParserMethod[] methods = PsiTreeUtil.getChildrenOfType(klass, ParserMethod.class);
+      ParserMethod[] methods;
+      if (klass != null) {
+        methods = PsiTreeUtil.getChildrenOfType(klass, ParserMethod.class);
+      } else {
+        methods = PsiTreeUtil.getChildrenOfType((ParserFile) element, ParserMethod.class);
+      }
 
       if(methods != null) {
         for(ParserMethod method : methods) {
