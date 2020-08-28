@@ -131,6 +131,7 @@ public class MethodReferenceParser extends BaseTokenParser {
             builder.getTokenType() == ParserTokenTypes.IDENTIFIER ||
             builder.getTokenType() == ParserTokenTypes.RESULT_KEYWORD ||
             builder.getTokenType() == ParserTokenTypes.SELF_KEYWORD ||
+            builder.getTokenType() == ParserTokenTypes.CALLER_KEYWORD ||
             builder.getTokenType() == ParserTokenTypes.CLASS_STATIC_KEYWORD
     );
 
