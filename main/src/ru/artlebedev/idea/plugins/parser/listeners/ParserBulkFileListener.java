@@ -33,6 +33,9 @@ import java.util.List;
 
 public class ParserBulkFileListener implements BulkFileListener {
     public void before(@NotNull List<? extends VFileEvent> events) {
+        if (events.isEmpty()) {
+            return;
+        }
         VFileEvent event = events.get(0);
         if (event instanceof VFileDeleteEvent) {
             VirtualFile file = event.getFile();
@@ -45,6 +48,9 @@ public class ParserBulkFileListener implements BulkFileListener {
     }
 
     public void after(@NotNull List<? extends VFileEvent> events) {
+        if (events.isEmpty()) {
+            return;
+        }
         VFileEvent event = events.get(0);
         if (event instanceof VFileCreateEvent) {
             VirtualFile file = event.getFile();
